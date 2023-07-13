@@ -1,15 +1,16 @@
 import { TamaguiProvider } from "tamagui";
-
 import config from "./tamagui.config.js";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import DeviceHealthCheck from "./pages/DeviceHealthCheck/index.jsx";
 
 import "./App.css";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <DeviceHealthCheck />,
   },
 ]);
 
