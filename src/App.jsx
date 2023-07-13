@@ -15,9 +15,9 @@ const router = createBrowserRouter([
 
 const App = () => {
   return (
-    <RouterProvider router={router}>
-      <TamaguiProvider config={config} />
-    </RouterProvider>
+    <TamaguiProvider config={config}>
+      <RouterProvider router={router} />
+    </TamaguiProvider>
   );
 };
 
