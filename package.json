@@ -2,7 +2,6 @@
   "name": "nimbus-gui",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "env-cmd -f .env vite",
     "build": "env-cmd -f .env vite build",
@@ -10,9 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tamagui/shorthands": "^1.39.8",
+    "@tamagui/themes": "^1.39.8",
+    "@tamagui/vite-plugin": "^1.39.8",
     "env-cmd": "^10.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tamagui": "^1.39.8"
   },
   "devDependencies": {
     "@types/react": "^18.2.14",

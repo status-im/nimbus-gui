@@ -1,7 +1,11 @@
+import { TamaguiProvider } from "tamagui";
+
+import config from "./tamagui.config.js";
+
 import "./App.css";
 
-function App() {
-  return <div></div>;
-}
+const App = () => {
+  return <TamaguiProvider config={config}></TamaguiProvider>;
+};
 
 export default App;

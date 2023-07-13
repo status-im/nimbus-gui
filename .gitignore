@@ -25,3 +25,9 @@ dist-ssr
 
 # ENV
 .env
+
+# Tamagui
+.tamagui
+
+# Vite
+.vite
