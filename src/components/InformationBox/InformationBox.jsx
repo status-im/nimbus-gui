@@ -1,4 +1,5 @@
-import { Image, Paragraph, XStack } from "tamagui";
+import { Paragraph, XStack } from "tamagui";
+import { Icon } from "../Icon";
 
 const InformationBox = ({ icon, text }) => {
   return (
@@ -12,7 +13,12 @@ const InformationBox = ({ icon, text }) => {
       }}
       space={"$2"}
     >
-      <Image source={{ uri: icon }} width={12} height={12} style={{marginTop: '6px'}} />
+      <Icon
+        source={icon}
+        width={12}
+        height={12}
+        style={{ marginTop: "6px" }}
+      />
       <Paragraph color={"#647084"}>{text}</Paragraph>
     </XStack>
   );

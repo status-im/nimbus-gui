@@ -1,5 +1,6 @@
-import { Image, XStack } from "tamagui";
+import { XStack } from "tamagui";
 import { Tag } from "../Tag";
+import { Icon } from "../Icon";
 
 const Logo = () => {
   return (
@@ -9,8 +10,8 @@ const Logo = () => {
       }}
       space={"$2"}
     >
-      <Image source={{ uri: "/icons/marks.png" }} width={60} height={60} />
-      <Image source={{ uri: "/icons/nimbus.png" }} width={80} height={17} />
+      <Icon source={"/icons/marks.png"} width={80} height={60} />
+      <Icon source={"/icons/nimbus.png"} width={80} height={17} />
       <Tag bc="#2A4AF5" text="BETA" />
     </XStack>
   );
