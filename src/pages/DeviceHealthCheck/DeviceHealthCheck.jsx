@@ -4,6 +4,7 @@ import { Logo } from "../../components/Logo";
 import { InformationBox } from "../../components/InformationBox";
 import { Titles } from "../../components/Titles";
 import { IconText } from "../../components/IconText/IconText";
+import { StatisticBox } from "./StatisticBox";
 import { BackgroundImage } from "../../components/BackgroundImage";
 
 const DeviceHealthCheck = () => {
@@ -24,6 +25,16 @@ const DeviceHealthCheck = () => {
           title={"Device Health Check"}
           subtitle={"Configure your device to start Staking on Nimbus"}
         />
+        <XStack space={"$3"}>
+          <StatisticBox style={{ border: "1px solid #D92344" }}>
+            asdf
+          </StatisticBox>
+          <StatisticBox>asdf</StatisticBox>
+        </XStack>
+        <XStack space={"$3"}>
+          <StatisticBox>asdf</StatisticBox>
+          <StatisticBox>asdf</StatisticBox>
+        </XStack>
         <YStack space={"$2"}>
           <IconText
             icon={"/icons/remove-circle-red.png"}
