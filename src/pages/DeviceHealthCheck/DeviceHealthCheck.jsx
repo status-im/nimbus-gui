@@ -1,16 +1,18 @@
 import { Image, XStack, YStack } from "tamagui";
 import { ReactButton } from "../../components/ReactButton";
-import { InformationBox } from "../../components/InformationBox/InformationBox";
+import { Logo } from "../../components/Logo";
+import { InformationBox } from "../../components/InformationBox";
+import { Titles } from "../../components/Titles";
 
 const DeviceHealthCheck = () => {
   return (
-    <XStack
-      space
-      backgroundColor="white"
-      width={"632px"}
-      style={{ display: "flex", justifyContent: "start" }}
-    >
+    <XStack space backgroundColor="white">
       <YStack space>
+        <Logo />
+        <Titles
+          title={"Device Health Check"}
+          subtitle={"Configure your device to start Staking on Nimbus"}
+        />
         <InformationBox
           icon="/icons/close.png"
           text="The information provided in the Nodes Health Check is meant to
