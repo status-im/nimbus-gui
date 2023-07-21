@@ -3,7 +3,9 @@ import { styled } from "tamagui";
 const BackgroundImage = styled("div", {
   boxShadow: "inset 100px 0px 100px white",
   width: "650px",
-  height: "100vh",
+  height: "99vh",
+  borderTopRightRadius: "25px",
+  borderBottomRightRadius: "25px",
 });
 
 export { BackgroundImage };
