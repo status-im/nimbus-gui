@@ -1,0 +1,1 @@
+export { StatisticTexts } from "./StatisticTexts";
