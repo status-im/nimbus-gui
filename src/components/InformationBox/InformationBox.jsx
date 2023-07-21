@@ -7,14 +7,13 @@ const InformationBox = ({ icon, text }) => {
         border: "2px solid #E7EAEE",
         borderRadius: "12px",
         padding: "11px 16px",
-        gap: "8px",
         width: "632px",
+        alignItems: "start",
       }}
+      space={"$2"}
     >
-      <Image source={{ uri: icon }} width={12} height={12} />
-      <Paragraph color={"#647084"} style={{ margin: 0, padding: 0 }}>
-        {text}
-      </Paragraph>
+      <Image source={{ uri: icon }} width={12} height={12} style={{marginTop: '6px'}} />
+      <Paragraph color={"#647084"}>{text}</Paragraph>
     </XStack>
   );
 };
