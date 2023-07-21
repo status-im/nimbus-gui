@@ -7,8 +7,15 @@ import { IconText } from "../../components/IconText/IconText";
 
 const DeviceHealthCheck = () => {
   return (
-    <XStack space backgroundColor="white">
-      <YStack space>
+    <XStack
+      space
+      style={{
+        background: "rgb(245,242,254)",
+        background:
+          "linear-gradient(180deg, rgba(245,242,254,1) 0%, rgba(255,255,255,1) 100%)",
+      }}
+    >
+      <YStack space={"$3"}>
         <Logo />
         <Titles
           title={"Device Health Check"}
