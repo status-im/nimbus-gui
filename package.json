@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tamagui/config": "^1.43.15",
     "@tamagui/shorthands": "^1.39.8",
     "@tamagui/themes": "^1.39.8",
     "@tamagui/vite-plugin": "^1.39.8",
