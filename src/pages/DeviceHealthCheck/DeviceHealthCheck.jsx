@@ -1,18 +1,21 @@
-import { Image, XStack, YStack } from "tamagui";
+import { XStack, YStack } from "tamagui";
 import { ReactButton } from "../../components/ReactButton";
 import { Logo } from "../../components/Logo";
 import { InformationBox } from "../../components/InformationBox";
 import { Titles } from "../../components/Titles";
 import { IconText } from "../../components/IconText/IconText";
+import { BackgroundImage } from "../../components/BackgroundImage";
 
 const DeviceHealthCheck = () => {
   return (
     <XStack
-      space
+      space={"$6"}
       style={{
         background: "rgb(245,242,254)",
         background:
           "linear-gradient(180deg, rgba(245,242,254,1) 0%, rgba(255,255,255,1) 100%)",
+        width: "100vw",
+        justifyContent: "end",
       }}
     >
       <YStack space={"$3"}>
@@ -54,11 +57,10 @@ const DeviceHealthCheck = () => {
           </ReactButton>
         </XStack>
       </YStack>
-      <Image
-        source={{
-          uri: "/background-images/eye-background.png",
-          width: "650px",
-          height: "100vh",
+      <BackgroundImage
+        style={{
+          background:
+            "url(/public/background-images/eye-background.png) no-repeat",
         }}
       />
     </XStack>
