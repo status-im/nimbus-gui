@@ -17,6 +17,7 @@ const Titles = ({ title, subtitle }) => {
           size={"$3"}
           icon={"/icons/reveal.png"}
           text={"Advanced Settings"}
+          fontSize={"$5"}
         />
       </XStack>
       <SubTitle color={"#09101C"}>{subtitle}</SubTitle>

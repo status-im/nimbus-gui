@@ -38,6 +38,7 @@ const DeviceHealthCheck = () => {
             color="#fff"
             backgroundColor="#2A4AF5"
             fontSize="$5"
+            size={"$3"}
             onClick={continueHandler}
           >
             Continue
