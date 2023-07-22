@@ -9,13 +9,22 @@ const StatisticBox = ({
   stateText,
   additionalStateText,
   children,
+  svgDataURL,
+  imageUrl,
   ...props
 }) => {
   return (
     <ShadowBox {...props}>
       <YStack>
-        <XStack space={"$4"}>
-          <YStack space={"$2"} style={{ padding: "8px 16px" }}>
+        <XStack
+          justifyContent="space-between"
+          style={{
+            padding: "8px 16px",
+            background: `url(${svgDataURL || imageUrl}) no-repeat`,
+            backgroundSize: "cover",
+          }}
+        >
+          <YStack space={"$3"}>
             <Paragraph color={"#09101C"} size={"$6"} fontWeight={"600"}>
               {title}
             </Paragraph>
@@ -25,8 +34,8 @@ const StatisticBox = ({
           </YStack>
           {children && children}
         </XStack>
-        <Separator borderColor={"#e3e3e3"} marginVertical={5} />
-        <XStack space={"$4"} style={{ padding: "5px 16px 10px 16px" }}>
+        <Separator borderColor={"#e3e3e3"} />
+        <XStack space={"$4"} style={{ padding: "10px 16px 10px 16px" }}>
           <IconText icon={stateIcon} text={stateText} fontWeight={"bold"} />
           {additionalStateText && (
             <Text color={"#E95460"}>{additionalStateText}</Text>

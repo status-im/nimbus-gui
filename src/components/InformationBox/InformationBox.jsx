@@ -9,7 +9,7 @@ const InformationBox = ({ icon, textElements }) => {
         border: "2px solid #E7EAEE",
         borderRadius: "12px",
         padding: "11px 16px",
-        maxWidth: "632px",
+        maxWidth: "590px",
         alignItems: "start",
       }}
       space={"$2"}
