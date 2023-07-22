@@ -1,7 +1,8 @@
-import { Paragraph, XStack } from "tamagui";
+import { XStack } from "tamagui";
 import { Icon } from "../Icon";
+import { FormattedText } from "../FormattedText";
 
-const InformationBox = ({ icon, text }) => {
+const InformationBox = ({ icon, textElements }) => {
   return (
     <XStack
       style={{
@@ -14,7 +15,11 @@ const InformationBox = ({ icon, text }) => {
       space={"$2"}
     >
       <Icon source={icon} width={12} height={12} style={{ marginTop: "6px" }} />
-      <Paragraph color={"#647084"}>{text}</Paragraph>
+      <FormattedText
+        textElements={textElements}
+        color={"#647084"}
+        fontSize={"$3"}
+      />
     </XStack>
   );
 };

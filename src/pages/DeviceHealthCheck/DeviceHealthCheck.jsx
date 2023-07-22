@@ -3,7 +3,6 @@ import { ReactButton } from "../../components/ReactButton";
 import { Logo } from "../../components/Logo";
 import { InformationBox } from "../../components/InformationBox";
 import { Titles } from "../../components/Titles";
-import { IconText } from "../../components/IconText/IconText";
 import { BackgroundImage } from "../../components/BackgroundImage";
 import { PageWrapper } from "../../components/PageWrapper";
 import { StatisticBoxes } from "./StatisticBoxes/StatisticBoxes";
@@ -26,10 +25,13 @@ const DeviceHealthCheck = () => {
         <StatisticTexts />
         <InformationBox
           icon="/icons/close.png"
-          text="The information provided in the Nodes Health Check is meant to
-            utilized as a guide to guage the readiness of your device, however
-            please do your own due diligence prior to commiting any funds. Read
-            our Health Check Disclosure for more information."
+          textElements={[
+            {
+              text: "The information provided in the Nodes Health Check is meant to be utilized as a guide to gauge the readiness of your device, however please do your own due diligence prior to commiting any funds. Read our ",
+            },
+            { bold: "Health Check Disclosure" },
+            { text: " for more information." },
+          ]}
         />
         <XStack>
           <ReactButton
