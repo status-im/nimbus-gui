@@ -46,9 +46,13 @@ const StatisticBoxes = () => {
           stateIcon="/icons/active.png"
           stateText="Fair"
         >
-          <YStack space={"$2"}>
-            <Paragraph color={"black"}>Uptime</Paragraph>
-            <Paragraph color={"black"}>23:20:02</Paragraph>
+          <YStack>
+            <Paragraph color={"#838d9d"} fontWeight={"bold"}>
+              Uptime
+            </Paragraph>
+            <Paragraph color={"#09101C"} size={"$5"}>
+              23:20:02
+            </Paragraph>
           </YStack>
         </StatisticBox>
       </XStack>

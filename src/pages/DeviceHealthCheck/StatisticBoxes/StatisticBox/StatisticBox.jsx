@@ -1,4 +1,4 @@
-import { H3, H4, Paragraph, Separator, Text, XStack, YStack } from "tamagui";
+import { Paragraph, Separator, Text, XStack, YStack } from "tamagui";
 import { IconText } from "../../../../components/IconText/IconText";
 import { ShadowBox } from "../../../../components/ShadowBox";
 
@@ -23,7 +23,7 @@ const StatisticBox = ({
               {memory}
             </Paragraph>
           </YStack>
-          {children !== undefined ? children : null}
+          {children && children}
         </XStack>
         <Separator borderColor={"#e3e3e3"} marginVertical={5} />
         <XStack space={"$4"} style={{ padding: "5px 16px 10px 16px" }}>

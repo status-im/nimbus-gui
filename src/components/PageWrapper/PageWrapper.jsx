@@ -7,11 +7,11 @@ const Background = styled("div", {
   width: "100vw",
 });
 
-const PageWrapper = ({ children, ...props }) => {
+const PageWrapper = ({ children }) => {
   return (
     <Background>
       <XStack
-        space={"$5"}
+        space={"$8"}
         style={{
           background: "rgb(245,242,254)",
           background:
