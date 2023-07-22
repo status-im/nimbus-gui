@@ -47,8 +47,7 @@ const DeviceHealthCheck = () => {
       </YStack>
       <BackgroundImage
         style={{
-          background:
-            "url(/public/background-images/eye-background.png) no-repeat",
+          background: "url(/background-images/eye-background.png) no-repeat",
         }}
       />
     </PageWrapper>
