@@ -1,8 +1,7 @@
 import { Paragraph, styled } from "tamagui";
 
-export const Title = styled(Paragraph, {
-  tag: "span",
-  name: "Title",
+export const SubTitle = styled(Paragraph, {
+  name: "SubTitle",
   accessibilityRole: "header",
-  size: "$8",
+  size: "$3",
 });
