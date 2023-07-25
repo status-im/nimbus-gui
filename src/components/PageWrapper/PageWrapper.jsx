@@ -1,4 +1,5 @@
-import { XStack, styled } from "tamagui";
+import { XStack, YStack, styled } from "tamagui";
+import { TopBar } from "../TopBar";
 
 const Background = styled("div", {
   display: "flex",
@@ -10,22 +11,32 @@ const Background = styled("div", {
 const PageWrapper = ({ children }) => {
   return (
     <Background>
-      <XStack
-        space={"$8"}
+      <div
         style={{
-          background: "rgb(245,242,254)",
-          background:
-            "linear-gradient(180deg, rgba(245,242,254,1) 0%, rgba(255,255,255,1) 100%)",
-          borderRadius: "25px",
           border: "4px solid #09101C",
-          width: "100%",
-          display: "flex",
-          justifyContent: "end",
-          alignItems: "center",
+          "border-radius": "45px",
+          padding: "0",
+          margin: "0",
         }}
       >
-        {children}
-      </XStack>
+        <YStack>
+          <TopBar />
+          <XStack
+            space={"$8"}
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(245,242,254,1) 0%, rgba(255,255,255,1) 100%)",
+
+              width: "100%",
+              display: "flex",
+              justifyContent: "end",
+              alignItems: "center",
+            }}
+          >
+            {children}
+          </XStack>
+        </YStack>
+      </div>
     </Background>
   );
 };
