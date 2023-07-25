@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.topbar {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 25px;
+  background-color: rgba(9, 16, 28, 0.96);
+  max-width: 1812px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.topbar_left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 15vw;
+  box-shadow: 40px 12px 62px -19px rgba(9, 16, 28, 0.9);
+  z-index: 1;
+}
+
+.topbar_middle {
+  max-width: 75vw;
+  width: 75vw;
+  overflow: auto;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar_middle::-webkit-scrollbar {
+  width: 0.5em;
+  /* Set the width of the scrollbar */
+}
+
+.topbar_middle::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  /* Set the color of the scrollbar thumb */
+}
+
+.topbar_middle::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.topbar_middle::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+/* Hide scrollbar for Firefox */
+
+.topbar_middle {
+  scrollbar-width: none;
+}
+
+.topbar_middle::-webkit-scrollbar,
+.topbar_middle::-webkit-scrollbar-thumb {
+  /* Hide scrollbar for Edge */
+  display: none;
+}
+
+.topbar_right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 10vw;
+  box-shadow: -40px 0px 8px 4px rgba(9, 16, 28, 0.592);
+}
+
+.topbar_actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.icon_btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+.bg_icon_btn {
+  border: none;
+  background-color: #1d2738;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+
+
+.img_text_btn .profile {
+  position: relative;
+}
+
+.badge_top {
+  width: 6px;
+  height: 6px;
+  background-color: #223bc4;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 100%;
+}
+
+.badge_bottom {
+  width: 6px;
+  height: 6px;
+  background-color: #1c8a80;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-radius: 100%;
+}
+
+.outlined_btn {
+  border: none;
+  border: 1px solid #1d2738;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #fff;
+  font-weight: bold;
+}
