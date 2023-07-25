@@ -14,7 +14,7 @@ const PageWrapper = ({ children }) => {
       <div
         style={{
           border: "4px solid #09101C",
-          "border-radius": "45px",
+          "border-radius": "30px",
           padding: "0",
           margin: "0",
         }}
