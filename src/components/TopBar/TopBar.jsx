@@ -41,21 +41,21 @@ const TopBar = () => {
         <Icon src={Arrow} width={32} height={32} style={bgIconBtn}></Icon>
         <Icon
           src={CommunitiesIcon}
-          width={32}
-          height={32}
+          width={20}
+          height={20}
           style={bgIconBtn}
         ></Icon>
 
         <Icon
           src={MessagesIcon}
-          width={32}
-          height={32}
+          width={20}
+          height={20}
           style={bgIconBtn}
         ></Icon>
 
-        <Icon src={WalletIcon} width={32} height={32} style={bgIconBtn}></Icon>
-        <Icon src={BrowserIcon} width={32} height={32} style={bgIconBtn}></Icon>
-        <Icon src={NodesIcon} width={32} height={32} style={bgIconBtn}></Icon>
+        <Icon src={WalletIcon} width={20} height={20} style={bgIconBtn}></Icon>
+        <Icon src={BrowserIcon} width={20} height={20} style={bgIconBtn}></Icon>
+        <Icon src={NodesIcon} width={20} height={20} style={bgIconBtn}></Icon>
       </XStack>
       <div className="topbar_middle">
         {Array.from({ length: 9 }).map((e, i) => (

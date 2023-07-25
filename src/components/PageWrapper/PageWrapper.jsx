@@ -26,7 +26,6 @@ const PageWrapper = ({ children }) => {
             style={{
               background:
                 "linear-gradient(180deg, rgba(245,242,254,1) 0%, rgba(255,255,255,1) 100%)",
-
               width: "100%",
               display: "flex",
               justifyContent: "end",
