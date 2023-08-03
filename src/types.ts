@@ -14,4 +14,6 @@
  *     return uuid as UUID;
  * }
  */
-export type Distinct<Tag, Type> = Type & { readonly __distinct_tag: Tag };
+export type Distinct<Tag, Type> = Type & {
+  readonly __distinct_tag: Tag
+}
