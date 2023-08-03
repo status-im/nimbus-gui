@@ -22,12 +22,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-# ENV
-.env
-
-# Tamagui
-.tamagui
-
-# Vite
-.vite
