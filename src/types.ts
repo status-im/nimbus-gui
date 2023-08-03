@@ -4,7 +4,7 @@
 
 /**
  * Allows one to create a type that is stored as an underlying type but is distinct from it in the
- * type system.
+ * type system. This is also sometimes known as a "newtype".
  *
  * @example
  * // Creates a distinct `UUID` type from a `string` which can then be expected and only passed
