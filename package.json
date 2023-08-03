@@ -16,7 +16,9 @@
     "@status-im/react": "^0.1.1",
     "@types/react": "17",
     "@types/react-dom": "17",
+    "apexcharts": "^3.41.1",
     "react": "17",
+    "react-apexcharts": "^1.4.1",
     "react-dom": "17"
   },
   "devDependencies": {
