@@ -1,15 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { tamaguiPlugin } from '@tamagui/vite-plugin';
 
 export default defineConfig({
-  plugins: [react(), tamaguiPlugin({
-    config: './tamagui.config.ts',
-    components: ['tamagui'],
-  }),
-    // optional, adds the optimizing compiler:
-    // tamaguiExtractPlugin(tamaguiConfig),
-  ],
+  plugins: [react()],
   define: {
     DEV: `${process.env.NODE_ENV === 'development' ? true : false}`,
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
@@ -18,7 +11,7 @@ export default defineConfig({
   resolve: {
     alias: {
       'react-native': 'react-native-web',
-    }
+    },
   },
   optimizeDeps: {
     esbuildOptions: {
@@ -38,4 +31,4 @@ export default defineConfig({
       },
     },
   },
-});
+})
