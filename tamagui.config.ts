@@ -1,6 +1,9 @@
 import { config } from '@tamagui/config'
+import { Text, View } from 'react-native'
 
-import { createTamagui } from 'tamagui' // or '@tamagui/core'
+import { createTamagui, setupReactNative } from '@tamagui/core'
+
+setupReactNative({ Text, View })
 
 const appConfig = createTamagui(config)
 export type AppConfig = typeof appConfig
