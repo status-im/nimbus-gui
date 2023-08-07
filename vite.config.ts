@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
+const extensions = ['.web.js', '.web.ts', '.web.tsx', '.js', '.jsx', '.json', '.ts', '.tsx', '.mjs']
+
 export default defineConfig({
   plugins: [react()],
   define: {
@@ -9,23 +11,14 @@ export default defineConfig({
     'process.env.TAMAGUI_TARGET': JSON.stringify('web'),
   },
   resolve: {
+    extensions,
     alias: {
       'react-native': 'react-native-web',
     },
   },
   optimizeDeps: {
     esbuildOptions: {
-      resolveExtensions: [
-        '.web.js',
-        '.web.ts',
-        '.web.tsx',
-        '.js',
-        '.jsx',
-        '.json',
-        '.ts',
-        '.tsx',
-        '.mjs',
-      ],
+      resolveExtensions: extensions,
       loader: {
         '.js': 'jsx',
       },
