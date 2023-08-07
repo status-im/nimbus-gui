@@ -1,6 +1,6 @@
 import { XStack, Stack, Text } from "tamagui";
 import "./TopBar.css";
-import { Icon } from "../Icon";
+import { Icon } from "./Icon";
 const Tab = ({ icon, text }) => {
   const styl = {
     border: "none",

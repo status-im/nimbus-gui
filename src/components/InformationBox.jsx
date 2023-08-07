@@ -1,6 +1,6 @@
 import { XStack } from "tamagui";
-import { Icon } from "../Icon";
-import { FormattedText } from "../FormattedText";
+import { Icon } from "./Icon";
+import { FormattedText } from "./FormattedText";
 
 const InformationBox = ({ icon, textElements }) => {
   return (

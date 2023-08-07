@@ -1,7 +1,7 @@
 import { XStack, YStack } from "tamagui";
 import { SubTitle } from "./SubTitle";
 import { Title } from "./Title";
-import { IconButton } from "../IconButton";
+import { IconButton } from "./IconButton";
 
 const Titles = ({ title, subtitle }) => {
   return (

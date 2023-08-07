@@ -1,5 +1,5 @@
 import { XStack, YStack, styled } from "tamagui";
-import { TopBar } from "../TopBar";
+import { TopBar } from "./TopBar";
 
 const Background = styled("div", {
   display: "flex",

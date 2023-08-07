@@ -14,10 +14,10 @@ import FullScreen from "/top-bar-icons/full-screen.png";
 import Bell from "/top-bar-icons/bell.png";
 
 import "./TopBar.css";
-import { ReactButton } from "../ReactButton";
+import { ReactButton } from "./ReactButton";
 import { Button, Tabs, XStack } from "tamagui";
-import { Icon } from "../Icon";
-import { IconButton } from "../IconButton";
+import { Icon } from "./Icon";
+import { IconButton } from "./IconButton";
 import { Tab } from "./Tab";
 
 const TopBar = () => {

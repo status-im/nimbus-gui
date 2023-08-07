@@ -1,5 +1,5 @@
 import { Icon } from "../Icon/Icon";
-import { ReactButton } from "../ReactButton";
+import { ReactButton } from "./ReactButton";
 
 const IconButton = ({ icon, text, ...props }) => {
   return (

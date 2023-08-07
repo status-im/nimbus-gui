@@ -8,4 +8,4 @@ const BackgroundImage = styled(Stack, {
   borderBottomRightRadius: "25px",
 });
 
-export { BackgroundImage };
+export default BackgroundImage;
