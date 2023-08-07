@@ -13581,7 +13581,7 @@ __metadata:
     storybook: ^7.2.0
     tamagui: 1.36.4
     typescript: ^5.0.2
-    vite: ^4.4.5
+    vite: ^4.4.9
   languageName: unknown
   linkType: soft
 
@@ -16734,7 +16734,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^4.4.5":
+"vite@npm:^4.4.9":
   version: 4.4.9
   resolution: "vite@npm:4.4.9"
   dependencies:
