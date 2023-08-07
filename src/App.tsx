@@ -1,126 +1,199 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import { Button, TamaguiProvider } from 'tamagui'
+ 
+ 
+import {   TamaguiProvider } from 'tamagui'
 import './App.css'
-import { Button as StatusButton, Provider as StatusProvider } from '@status-im/components'
+import {  Provider as StatusProvider  } from '@status-im/components'
+import { ResponsivePie } from '@nivo/pie'
 
 import config from '../tamagui.config'
-
-interface State {
-  series: number[]
-  options: {
-    chart: {
-      type: 'donut'
-    }
-
-    labels: string[]
-
-    dataLabels: {
-      enabled: boolean
-    }
-
-    legend: {
-      show: boolean
-    }
-
-    plotOptions: {
-      radialBar: {
-        startAngle: number
-        endAngle: number
-
-        hollow: {
-          size: number | string
-        }
-        track: {
-          show: boolean
-        }
-
-        dataLabels: {
-          show: boolean
-        }
-      }
-    }
-
-    colors: string[]
+const data  = [
+  {
+    "id": "php",
+    "label": "php",
+    "value": 127,
+    "color": "hsl(236, 70%, 50%)"
+  },
+  {
+    "id": "javascript",
+    "label": "javascript",
+    "value": 540,
+    "color": "hsl(249, 70%, 50%)"
+  },
+  {
+    "id": "java",
+    "label": "java",
+    "value": 240,
+    "color": "hsl(72, 70%, 50%)"
+  },
+  {
+    "id": "python",
+    "label": "python",
+    "value": 435,
+    "color": "hsl(122, 70%, 50%)"
+  },
+  {
+    "id": "scala",
+    "label": "scala",
+    "value": 197,
+    "color": "hsl(186, 70%, 50%)"
   }
+]
+interface Data {
+  id: string;
+  label: string;
+  value: number;
+  color: string;
 }
-class ApexChart extends Component<ApexChartProps, State> {
-  constructor(props: ApexChartProps) {
-    super(props)
+interface MyPieProps {
+  data: Data[];
+}
 
-    this.state = {
-      series: props.series,
-      options: {
-        chart: {
-          type: 'donut',
-        },
-        labels: [],
-        dataLabels: {
-          enabled: false,
-        },
-        legend: {
-          show: false,
-        },
-        plotOptions: {
-          radialBar: {
-            startAngle: 240, // Adjust this
-            endAngle: 0,
-            hollow: {
-              size: '70%',
-            },
-            track: {
-              show: false,
-            },
 
-            dataLabels: {
-              show: false,
-            },
-          },
-        },
-        colors: [  '#ea5e78', 'rgba(234, 94, 120, 0)'],
-      },
-    }
-  }
+const MyResponsivePie = (props:MyPieProps) => {
 
-  render() {
-    return (
-      <div id="chart">
-        <ReactApexChart
-          options={this.state.options}
-          series={this.state.series}
-          type="donut"
-          width={'150px'}
+  const {data}= props;
+return(
+  <>
+  <ResponsivePie
+      data={data}
+      margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+      innerRadius={0.5}
+      padAngle={0.7}
+      cornerRadius={3}
+      activeOuterRadiusOffset={8}
+      // borderWidth={1}
+      // borderColor={{
+      //   from: 'color',
+      //   modifiers: [
+      //     [
+      //       'darker',
+      //       0.2
+      //     ]
+      //   ]
+      // }}
+      // arcLinkLabelsSkipAngle={10}
+      // arcLinkLabelsTextColor="#333333"
+      // arcLinkLabelsThickness={2}
+      // arcLinkLabelsColor={{ from: 'color' }}
+      // arcLabelsSkipAngle={10}
+      // arcLabelsTextColor={{
+      //     from: 'color',
+      //     modifiers: [
+        //         [
+          //             'darker',
+          //             2
+          //         ]
+          //     ]
+          // }}
+          // defs={[
+            //     {
+              //         id: 'dots',
+              //         type: 'patternDots',
+              //         background: 'inherit',
+              //         color: 'rgba(255, 255, 255, 0.3)',
+              //         size: 4,
+              //         padding: 1,
+              //         stagger: true
+              //     },
+              //     {
+                //         id: 'lines',
+      //         type: 'patternLines',
+      //         background: 'inherit',
+      //         color: 'rgba(255, 255, 255, 0.3)',
+      //         rotation: -45,
+      //         lineWidth: 6,
+      //         spacing: 10
+      //     }
+      // ]}
+      // fill={[
+        //     {
+          //         match: {
+            //             id: 'ruby'
+            //         },
+      //         id: 'dots'
+      //     },
+      //     {
+        //         match: {
+          //             id: 'c'
+          //         },
+          //         id: 'dots'
+          //     },
+          //     {
+      //         match: {
+        //             id: 'go'
+        //         },
+        //         id: 'dots'
+        //     },
+        //     {
+          //         match: {
+            //             id: 'python'
+            //         },
+            //         id: 'dots'
+            //     },
+            //     {
+              //         match: {
+                //             id: 'scala'
+                //         },
+                //         id: 'lines'
+                //     },
+                //     {
+                  //         match: {
+                    //             id: 'lisp'
+                    //         },
+                    //         id: 'lines'
+                    //     },
+                    //     {
+                      //         match: {
+                        //             id: 'elixir'
+                        //         },
+                        //         id: 'lines'
+                        //     },
+                        //     {
+                          //         match: {
+                            //             id: 'javascript'
+                            //         },
+                            //         id: 'lines'
+                            //     }
+                            // ]}
+                            // legends={[
+                              //     {
+                                //         anchor: 'bottom',
+                                //         direction: 'row',
+                                //         justify: false,
+                                //         translateX: 0,
+                                //         translateY: 56,
+                                //         itemsSpacing: 0,
+                                //         itemWidth: 100,
+                                //         itemHeight: 18,
+                                //         itemTextColor: '#999',
+                                //         itemDirection: 'left-to-right',
+                                //         itemOpacity: 1,
+                                //         symbolSize: 18,
+                                //         symbolShape: 'circle',
+                                //         effects: [
+      //             {
+      //                 on: 'hover',
+      //                 style: {
+        //                     itemTextColor: '#000'
+        //                 }
+        //             }
+        //         ]
+        //     }
+        // ]}
         />
-      </div>
-    )
-  }
-}
+    </>)
+    }
+ 
+
 function App() {
-  //write function that recieves one number and returns rest to 100 (100 - number)  and pass it to series prop of ApexChart component as an array of two numbers (the number and the result of the function) and then pass it to the App component as a prop (mySeries)
-  const num = 30
-  const mySeries = [num, 100 - num]
+  
   return (
     <TamaguiProvider config={config}>
-      <StatusProvider>
-        <Button size="$6">Tamagui LEL</Button>
-        <StatusButton>Status LEL</StatusButton>
-        <div>
-          <a href="https://vitejs.dev" target="_blank">
-            <img src={viteLogo} className="logo" alt="Vite logo" />
-          </a>
-          <a href="https://react.dev" target="_blank">
-            <img src={reactLogo} className="logo react" alt="React logo" />
-          </a>
-        </div>
-        <h1>Vite + React</h1>
-        <div className="card">
-          <button onClick={() => setCount(count => count + 1)}>count is {count}</button>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test HMR
-          </p>
-        </div>
-        <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+      <StatusProvider >
+<div style={{height:'504px'}}>
+
+<MyResponsivePie data={data}/>
+</div>
       </StatusProvider>
     </TamaguiProvider>
   )
