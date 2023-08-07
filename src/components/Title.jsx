@@ -1,7 +1,9 @@
-import { Paragraph, styled } from "tamagui";
+import { Paragraph, styled } from 'tamagui'
 
-export const Title = styled(Paragraph, {
-  name: "Title",
-  accessibilityRole: "header",
-  size: "$9",
-});
+const Title = styled(Paragraph, {
+  name: 'Title',
+  accessibilityRole: 'header',
+  size: '$9',
+})
+
+export default Title

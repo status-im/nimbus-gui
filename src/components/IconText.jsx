@@ -1,20 +1,20 @@
-import { Paragraph, XStack } from "tamagui";
-import { Icon } from "../Icon/Icon";
+import { Paragraph, XStack } from 'tamagui'
+import { Icon } from '../Icon/Icon'
 
 const IconText = ({ icon, text, ...props }) => {
   return (
     <XStack
       style={{
-        alignItems: "center",
+        alignItems: 'center',
       }}
-      space={"$2"}
+      space={'$2'}
     >
       <Icon source={icon} width={16} height={16} />
-      <Paragraph {...props} color={"#000000"}>
+      <Paragraph {...props} color={'#000000'}>
         {text}
       </Paragraph>
     </XStack>
-  );
-};
+  )
+}
 
-export { IconText };
+export default IconText

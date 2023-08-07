@@ -33,4 +33,4 @@ const FormattedText = ({ textElements, color, fontSize }: FormattedTextProps) =>
   )
 }
 
-export { FormattedText }
+export default FormattedText
