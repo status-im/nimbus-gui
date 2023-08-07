@@ -1,7 +1,7 @@
 import './App.css'
 import { TamaguiProvider } from 'tamagui'
 import { Provider as StatusProvider } from '@status-im/components'
-import { Pie } from '@nivo/pie'
+import { ResponsivePie } from '@nivo/pie'
 
 import config from '../tamagui.config'
 
@@ -11,19 +11,17 @@ interface Data {
   value: number
   color: string
 }
-interface MyPieProps {
+interface StandartGaugeProps {
   data: Data[]
 }
 
-const MyPie = (props: MyPieProps) => {
+const StandartGauge = (props: StandartGaugeProps) => {
   const { data } = props
-  console.log(data.color)
+
   return (
     <>
-      <Pie
+      <ResponsivePie
         data={data}
-        width={74.57}
-        height={74.57}
         margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
         innerRadius={0.65}
         colors={datum => datum.data.color}
@@ -49,7 +47,7 @@ function App() {
     {
       id: 'javascript',
       label: 'javascript',
-      value: 30,
+      value: 40,
       color: '#ecedf0',
     },
   ]
@@ -57,7 +55,9 @@ function App() {
   return (
     <TamaguiProvider config={config}>
       <StatusProvider>
-        <MyPie data={data} />
+        <div style={{ height: '500px', width: '300px' }}>
+          <StandartGauge data={data} />
+        </div>
       </StatusProvider>
     </TamaguiProvider>
   )
