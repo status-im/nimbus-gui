@@ -2,9 +2,9 @@ import './App.css'
 import { TamaguiProvider } from 'tamagui'
 import { Provider as StatusProvider } from '@status-im/components'
 import StandardGauge from './components/StandardGauge'
- 
-import config from '../tamagui.config'
 
+import config from '../tamagui.config'
+import StatisticBox from './components/StaticBox'
 
 function App() {
   const data = [
@@ -28,6 +28,13 @@ function App() {
         <div style={{ height: '500px', width: '300px' }}>
           <StandardGauge data={data} />
         </div>
+
+        <StatisticBox
+          memory="30"
+          stateIcon="https://placehold.co/60x40"
+          stateText="Oooo"
+          title="Auuuu"
+        />
       </StatusProvider>
     </TamaguiProvider>
   )
