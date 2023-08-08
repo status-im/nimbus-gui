@@ -1,8 +1,13 @@
 import { XStack, Text } from 'tamagui'
 import './TopBar.css'
-import { Icon } from './Icon'
+import Icon from './Icon'
 
-const Tab = ({ icon, text }) => {
+type TabProps = {
+  icon: string
+  text: string
+}
+
+const Tab = ({ icon, text }: TabProps) => {
   const style = {
     border: 'none',
     display: 'flex',
