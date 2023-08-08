@@ -20,7 +20,7 @@ const InformationBox = ({ icon, textElements }: InformationBoxProps) => {
       }}
       space={'$2'}
     >
-      <Icon source={icon} width={12} height={12} style={{ marginTop: '6px' }} />
+      <Icon source={icon} width={12} height={12} />
       <FormattedText textElements={textElements} color={'#647084'} fontSize={'$3'} />
     </XStack>
   )
