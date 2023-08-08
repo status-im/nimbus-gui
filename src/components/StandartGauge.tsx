@@ -6,7 +6,7 @@ interface Data {
   value: number
   color: string
 }
-interface StandartGaugeProps {
+interface StandardGaugeProps {
   data: Data[]
 }
 
