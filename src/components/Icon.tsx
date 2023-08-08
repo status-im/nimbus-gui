@@ -1,9 +1,10 @@
 import { Image } from 'tamagui'
 
-type IconProps = {
+export type IconProps = {
   source: string
   width?: number
   height?: number
+  style?: unknown
 }
 
 const Icon = ({ source, width = 16, height = 16, ...props }: IconProps) => {
