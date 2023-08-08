@@ -1,6 +1,11 @@
 import { Paragraph } from 'tamagui'
 
-const Tag = ({ bc, text }) => {
+type TagProps = {
+  bc: string
+  text: string
+}
+
+const Tag = ({ bc, text }: TagProps) => {
   return (
     <div
       style={{
