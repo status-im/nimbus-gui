@@ -2,6 +2,7 @@ import React, { ReactNode, CSSProperties } from 'react'
 import { Paragraph, Separator, Text, XStack, YStack } from 'tamagui'
 import { styled } from 'tamagui'
 import { Image } from 'tamagui'
+import MyResponsiveLine from './StandardLineChart'
 
 interface IconProps {
   source: string
@@ -74,7 +75,9 @@ const StatisticBox: React.FC<StatisticBoxProps> = ({
             position: 'relative', // Make XStack a positioning context
           }}
         >
-          {/* Here add chart */}
+          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
+            <MyResponsiveLine />
+          </div>
 
           <YStack space={'$3'}>
             <Paragraph color={'#09101C'} size={'$6'} fontWeight={'600'}>
