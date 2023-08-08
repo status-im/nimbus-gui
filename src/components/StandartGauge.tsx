@@ -10,7 +10,7 @@ interface StandartGaugeProps {
   data: Data[]
 }
 
-const StandartGauge = ({ data }: StandartGaugeProps) => (
+const StandardGauge = ({ data }: StandardGaugeProps) => (
   <ResponsivePie
     data={data}
     margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
