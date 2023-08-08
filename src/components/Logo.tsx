@@ -1,6 +1,6 @@
 import { XStack } from 'tamagui'
-import { Tag } from './Tag'
-import { Icon } from './Icon'
+import Icon from './Icon'
+import Tag from './Tag'
 
 const Logo = () => {
   return (
