@@ -1,5 +1,4 @@
-import { Stack, XStack, YStack, styled } from 'tamagui'
-import TopBar from './TopBar'
+import { Stack, XStack, styled } from 'tamagui'
 import { ReactNode } from 'react'
 
 const Background = styled(Stack, {
@@ -24,22 +23,18 @@ const PageWrapper = ({ children }: PageWrapperProps) => {
           margin: 0,
         }}
       >
-        <YStack>
-          <TopBar />
-          <XStack
-            space={'$8'}
-            style={{
-              background:
-                'linear-gradient(180deg, rgba(245,242,254,1) 0%, rgba(255,255,255,1) 100%)',
-              width: '100%',
-              display: 'flex',
-              justifyContent: 'end',
-              alignItems: 'center',
-            }}
-          >
-            {children}
-          </XStack>
-        </YStack>
+        <XStack
+          space={'$8'}
+          style={{
+            background: 'linear-gradient(180deg, rgba(245,242,254,1) 0%, rgba(255,255,255,1) 100%)',
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'end',
+            alignItems: 'center',
+          }}
+        >
+          {children}
+        </XStack>
       </div>
     </Background>
   )
