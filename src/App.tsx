@@ -26,7 +26,7 @@ function App() {
     <TamaguiProvider config={config}>
       <StatusProvider>
         <div style={{ height: '500px', width: '300px' }}>
-          <StandartGauge data={data} />
+          <StandardGauge data={data} />
         </div>
       </StatusProvider>
     </TamaguiProvider>
