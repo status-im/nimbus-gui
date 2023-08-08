@@ -1,7 +1,7 @@
 import './App.css'
 import { TamaguiProvider } from 'tamagui'
 import { Provider as StatusProvider } from '@status-im/components'
-import StandartGauge from './components/StandartGauge'
+import StandardGauge from './components/StandardGauge'
  
 import config from '../tamagui.config'
 
