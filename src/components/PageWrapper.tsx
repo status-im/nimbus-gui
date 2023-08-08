@@ -1,22 +1,27 @@
-import { XStack, YStack, styled } from 'tamagui'
-import { TopBar } from './TopBar'
+import { Stack, XStack, YStack, styled } from 'tamagui'
+import TopBar from './TopBar'
+import { ReactNode } from 'react'
 
-const Background = styled('div', {
+const Background = styled(Stack, {
   display: 'flex',
   justifyContent: 'center',
   backgroundColor: 'white',
   width: '100vw',
 })
 
-const PageWrapper = ({ children }) => {
+type PageWrapperProps = {
+  children: ReactNode
+}
+
+const PageWrapper = ({ children }: PageWrapperProps) => {
   return (
     <Background>
       <div
         style={{
           border: '4px solid #09101C',
-          'border-radius': '30px',
-          padding: '0',
-          margin: '0',
+          borderRadius: '30px',
+          padding: 0,
+          margin: 0,
         }}
       >
         <YStack>
