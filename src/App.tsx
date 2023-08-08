@@ -28,7 +28,14 @@ function App() {
         <div style={{ height: '500px', width: '300px' }}>
           <StandardGauge data={data} />
         </div>
-        <HealthInfoSection />
+        <HealthInfoSection
+          usedStorage={12}
+          maxStorage={20}
+          usedCpuClockRate={23}
+          usedRamMemory={40}
+          maxRamMemory={50}
+          network={30}
+        />
       </StatusProvider>
     </TamaguiProvider>
   )
