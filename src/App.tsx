@@ -1,7 +1,7 @@
 import './App.css'
 import { TamaguiProvider } from 'tamagui'
 import { Provider as StatusProvider } from '@status-im/components'
-import StandartGauge from './components/StandardGauge'
+import StandardGauge from './components/StandardGauge'
  
 import config from '../tamagui.config'
 
@@ -26,7 +26,7 @@ function App() {
     <TamaguiProvider config={config}>
       <StatusProvider>
         <div style={{ height: '500px', width: '300px' }}>
-          <StandartGauge data={data} />
+          <StandardGauge data={data} />
         </div>
       </StatusProvider>
     </TamaguiProvider>
