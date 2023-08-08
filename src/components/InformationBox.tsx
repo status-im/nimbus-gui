@@ -1,8 +1,14 @@
 import { XStack } from 'tamagui'
-import { Icon } from './Icon'
-import { FormattedText } from './FormattedText'
 
-const InformationBox = ({ icon, textElements }) => {
+import Icon from './Icon'
+import FormattedText, { TextElement } from './FormattedText'
+
+type InformationBoxProps = {
+  icon: string
+  textElements: TextElement[]
+}
+
+const InformationBox = ({ icon, textElements }: InformationBoxProps) => {
   return (
     <XStack
       style={{
