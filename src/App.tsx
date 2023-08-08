@@ -1,7 +1,7 @@
 import './App.css'
 import { TamaguiProvider } from 'tamagui'
 import { Provider as StatusProvider } from '@status-im/components'
-import StandartGauge from './components/StandartGauge'
+import StandartGauge from './components/StandardGauge'
  
 import config from '../tamagui.config'
 
@@ -10,14 +10,14 @@ function App() {
   const data = [
     {
       id: 'php',
-      label: 'php',
-      value: 70,
+      label: 'Free Space',
+      value: 40,
       color: '#ea5e78',
     },
     {
       id: 'javascript',
-      label: 'javascript',
-      value: 40,
+      label: 'Memmory',
+      value: 60,
       color: '#ecedf0',
     },
   ]
