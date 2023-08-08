@@ -2,9 +2,12 @@ import Icon from './Icon'
 import ReactButton from './ReactButton'
 
 type IconButtonProps = {
-  icon: string
   children: string
-  onClick: () => void
+  icon: string
+  style?: unknown
+  size?: string
+  fontSize?: string
+  onClick?: () => void
 }
 
 const IconButton = ({ icon, children, ...props }: IconButtonProps) => {

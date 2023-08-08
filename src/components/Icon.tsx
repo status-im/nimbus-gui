@@ -5,6 +5,7 @@ export type IconProps = {
   width?: number
   height?: number
   style?: unknown
+  className?: string
 }
 
 const Icon = ({ source, width = 16, height = 16, ...props }: IconProps) => {

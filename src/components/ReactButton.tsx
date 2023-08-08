@@ -6,7 +6,7 @@ type ReactButtonProps = {
   style?: unknown
   icon?: ReactNode
   size?: string
-  onClick: () => void
+  onClick?: () => void
 }
 
 const ReactButton = ({ children, ...props }: ReactButtonProps) => {

@@ -1,6 +1,6 @@
 import { Text } from 'tamagui'
 
-type TextElement = {
+export type TextElement = {
   text: string
   bold?: boolean
   italic?: boolean
