@@ -25,4 +25,4 @@ const StandardGauge = ({ data }: StandardGaugeProps) => (
   />
 )
 
-export default StandartGauge
+export default StandardGauge
