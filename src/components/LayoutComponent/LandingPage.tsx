@@ -1,7 +1,7 @@
 import LayoutComponent from './LayoutComponent'
 import './LandingPage.css'
 import QuickStartBar from '../QuickStartBar/QuickStartBar'
-import StatisticBox from '../StaticBox'
+import DeviceCPULoad from '../deviceCPULoad'
 
 function LandingPage() {
   return (
@@ -96,12 +96,7 @@ function Content() {
           Discover Nodes
         </button>
       </article>
-      <StatisticBox
-        memory="45"
-        stateIcon="https://placehold.co/16x16"
-        stateText="Good performance"
-        title="Title of the box"
-      />
+      <DeviceCPULoad />
     </div>
   )
 }

@@ -1,67 +1,23 @@
 import { ResponsiveLine } from '@nivo/line'
+interface DataPoint {
+  x: string
+  y: number
+}
 
-const MyResponsiveLine = () => {
-  const data = [
-    {
-      id: 'japan',
-      color: '#8DC6BC',
-      data: [
-        {
-          x: '1',
-          y: 15,
-        },
-        {
-          x: '2',
-          y: 12,
-        },
-        {
-          x: '3',
-          y: 43,
-        },
-        {
-          x: '4',
-          y: 20,
-        },
-        {
-          x: '5',
-          y: 60,
-        },
-        {
-          x: '6',
-          y: 5,
-        },
-        {
-          x: '7',
-          y: 15,
-        },
-        {
-          x: '8',
-          y: 12,
-        },
-        {
-          x: '9',
-          y: 43,
-        },
-        {
-          x: '10',
-          y: 20,
-        },
-        {
-          x: '11',
-          y: 60,
-        },
-        {
-          x: '12',
-          y: 5,
-        },
-      ],
-    },
-  ]
+interface Serie {
+  id: string
+  data: DataPoint[]
+}
+
+interface MyResponsiveLineProps {
+  data: Serie[]
+}
+const MyResponsiveLine = ({ data }: MyResponsiveLineProps) => {
   return (
     <ResponsiveLine
       data={data}
       margin={{ top: 0, right: 0, bottom: 0, left: -75 }}
-      xScale={{ type: 'linear', min: 0, max: 12 }}
+      xScale={{ type: 'linear', min: 1, max: 12 }}
       yScale={{
         type: 'linear',
         min: 'auto',
