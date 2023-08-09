@@ -29,6 +29,7 @@
     "react-dom": "18",
     "react-native": "^0.72.3",
     "react-native-svg": "^13.10.0",
+    "react-router-dom": "^6.14.2",
     "tamagui": "1.36.4"
   },
   "devDependencies": {
