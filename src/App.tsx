@@ -24,17 +24,16 @@ function App() {
 
   return (
     <TamaguiProvider config={config}>
+      <StatisticBox
+        memory="45"
+        stateIcon="https://placehold.co/16x16"
+        stateText="Improving performance"
+        title="Title of the box"
+      />
       <StatusProvider>
         <div style={{ height: '500px', width: '300px' }}>
           <StandardGauge data={data} />
         </div>
-
-        <StatisticBox
-          memory="30"
-          stateIcon="https://placehold.co/60x40"
-          stateText="Oooo"
-          title="Auuuu"
-        />
       </StatusProvider>
     </TamaguiProvider>
   )
