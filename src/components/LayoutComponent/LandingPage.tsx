@@ -99,7 +99,7 @@ function Content() {
       <StatisticBox
         memory="45"
         stateIcon="https://placehold.co/16x16"
-        stateText="Improving performance"
+        stateText="Good performance"
         title="Title of the box"
       />
     </div>

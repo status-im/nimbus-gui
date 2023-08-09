@@ -4,7 +4,7 @@ const MyResponsiveLine = () => {
   const data = [
     {
       id: 'japan',
-      color: 'hsl(315, 70%, 50%)',
+      color: '#8DC6BC',
       data: [
         {
           x: '1',
@@ -83,6 +83,7 @@ const MyResponsiveLine = () => {
       pointLabelYOffset={-12}
       useMesh={true}
       legends={[]}
+      colors={['#8DC6BC']}
     />
   )
 }
