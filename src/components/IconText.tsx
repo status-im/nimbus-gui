@@ -14,7 +14,7 @@ const IconText = ({ icon, children, ...props }: IconTextProps) => {
       }}
       space={'$2'}
     >
-      <Icon source={icon} width={16} height={16} />
+      <Icon source={icon} />
       <Paragraph {...props} color={'#000000'}>
         {children}
       </Paragraph>
