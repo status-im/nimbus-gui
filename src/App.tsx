@@ -29,12 +29,12 @@ function App() {
           <StandardGauge data={data} />
         </div>
         <HealthInfoSection
-          usedStorage={12}
-          maxStorage={20}
-          usedCpuClockRate={23}
-          usedRamMemory={40}
-          maxRamMemory={50}
-          network={30}
+          usedStorage={120}
+          maxStorage={160}
+          usedRamMemory={8}
+          maxRamMemory={16}
+          cpuClockRate={2.5}
+          networkLatency={75}
         />
       </StatusProvider>
     </TamaguiProvider>
