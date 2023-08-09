@@ -66,7 +66,7 @@ const StatisticBox: React.FC<StatisticBoxProps> = ({
   ...props
 }) => {
   return (
-    <ShadowBox {...props}>
+    <ShadowBox {...props} style={{ maxWidth: '284px', maxHeight: '136px' }}>
       <YStack>
         <XStack
           justifyContent="space-between"
