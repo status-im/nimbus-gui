@@ -22,7 +22,8 @@ type HealthInfoSectionProps = {
 }
 
 const HealthInfoSection = (props: HealthInfoSectionProps) => {
-  const { usedStorage, maxStorage, usedRamMemory, maxRamMemory } = props
+  const { usedStorage, maxStorage, usedRamMemory, maxRamMemory, cpuClockRate, networkLatency } =
+    props
 
   const [usedStoragePercentage, setUsedStoragePercentage] = useState(0)
   const [usedRamMemoryPercentage, setUsedRamMemoryPercentage] = useState(0)
@@ -44,8 +45,8 @@ const HealthInfoSection = (props: HealthInfoSectionProps) => {
         badText={BAD_STORAGE_TEXT}
       />
       <StatusIconText
-        percentage={usedStoragePercentage}
-        threshold={80}
+        percentage={cpuClockRate > 2.4 ? 100 : 0}
+        threshold={50}
         goodText={GOOD_CPU_CLOCK_RATE_TEXT}
         badText={BAD_CPU_CLOCK_RATE_TEXT}
       />
@@ -56,8 +57,8 @@ const HealthInfoSection = (props: HealthInfoSectionProps) => {
         badText={BAD_RAM_MEMORY_TEXT}
       />
       <StatusIconText
-        percentage={usedStoragePercentage}
-        threshold={80}
+        percentage={networkLatency > 100 ? 100 : 0}
+        threshold={50}
         goodText={GOOD_NETWORK_TEXT}
         badText={BAD_NETWORK_TEXT}
       />

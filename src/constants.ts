@@ -3,7 +3,7 @@ export const RED_CHECKMARK_ICON = '/icons/remove-circle-red.png'
 
 export const GOOD_STORAGE_TEXT =
   'You have plenty of storage available for additional node services.'
-export const GOOD_CPU_CLOCK_RATE_TEXT = '2.4GHz or higher is available for CPU.'
+export const GOOD_CPU_CLOCK_RATE_TEXT = '2.4GHz is recommended for CPU.'
 export const GOOD_RAM_MEMORY_TEXT = 'There is sufficient RAM required for selected services.'
 export const GOOD_NETWORK_TEXT = 'Network Latency is low.'
 

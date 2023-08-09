@@ -29,11 +29,11 @@ function App() {
           <StandardGauge data={data} />
         </div>
         <HealthInfoSection
-          usedStorage={120}
+          usedStorage={130}
           maxStorage={160}
-          usedRamMemory={8}
+          usedRamMemory={4}
           maxRamMemory={16}
-          cpuClockRate={2.5}
+          cpuClockRate={2.4}
           networkLatency={75}
         />
       </StatusProvider>
