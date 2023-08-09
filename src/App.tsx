@@ -1,41 +1,16 @@
-import './App.css'
 import { TamaguiProvider } from 'tamagui'
+import './App.css'
 import { Provider as StatusProvider } from '@status-im/components'
-import StandardGauge from './components/StandardGauge'
+import config from '../tamagui.config'
+import LandingPage from './components/LayoutComponent/LandingPage'
 
 import config from '../tamagui.config'
-import HealthInfoSection from './components/HealthInfoSection'
 
 function App() {
-  const data = [
-    {
-      id: 'php',
-      label: 'Free Space',
-      value: 40,
-      color: '#ea5e78',
-    },
-    {
-      id: 'javascript',
-      label: 'Memmory',
-      value: 60,
-      color: '#ecedf0',
-    },
-  ]
-
   return (
     <TamaguiProvider config={config}>
       <StatusProvider>
-        <div style={{ height: '500px', width: '300px' }}>
-          <StandardGauge data={data} />
-        </div>
-        <HealthInfoSection
-          usedStorage={130}
-          maxStorage={160}
-          usedRamMemory={4}
-          maxRamMemory={16}
-          cpuClockRate={2.4}
-          networkLatency={75}
-        />
+        <LandingPage />
       </StatusProvider>
     </TamaguiProvider>
   )
