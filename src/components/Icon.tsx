@@ -4,7 +4,6 @@ export type IconProps = {
   source: string
   width?: number
   height?: number
-  style?: unknown
   className?: string
 }
 

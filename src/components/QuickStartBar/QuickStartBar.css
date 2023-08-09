@@ -1,0 +1,35 @@
+.quick-start-bar {
+    border-radius: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    opacity: 0.949999988079071;
+    background: rgba(255, 255, 255, 0.70);
+    backdrop-filter: blur(15px);
+    display: flex;
+    align-items: center;
+    width: 66%;
+    margin: 0 auto;
+    padding: 12px 1rem;
+    position: relative;
+    top: -120px;
+}
+.quick-start-bar > div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 24px;
+    background: rgba(100, 112, 132, 0.05);
+    margin-left: 1rem;
+}
+.quick-start-bar ul {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.quick-start-bar ul li {
+    padding: 0 1rem;
+    color: #0D1625;
+    font-size: 13px;
+}

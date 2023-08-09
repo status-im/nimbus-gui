@@ -1,27 +1,14 @@
-import './App.css'
 import { TamaguiProvider } from 'tamagui'
+import './App.css'
 import { Provider as StatusProvider } from '@status-im/components'
-import StandardGauge from './components/StandardGauge'
+ 
+ 
+import LandingPage from './components/LayoutComponent/LandingPage'
 
 import config from '../tamagui.config'
 import StatisticBox from './components/StaticBox'
 
 function App() {
-  const data = [
-    {
-      id: 'php',
-      label: 'Free Space',
-      value: 40,
-      color: '#ea5e78',
-    },
-    {
-      id: 'javascript',
-      label: 'Memmory',
-      value: 60,
-      color: '#ecedf0',
-    },
-  ]
-
   return (
     <TamaguiProvider config={config}>
       <StatisticBox
@@ -31,9 +18,7 @@ function App() {
         title="Title of the box"
       />
       <StatusProvider>
-        <div style={{ height: '500px', width: '300px' }}>
-          <StandardGauge data={data} />
-        </div>
+        <LandingPage />
       </StatusProvider>
     </TamaguiProvider>
   )
