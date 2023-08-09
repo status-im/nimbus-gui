@@ -1,11 +1,5 @@
 import { YStack } from 'tamagui'
 import { useEffect, useState } from 'react'
-
-// Add more constant texts
-const BAD_STORAGE_TEXT = 'Your storage is running low as required for additional node services.'
-const CPU_CLOCK_RATE_TEXT = '2.4GHz is recommended for CPU.'
-const GOOD_RAM_MEMORY_TEXT = 'There is sufficient RAM required for selected services.'
-const NETWORK_TEXT = 'Network Latency is low.'
 import StatusIconText from './StatusIconText'
 import {
   BAD_CPU_CLOCK_RATE_TEXT,
@@ -19,10 +13,12 @@ import {
 } from '../constants'
 
 type HealthInfoSectionProps = {
-  usedStorage: number
-  maxStorage: number
-  usedRamMemory: number
-  maxRamMemory: number
+  usedStorage: number // GB
+  maxStorage: number // GB
+  usedRamMemory: number // GB
+  maxRamMemory: number // GB
+  cpuClockRate: number // GHz
+  networkLatency: number // milliseconds
 }
 
 const HealthInfoSection = (props: HealthInfoSectionProps) => {
@@ -39,7 +35,6 @@ const HealthInfoSection = (props: HealthInfoSectionProps) => {
     setUsedRamMemoryPercentage((usedRamMemory / maxRamMemory) * 100)
   }, [usedRamMemory, maxRamMemory])
 
-  return <YStack space={'$2'}></YStack>
   return (
     <YStack space={'$2'}>
       <StatusIconText
