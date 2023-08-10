@@ -10,7 +10,6 @@ import type { ColorTokens, GetStyledVariants, TamaguiComponent } from '@tamagui/
 
 setupReactNative({ Text, View })
 
-// const appConfig = createTamagui(config)
 export const appConfig = createTamagui({
   fonts: {
     sans: createInterFont({
