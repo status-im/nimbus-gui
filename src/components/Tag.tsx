@@ -1,25 +1,26 @@
-import { Paragraph } from 'tamagui'
+import { Text, XStack } from 'tamagui'
 
 type TagProps = {
-  bc: string
+  bc?: string
   text: string
 }
 
-const Tag = ({ bc, text }: TagProps) => {
+const Tag = ({ bc = '#2A4AF5', text }: TagProps) => {
   return (
-    <div
+    <XStack
       style={{
         backgroundColor: bc,
         display: 'flex',
-        padding: '0px 8px',
+        justifyContent: 'center',
         alignItems: 'center',
+        padding: '1px 6px',
         borderRadius: '67px',
       }}
     >
-      <Paragraph fontWeight={'500'} fontSize={'10px'}>
+      <Text fontWeight={'450'} fontSize={'10px'} color={'white'}>
         {text}
-      </Paragraph>
-    </div>
+      </Text>
+    </XStack>
   )
 }
 
