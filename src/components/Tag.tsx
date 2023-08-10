@@ -1,4 +1,4 @@
-import { Paragraph } from 'tamagui'
+import { Text } from 'tamagui'
 
 type TagProps = {
   bc: string
@@ -11,14 +11,14 @@ const Tag = ({ bc, text }: TagProps) => {
       style={{
         backgroundColor: bc,
         display: 'flex',
-        padding: '0px 8px',
+        padding: '2px 6px',
         alignItems: 'center',
         borderRadius: '67px',
       }}
     >
-      <Paragraph fontWeight={'500'} fontSize={'10px'}>
+      <Text fontWeight={'500'} fontSize={'9px'} color={'white'}>
         {text}
-      </Paragraph>
+      </Text>
     </div>
   )
 }
