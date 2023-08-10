@@ -16,14 +16,6 @@ function Content() {
   return (
     <div className="container-inner landing-page">
       <header>
-        <div>
-          <div>
-            <img src="src/assets/nodes-app-icon.png" alt="" />
-          </div>
-          <p className="logo-title">
-            nodes<span className="beta">BETA</span>
-          </p>
-        </div>
         <NodesLogo />
       </header>
       <article className="content">
