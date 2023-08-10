@@ -10,9 +10,7 @@ const BackgroundImage = ({ background }: BackgroundImageProps) => {
       style={{
         boxShadow: 'inset 100px 0px 100px white',
         width: '650px',
-        height: '91.9vh',
-        borderTopRightRadius: '25px',
-        borderBottomRightRadius: '25px',
+        height: '100vh',
         background: `url(${background}) no-repeat`,
       }}
     />
