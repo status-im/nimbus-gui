@@ -9,10 +9,10 @@ interface Serie {
   data: DataPoint[]
 }
 
-interface MyResponsiveLineProps {
+interface StandartLineChartProps {
   data: Serie[]
 }
-const MyResponsiveLine = ({ data }: MyResponsiveLineProps) => {
+const StandartLineChart = ({ data }: StandartLineChartProps) => {
   return (
     <ResponsiveLine
       data={data}
@@ -43,4 +43,4 @@ const MyResponsiveLine = ({ data }: MyResponsiveLineProps) => {
     />
   )
 }
-export default MyResponsiveLine
+export default StandartLineChart

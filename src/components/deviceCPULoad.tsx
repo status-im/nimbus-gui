@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import MyResponsiveLine from './StandardLineChart'
+import StandartLineChart from './StandardLineChart'
 import ShadowBox from './ShadowBox'
 import IconText from './IconText'
 import { Paragraph, Separator, XStack, YStack } from 'tamagui'
@@ -56,17 +56,18 @@ const data = [
       },
       {
         x: '12',
-        y: 5,
+        y: 132,
       },
     ],
   },
 ]
 const DeviceCPULoad = () => {
   const [message, setMessage] = useState('')
-  const currentLoad = { y: 9 }
+  const currentLoad = data[0].data[data[0].data.length - 1].y
+  console.log(currentLoad)
 
   useEffect(() => {
-    currentLoad.y > 80 ? setMessage('Good') : setMessage('Poor')
+    currentLoad < 80 ? setMessage('Good') : setMessage('Poor')
   }, [currentLoad])
 
   console.log(currentLoad)
@@ -81,7 +82,7 @@ const DeviceCPULoad = () => {
           }}
         >
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
-            <MyResponsiveLine data={data} />
+            <StandartLineChart data={data} />
           </div>
 
           <YStack space={'$3'}>
@@ -89,7 +90,7 @@ const DeviceCPULoad = () => {
               CPU
             </Paragraph>
             <Paragraph color={'#09101C'} size={'$8'} fontWeight={'700'}>
-              {currentLoad.y} GB
+              {currentLoad} GB
             </Paragraph>
           </YStack>
           {message}
@@ -97,7 +98,7 @@ const DeviceCPULoad = () => {
         <Separator borderColor={'#e3e3e3'} />
         <XStack space={'$4'} style={{ padding: '10px 16px 10px 16px' }}>
           <IconText icon={message === 'Good' ? '/icons/check-circle.png' : '/icons/alert.png'}>
-            {'Good'}
+            {message}
           </IconText>
           {/*THIS IS USED FOR ADDITIONAL TEXT <Text color={'#E95460'}>{'GOod'}</Text>  */}
         </XStack>
