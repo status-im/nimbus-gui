@@ -1,4 +1,4 @@
-import { XStack } from 'tamagui'
+import { Text, XStack } from 'tamagui'
 import Icon from './Icon'
 import Tag from './Tag'
 
@@ -7,12 +7,13 @@ const NimbusLogo = () => {
     <XStack
       style={{
         alignItems: 'center',
+        justifyContent: 'center',
       }}
       space={'$2'}
     >
-      <Icon source={'/icons/marks.png'} width={45} height={50} />
-      <Icon source={'/icons/nimbus.png'} width={80} height={16} />
-      <Tag bc="#2A4AF5" text="BETA" />
+      <Icon source={'/icons/marks.png'} width={55} height={60} />
+      <Text style={{ fontWeight: '650', fontSize: '24px' }}>Nimbus</Text>
+      <Tag text="BETA" />
     </XStack>
   )
 }
