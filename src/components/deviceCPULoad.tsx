@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react'
-
 import StandartLineChart from './StandardLineChart'
 import ShadowBox from './ShadowBox'
 import IconText from './IconText'
@@ -62,17 +60,11 @@ const data = [
   },
 ]
 const DeviceCPULoad = () => {
-  const [message, setMessage] = useState('')
   const currentLoad = data[0].data[data[0].data.length - 1].y
-  console.log(currentLoad)
+  const message = currentLoad < 80 ? 'Good' : 'Poor'
 
-  useEffect(() => {
-    currentLoad < 80 ? setMessage('Good') : setMessage('Poor')
-  }, [currentLoad])
-
-  console.log(currentLoad)
   return (
-    <ShadowBox style={{ maxWidth: '284px', maxHeight: '136px' }}>
+    <ShadowBox boxStyle={{ width: '284px', height: '136px' }}>
       <YStack>
         <XStack
           justifyContent="space-between"
@@ -84,7 +76,6 @@ const DeviceCPULoad = () => {
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
             <StandartLineChart data={data} />
           </div>
-
           <YStack space={'$3'}>
             <Paragraph color={'#09101C'} size={'$6'} fontWeight={'600'}>
               CPU
@@ -93,14 +84,13 @@ const DeviceCPULoad = () => {
               {currentLoad} GB
             </Paragraph>
           </YStack>
-          {message}
         </XStack>
         <Separator borderColor={'#e3e3e3'} />
         <XStack space={'$4'} style={{ padding: '10px 16px 10px 16px' }}>
           <IconText icon={message === 'Good' ? '/icons/check-circle.png' : '/icons/alert.png'}>
             {message}
           </IconText>
-          {/*THIS IS USED FOR ADDITIONAL TEXT <Text color={'#E95460'}>{'GOod'}</Text>  */}
+          {/* <Text color={'#E95460'}>This is additional text</Text>  */}
         </XStack>
       </YStack>
     </ShadowBox>
