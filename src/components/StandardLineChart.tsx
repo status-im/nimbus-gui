@@ -10,7 +10,7 @@ interface Serie {
 }
 
 interface StandartLineChartProps {
-  data: Serie[]
+  data: Series[]
 }
 const StandartLineChart = ({ data }: StandartLineChartProps) => {
   return (
