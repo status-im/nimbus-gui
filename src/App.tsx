@@ -1,10 +1,9 @@
 import { TamaguiProvider } from 'tamagui'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Provider as StatusProvider } from '@status-im/components'
-
 import './App.css'
 import config from '../tamagui.config'
-import LandingPage from './components/LayoutComponent/LandingPage'
+import LandingPage from './components/LandingPage'
 
 const router = createBrowserRouter([
   {
