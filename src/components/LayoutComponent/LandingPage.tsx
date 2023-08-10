@@ -1,7 +1,7 @@
 import LayoutComponent from './LayoutComponent'
 import './LandingPage.css'
 import QuickStartBar from '../QuickStartBar/QuickStartBar'
-import DeviceCPULoad from '../deviceCPULoad'
+import DeviceCPULoad from '../DeviceCpuLoadBox'
 
 function LandingPage() {
   return (
