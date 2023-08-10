@@ -1,5 +1,4 @@
 import { createFont, createTamagui, setupReactNative } from '@tamagui/core'
-import { config } from '@tamagui/config'
 import { createInterFont } from '@tamagui/font-inter'
 import { createMedia } from '@tamagui/react-native-media-driver'
 import { shorthands } from '@tamagui/shorthands'
