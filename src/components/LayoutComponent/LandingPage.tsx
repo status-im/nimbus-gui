@@ -1,6 +1,7 @@
 import LayoutComponent from './LayoutComponent'
 import './LandingPage.css'
 import QuickStartBar from '../QuickStartBar/QuickStartBar'
+import DeviceCPULoad from '../DeviceCPULoad'
 import NodesLogo from '../NodesLogo'
 
 function LandingPage() {
@@ -89,6 +90,7 @@ function Content() {
           Discover Nodes
         </button>
       </article>
+      <DeviceCPULoad load={[13,32,24,1,49,90,13,32,24,1,49,90]}/>
     </div>
   )
 }

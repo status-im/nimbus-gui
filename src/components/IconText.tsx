@@ -15,7 +15,7 @@ const IconText = ({ icon, children, ...props }: IconTextProps) => {
       space={'$2'}
     >
       <Icon source={icon} />
-      <Paragraph {...props} color={'#000000'}>
+      <Paragraph {...props} color={'#000000'} fontWeight={'bold'}>
         {children}
       </Paragraph>
     </XStack>
