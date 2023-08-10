@@ -2,24 +2,31 @@ import ShadowBox from './ShadowBox'
 import IconText from './IconText'
 import { Paragraph, Separator, XStack, YStack } from 'tamagui'
 import StandardGauge from './StandardGauge'
+interface DeviceStorageHealthProps {
+  storage: number
+  maxStorage: number
+}
+const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxStorage }) => {
+  const message = storage < maxStorage ? 'Good' : 'Poor'
+  const data = (storage: number, maxStorage: number) => {
+    const used = storage
+    const free = maxStorage - storage
 
-const DeviceStorageHealth = () => {
-  const currentLoad = 60
-  const message = currentLoad < 80 ? 'Good' : 'Poor'
-  const data = [
-    {
-      id: 'storage',
-      label: 'Storage',
-      value: 55,
-      color: '#E95460',
-    },
-    {
-      id: 'storage',
-      label: 'Storage',
-      value: 45,
-      color: '#E7EAEE',
-    },
-  ]
+    return [
+      {
+        id: 'storage',
+        label: 'Used',
+        value: used,
+        color: '#E95460',
+      },
+      {
+        id: 'storage',
+        label: 'Free',
+        value: free,
+        color: '#E7EAEE',
+      },
+    ]
+  }
   return (
     <ShadowBox boxStyle={{ width: '284px', height: '136px' }}>
       <YStack>
@@ -38,14 +45,14 @@ const DeviceStorageHealth = () => {
               height: '75px',
             }}
           >
-            <StandardGauge data={data} />
+            <StandardGauge data={data(storage, maxStorage)} />
           </div>
           <YStack space={'$3'}>
             <Paragraph color={'#09101C'} size={'$6'} fontWeight={'600'}>
               Storage
             </Paragraph>
             <Paragraph color={'#09101C'} size={'$8'} fontWeight={'700'}>
-              {currentLoad} GB
+              {storage} GB
             </Paragraph>
           </YStack>
         </XStack>
