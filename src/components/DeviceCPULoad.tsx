@@ -3,64 +3,34 @@ import ShadowBox from './ShadowBox'
 import IconText from './IconText'
 import { Paragraph, Separator, XStack, YStack } from 'tamagui'
 
-const data = [
-  {
-    id: 'cpu',
-    color: '#8DC6BC',
-    data: [
-      {
-        x: '1',
-        y: 15,
-      },
-      {
-        x: '2',
-        y: 12,
-      },
-      {
-        x: '3',
-        y: 43,
-      },
-      {
-        x: '4',
-        y: 20,
-      },
-      {
-        x: '5',
-        y: 60,
-      },
-      {
-        x: '6',
-        y: 5,
-      },
-      {
-        x: '7',
-        y: 15,
-      },
-      {
-        x: '8',
-        y: 12,
-      },
-      {
-        x: '9',
-        y: 43,
-      },
-      {
-        x: '10',
-        y: 20,
-      },
-      {
-        x: '11',
-        y: 60,
-      },
-      {
-        x: '12',
-        y: 132,
-      },
-    ],
-  },
-]
-const DeviceCPULoad = () => {
-  const currentLoad = data[0].data[data[0].data.length - 1].y
+type DataPoint = {
+  x: number
+  y: number
+}
+
+type ChartData = {
+  id: string
+  color: string
+  data: DataPoint[]
+}
+
+type DeviceCPULoadProps = {
+  load: number[]
+}
+const DeviceCPULoad: React.FC<DeviceCPULoadProps> = ({ load }) => {
+  const chartData: ChartData[] = [
+    {
+      id: 'cpu',
+      color: '#8DC6BC',
+      data: load.map((yValue, index: number) => ({
+        x: index + 1,
+        y: yValue,
+      })),
+    },
+  ]
+  const currentLoad =
+    chartData[0].data.length > 0 ? chartData[0].data[chartData[0].data.length - 1].y : 0
+
   const message = currentLoad < 80 ? 'Good' : 'Poor'
 
   return (
@@ -74,7 +44,7 @@ const DeviceCPULoad = () => {
           }}
         >
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
-            <StandartLineChart data={data} />
+            <StandartLineChart data={chartData} />
           </div>
           <YStack space={'$3'}>
             <Paragraph color={'#09101C'} size={'$6'} fontWeight={'600'}>

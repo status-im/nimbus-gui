@@ -96,7 +96,7 @@ function Content() {
           Discover Nodes
         </button>
       </article>
-      <DeviceCPULoad />
+      <DeviceCPULoad load={[13,32,24,1,49,90,13,32,24,1,49,90]}/>
     </div>
   )
 }

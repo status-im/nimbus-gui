@@ -1,16 +1,16 @@
 import { ResponsiveLine } from '@nivo/line'
 interface DataPoint {
-  x: string
+  x: number
   y: number
 }
 
-interface Series {
+interface ChartData {
   id: string
   data: DataPoint[]
 }
 
 interface StandartLineChartProps {
-  data: Series[]
+  data: ChartData[]
 }
 const StandartLineChart = ({ data }: StandartLineChartProps) => {
   return (
