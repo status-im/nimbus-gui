@@ -2,7 +2,7 @@ import { XStack } from 'tamagui'
 import Icon from './Icon'
 import Tag from './Tag'
 
-const Logo = () => {
+const NimbusLogo = () => {
   return (
     <XStack
       style={{
@@ -17,4 +17,4 @@ const Logo = () => {
   )
 }
 
-export default Logo
+export default NimbusLogo
