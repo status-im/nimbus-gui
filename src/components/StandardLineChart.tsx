@@ -4,7 +4,7 @@ interface DataPoint {
   y: number
 }
 
-interface Serie {
+interface Series {
   id: string
   data: DataPoint[]
 }
