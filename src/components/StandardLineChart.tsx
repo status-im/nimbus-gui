@@ -17,7 +17,7 @@ const StandartLineChart = ({ data }: StandartLineChartProps) => {
     <ResponsiveLine
       data={data}
       margin={{ top: 0, right: 0, bottom: 0, left: -75 }}
-      xScale={{ type: 'linear', min: 1, max: 12 }}
+      xScale={{ type: 'linear', min: 0, max: data[0].data.length }}
       yScale={{
         type: 'linear',
         min: 'auto',
