@@ -4110,7 +4110,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@status-im/colors@npm:*":
+"@status-im/colors@npm:*, @status-im/colors@npm:^0.2.0":
   version: 0.2.0
   resolution: "@status-im/colors@npm:0.2.0"
   checksum: 06390b83897193489f14b0e4fe371e87f30056b1c1d6ef9a14b0fe8dc068453e6b532a767077537eebc39f8fcedb832eb047c7f5e6f479683394152f115be3db
@@ -13549,6 +13549,7 @@ __metadata:
   dependencies:
     "@fsouza/prettierd": ^0.24.2
     "@nivo/pie": ^0.83.0
+    "@status-im/colors": ^0.2.0
     "@status-im/components": ^0.2.6
     "@storybook/addon-essentials": ^7.2.0
     "@storybook/addon-interactions": ^7.2.0
