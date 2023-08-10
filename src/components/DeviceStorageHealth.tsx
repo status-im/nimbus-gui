@@ -10,14 +10,14 @@ const DeviceStorageHealth = () => {
     {
       id: 'storage',
       label: 'Storage',
-      value: 450,
+      value: 55,
       color: '#E95460',
     },
     {
       id: 'storage',
       label: 'Storage',
       value: 45,
-      color: '#E95460',
+      color: '#E7EAEE',
     },
   ]
   return (
@@ -27,11 +27,16 @@ const DeviceStorageHealth = () => {
           justifyContent="space-between"
           style={{
             padding: '8px 16px',
-            position: 'relative', // Make XStack a positioning context
+            position: 'relative',
           }}
         >
           <div
-            style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, width: '100px', height: '100px' }}
+            style={{
+              position: 'absolute',
+              right: '44px',
+              width: '75px',
+              height: '75px',
+            }}
           >
             <StandardGauge data={data} />
           </div>
