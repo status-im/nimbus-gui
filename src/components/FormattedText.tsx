@@ -1,35 +1,27 @@
-import { Text } from 'tamagui'
+import { Text } from '@status-im/components'
 
 export type TextElement = {
   text: string
   bold?: boolean
   italic?: boolean
+  weight?: 'regular' | 'medium' | 'bold'
 }
 
 type FormattedTextProps = {
   textElements: TextElement[]
   color?: string
-  fontSize?: string
+  size: 27 | 19 | 15 | 13 | 11
 }
 
-const FormattedText = ({ textElements, color, fontSize }: FormattedTextProps) => {
-  const calculateStyle = (textElement: TextElement) => {
-    const isBold = textElement.bold ?? false
-    const isItalic = textElement.italic ?? false
-
-    return { fontWeight: isBold ? 'bold' : '', fontStyle: isItalic ? 'italic' : '' }
-  }
-
+const FormattedText = ({ textElements, color, size }: FormattedTextProps) => {
   return (
-    <Text color={color} fontSize={fontSize}>
-      {textElements.map((textElement, index) => {
-        return (
-          <span style={calculateStyle(textElement)} key={index}>
-            {textElement.text}
-          </span>
-        )
-      })}
-    </Text>
+    <>
+      {textElements.map((textElement, index) => (
+        <Text key={index} size={size} color={color} weight={textElement.weight}>
+          {textElement.text}
+        </Text>
+      ))}
+    </>
   )
 }
 
