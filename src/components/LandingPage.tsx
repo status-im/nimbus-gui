@@ -1,6 +1,7 @@
 import LayoutComponent from './LayoutComponent'
 import './LandingPage.css'
 import QuickStartBar from './QuickStartBar'
+import DeviceNetworkHealth from './DeviceNetworkHealth'
 
 function LandingPage() {
   return (
@@ -95,6 +96,7 @@ function Content() {
           Discover Nodes
         </button>
       </article>
+      <DeviceNetworkHealth ></NetworkHealth>
     </div>
   )
 }
