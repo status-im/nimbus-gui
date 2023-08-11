@@ -8,12 +8,14 @@ interface ChartData {
   id: string
   color: string
   data: DataPoint[]
+  maxValue?: number
 }
 
 interface StandartLineChartProps {
   data: ChartData[]
 }
 const StandartLineChart = ({ data }: StandartLineChartProps) => {
+  const maxMemory = data[0].maxValue || 'auto'
   const colors = data.map(dataset => dataset.color)
 
   return (
@@ -23,9 +25,9 @@ const StandartLineChart = ({ data }: StandartLineChartProps) => {
       xScale={{ type: 'linear', min: 0, max: data[0].data.length }}
       yScale={{
         type: 'linear',
-        min: 'auto',
-        max: 'auto',
-        stacked: false,
+        min: 0,
+        max: maxMemory,
+        stacked: true,
         reverse: false,
       }}
       axisTop={null}

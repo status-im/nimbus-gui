@@ -98,4 +98,5 @@ function Content() {
     </div>
   )
 }
+
 export default LandingPage
