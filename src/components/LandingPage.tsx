@@ -1,7 +1,6 @@
 import LayoutComponent from './LayoutComponent'
 import './LandingPage.css'
 import QuickStartBar from './QuickStartBar'
-import IconText from './IconText'
 
 function LandingPage() {
   return (
@@ -15,7 +14,6 @@ function LandingPage() {
 function Content() {
   return (
     <div className="container-inner landing-page">
-      <IconText icon="src/assets/nodes-app-icon.png">Quick Start</IconText>
       <header>
         <div>
           <div>
