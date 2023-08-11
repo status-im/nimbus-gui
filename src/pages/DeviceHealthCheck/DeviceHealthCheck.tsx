@@ -35,6 +35,7 @@ const DeviceHeanlthCheckContent = () => {
         <Titles
           title="Device Health Check"
           subtitle="Configure your device to start Staking on Nimbus"
+          isAdvancedSettings={true}
         />
         <XStack space={'$4'}>
           <DeviceStorageHealth storage={1} maxStorage={2} />
