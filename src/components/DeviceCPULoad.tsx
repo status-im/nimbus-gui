@@ -34,7 +34,7 @@ const DeviceCPULoad: React.FC<DeviceCPULoadProps> = ({ load }) => {
   const message = currentLoad < 80 ? 'Good' : 'Poor'
 
   return (
-    <Shadow style={{ width: '284px', height: '136px', borderRadius: '16px' }}>
+    <Shadow variant="$2" style={{ width: '284px', height: '136px', borderRadius: '16px' }}>
       <YStack>
         <XStack
           justifyContent="space-between"
