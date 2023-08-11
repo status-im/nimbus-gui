@@ -4,6 +4,7 @@ import './layout.css'
 type LeftProps = {
   breadcrumbBar?: ReactNode
   content: ReactNode
+  rightImageSrc?: string
 }
 function LayoutComponent(props: LeftProps) {
   return (
@@ -12,16 +13,16 @@ function LayoutComponent(props: LeftProps) {
         {props.breadcrumbBar}
         <div className="container">{props.content}</div>
       </section>
-      <LayoutRight />
+      <LayoutRight rightImageSrc={props.rightImageSrc} />
     </div>
   )
 }
 
-function LayoutRight() {
+function LayoutRight({ rightImageSrc }: { rightImageSrc?: string }) {
   return (
     <section className="layout-right">
       <div className="image-container">
-        <img src="src/assets/bg-img/landing-page-bg.png" alt="" />
+        <img src={rightImageSrc} alt="" />
         {/* <img src="src/assets/bg-img/day-night-bg.png" alt="" /> */}
         {/* <img src="src/assets/bg-img/key-lock-bg.png" alt="" /> */}
       </div>
