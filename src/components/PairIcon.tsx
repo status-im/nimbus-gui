@@ -8,16 +8,6 @@ function PairIcon() {
         fill="#1B273D"
         fillOpacity="0.7"
       />
-      {/* <mask
-        id="mask0_760_2959"
-        style="mask-type:alpha"
-        maskUnits="userSpaceOnUse"
-        x="4"
-        y="5"
-        width="12"
-        height="3"
-      >
-      </mask> */}
       <rect
         x="4"
         y="7.5"
@@ -29,16 +19,6 @@ function PairIcon() {
       <g mask="url(#mask0_760_2959)">
         <path d="M4.5 6.50006L16 6.50006" stroke="#1B273D" strokeOpacity="0.7" strokeWidth="1.2" />
       </g>
-      {/* <mask
-        id="mask1_760_2959"
-        style="mask-type:alpha"
-        maskUnits="userSpaceOnUse"
-        x="4"
-        y="12"
-        width="12"
-        height="3"
-      >
-      </mask> */}
       <rect
         x="16"
         y="12.5"
