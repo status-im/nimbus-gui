@@ -96,7 +96,7 @@ function Content() {
           Discover Nodes
         </button>
       </article>
-      <DeviceNetworkHealth ></NetworkHealth>
+      <DeviceNetworkHealth load={[123,123,123,2,12]} ></DeviceNetworkHealth>
     </div>
   )
 }
