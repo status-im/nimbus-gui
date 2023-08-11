@@ -4,7 +4,7 @@ export type TextElement = {
   text: string
   bold?: boolean
   italic?: boolean
-  weight?: 'regular' | 'medium' | 'bold'
+  weight?: 'regular' | 'medium' | 'semibold'
 }
 
 type FormattedTextProps = {
