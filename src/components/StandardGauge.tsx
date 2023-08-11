@@ -14,7 +14,7 @@ interface StandardGaugeProps {
 const StandardGauge = ({ data }: StandardGaugeProps) => (
   <ResponsivePie
     data={data}
-    margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+    margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
     innerRadius={0.65}
     colors={datum => datum.data.color}
     fit={false}
@@ -23,6 +23,8 @@ const StandardGauge = ({ data }: StandardGaugeProps) => (
     arcLinkLabelsColor={{ from: 'color' }}
     enableArcLabels={false}
     legends={[]}
+    motionConfig="gentle"  // Define transition style
+    animate={false}         // Enable animation
   />
 )
 
