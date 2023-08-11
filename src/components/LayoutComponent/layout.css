@@ -9,10 +9,11 @@
 .layout-left {
     flex: 0 0 55%;
     max-width: 55%;
+    z-index: 2;
 }
 .container {
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     justify-content: end; 
     height: 100%;  
     margin: 0 auto;
@@ -21,13 +22,14 @@
     max-width: 70%;
     flex: 1 0 70%;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    flex-direction: column; 
 }
 header {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    padding: 1.5rem 0;
 }
 header > div {
     display: flex;
@@ -49,8 +51,12 @@ header > div {
     padding: 4px 6px;
     margin-left: 10px;
 }
+.content {
+    flex-grow: 1;
+}
 .content .title {
     font-size: 27px;
+    font-weight: 600;
     margin-bottom: 0.25em;
 }
 .content .subtitle {
@@ -75,6 +81,7 @@ header > div {
     .layout-right {
         flex: 0 0 45%;
         max-width: 45%;
+        z-index: 0;
     }
     
     .image-container {
