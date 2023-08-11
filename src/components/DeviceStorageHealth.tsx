@@ -1,7 +1,7 @@
-import ShadowBox from './ShadowBox'
 import IconText from './IconText'
 import { Paragraph, Separator, XStack, YStack } from 'tamagui'
 import StandardGauge from './StandardGauge'
+import { Shadow } from '@status-im/components'
 interface DeviceStorageHealthProps {
   storage: number
   maxStorage: number
@@ -28,7 +28,7 @@ const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxS
     ]
   }
   return (
-    <ShadowBox boxStyle={{ width: '284px', height: '136px' }}>
+    <Shadow style={{ width: '284px', height: '136px', borderRadius: '16px' }}>
       <YStack>
         <XStack
           justifyContent="space-between"
@@ -64,7 +64,7 @@ const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxS
           {/* <Text color={'#E95460'}>This is additional text</Text>  */}
         </XStack>
       </YStack>
-    </ShadowBox>
+    </Shadow>
   )
 }
 
