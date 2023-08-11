@@ -58,7 +58,10 @@ const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxS
         </XStack>
         <Separator borderColor={'#e3e3e3'} />
         <XStack space={'$4'} style={{ padding: '10px 16px 10px 16px' }}>
-          <IconText icon={message === 'Good' ? '/icons/check-circle.png' : '/icons/alert.png'}>
+          <IconText
+            icon={message === 'Good' ? '/icons/check-circle.png' : '/icons/alert.png'}
+            weight={'semibold'}
+          >
             {message}
           </IconText>
           {/* <Text color={'#E95460'}>This is additional text</Text>  */}

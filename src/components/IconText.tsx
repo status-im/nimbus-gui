@@ -5,9 +5,10 @@ import { Text } from '@status-im/components'
 type IconTextProps = {
   icon: string
   children: string
+  weight?: 'regular' | 'medium' | 'semibold'
 }
 
-const IconText = ({ icon, children }: IconTextProps) => {
+const IconText = ({ icon, children, weight }: IconTextProps) => {
   return (
     <XStack
       style={{
@@ -16,7 +17,7 @@ const IconText = ({ icon, children }: IconTextProps) => {
       space={'$2'}
     >
       <Icon src={icon} />
-      <Text size={11} color={'#000000'} weight={"medium"} >
+      <Text size={13} color={'#000000'} weight={weight}>
         {children}
       </Text>
     </XStack>
