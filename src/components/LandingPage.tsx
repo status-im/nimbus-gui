@@ -1,6 +1,7 @@
 import LayoutComponent from './LayoutComponent'
 import './LandingPage.css'
 import QuickStartBar from './QuickStartBar'
+import DeviceNetworkHealth from './DeviceNetworkHealth'
 
 function LandingPage() {
   return (
@@ -95,6 +96,10 @@ function Content() {
           Discover Nodes
         </button>
       </article>
+      <DeviceNetworkHealth
+        uploadRate={[6, 63, 123, 59, 12, 6, 63, 123, 59, 12]}
+        downloadRate={[123, 56, 90, 10, 50, 123, 56, 90, 130, 40]}
+      />
     </div>
   )
 }
