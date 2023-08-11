@@ -1,13 +1,14 @@
 import { ResponsivePie } from '@nivo/pie'
 
-interface Data {
+export interface GaugeDataPoint {
   id: string
   label: string
   value: number
   color: string
 }
+
 interface StandardGaugeProps {
-  data: Data[]
+  data: GaugeDataPoint[]
 }
 
 const StandardGauge = ({ data }: StandardGaugeProps) => (
