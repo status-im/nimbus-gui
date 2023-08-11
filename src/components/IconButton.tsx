@@ -4,7 +4,7 @@ import ReactButton from './ReactButton'
 type IconButtonProps = {
   children: string
   icon: string
-  style?: unknown
+  style?: React.CSSProperties
   size?: string
   fontSize?: string
   onClick?: () => void

@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 
 type ReactButtonProps = {
   children: string
-  style?: unknown
+  style?: React.CSSProperties
   icon?: ReactNode
   size?: string
   onClick?: () => void
