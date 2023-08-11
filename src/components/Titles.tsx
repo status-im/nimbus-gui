@@ -1,7 +1,6 @@
 import { XStack, YStack } from 'tamagui'
 import Title from './Title'
 import SubTitle from './SubTitle'
-import IconButton from './IconButton'
 
 type TitlesProps = {
   title: string
@@ -13,7 +12,7 @@ const Titles = ({ title, subtitle }: TitlesProps) => {
     <YStack>
       <XStack justifyContent="space-between">
         <Title color={'#09101C'}>{title}</Title>
-        <IconButton
+        {/* <IconButton
           style={{
             backgroundColor: 'transparent',
             border: '1px solid #DCE0E5',
@@ -24,7 +23,7 @@ const Titles = ({ title, subtitle }: TitlesProps) => {
           fontSize={'$5'}
         >
           Advanced Settings
-        </IconButton>
+        </IconButton> */}
       </XStack>
       <SubTitle color={'#09101C'}>{subtitle}</SubTitle>
     </YStack>
