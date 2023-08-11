@@ -1,6 +1,7 @@
 import LayoutComponent from './LayoutComponent'
 import './LandingPage.css'
 import QuickStartBar from './QuickStartBar'
+import DeviceMemory from './DeviceMemoryHealth'
 
 function LandingPage() {
   return (
@@ -14,6 +15,7 @@ function LandingPage() {
 function Content() {
   return (
     <div className="container-inner landing-page">
+      <DeviceMemory currentMemory={[12,24,14,12,4,60]} maxMemory={65}/>
       <header>
         <div>
           <div>

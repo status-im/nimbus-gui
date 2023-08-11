@@ -12,7 +12,7 @@ type ChartData = {
   id: string
   color: string
   data: DataPoint[]
-  maxMemory?: number
+  maxValue?: number
 }
 
 type DeviceMemoryProps = {
@@ -28,7 +28,7 @@ const DeviceMemory = ({ currentMemory, maxMemory }: DeviceMemoryProps) => {
         x: index + 1,
         y: yValue,
       })),
-      maxMemory: maxMemory,
+      maxValue: maxMemory,
     },
   ]
   const currentLoad =

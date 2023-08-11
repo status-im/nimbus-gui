@@ -7,14 +7,14 @@ interface DataPoint {
 interface ChartData {
   id: string
   data: DataPoint[]
-  maxMemory?: number
+  maxValue?: number
 }
 
 interface StandartLineChartProps {
   data: ChartData[]
 }
 const StandartLineChart = ({ data }: StandartLineChartProps) => {
-  const maxMemory = data[0].maxMemory || 'auto'
+  const maxMemory = data[0].maxValue || 'auto'
 
   return (
     <ResponsiveLine
