@@ -13,29 +13,23 @@ type ChartData = {
   id: string
   color: string
   data: DataPoint[]
+  maxValue?: number
 }
 
-type DeviceNetworkHealthProps = {
-  uploadRate: number[]
-  downloadRate: number[]
+type DeviceMemoryProps = {
+  currentMemory: number[]
+  maxMemory?: number
 }
-const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthProps) => {
+const DeviceMemory = ({ currentMemory, maxMemory }: DeviceMemoryProps) => {
   const chartData: ChartData[] = [
     {
-      id: 'uploadRate',
+      id: 'cpu',
       color: '#8DC6BC',
-      data: uploadRate.map((yValue, index: number) => ({
+      data: currentMemory.map((yValue, index: number) => ({
         x: index + 1,
         y: yValue,
       })),
-    },
-    {
-      id: 'downloadRate',
-      color: '#D92344',
-      data: downloadRate.map((yValue, index: number) => ({
-        x: index + 1,
-        y: yValue,
-      })),
+      maxValue: maxMemory,
     },
   ]
   const currentLoad =
@@ -58,7 +52,7 @@ const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthPr
           </div>
           <YStack space={'$3'}>
             <Paragraph color={'#09101C'} size={'$6'} fontWeight={'600'}>
-              Network
+              Memory
             </Paragraph>
             <Paragraph color={'#09101C'} size={'$8'} fontWeight={'700'}>
               {currentLoad} GB
@@ -77,4 +71,4 @@ const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthPr
   )
 }
 
-export default DeviceNetworkHealth
+export default DeviceMemory
