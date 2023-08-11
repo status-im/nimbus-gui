@@ -1,6 +1,7 @@
 import LayoutComponent from './LayoutComponent'
 import './LandingPage.css'
 import QuickStartBar from './QuickStartBar'
+import DeviceMemory from './DeviceMemoryHealth'
 
 function LandingPage() {
   return (
@@ -95,6 +96,7 @@ function Content() {
           Discover Nodes
         </button>
       </article>
+      <DeviceMemory load={[12,13,14,14,2,1,3]}></DeviceMemory>
     </div>
   )
 }
