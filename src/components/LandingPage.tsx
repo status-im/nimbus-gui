@@ -2,6 +2,7 @@ import LayoutComponent from './LayoutComponent'
 import './LandingPage.css'
 import QuickStartBar from './QuickStartBar'
 import DeviceMemory from './DeviceMemoryHealth'
+import DeviceNetworkHealth from './DeviceNetworkHealth'
 
 function LandingPage() {
   return (

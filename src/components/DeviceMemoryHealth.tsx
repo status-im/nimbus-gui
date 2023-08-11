@@ -1,7 +1,8 @@
 import StandartLineChart from './StandardLineChart'
-import ShadowBox from './ShadowBox'
+
 import IconText from './IconText'
 import { Paragraph, Separator, XStack, YStack } from 'tamagui'
+import { Shadow as ShadowBox } from '@status-im/components'
 
 type DataPoint = {
   x: number
@@ -37,7 +38,7 @@ const DeviceMemory = ({ currentMemory, maxMemory }: DeviceMemoryProps) => {
   const message = currentLoad < 80 ? 'Good' : 'Poor'
 
   return (
-    <ShadowBox boxStyle={{ width: '284px', height: '136px' }}>
+    <ShadowBox style={{ width: '284px', height: '136px' }}>
       <YStack>
         <XStack
           justifyContent="space-between"
