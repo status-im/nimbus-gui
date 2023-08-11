@@ -1,38 +1,32 @@
-import StandartLineChart from './StandardLineChart'
 import IconText from './IconText'
 import { Paragraph, Separator, XStack, YStack } from 'tamagui'
+import StandardGauge from './StandardGauge'
 import { Shadow } from '@status-im/components'
-
-type DataPoint = {
-  x: number
-  y: number
+interface DeviceStorageHealthProps {
+  storage: number
+  maxStorage: number
 }
+const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxStorage }) => {
+  const message = storage < maxStorage ? 'Good' : 'Poor'
+  const data = (storage: number, maxStorage: number) => {
+    const used = storage
+    const free = maxStorage - storage
 
-type ChartData = {
-  id: string
-  color: string
-  data: DataPoint[]
-}
-
-type DeviceCPULoadProps = {
-  load: number[]
-}
-const DeviceCPULoad: React.FC<DeviceCPULoadProps> = ({ load }) => {
-  const chartData: ChartData[] = [
-    {
-      id: 'cpu',
-      color: '#8DC6BC',
-      data: load.map((yValue, index: number) => ({
-        x: index + 1,
-        y: yValue,
-      })),
-    },
-  ]
-  const currentLoad =
-    chartData[0].data.length > 0 ? chartData[0].data[chartData[0].data.length - 1].y : 0
-
-  const message = currentLoad < 80 ? 'Good' : 'Poor'
-
+    return [
+      {
+        id: 'storage',
+        label: 'Used',
+        value: used,
+        color: '#E95460',
+      },
+      {
+        id: 'storage',
+        label: 'Free',
+        value: free,
+        color: '#E7EAEE',
+      },
+    ]
+  }
   return (
     <Shadow style={{ width: '284px', height: '136px', borderRadius: '16px' }}>
       <YStack>
@@ -40,18 +34,25 @@ const DeviceCPULoad: React.FC<DeviceCPULoadProps> = ({ load }) => {
           justifyContent="space-between"
           style={{
             padding: '8px 16px',
-            position: 'relative', // Make XStack a positioning context
+            position: 'relative',
           }}
         >
-          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
-            <StandartLineChart data={chartData} />
+          <div
+            style={{
+              position: 'absolute',
+              right: '44px',
+              width: '75px',
+              height: '75px',
+            }}
+          >
+            <StandardGauge data={data(storage, maxStorage)} />
           </div>
           <YStack space={'$3'}>
             <Paragraph color={'#09101C'} size={'$6'} fontWeight={'600'}>
-              CPU
+              Storage
             </Paragraph>
             <Paragraph color={'#09101C'} size={'$8'} fontWeight={'700'}>
-              {currentLoad} GB
+              {storage} GB
             </Paragraph>
           </YStack>
         </XStack>
@@ -67,4 +68,4 @@ const DeviceCPULoad: React.FC<DeviceCPULoadProps> = ({ load }) => {
   )
 }
 
-export default DeviceCPULoad
+export default DeviceStorageHealth
