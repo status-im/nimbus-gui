@@ -1,6 +1,6 @@
 import { XStack, YStack } from 'tamagui'
-import IconButton from './IconButton'
-import { Text } from '@status-im/components'
+import { Button, Text } from '@status-im/components'
+import Icon from './Icon'
 
 type TitlesProps = {
   title: string
@@ -16,18 +16,9 @@ const Titles = ({ title, subtitle, button }: TitlesProps) => {
           {title}
         </Text>
         {button ? (
-          <IconButton
-            style={{
-              backgroundColor: 'transparent',
-              border: '1px solid #DCE0E5',
-              color: '#09101C',
-            }}
-            size={'$3'}
-            icon={'/icons/reveal.png'}
-            fontSize={'$5'}
-          >
+          <Button variant="outline" size={32} icon={<Icon src={'/icons/reveal.png'} />}>
             Advanced Settings
-          </IconButton>
+          </Button>
         ) : null}
       </XStack>
       <Text size={15} weight="regular">

@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import BreadcrumbBar from '../BreadcrumbBar/BreadcrumbBar'
+import BreadcrumbBar from './BreadcrumbBar'
 import { Button as StatusButton, Tag, Text, Avatar, Checkbox } from '@status-im/components'
 import { Label, Separator, XStack, YStack } from 'tamagui'
-import LayoutComponent from '../LayoutComponent/LayoutComponent'
-import Logo from '../Logo'
-import Titles from '../Titles'
+import LayoutComponent from './LayoutComponent'
+import NimbusLogo from './NimbusLogo'
+import Titles from './Titles'
 import NodeIcon from './NodeIcon'
 import ConnectIcon from './ConnectIcon'
 import PairIcon from './PairIcon'
@@ -21,7 +21,7 @@ function Content() {
   return (
     <div className="container-inner connection-page">
       <header>
-        <Logo />
+        <NimbusLogo />
         <XStack space={'$2'} alignItems="center">
           <Tag icon={ConnectIcon} label="Connect" size={32} selected />
           <Tag icon={PairIcon} label="Pair" size={32} />

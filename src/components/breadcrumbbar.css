@@ -19,7 +19,7 @@
 }
 .breadcrumb-bar-li::after {
     display: inline-block;
-    content: url("./chevron.svg");
+    content: url("../assets/chevron.svg");
     color: #09101C;
     position: absolute;
     top: -2px;
