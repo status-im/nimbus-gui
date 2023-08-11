@@ -16,14 +16,23 @@ type ChartData = {
 }
 
 type DeviceNetworkHealthProps = {
-  load: number[]
+  uploadRate: number[]
+  downloadRate: number[]
 }
-const DeviceNetworkHealth: React.FC<DeviceNetworkHealthProps> = ({ load }) => {
+const DeviceNetworkHealth: React.FC<DeviceNetworkHealthProps> = ({ uploadRate, downloadRate }) => {
   const chartData: ChartData[] = [
     {
-      id: 'cpu',
+      id: 'uploadRate',
       color: '#8DC6BC',
-      data: load.map((yValue, index: number) => ({
+      data: uploadRate.map((yValue, index: number) => ({
+        x: index + 1,
+        y: yValue,
+      })),
+    },
+    {
+      id: 'downloadRate',
+      color: '#D92344',
+      data: downloadRate.map((yValue, index: number) => ({
         x: index + 1,
         y: yValue,
       })),
@@ -45,7 +54,7 @@ const DeviceNetworkHealth: React.FC<DeviceNetworkHealthProps> = ({ load }) => {
           }}
         >
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
-            <MyResponsiveStream />
+            <StandartLineChart data={chartData} />
           </div>
           <YStack space={'$3'}>
             <Paragraph color={'#09101C'} size={'$6'} fontWeight={'600'}>

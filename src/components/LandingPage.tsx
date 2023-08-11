@@ -96,7 +96,10 @@ function Content() {
           Discover Nodes
         </button>
       </article>
-      <DeviceNetworkHealth load={[123,123,123,2,12]} ></DeviceNetworkHealth>
+      <DeviceNetworkHealth
+        uploadRate={[6, 63, 123, 59, 12, 6, 63, 123, 59, 12]}
+        downloadRate={[123, -56, 90, -130, 50, 123, -56, 90, -130, 40]}
+      />
     </div>
   )
 }

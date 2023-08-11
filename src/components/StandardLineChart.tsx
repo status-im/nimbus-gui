@@ -6,6 +6,7 @@ interface DataPoint {
 
 interface ChartData {
   id: string
+  color: string
   data: DataPoint[]
 }
 
@@ -13,6 +14,8 @@ interface StandartLineChartProps {
   data: ChartData[]
 }
 const StandartLineChart = ({ data }: StandartLineChartProps) => {
+  const colors = data.map(dataset => dataset.color)
+
   return (
     <ResponsiveLine
       data={data}
@@ -35,11 +38,10 @@ const StandartLineChart = ({ data }: StandartLineChartProps) => {
       pointSize={1}
       pointColor={{ theme: 'background' }}
       pointBorderWidth={2}
-      pointBorderColor={{ from: 'serieColor' }}
       pointLabelYOffset={-12}
       useMesh={true}
       legends={[]}
-      colors={['#8DC6BC']}
+      colors={colors}
     />
   )
 }
