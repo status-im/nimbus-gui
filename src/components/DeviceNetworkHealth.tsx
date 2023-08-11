@@ -1,5 +1,4 @@
 import StandartLineChart from './StandardLineChart'
-
 import IconText from './IconText'
 import { Paragraph, Separator, XStack, YStack } from 'tamagui'
 import { Shadow as ShadowBox } from '@status-im/components'

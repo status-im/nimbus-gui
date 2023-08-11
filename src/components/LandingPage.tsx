@@ -1,8 +1,6 @@
 import LayoutComponent from './LayoutComponent'
 import './LandingPage.css'
 import QuickStartBar from './QuickStartBar'
-import DeviceMemory from './DeviceMemoryHealth'
-import DeviceNetworkHealth from './DeviceNetworkHealth'
 
 function LandingPage() {
   return (
@@ -16,7 +14,6 @@ function LandingPage() {
 function Content() {
   return (
     <div className="container-inner landing-page">
-      <DeviceMemory currentMemory={[12, 24, 14, 12, 4, 60]} maxMemory={65} />
       <header>
         <div>
           <div>
@@ -98,11 +95,8 @@ function Content() {
           Discover Nodes
         </button>
       </article>
-      <DeviceNetworkHealth
-        uploadRate={[6, 63, 123, 59, 12, 6, 63, 123, 59, 12]}
-        downloadRate={[123, 56, 90, 10, 50, 123, 56, 90, 130, 40]}
-      />
     </div>
   )
 }
+
 export default LandingPage
