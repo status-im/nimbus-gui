@@ -2,6 +2,7 @@ import StandartLineChart from './StandardLineChart'
 import ShadowBox from './ShadowBox'
 import IconText from './IconText'
 import { Paragraph, Separator, XStack, YStack } from 'tamagui'
+import MyResponsiveStream from './StandartStream'
 
 type DataPoint = {
   x: number
@@ -44,7 +45,7 @@ const DeviceNetworkHealth: React.FC<DeviceNetworkHealthProps> = ({ load }) => {
           }}
         >
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
-            <StandartLineChart data={chartData} />
+            <MyResponsiveStream />
           </div>
           <YStack space={'$3'}>
             <Paragraph color={'#09101C'} size={'$6'} fontWeight={'600'}>
