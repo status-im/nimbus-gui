@@ -1,9 +1,16 @@
-import { Paragraph, styled } from 'tamagui'
+import { Text } from '@status-im/components'
 
-const Title = styled(Paragraph, {
-  name: 'Title',
-  accessibilityRole: 'header',
-  size: '$9',
-})
+type TitleProps = {
+  color?: string
+  children: string
+}
+
+const Title = ({ color, children }: TitleProps) => {
+  return (
+    <Text size={27} weight={'medium'} color={color}>
+      {children}
+    </Text>
+  )
+}
 
 export default Title

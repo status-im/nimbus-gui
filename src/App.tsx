@@ -1,16 +1,22 @@
 import { TamaguiProvider } from 'tamagui'
-import './App.css'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Provider as StatusProvider } from '@status-im/components'
+import './App.css'
 import config from '../tamagui.config'
-import ConnectionPage from './components/ConnectionPage/ConnectionPage'
-// import LandingPage from './components/LayoutComponent/LandingPage'
+import LandingPage from './components/LandingPage'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <LandingPage />,
+  },
+])
 
 function App() {
   return (
     <TamaguiProvider config={config}>
       <StatusProvider>
-        <ConnectionPage />
-        {/* <LandingPage /> */}
+        <RouterProvider router={router} />
       </StatusProvider>
     </TamaguiProvider>
   )
