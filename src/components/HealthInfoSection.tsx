@@ -30,7 +30,7 @@ const HealthInfoSection = (props: HealthInfoSectionProps) => {
   const networkLatencyPercentage = networkLatency > 100 ? 100 : 0
 
   return (
-    <YStack space={'$2'}>
+    <YStack space={'$3'}>
       <StatusIconText
         percentage={usedStoragePercentage}
         threshold={80}

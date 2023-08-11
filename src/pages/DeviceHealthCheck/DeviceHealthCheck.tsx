@@ -24,15 +24,18 @@ const DeviceHeanlthCheckContent = () => {
     <div className="container-inner landing-page">
       <YStack
         space={'$4'}
-        style={{ justifyContent: 'end', alignItems: 'start', marginBottom: '2rem' }}
+        style={{
+          justifyContent: 'end',
+          alignItems: 'start',
+          marginBottom: '2rem',
+          maxWidth: '100%',
+        }}
       >
         <NimbusLogo />
-        <Stack style={{ width: '39%' }}>
-          <Titles
-            title="Device Health Check"
-            subtitle="Configure your device to start Staking on Nimbus"
-          />
-        </Stack>
+        <Titles
+          title="Device Health Check"
+          subtitle="Configure your device to start Staking on Nimbus"
+        />
         <XStack space={'$4'}>
           <DeviceStorageHealth storage={1} maxStorage={2} />
           <DeviceStorageHealth storage={2} maxStorage={1} />
@@ -49,12 +52,10 @@ const DeviceHeanlthCheckContent = () => {
           cpuClockRate={2.5}
           networkLatency={75}
         />
-        <Stack style={{ width: '39%' }}>
-          <InformationBox
-            icon={<Icon src="/icons/close.png" width={11} height={11} />}
-            message="The information provided in the Nodes Health Check is meant to utilized as a guide to guage the readiness of your device, however please do your own due diligence prior to commiting any funds. Read our Health Check Disclosure for more information."
-          />
-        </Stack>
+        <InformationBox
+          icon={<Icon src="/icons/close.png" width={11} height={11} />}
+          message="The information provided in the Nodes Health Check is meant to utilized as a guide to guage the readiness of your device, however please do your own due diligence prior to commiting any funds. Read our Health Check Disclosure for more information."
+        />
         <Stack style={{ marginTop: '1rem' }}>
           <Button>Continue</Button>
         </Stack>
