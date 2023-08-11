@@ -97,8 +97,6 @@ function Content() {
           Discover Nodes
         </button>
       </article>
-      <DeviceStorageHealth storage={60} maxStorage={100} />
-      <DeviceCPULoad load={[13, 32, 24, 1, 49, 90, 13, 32, 24, 1, 49, 90]} />
     </div>
   )
 }
