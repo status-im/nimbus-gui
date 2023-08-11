@@ -11,7 +11,7 @@ const NimbusLogo = () => {
       }}
       space={'$2'}
     >
-      <Icon source={'/icons/marks.png'} width={55} height={60} />
+      <Icon src={'/icons/marks.png'} width={55} height={60} />
       <Text style={{ fontWeight: '650', fontSize: '24px' }}>Nimbus</Text>
       <Tag text="BETA" />
     </XStack>

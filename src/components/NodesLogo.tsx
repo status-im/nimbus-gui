@@ -11,7 +11,7 @@ const NodesLogo = () => {
       }}
       space={'$2'}
     >
-      <Icon source={'src/assets/nodes-app-icon.png'} width={32} height={32} />
+      <Icon src={'src/assets/nodes-app-icon.png'} width={32} height={32} />
       <Text style={{ fontWeight: '700', fontSize: '28px' }}>nodes</Text>
       <Tag text="BETA" />
     </XStack>

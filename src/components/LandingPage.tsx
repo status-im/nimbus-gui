@@ -1,6 +1,7 @@
 import LayoutComponent from './LayoutComponent'
 import './LandingPage.css'
 import QuickStartBar from './QuickStartBar'
+import NodesLogo from './NodesLogo'
 
 function LandingPage() {
   return (
@@ -23,6 +24,7 @@ function Content() {
             nodes<span className="beta">BETA</span>
           </p>
         </div>
+        <NodesLogo />
       </header>
       <article className="content">
         <div className="avatar">
