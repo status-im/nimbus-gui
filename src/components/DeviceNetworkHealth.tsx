@@ -2,7 +2,6 @@ import StandartLineChart from './StandardLineChart'
 import ShadowBox from './ShadowBox'
 import IconText from './IconText'
 import { Paragraph, Separator, XStack, YStack } from 'tamagui'
-import MyResponsiveStream from './StandartStream'
 
 type DataPoint = {
   x: number
@@ -19,7 +18,7 @@ type DeviceNetworkHealthProps = {
   uploadRate: number[]
   downloadRate: number[]
 }
-const DeviceNetworkHealth: React.FC<DeviceNetworkHealthProps> = ({ uploadRate, downloadRate }) => {
+const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthProps) => {
   const chartData: ChartData[] = [
     {
       id: 'uploadRate',

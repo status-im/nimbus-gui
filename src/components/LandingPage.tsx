@@ -98,7 +98,7 @@ function Content() {
       </article>
       <DeviceNetworkHealth
         uploadRate={[6, 63, 123, 59, 12, 6, 63, 123, 59, 12]}
-        downloadRate={[123, -56, 90, -130, 50, 123, -56, 90, -130, 40]}
+        downloadRate={[123, 56, 90, 10, 50, 123, 56, 90, 130, 40]}
       />
     </div>
   )

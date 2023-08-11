@@ -25,7 +25,7 @@ const StandartLineChart = ({ data }: StandartLineChartProps) => {
         type: 'linear',
         min: 'auto',
         max: 'auto',
-        stacked: true,
+        stacked: false,
         reverse: false,
       }}
       axisTop={null}
@@ -35,8 +35,6 @@ const StandartLineChart = ({ data }: StandartLineChartProps) => {
       enableGridX={false}
       enableGridY={false}
       enablePoints={false}
-      pointSize={1}
-      pointColor={{ theme: 'background' }}
       pointBorderWidth={2}
       pointLabelYOffset={-12}
       useMesh={true}
