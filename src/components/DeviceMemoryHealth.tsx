@@ -12,20 +12,23 @@ type ChartData = {
   id: string
   color: string
   data: DataPoint[]
+  maxMemory?: number
 }
 
 type DeviceMemoryProps = {
-  load: number[]
+  currentMemory: number[]
+  maxMemory?: number
 }
-const DeviceMemory: React.FC<DeviceMemoryProps> = ({ load }) => {
+const DeviceMemory = ({ currentMemory, maxMemory }: DeviceMemoryProps) => {
   const chartData: ChartData[] = [
     {
       id: 'cpu',
       color: '#8DC6BC',
-      data: load.map((yValue, index: number) => ({
+      data: currentMemory.map((yValue, index: number) => ({
         x: index + 1,
         y: yValue,
       })),
+      maxMemory: maxMemory,
     },
   ]
   const currentLoad =

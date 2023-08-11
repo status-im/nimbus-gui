@@ -96,7 +96,7 @@ function Content() {
           Discover Nodes
         </button>
       </article>
-      <DeviceMemory load={[12,13,14,14,2,1,3]}></DeviceMemory>
+      <DeviceMemory currentMemory={[12,32,21,2,3,64]} maxMemory={64}/>
     </div>
   )
 }

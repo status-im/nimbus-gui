@@ -7,12 +7,15 @@ interface DataPoint {
 interface ChartData {
   id: string
   data: DataPoint[]
+  maxMemory?: number
 }
 
 interface StandartLineChartProps {
   data: ChartData[]
 }
 const StandartLineChart = ({ data }: StandartLineChartProps) => {
+  const maxMemory = data[0].maxMemory || 'auto'
+
   return (
     <ResponsiveLine
       data={data}
@@ -20,8 +23,8 @@ const StandartLineChart = ({ data }: StandartLineChartProps) => {
       xScale={{ type: 'linear', min: 0, max: data[0].data.length }}
       yScale={{
         type: 'linear',
-        min: 'auto',
-        max: 'auto',
+        min: 0,
+        max: maxMemory,
         stacked: true,
         reverse: false,
       }}
