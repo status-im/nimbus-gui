@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import DeviceMemory from './DeviceMemoryHealth'
+import DeviceMemoryHealth from './DeviceMemoryHealth'
 
 const meta = {
-  title: 'Device Health/DeviceMemory',
-  component: DeviceMemory,
+  title: 'Device Health/DeviceMemoryHealth',
+  component: DeviceMemoryHealth,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof DeviceMemory>
+} satisfies Meta<typeof DeviceMemoryHealth>
 
 export default meta
 type Story = StoryObj<typeof meta>

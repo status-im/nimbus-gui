@@ -16,11 +16,11 @@ type ChartData = {
   maxValue?: number
 }
 
-type DeviceMemoryProps = {
+type DeviceMemoryHealthProps = {
   currentMemory: number[]
   maxMemory: number
 }
-const DeviceMemory = ({ currentMemory, maxMemory }: DeviceMemoryProps) => {
+const DeviceMemoryHealth = ({ currentMemory, maxMemory }: DeviceMemoryHealthProps) => {
   const chartData: ChartData[] = [
     {
       id: 'cpu',
@@ -84,4 +84,4 @@ const DeviceMemory = ({ currentMemory, maxMemory }: DeviceMemoryProps) => {
   )
 }
 
-export default DeviceMemory
+export default DeviceMemoryHealth
