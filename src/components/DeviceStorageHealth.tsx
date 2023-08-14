@@ -28,7 +28,15 @@ const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxS
     ]
   }
   return (
-    <Shadow variant="$2" style={{ width: '284px', height: '136px', borderRadius: '16px' }}>
+    <Shadow
+      variant="$2"
+      style={{
+        width: '284px',
+        height: '136px',
+        borderRadius: '16px',
+        border: '1px solid  #D92344',
+      }}
+    >
       <YStack>
         <XStack
           justifyContent="space-between"
