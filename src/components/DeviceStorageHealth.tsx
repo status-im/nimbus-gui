@@ -1,22 +1,21 @@
 import IconText from './IconText'
 import { Paragraph, Separator, XStack, YStack } from 'tamagui'
 import StandardGauge from './StandardGauge'
-import { Shadow } from '@status-im/components'
+import { Shadow, Text } from '@status-im/components'
 interface DeviceStorageHealthProps {
   storage: number
   maxStorage: number
 }
 const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxStorage }) => {
   const message = storage < maxStorage ? 'Good' : 'Poor'
-  const data = (storage: number, maxStorage: number) => {
-    const used = storage
-    const free = maxStorage - storage
+  const free = maxStorage - storage
 
+  const data = (free: number) => {
     return [
       {
         id: 'storage',
         label: 'Used',
-        value: used,
+        value: storage,
         color: '#E95460',
       },
       {
@@ -34,7 +33,8 @@ const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxS
         width: '284px',
         height: '136px',
         borderRadius: '16px',
-        border: '1px solid  #D92344',
+        border: message === 'Poor' ? '1px solid  #D92344' : 'none',
+        backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
       }}
     >
       <YStack>
@@ -53,7 +53,7 @@ const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxS
               height: '75px',
             }}
           >
-            <StandardGauge data={data(storage, maxStorage)} />
+            <StandardGauge data={data(free)} />
           </div>
           <YStack space={'$3'}>
             <Paragraph color={'#09101C'} size={'$6'} fontWeight={'600'}>
@@ -72,7 +72,11 @@ const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxS
           >
             {message}
           </IconText>
-          {/* <Text color={'#E95460'}>This is additional text</Text>  */}
+          {message === 'Poor' && (
+            <Text size={13} color="#E95460">
+              {((storage / maxStorage) * 100).toFixed(0)}% Uttilization
+            </Text>
+          )}
         </XStack>
       </YStack>
     </Shadow>
