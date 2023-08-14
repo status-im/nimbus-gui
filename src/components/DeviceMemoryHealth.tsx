@@ -2,7 +2,7 @@ import StandartLineChart from './StandardLineChart'
 
 import IconText from './IconText'
 import { Paragraph, Separator, XStack, YStack } from 'tamagui'
-import { Shadow as ShadowBox } from '@status-im/components'
+import { Shadow as ShadowBox, Text } from '@status-im/components'
 
 type DataPoint = {
   x: number
@@ -18,7 +18,7 @@ type ChartData = {
 
 type DeviceMemoryProps = {
   currentMemory: number[]
-  maxMemory?: number
+  maxMemory: number
 }
 const DeviceMemory = ({ currentMemory, maxMemory }: DeviceMemoryProps) => {
   const chartData: ChartData[] = [
@@ -38,13 +38,22 @@ const DeviceMemory = ({ currentMemory, maxMemory }: DeviceMemoryProps) => {
   const message = currentLoad < 80 ? 'Good' : 'Poor'
 
   return (
-    <ShadowBox variant="$2" style={{ width: '284px', height: '136px', borderRadius: '16px' }}>
+    <ShadowBox
+      variant="$2"
+      style={{
+        width: '284px',
+        height: '136px',
+        borderRadius: '16px',
+        border: message === 'Poor' ? '1px solid  #D92344' : 'none',
+        backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
+      }}
+    >
       <YStack>
         <XStack
           justifyContent="space-between"
           style={{
             padding: '8px 16px',
-            position: 'relative', // Make XStack a positioning context
+            position: 'relative',
           }}
         >
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
@@ -64,7 +73,11 @@ const DeviceMemory = ({ currentMemory, maxMemory }: DeviceMemoryProps) => {
           <IconText icon={message === 'Good' ? '/icons/check-circle.png' : '/icons/alert.png'}>
             {message}
           </IconText>
-          {/* <Text color={'#E95460'}>This is additional text</Text>  */}
+          {message === 'Poor' && (
+            <Text size={13} color="#E95460">
+              {((currentLoad / maxMemory) * 100).toFixed(0)}% Uttilization
+            </Text>
+          )}
         </XStack>
       </YStack>
     </ShadowBox>
