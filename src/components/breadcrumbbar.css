@@ -22,7 +22,7 @@
     content: url("../assets/chevron.svg");
     color: #09101C;
     position: absolute;
-    top: -2px;
+    top: 2px;
     left: 100%;
     transform: translateX(-50%);
 }
