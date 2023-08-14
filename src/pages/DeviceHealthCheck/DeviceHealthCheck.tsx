@@ -13,7 +13,7 @@ import DeviceNetworkHealth from '../../components/DeviceNetworkHealth'
 const DeviceHealthCheck = () => {
   return (
     <LayoutComponent
-      content={<DeviceHeanlthCheckContent />}
+      content={<DeviceHealthCheckContent />}
       rightImageSrc="/background-images/eye-background.png"
     />
   )
