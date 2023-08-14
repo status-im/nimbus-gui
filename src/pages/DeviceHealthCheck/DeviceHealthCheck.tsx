@@ -44,7 +44,7 @@ const DeviceHeanlthCheckContent = () => {
           <DeviceCPULoad load={[12, 123, 4]} />
         </XStack>
         <XStack space={'$4'}>
-          <DeviceMemory currentMemory={[25, 31, 5, 14, 20,81]} maxMemory={78} />
+          <DeviceMemory currentMemory={[25, 31, 5, 14, 20,81]} maxMemory={38} />
           <DeviceNetworkHealth uploadRate={[1, 4, 23, 11]} downloadRate={[20, 3, 40, 56]} />
         </XStack>
         <HealthInfoSection

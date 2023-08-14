@@ -1,7 +1,7 @@
 import StandartLineChart from './StandardLineChart'
 import IconText from './IconText'
 import { Paragraph, Separator, XStack, YStack } from 'tamagui'
-import { Shadow as ShadowBox } from '@status-im/components'
+import { Shadow as ShadowBox, Text } from '@status-im/components'
 
 type DataPoint = {
   x: number
@@ -40,10 +40,19 @@ const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthPr
   const currentLoad =
     chartData[0].data.length > 0 ? chartData[0].data[chartData[0].data.length - 1].y : 0
 
-  const message = currentLoad < 80 ? 'Good' : 'Poor'
+  const message = currentLoad > 60 ? 'Good' : 'Poor'
 
   return (
-    <ShadowBox variant="$2" style={{ width: '284px', height: '136px', borderRadius: '16px' }}>
+    <ShadowBox
+      variant="$2"
+      style={{
+        width: '284px',
+        height: '136px',
+        borderRadius: '16px',
+        border: message === 'Poor' ? '1px solid  #D92344' : 'none',
+        backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
+      }}
+    >
       <YStack>
         <XStack
           justifyContent="space-between"
@@ -69,7 +78,11 @@ const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthPr
           <IconText icon={message === 'Good' ? '/icons/check-circle.png' : '/icons/alert.png'}>
             {message}
           </IconText>
-          {/* <Text color={'#E95460'}>This is additional text</Text>  */}
+          {message === 'Poor' && (
+            <Text size={13} color="#E95460">
+              {((currentLoad / 60) * 100).toFixed(0)}% Uttilization
+            </Text>
+          )}
         </XStack>
       </YStack>
     </ShadowBox>

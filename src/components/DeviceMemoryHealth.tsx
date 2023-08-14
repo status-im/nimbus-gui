@@ -35,7 +35,7 @@ const DeviceMemory = ({ currentMemory, maxMemory }: DeviceMemoryProps) => {
   const currentLoad =
     chartData[0].data.length > 0 ? chartData[0].data[chartData[0].data.length - 1].y : 0
 
-  const message = currentLoad < 80 ? 'Good' : 'Poor'
+  const message = currentLoad < maxMemory ? 'Good' : 'Poor'
 
   return (
     <ShadowBox
