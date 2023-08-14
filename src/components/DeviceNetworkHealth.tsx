@@ -80,7 +80,7 @@ const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthPr
           </IconText>
           {message === 'Poor' && (
             <Text size={13} color="#E95460">
-              {((currentLoad / 60) * 100).toFixed(0)}% Uttilization
+              {((currentLoad / 60) * 100).toFixed(0)}% Utilization
             </Text>
           )}
         </XStack>
