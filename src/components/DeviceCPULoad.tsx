@@ -1,7 +1,7 @@
 import StandartLineChart from './StandardLineChart'
 import IconText from './IconText'
 import { Paragraph, Separator, XStack, YStack } from 'tamagui'
-import { Shadow } from '@status-im/components'
+import { Shadow, Text } from '@status-im/components'
 
 type DataPoint = {
   x: number
@@ -34,7 +34,16 @@ const DeviceCPULoad: React.FC<DeviceCPULoadProps> = ({ load }) => {
   const message = currentLoad < 80 ? 'Good' : 'Poor'
 
   return (
-    <Shadow variant="$2" style={{ width: '284px', height: '136px', borderRadius: '16px' }}>
+    <Shadow
+      variant="$2"
+      style={{
+        width: '284px',
+        height: '136px',
+        borderRadius: '16px',
+        border: message === 'Poor' ? '1px solid  #D92344' : 'none',
+        backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
+      }}
+    >
       <YStack>
         <XStack
           justifyContent="space-between"
@@ -63,7 +72,11 @@ const DeviceCPULoad: React.FC<DeviceCPULoadProps> = ({ load }) => {
           >
             {message}
           </IconText>
-          {/* <Text color={'#E95460'}>This is additional text</Text>  */}
+          {message === 'Poor' && (
+            <Text size={13} color="#E95460">
+              {((currentLoad / 80) * 100).toFixed(0)}% Uttilization
+            </Text>
+          )}
         </XStack>
       </YStack>
     </Shadow>
