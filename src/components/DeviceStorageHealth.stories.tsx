@@ -27,3 +27,10 @@ export const BadStats: Story = {
     maxStorage: 20,
   },
 }
+
+export const NoStats: Story = {
+  args: {
+    storage: 0,
+    maxStorage: 0,
+  },
+}

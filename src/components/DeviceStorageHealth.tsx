@@ -9,6 +9,7 @@ interface DeviceStorageHealthProps {
 const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxStorage }) => {
   const message = storage < maxStorage ? 'Good' : 'Poor'
   const free = maxStorage - storage
+  const utilization = (storage / (maxStorage || 1)) * 100
 
   const data = (free: number) => {
     return [
@@ -26,6 +27,7 @@ const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxS
       },
     ]
   }
+
   return (
     <Shadow
       variant="$2"
@@ -74,7 +76,7 @@ const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxS
           </IconText>
           {message === 'Poor' && (
             <Text size={13} color="#E95460">
-              {((storage / maxStorage) * 100).toFixed(0)}% Utilization
+              {utilization.toFixed(0)}% Utilization
             </Text>
           )}
         </XStack>
