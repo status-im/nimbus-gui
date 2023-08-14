@@ -74,7 +74,7 @@ const DeviceCPULoad: React.FC<DeviceCPULoadProps> = ({ load }) => {
           </IconText>
           {message === 'Poor' && (
             <Text size={13} color="#E95460">
-              {((currentLoad / 80) * 100).toFixed(0)}% Uttilization
+              {((currentLoad / 80) * 100).toFixed(0)}% Utilization
             </Text>
           )}
         </XStack>
