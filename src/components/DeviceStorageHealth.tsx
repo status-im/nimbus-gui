@@ -74,7 +74,7 @@ const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxS
           </IconText>
           {message === 'Poor' && (
             <Text size={13} color="#E95460">
-              {((storage / maxStorage) * 100).toFixed(0)}% Uttilization
+              {((storage / maxStorage) * 100).toFixed(0)}% Utilization
             </Text>
           )}
         </XStack>
