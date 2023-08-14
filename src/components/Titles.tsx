@@ -1,8 +1,7 @@
 import { XStack, YStack } from 'tamagui'
-import Title from './Title'
-import SubTitle from './SubTitle'
-import { Button } from '@status-im/components'
+import { Button, Text } from '@status-im/components'
 import Icon from './Icon'
+import Title from './Title'
 
 type TitlesProps = {
   title: string
@@ -21,7 +20,9 @@ const Titles = ({ title, subtitle, isAdvancedSettings }: TitlesProps) => {
           </Button>
         )}
       </XStack>
-      <SubTitle color={'#09101C'}>{subtitle}</SubTitle>
+      <Text size={15} weight="regular">
+        {subtitle}
+      </Text>
     </YStack>
   )
 }
