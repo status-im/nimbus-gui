@@ -43,7 +43,7 @@ const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthPr
   const message = currentLoad < 80 ? 'Good' : 'Poor'
 
   return (
-    <ShadowBox style={{ width: '284px', height: '136px' }}>
+    <ShadowBox variant="$2" style={{ width: '284px', height: '136px', borderRadius: '16px' }}>
       <YStack>
         <XStack
           justifyContent="space-between"
