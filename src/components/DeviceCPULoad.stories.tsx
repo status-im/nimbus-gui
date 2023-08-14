@@ -16,12 +16,12 @@ type Story = StoryObj<typeof meta>
 
 export const GoodStats: Story = {
   args: {
-    load: [12, 123, 4],
+    load: [12, 123, 4,32,40],
   },
 }
 
 export const BadStats: Story = {
   args: {
-    load: [12, 123, 81],
+    load: [12, 34, 81, 90, 91],
   },
 }
