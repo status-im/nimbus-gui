@@ -8,6 +8,7 @@ import HealthInfoSection from '../../components/HealthInfoSection'
 import { Button, InformationBox } from '@status-im/components'
 import Icon from '../../components/Icon'
 import DeviceMemory from '../../components/DeviceMemoryHealth'
+import DeviceNetworkHealth from '../../components/DeviceNetworkHealth'
 
 const DeviceHealthCheck = () => {
   return (
@@ -43,8 +44,8 @@ const DeviceHeanlthCheckContent = () => {
           <DeviceCPULoad load={[12, 123, 4]} />
         </XStack>
         <XStack space={'$4'}>
-          <DeviceMemory currentMemory={[25,31,5,14,20]} maxMemory={64} />
-          <DeviceCPULoad load={[1, 4, 23]} />
+          <DeviceMemory currentMemory={[25, 31, 5, 14, 20]} maxMemory={64} />
+          <DeviceNetworkHealth uploadRate={[1, 4, 23, 11]} downloadRate={[20, 3, 40, 56]} />
         </XStack>
         <HealthInfoSection
           usedStorage={120}
