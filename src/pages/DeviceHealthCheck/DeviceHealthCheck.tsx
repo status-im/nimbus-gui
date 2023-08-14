@@ -21,7 +21,7 @@ const DeviceHealthCheck = () => {
 
 export default DeviceHealthCheck
 
-const DeviceHeanlthCheckContent = () => {
+const DeviceHealthCheckContent = () => {
   return (
     <div className="container-inner landing-page">
       <YStack
