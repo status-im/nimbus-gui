@@ -27,3 +27,9 @@ export const BadStats: Story = {
     maxMemory: 64,
   },
 }
+export const EmptyStats: Story = {
+  args: {
+    currentMemory: [],
+    maxMemory:0,
+  },
+}
