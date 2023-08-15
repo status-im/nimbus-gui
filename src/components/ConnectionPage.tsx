@@ -12,7 +12,12 @@ import CreateIcon from './CreateIcon'
 import LabelInputField from './LabelInputField'
 
 function ContentPage() {
-  return <LayoutComponent breadcrumbBar={<BreadcrumbBar />} content={<Content />} />
+  return (
+    <LayoutComponent
+      breadcrumbBar={<BreadcrumbBar breadcrumbList={['Nodes', 'Nimbus', 'Connect Device']} />}
+      content={<Content />}
+    />
+  )
 }
 
 function Content() {
