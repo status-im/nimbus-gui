@@ -16,14 +16,21 @@ type Story = StoryObj<typeof meta>
 
 export const GoodStats: Story = {
   args: {
-    uploadRate: [1, 4, 23, 61,34],
-    downloadRate: [20, 3, 40, 56,32],
+    uploadRate: [1, 4, 23, 61, 34],
+    downloadRate: [20, 3, 40, 56, 32],
   },
 }
 
 export const BadStats: Story = {
   args: {
     uploadRate: [1, 4, 23, 55],
-    downloadRate: [20, 3, 40, 56,80],
+    downloadRate: [20, 3, 40, 56, 80],
+  },
+}
+
+export const NoStats: Story = {
+  args: {
+    uploadRate: [],
+    downloadRate: [],
   },
 }
