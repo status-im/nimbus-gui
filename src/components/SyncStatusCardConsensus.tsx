@@ -48,7 +48,8 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
             style={{
               position: 'absolute',
               right: '44px',
-              height: '181px',
+              height: '115px',
+              width: '115px',
             }}
           >
             <StandardGauge data={data()} />
