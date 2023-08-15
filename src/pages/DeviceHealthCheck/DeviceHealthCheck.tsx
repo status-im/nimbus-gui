@@ -1,6 +1,6 @@
 import { Stack, XStack, YStack } from 'tamagui'
 import PageWrapperShadow from '../../components/PageWrapperShadow'
-import NimbusLogo from '../../components/NimbusLogo'
+import NimbusLogo from '../../components/Logos/NimbusLogo'
 import Titles from '../../components/Titles'
 import DeviceStorageHealth from '../../components/DeviceStorageHealth'
 import DeviceCPULoad from '../../components/DeviceCPULoad'
