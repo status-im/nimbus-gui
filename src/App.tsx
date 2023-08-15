@@ -5,7 +5,7 @@ import './App.css'
 import config from '../tamagui.config'
 import LandingPage from './components/LandingPage'
 import DeviceHealthCheck from './pages/DeviceHealthCheck/DeviceHealthCheck'
-import ConnectDevicePage from './components/ConnectDevicePage'
+import ConnectDevicePage from './pages/ConnectDevicePage/ConnectDevicePage'
 
 const router = createBrowserRouter([
   {
