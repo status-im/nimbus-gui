@@ -11,7 +11,7 @@ import PairIcon from './PairIcon'
 import CreateIcon from './CreateIcon'
 import LabelInputField from './LabelInputField'
 
-function ContentPage() {
+const ConnectDevicePage = () => {
   const [autoConnectChecked, setAutoConnectChecked] = useState(false)
   const [portChecked, setPortChecked] = useState(false)
 
@@ -111,4 +111,4 @@ function ContentPage() {
   )
 }
 
-export default ContentPage
+export default ConnectDevicePage

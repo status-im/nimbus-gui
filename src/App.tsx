@@ -5,7 +5,7 @@ import './App.css'
 import config from '../tamagui.config'
 import LandingPage from './components/LandingPage'
 import DeviceHealthCheck from './pages/DeviceHealthCheck/DeviceHealthCheck'
-import ContentPage from './components/ConnectionPage'
+import ConnectDevicePage from './components/ConnectDevicePage'
 
 const router = createBrowserRouter([
   {
@@ -17,8 +17,8 @@ const router = createBrowserRouter([
     element: <DeviceHealthCheck />,
   },
   {
-    path: '/connection-page',
-    element: <ContentPage />,
+    path: '/connect-device',
+    element: <ConnectDevicePage />,
   },
 ])
 
