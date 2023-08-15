@@ -22,9 +22,7 @@ function LayoutRight({ rightImageSrc }: { rightImageSrc?: string }) {
   return (
     <section className="layout-right">
       <div className="image-container">
-        <img src={rightImageSrc} alt="" />
-        {/* <img src="src/assets/bg-img/day-night-bg.png" alt="" /> */}
-        {/* <img src="src/assets/bg-img/key-lock-bg.png" alt="" /> */}
+        <img src={rightImageSrc} alt="background" />
       </div>
     </section>
   )
