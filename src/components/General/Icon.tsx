@@ -7,7 +7,15 @@ export type IconProps = {
 }
 
 const Icon = ({ src, width = 16, height = 16 }: IconProps) => {
-  return <Image src={src} source={{ uri: src }} width={width} height={height} />
+  return (
+    <Image
+      src={src}
+      source={{ uri: src }}
+      width={width}
+      height={height}
+      style={{ backgroundColor: 'transparent' }}
+    />
+  )
 }
 
 export default Icon
