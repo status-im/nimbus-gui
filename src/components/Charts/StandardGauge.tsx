@@ -23,8 +23,8 @@ const StandardGauge = ({ data }: StandardGaugeProps) => (
     arcLinkLabelsColor={{ from: 'color' }}
     enableArcLabels={false}
     legends={[]}
-    motionConfig="gentle"  // Define transition style
-    animate={false}         // Enable animation
+    motionConfig="gentle"
+    animate={false}
   />
 )
 

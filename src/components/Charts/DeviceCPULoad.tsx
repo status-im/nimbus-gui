@@ -1,7 +1,7 @@
 import StandartLineChart from './StandardLineChart'
-import IconText from './IconText'
+import IconText from '../IconText'
 import { Paragraph, Separator, XStack, YStack } from 'tamagui'
-import { Shadow as ShadowBox, Text } from '@status-im/components'
+import { Shadow, Text } from '@status-im/components'
 
 type DataPoint = {
   x: number
@@ -14,24 +14,15 @@ type ChartData = {
   data: DataPoint[]
 }
 
-type DeviceNetworkHealthProps = {
-  uploadRate: number[]
-  downloadRate: number[]
+type DeviceCPULoadProps = {
+  load: number[]
 }
-const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthProps) => {
+const DeviceCPULoad: React.FC<DeviceCPULoadProps> = ({ load }) => {
   const chartData: ChartData[] = [
     {
-      id: 'uploadRate',
+      id: 'cpu',
       color: '#8DC6BC',
-      data: uploadRate.map((yValue, index: number) => ({
-        x: index + 1,
-        y: yValue,
-      })),
-    },
-    {
-      id: 'downloadRate',
-      color: '#D92344',
-      data: downloadRate.map((yValue, index: number) => ({
+      data: load.map((yValue, index: number) => ({
         x: index + 1,
         y: yValue,
       })),
@@ -40,10 +31,10 @@ const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthPr
   const currentLoad =
     chartData[0].data.length > 0 ? chartData[0].data[chartData[0].data.length - 1].y : 0
 
-  const message = currentLoad > 60 ? 'Good' : 'Poor'
+  const message = currentLoad < 80 ? 'Good' : 'Poor'
 
   return (
-    <ShadowBox
+    <Shadow
       variant="$2"
       style={{
         width: '284px',
@@ -66,7 +57,7 @@ const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthPr
           </div>
           <YStack space={'$3'}>
             <Paragraph color={'#09101C'} size={'$6'} fontWeight={'600'}>
-              Network
+              CPU
             </Paragraph>
             <Paragraph color={'#09101C'} size={'$8'} fontWeight={'700'}>
               {currentLoad} GB
@@ -75,18 +66,21 @@ const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthPr
         </XStack>
         <Separator borderColor={'#e3e3e3'} />
         <XStack space={'$4'} style={{ padding: '10px 16px 10px 16px' }}>
-          <IconText icon={message === 'Good' ? '/icons/check-circle.png' : '/icons/alert.png'}>
+          <IconText
+            icon={message === 'Good' ? '/icons/check-circle.png' : '/icons/alert.png'}
+            weight={'semibold'}
+          >
             {message}
           </IconText>
           {message === 'Poor' && (
             <Text size={13} color="#E95460">
-              {((currentLoad / 60) * 100).toFixed(0)}% Utilization
+              {((currentLoad / 80) * 100).toFixed(0)}% Utilization
             </Text>
           )}
         </XStack>
       </YStack>
-    </ShadowBox>
+    </Shadow>
   )
 }
 
-export default DeviceNetworkHealth
+export default DeviceCPULoad

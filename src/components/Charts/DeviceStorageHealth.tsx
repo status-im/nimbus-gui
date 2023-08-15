@@ -1,4 +1,4 @@
-import IconText from './IconText'
+import IconText from '../IconText'
 import { Paragraph, Separator, XStack, YStack } from 'tamagui'
 import StandardGauge from './StandardGauge'
 import { Shadow, Text } from '@status-im/components'
