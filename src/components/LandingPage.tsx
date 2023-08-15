@@ -1,4 +1,4 @@
-import LayoutComponent from './LayoutComponent'
+import LayoutComponent from './PageWrapperShadow'
 import './LandingPage.css'
 import QuickStartBar from './QuickStartBar'
 
