@@ -6,7 +6,7 @@ import NodesLogo from '../../components/Logos/NodesLogo'
 function LandingPage() {
   return (
     <>
-      <PageWrapperShadow rightImageSrc="src/assets/bg-img/landing-page-bg.png">
+      <PageWrapperShadow rightImageSrc="/background-images/landing-page-bg.png">
         <div className="landing-page">
           <header>
             <NodesLogo />
