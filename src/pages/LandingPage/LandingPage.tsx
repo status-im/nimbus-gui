@@ -1,6 +1,7 @@
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import './LandingPage.css'
 import QuickStartBar from '../../components/General/QuickStartBar/QuickStartBar'
+import NodesLogo from '../../components/Logos/NodesLogo'
 
 function LandingPage() {
   return (
@@ -8,14 +9,7 @@ function LandingPage() {
       <PageWrapperShadow rightImageSrc="src/assets/bg-img/landing-page-bg.png">
         <div className="landing-page">
           <header>
-            <div>
-              <div>
-                <img src="src/assets/nodes-app-icon.png" alt="" />
-              </div>
-              <p className="logo-title">
-                nodes<span className="beta">BETA</span>
-              </p>
-            </div>
+            <NodesLogo />
           </header>
           <article className="content">
             <div className="avatar">
