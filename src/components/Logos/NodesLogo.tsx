@@ -1,6 +1,6 @@
 import { XStack } from 'tamagui'
 import Icon from '../General/Icon'
-import Tag from '../General/Tag'
+import BetaTag from './BetaTag'
 import { Text } from '@status-im/components'
 
 const NodesLogo = () => {
@@ -16,7 +16,7 @@ const NodesLogo = () => {
       <Text size={27} weight={'semibold'}>
         nodes
       </Text>
-      <Tag text="BETA" />
+      <BetaTag />
     </XStack>
   )
 }

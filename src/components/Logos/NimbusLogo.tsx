@@ -1,5 +1,5 @@
 import { XStack } from 'tamagui'
-import Tag from '../General/Tag'
+import BetaTag from './BetaTag'
 
 const NimbusLogo = () => {
   return (
@@ -12,7 +12,7 @@ const NimbusLogo = () => {
     >
       <img src={'/icons/marks.svg'} alt="marks" />
       <img src={'/icons/nimbus.svg'} alt="marks" />
-      <Tag text="BETA" />
+      <BetaTag />
     </XStack>
   )
 }
