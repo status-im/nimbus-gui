@@ -4,11 +4,16 @@ import { Provider as StatusProvider } from '@status-im/components'
 import './App.css'
 import config from '../tamagui.config'
 import LandingPage from './components/LandingPage'
+import DeviceHealthCheck from './pages/DeviceHealthCheck/DeviceHealthCheck'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <LandingPage />,
+  },
+  {
+    path: '/device-health-check',
+    element: <DeviceHealthCheck />,
   },
 ])
 

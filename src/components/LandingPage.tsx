@@ -5,7 +5,10 @@ import QuickStartBar from './QuickStartBar'
 function LandingPage() {
   return (
     <>
-      <LayoutComponent content={<Content />} />
+      <LayoutComponent
+        content={<Content />}
+        rightImageSrc="src/assets/bg-img/landing-page-bg.png"
+      />
       <QuickStartBar />
     </>
   )
