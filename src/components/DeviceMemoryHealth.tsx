@@ -75,7 +75,7 @@ const DeviceMemoryHealth = ({ currentMemory, maxMemory }: DeviceMemoryHealthProp
           </IconText>
           {message === 'Poor' && (
             <Text size={13} color="#E95460">
-              {((currentLoad / maxMemory) * 100).toFixed(0)}% Utilization
+              {((currentLoad / maxMemory || 0) * 100).toFixed(0)}% Utilization
             </Text>
           )}
         </XStack>
