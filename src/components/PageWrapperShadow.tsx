@@ -12,7 +12,9 @@ const PageWrapperShadow = ({ breadcrumbBar, rightImageSrc, children }: PageWrapp
     <div className="layout">
       <section className="layout-left">
         {breadcrumbBar}
-        <div className="container">{children}</div>
+        <div className="container">
+          <div className="container-inner">{children}</div>
+        </div>
       </section>
       <section className="layout-right">
         <div className="image-container">

@@ -6,7 +6,7 @@ function LandingPage() {
   return (
     <>
       <PageWrapperShadow rightImageSrc="src/assets/bg-img/landing-page-bg.png">
-        <div className="container-inner landing-page">
+        <div className="landing-page">
           <header>
             <div>
               <div>

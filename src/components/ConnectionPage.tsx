@@ -19,15 +19,15 @@ function ContentPage() {
     <PageWrapperShadow
       breadcrumbBar={<BreadcrumbBar breadcrumbList={['Nodes', 'Nimbus', 'Connect Device']} />}
     >
-      <div className="container-inner connection-page">
-        <header>
+      <div className="connection-page">
+        <XStack justifyContent={'space-between'}>
           <NimbusLogo />
           <XStack space={'$2'} alignItems="center">
             <Tag icon={ConnectIcon} label="Connect" size={32} selected />
             <Tag icon={PairIcon} label="Pair" size={32} />
             <Tag icon={CreateIcon} label="Create" size={32} />
           </XStack>
-        </header>
+        </XStack>
         <article className="content">
           <section className="mb-1">
             <Titles
