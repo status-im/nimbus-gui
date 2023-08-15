@@ -26,12 +26,12 @@ const DeviceSyncStatusContent = () => {
             {
               id: '123',
               text: 'You are currently syncing to the Nimbus Validator Client and Beacon node. This may take a while... Please stay put until you can access the Node Manager.',
-              reactions: 'love',
+              reactions: { love: new Set(['userId1', 'userId2']) },
             },
             {
               id: '123',
               text: 'You are currently syncing to the Nimbus Validator Client and Beacon node. This may take a while... Please stay put until you can access the Node Manager.',
-              reactions: 'love',
+              reactions: { love: new Set(['userId3', 'userId4']) },
             },
           ]}
         />
