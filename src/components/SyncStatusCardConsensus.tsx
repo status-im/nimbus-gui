@@ -1,5 +1,5 @@
 import IconText from './IconText'
-import { Separator, XStack, YStack } from 'tamagui'
+import { Separator, Stack, XStack, YStack } from 'tamagui'
 import StandardGauge from './StandardGauge'
 import { Shadow, Text } from '@status-im/components'
 import Icon from './Icon'
@@ -32,7 +32,7 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
       variant="$2"
       style={{
         width: '632px',
-        height: '155px',
+        height: 'auto',
         borderRadius: '16px',
       }}
     >
@@ -42,9 +42,10 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
           style={{
             padding: '8px 16px',
             position: 'relative',
+            height: '155px',
           }}
         >
-          <div
+          <Stack
             style={{
               position: 'absolute',
               right: '44px',
@@ -53,7 +54,7 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
             }}
           >
             <StandardGauge data={data()} />
-          </div>
+          </Stack>
           <YStack space={'$3'}>
             <Text size={13} color="#09101C" weight={'semibold'}>
               Execution Client
