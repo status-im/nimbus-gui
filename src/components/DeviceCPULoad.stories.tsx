@@ -25,3 +25,9 @@ export const BadStats: Story = {
     load: [12, 34, 81, 90, 91],
   },
 }
+
+export const EmptyStats: Story = {
+  args: {
+    load: [],
+  },
+}
