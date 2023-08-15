@@ -44,21 +44,21 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
             height: '155px',
           }}
         >
-          <Stack
-            style={{
-              position: 'absolute',
-              right: '44px',
-              height: '115px',
-              width: '115px',
-            }}
-          >
-            <StandardGauge data={data()} />
-          </Stack>
-          <YStack space={'$3'}>
-            <Text size={13} color="#84888e" weight={'semibold'}>
+          <YStack space={'$3'} style={{ width: '100%' }}>
+            <Text size={15} color="#84888e" weight={'semibold'}>
               Execution Client
             </Text>
-            <Icon src="/icons/vector.svg" height={46} width={93} marginTop={'30px'} />
+            <XStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+              <Icon src="/icons/vector.svg" height={46} width={93} />
+              <Stack
+                style={{
+                  height: '115px',
+                  width: '115px',
+                }}
+              >
+                <StandardGauge data={data()} />
+              </Stack>
+            </XStack>
           </YStack>
         </XStack>
 

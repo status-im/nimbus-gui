@@ -1,5 +1,5 @@
 import IconText from './IconText'
-import { Paragraph, Separator, Stack, XStack, YStack } from 'tamagui'
+import { Separator, Stack, XStack, YStack } from 'tamagui'
 import StandardGauge from './StandardGauge'
 import { Shadow, Text } from '@status-im/components'
 interface DeviceStorageHealthProps {
@@ -43,23 +43,23 @@ const SyncStatusCardExecution: React.FC<DeviceStorageHealthProps> = ({ synced, t
             height: '155px',
           }}
         >
-          <Stack
-            style={{
-              position: 'absolute',
-              right: '44px',
-              height: '115px',
-              width: '115px',
-            }}
-          >
-            <StandardGauge data={data()} />
-          </Stack>
-          <YStack space={'$3'}>
-            <Text size={13} color="#84888e" weight={'semibold'}>
+          <YStack space={'$3'} style={{ width: '100%' }}>
+            <Text size={15} color="#84888e" weight={'semibold'}>
               Execution Client
             </Text>
-            <Text color={'#09101C'} size={27} weight={'semibold'}  marginTop={'30px'}>
-              Geth
-            </Text>
+            <XStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+              <Text color={'#09101C'} size={27} weight={'semibold'}>
+                Geth
+              </Text>
+              <Stack
+                style={{
+                  height: '115px',
+                  width: '115px',
+                }}
+              >
+                <StandardGauge data={data()} />
+              </Stack>
+            </XStack>
           </YStack>
         </XStack>
 
