@@ -3,6 +3,8 @@ import LayoutComponent from '../../components/LayoutComponent'
 import NimbusLogo from '../../components/NimbusLogo'
 import Titles from '../../components/Titles'
 import { Button } from '@status-im/components'
+import SyncStatusCardExecution from '../../components/SyncStatusCardExecution'
+import SyncStatusCardConsensus from '../../components/SyncStatusCardConsensus'
 
 const DeviceSyncStatus = () => {
   return (
@@ -34,6 +36,8 @@ const DeviceSyncStatusContent = () => {
           isAdvancedSettings={true}
         />
 
+        <SyncStatusCardExecution synced={30} total={50} />
+        <SyncStatusCardConsensus synced={30} total={50} />
         <Stack style={{ marginTop: '1rem' }}>
           <Button>Continue</Button>
         </Stack>
