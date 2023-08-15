@@ -2,7 +2,7 @@ import { useState } from 'react'
 import BreadcrumbBar from './BreadcrumbBar'
 import { Button as StatusButton, Tag, Text, Avatar, Checkbox } from '@status-im/components'
 import { Label, Separator, XStack, YStack } from 'tamagui'
-import LayoutComponent from './PageWrapperShadow'
+import PageWrapperShadow from './PageWrapperShadow'
 import NimbusLogo from './NimbusLogo'
 import Titles from './Titles'
 import NodeIcon from './NodeIcon'
@@ -13,10 +13,11 @@ import LabelInputField from './LabelInputField'
 
 function ContentPage() {
   return (
-    <LayoutComponent
+    <PageWrapperShadow
       breadcrumbBar={<BreadcrumbBar breadcrumbList={['Nodes', 'Nimbus', 'Connect Device']} />}
-      content={<Content />}
-    />
+    >
+      <Content />
+    </PageWrapperShadow>
   )
 }
 

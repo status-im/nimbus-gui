@@ -1,5 +1,5 @@
 import { Stack, XStack, YStack } from 'tamagui'
-import LayoutComponent from '../../components/PageWrapperShadow'
+import PageWrapperShadow from '../../components/PageWrapperShadow'
 import NimbusLogo from '../../components/NimbusLogo'
 import Titles from '../../components/Titles'
 import DeviceStorageHealth from '../../components/DeviceStorageHealth'
@@ -12,10 +12,9 @@ import DeviceNetworkHealth from '../../components/DeviceNetworkHealth'
 
 const DeviceHealthCheck = () => {
   return (
-    <LayoutComponent
-      content={<DeviceHealthCheckContent />}
-      rightImageSrc="/background-images/eye-background.png"
-    />
+    <PageWrapperShadow rightImageSrc="/background-images/eye-background.png">
+      <DeviceHealthCheckContent />
+    </PageWrapperShadow>
   )
 }
 

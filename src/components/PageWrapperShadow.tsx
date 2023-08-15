@@ -3,16 +3,16 @@ import './layout.css'
 
 type PageWrapperShadowProps = {
   breadcrumbBar?: ReactNode
-  content: ReactNode
   rightImageSrc?: string
+  children: ReactNode
 }
 
-const PageWrapperShadow = ({ breadcrumbBar, content, rightImageSrc }: PageWrapperShadowProps) => {
+const PageWrapperShadow = ({ breadcrumbBar, rightImageSrc, children }: PageWrapperShadowProps) => {
   return (
     <div className="layout">
       <section className="layout-left">
         {breadcrumbBar}
-        <div className="container">{content}</div>
+        <div className="container">{children}</div>
       </section>
       <section className="layout-right">
         <div className="image-container">

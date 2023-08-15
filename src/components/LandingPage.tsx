@@ -1,14 +1,13 @@
-import LayoutComponent from './PageWrapperShadow'
+import PageWrapperShadow from './PageWrapperShadow'
 import './LandingPage.css'
 import QuickStartBar from './QuickStartBar'
 
 function LandingPage() {
   return (
     <>
-      <LayoutComponent
-        content={<Content />}
-        rightImageSrc="src/assets/bg-img/landing-page-bg.png"
-      />
+      <PageWrapperShadow rightImageSrc="src/assets/bg-img/landing-page-bg.png">
+        <Content />
+      </PageWrapperShadow>
       <QuickStartBar />
     </>
   )
