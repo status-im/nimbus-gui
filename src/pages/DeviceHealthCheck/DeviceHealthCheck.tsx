@@ -1,14 +1,14 @@
 import { Stack, XStack, YStack } from 'tamagui'
-import PageWrapperShadow from '../../components/PageWrapperShadow'
+import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import NimbusLogo from '../../components/Logos/NimbusLogo'
 import Titles from '../../components/Titles'
-import DeviceStorageHealth from '../../components/DeviceStorageHealth'
-import DeviceCPULoad from '../../components/DeviceCPULoad'
+import DeviceStorageHealth from '../../components/Charts/DeviceStorageHealth'
+import DeviceCPULoad from '../../components/Charts/DeviceCPULoad'
 import HealthInfoSection from '../../components/HealthInfoSection'
 import { Button, InformationBox } from '@status-im/components'
 import Icon from '../../components/Icon'
-import DeviceMemory from '../../components/DeviceMemoryHealth'
-import DeviceNetworkHealth from '../../components/DeviceNetworkHealth'
+import DeviceMemory from '../../components/Charts/DeviceMemoryHealth'
+import DeviceNetworkHealth from '../../components/Charts/DeviceNetworkHealth'
 
 const DeviceHealthCheck = () => {
   return (

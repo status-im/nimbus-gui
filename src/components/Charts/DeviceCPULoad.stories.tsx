@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>
 
 export const GoodStats: Story = {
   args: {
-    load: [12, 123, 4,32,40],
+    load: [12, 123, 4, 32, 40],
   },
 }
 

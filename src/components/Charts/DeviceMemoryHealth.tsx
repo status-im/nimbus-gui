@@ -1,7 +1,8 @@
 import StandartLineChart from './StandardLineChart'
-import IconText from './IconText'
+
+import IconText from '../IconText'
 import { Paragraph, Separator, XStack, YStack } from 'tamagui'
-import { Shadow, Text } from '@status-im/components'
+import { Shadow as ShadowBox, Text } from '@status-im/components'
 
 type DataPoint = {
   x: number
@@ -12,29 +13,32 @@ type ChartData = {
   id: string
   color: string
   data: DataPoint[]
+  maxValue?: number
 }
 
-type DeviceCPULoadProps = {
-  load: number[]
+type DeviceMemoryHealthProps = {
+  currentMemory: number[]
+  maxMemory: number
 }
-const DeviceCPULoad: React.FC<DeviceCPULoadProps> = ({ load }) => {
+const DeviceMemoryHealth = ({ currentMemory, maxMemory }: DeviceMemoryHealthProps) => {
   const chartData: ChartData[] = [
     {
       id: 'cpu',
       color: '#8DC6BC',
-      data: load.map((yValue, index: number) => ({
+      data: currentMemory.map((yValue, index: number) => ({
         x: index + 1,
         y: yValue,
       })),
+      maxValue: maxMemory,
     },
   ]
   const currentLoad =
     chartData[0].data.length > 0 ? chartData[0].data[chartData[0].data.length - 1].y : 0
 
-  const message = currentLoad < 80 ? 'Good' : 'Poor'
+  const message = currentLoad < maxMemory ? 'Good' : 'Poor'
 
   return (
-    <Shadow
+    <ShadowBox
       variant="$2"
       style={{
         width: '284px',
@@ -49,7 +53,7 @@ const DeviceCPULoad: React.FC<DeviceCPULoadProps> = ({ load }) => {
           justifyContent="space-between"
           style={{
             padding: '8px 16px',
-            position: 'relative', // Make XStack a positioning context
+            position: 'relative',
           }}
         >
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
@@ -57,7 +61,7 @@ const DeviceCPULoad: React.FC<DeviceCPULoadProps> = ({ load }) => {
           </div>
           <YStack space={'$3'}>
             <Paragraph color={'#09101C'} size={'$6'} fontWeight={'600'}>
-              CPU
+              Memory
             </Paragraph>
             <Paragraph color={'#09101C'} size={'$8'} fontWeight={'700'}>
               {currentLoad} GB
@@ -66,21 +70,18 @@ const DeviceCPULoad: React.FC<DeviceCPULoadProps> = ({ load }) => {
         </XStack>
         <Separator borderColor={'#e3e3e3'} />
         <XStack space={'$4'} style={{ padding: '10px 16px 10px 16px' }}>
-          <IconText
-            icon={message === 'Good' ? '/icons/check-circle.png' : '/icons/alert.png'}
-            weight={'semibold'}
-          >
+          <IconText icon={message === 'Good' ? '/icons/check-circle.png' : '/icons/alert.png'}>
             {message}
           </IconText>
           {message === 'Poor' && (
             <Text size={13} color="#E95460">
-              {((currentLoad / 80) * 100).toFixed(0)}% Utilization
+              {((currentLoad / maxMemory || 0) * 100).toFixed(0)}% Utilization
             </Text>
           )}
         </XStack>
       </YStack>
-    </Shadow>
+    </ShadowBox>
   )
 }
 
-export default DeviceCPULoad
+export default DeviceMemoryHealth

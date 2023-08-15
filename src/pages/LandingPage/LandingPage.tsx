@@ -1,4 +1,4 @@
-import PageWrapperShadow from '../../components/PageWrapperShadow'
+import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import './LandingPage.css'
 import QuickStartBar from '../../components/QuickStartBar'
 
