@@ -1,12 +1,14 @@
-import { Paragraph, XStack } from 'tamagui'
+import { XStack } from 'tamagui'
 import Icon from './Icon'
+import { Text } from '@status-im/components'
 
 type IconTextProps = {
   icon: string
   children: string
+  weight?: 'regular' | 'medium' | 'semibold'
 }
 
-const IconText = ({ icon, children, ...props }: IconTextProps) => {
+const IconText = ({ icon, children, weight }: IconTextProps) => {
   return (
     <XStack
       style={{
@@ -14,10 +16,10 @@ const IconText = ({ icon, children, ...props }: IconTextProps) => {
       }}
       space={'$2'}
     >
-      <Icon source={icon} />
-      <Paragraph {...props} color={'#000000'} fontWeight={'bold'}>
+      <Icon src={icon} />
+      <Text size={13} color={'#000000'} weight={weight}>
         {children}
-      </Paragraph>
+      </Text>
     </XStack>
   )
 }

@@ -26,11 +26,11 @@ const HealthInfoSection = (props: HealthInfoSectionProps) => {
 
   const usedStoragePercentage = (usedStorage / maxStorage) * 100
   const usedRamMemoryPercentage = (usedRamMemory / maxRamMemory) * 100
-  const cpuClockRatePercentage = cpuClockRate > 2.4 ? 100 : 0
+  const cpuClockRatePercentage = cpuClockRate < 2.4 ? 100 : 0
   const networkLatencyPercentage = networkLatency > 100 ? 100 : 0
 
   return (
-    <YStack space={'$2'}>
+    <YStack space={'$3'}>
       <StatusIconText
         percentage={usedStoragePercentage}
         threshold={80}

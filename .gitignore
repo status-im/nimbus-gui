@@ -32,3 +32,4 @@ dist-ssr
 !.yarn/sdks
 !.yarn/versions
 /.tamagui/
+/storybook-static/

@@ -6,13 +6,18 @@ interface DataPoint {
 
 interface ChartData {
   id: string
+  color: string
   data: DataPoint[]
+  maxValue?: number
 }
 
 interface StandartLineChartProps {
   data: ChartData[]
 }
 const StandartLineChart = ({ data }: StandartLineChartProps) => {
+  const maxMemory = data[0].maxValue || 'auto'
+  const colors = data.map(dataset => dataset.color)
+
   return (
     <ResponsiveLine
       data={data}
@@ -20,8 +25,8 @@ const StandartLineChart = ({ data }: StandartLineChartProps) => {
       xScale={{ type: 'linear', min: 0, max: data[0].data.length }}
       yScale={{
         type: 'linear',
-        min: 'auto',
-        max: 'auto',
+        min: 0,
+        max: maxMemory,
         stacked: true,
         reverse: false,
       }}
@@ -32,14 +37,11 @@ const StandartLineChart = ({ data }: StandartLineChartProps) => {
       enableGridX={false}
       enableGridY={false}
       enablePoints={false}
-      pointSize={1}
-      pointColor={{ theme: 'background' }}
       pointBorderWidth={2}
-      pointBorderColor={{ from: 'serieColor' }}
       pointLabelYOffset={-12}
       useMesh={true}
       legends={[]}
-      colors={['#8DC6BC']}
+      colors={colors}
     />
   )
 }
