@@ -6,6 +6,7 @@ type LeftProps = {
   content: ReactNode
   rightImageSrc?: string
 }
+
 function LayoutComponent(props: LeftProps) {
   return (
     <div className="layout">
