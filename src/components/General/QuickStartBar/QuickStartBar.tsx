@@ -1,6 +1,6 @@
 import './QuickStartBar.css'
 
-function QuickStartBar() {
+const QuickStartBar = () => {
   return (
     <nav className="quick-start-bar">
       <span>

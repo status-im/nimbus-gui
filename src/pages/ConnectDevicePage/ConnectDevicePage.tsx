@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import BreadcrumbBar from '../../components/General/BreadcrumbBar'
+import BreadcrumbBar from '../../components/General/BreadcrumbBar/BreadcrumbBar'
 import { Button as StatusButton, Tag, Text, Avatar, Checkbox } from '@status-im/components'
 import { Label, Separator, XStack, YStack } from 'tamagui'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'

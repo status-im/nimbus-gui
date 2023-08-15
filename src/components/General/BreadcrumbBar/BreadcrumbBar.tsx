@@ -4,7 +4,7 @@ type BreadcrumbBarProps = {
   breadcrumbList: string[]
 }
 
-function BreadcrumbBar({ breadcrumbList }: BreadcrumbBarProps) {
+const BreadcrumbBar = ({ breadcrumbList }: BreadcrumbBarProps) => {
   return (
     <nav className="breadcrumb-bar-nav">
       <ul className="breadcrumb-bar-ul">
