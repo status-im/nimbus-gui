@@ -6,11 +6,11 @@ const NimbusLogo = () => {
     <XStack
       style={{
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
       }}
-      space={'$2'}
+      space={'$3'}
     >
-      <img src={'/icons/marks.svg'} alt="marks" />
+      <img src={'/icons/marks.svg'} alt="marks" className="nimbus-logomark" />
       <img src={'/icons/nimbus.svg'} alt="marks" />
       <BetaTag />
     </XStack>
