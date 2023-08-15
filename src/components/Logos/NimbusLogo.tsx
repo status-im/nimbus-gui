@@ -1,7 +1,5 @@
 import { XStack } from 'tamagui'
-import Icon from '../General/Icon'
 import Tag from '../General/Tag'
-import { Text } from '@status-im/components'
 
 const NimbusLogo = () => {
   return (
@@ -12,10 +10,8 @@ const NimbusLogo = () => {
       }}
       space={'$2'}
     >
-      <Icon src={'/icons/marks.png'} width={55} height={60} />
-      <Text size={27} weight={'medium'}>
-        Nimbus
-      </Text>
+      <img src={'/icons/marks.svg'} alt="marks" />
+      <img src={'/icons/nimbus.svg'} alt="marks" />
       <Tag text="BETA" />
     </XStack>
   )
