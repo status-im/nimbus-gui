@@ -2,7 +2,7 @@ import StandartLineChart from './StandardLineChart'
 
 import IconText from './IconText'
 import { Paragraph, Separator, XStack, YStack } from 'tamagui'
-import { Shadow as ShadowBox } from '@status-im/components'
+import { Shadow as ShadowBox, Text } from '@status-im/components'
 
 type DataPoint = {
   x: number
@@ -16,11 +16,11 @@ type ChartData = {
   maxValue?: number
 }
 
-type DeviceMemoryProps = {
+type DeviceMemoryHealthProps = {
   currentMemory: number[]
-  maxMemory?: number
+  maxMemory: number
 }
-const DeviceMemory = ({ currentMemory, maxMemory }: DeviceMemoryProps) => {
+const DeviceMemoryHealth = ({ currentMemory, maxMemory }: DeviceMemoryHealthProps) => {
   const chartData: ChartData[] = [
     {
       id: 'cpu',
@@ -35,16 +35,25 @@ const DeviceMemory = ({ currentMemory, maxMemory }: DeviceMemoryProps) => {
   const currentLoad =
     chartData[0].data.length > 0 ? chartData[0].data[chartData[0].data.length - 1].y : 0
 
-  const message = currentLoad < 80 ? 'Good' : 'Poor'
+  const message = currentLoad < maxMemory ? 'Good' : 'Poor'
 
   return (
-    <ShadowBox style={{ width: '284px', height: '136px' }}>
+    <ShadowBox
+      variant="$2"
+      style={{
+        width: '284px',
+        height: '136px',
+        borderRadius: '16px',
+        border: message === 'Poor' ? '1px solid  #D92344' : 'none',
+        backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
+      }}
+    >
       <YStack>
         <XStack
           justifyContent="space-between"
           style={{
             padding: '8px 16px',
-            position: 'relative', // Make XStack a positioning context
+            position: 'relative',
           }}
         >
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
@@ -64,11 +73,15 @@ const DeviceMemory = ({ currentMemory, maxMemory }: DeviceMemoryProps) => {
           <IconText icon={message === 'Good' ? '/icons/check-circle.png' : '/icons/alert.png'}>
             {message}
           </IconText>
-          {/* <Text color={'#E95460'}>This is additional text</Text>  */}
+          {message === 'Poor' && (
+            <Text size={13} color="#E95460">
+              {((currentLoad / maxMemory || 0) * 100).toFixed(0)}% Utilization
+            </Text>
+          )}
         </XStack>
       </YStack>
     </ShadowBox>
   )
 }
 
-export default DeviceMemory
+export default DeviceMemoryHealth
