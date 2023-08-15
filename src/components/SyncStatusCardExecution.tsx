@@ -15,7 +15,7 @@ const SyncStatusCardExecution: React.FC<DeviceStorageHealthProps> = ({ synced, t
         id: 'storage',
         label: 'Used',
         value: synced,
-        color: '#E95460',
+        color: '#2a4af5',
       },
       {
         id: 'storage',
@@ -24,6 +24,9 @@ const SyncStatusCardExecution: React.FC<DeviceStorageHealthProps> = ({ synced, t
         color: '#E7EAEE',
       },
     ]
+  }
+  function formatNumber(n: number): string {
+    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
   }
 
   return (
@@ -40,7 +43,7 @@ const SyncStatusCardExecution: React.FC<DeviceStorageHealthProps> = ({ synced, t
           style={{
             padding: '8px 16px',
             position: 'relative',
-            height: '155px',
+            height: '160px',
           }}
         >
           <YStack space={'$3'} style={{ width: '100%' }}>
@@ -68,7 +71,10 @@ const SyncStatusCardExecution: React.FC<DeviceStorageHealthProps> = ({ synced, t
         <XStack space={'$2'} style={{ padding: '10px 16px 10px 16px' }}>
           <IconText icon="/icons/token.svg">{message}</IconText>
 
-          <Text size={13}>123,424 / 170,000</Text>
+          <Text size={13}>
+            {' '}
+            {formatNumber(synced)} / {formatNumber(total)}
+          </Text>
         </XStack>
       </YStack>
     </Shadow>

@@ -16,7 +16,7 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
         id: 'storage',
         label: 'Used',
         value: synced,
-        color: '#E95460',
+        color: '#ff6161',
       },
       {
         id: 'storage',
@@ -26,7 +26,9 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
       },
     ]
   }
-
+  function formatNumber(n: number): string {
+    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  }
   return (
     <Shadow
       variant="$2"
@@ -41,12 +43,12 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
           style={{
             padding: '8px 16px',
             position: 'relative',
-            height: '155px',
+            height: '160px',
           }}
         >
           <YStack space={'$3'} style={{ width: '100%' }}>
             <Text size={15} color="#84888e" weight={'semibold'}>
-              Execution Client
+              Consensus Client
             </Text>
             <XStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
               <Icon src="/icons/vector.svg" height={46} width={93} />
@@ -67,7 +69,9 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
         <XStack space={'$2'} style={{ padding: '10px 16px 10px 16px' }}>
           <IconText icon="/icons/token.svg">{message}</IconText>
 
-          <Text size={13}>123,424 / 170,000</Text>
+          <Text size={13}>
+            {formatNumber(synced)} / {formatNumber(total)}
+          </Text>
         </XStack>
       </YStack>
     </Shadow>
