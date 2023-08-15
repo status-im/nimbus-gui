@@ -1,24 +1,28 @@
 import { XStack, YStack } from 'tamagui'
-import Title from './Title'
-import SubTitle from './SubTitle'
-import { Button } from '@status-im/components'
+import { Button, Text } from '@status-im/components'
 import Icon from './Icon'
+import Title from './Title'
 
 type TitlesProps = {
   title: string
   subtitle: string
+  isAdvancedSettings?: boolean
 }
 
-const Titles = ({ title, subtitle }: TitlesProps) => {
+const Titles = ({ title, subtitle, isAdvancedSettings }: TitlesProps) => {
   return (
     <YStack style={{ width: '100%' }}>
       <XStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
         <Title color={'#09101C'}>{title}</Title>
-        <Button variant="outline" size={32} icon={<Icon src={'/icons/reveal.png'} />}>
-          Advanced Settings
-        </Button>
+        {isAdvancedSettings && (
+          <Button size={32} variant="outline" icon={<Icon src={'/icons/reveal.png'} />}>
+            Advanced Settings
+          </Button>
+        )}
       </XStack>
-      <SubTitle color={'#09101C'}>{subtitle}</SubTitle>
+      <Text size={15} weight="regular">
+        {subtitle}
+      </Text>
     </YStack>
   )
 }
