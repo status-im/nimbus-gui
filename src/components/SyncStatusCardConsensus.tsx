@@ -35,6 +35,8 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
       style={{
         width: '632px',
         borderRadius: '16px',
+        borderTopLeftRadius: '0px',
+        borderTopRightRadius: '0px',
       }}
     >
       <YStack>
