@@ -12,7 +12,7 @@ const NodesLogo = () => {
       }}
       space={'$2'}
     >
-      <Icon src={'src/assets/nodes-app-icon.png'} width={32} height={32} />
+      <Icon src={'/icons/nodes-app-icon.png'} width={32} height={32} />
       <Text size={27} weight={'semibold'}>
         nodes
       </Text>
