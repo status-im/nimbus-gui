@@ -18,7 +18,26 @@ export default DeviceSyncStatus
 const DeviceSyncStatusContent = () => {
   return (
     <div className="container-inner landing-page">
-      
+      <YStack
+        space={'$4'}
+        style={{
+          justifyContent: 'end',
+          alignItems: 'start',
+          marginBottom: '2rem',
+          maxWidth: '100%',
+        }}
+      >
+        <NimbusLogo />
+        <Titles
+          title="Device Health Check"
+          subtitle="Configure your device to start Staking on Nimbus"
+          isAdvancedSettings={true}
+        />
+
+        <Stack style={{ marginTop: '1rem' }}>
+          <Button>Continue</Button>
+        </Stack>
+      </YStack>
     </div>
   )
 }
