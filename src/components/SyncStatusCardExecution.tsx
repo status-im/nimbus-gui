@@ -31,7 +31,6 @@ const SyncStatusCardExecution: React.FC<DeviceStorageHealthProps> = ({ synced, t
       variant="$2"
       style={{
         width: '632px',
-        height: 'auto',
         borderRadius: '16px',
       }}
     >
@@ -41,7 +40,7 @@ const SyncStatusCardExecution: React.FC<DeviceStorageHealthProps> = ({ synced, t
           style={{
             padding: '8px 16px',
             position: 'relative',
-            height:'155px'
+            height: '155px',
           }}
         >
           <Stack
@@ -55,12 +54,12 @@ const SyncStatusCardExecution: React.FC<DeviceStorageHealthProps> = ({ synced, t
             <StandardGauge data={data()} />
           </Stack>
           <YStack space={'$3'}>
-            <Text size={13} color="#09101C" weight={'semibold'}>
+            <Text size={13} color="#84888e" weight={'semibold'}>
               Execution Client
             </Text>
-            <Paragraph color={'#09101C'} size={'$6'} fontWeight={'600'}>
+            <Text color={'#09101C'} size={27} weight={'semibold'}  marginTop={'30px'}>
               Geth
-            </Paragraph>
+            </Text>
           </YStack>
         </XStack>
 

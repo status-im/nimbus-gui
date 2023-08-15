@@ -32,7 +32,6 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
       variant="$2"
       style={{
         width: '632px',
-        height: 'auto',
         borderRadius: '16px',
       }}
     >
@@ -56,10 +55,10 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
             <StandardGauge data={data()} />
           </Stack>
           <YStack space={'$3'}>
-            <Text size={13} color="#09101C" weight={'semibold'}>
+            <Text size={13} color="#84888e" weight={'semibold'}>
               Execution Client
             </Text>
-            <Icon src="/icons/vector.svg" height={46} width={93}></Icon>
+            <Icon src="/icons/vector.svg" height={46} width={93} marginTop={'30px'} />
           </YStack>
         </XStack>
 
