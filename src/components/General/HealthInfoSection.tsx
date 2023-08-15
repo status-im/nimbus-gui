@@ -9,7 +9,7 @@ import {
   GOOD_NETWORK_TEXT,
   GOOD_RAM_MEMORY_TEXT,
   GOOD_STORAGE_TEXT,
-} from '../constants'
+} from '../../constants'
 
 type HealthInfoSectionProps = {
   usedStorage: number // GB

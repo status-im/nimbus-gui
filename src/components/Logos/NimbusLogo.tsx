@@ -1,6 +1,6 @@
 import { XStack } from 'tamagui'
-import Icon from '../Icon'
-import Tag from '../Tag'
+import Icon from '../General/Icon'
+import Tag from '../General/Tag'
 import { Text } from '@status-im/components'
 
 const NimbusLogo = () => {

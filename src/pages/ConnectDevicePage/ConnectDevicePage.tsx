@@ -1,15 +1,15 @@
 import { useState } from 'react'
-import BreadcrumbBar from '../../components/BreadcrumbBar'
+import BreadcrumbBar from '../../components/General/BreadcrumbBar'
 import { Button as StatusButton, Tag, Text, Avatar, Checkbox } from '@status-im/components'
 import { Label, Separator, XStack, YStack } from 'tamagui'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import NimbusLogo from '../../components/Logos/NimbusLogo'
-import Titles from '../../components/Titles'
+import Titles from '../../components/General/Titles'
 import NodeIcon from '../../components/Icons/NodeIcon'
 import ConnectIcon from '../../components/Icons/ConnectIcon'
 import PairIcon from '../../components/Icons/PairIcon'
 import CreateIcon from '../../components/Icons/CreateIcon'
-import LabelInputField from '../../components/LabelInputField'
+import LabelInputField from '../../components/General/LabelInputField'
 
 const ConnectDevicePage = () => {
   const [autoConnectChecked, setAutoConnectChecked] = useState(false)

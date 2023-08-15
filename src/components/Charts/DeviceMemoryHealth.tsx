@@ -1,6 +1,6 @@
 import StandartLineChart from './StandardLineChart'
 
-import IconText from '../IconText'
+import IconText from '../General/IconText'
 import { Paragraph, Separator, XStack, YStack } from 'tamagui'
 import { Shadow as ShadowBox, Text } from '@status-im/components'
 

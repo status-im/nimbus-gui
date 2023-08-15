@@ -1,4 +1,4 @@
-import { GREEN_CHECKMARK_ICON, RED_CHECKMARK_ICON } from '../constants'
+import { GREEN_CHECKMARK_ICON, RED_CHECKMARK_ICON } from '../../constants'
 import IconText from './IconText'
 
 type StatusIconTextProps = {
