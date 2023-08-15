@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Provider as StatusProvider } from '@status-im/components'
 import './App.css'
 import config from '../tamagui.config'
-import LandingPage from './components/LandingPage'
+import LandingPage from './pages/LandingPage/LandingPage'
 import DeviceHealthCheck from './pages/DeviceHealthCheck/DeviceHealthCheck'
 import ConnectDevicePage from './components/ConnectDevicePage'
 

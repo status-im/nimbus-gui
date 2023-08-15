@@ -1,6 +1,6 @@
-import PageWrapperShadow from './PageWrapperShadow'
+import PageWrapperShadow from '../../components/PageWrapperShadow'
 import './LandingPage.css'
-import QuickStartBar from './QuickStartBar'
+import QuickStartBar from '../../components/QuickStartBar'
 
 function LandingPage() {
   return (
