@@ -15,11 +15,9 @@ import CompleteId from '../../components/Icons/CompleteId'
 const PairDevice = () => {
   const [autoChecked, setAutoChecked] = useState(false)
   const isPaired = true
-  const [isPairing, setIsPairing] = useState(true)
+  const isPairing = true
   console.log(uuidv4())
-  const resetTimer = () => {
-    setIsPairing(false)
-  }
+
   return (
     <PageWrapperShadow rightImageSrc="/background-images/day-night-bg.png">
       <YStack
@@ -45,7 +43,7 @@ const PairDevice = () => {
           </Button>
         </XStack>
         <Separator borderColor={'#e3e3e3'} />
-        <SyncStatus isPairing={isPairing} onResetTimer={resetTimer} />
+        <SyncStatus isPairing={isPairing} />
         <Separator borderColor={'#e3e3e3'} />
         <Text size={19} weight={'semibold'} color="#09101C">
           Settings

@@ -7,16 +7,17 @@ import BlockIcon from '/icons/block.svg'
 import ConnectionIcon from '/icons/connection.svg'
 import { convertSecondsToTimerFormat } from '../../utilities'
 import { useEffect, useState } from 'react'
-
 type SyncStatusProps = {
   isPairing: boolean
-  onResetTimer: () => void
 }
-
-const SyncStatus = ({ isPairing, onResetTimer }: SyncStatusProps) => {
+const SyncStatus = ({ isPairing }: SyncStatusProps) => {
   const [elapsedTime, setElapsedTime] = useState(0)
   const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
 
+  const resetTimer = () => {
+    setElapsedTime(0)
+    setIsAwaitingPairing(false)
+  }
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>
 
@@ -53,7 +54,7 @@ const SyncStatus = ({ isPairing, onResetTimer }: SyncStatusProps) => {
         )}
         <IconButton
           icon={<Icon src={isPairing ? RefreshBlackIcon : RefreshIcon} />}
-          onPress={onResetTimer}
+          onPress={resetTimer}
           variant="ghost"
         />
       </XStack>

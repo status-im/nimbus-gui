@@ -18,6 +18,5 @@ type Story = StoryObj<typeof meta>
 export const Page: Story = {
   args: {
     isPairing: true,
-    onResetTimer: () => {},
   },
 }
