@@ -5,15 +5,15 @@ import RefreshBlackIcon from '/icons/refresh-black.svg'
 import RefreshIcon from '/icons/refresh.svg'
 import BlockIcon from '/icons/block.svg'
 import ConnectionIcon from '/icons/connection.svg'
-import { useState } from 'react'
 
 type SyncStatusProps = {
   isPairing: boolean
   timer: string
   isAwaitingPairing?: boolean
+  onResetTimer: () => void
 }
 
-const SyncStatus = ({ isPairing, timer, isAwaitingPairing }: SyncStatusProps) => {
+const SyncStatus = ({ isPairing, timer, isAwaitingPairing, onResetTimer }: SyncStatusProps) => {
   return (
     <YStack space={'$2'}>
       <XStack style={{ justifyContent: 'space-between' }}>
@@ -29,7 +29,7 @@ const SyncStatus = ({ isPairing, timer, isAwaitingPairing }: SyncStatusProps) =>
             {timer}
           </Text>
         )}
-        <Icon src={isPairing ? RefreshBlackIcon : RefreshIcon} height={20} />
+        <Icon src={isPairing ? RefreshBlackIcon : RefreshIcon} height={20} onClick={onResetTimer} />
       </XStack>
       {isPairing ? (
         <Text size={15} color={isAwaitingPairing ? '#EB5757' : '#09101C'} weight={'semibold'}>
