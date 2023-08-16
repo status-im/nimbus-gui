@@ -73,7 +73,10 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
+.nimbus-logomark{
+  width: auto;
+  height: 30%;
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #09101C;
