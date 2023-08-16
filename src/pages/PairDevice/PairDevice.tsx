@@ -8,10 +8,13 @@ import CreateIcon from '../../components/Icons/CreateIcon'
 import NodeIcon from '../../components/Icons/NodeIcon'
 import Titles from '../../components/General/Titles'
 import { useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
 const PairDevice = () => {
-  const isPaired = false
   const [autoChecked, setAutoChecked] = useState(false)
+  const isPaired = false
+
+  console.log(uuidv4())
 
   return (
     <PageWrapperShadow rightImageSrc="/background-images/day-night-bg.png">
