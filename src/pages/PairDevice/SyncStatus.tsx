@@ -11,7 +11,7 @@ type SyncStatusProps = {
 }
 const SyncStatus = ({ isPairing, timer, isAwaitingPairing }: SyncStatusProps) => {
   return (
-    <YStack style={{ width: '584px' }}>
+    <YStack>
       <XStack space={'$4'} style={{ justifyContent: 'space-between' }}>
         <Text size={11} color="#647084" weight="medium">
           Device Sync Status
