@@ -4,20 +4,17 @@ export type IconProps = {
   src: string
   width?: number
   height?: number
-  onClick?: () => void
 }
 
-const Icon = ({ src, width = 16, height = 16, onClick }: IconProps) => {
+const Icon = ({ src, width = 16, height = 16 }: IconProps) => {
   return (
-    <div onClick={onClick}>
-      <Image
-        src={src}
-        source={{ uri: src }}
-        width={width}
-        height={height}
-        style={{ backgroundColor: 'transparent' }}
-      />
-    </div>
+    <Image
+      src={src}
+      source={{ uri: src }}
+      width={width}
+      height={height}
+      style={{ backgroundColor: 'transparent' }}
+    />
   )
 }
 

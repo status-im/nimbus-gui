@@ -1,5 +1,5 @@
 import { XStack, YStack } from 'tamagui'
-import { Button, InformationBox, Text } from '@status-im/components'
+import { Button, IconButton, InformationBox, Text } from '@status-im/components'
 import Icon from '../../components/General/Icon'
 import RefreshBlackIcon from '/icons/refresh-black.svg'
 import RefreshIcon from '/icons/refresh.svg'
@@ -29,7 +29,7 @@ const SyncStatus = ({ isPairing, timer, isAwaitingPairing, onResetTimer }: SyncS
             {timer}
           </Text>
         )}
-        <Icon src={isPairing ? RefreshBlackIcon : RefreshIcon} height={20} onClick={onResetTimer} />
+        <IconButton icon={<Icon src={isPairing ? RefreshBlackIcon : RefreshIcon} />} onPress={onResetTimer} variant='ghost'/>
       </XStack>
       {isPairing ? (
         <Text size={15} color={isAwaitingPairing ? '#EB5757' : '#09101C'} weight={'semibold'}>
