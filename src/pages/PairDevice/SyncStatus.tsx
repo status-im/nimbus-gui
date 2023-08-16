@@ -17,7 +17,7 @@ const SyncStatus = ({ isPairing, timer }: SyncStatusProps) => {
             {timer}
           </Text>
         )}
-        <Icon src="/icons/refresh.svg" />
+        <Icon src={isPairing ? '/icons/refresh-black.svg' : '/icons/refresh.svg'} height={20} />
       </XStack>
       {isPairing ? (
         <Text size={15} color="#09101C" weight={'semibold'}>
