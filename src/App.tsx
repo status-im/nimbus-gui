@@ -7,6 +7,7 @@ import LandingPage from './pages/LandingPage/LandingPage'
 import DeviceHealthCheck from './pages/DeviceHealthCheck/DeviceHealthCheck'
 import ConnectDevicePage from './pages/ConnectDevicePage/ConnectDevicePage'
 import DeviceSyncStatus from './pages/DeviceSyncStatus/DeviceSyncStatus'
+import PairDevice from './pages/PairDevice/PairDevice'
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/pair-device',
-    element: <DeviceSyncStatus />,
+    element: <PairDevice />,
   },
 ])
 
