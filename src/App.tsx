@@ -20,12 +20,15 @@ const router = createBrowserRouter([
   {
     path: '/connect-device',
     element: <ConnectDevicePage />,
-   
   },
   {
     path: '/device-sync-status',
     element: <DeviceSyncStatus />,
-  }
+  },
+  {
+    path: '/pair-device',
+    element: <DeviceSyncStatus />,
+  },
 ])
 
 function App() {
