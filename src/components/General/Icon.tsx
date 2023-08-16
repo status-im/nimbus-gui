@@ -1,5 +1,4 @@
 import { Image } from '@status-im/components'
-import { Stack } from 'tamagui'
 
 export type IconProps = {
   src: string
@@ -10,7 +9,7 @@ export type IconProps = {
 
 const Icon = ({ src, width = 16, height = 16, onClick }: IconProps) => {
   return (
-    <Stack onClick={onClick} activeOpacity={0.7}>
+    <div onClick={onClick}>
       <Image
         src={src}
         source={{ uri: src }}
@@ -18,7 +17,7 @@ const Icon = ({ src, width = 16, height = 16, onClick }: IconProps) => {
         height={height}
         style={{ backgroundColor: 'transparent' }}
       />
-    </Stack>
+    </div>
   )
 }
 

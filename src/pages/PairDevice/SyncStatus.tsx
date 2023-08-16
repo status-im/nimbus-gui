@@ -41,18 +41,18 @@ const SyncStatus = ({ isPairing, timer, isAwaitingPairing, onResetTimer }: SyncS
         </Text>
       )}
       {isAwaitingPairing && (
-        <>
-          <InformationBox
-            message="No connection has been created to a Nimbus service for over 3 minutes. Please ensure that the generated pairing ID was input into the CLI. If you are unable to pair device, consider connect via IP.   "
-            variant="error"
-            icon={<Icon src={BlockIcon} />}
-          />
-          <XStack>
-            <Button icon={<Icon src={ConnectionIcon} />} size={40}>
-              Connect via IP
-            </Button>
-          </XStack>
-        </>
+        <InformationBox
+          message="No connection has been created to a Nimbus service for over 3 minutes. Please ensure that the generated pairing ID was input into the CLI. If you are unable to pair device, consider connect via IP.   "
+          variant="error"
+          icon={<Icon src={BlockIcon} />}
+        />
+      )}
+      {isAwaitingPairing && (
+        <XStack>
+          <Button icon={<Icon src={ConnectionIcon} />} size={40}>
+            Connect via IP
+          </Button>
+        </XStack>
       )}
     </YStack>
   )
