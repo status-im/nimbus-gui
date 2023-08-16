@@ -7,9 +7,11 @@ import PairIcon from '../../components/Icons/PairIcon'
 import CreateIcon from '../../components/Icons/CreateIcon'
 import NodeIcon from '../../components/Icons/NodeIcon'
 import Titles from '../../components/General/Titles'
+import { useState } from 'react'
 
 const PairDevice = () => {
   const isPaired = false
+  const [autoChecked, setAutoChecked] = useState(false)
 
   return (
     <PageWrapperShadow rightImageSrc="/background-images/day-night-bg.png">
@@ -37,9 +39,9 @@ const PairDevice = () => {
           <Checkbox
             id="port-checkbox"
             variant="outline"
-            selected={false}
-            onCheckedChange={() => {
-              console.log('checked')
+            selected={autoChecked}
+            onCheckedChange={v => {
+              setAutoChecked(v)
             }}
             size={20}
           />
