@@ -1,15 +1,17 @@
-import { Stack, XStack, YStack } from 'tamagui'
+import { XStack, YStack } from 'tamagui'
 import { Button, InformationBox, Text } from '@status-im/components'
 import Icon from '../../components/General/Icon'
 import RefreshBlackIcon from '/icons/refresh-black.svg'
 import RefreshIcon from '/icons/refresh.svg'
 import BlockIcon from '/icons/block.svg'
 import ConnectionIcon from '/icons/connection.svg'
+
 type SyncStatusProps = {
   isPairing: boolean
   timer: string
   isAwaitingPairing?: boolean
 }
+
 const SyncStatus = ({ isPairing, timer, isAwaitingPairing }: SyncStatusProps) => {
   return (
     <YStack space={'$2'}>

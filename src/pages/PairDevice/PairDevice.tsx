@@ -6,8 +6,11 @@ import { Button, Checkbox, Tag, Text } from '@status-im/components'
 import PairIcon from '../../components/Icons/PairIcon'
 import CreateIcon from '../../components/Icons/CreateIcon'
 import NodeIcon from '../../components/Icons/NodeIcon'
+import Titles from '../../components/General/Titles'
 
 const PairDevice = () => {
+  const isPaired = false
+
   return (
     <PageWrapperShadow rightImageSrc="/background-images/day-night-bg.png">
       <YStack
@@ -23,6 +26,7 @@ const PairDevice = () => {
             <Tag icon={CreateIcon} label="Create" size={32} />
           </XStack>
         </XStack>
+        <Titles title="Pair Device" subtitle="Pair your device to the Nimbus Node Manager" />
         <Separator borderColor={'#e3e3e3'} />
         <SyncStatus isPairing={true} timer={'00:12'} isAwaitingPairing={true} />
         <Separator borderColor={'#e3e3e3'} />
@@ -43,7 +47,9 @@ const PairDevice = () => {
         </XStack>
         <Separator borderColor={'#e3e3e3'} />
         <XStack>
-          <Button icon={<NodeIcon />}>Continue</Button>
+          <Button icon={<NodeIcon />} disabled={!isPaired}>
+            Continue
+          </Button>
         </XStack>
       </YStack>
     </PageWrapperShadow>
