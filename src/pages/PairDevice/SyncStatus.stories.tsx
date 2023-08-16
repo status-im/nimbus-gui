@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import SyncStatus from './SyncStatus'
 
 const meta = {
-  title: 'Pages/SyncStatus',
+  title: 'Pair Device/SyncStatus',
   component: SyncStatus,
   parameters: {
     layout: 'centered',
