@@ -5,6 +5,7 @@ import RefreshBlackIcon from '/icons/refresh-black.svg'
 import RefreshIcon from '/icons/refresh.svg'
 import BlockIcon from '/icons/block.svg'
 import ConnectionIcon from '/icons/connection.svg'
+import { useState } from 'react'
 
 type SyncStatusProps = {
   isPairing: boolean
@@ -40,17 +41,19 @@ const SyncStatus = ({ isPairing, timer, isAwaitingPairing }: SyncStatusProps) =>
         </Text>
       )}
       {isAwaitingPairing && (
-        <InformationBox
-          message="No connection has been created to a Nimbus service for over 3 minutes. Please ensure that the generated pairing ID was input into the CLI. If you are unable to pair device, consider connect via IP.   "
-          variant="error"
-          icon={<Icon src={BlockIcon} />}
-        />
+        <>
+          <InformationBox
+            message="No connection has been created to a Nimbus service for over 3 minutes. Please ensure that the generated pairing ID was input into the CLI. If you are unable to pair device, consider connect via IP.   "
+            variant="error"
+            icon={<Icon src={BlockIcon} />}
+          />
+          <XStack>
+            <Button icon={<Icon src={ConnectionIcon} />} size={40}>
+              Connect via IP
+            </Button>
+          </XStack>
+        </>
       )}
-      <XStack>
-        <Button icon={<Icon src={ConnectionIcon} />} size={40}>
-          Connect via IP
-        </Button>
-      </XStack>
     </YStack>
   )
 }
