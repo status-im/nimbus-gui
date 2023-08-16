@@ -1,8 +1,10 @@
-import IconText from './IconText'
 import { Separator, Stack, XStack, YStack } from 'tamagui'
-import StandardGauge from './StandardGauge'
+
 import { Shadow, Text } from '@status-im/components'
-import Icon from './Icon'
+import Icon from './General/Icon'
+import StandardGauge from './Charts/StandardGauge'
+import IconText from './General/IconText'
+
 interface DeviceStorageHealthProps {
   synced: number
   total: number

@@ -1,11 +1,12 @@
 import { Stack, YStack } from 'tamagui'
 
 import { Button, PinnedMessage } from '@status-im/components'
-import SyncStatusCardExecution from '../../components/SyncStatusCardExecution'
-import SyncStatusCardConsensus from '../../components/SyncStatusCardConsensus'
+
 import Titles from '../../components/General/Titles'
 import NimbusLogo from '../../components/Logos/NimbusLogo'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
+import SyncStatusCardConsensus from '../../components/SyncStatusCardConsensus'
+import SyncStatusCardExecution from '../../components/SyncStatusCardExecution'
 
 const DeviceSyncStatus = () => {
   return (
