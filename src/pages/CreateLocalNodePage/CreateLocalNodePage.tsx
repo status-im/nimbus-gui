@@ -13,6 +13,7 @@ import ReactionIcon from '../../components/Icons/ReactionIcon'
 
 const CreateLocalNodePage = () => {
   const [autoConnectChecked, setAutoConnectChecked] = useState(false)
+  const [chosenColor, setChosenColor] = useState('#FFFFFF')
 
   return (
     <PageWrapperShadow rightImageSrc="/background-images/day-night-bg.png">
@@ -64,6 +65,8 @@ const CreateLocalNodePage = () => {
                     '#C78F67',
                     '#CB6256',
                   ]}
+                  color={chosenColor}
+                  onChange={color => setChosenColor(color.hex)}
                 />
               </YStack>
             </XStack>
