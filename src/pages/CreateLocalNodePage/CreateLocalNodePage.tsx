@@ -8,6 +8,7 @@ import NodeIcon from '../../components/Icons/NodeIcon'
 import PairIcon from '../../components/Icons/PairIcon'
 import CreateIcon from '../../components/Icons/CreateIcon'
 import LabelInputField from '../../components/General/LabelInputField'
+import ReactionIcon from '../../components/Icons/ReactionIcon'
 
 const CreateLocalNodePage = () => {
   const [autoConnectChecked, setAutoConnectChecked] = useState(false)
@@ -36,13 +37,15 @@ const CreateLocalNodePage = () => {
                 <Text size={13} weight="regular" color={'#647084'}>
                   Device Avatar
                 </Text>
-                <Avatar type="user" size={80} name="Device Avatar" />
+                <XStack>
+                  <Avatar type="account" size={80} name="Device Avatar" />
+                  <Avatar type="icon" size={32} icon={<ReactionIcon />} backgroundColor={'white'} />
+                </XStack>
               </YStack>
               <YStack>
                 <Text size={13} weight="regular" color={'#647084'}>
                   Highlight Color
                 </Text>
-                {/* <Avatar type="user" size={80} name="Device Avatar" /> */}
               </YStack>
             </XStack>
           </YStack>
@@ -50,7 +53,7 @@ const CreateLocalNodePage = () => {
             <Text size={19} weight="semibold">
               Settings
             </Text>
-            <XStack my={8} space={'$2'}>
+            <XStack my={16} space={'$4'}>
               <Checkbox
                 id="auto-connect"
                 selected={autoConnectChecked}
