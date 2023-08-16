@@ -1,17 +1,17 @@
 import { Stack, YStack } from 'tamagui'
-import LayoutComponent from '../../components/LayoutComponent'
-import NimbusLogo from '../../components/NimbusLogo'
-import Titles from '../../components/Titles'
+
 import { Button, PinnedMessage } from '@status-im/components'
 import SyncStatusCardExecution from '../../components/SyncStatusCardExecution'
 import SyncStatusCardConsensus from '../../components/SyncStatusCardConsensus'
+import Titles from '../../components/General/Titles'
+import NimbusLogo from '../../components/Logos/NimbusLogo'
+import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 
 const DeviceSyncStatus = () => {
   return (
-    <LayoutComponent
-      content={<DeviceSyncStatusContent />}
-      rightImageSrc="/background-images/sync-status-background.png"
-    />
+    <PageWrapperShadow rightImageSrc="/background-images/sync-status-background.png">
+      <DeviceSyncStatusContent />
+    </PageWrapperShadow>
   )
 }
 
