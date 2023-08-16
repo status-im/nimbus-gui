@@ -13,11 +13,9 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
 #storybook-root {
-    width: 100%;
+  width: 100%;
 }
-
 body {
   margin: 0;
   display: flex;
@@ -45,6 +43,16 @@ button {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+ul li {
+  padding: 0 1rem;
+  font-size: 15px;
 }
 @media (prefers-color-scheme: light) {
   :root {

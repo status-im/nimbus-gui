@@ -1,17 +1,3 @@
 #root {
   width: 100%;
 }
-.nimbus-logomark{
-  width: auto;
-  height: 30%;
-}
-ul{
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-}
-ul li {
-  padding: 0 1rem;
-  font-size: 15px;
-}
