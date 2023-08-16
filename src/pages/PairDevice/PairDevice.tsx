@@ -1,15 +1,17 @@
 import { Separator, XStack, YStack } from 'tamagui'
+import { useState, useEffect } from 'react'
+import { v4 as uuidv4 } from 'uuid'
+import { Button, Checkbox, Tag, Text } from '@status-im/components'
+
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import SyncStatus from './SyncStatus'
 import NimbusLogo from '../../components/Logos/NimbusLogo'
-import { Button, Checkbox, Tag, Text } from '@status-im/components'
 import PairIcon from '../../components/Icons/PairIcon'
 import CreateIcon from '../../components/Icons/CreateIcon'
 import NodeIcon from '../../components/Icons/NodeIcon'
 import Titles from '../../components/General/Titles'
-import { useState, useEffect } from 'react'
-import { v4 as uuidv4 } from 'uuid'
 import { convertSecondsToTimerFormat } from '../../utilities'
+import CompleteId from '../../components/Icons/CompleteId'
 
 const PairDevice = () => {
   const [autoChecked, setAutoChecked] = useState(false)
@@ -20,7 +22,7 @@ const PairDevice = () => {
   const [isPairing] = useState(true) // assuming starting as true for demo
   const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
   const [elapsedTime, setElapsedTime] = useState(0)
-  
+
   const resetTimer = () => {
     setElapsedTime(0)
     setIsAwaitingPairing(false)
@@ -41,7 +43,6 @@ const PairDevice = () => {
     return () => clearInterval(timer)
   }, [isPairing, elapsedTime])
 
-
   return (
     <PageWrapperShadow rightImageSrc="/background-images/day-night-bg.png">
       <YStack
@@ -58,6 +59,14 @@ const PairDevice = () => {
           </XStack>
         </XStack>
         <Titles title="Pair Device" subtitle="Pair your device to the Nimbus Node Manager" />
+        <XStack style={{ justifyContent: 'space-between' }}>
+          <Text size={19} weight={'semibold'}>
+            Pair with Command line
+          </Text>
+          <Button variant="outline" size={24} icon={<CompleteId />}>
+            Generate ID
+          </Button>
+        </XStack>
         <Separator borderColor={'#e3e3e3'} />
         <SyncStatus
           isPairing={isPairing}
