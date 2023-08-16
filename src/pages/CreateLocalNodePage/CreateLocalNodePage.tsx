@@ -19,44 +19,37 @@ const CreateLocalNodePage = () => {
           <NimbusLogo />
           <XStack space={'$2'} alignItems="center">
             <Tag icon={PairIcon} label="Pair" size={32} />
-            <Tag icon={CreateIcon} label="Create" size={32} />
+            <Tag selected icon={CreateIcon} label="Create" size={32} />
           </XStack>
         </XStack>
         <article className="content">
-          <section className="mb-1">
-            <Titles
-              title="Create Local Node"
-              subtitle="Configure your device to start Staking on Nimbus"
-            />
-          </section>
-
-          <section className="mb-1">
-            <YStack>
-              <XStack space>
-                <LabelInputField labelText="Device Name" placeholderText="Stake and chips" />
-              </XStack>
-              <XStack my={10} justifyContent={'space-between'}>
-                <YStack>
-                  <Text size={13} weight="regular" color={'#647084'}>
-                    Device Avatar
-                  </Text>
-                  <Avatar type="user" size={80} name="Device Avatar" />
-                </YStack>
-                <YStack>
-                  <Text size={13} weight="regular" color={'#647084'}>
-                    Highlight Color
-                  </Text>
-                  {/* <Avatar type="user" size={80} name="Device Avatar" /> */}
-                </YStack>
-              </XStack>
-            </YStack>
-          </section>
-          <section className="my-1">
-            <YStack>
-              <Text size={19} weight="semibold">
-                Settings
-              </Text>
-            </YStack>
+          <Titles
+            title="Create Local Node"
+            subtitle="Configure your device to start Staking on Nimbus"
+          />
+          <YStack my={16}>
+            <XStack space>
+              <LabelInputField labelText="Device Name" placeholderText="Stake and chips" />
+            </XStack>
+            <XStack my={10} justifyContent={'space-between'}>
+              <YStack>
+                <Text size={13} weight="regular" color={'#647084'}>
+                  Device Avatar
+                </Text>
+                <Avatar type="user" size={80} name="Device Avatar" />
+              </YStack>
+              <YStack>
+                <Text size={13} weight="regular" color={'#647084'}>
+                  Highlight Color
+                </Text>
+                {/* <Avatar type="user" size={80} name="Device Avatar" /> */}
+              </YStack>
+            </XStack>
+          </YStack>
+          <YStack my={16}>
+            <Text size={19} weight="semibold">
+              Settings
+            </Text>
             <XStack my={8} space={'$2'}>
               <Checkbox
                 id="auto-connect"
@@ -71,7 +64,7 @@ const CreateLocalNodePage = () => {
               </Label>
             </XStack>
             <Separator alignSelf="stretch" borderColor={'#F0F2F5'} />
-          </section>
+          </YStack>
           <StatusButton icon={<NodeIcon />}>Continue</StatusButton>
         </article>
       </div>
