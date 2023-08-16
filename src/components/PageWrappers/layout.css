@@ -33,84 +33,42 @@
     display: flex;
     flex-direction: column; 
 }
-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 1.5rem 0;
-}
-.logo-title {
-    font-size: 27px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-
-}
-.logo-title .beta{
-    color: #FFF;
-    font-size: 10px;
-    font-weight: 600;
-    border-radius: 66.667px;
-    background-color: #2A4AF5;
-    padding: 4px 6px;
-    margin-left: 10px;
-}
 .content {
     flex-grow: 1;
 }
-.content .title {
-    font-size: 27px;
-    font-weight: 600;
-    margin-bottom: 0.25em;
-}
-.content .subtitle {
-    font-size: 15px;
-    margin: 0.1em;
-}
-.content .subtitle span{
-    font-weight: 700;
-}
-.content button {
-    display: flex;
-    align-items: center;
-}
-.content button span {
-    padding-right: 10px;
+
+/* LAYOUT RIGHT ELEMENT WITH IMAGE TAKING UP THE WHOLE HIGHT OF THE VIEWPORT */
+.layout-right {
+    flex: 0 0 45%;
+    max-width: 45%;
+    z-index: 0;
 }
 
-
-    /* LAYOUT RIGHT ELEMENT WITH IMAGE TAKING UP THE WHOLE HIGHT OF THE VIEWPORT */
-    .layout-right {
-        flex: 0 0 45%;
-        max-width: 45%;
-        z-index: 0;
-    }
-    
-    .image-container {
-        height: 100%;
-        position: relative;
-        overflow: hidden;
-    }
-    .image-container::before {
-        display: block;
-        content: "";
-        padding-bottom: 100%;
-    }
-    .image-container::after {
-        display: block;
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -1%;
-        width: 50%;
-        height: 100%;
-        background: linear-gradient(to right, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 0.0));
-    }
-    .image-container img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        height: 140%;
-        width: auto;
-    }
+.image-container {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.image-container::before {
+    display: block;
+    content: "";
+    padding-bottom: 100%;
+}
+.image-container::after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -1%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 0.0));
+}
+.image-container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 140%;
+    width: auto;
+}

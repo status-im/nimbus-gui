@@ -12,9 +12,9 @@ function LandingPage() {
     <>
       <PageWrapperShadow rightImageSrc="/background-images/landing-page-bg.png">
         <div className="landing-page">
-          <header>
+          <XStack>
             <NimbusLogo />
-          </header>
+          </XStack>
           <YStack>
             <Titles
               title="Light and performant clients, for all Ethereum validators."
