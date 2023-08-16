@@ -8,6 +8,8 @@ import CreateIcon from '../../components/Icons/CreateIcon'
 import NodeIcon from '../../components/Icons/NodeIcon'
 
 const PairDevice = () => {
+  const isPaired = false
+
   return (
     <PageWrapperShadow rightImageSrc="/background-images/day-night-bg.png">
       <YStack
@@ -27,7 +29,9 @@ const PairDevice = () => {
         <SyncStatus isPairing={true} timer={'00:12'} isAwaitingPairing={true} />
         <Separator borderColor={'#e3e3e3'} />
         <XStack>
-          <Button icon={<NodeIcon />}>Continue</Button>
+          <Button icon={<NodeIcon />} disabled={!isPaired}>
+            Continue
+          </Button>
         </XStack>
       </YStack>
     </PageWrapperShadow>
