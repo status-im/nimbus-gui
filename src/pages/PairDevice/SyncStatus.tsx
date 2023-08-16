@@ -1,9 +1,10 @@
-import { XStack, YStack } from 'tamagui'
-import { InformationBox, Text } from '@status-im/components'
+import { Stack, XStack, YStack } from 'tamagui'
+import { Button, InformationBox, Text } from '@status-im/components'
 import Icon from '../../components/General/Icon'
 import RefreshBlackIcon from '/icons/refresh-black.svg'
 import RefreshIcon from '/icons/refresh.svg'
 import BlockIcon from '/icons/block.svg'
+import ConnectionIcon from '/icons/connection.svg'
 type SyncStatusProps = {
   isPairing: boolean
   timer: string
@@ -11,8 +12,8 @@ type SyncStatusProps = {
 }
 const SyncStatus = ({ isPairing, timer, isAwaitingPairing }: SyncStatusProps) => {
   return (
-    <YStack style={{ width: '584px' }}>
-      <XStack space={'$4'} style={{ justifyContent: 'space-between' }}>
+    <YStack style={{ width: '584px' }} space={'$2'}>
+      <XStack style={{ justifyContent: 'space-between' }}>
         <Text size={11} color="#647084" weight="medium">
           Device Sync Status
         </Text>
@@ -28,15 +29,9 @@ const SyncStatus = ({ isPairing, timer, isAwaitingPairing }: SyncStatusProps) =>
         <Icon src={isPairing ? RefreshBlackIcon : RefreshIcon} height={20} />
       </XStack>
       {isPairing ? (
-        isAwaitingPairing ? (
-          <Text size={15} color="#EB5757" weight={'semibold'}>
-            Awaiting Pairing{' '}
-          </Text>
-        ) : (
-          <Text size={15} color="#09101C" weight={'semibold'}>
-            Awaiting pairing connection...
-          </Text>
-        )
+        <Text size={15} color={isAwaitingPairing ? '#EB5757' : '#09101C'} weight={'semibold'}>
+          Awaiting pairing connection...
+        </Text>
       ) : (
         <Text size={13} color="#A1ABBD">
           No pairing input provided.
@@ -49,6 +44,11 @@ const SyncStatus = ({ isPairing, timer, isAwaitingPairing }: SyncStatusProps) =>
           icon={<Icon src={BlockIcon} />}
         />
       )}
+      <XStack>
+        <Button icon={<Icon src={ConnectionIcon} />} size={40}>
+          Connect via IP
+        </Button>
+      </XStack>
     </YStack>
   )
 }
