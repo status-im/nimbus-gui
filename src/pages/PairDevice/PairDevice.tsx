@@ -1,5 +1,5 @@
 import { Separator, XStack, YStack } from 'tamagui'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { Button, Checkbox, Tag, Text } from '@status-im/components'
 
@@ -10,39 +10,16 @@ import PairIcon from '../../components/Icons/PairIcon'
 import CreateIcon from '../../components/Icons/CreateIcon'
 import NodeIcon from '../../components/Icons/NodeIcon'
 import Titles from '../../components/General/Titles'
-import { convertSecondsToTimerFormat } from '../../utilities'
 import CompleteId from '../../components/Icons/CompleteId'
 
 const PairDevice = () => {
   const [autoChecked, setAutoChecked] = useState(false)
-  const isPaired = false
-
+  const isPaired = true
+  const [isPairing, setIsPairing] = useState(true)
   console.log(uuidv4())
-
-  const [isPairing] = useState(true) // assuming starting as true for demo
-  const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
-  const [elapsedTime, setElapsedTime] = useState(0)
-
   const resetTimer = () => {
-    setElapsedTime(0)
-    setIsAwaitingPairing(false)
+    setIsPairing(false)
   }
-
-  useEffect(() => {
-    let timer: ReturnType<typeof setTimeout>
-
-    if (isPairing) {
-      timer = setInterval(() => {
-        setElapsedTime(prevTime => prevTime + 1)
-        if (elapsedTime >= 180) {
-          setIsAwaitingPairing(true)
-        }
-      }, 1000)
-    }
-
-    return () => clearInterval(timer)
-  }, [isPairing, elapsedTime])
-
   return (
     <PageWrapperShadow rightImageSrc="/background-images/day-night-bg.png">
       <YStack
@@ -68,12 +45,7 @@ const PairDevice = () => {
           </Button>
         </XStack>
         <Separator borderColor={'#e3e3e3'} />
-        <SyncStatus
-          isPairing={isPairing}
-          timer={convertSecondsToTimerFormat(elapsedTime)}
-          isAwaitingPairing={isAwaitingPairing}
-          onResetTimer={resetTimer}
-        />
+        <SyncStatus isPairing={isPairing} onResetTimer={resetTimer} />
         <Separator borderColor={'#e3e3e3'} />
         <Text size={19} weight={'semibold'} color="#09101C">
           Settings

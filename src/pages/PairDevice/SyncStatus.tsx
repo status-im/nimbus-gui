@@ -5,15 +5,37 @@ import RefreshBlackIcon from '/icons/refresh-black.svg'
 import RefreshIcon from '/icons/refresh.svg'
 import BlockIcon from '/icons/block.svg'
 import ConnectionIcon from '/icons/connection.svg'
+import { convertSecondsToTimerFormat } from '../../utilities'
+import { useEffect, useState } from 'react'
 
 type SyncStatusProps = {
   isPairing: boolean
-  timer: string
-  isAwaitingPairing?: boolean
   onResetTimer: () => void
 }
 
-const SyncStatus = ({ isPairing, timer, isAwaitingPairing, onResetTimer }: SyncStatusProps) => {
+const SyncStatus = ({ isPairing, onResetTimer }: SyncStatusProps) => {
+  const [elapsedTime, setElapsedTime] = useState(0)
+  const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
+
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>
+
+    if (isPairing) {
+      timer = setInterval(() => {
+        setElapsedTime(prevTime => prevTime + 65)
+        if (elapsedTime >= 180) {
+          setIsAwaitingPairing(true)
+        }
+      }, 1000)
+    } else {
+      setIsAwaitingPairing(false)
+    }
+
+    return () => clearInterval(timer)
+  }, [isPairing, elapsedTime])
+
+  const timer = convertSecondsToTimerFormat(elapsedTime) // Assuming you've imported the convertSecondsToTimerFormat function
+
   return (
     <YStack space={'$2'}>
       <XStack style={{ justifyContent: 'space-between' }}>
@@ -29,7 +51,11 @@ const SyncStatus = ({ isPairing, timer, isAwaitingPairing, onResetTimer }: SyncS
             {timer}
           </Text>
         )}
-        <IconButton icon={<Icon src={isPairing ? RefreshBlackIcon : RefreshIcon} />} onPress={onResetTimer} variant='ghost'/>
+        <IconButton
+          icon={<Icon src={isPairing ? RefreshBlackIcon : RefreshIcon} />}
+          onPress={onResetTimer}
+          variant="ghost"
+        />
       </XStack>
       {isPairing ? (
         <Text size={15} color={isAwaitingPairing ? '#EB5757' : '#09101C'} weight={'semibold'}>
