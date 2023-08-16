@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Button as StatusButton, Tag, Text, Avatar, Checkbox } from '@status-im/components'
 import { Label, Separator, XStack, YStack } from 'tamagui'
+import { CirclePicker } from 'react-color'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import NimbusLogo from '../../components/Logos/NimbusLogo'
 import Titles from '../../components/General/Titles'
@@ -33,7 +34,7 @@ const CreateLocalNodePage = () => {
               <LabelInputField labelText="Device Name" placeholderText="Stake and chips" />
             </XStack>
             <XStack my={10} justifyContent={'space-between'}>
-              <YStack>
+              <YStack mr={30}>
                 <Text size={13} weight="regular" color={'#647084'}>
                   Device Avatar
                 </Text>
@@ -46,6 +47,24 @@ const CreateLocalNodePage = () => {
                 <Text size={13} weight="regular" color={'#647084'}>
                   Highlight Color
                 </Text>
+                <CirclePicker
+                  width="80%"
+                  circleSize={40}
+                  circleSpacing={12}
+                  colors={[
+                    '#2A4AF5',
+                    '#F6B03C',
+                    '#7140FD',
+                    '#2A799B',
+                    '#EC266C',
+                    '#1992D7',
+                    '#FF7D46',
+                    '#216266',
+                    '#F66F8F',
+                    '#C78F67',
+                    '#CB6256',
+                  ]}
+                />
               </YStack>
             </XStack>
           </YStack>
