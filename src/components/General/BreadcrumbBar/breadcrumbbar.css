@@ -4,18 +4,13 @@
     padding: 1rem 2rem;
     margin: 0.5rem;
 }
-.breadcrumb-bar-ul {
-    list-style-type: none;
-    display: flex;
-    padding: 0;
-    margin: 0;
-}
 .breadcrumb-bar-li {
-    padding: 0 1em;
     color: #647084;
-    font-size: 15px;
     font-weight: 500;
     position: relative;
+}
+.breadcrumb-bar-li:last-child { 
+    color: #09101C;
 }
 .breadcrumb-bar-li::after {
     display: inline-block;
@@ -26,10 +21,7 @@
     left: 100%;
     transform: translateX(-50%);
 }
-.breadcrumb-bar-li:last-child { 
-    color: #09101C;
 
-}
 .breadcrumb-bar-li:last-child::after {
     display: none;
 }
