@@ -1,15 +1,13 @@
 import { Separator, Stack, XStack, YStack } from 'tamagui'
-
 import { Shadow, Text } from '@status-im/components'
-import Icon from './General/Icon'
-import StandardGauge from './Charts/StandardGauge'
-import IconText from './General/IconText'
+import StandardGauge from '../../components/Charts/StandardGauge'
+import IconText from '../../components/General/IconText'
 
 interface DeviceStorageHealthProps {
   synced: number
   total: number
 }
-const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, total }) => {
+const SyncStatusCardExecution: React.FC<DeviceStorageHealthProps> = ({ synced, total }) => {
   const message = synced === total ? 'Synced all data' : 'Syncing'
 
   const data = () => {
@@ -18,7 +16,7 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
         id: 'storage',
         label: 'Used',
         value: synced,
-        color: '#ff6161',
+        color: '#2a4af5',
       },
       {
         id: 'storage',
@@ -31,14 +29,15 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
   const formatNumber = (n: number): string => {
     return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
   }
+
   return (
     <Shadow
       variant="$2"
       style={{
         width: '632px',
         borderRadius: '16px',
-        borderTopLeftRadius: '0px',
-        borderTopRightRadius: '0px',
+        borderBottomRightRadius: '0px',
+        borderBottomLeftRadius: '0px',
       }}
     >
       <YStack>
@@ -52,10 +51,12 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
         >
           <YStack space={'$3'} style={{ width: '100%' }}>
             <Text size={15} color="#84888e" weight={'semibold'}>
-              Consensus Client
+              Execution Client
             </Text>
             <XStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
-              <Icon src="/icons/vector.svg" height={46} width={93} />
+              <Text color={'#09101C'} size={27} weight={'semibold'}>
+                Geth
+              </Text>
               <Stack
                 style={{
                   height: '115px',
@@ -74,6 +75,7 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
           <IconText icon="/icons/token.svg">{message}</IconText>
 
           <Text size={13}>
+            {' '}
             {formatNumber(synced)} / {formatNumber(total)}
           </Text>
         </XStack>
@@ -82,4 +84,4 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
   )
 }
 
-export default SyncStatusCardConsensus
+export default SyncStatusCardExecution

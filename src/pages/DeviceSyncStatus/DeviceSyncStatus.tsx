@@ -5,8 +5,8 @@ import { Button, PinnedMessage } from '@status-im/components'
 import Titles from '../../components/General/Titles'
 import NimbusLogo from '../../components/Logos/NimbusLogo'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
-import SyncStatusCardConsensus from '../../components/SyncStatusCardConsensus'
-import SyncStatusCardExecution from '../../components/SyncStatusCardExecution'
+import SyncStatusCardConsensus from './SyncStatusCardConsensus'
+import SyncStatusCardExecution from './SyncStatusCardExecution'
 
 const DeviceSyncStatus = () => {
   return (

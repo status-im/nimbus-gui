@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import SyncStatusCardConsensus from './SyncStatusCardConsensus'
+import SyncStatusCardExecution from './SyncStatusCardExecution'
 
 const meta = {
-  title: 'General/SyncStatusCardConsensus',
-  component: SyncStatusCardConsensus,
+  title: 'General/SyncStatusCardExecution',
+  component: SyncStatusCardExecution,
   parameters: {
     layout: 'centered',
   },
@@ -16,7 +16,7 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof SyncStatusCardConsensus>
+} satisfies Meta<typeof SyncStatusCardExecution>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -33,5 +33,3 @@ export const WithoutData: Story = {
     total: 0,
   },
 }
-
- 

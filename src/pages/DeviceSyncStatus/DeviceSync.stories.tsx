@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import DeviceSyncStatus from '../pages/DeviceSyncStatus/DeviceSyncStatus'
+import DeviceSyncStatus from './DeviceSyncStatus'
 
 const meta = {
   title: 'General/DeviceSyncStatus',
