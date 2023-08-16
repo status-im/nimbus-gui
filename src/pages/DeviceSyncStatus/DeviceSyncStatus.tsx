@@ -10,16 +10,6 @@ import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 const DeviceSyncStatus = () => {
   return (
     <PageWrapperShadow rightImageSrc="/background-images/sync-status-background.png">
-      <DeviceSyncStatusContent />
-    </PageWrapperShadow>
-  )
-}
-
-export default DeviceSyncStatus
-
-const DeviceSyncStatusContent = () => {
-  return (
-    <>
       <Stack>
         <PinnedMessage
           messages={[
@@ -61,6 +51,8 @@ const DeviceSyncStatusContent = () => {
           </Stack>
         </YStack>
       </div>
-    </>
+    </PageWrapperShadow>
   )
 }
+
+export default DeviceSyncStatus
