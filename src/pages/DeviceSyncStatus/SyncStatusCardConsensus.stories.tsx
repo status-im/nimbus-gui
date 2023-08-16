@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import SyncStatusCardConsensus from './SyncStatusCardConsensus'
 
 const meta = {
-  title: 'General/SyncStatusCardConsensus',
+  title: 'Sync Status/SyncStatusCardConsensus',
   component: SyncStatusCardConsensus,
   parameters: {
     layout: 'centered',

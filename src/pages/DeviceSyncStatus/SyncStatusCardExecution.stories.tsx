@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import SyncStatusCardExecution from './SyncStatusCardExecution'
 
 const meta = {
-  title: 'General/SyncStatusCardExecution',
+  title: 'Sync Status/SyncStatusCardExecution',
   component: SyncStatusCardExecution,
   parameters: {
     layout: 'centered',
