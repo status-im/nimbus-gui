@@ -1,4 +1,4 @@
-import { YStack } from 'tamagui'
+import { Separator, YStack } from 'tamagui'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import SyncStatus from './SyncStatus'
 
@@ -11,7 +11,8 @@ const PairDevice = () => {
           maxWidth: '100%',
         }}
       >
-        <SyncStatus isPairing={true} timer={'00:12'} isAwaitingPairing={true}/>
+        <Separator borderColor={'#e3e3e3'} />
+        <SyncStatus isPairing={true} timer={'00:12'} isAwaitingPairing={true} />
       </YStack>
     </PageWrapperShadow>
   )
