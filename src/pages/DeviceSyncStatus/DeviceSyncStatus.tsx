@@ -1,25 +1,16 @@
 import { Stack, YStack } from 'tamagui'
-import LayoutComponent from '../../components/LayoutComponent'
-import NimbusLogo from '../../components/NimbusLogo'
-import Titles from '../../components/Titles'
+
 import { Button, PinnedMessage } from '@status-im/components'
-import SyncStatusCardExecution from '../../components/SyncStatusCardExecution'
-import SyncStatusCardConsensus from '../../components/SyncStatusCardConsensus'
+
+import Titles from '../../components/General/Titles'
+import NimbusLogo from '../../components/Logos/NimbusLogo'
+import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
+import SyncStatusCardConsensus from './SyncStatusCardConsensus'
+import SyncStatusCardExecution from './SyncStatusCardExecution'
 
 const DeviceSyncStatus = () => {
   return (
-    <LayoutComponent
-      content={<DeviceSyncStatusContent />}
-      rightImageSrc="/background-images/sync-status-background.png"
-    />
-  )
-}
-
-export default DeviceSyncStatus
-
-const DeviceSyncStatusContent = () => {
-  return (
-    <>
+    <PageWrapperShadow rightImageSrc="/background-images/sync-status-background.png">
       <Stack>
         <PinnedMessage
           messages={[
@@ -61,6 +52,8 @@ const DeviceSyncStatusContent = () => {
           </Stack>
         </YStack>
       </div>
-    </>
+    </PageWrapperShadow>
   )
 }
+
+export default DeviceSyncStatus

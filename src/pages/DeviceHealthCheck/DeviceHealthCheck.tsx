@@ -1,29 +1,18 @@
 import { Stack, XStack, YStack } from 'tamagui'
-import LayoutComponent from '../../components/LayoutComponent'
-import NimbusLogo from '../../components/NimbusLogo'
-import Titles from '../../components/Titles'
-import DeviceStorageHealth from '../../components/DeviceStorageHealth'
-import DeviceCPULoad from '../../components/DeviceCPULoad'
-import HealthInfoSection from '../../components/HealthInfoSection'
+import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
+import NimbusLogo from '../../components/Logos/NimbusLogo'
+import Titles from '../../components/General/Titles'
+import DeviceStorageHealth from '../../components/Charts/DeviceStorageHealth'
+import DeviceCPULoad from '../../components/Charts/DeviceCPULoad'
+import HealthInfoSection from '../../components/General/HealthInfoSection'
 import { Button, InformationBox } from '@status-im/components'
-import Icon from '../../components/Icon'
-import DeviceMemory from '../../components/DeviceMemoryHealth'
-import DeviceNetworkHealth from '../../components/DeviceNetworkHealth'
+import Icon from '../../components/General/Icon'
+import DeviceMemory from '../../components/Charts/DeviceMemoryHealth'
+import DeviceNetworkHealth from '../../components/Charts/DeviceNetworkHealth'
 
 const DeviceHealthCheck = () => {
   return (
-    <LayoutComponent
-      content={<DeviceHealthCheckContent />}
-      rightImageSrc="/background-images/eye-background.png"
-    />
-  )
-}
-
-export default DeviceHealthCheck
-
-const DeviceHealthCheckContent = () => {
-  return (
-    <div className="container-inner landing-page">
+    <PageWrapperShadow rightImageSrc="/background-images/eye-background.png">
       <YStack
         space={'$4'}
         style={{
@@ -63,6 +52,8 @@ const DeviceHealthCheckContent = () => {
           <Button>Continue</Button>
         </Stack>
       </YStack>
-    </div>
+    </PageWrapperShadow>
   )
 }
+
+export default DeviceHealthCheck
