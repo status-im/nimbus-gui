@@ -1,5 +1,6 @@
 import { YStack } from 'tamagui'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
+import SyncStatus from './SyncStatus'
 
 const PairDevice = () => {
   return (
@@ -9,7 +10,9 @@ const PairDevice = () => {
         style={{
           maxWidth: '100%',
         }}
-      ></YStack>
+      >
+        <SyncStatus />
+      </YStack>
     </PageWrapperShadow>
   )
 }
