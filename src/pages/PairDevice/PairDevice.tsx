@@ -1,7 +1,7 @@
 import { Separator, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
-import { Button, Checkbox, Tag, Text } from '@status-im/components'
+import { Button, Checkbox, Input, Tag, Text } from '@status-im/components'
 
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import SyncStatus from './SyncStatus'
@@ -42,6 +42,12 @@ const PairDevice = () => {
             Generate ID
           </Button>
         </XStack>
+        <YStack space={'$2'}>
+          <Text size={13} weight={'medium'} color={'#647084'}>
+            Generated Pairing ID
+          </Text>
+          <Input placeholder={'nimbus pair <random-pairing-id>'} />
+        </YStack>
         <Separator borderColor={'#e3e3e3'} />
         <SyncStatus isPairing={isPairing} />
         <Separator borderColor={'#e3e3e3'} />
