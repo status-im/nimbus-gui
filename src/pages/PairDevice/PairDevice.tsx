@@ -11,7 +11,7 @@ const PairDevice = () => {
           maxWidth: '100%',
         }}
       >
-        <SyncStatus />
+        <SyncStatus isPairing={true} timer={'00:12'} />
       </YStack>
     </PageWrapperShadow>
   )
