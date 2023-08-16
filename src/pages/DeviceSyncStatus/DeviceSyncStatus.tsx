@@ -32,7 +32,6 @@ const DeviceSyncStatus = () => {
         style={{
           justifyContent: 'end',
           alignItems: 'start',
-          marginBottom: '2rem',
           maxWidth: '100%',
         }}
       >
@@ -41,7 +40,7 @@ const DeviceSyncStatus = () => {
           title="Sync Status"
           subtitle="Monitor your Validator Client and Beacon Node syncing progression."
         />
-        <YStack>
+        <YStack style={{ width: '100%' }}>
           <SyncStatusCardExecution synced={132432} total={200000} />
           <SyncStatusCardConsensus synced={149500} total={160000} />
         </YStack>
