@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import PairDevice from './PairDevice'
 
+// TODO: story crashes because of Link component (tried with useNavigate hook, but it is same)
+
 const meta = {
   title: 'Pages/PairDevice',
   component: PairDevice,
