@@ -10,12 +10,12 @@ import PairIcon from '../../components/Icons/PairIcon'
 import CreateIcon from '../../components/Icons/CreateIcon'
 import NodeIcon from '../../components/Icons/NodeIcon'
 import Titles from '../../components/General/Titles'
-import CompleteId from '../../components/Icons/CompleteId'
-
+// import CompleteId from '../../components/Icons/CompleteId'
 const PairDevice = () => {
   const [autoChecked, setAutoChecked] = useState(false)
   const isPaired = true
-  const isPairing = true
+  const isPairing = false
+  const isPairedSuccessfully = true
   console.log(uuidv4())
 
   return (
@@ -38,18 +38,22 @@ const PairDevice = () => {
           <Text size={19} weight={'semibold'}>
             Pair with Command line
           </Text>
-          <Button variant="outline" size={24} icon={<CompleteId />}>
+          <Button variant="outline" size={24}>
             Generate ID
           </Button>
         </XStack>
         <YStack space={'$2'}>
-          <Text size={13} weight={'medium'} color={'#647084'}>
-            Generated Pairing ID
-          </Text>
-          <Input placeholder={'nimbus pair <random-pairing-id>'} />
+          {!isPairedSuccessfully && (
+            <>
+              <Text size={13} weight={'medium'} color={'#647084'}>
+                Generated Pairing ID
+              </Text>
+              <Input placeholder={'nimbus pair <random-pairing-id>'} />
+            </>
+          )}
         </YStack>
         <Separator borderColor={'#e3e3e3'} />
-        <SyncStatus isPairing={isPairing} />
+        <SyncStatus isPairing={isPairing} isPairedSuccessfully={isPairedSuccessfully} />
         <Separator borderColor={'#e3e3e3'} />
         <Text size={19} weight={'semibold'} color="#09101C">
           Settings

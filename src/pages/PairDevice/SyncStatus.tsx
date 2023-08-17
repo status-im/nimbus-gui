@@ -9,8 +9,9 @@ import { convertSecondsToTimerFormat } from '../../utilities'
 import { useEffect, useState } from 'react'
 type SyncStatusProps = {
   isPairing: boolean
+  isPairedSuccessfully: boolean
 }
-const SyncStatus = ({ isPairing }: SyncStatusProps) => {
+const SyncStatus = ({ isPairing, isPairedSuccessfully }: SyncStatusProps) => {
   const [elapsedTime, setElapsedTime] = useState(0)
   const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
 
@@ -58,15 +59,24 @@ const SyncStatus = ({ isPairing }: SyncStatusProps) => {
           variant="ghost"
         />
       </XStack>
-      {isPairing ? (
-        <Text size={15} color={isAwaitingPairing ? '#EB5757' : '#09101C'} weight={'semibold'}>
-          Awaiting pairing connection...
-        </Text>
+      {!isPairedSuccessfully ? (
+        <>
+          {isPairing ? (
+            <Text size={15} color={isAwaitingPairing ? '#EB5757' : '#09101C'} weight={'semibold'}>
+              Awaiting pairing connection...
+            </Text>
+          ) : (
+            <Text size={13} color="#A1ABBD">
+              No pairing input provided.
+            </Text>
+          )}
+        </>
       ) : (
-        <Text size={13} color="#A1ABBD">
-          No pairing input provided.
+        <Text size={15} color="#2A4AF5" weight={'semibold'}>
+          Paired Successfully! 🥳
         </Text>
       )}
+
       {isAwaitingPairing && (
         <InformationBox
           message="No connection has been created to a Nimbus service for over 3 minutes. Please ensure that the generated pairing ID was input into the CLI. If you are unable to pair device, consider connect via IP.   "
