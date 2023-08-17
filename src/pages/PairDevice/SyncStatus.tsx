@@ -1,23 +1,32 @@
+import { useEffect, useState } from 'react'
 import { XStack, YStack } from 'tamagui'
 import { Button, IconButton, InformationBox, Text } from '@status-im/components'
+
 import Icon from '../../components/General/Icon'
 import RefreshBlackIcon from '/icons/refresh-black.svg'
 import RefreshIcon from '/icons/refresh.svg'
 import BlockIcon from '/icons/block.svg'
 import ConnectionIcon from '/icons/connection.svg'
 import { convertSecondsToTimerFormat } from '../../utilities'
-import { useEffect, useState } from 'react'
+
 type SyncStatusProps = {
   isPairing: boolean
   isPairedSuccessfully: boolean
+  isAwaitingPairing?: boolean
+  changeSetIsAwaitingPairing: (isAwaitingPairing: boolean) => void
 }
-const SyncStatus = ({ isPairing, isPairedSuccessfully }: SyncStatusProps) => {
+
+const SyncStatus = ({
+  isPairing,
+  isAwaitingPairing,
+  changeSetIsAwaitingPairing,
+  isPairedSuccessfully
+}: SyncStatusProps) => {
   const [elapsedTime, setElapsedTime] = useState(0)
-  const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
 
   const resetTimer = () => {
     setElapsedTime(0)
-    setIsAwaitingPairing(false)
+    changeSetIsAwaitingPairing(false)
   }
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>
@@ -26,11 +35,11 @@ const SyncStatus = ({ isPairing, isPairedSuccessfully }: SyncStatusProps) => {
       timer = setInterval(() => {
         setElapsedTime(prevTime => prevTime + 65)
         if (elapsedTime >= 180) {
-          setIsAwaitingPairing(true)
+          changeSetIsAwaitingPairing(true)
         }
       }, 1000)
     } else {
-      setIsAwaitingPairing(false)
+      changeSetIsAwaitingPairing(false)
     }
 
     return () => clearInterval(timer)
