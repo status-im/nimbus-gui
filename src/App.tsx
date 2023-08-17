@@ -7,6 +7,8 @@ import LandingPage from './pages/LandingPage/LandingPage'
 import DeviceHealthCheck from './pages/DeviceHealthCheck/DeviceHealthCheck'
 import ConnectDevicePage from './pages/ConnectDevicePage/ConnectDevicePage'
 import DeviceSyncStatus from './pages/DeviceSyncStatus/DeviceSyncStatus'
+import { Provider as ReduxProvider } from 'react-redux'
+import store from './redux/store'
 
 const router = createBrowserRouter([
   {
@@ -20,20 +22,21 @@ const router = createBrowserRouter([
   {
     path: '/connect-device',
     element: <ConnectDevicePage />,
-   
   },
   {
     path: '/device-sync-status',
     element: <DeviceSyncStatus />,
-  }
+  },
 ])
 
 function App() {
   return (
     <TamaguiProvider config={config}>
-      <StatusProvider>
-        <RouterProvider router={router} />
-      </StatusProvider>
+      <ReduxProvider store={store}>
+        <StatusProvider>
+          <RouterProvider router={router} />
+        </StatusProvider>
+      </ReduxProvider>
     </TamaguiProvider>
   )
 }
