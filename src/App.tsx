@@ -31,13 +31,13 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <TamaguiProvider config={config}>
-      <ReduxProvider store={store}>
+    <ReduxProvider store={store}>
+      <TamaguiProvider config={config}>
         <StatusProvider>
           <RouterProvider router={router} />
         </StatusProvider>
-      </ReduxProvider>
-    </TamaguiProvider>
+      </TamaguiProvider>
+    </ReduxProvider>
   )
 }
 

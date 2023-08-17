@@ -1,16 +1,26 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { Provider as ReduxProvider } from 'react-redux'
+import store from '../../redux/store' // Adjust` the path to your store accordingly
 
 import DeviceHealthCheck from './DeviceHealthCheck'
 
-const meta = {
+const meta: Meta = {
   title: 'Pages/DeviceHealthCheck',
   component: DeviceHealthCheck,
+  decorators: [
+    StoryObj => (
+      <ReduxProvider store={store}>
+        <StoryObj />
+      </ReduxProvider>
+    ),
+  ],
   tags: ['autodocs'],
-} satisfies Meta<typeof DeviceHealthCheck>
+}
 
 export default meta
-type Story = StoryObj<typeof meta>
 
-export const Page: Story = {
+type DeviceHealthCheckStory = StoryObj<typeof DeviceHealthCheck>
+
+export const Page: DeviceHealthCheckStory = {
   args: {},
 }
