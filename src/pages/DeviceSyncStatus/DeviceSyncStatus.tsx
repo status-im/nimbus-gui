@@ -1,32 +1,30 @@
 import { Stack, YStack } from 'tamagui'
 
-import { Button, PinnedMessage } from '@status-im/components'
+import { Button } from '@status-im/components'
 
 import Titles from '../../components/General/Titles'
 import NimbusLogo from '../../components/Logos/NimbusLogo'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import SyncStatusCardConsensus from './SyncStatusCardConsensus'
 import SyncStatusCardExecution from './SyncStatusCardExecution'
+import { setPinnedMessage } from '../../redux/PinnedMessage/slice'
+import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
 
 const DeviceSyncStatus = () => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(
+      setPinnedMessage({
+        id: '123',
+        text: 'You are currently syncing to the Nimbus Validator Client and Beacon node. This may take a while... Please stay put until you can access the Node Manager.',
+        pinned: true,
+      }),
+    )
+  }, [dispatch])
   return (
     <PageWrapperShadow rightImageSrc="/background-images/sync-status-background.png">
-      <Stack>
-        <PinnedMessage
-          messages={[
-            {
-              id: '123',
-              text: 'You are currently syncing to the Nimbus Validator Client and Beacon node. This may take a while... Please stay put until you can access the Node Manager.',
-              reactions: { love: new Set(['userId1', 'userId2']) },
-            },
-            {
-              id: '123',
-              text: 'You are currently syncing to the Nimbus Validator Client and Beacon node. This may take a while... Please stay put until you can access the Node Manager.',
-              reactions: { love: new Set(['userId3', 'userId4w']) },
-            },
-          ]}
-        />
-      </Stack>
+
       <div className="container-inner landing-page">
         <YStack
           space={'$4'}

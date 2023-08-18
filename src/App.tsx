@@ -8,6 +8,7 @@ import DeviceHealthCheck from './pages/DeviceHealthCheck/DeviceHealthCheck'
 import ConnectDevicePage from './pages/ConnectDevicePage/ConnectDevicePage'
 import DeviceSyncStatus from './pages/DeviceSyncStatus/DeviceSyncStatus'
 import { Provider as ReduxProvider } from 'react-redux'
+import PinnedNotification from './components/General/PinnedNottification'
 import store from './redux/store'
 
 const router = createBrowserRouter([
@@ -28,12 +29,12 @@ const router = createBrowserRouter([
     element: <DeviceSyncStatus />,
   },
 ])
-
 function App() {
   return (
     <ReduxProvider store={store}>
       <TamaguiProvider config={config}>
         <StatusProvider>
+          <PinnedNotification />
           <RouterProvider router={router} />
         </StatusProvider>
       </TamaguiProvider>
