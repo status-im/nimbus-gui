@@ -49,7 +49,7 @@ const DeviceCPULoad: React.FC<DeviceCPULoadProps> = ({ load }) => {
           justifyContent="space-between"
           style={{
             padding: '8px 16px',
-            position: 'relative', // Make XStack a positioning context
+            position: 'relative',
           }}
         >
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>

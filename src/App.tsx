@@ -7,6 +7,9 @@ import LandingPage from './pages/LandingPage/LandingPage'
 import DeviceHealthCheck from './pages/DeviceHealthCheck/DeviceHealthCheck'
 import ConnectDevicePage from './pages/ConnectDevicePage/ConnectDevicePage'
 import DeviceSyncStatus from './pages/DeviceSyncStatus/DeviceSyncStatus'
+import { Provider as ReduxProvider } from 'react-redux'
+import PinnedNotification from './components/General/PinnedNottification'
+import store from './redux/store'
 import CreateLocalNodePage from './pages/CreateLocalNodePage/CreateLocalNodePage'
 
 const router = createBrowserRouter([
@@ -31,14 +34,16 @@ const router = createBrowserRouter([
     element: <CreateLocalNodePage />,
   },
 ])
-
 function App() {
   return (
-    <TamaguiProvider config={config}>
-      <StatusProvider>
-        <RouterProvider router={router} />
-      </StatusProvider>
-    </TamaguiProvider>
+    <ReduxProvider store={store}>
+      <TamaguiProvider config={config}>
+        <StatusProvider>
+          <PinnedNotification />
+          <RouterProvider router={router} />
+        </StatusProvider>
+      </TamaguiProvider>
+    </ReduxProvider>
   )
 }
 
