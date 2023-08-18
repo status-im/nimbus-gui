@@ -3,10 +3,9 @@ import { Button as StatusButton, Tag, Text, Avatar, Checkbox } from '@status-im/
 import { Label, Separator, XStack, YStack } from 'tamagui'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import NimbusLogo from '../../components/Logos/NimbusLogo'
+import TagContainer from '../../components/General/TagContainer'
 import Titles from '../../components/General/Titles'
 import NodeIcon from '../../components/Icons/NodeIcon'
-import PairIcon from '../../components/Icons/PairIcon'
-import CreateIcon from '../../components/Icons/CreateIcon'
 import LabelInputField from '../../components/General/LabelInputField'
 import ReactionIcon from '../../components/Icons/ReactionIcon'
 import ColorPicker from '../../components/General/ColorPicker'
@@ -19,10 +18,7 @@ const CreateLocalNodePage = () => {
       <div className="connection-page">
         <XStack justifyContent={'space-between'}>
           <NimbusLogo />
-          <XStack space={'$2'} alignItems="center">
-            <Tag icon={PairIcon} label="Pair" size={32} />
-            <Tag selected icon={CreateIcon} label="Create" size={32} />
-          </XStack>
+          <TagContainer />
         </XStack>
         <article className="content">
           <Titles
