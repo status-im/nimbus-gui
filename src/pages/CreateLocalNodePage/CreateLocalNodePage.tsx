@@ -38,7 +38,7 @@ const CreateLocalNodePage = () => {
                 <Text size={13} weight="regular" color={'#647084'}>
                   Device Avatar
                 </Text>
-                <XStack>
+                <XStack my={10}>
                   <Avatar type="account" size={80} name="Device Avatar" />
                   <Avatar type="icon" size={32} icon={<ReactionIcon />} backgroundColor={'white'} />
                 </XStack>
