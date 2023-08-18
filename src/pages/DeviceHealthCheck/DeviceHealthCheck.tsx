@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
 
 const DeviceHealthCheck = () => {
-  // Extract state from Redux store
+ 
   const deviceHealthState = useSelector((state: RootState) => state.deviceHealth)
   console.log(deviceHealthState)
   return (

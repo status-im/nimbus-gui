@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Provider as ReduxProvider } from 'react-redux'
-import store from '../../redux/store' // Adjust` the path to your store accordingly
-
+import store from '../../redux/store' 
 import DeviceHealthCheck from './DeviceHealthCheck'
 
 const meta: Meta = {
