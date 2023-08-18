@@ -9,8 +9,13 @@ import { Button, InformationBox } from '@status-im/components'
 import Icon from '../../components/General/Icon'
 import DeviceMemory from '../../components/Charts/DeviceMemoryHealth'
 import DeviceNetworkHealth from '../../components/Charts/DeviceNetworkHealth'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../redux/store'
 
 const DeviceHealthCheck = () => {
+ 
+  const deviceHealthState = useSelector((state: RootState) => state.deviceHealth)
+  console.log(deviceHealthState)
   return (
     <PageWrapperShadow rightImageSrc="/background-images/eye-background.png">
       <YStack
@@ -29,12 +34,21 @@ const DeviceHealthCheck = () => {
           isAdvancedSettings={true}
         />
         <XStack space={'$4'}>
-          <DeviceStorageHealth storage={44} maxStorage={30} />
-          <DeviceCPULoad load={[12, 123, 4, 90]} />
+          <DeviceStorageHealth
+            storage={deviceHealthState.storage}
+            maxStorage={deviceHealthState.maxMemory}
+          />
+          <DeviceCPULoad load={deviceHealthState.cpuLoad} />
         </XStack>
         <XStack space={'$4'}>
-          <DeviceMemory currentMemory={[25, 31, 5, 14, 20, 81]} maxMemory={38} />
-          <DeviceNetworkHealth uploadRate={[1, 4, 23, 55]} downloadRate={[20, 3, 40, 56]} />
+          <DeviceMemory
+            currentMemory={deviceHealthState.memory}
+            maxMemory={deviceHealthState.maxMemory}
+          />
+          <DeviceNetworkHealth
+            uploadRate={deviceHealthState.uploadRate}
+            downloadRate={deviceHealthState.downloadRate}
+          />
         </XStack>
         <HealthInfoSection
           usedStorage={120}

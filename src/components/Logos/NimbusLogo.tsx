@@ -1,5 +1,6 @@
 import { XStack } from 'tamagui'
 import BetaTag from './BetaTag'
+import './NimbusLogo.css'
 
 const NimbusLogo = () => {
   return (

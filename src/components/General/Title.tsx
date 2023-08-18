@@ -7,7 +7,7 @@ type TitleProps = {
 
 const Title = ({ color, children }: TitleProps) => {
   return (
-    <Text size={27} weight={'medium'} color={color}>
+    <Text size={27} weight={'semibold'} color={color}>
       {children}
     </Text>
   )
