@@ -10,6 +10,7 @@ import DeviceSyncStatus from './pages/DeviceSyncStatus/DeviceSyncStatus'
 import { Provider as ReduxProvider } from 'react-redux'
 import PinnedNotification from './components/General/PinnedNottification'
 import store from './redux/store'
+import CreateLocalNodePage from './pages/CreateLocalNodePage/CreateLocalNodePage'
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: '/device-sync-status',
     element: <DeviceSyncStatus />,
+  },
+  {
+    path: '/create-local-node',
+    element: <CreateLocalNodePage />,
   },
 ])
 function App() {
