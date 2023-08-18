@@ -10,11 +10,12 @@ import CreateIcon from '../../components/Icons/CreateIcon'
 import NodeIcon from '../../components/Icons/NodeIcon'
 import Titles from '../../components/General/Titles'
 import PairedSuccessfully from './PairedSuccessfully'
+import { CreateAvatar } from './CreateAvatar'
 
 const PairDevice = () => {
   const [autoChecked, setAutoChecked] = useState(false)
   const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
-  const isPaired = false
+  const isPaired = true
   const isPairing = true
 
   const changeSetIsAwaitingPairing = (result: boolean) => {
@@ -62,6 +63,7 @@ const PairDevice = () => {
           />
           <Text size={15}>Auto Connect Paired Device</Text>
         </XStack>
+        {isPaired && <CreateAvatar></CreateAvatar>}
         <Separator borderColor={'#e3e3e3'} />
         <XStack>
           <Button icon={<NodeIcon />} disabled={!isPaired}>
