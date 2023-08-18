@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button as StatusButton, Tag, Text, Avatar, Checkbox } from '@status-im/components'
+import { Button as StatusButton, Text, Avatar, Checkbox } from '@status-im/components'
 import { Label, Separator, XStack, YStack } from 'tamagui'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import NimbusLogo from '../../components/Logos/NimbusLogo'

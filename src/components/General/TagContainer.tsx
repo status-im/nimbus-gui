@@ -2,6 +2,7 @@ import { Tag } from '@status-im/components'
 import { XStack } from 'tamagui'
 import PairIcon from '../Icons/PairIcon'
 import CreateIcon from '../Icons/CreateIcon'
+import './TagContainer.css'
 
 const TagContainer = () => {
   return (
