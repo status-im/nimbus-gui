@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Button as StatusButton, Tag, Text, Avatar, Checkbox } from '@status-im/components'
 import { Label, Separator, XStack, YStack } from 'tamagui'
-import { CirclePicker } from 'react-color'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import NimbusLogo from '../../components/Logos/NimbusLogo'
 import Titles from '../../components/General/Titles'
@@ -10,10 +9,10 @@ import PairIcon from '../../components/Icons/PairIcon'
 import CreateIcon from '../../components/Icons/CreateIcon'
 import LabelInputField from '../../components/General/LabelInputField'
 import ReactionIcon from '../../components/Icons/ReactionIcon'
+import ColorPicker from '../../components/General/ColorPicker'
 
 const CreateLocalNodePage = () => {
   const [autoConnectChecked, setAutoConnectChecked] = useState(false)
-  const [chosenColor, setChosenColor] = useState('#FFFFFF')
 
   return (
     <PageWrapperShadow rightImageSrc="/background-images/day-night-bg.png">
@@ -48,26 +47,7 @@ const CreateLocalNodePage = () => {
                 <Text size={13} weight="regular" color={'#647084'}>
                   Highlight Color
                 </Text>
-                <CirclePicker
-                  width="80%"
-                  circleSize={40}
-                  circleSpacing={12}
-                  colors={[
-                    '#2A4AF5',
-                    '#F6B03C',
-                    '#7140FD',
-                    '#2A799B',
-                    '#EC266C',
-                    '#1992D7',
-                    '#FF7D46',
-                    '#216266',
-                    '#F66F8F',
-                    '#C78F67',
-                    '#CB6256',
-                  ]}
-                  color={chosenColor}
-                  onChange={color => setChosenColor(color.hex)}
-                />
+                <ColorPicker />
               </YStack>
             </XStack>
           </YStack>
