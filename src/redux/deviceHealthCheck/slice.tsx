@@ -24,19 +24,25 @@ const deviceHealthSlice = createSlice({
   name: 'deviceHealth',
   initialState,
   reducers: {
-    setStorage: (state, action: PayloadAction<{ storage: number; maxStorage: number }>) => {
+    setStorage: (
+      state: DeviceHealthState,
+      action: PayloadAction<{ storage: number; maxStorage: number }>,
+    ) => {
       state.storage = action.payload.storage
       state.maxStorage = action.payload.maxStorage
     },
-    setCpuLoad: (state, action: PayloadAction<number[]>) => {
+    setCpuLoad: (state: DeviceHealthState, action: PayloadAction<number[]>) => {
       state.cpuLoad = action.payload
     },
-    setMemory: (state, action: PayloadAction<{ memory: number[]; maxMemory: number }>) => {
+    setMemory: (
+      state: DeviceHealthState,
+      action: PayloadAction<{ memory: number[]; maxMemory: number }>,
+    ) => {
       state.memory = action.payload.memory
       state.maxMemory = action.payload.maxMemory
     },
     setNetworkHealth: (
-      state,
+      state: DeviceHealthState,
       action: PayloadAction<{ uploadRate: number[]; downloadRate: number[] }>,
     ) => {
       state.uploadRate = action.payload.uploadRate
@@ -45,7 +51,6 @@ const deviceHealthSlice = createSlice({
   },
 })
 
-export const { setStorage, setCpuLoad, setMemory, setNetworkHealth} =
-  deviceHealthSlice.actions
+export const { setStorage, setCpuLoad, setMemory, setNetworkHealth } = deviceHealthSlice.actions
 
 export default deviceHealthSlice.reducer
