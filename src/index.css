@@ -13,69 +13,46 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
 #storybook-root {
-    width: 100%;
+  width: 100%;
 }
-
 body {
   margin: 0;
   display: flex;
   min-width: 320px;
   min-height: 100vh;
 }
-
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
   font-weight: 700;
 }
-
-h1 {
-  font-size: 3.2em;
-
-}
-
 a {
   font-weight: 500;
   text-decoration: inherit;
   cursor: pointer;
 }
-a:hover {
-  color: #535bf2;
-}
 button {
   border-radius: 12px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
   font-size: 15px;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #2A4AF5;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button.inversed {
-  border-radius: 12px;
-  border: 1px solid #2A4AF5;
-  color: #2A4AF5;
-  padding: 0.75em 1.2em;
-  font-size: 15px;
-  background-color:transparent;
   font-weight: 500;
   font-family: inherit;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-.nimbus-logomark{
-  width: auto;
-  height: 30%;
+ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+ul li {
+  padding: 0 1rem;
+  font-size: 15px;
 }
 @media (prefers-color-scheme: light) {
   :root {
