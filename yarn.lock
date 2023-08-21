@@ -7192,6 +7192,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/uuid@npm:^9.0.2":
+  version: 9.0.2
+  resolution: "@types/uuid@npm:9.0.2"
+  checksum: 1754bcf3444e1e3aeadd6e774fc328eb53bc956665e2e8fb6ec127aa8e1f43d9a224c3d22a9a6233dca8dd81a12dc7fed4d84b8876dd5ec82d40f574f7ff8b68
+  languageName: node
+  linkType: hard
+
 "@types/wait-on@npm:^5.2.0":
   version: 5.3.1
   resolution: "@types/wait-on@npm:5.3.1"
@@ -13824,6 +13831,7 @@ __metadata:
     "@types/react": 18
     "@types/react-color": ^3.0.6
     "@types/react-dom": 18
+    "@types/uuid": ^9.0.2
     "@typescript-eslint/eslint-plugin": ^6.0.0
     "@typescript-eslint/parser": ^6.0.0
     "@vitejs/plugin-react": ^4.0.3
