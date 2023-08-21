@@ -5,10 +5,9 @@ import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import NimbusLogo from '../../components/Logos/NimbusLogo'
 import TagContainer from '../../components/General/TagContainer'
 import Titles from '../../components/General/Titles'
-import NodeIcon from '../../components/Icons/NodeIcon'
 import LabelInputField from '../../components/General/LabelInputField'
-import ReactionIcon from '../../components/Icons/ReactionIcon'
 import ColorPicker from '../../components/General/ColorPicker'
+import { NodeIcon, ReactionIcon } from '@status-im/icons'
 
 const CreateLocalNodePage = () => {
   const [autoConnectChecked, setAutoConnectChecked] = useState(false)
@@ -36,7 +35,7 @@ const CreateLocalNodePage = () => {
                 </Text>
                 <XStack my={10}>
                   <Avatar type="account" size={80} name="Device Avatar" />
-                  <Avatar type="icon" size={32} icon={<ReactionIcon />} backgroundColor={'white'} />
+                  <ReactionIcon size={20} />
                 </XStack>
               </YStack>
               <YStack>
@@ -66,7 +65,7 @@ const CreateLocalNodePage = () => {
             </XStack>
             <Separator alignSelf="stretch" borderColor={'#F0F2F5'} />
           </YStack>
-          <StatusButton icon={<NodeIcon />}>Continue</StatusButton>
+          <StatusButton icon={<NodeIcon size={16} />}>Continue</StatusButton>
         </article>
       </div>
     </PageWrapperShadow>
