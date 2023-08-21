@@ -19,7 +19,7 @@ const config: StorybookConfig = {
 
   async viteFinal(config, { configType }) {
     if (configType === 'PRODUCTION') {
-      config.base = './'
+      config.base = './lul'
     }
 
     return config
