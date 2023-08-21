@@ -4,6 +4,7 @@ import { Shadow, Text } from '@status-im/components'
 import Icon from '../../components/General/Icon'
 import StandardGauge from '../../components/Charts/StandardGauge'
 import IconText from '../../components/General/IconText'
+import { TokenIcon } from '@status-im/icons'
 
 interface DeviceStorageHealthProps {
   synced: number
@@ -71,7 +72,7 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
         <Separator borderColor={'#e3e3e3'} />
 
         <XStack space={'$2'} style={{ padding: '10px 16px 10px 16px' }}>
-          <IconText icon="/icons/token.svg">{message}</IconText>
+          <IconText icon={<TokenIcon size={16} />}>{message}</IconText>
 
           <Text size={13}>
             {formatNumber(synced)} / {formatNumber(total)}
