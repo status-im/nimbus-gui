@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import GenerateId from './GenerateId'
-
-// TODO: story crashes because of Link component (tried with useNavigate hook, but it is same)
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 const meta = {
   title: 'Pair Device/GenerateId',
@@ -12,6 +11,7 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {},
+  decorators: [withRouter],
 } satisfies Meta<typeof GenerateId>
 
 export default meta
