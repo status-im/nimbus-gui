@@ -19,6 +19,7 @@ const ConnectDevicePage = () => {
     <PageWrapperShadow
       breadcrumbBar={<BreadcrumbBar breadcrumbList={['Nodes', 'Nimbus', 'Connect Device']} />}
       rightImageSrc="/background-images/day-night-bg.png"
+      rightImageLogo={true}
     >
       <div className="connection-page">
         <XStack justifyContent={'space-between'}>
