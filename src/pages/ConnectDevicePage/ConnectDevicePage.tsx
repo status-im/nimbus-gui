@@ -5,11 +5,8 @@ import { Label, Separator, XStack, YStack } from 'tamagui'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import NimbusLogo from '../../components/Logos/NimbusLogo'
 import Titles from '../../components/General/Titles'
-import NodeIcon from '../../components/Icons/NodeIcon'
-import ConnectIcon from '../../components/Icons/ConnectIcon'
-import PairIcon from '../../components/Icons/PairIcon'
-import CreateIcon from '../../components/Icons/CreateIcon'
 import LabelInputField from '../../components/General/LabelInputField'
+import { AddSmallIcon, ConnectionIcon, NodeIcon, SwapIcon } from '@status-im/icons'
 
 const ConnectDevicePage = () => {
   const [autoConnectChecked, setAutoConnectChecked] = useState(false)
@@ -24,9 +21,9 @@ const ConnectDevicePage = () => {
         <XStack justifyContent={'space-between'}>
           <NimbusLogo />
           <XStack space={'$2'} alignItems="center">
-            <Tag icon={ConnectIcon} label="Connect" size={32} selected />
-            <Tag icon={PairIcon} label="Pair" size={32} />
-            <Tag icon={CreateIcon} label="Create" size={32} />
+            <Tag icon={ConnectionIcon} label="Connect" size={32} selected />
+            <Tag icon={SwapIcon} label="Pair" size={32} />
+            <Tag icon={AddSmallIcon} label="Create" size={32} />
           </XStack>
         </XStack>
         <article className="content">
@@ -105,7 +102,7 @@ const ConnectDevicePage = () => {
             </XStack>
             <Separator alignSelf="stretch" borderColor={'#F0F2F5'} />
           </section>
-          <StatusButton icon={<NodeIcon />}>Connect Device</StatusButton>
+          <StatusButton icon={<NodeIcon size={20} />}>Connect Device</StatusButton>
         </article>
       </div>
     </PageWrapperShadow>
