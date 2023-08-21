@@ -11,7 +11,7 @@ type TitlesProps = {
 
 const Titles = ({ title, subtitle, isAdvancedSettings }: TitlesProps) => {
   return (
-    <YStack style={{ width: '100%' }}>
+    <YStack style={{ width: '100%', margin: '0 0 1em' }}>
       <XStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
         <Title color={'#09101C'}>{title}</Title>
         {isAdvancedSettings && (

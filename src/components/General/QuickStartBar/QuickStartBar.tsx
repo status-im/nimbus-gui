@@ -38,7 +38,6 @@ const QuickStartBar = () => {
           <li>Nodes Community</li>
           <li>Documentation</li>
         </ul>
-        <button className="inversed">Quick Start</button>
       </div>
     </nav>
   )

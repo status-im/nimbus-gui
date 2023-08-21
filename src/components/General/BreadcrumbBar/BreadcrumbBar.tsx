@@ -1,4 +1,4 @@
-import './breadcrumbbar.css'
+import './BreadcrumbBar.css'
 
 type BreadcrumbBarProps = {
   breadcrumbList: string[]

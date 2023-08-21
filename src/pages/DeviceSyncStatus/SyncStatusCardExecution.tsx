@@ -35,7 +35,7 @@ const SyncStatusCardExecution: React.FC<DeviceStorageHealthProps> = ({ synced, t
     <Shadow
       variant="$2"
       style={{
-        width: '632px',
+        width: '100%',
         borderRadius: '16px',
         borderBottomRightRadius: '0px',
         borderBottomLeftRadius: '0px',
