@@ -3,12 +3,18 @@ import { XStack } from 'tamagui'
 import PairIcon from '../Icons/PairIcon'
 import CreateIcon from '../Icons/CreateIcon'
 import './TagContainer.css'
+import ConnectIcon from '../Icons/ConnectIcon'
 
-const TagContainer = () => {
+type TagContainerProps = {
+  selectedTag: 'pair' | 'create' | 'connect'
+}
+
+const TagContainer = ({ selectedTag }: TagContainerProps) => {
   return (
     <XStack space={'$2'} alignItems="center" className="tag-container">
-      <Tag icon={PairIcon} label="Pair" size={32} />
-      <Tag selected icon={CreateIcon} label="Create" size={32} />
+      <Tag selected={selectedTag === 'connect'} icon={ConnectIcon} label="Connect" size={32} />
+      <Tag selected={selectedTag === 'pair'} icon={PairIcon} label="Pair" size={32} />
+      <Tag selected={selectedTag === 'create'} icon={CreateIcon} label="Create" size={32} />
     </XStack>
   )
 }

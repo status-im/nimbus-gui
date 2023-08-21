@@ -15,7 +15,7 @@ const CreateLocalNodePage = () => {
   return (
     <PageWrapperShadow rightImageSrc="/background-images/day-night-bg.png" rightImageLogo={true}>
       <div className="connection-page">
-        <Header />
+        <Header selectedTag="create" />
         <article className="content">
           <Titles
             title="Create Local Node"

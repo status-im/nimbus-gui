@@ -1,15 +1,12 @@
 import { useState } from 'react'
 import BreadcrumbBar from '../../components/General/BreadcrumbBar/BreadcrumbBar'
-import { Button as StatusButton, Tag, Text, Avatar, Checkbox } from '@status-im/components'
+import { Button as StatusButton, Text, Avatar, Checkbox } from '@status-im/components'
 import { Label, Separator, XStack, YStack } from 'tamagui'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
-import NimbusLogo from '../../components/Logos/NimbusLogo'
 import Titles from '../../components/General/Titles'
 import NodeIcon from '../../components/Icons/NodeIcon'
-import ConnectIcon from '../../components/Icons/ConnectIcon'
-import PairIcon from '../../components/Icons/PairIcon'
-import CreateIcon from '../../components/Icons/CreateIcon'
 import LabelInputField from '../../components/General/LabelInputField'
+import Header from '../../components/General/Header'
 
 const ConnectDevicePage = () => {
   const [autoConnectChecked, setAutoConnectChecked] = useState(false)
@@ -22,14 +19,8 @@ const ConnectDevicePage = () => {
       rightImageLogo={true}
     >
       <div className="connection-page">
-        <XStack justifyContent={'space-between'}>
-          <NimbusLogo />
-          <XStack space={'$2'} alignItems="center">
-            <Tag icon={ConnectIcon} label="Connect" size={32} selected />
-            <Tag icon={PairIcon} label="Pair" size={32} />
-            <Tag icon={CreateIcon} label="Create" size={32} />
-          </XStack>
-        </XStack>
+        <Header selectedTag="connect" />
+
         <article className="content">
           <section className="mb-1">
             <Titles

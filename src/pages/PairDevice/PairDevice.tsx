@@ -29,7 +29,7 @@ const PairDevice = () => {
           maxWidth: '100%',
         }}
       >
-        <Header />
+        <Header selectedTag="pair" />
         <Titles title="Pair Device" subtitle="Pair your device to the Nimbus Node Manager" />
         {isPaired ? <PairedSuccessfully /> : <GenerateId isAwaitingPairing={isAwaitingPairing} />}
         {!isPaired && (

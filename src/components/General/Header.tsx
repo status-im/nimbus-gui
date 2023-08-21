@@ -2,11 +2,15 @@ import { XStack } from 'tamagui'
 import NimbusLogo from '../Logos/NimbusLogo'
 import TagContainer from './TagContainer'
 
-const Header = () => {
+type HeaderProps = {
+  selectedTag: 'pair' | 'create' | 'connect'
+}
+
+const Header = ({ selectedTag }: HeaderProps) => {
   return (
-    <XStack style={{ justifyContent: 'space-between' }} py={'25px'}>
+    <XStack justifyContent="space-between" py={'25px'}>
       <NimbusLogo />
-      <TagContainer />
+      <TagContainer selectedTag={selectedTag} />
     </XStack>
   )
 }
