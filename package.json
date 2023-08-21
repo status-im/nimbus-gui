@@ -2,6 +2,7 @@
   "name": "nimbus-gui",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://nimbus-gui.github.io/nimbus-gui",
   "scripts": {
     "dev": "NODE_ENV=development vite",
     "build": "tsc -p . && vite build",
@@ -9,7 +10,8 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test-storybook": "test-storybook"
+    "test-storybook": "test-storybook",
+    "deploy-storybook": "gh-pages -d storybook-static"
   },
   "resolutions": {
     "@tamagui/web": "1.36.4",
@@ -58,6 +60,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-storybook": "^0.6.13",
+    "gh-pages": "^6.0.0",
     "prettier": "^3.0.1",
     "storybook": "^7.2.0",
     "storybook-addon-react-router-v6": "^2.0.5",
