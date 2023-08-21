@@ -50,6 +50,7 @@
     "@storybook/test-runner": "^0.12.0",
     "@storybook/testing-library": "^0.2.0",
     "@types/react-color": "^3.0.6",
+    "@types/uuid": "^9.0.2",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
@@ -59,6 +60,7 @@
     "eslint-plugin-storybook": "^0.6.13",
     "prettier": "^3.0.1",
     "storybook": "^7.2.0",
+    "storybook-addon-react-router-v6": "^2.0.5",
     "typescript": "^5.0.2",
     "vite": "^4.4.9"
   },
