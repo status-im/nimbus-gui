@@ -10,7 +10,6 @@ export default defineConfig({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     'process.env.TAMAGUI_TARGET': JSON.stringify('web'),
   },
-  base: process.env.BASE_URL || './',
   resolve: {
     extensions,
     alias: {
