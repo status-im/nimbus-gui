@@ -3,7 +3,7 @@ import { CompleteIdIcon, CopyIcon } from '@status-im/icons'
 import { Text } from '@tamagui/web'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { XStack, YStack } from 'tamagui'
+import { Separator, XStack, YStack } from 'tamagui'
 import { v4 as uuidv4 } from 'uuid'
 
 type GenerateIdProps = {
@@ -58,6 +58,7 @@ const GenerateId = ({ isAwaitingPairing }: GenerateIdProps) => {
         </Link>
         .
       </StatusText>
+      <Separator borderColor={'#e3e3e3'} />
     </YStack>
   )
 }

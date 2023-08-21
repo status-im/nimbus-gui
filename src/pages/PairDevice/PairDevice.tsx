@@ -11,11 +11,12 @@ import NodeIcon from '../../components/Icons/NodeIcon'
 import Titles from '../../components/General/Titles'
 import PairedSuccessfully from './PairedSuccessfully'
 import { CreateAvatar } from './CreateAvatar'
+import GenerateId from './GenerateId'
 
 const PairDevice = () => {
   const [autoChecked, setAutoChecked] = useState(false)
   const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
-  const isPaired = true
+  const isPaired = false
   const isPairing = true
 
   const changeSetIsAwaitingPairing = (result: boolean) => {
@@ -25,7 +26,7 @@ const PairDevice = () => {
   return (
     <PageWrapperShadow rightImageSrc="/background-images/day-night-bg.png">
       <YStack
-        space={'$4'}
+        space={'$3'}
         style={{
           maxWidth: '100%',
         }}
@@ -38,8 +39,7 @@ const PairDevice = () => {
           </XStack>
         </XStack>
         <Titles title="Pair Device" subtitle="Pair your device to the Nimbus Node Manager" />
-        {isPaired ? <PairedSuccessfully /> : <></>}
-        <Separator borderColor={'#e3e3e3'} />
+        {isPaired ? <PairedSuccessfully /> : <GenerateId isAwaitingPairing={isAwaitingPairing} />}
         {!isPaired && (
           <SyncStatus
             isPairing={isPairing}
