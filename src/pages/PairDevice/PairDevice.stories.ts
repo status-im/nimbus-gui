@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import PairDevice from './PairDevice'
-
-// TODO: story crashes because of Link component (tried with useNavigate hook, but it is same)
 
 const meta = {
   title: 'Pages/PairDevice',
@@ -12,6 +11,7 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {},
+  decorators: [withRouter],
 } satisfies Meta<typeof PairDevice>
 
 export default meta
