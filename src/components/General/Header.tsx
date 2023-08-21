@@ -8,7 +8,7 @@ type HeaderProps = {
 
 const Header = ({ selectedTag }: HeaderProps) => {
   return (
-    <XStack justifyContent="space-between" py={'25px'}>
+    <XStack justifyContent="space-between" py={'25px'} mt={'70px'}>
       <NimbusLogo />
       <TagContainer selectedTag={selectedTag} />
     </XStack>

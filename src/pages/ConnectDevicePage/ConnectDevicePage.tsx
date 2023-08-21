@@ -18,17 +18,15 @@ const ConnectDevicePage = () => {
       rightImageSrc="/background-images/day-night-bg.png"
       rightImageLogo={true}
     >
-      <div className="connection-page">
+      <YStack space={'$3'}>
         <Header selectedTag="connect" />
 
         <article className="content">
-          <section className="mb-1">
-            <Titles
-              title="Connect Device"
-              subtitle="Configure your device to connect to the Nimbus Node Manager"
-            />
-          </section>
-          <section className="mb-1">
+          <Titles
+            title="Connect Device"
+            subtitle="Configure your device to connect to the Nimbus Node Manager"
+          />
+          <YStack my={16}>
             <XStack
               width={'100%'}
               alignItems="center"
@@ -60,8 +58,8 @@ const ConnectDevicePage = () => {
             <XStack width={'100%'} alignItems="center">
               <LabelInputField labelText="API Token" placeholderText="****_*****_*****" />
             </XStack>
-          </section>
-          <section className="mb-1">
+          </YStack>
+          <YStack my={16}>
             <YStack>
               <Text size={13} weight="regular" color={'#647084'}>
                 Device Avatar
@@ -74,9 +72,9 @@ const ConnectDevicePage = () => {
                 <LabelInputField labelText="Device Color" placeholderText="#011892" />
               </XStack>
             </YStack>
-          </section>
+          </YStack>
           <Separator alignSelf="stretch" borderColor={'#F0F2F5'} />
-          <section className="my-1">
+          <YStack my={16}>
             <YStack>
               <Text size={19} weight="semibold">
                 Settings
@@ -96,10 +94,10 @@ const ConnectDevicePage = () => {
               </Label>
             </XStack>
             <Separator alignSelf="stretch" borderColor={'#F0F2F5'} />
-          </section>
+          </YStack>
           <StatusButton icon={<NodeIcon />}>Connect Device</StatusButton>
         </article>
-      </div>
+      </YStack>
     </PageWrapperShadow>
   )
 }

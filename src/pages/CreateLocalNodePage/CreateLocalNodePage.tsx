@@ -14,7 +14,7 @@ const CreateLocalNodePage = () => {
 
   return (
     <PageWrapperShadow rightImageSrc="/background-images/day-night-bg.png" rightImageLogo={true}>
-      <div className="connection-page">
+      <YStack space={'$3'}>
         <Header selectedTag="create" />
         <article className="content">
           <Titles
@@ -64,7 +64,7 @@ const CreateLocalNodePage = () => {
           </YStack>
           <StatusButton icon={<NodeIcon />}>Continue</StatusButton>
         </article>
-      </div>
+      </YStack>
     </PageWrapperShadow>
   )
 }
