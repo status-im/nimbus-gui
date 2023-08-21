@@ -1,6 +1,3 @@
-export const GREEN_CHECKMARK_ICON = '/icons/checkmark-circle-green.png'
-export const RED_CHECKMARK_ICON = '/icons/remove-circle-red.png'
-
 export const GOOD_STORAGE_TEXT =
   'You have plenty of storage available for additional node services.'
 export const GOOD_CPU_CLOCK_RATE_TEXT = '2.4GHz is recommended for CPU.'
