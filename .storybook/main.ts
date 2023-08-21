@@ -19,7 +19,7 @@ const config: StorybookConfig = {
 
   async viteFinal(config, { configType }) {
     if (configType === 'PRODUCTION') {
-      config.base = '/nimbus-gui/'
+      config.base = process.env.BASE_URL || './'
     }
 
     return config
