@@ -3,9 +3,9 @@ import './LandingPage.css'
 import QuickStartBar from '../../components/General/QuickStartBar/QuickStartBar'
 import Titles from '../../components/General/Titles'
 import { Button as StatusButton } from '@status-im/components'
-import NodeIcon from '../../components/Icons/NodeIcon'
 import NimbusLogo from '../../components/Logos/NimbusLogo'
 import { XStack, YStack } from 'tamagui'
+import { NodeIcon } from '@status-im/icons'
 
 function LandingPage() {
   return (
@@ -21,7 +21,7 @@ function LandingPage() {
               subtitle="Nimbus Nodes allows you to take control and ownership of the services you wish to run in a completely trustless and decentralized manner."
             />
             <XStack>
-              <StatusButton icon={<NodeIcon />}>Get Started</StatusButton>
+              <StatusButton icon={<NodeIcon size={20} />}>Get Started</StatusButton>
             </XStack>
           </YStack>
         </div>
