@@ -2,13 +2,12 @@ import { useState } from 'react'
 import { Button as StatusButton, Text, Avatar, Checkbox } from '@status-im/components'
 import { Label, Separator, XStack, YStack } from 'tamagui'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
-import NimbusLogo from '../../components/Logos/NimbusLogo'
-import TagContainer from '../../components/General/TagContainer'
 import Titles from '../../components/General/Titles'
 import NodeIcon from '../../components/Icons/NodeIcon'
 import LabelInputField from '../../components/General/LabelInputField'
 import ReactionIcon from '../../components/Icons/ReactionIcon'
 import ColorPicker from '../../components/General/ColorPicker'
+import Header from '../../components/General/Header'
 
 const CreateLocalNodePage = () => {
   const [autoConnectChecked, setAutoConnectChecked] = useState(false)
@@ -16,10 +15,7 @@ const CreateLocalNodePage = () => {
   return (
     <PageWrapperShadow rightImageSrc="/background-images/day-night-bg.png" rightImageLogo={true}>
       <div className="connection-page">
-        <XStack justifyContent={'space-between'}>
-          <NimbusLogo />
-          <TagContainer />
-        </XStack>
+        <Header />
         <article className="content">
           <Titles
             title="Create Local Node"
