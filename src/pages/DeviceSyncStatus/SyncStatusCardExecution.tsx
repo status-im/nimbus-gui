@@ -72,7 +72,7 @@ const SyncStatusCardExecution: React.FC<DeviceStorageHealthProps> = ({ synced, t
         <Separator borderColor={'#e3e3e3'} />
 
         <XStack space={'$2'} style={{ padding: '10px 16px 10px 16px' }}>
-          <IconText icon="/icons/token.svg">{message}</IconText>
+          <IconText icon="./icons/token.svg">{message}</IconText>
 
           <Text size={13}>
             {' '}

@@ -3,10 +3,10 @@ import { XStack, YStack } from 'tamagui'
 import { Button, IconButton, InformationBox, Text } from '@status-im/components'
 
 import Icon from '../../components/General/Icon'
-import RefreshBlackIcon from '/icons/refresh-black.svg'
-import RefreshIcon from '/icons/refresh.svg'
-import BlockIcon from '/icons/block.svg'
-import ConnectionIcon from '/icons/connection.svg'
+import RefreshBlackIcon from '../../../public/icons/refresh-black.svg'
+import RefreshIcon from '../../../public/icons/refresh.svg'
+import BlockIcon from '../../../public/icons/block.svg'
+import ConnectionIcon from '../../../public/icons/connection.svg'
 import { convertSecondsToTimerFormat } from '../../utilities'
 
 type SyncStatusProps = {

@@ -13,11 +13,10 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
 
 const DeviceHealthCheck = () => {
- 
   const deviceHealthState = useSelector((state: RootState) => state.deviceHealth)
   console.log(deviceHealthState)
   return (
-    <PageWrapperShadow rightImageSrc="/background-images/eye-background.png">
+    <PageWrapperShadow rightImageSrc="./background-images/eye-background.png">
       <YStack
         space={'$4'}
         style={{
@@ -59,7 +58,7 @@ const DeviceHealthCheck = () => {
           networkLatency={75}
         />
         <InformationBox
-          icon={<Icon src="/icons/close.png" width={11} height={11} />}
+          icon={<Icon src="./icons/close.png" width={11} height={11} />}
           message="The information provided in the Nodes Health Check is meant to utilized as a guide to guage the readiness of your device, however please do your own due diligence prior to commiting any funds. Read our Health Check Disclosure for more information."
         />
         <Stack style={{ marginTop: '1rem' }}>

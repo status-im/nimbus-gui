@@ -10,7 +10,7 @@ import QuickStartBar from '../../components/General/QuickStartBar/QuickStartBar'
 function LandingPage() {
   return (
     <>
-      <PageWrapperShadow rightImageSrc="/background-images/landing-page-bg.png">
+      <PageWrapperShadow rightImageSrc="./background-images/landing-page-bg.png">
         <YStack className="landing-page">
           <XStack pt={'70px'}>
             <NimbusLogo />
