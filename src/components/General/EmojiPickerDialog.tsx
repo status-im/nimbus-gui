@@ -21,12 +21,12 @@ function EmojiPickerDialog({ emojiStyle }: { emojiStyle: EmojiStyleType }) {
   return (
     <Stack position="absolute" zIndex={1} left={120}>
        
-      <XStack>
+      {/* <XStack>
         Your selected Emoji is:
         {selectedEmoji ? (
           <Emoji unified={selectedEmoji} emojiStyle={EmojiStyle.APPLE} size={22} />
         ) : null}
-      </XStack>
+      </XStack> */}
 
       <EmojiPicker
         onEmojiClick={onClick}
