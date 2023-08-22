@@ -1,4 +1,3 @@
-import { Text } from '@status-im/components'
 import EmojiPicker, {
   EmojiStyle,
   Theme,
