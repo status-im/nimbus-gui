@@ -23,7 +23,7 @@ const DeviceSyncStatus = () => {
     )
   }, [dispatch])
   return (
-    <PageWrapperShadow rightImageSrc="/background-images/sync-status-background.png">
+    <PageWrapperShadow rightImageSrc="./background-images/sync-status-background.png">
       <YStack
         space={'$4'}
         style={{

@@ -55,7 +55,7 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
               Consensus Client
             </Text>
             <XStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
-              <Icon src="/icons/vector.svg" height={46} width={93} />
+              <Icon src="./icons/vector.svg" height={46} width={93} />
               <Stack
                 style={{
                   height: '115px',
@@ -71,7 +71,7 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
         <Separator borderColor={'#e3e3e3'} />
 
         <XStack space={'$2'} style={{ padding: '10px 16px 10px 16px' }}>
-          <IconText icon="/icons/token.svg">{message}</IconText>
+          <IconText icon="./icons/token.svg">{message}</IconText>
 
           <Text size={13}>
             {formatNumber(synced)} / {formatNumber(total)}

@@ -10,7 +10,7 @@ import { XStack, YStack } from 'tamagui'
 function LandingPage() {
   return (
     <>
-      <PageWrapperShadow rightImageSrc="/background-images/landing-page-bg.png">
+      <PageWrapperShadow rightImageSrc="./background-images/landing-page-bg.png">
         <div className="landing-page">
           <XStack>
             <NimbusLogo />
