@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import BreadcrumbBar from '../../components/General/BreadcrumbBar/BreadcrumbBar'
-import { Button as StatusButton, Tag, Text, Avatar, Checkbox } from '@status-im/components'
+import { Button as StatusButton, Text, Avatar, Checkbox } from '@status-im/components'
 import { Label, Separator, XStack, YStack } from 'tamagui'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
-import NimbusLogo from '../../components/Logos/NimbusLogo'
 import Titles from '../../components/General/Titles'
 import LabelInputField from '../../components/General/LabelInputField'
-import { AddSmallIcon, ConnectionIcon, NodeIcon, SwapIcon } from '@status-im/icons'
+import Header from '../../components/General/Header'
+import { NodeIcon } from '@status-im/icons'
 
 const ConnectDevicePage = () => {
   const [autoConnectChecked, setAutoConnectChecked] = useState(false)
@@ -16,24 +16,17 @@ const ConnectDevicePage = () => {
     <PageWrapperShadow
       breadcrumbBar={<BreadcrumbBar breadcrumbList={['Nodes', 'Nimbus', 'Connect Device']} />}
       rightImageSrc="./background-images/day-night-bg.png"
+      rightImageLogo={true}
     >
-      <div className="connection-page">
-        <XStack justifyContent={'space-between'}>
-          <NimbusLogo />
-          <XStack space={'$2'} alignItems="center">
-            <Tag icon={ConnectionIcon} label="Connect" size={32} selected />
-            <Tag icon={SwapIcon} label="Pair" size={32} />
-            <Tag icon={AddSmallIcon} label="Create" size={32} />
-          </XStack>
-        </XStack>
+      <YStack space={'$3'}>
+        <Header selectedTag="connect" />
+
         <article className="content">
-          <section className="mb-1">
-            <Titles
-              title="Connect Device"
-              subtitle="Configure your device to connect to the Nimbus Node Manager"
-            />
-          </section>
-          <section className="mb-1">
+          <Titles
+            title="Connect Device"
+            subtitle="Configure your device to connect to the Nimbus Node Manager"
+          />
+          <YStack my={16}>
             <XStack
               width={'100%'}
               alignItems="center"
@@ -65,8 +58,8 @@ const ConnectDevicePage = () => {
             <XStack width={'100%'} alignItems="center">
               <LabelInputField labelText="API Token" placeholderText="****_*****_*****" />
             </XStack>
-          </section>
-          <section className="mb-1">
+          </YStack>
+          <YStack my={16}>
             <YStack>
               <Text size={13} weight="regular" color={'#647084'}>
                 Device Avatar
@@ -79,9 +72,9 @@ const ConnectDevicePage = () => {
                 <LabelInputField labelText="Device Color" placeholderText="#011892" />
               </XStack>
             </YStack>
-          </section>
+          </YStack>
           <Separator alignSelf="stretch" borderColor={'#F0F2F5'} />
-          <section className="my-1">
+          <YStack my={16}>
             <YStack>
               <Text size={19} weight="semibold">
                 Settings
@@ -101,10 +94,10 @@ const ConnectDevicePage = () => {
               </Label>
             </XStack>
             <Separator alignSelf="stretch" borderColor={'#F0F2F5'} />
-          </section>
+          </YStack>
           <StatusButton icon={<NodeIcon size={20} />}>Connect Device</StatusButton>
         </article>
-      </div>
+      </YStack>
     </PageWrapperShadow>
   )
 }

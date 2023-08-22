@@ -1,15 +1,15 @@
 import { Separator, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
-import { Button, Checkbox, Tag, Text } from '@status-im/components'
+import { Button, Checkbox, Text } from '@status-im/components'
 
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import SyncStatus from './SyncStatus'
-import NimbusLogo from '../../components/Logos/NimbusLogo'
 import Titles from '../../components/General/Titles'
 import PairedSuccessfully from './PairedSuccessfully'
 import CreateAvatar from './CreateAvatar'
 import GenerateId from './GenerateId'
-import { AddSmallIcon, NodeIcon, SwapIcon } from '@status-im/icons'
+import { NodeIcon } from '@status-im/icons'
+import Header from '../../components/General/Header'
 
 const PairDevice = () => {
   const [autoChecked, setAutoChecked] = useState(false)
@@ -22,20 +22,14 @@ const PairDevice = () => {
   }
 
   return (
-    <PageWrapperShadow rightImageSrc="./background-images/day-night-bg.png">
+    <PageWrapperShadow rightImageSrc="./background-images/day-night-bg.png" rightImageLogo={true}>
       <YStack
         space={'$3'}
         style={{
           maxWidth: '100%',
         }}
       >
-        <XStack style={{ justifyContent: 'space-between' }}>
-          <NimbusLogo />
-          <XStack space={'$2'} style={{ alignItems: 'center' }}>
-            <Tag icon={SwapIcon} label="Pair" size={32} selected />
-            <Tag icon={AddSmallIcon} label="Create" size={32} />
-          </XStack>
-        </XStack>
+        <Header selectedTag="pair" />
         <Titles title="Pair Device" subtitle="Pair your device to the Nimbus Node Manager" />
         {isPaired ? <PairedSuccessfully /> : <GenerateId isAwaitingPairing={isAwaitingPairing} />}
         {!isPaired && (

@@ -26,7 +26,7 @@
     flex-wrap: wrap;
     justify-content: end; 
     height: 100%;
-    padding: 70px 0 0;
+    /* padding: 70px 0 0; */
 }
 .container-inner {
     max-width: 70%;
@@ -49,6 +49,7 @@
     height: 100%;
     position: relative;
     overflow: hidden;
+    color: #FFF;
 }
 .image-container::before {
     display: block;
@@ -65,11 +66,20 @@
     height: 100%;
     background: linear-gradient(to right, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 0.0));
 }
-.image-container img {
+.image-container .background-img {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     height: 140%;
     width: auto;
+}
+.image-container .nimbus-logomark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.image-container .nimbus-logomark svg {
+    height: 73px;
 }
