@@ -13,7 +13,7 @@ const CreateLocalNodePage = () => {
   const [autoConnectChecked, setAutoConnectChecked] = useState(false)
 
   return (
-    <PageWrapperShadow rightImageSrc="/background-images/day-night-bg.png">
+    <PageWrapperShadow rightImageSrc="./background-images/day-night-bg.png">
       <div className="connection-page">
         <XStack justifyContent={'space-between'}>
           <NimbusLogo />

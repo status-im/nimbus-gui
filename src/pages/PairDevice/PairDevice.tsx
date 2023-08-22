@@ -22,7 +22,7 @@ const PairDevice = () => {
   }
 
   return (
-    <PageWrapperShadow rightImageSrc="/background-images/day-night-bg.png">
+    <PageWrapperShadow rightImageSrc="./background-images/day-night-bg.png">
       <YStack
         space={'$3'}
         style={{

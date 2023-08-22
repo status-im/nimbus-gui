@@ -11,8 +11,8 @@ const NimbusLogo = () => {
       }}
       space={'$3'}
     >
-      <img src={'/icons/marks.svg'} alt="marks" className="nimbus-logomark" />
-      <img src={'/icons/nimbus.svg'} alt="marks" />
+      <img src={'./icons/marks.svg'} alt="marks" className="nimbus-logomark" />
+      <img src={'./icons/nimbus.svg'} alt="marks" />
       <BetaTag />
     </XStack>
   )

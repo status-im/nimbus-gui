@@ -74,7 +74,6 @@ const SyncStatusCardExecution: React.FC<DeviceStorageHealthProps> = ({ synced, t
 
         <XStack space={'$2'} style={{ padding: '10px 16px 10px 16px' }}>
           <IconText icon={<TokenIcon size={16} />}>{message}</IconText>
-
           <Text size={13}>
             {' '}
             {formatNumber(synced)} / {formatNumber(total)}

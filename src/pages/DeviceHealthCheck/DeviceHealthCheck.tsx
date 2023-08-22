@@ -16,7 +16,7 @@ const DeviceHealthCheck = () => {
   const deviceHealthState = useSelector((state: RootState) => state.deviceHealth)
 
   return (
-    <PageWrapperShadow rightImageSrc="/background-images/eye-background.png">
+    <PageWrapperShadow rightImageSrc="./background-images/eye-background.png">
       <YStack
         space={'$4'}
         style={{
