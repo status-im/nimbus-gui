@@ -1,9 +1,9 @@
 import { XStack } from 'tamagui'
-import Icon from './Icon'
 import { Text } from '@status-im/components'
+import { ReactNode } from 'react'
 
 type IconTextProps = {
-  icon: string
+  icon: ReactNode
   children: string
   weight?: 'regular' | 'medium' | 'semibold'
 }
@@ -16,7 +16,7 @@ const IconText = ({ icon, children, weight }: IconTextProps) => {
       }}
       space={'$2'}
     >
-      <Icon src={icon} />
+      {icon}
       <Text size={13} color={'#000000'} weight={weight}>
         {children}
       </Text>

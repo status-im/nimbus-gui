@@ -2,10 +2,9 @@ import { XStack, YStack } from 'tamagui'
 import LabelInputField from '../../components/General/LabelInputField'
 import { Avatar, Text } from '@status-im/components'
 import ColorPicker from '../../components/General/ColorPicker'
+import { ReactionIcon } from '@status-im/icons'
 
-import ReactionIcon from '../../components/Icons/ReactionIcon'
-// create func component
-export const CreateAvatar = () => {
+const CreateAvatar = () => {
   return (
     <YStack my={16}>
       <XStack space>
@@ -18,7 +17,7 @@ export const CreateAvatar = () => {
           </Text>
           <XStack my={10}>
             <Avatar type="account" size={80} name="Device Avatar" />
-            <Avatar type="icon" size={32} icon={<ReactionIcon />} backgroundColor={'white'} />
+            <ReactionIcon size={20} />
           </XStack>
         </YStack>
         <YStack>
@@ -31,3 +30,5 @@ export const CreateAvatar = () => {
     </YStack>
   )
 }
+
+export default CreateAvatar

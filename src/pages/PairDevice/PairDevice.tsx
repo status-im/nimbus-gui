@@ -5,19 +5,17 @@ import { Button, Checkbox, Tag, Text } from '@status-im/components'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import SyncStatus from './SyncStatus'
 import NimbusLogo from '../../components/Logos/NimbusLogo'
-import PairIcon from '../../components/Icons/PairIcon'
-import CreateIcon from '../../components/Icons/CreateIcon'
-import NodeIcon from '../../components/Icons/NodeIcon'
 import Titles from '../../components/General/Titles'
 import PairedSuccessfully from './PairedSuccessfully'
-import { CreateAvatar } from './CreateAvatar'
+import CreateAvatar from './CreateAvatar'
 import GenerateId from './GenerateId'
+import { AddSmallIcon, NodeIcon, SwapIcon } from '@status-im/icons'
 
 const PairDevice = () => {
   const [autoChecked, setAutoChecked] = useState(false)
   const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
   const isPaired = false
-  const isPairing = true
+  const isPairing = false
 
   const changeSetIsAwaitingPairing = (result: boolean) => {
     setIsAwaitingPairing(result)
@@ -34,8 +32,8 @@ const PairDevice = () => {
         <XStack style={{ justifyContent: 'space-between' }}>
           <NimbusLogo />
           <XStack space={'$2'} style={{ alignItems: 'center' }}>
-            <Tag icon={PairIcon} label="Pair" size={32} selected />
-            <Tag icon={CreateIcon} label="Create" size={32} />
+            <Tag icon={SwapIcon} label="Pair" size={32} selected />
+            <Tag icon={AddSmallIcon} label="Create" size={32} />
           </XStack>
         </XStack>
         <Titles title="Pair Device" subtitle="Pair your device to the Nimbus Node Manager" />
@@ -63,10 +61,10 @@ const PairDevice = () => {
           />
           <Text size={15}>Auto Connect Paired Device</Text>
         </XStack>
-        {isPaired && <CreateAvatar></CreateAvatar>}
+        {isPaired && <CreateAvatar />}
         <Separator borderColor={'#e3e3e3'} />
         <XStack>
-          <Button icon={<NodeIcon />} disabled={!isPaired}>
+          <Button icon={<NodeIcon size={20} />} disabled={!isPaired}>
             Continue
           </Button>
         </XStack>
