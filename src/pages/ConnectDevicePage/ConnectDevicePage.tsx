@@ -4,7 +4,6 @@ import { Button as StatusButton, Text, Avatar, Checkbox } from '@status-im/compo
 import { Label, Separator, XStack, YStack } from 'tamagui'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import Titles from '../../components/General/Titles'
-
 import LabelInputField from '../../components/General/LabelInputField'
 import Header from '../../components/General/Header'
 import { NodeIcon } from '@status-im/icons'

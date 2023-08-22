@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { Button as StatusButton, Text, Avatar, Checkbox } from '@status-im/components'
+import { NodeIcon, ReactionIcon } from '@status-im/icons'
 import { Label, Separator, XStack, YStack } from 'tamagui'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
+import Header from '../../components/General/Header'
 import Titles from '../../components/General/Titles'
 import LabelInputField from '../../components/General/LabelInputField'
 import ColorPicker from '../../components/General/ColorPicker'
-import Header from '../../components/General/Header'
-import { NodeIcon, ReactionIcon } from '@status-im/icons'
 
 const CreateLocalNodePage = () => {
   const [autoConnectChecked, setAutoConnectChecked] = useState(false)
@@ -31,12 +31,7 @@ const CreateLocalNodePage = () => {
                 </Text>
                 <XStack my={10}>
                   <Avatar type="account" size={80} name="Device Avatar" />
-                  <Avatar
-                    type="icon"
-                    size={32}
-                    icon={<ReactionIcon size={20} />}
-                    backgroundColor={'white'}
-                  />
+                  <Avatar type="icon" size={32} icon={<ReactionIcon size={20} />} />
                 </XStack>
               </YStack>
               <YStack>
