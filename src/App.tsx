@@ -36,6 +36,7 @@ const router = createBrowserRouter([
   },
   { path: '/create-local-node', element: <CreateLocalNodePage /> },
 ])
+
 function App() {
   return (
     <ReduxProvider store={store}>
