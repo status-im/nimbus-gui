@@ -8,8 +8,10 @@ const BreadcrumbBar = ({ breadcrumbList }: BreadcrumbBarProps) => {
   return (
     <nav className="breadcrumb-bar-nav">
       <ul className="breadcrumb-bar-ul">
-        {breadcrumbList.map(item => (
-          <li className="breadcrumb-bar-li">{item}</li>
+        {breadcrumbList.map((item, index) => (
+          <li className="breadcrumb-bar-li" key={index}>
+            {item}
+          </li>
         ))}
       </ul>
     </nav>
