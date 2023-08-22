@@ -13,9 +13,8 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
 
 const DeviceHealthCheck = () => {
- 
   const deviceHealthState = useSelector((state: RootState) => state.deviceHealth)
-  console.log(deviceHealthState)
+
   return (
     <PageWrapperShadow rightImageSrc="/background-images/eye-background.png">
       <YStack
