@@ -1,24 +1,20 @@
 import { useState } from 'react'
 import { Button as StatusButton, Text, Avatar, Checkbox } from '@status-im/components'
+import { NodeIcon, ReactionIcon } from '@status-im/icons'
 import { Label, Separator, XStack, YStack } from 'tamagui'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
-import NimbusLogo from '../../components/Logos/NimbusLogo'
-import TagContainer from '../../components/General/TagContainer'
+import Header from '../../components/General/Header'
 import Titles from '../../components/General/Titles'
 import LabelInputField from '../../components/General/LabelInputField'
 import ColorPicker from '../../components/General/ColorPicker'
-import { NodeIcon, ReactionIcon } from '@status-im/icons'
 
 const CreateLocalNodePage = () => {
   const [autoConnectChecked, setAutoConnectChecked] = useState(false)
 
   return (
-    <PageWrapperShadow rightImageSrc="./background-images/day-night-bg.png">
-      <div className="connection-page">
-        <XStack justifyContent={'space-between'}>
-          <NimbusLogo />
-          <TagContainer />
-        </XStack>
+    <PageWrapperShadow rightImageSrc="./background-images/day-night-bg.png" rightImageLogo={true}>
+      <YStack space={'$3'}>
+        <Header selectedTag="create" />
         <article className="content">
           <Titles
             title="Create Local Node"
@@ -35,7 +31,7 @@ const CreateLocalNodePage = () => {
                 </Text>
                 <XStack my={10}>
                   <Avatar type="account" size={80} name="Device Avatar" />
-                  <ReactionIcon size={20} />
+                  <Avatar type="icon" size={32} icon={<ReactionIcon size={20} />} />
                 </XStack>
               </YStack>
               <YStack>
@@ -65,9 +61,9 @@ const CreateLocalNodePage = () => {
             </XStack>
             <Separator alignSelf="stretch" borderColor={'#F0F2F5'} />
           </YStack>
-          <StatusButton icon={<NodeIcon size={16} />}>Continue</StatusButton>
+          <StatusButton icon={<NodeIcon size={20} />}>Continue</StatusButton>
         </article>
-      </div>
+      </YStack>
     </PageWrapperShadow>
   )
 }
