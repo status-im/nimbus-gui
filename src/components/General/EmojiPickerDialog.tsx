@@ -10,7 +10,9 @@ import EmojiPicker, {
 import { useState } from 'react'
 import { Stack, XStack } from 'tamagui'
 
-function EmojiPickerDialog() {
+type EmojiStyleType = 'FACEBOOK' | 'APPLE' | 'GOOGLE' | 'TWITTER' | 'NATIVE'
+
+function EmojiPickerDialog({ emojiStyle }: { emojiStyle: EmojiStyleType }) {
   const [selectedEmoji, setSelectedEmoji] = useState<string>('')
 
   function onClick(emojiData: EmojiClickData) {
@@ -39,7 +41,7 @@ function EmojiPickerDialog() {
         suggestedEmojisMode={SuggestionMode.RECENT}
         skinTonesDisabled
         searchPlaceHolder="Search emojis"
-        emojiStyle={EmojiStyle.FACEBOOK}
+        emojiStyle={EmojiStyle[emojiStyle]}
         categories={[
           {
             name: 'People',

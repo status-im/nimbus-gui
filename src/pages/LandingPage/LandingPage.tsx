@@ -6,7 +6,7 @@ import { Button as StatusButton } from '@status-im/components'
 import NimbusLogo from '../../components/Logos/NimbusLogo'
 import { XStack, YStack } from 'tamagui'
 import { NodeIcon } from '@status-im/icons'
-import EmojiPickerDialog from '../../components/General/EmojiPicker'
+import EmojiPickerDialog from '../../components/General/EmojiPickerDialog'
 
 function LandingPage() {
   return (
@@ -25,7 +25,7 @@ function LandingPage() {
               <StatusButton icon={<NodeIcon size={20} />}>Get Started</StatusButton>
             </XStack>
           </YStack>
-          <EmojiPickerDialog />
+          <EmojiPickerDialog emojiStyle={'FACEBOOK'} />
         </div>
       </PageWrapperShadow>
       <QuickStartBar />
