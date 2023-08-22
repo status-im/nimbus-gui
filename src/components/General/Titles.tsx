@@ -15,7 +15,7 @@ const Titles = ({ title, subtitle, isAdvancedSettings }: TitlesProps) => {
       <XStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
         <Title color={'#09101C'}>{title}</Title>
         {isAdvancedSettings && (
-          <Button size={32} variant="outline" icon={<Icon src={'/icons/reveal.png'} />}>
+          <Button size={32} variant="outline" icon={<Icon src={'./icons/reveal.png'} />}>
             Advanced Settings
           </Button>
         )}
