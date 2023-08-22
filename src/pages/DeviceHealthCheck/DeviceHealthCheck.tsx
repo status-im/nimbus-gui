@@ -6,15 +6,15 @@ import DeviceStorageHealth from '../../components/Charts/DeviceStorageHealth'
 import DeviceCPULoad from '../../components/Charts/DeviceCPULoad'
 import HealthInfoSection from '../../components/General/HealthInfoSection'
 import { Button, InformationBox } from '@status-im/components'
-import Icon from '../../components/General/Icon'
 import DeviceMemory from '../../components/Charts/DeviceMemoryHealth'
 import DeviceNetworkHealth from '../../components/Charts/DeviceNetworkHealth'
+import { CloseCircleIcon } from '@status-im/icons'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
 
 const DeviceHealthCheck = () => {
   const deviceHealthState = useSelector((state: RootState) => state.deviceHealth)
-  console.log(deviceHealthState)
+
   return (
     <PageWrapperShadow rightImageSrc="./background-images/eye-background.png">
       <YStack
@@ -58,7 +58,7 @@ const DeviceHealthCheck = () => {
           networkLatency={75}
         />
         <InformationBox
-          icon={<Icon src="./icons/close.png" width={11} height={11} />}
+          icon={<CloseCircleIcon size={20} />}
           message="The information provided in the Nodes Health Check is meant to utilized as a guide to guage the readiness of your device, however please do your own due diligence prior to commiting any funds. Read our Health Check Disclosure for more information."
         />
         <Stack style={{ marginTop: '1rem' }}>

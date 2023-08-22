@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react'
 import { XStack, YStack } from 'tamagui'
 import { Button, IconButton, InformationBox, Text } from '@status-im/components'
+import { CloseCircleIcon } from '@status-im/icons'
 
 import Icon from '../../components/General/Icon'
-import RefreshBlackIcon from '../../../public/icons/refresh-black.svg'
-import RefreshIcon from '../../../public/icons/refresh.svg'
-import BlockIcon from '../../../public/icons/block.svg'
-import ConnectionIcon from '../../../public/icons/connection.svg'
+import ConnectionIcon from '/icons/connection.svg'
 import { convertSecondsToTimerFormat } from '../../utilities'
+import { RefreshIcon } from '@status-im/icons'
 
 type SyncStatusProps = {
   isPairing: boolean
@@ -61,9 +60,10 @@ const SyncStatus = ({
           </Text>
         )}
         <IconButton
-          icon={<Icon src={isPairing ? RefreshBlackIcon : RefreshIcon} />}
+          icon={<RefreshIcon size={16} />}
           onPress={resetTimer}
           variant="ghost"
+          disabled={!isPairing}
         />
       </XStack>
       {isPairing ? (
@@ -79,7 +79,7 @@ const SyncStatus = ({
         <InformationBox
           message="No connection has been created to a Nimbus service for over 3 minutes. Please ensure that the generated pairing ID was input into the CLI. If you are unable to pair device, consider connect via IP.   "
           variant="error"
-          icon={<Icon src={BlockIcon} />}
+          icon={<CloseCircleIcon size={20} />}
         />
       )}
       {isAwaitingPairing && (

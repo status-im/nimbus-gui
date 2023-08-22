@@ -4,18 +4,18 @@ import { Button, Checkbox, Text } from '@status-im/components'
 
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import SyncStatus from './SyncStatus'
-import NodeIcon from '../../components/Icons/NodeIcon'
 import Titles from '../../components/General/Titles'
 import PairedSuccessfully from './PairedSuccessfully'
-import { CreateAvatar } from './CreateAvatar'
+import CreateAvatar from './CreateAvatar'
 import GenerateId from './GenerateId'
+import { NodeIcon } from '@status-im/icons'
 import Header from '../../components/General/Header'
 
 const PairDevice = () => {
   const [autoChecked, setAutoChecked] = useState(false)
   const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
   const isPaired = false
-  const isPairing = true
+  const isPairing = false
 
   const changeSetIsAwaitingPairing = (result: boolean) => {
     setIsAwaitingPairing(result)
@@ -55,10 +55,10 @@ const PairDevice = () => {
           />
           <Text size={15}>Auto Connect Paired Device</Text>
         </XStack>
-        {isPaired && <CreateAvatar></CreateAvatar>}
+        {isPaired && <CreateAvatar />}
         <Separator borderColor={'#e3e3e3'} />
         <XStack>
-          <Button icon={<NodeIcon />} disabled={!isPaired}>
+          <Button icon={<NodeIcon size={20} />} disabled={!isPaired}>
             Continue
           </Button>
         </XStack>

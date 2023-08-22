@@ -3,7 +3,7 @@ import { XStack, YStack } from 'tamagui'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import Title from '../../components/General/Title'
 import NimbusLogo from '../../components/Logos/NimbusLogo'
-import NodeIcon from '../../components/Icons/NodeIcon'
+import { NodeIcon } from '@status-im/icons'
 import { Button as StatusButton, Text } from '@status-im/components'
 import QuickStartBar from '../../components/General/QuickStartBar/QuickStartBar'
 
@@ -25,7 +25,7 @@ function LandingPage() {
           </YStack>
 
           <XStack>
-            <StatusButton icon={<NodeIcon />}>Get Started</StatusButton>
+            <StatusButton icon={<NodeIcon size={20} />}>Get Started</StatusButton>
           </XStack>
         </YStack>
       </PageWrapperShadow>
