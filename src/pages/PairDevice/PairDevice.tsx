@@ -14,7 +14,7 @@ import { AddSmallIcon, NodeIcon, SwapIcon } from '@status-im/icons'
 const PairDevice = () => {
   const [autoChecked, setAutoChecked] = useState(false)
   const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
-  const isPaired = true
+  const isPaired = false
   const isPairing = true
 
   const changeSetIsAwaitingPairing = (result: boolean) => {
