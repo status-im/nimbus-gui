@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import ConnectDevicePage from './ConnectDevicePage'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 const meta = {
   title: 'Pages/ConnectDevicePage',
@@ -10,6 +11,7 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {},
+  decorators: [withRouter],
 } satisfies Meta<typeof ConnectDevicePage>
 
 export default meta

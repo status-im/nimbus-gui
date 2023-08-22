@@ -7,6 +7,7 @@ import Icon from '../../components/General/Icon'
 import ConnectionIcon from '/icons/connection.svg'
 import { convertSecondsToTimerFormat } from '../../utilities'
 import { RefreshIcon } from '@status-im/icons'
+import { useNavigate } from 'react-router'
 
 type SyncStatusProps = {
   isPairing: boolean
@@ -20,11 +21,13 @@ const SyncStatus = ({
   changeSetIsAwaitingPairing,
 }: SyncStatusProps) => {
   const [elapsedTime, setElapsedTime] = useState(0)
+  const navigate = useNavigate()
 
   const resetTimer = () => {
     setElapsedTime(0)
     changeSetIsAwaitingPairing(false)
   }
+
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>
 
@@ -42,7 +45,11 @@ const SyncStatus = ({
     return () => clearInterval(timer)
   }, [isPairing, elapsedTime])
 
-  const timer = convertSecondsToTimerFormat(elapsedTime) // Assuming you've imported the convertSecondsToTimerFormat function
+  const timer = convertSecondsToTimerFormat(elapsedTime)
+
+  const connectViaIpHandler = () => {
+    navigate('/connect-device');
+  };
 
   return (
     <YStack space={'$2'}>
@@ -84,7 +91,7 @@ const SyncStatus = ({
       )}
       {isAwaitingPairing && (
         <XStack>
-          <Button icon={<Icon src={ConnectionIcon} />} size={40}>
+          <Button icon={<Icon src={ConnectionIcon} />} size={40} onPress={connectViaIpHandler} >
             Connect via IP
           </Button>
         </XStack>
