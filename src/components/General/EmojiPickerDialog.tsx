@@ -2,25 +2,23 @@ import EmojiPicker, {
   EmojiStyle,
   Theme,
   EmojiClickData,
-  Emoji,
   SuggestionMode,
   Categories,
 } from 'emoji-picker-react'
 import { useState } from 'react'
-import { Stack, XStack } from 'tamagui'
+import { Stack } from 'tamagui'
 
 type EmojiStyleType = 'FACEBOOK' | 'APPLE' | 'GOOGLE' | 'TWITTER' | 'NATIVE'
 
 function EmojiPickerDialog({ emojiStyle }: { emojiStyle: EmojiStyleType }) {
   const [selectedEmoji, setSelectedEmoji] = useState<string>('')
-
+//we can set 
   function onClick(emojiData: EmojiClickData) {
     setSelectedEmoji(emojiData.unified)
   }
 
   return (
     <Stack position="absolute" zIndex={1} left={120}>
-       
       {/* <XStack>
         Your selected Emoji is:
         {selectedEmoji ? (
