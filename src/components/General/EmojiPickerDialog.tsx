@@ -20,8 +20,8 @@ function EmojiPickerDialog({ emojiStyle }: { emojiStyle: EmojiStyleType }) {
   }
 
   return (
-    <Stack>
-      <Text size={27}>Emoji Picker Demo</Text>
+    <Stack position="absolute" zIndex={1} left={120}>
+       
       <XStack>
         Your selected Emoji is:
         {selectedEmoji ? (
