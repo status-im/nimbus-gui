@@ -4,7 +4,6 @@ import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import Title from '../../components/General/Title'
 import NimbusLogo from '../../components/Logos/NimbusLogo'
 import { NodeIcon } from '@status-im/icons'
-import EmojiPickerDialog from '../../components/General/EmojiPickerDialog'
 import { Button as StatusButton, Text } from '@status-im/components'
 import QuickStartBar from '../../components/General/QuickStartBar/QuickStartBar'
 
@@ -29,7 +28,6 @@ function LandingPage() {
             <StatusButton icon={<NodeIcon size={20} />}>Get Started</StatusButton>
           </XStack>
         </YStack>
-        <EmojiPickerDialog emojiStyle='TWITTER'/>
       </PageWrapperShadow>
       <QuickStartBar />
     </>
