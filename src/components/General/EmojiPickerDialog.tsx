@@ -12,7 +12,7 @@ type EmojiStyleType = 'FACEBOOK' | 'APPLE' | 'GOOGLE' | 'TWITTER' | 'NATIVE'
 
 function EmojiPickerDialog({ emojiStyle }: { emojiStyle: EmojiStyleType }) {
   const [selectedEmoji, setSelectedEmoji] = useState<string>('')
-//we can set 
+  console.log(selectedEmoji)
   function onClick(emojiData: EmojiClickData) {
     setSelectedEmoji(emojiData.unified)
   }
