@@ -61,7 +61,7 @@ const PairDevice = () => {
           />
           <Text size={15}>Auto Connect Paired Device</Text>
         </XStack>
-        {isPaired && <CreateAvatar></CreateAvatar>}
+        {isPaired && <CreateAvatar />}
         <Separator borderColor={'#e3e3e3'} />
         <XStack>
           <Button icon={<NodeIcon size={20} />} disabled={!isPaired}>
