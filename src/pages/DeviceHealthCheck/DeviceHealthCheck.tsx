@@ -6,13 +6,17 @@ import DeviceStorageHealth from '../../components/Charts/DeviceStorageHealth'
 import DeviceCPULoad from '../../components/Charts/DeviceCPULoad'
 import HealthInfoSection from '../../components/General/HealthInfoSection'
 import { Button, InformationBox } from '@status-im/components'
-import Icon from '../../components/General/Icon'
 import DeviceMemory from '../../components/Charts/DeviceMemoryHealth'
 import DeviceNetworkHealth from '../../components/Charts/DeviceNetworkHealth'
+import { CloseCircleIcon } from '@status-im/icons'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../redux/store'
 
 const DeviceHealthCheck = () => {
+  const deviceHealthState = useSelector((state: RootState) => state.deviceHealth)
+
   return (
-    <PageWrapperShadow rightImageSrc="/background-images/eye-background.png">
+    <PageWrapperShadow rightImageSrc="./background-images/eye-background.png">
       <YStack
         space={'$4'}
         style={{
@@ -29,12 +33,21 @@ const DeviceHealthCheck = () => {
           isAdvancedSettings={true}
         />
         <XStack space={'$4'}>
-          <DeviceStorageHealth storage={44} maxStorage={30} />
-          <DeviceCPULoad load={[12, 123, 4, 90]} />
+          <DeviceStorageHealth
+            storage={deviceHealthState.storage}
+            maxStorage={deviceHealthState.maxMemory}
+          />
+          <DeviceCPULoad load={deviceHealthState.cpuLoad} />
         </XStack>
         <XStack space={'$4'}>
-          <DeviceMemory currentMemory={[25, 31, 5, 14, 20, 81]} maxMemory={38} />
-          <DeviceNetworkHealth uploadRate={[1, 4, 23, 55]} downloadRate={[20, 3, 40, 56]} />
+          <DeviceMemory
+            currentMemory={deviceHealthState.memory}
+            maxMemory={deviceHealthState.maxMemory}
+          />
+          <DeviceNetworkHealth
+            uploadRate={deviceHealthState.uploadRate}
+            downloadRate={deviceHealthState.downloadRate}
+          />
         </XStack>
         <HealthInfoSection
           usedStorage={120}
@@ -45,7 +58,7 @@ const DeviceHealthCheck = () => {
           networkLatency={75}
         />
         <InformationBox
-          icon={<Icon src="/icons/close.png" width={11} height={11} />}
+          icon={<CloseCircleIcon size={20} />}
           message="The information provided in the Nodes Health Check is meant to utilized as a guide to guage the readiness of your device, however please do your own due diligence prior to commiting any funds. Read our Health Check Disclosure for more information."
         />
         <Stack style={{ marginTop: '1rem' }}>

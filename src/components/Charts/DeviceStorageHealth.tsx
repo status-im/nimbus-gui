@@ -2,6 +2,7 @@ import IconText from '../General/IconText'
 import { Paragraph, Separator, XStack, YStack } from 'tamagui'
 import StandardGauge from './StandardGauge'
 import { Shadow, Text } from '@status-im/components'
+import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
 interface DeviceStorageHealthProps {
   storage: number
   maxStorage: number
@@ -69,7 +70,7 @@ const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxS
         <Separator borderColor={'#e3e3e3'} />
         <XStack space={'$4'} style={{ padding: '10px 16px 10px 16px' }}>
           <IconText
-            icon={message === 'Good' ? '/icons/check-circle.png' : '/icons/alert.png'}
+            icon={message === 'Good' ? <CheckCircleIcon size={16} /> : <IncorrectIcon size={16} />}
             weight={'semibold'}
           >
             {message}

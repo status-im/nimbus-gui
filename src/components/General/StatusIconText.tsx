@@ -1,4 +1,4 @@
-import { GREEN_CHECKMARK_ICON, RED_CHECKMARK_ICON } from '../../constants'
+import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
 import IconText from './IconText'
 
 type StatusIconTextProps = {
@@ -10,7 +10,7 @@ type StatusIconTextProps = {
 
 const StatusIconText = ({ percentage, threshold, goodText, badText }: StatusIconTextProps) => {
   const isGood = percentage < threshold
-  const icon = isGood ? GREEN_CHECKMARK_ICON : RED_CHECKMARK_ICON
+  const icon = isGood ? <CheckCircleIcon size={16} /> : <IncorrectIcon size={16} />
   const text = isGood ? goodText : badText
 
   return <IconText icon={icon}>{text}</IconText>

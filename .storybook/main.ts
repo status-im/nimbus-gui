@@ -10,6 +10,7 @@ const config: StorybookConfig = {
     '@storybook/addon-interactions',
     'storybook-addon-designs',
     'storybook-dark-mode',
+    'storybook-addon-react-router-v6',
   ],
 
   docs: {
