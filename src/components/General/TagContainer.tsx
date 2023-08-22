@@ -12,7 +12,9 @@ type TagContainerProps = {
 const TagContainer = ({ selectedTag }: TagContainerProps) => {
   return (
     <XStack space={'$2'} alignItems="center" className="tag-container">
-      <Tag selected={selectedTag === 'connect'} icon={ConnectIcon} label="Connect" size={32} />
+      {selectedTag === 'connect' ? (
+        <Tag selected={selectedTag === 'connect'} icon={ConnectIcon} label="Connect" size={32} />
+      ) : null}
       <Tag selected={selectedTag === 'pair'} icon={PairIcon} label="Pair" size={32} />
       <Tag selected={selectedTag === 'create'} icon={CreateIcon} label="Create" size={32} />
     </XStack>
