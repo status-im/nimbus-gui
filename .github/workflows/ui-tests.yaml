@@ -3,7 +3,7 @@ name: 'UI tests'
 on:
   push:
     branches:
-      - !main
+      - '!main'
 
 permissions:
   pull-requests: read
