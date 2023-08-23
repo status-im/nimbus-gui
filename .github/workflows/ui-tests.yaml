@@ -3,6 +3,7 @@ name: 'UI tests'
 on:
   push:
     branches:
+      - '*'
       - '!main'
 
 permissions:
