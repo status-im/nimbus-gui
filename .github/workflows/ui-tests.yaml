@@ -22,7 +22,7 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn
 
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     needs: cache-dependencies
     steps:
@@ -42,6 +42,28 @@ jobs:
             ${{ runner.os }}-yarn-v3
       - name: Build
         run: yarn build
+      - uses: actions/github-script@v6
+        with:
+          script: console.log(github.event)
+      - name: Pull Vercel configuration
+        run: yarn vercel pull --yes --token ${{ secrets.vercel_token }}
+      - name: Build Vercel bundle
+        run: yarn vercel build
+      - name: Deploy to Vercel
+        run: yarn vercel deploy --prebuilt --token ${{ secrets.vercel_token }} > _vercel-deployment-url
+      - name: Comment on PR with deployment URL
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const deploymentUrl = fs.readFileSync('_vercel-deployment-url', 'utf8');
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `Deployed to ${deploymentUrl}`,
+            });
 
   interaction-and-and-accessibility:
     runs-on: ubuntu-latest
@@ -71,43 +93,3 @@ jobs:
             "npx http-server storybook-static --port 6006 --silent" \
             "npx wait-on tcp:127.0.0.1:6006 && yarn test-storybook"
 
-  deployment:
-    runs-on: ubuntu-latest
-    needs: cache-dependencies
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '18.x'
-      - uses: actions/github-script@v6
-        with:
-          script: console.log(context)
-      - name: Restore yarn dependencies
-        uses: actions/cache@v2
-        id: yarn-cache
-        with:
-          path: |
-            ~/.cache/Cypress
-            node_modules
-          key: ${{ runner.os }}-yarn-v3-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-v3
-      - name: Pull Vercel configuration
-        run: yarn vercel pull --yes --token ${{ secrets.vercel_token }}
-      - name: Build Vercel bundle
-        run: yarn vercel build
-      - name: Deploy to Vercel
-        run: yarn vercel deploy --prebuilt --token ${{ secrets.vercel_token }} > _vercel-deployment-url
-      - name: Comment on PR with deployment URL
-        uses: actions/github-script@v6
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const fs = require('fs');
-            const deploymentUrl = fs.readFileSync('_vercel-deployment-url', 'utf8');
-            await github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: `Deployed to ${deploymentUrl}`,
-            });
