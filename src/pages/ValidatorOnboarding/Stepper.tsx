@@ -6,7 +6,7 @@ const FormStepper: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(0)
 
   return (
-    <div style={{ width: '100%', justifyContent: 'left' }}>
+    <div>
       <Stepper
         activeStep={activeStep}
         nonLinear={true}
