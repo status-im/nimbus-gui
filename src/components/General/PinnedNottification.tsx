@@ -4,7 +4,7 @@ import { RootState } from '../../redux/store'
 
 function PinnedNotification() {
   const pinnedMessage = useSelector((state: RootState) => state.pinnedMessage.pinnedMessage)
-  console.log(pinnedMessage)
+
   return (
     <>
       {pinnedMessage && pinnedMessage.pinned && (

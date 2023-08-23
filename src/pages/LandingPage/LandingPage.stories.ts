@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import LandingPage from './LandingPage'
 
@@ -10,6 +11,7 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {},
+  decorators: [withRouter],
 } satisfies Meta<typeof LandingPage>
 
 export default meta
