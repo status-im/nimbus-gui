@@ -1,4 +1,4 @@
-name: 'Deploy Storybook'
+name: 'Deployment'
 
 on:
   push:
@@ -69,3 +69,11 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+      - name: Log in to Vercel
+        run: yarn vercel login --token ${{ secrets.vercel_token }}
+      - name: Pull Vercel configuration
+        run: yarn vercel pull --yes
+      - name: Build Vercel bundle
+        run: yarn vercel build --prod
+      - name: Deploy to Vercel
+        run: yarn vercel deploy --prebuilt --prod
