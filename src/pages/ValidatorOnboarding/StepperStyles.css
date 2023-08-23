@@ -1,0 +1,36 @@
+.custom-step {
+  background-color: #ffffff;
+}
+
+.custom-step.StepMain--active,
+.custom-step.StepMain--completed {
+  background-color: #2a4cf4;
+}
+
+.custom-step::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 50%;
+}
+
+.custom-step.StepMain--active::before,
+.custom-step.StepMain--completed::before {
+  border-color: #2a4cf4;
+}
+
+.custom-step.StepMain--active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #2a4cf4;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

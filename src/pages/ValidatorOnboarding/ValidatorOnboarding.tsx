@@ -16,13 +16,14 @@ function ValidatorOnboarding() {
 
   return (
     <>
-      <PageWrapperShadow rightImageSrc="./background-images/landing-page-bg.png" >
+      <PageWrapperShadow rightImageSrc="./background-images/landing-page-bg.png">
         <YStack className="landing-page">
           <YStack style={{ width: '100%', margin: '30vh 0 4vh' }}>
-            <Title>Light and performant clients, for all Ethereum validators.</Title>
+            <Text size={19} weight={'semibold'}>
+              Create Nimbus Validator
+            </Text>
             <Text size={15} weight="regular">
-              <strong>Nimbus Nodes</strong> allows you to take control and ownership of the services
-              you wish to run in a completely trustless and decentralized manner.
+              Earn Rewards for securing the Ethereum Network
             </Text>
           </YStack>
           <FormStepper />
