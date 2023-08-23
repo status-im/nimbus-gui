@@ -16,8 +16,9 @@ function ValidatorOnboarding() {
             <Text size={15} weight="regular">
               Earn Rewards for securing the Ethereum Network
             </Text>
+            <FormStepper />
           </YStack>
-          <FormStepper />
+
           <Shadow
             variant="$2"
             style={{
