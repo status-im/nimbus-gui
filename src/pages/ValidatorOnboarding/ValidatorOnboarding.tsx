@@ -9,7 +9,7 @@ function ValidatorOnboarding() {
     <>
       <PageWrapperGradient>
         <YStack>
-          <YStack style={{ width: '100%' }}>
+          <YStack style={{ width: '100%', margin: '64px 0 1vh' }}>
             <Text size={19} weight={'semibold'}>
               Create Nimbus Validator
             </Text>
