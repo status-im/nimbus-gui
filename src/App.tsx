@@ -1,4 +1,4 @@
-import { TamaguiProvider } from 'tamagui'
+import { TamaguiProvider, Theme } from 'tamagui'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Provider as StatusProvider } from '@status-im/components'
 import './App.css'
@@ -8,9 +8,9 @@ import DeviceHealthCheck from './pages/DeviceHealthCheck/DeviceHealthCheck'
 import ConnectDevicePage from './pages/ConnectDevicePage/ConnectDevicePage'
 import DeviceSyncStatus from './pages/DeviceSyncStatus/DeviceSyncStatus'
 import PairDevice from './pages/PairDevice/PairDevice'
-import { Provider as ReduxProvider } from 'react-redux'
+import { useSelector } from 'react-redux'
 import PinnedNotification from './components/General/PinnedNottification'
-import store from './redux/store'
+import { RootState } from './redux/store'
 import CreateLocalNodePage from './pages/CreateLocalNodePage/CreateLocalNodePage'
 
 const router = createBrowserRouter([
@@ -38,15 +38,17 @@ const router = createBrowserRouter([
 ])
 
 function App() {
+  const theme = useSelector((state: RootState) => state.theme)
+
   return (
-    <ReduxProvider store={store}>
-      <TamaguiProvider config={config}>
-        <StatusProvider>
+    <TamaguiProvider config={config}>
+      <StatusProvider>
+        <Theme name={theme}>
           <PinnedNotification />
           <RouterProvider router={router} />
-        </StatusProvider>
-      </TamaguiProvider>
-    </ReduxProvider>
+        </Theme>
+      </StatusProvider>
+    </TamaguiProvider>
   )
 }
 
