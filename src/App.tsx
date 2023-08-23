@@ -1,4 +1,4 @@
-import { TamaguiProvider } from 'tamagui'
+import { TamaguiProvider, Theme } from 'tamagui'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Provider as StatusProvider } from '@status-im/components'
 import './App.css'
@@ -42,8 +42,10 @@ function App() {
     <ReduxProvider store={store}>
       <TamaguiProvider config={config}>
         <StatusProvider>
-          <PinnedNotification />
-          <RouterProvider router={router} />
+          <Theme name={'light'}>
+            <PinnedNotification />
+            <RouterProvider router={router} />
+          </Theme>
         </StatusProvider>
       </TamaguiProvider>
     </ReduxProvider>
