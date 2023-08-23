@@ -4,6 +4,7 @@ on: push
 
 permissions:
   pull-requests: read
+  issues: write
 
 jobs:
   cache-dependencies:
@@ -50,9 +51,6 @@ jobs:
             ${{ runner.os }}-yarn-v3
       - name: Build
         run: yarn build
-      - uses: actions/github-script@v6
-        with:
-          script: console.log(github.event)
       - name: Pull Vercel configuration
         run: yarn vercel pull --yes --token ${{ secrets.vercel_token }}
       - name: Build Vercel bundle
