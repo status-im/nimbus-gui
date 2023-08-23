@@ -16,7 +16,7 @@ function ValidatorOnboarding() {
 
   return (
     <>
-      <PageWrapperShadow rightImageSrc="./background-images/landing-page-bg.png">
+      <PageWrapperShadow rightImageSrc="./background-images/landing-page-bg.png" >
         <YStack className="landing-page">
           <YStack style={{ width: '100%', margin: '30vh 0 4vh' }}>
             <Title>Light and performant clients, for all Ethereum validators.</Title>
