@@ -7,9 +7,11 @@ import Header from '../../components/General/Header'
 import Titles from '../../components/General/Titles'
 import LabelInputField from '../../components/General/LabelInputField'
 import ColorPicker from '../../components/General/ColorPicker'
+import EmojiPickerDialog from '../../components/General/EmojiPickerDialog'
 
 const CreateLocalNodePage = () => {
   const [autoConnectChecked, setAutoConnectChecked] = useState(false)
+  const [isEmojiDialogOpen, setIsEmojiDialogOpen] = useState(false)
 
   return (
     <PageWrapperShadow rightImageSrc="./background-images/day-night-bg.png" rightImageLogo={true}>
@@ -31,7 +33,18 @@ const CreateLocalNodePage = () => {
                 </Text>
                 <XStack my={10}>
                   <Avatar type="account" size={80} name="Device Avatar" />
-                  <Avatar type="icon" size={32} icon={<ReactionIcon size={20} />} />
+                  <Avatar
+                    type="icon"
+                    size={32}
+                    icon={
+                      <ReactionIcon
+                        size={20}
+                        onClick={() => setIsEmojiDialogOpen(prev => !prev)}
+                        style={{ cursor: 'pointer' }}
+                      />
+                    }
+                  />
+                  {isEmojiDialogOpen && <EmojiPickerDialog emojiStyle="TWITTER" />}
                 </XStack>
               </YStack>
               <YStack>
