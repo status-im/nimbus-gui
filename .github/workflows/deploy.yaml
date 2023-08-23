@@ -74,4 +74,44 @@ jobs:
       - name: Build Vercel bundle
         run: yarn vercel build --prod
       - name: Deploy to Vercel
-        run: yarn vercel deploy --prebuilt --prod --token ${{ secrets.vercel_token }}
+        run: yarn vercel deploy --prebuilt --prod --token ${{ secrets.vercel_token }} > _vercel-deployment-url
+      - name: Add deployment
+        uses: actions/github-script@v6
+        id: deployment
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const deploymentUrl = fs.readFileSync('_vercel-deployment-url', 'utf8');
+            const deployment = await github.rest.repos.createDeployment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: context.sha,
+              environment: 'production',
+              transient_environment: false,
+              required_contexts: [],
+              auto_merge: false,
+              production_environment: true,
+              payload: JSON.stringify({
+                deploymentUrl,
+              }),
+            });
+            console.log("::set-output name=deployment_id::" + deployment.data.id);
+      - name: Add deployment status
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const deploymentUrl = fs.readFileSync('_vercel-deployment-url', 'utf8');
+            await github.rest.repos.createDeploymentStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              deployment_id: ${{ steps.deployment.outputs.deployment_id }},
+              state: 'success',
+              environment_url: deploymentUrl,
+              log_url: deploymentUrl,
+              description: 'Deployed to Vercel',
+              environment: 'production',
+              auto_inactive: true,
+            });
