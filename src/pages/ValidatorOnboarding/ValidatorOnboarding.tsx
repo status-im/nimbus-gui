@@ -1,7 +1,6 @@
 import { YStack } from 'tamagui'
 import { Shadow, Text } from '@status-im/components'
 import FormStepper from './Stepper'
-import Titles from '../../components/General/Titles'
 import PageWrapperGradient from '../../components/PageWrappers/PageWrapperGradient'
 
 function ValidatorOnboarding() {
@@ -31,11 +30,24 @@ function ValidatorOnboarding() {
             }}
             className="content"
           >
-            <YStack className="layout-left">
-              <Titles
-                title="Overview"
-                subtitle="Becoming a validator is a big responsibility with important preparation steps. Only start the deposit process when youre ready."
-              ></Titles>
+            <YStack className="layout-left" space={10} left={40} top={40}>
+              <Text size={27} weight={'semibold'} style={{ marginBottom: '30px' }}>
+                Overview
+              </Text>
+
+              <Text size={27}>
+                Becoming a validator is a big responsibility with important preparation steps. Only
+                start the deposit process when youre ready."
+              </Text>
+              <Text size={15} color="#939BA1">
+                By running a validator, you'll be responsible for securing the network and receive
+                continuous payouts for actions that help the network reach consensus.
+              </Text>
+              <Text size={15} color="#939BA1">
+                Since the successful transition to proof-of-stake via The Merge, Ethereum is fully
+                secured by proof-of-stake validators. By running a validator, you'll be helping to
+                secure the Ethereum network.
+              </Text>
             </YStack>
             <section className="layout-right">
               <div className="image-container">
