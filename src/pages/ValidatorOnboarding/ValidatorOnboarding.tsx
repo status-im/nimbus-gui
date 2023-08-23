@@ -1,8 +1,9 @@
-import { YStack } from 'tamagui'
+import { Text as TextTam, YStack } from 'tamagui'
 import { Shadow, Text } from '@status-im/components'
 import FormStepper from './Stepper'
 import PageWrapperGradient from '../../components/PageWrappers/PageWrapperGradient'
 
+Text
 function ValidatorOnboarding() {
   return (
     <>
@@ -21,8 +22,6 @@ function ValidatorOnboarding() {
           <Shadow
             variant="$2"
             style={{
-              width: '100%',
-              minHeight: '523px',
               borderRadius: '16px',
               border: 'none',
               flexDirection: 'row',
@@ -31,9 +30,9 @@ function ValidatorOnboarding() {
             className="content"
           >
             <YStack className="layout-left" space={10} left={40} top={40}>
-              <Text size={27} weight={'semibold'} style={{ marginBottom: '30px' }}>
+              <TextTam fontSize={27} fontWeight={'700'} style={{ marginBottom: '30px' }}>
                 Overview
-              </Text>
+              </TextTam>
 
               <Text size={27}>
                 Becoming a validator is a big responsibility with important preparation steps. Only
