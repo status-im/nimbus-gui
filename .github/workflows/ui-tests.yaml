@@ -3,7 +3,7 @@ name: 'UI tests'
 on: push
 
 permissions:
-  pull_requests: read
+  pull-requests: read
 
 jobs:
   cache-dependencies:
