@@ -1,16 +1,12 @@
 import { ReactNode } from 'react'
 import './layoutGradient.css'
 
-type PageWrapperShadowProps = {
+type PageWrapperGradientProps = {
   children: ReactNode
 }
 
-const PageWrapperGradient = ({ children }: PageWrapperShadowProps) => {
-  return (
-    <div className="layout" style={{ justifyContent: 'center' }}>
-      {children}
-    </div>
-  )
+const PageWrapperGradient = ({ children }: PageWrapperGradientProps) => {
+  return <div className="layout  gradient-wrapper">{children}</div>
 }
 
 export default PageWrapperGradient
