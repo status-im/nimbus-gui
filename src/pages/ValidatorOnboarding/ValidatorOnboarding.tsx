@@ -1,20 +1,10 @@
-import { XStack, YStack } from 'tamagui'
+import { YStack } from 'tamagui'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
-import Title from '../../components/General/Title'
-import { NodeIcon } from '@status-im/icons'
-import { Shadow, Button as StatusButton, Text } from '@status-im/components'
-import QuickStartBar from '../../components/General/QuickStartBar/QuickStartBar'
-import { useNavigate } from 'react-router'
+import { Shadow, Text } from '@status-im/components'
 import FormStepper from './Stepper'
 import Titles from '../../components/General/Titles'
 
 function ValidatorOnboarding() {
-  const navigate = useNavigate()
-
-  const getStartedHanlder = () => {
-    navigate('/pair-device')
-  }
-
   return (
     <>
       <PageWrapperShadow>
