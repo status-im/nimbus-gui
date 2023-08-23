@@ -8,7 +8,7 @@ import { Button as StatusButton, Text } from '@status-im/components'
 import QuickStartBar from '../../components/General/QuickStartBar/QuickStartBar'
 import { useNavigate } from 'react-router'
 
-function LandingPage() {
+const LandingPage = () => {
   const navigate = useNavigate()
 
   const getStartedHanlder = () => {
