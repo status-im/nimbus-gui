@@ -61,8 +61,8 @@ const ValidatorOnboarding = () => {
             </div>
           </section>
         </Shadow>
-        <Stack>
-          <Button size={40}>Continue</Button>
+        <Stack style={{ alignItems: 'end', width: '100%' }}>
+          <Button>Continue</Button>
         </Stack>
       </YStack>
     </PageWrapperGradient>
