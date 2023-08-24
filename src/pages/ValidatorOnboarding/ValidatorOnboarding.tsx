@@ -1,6 +1,5 @@
 import { YStack } from 'tamagui'
 import FormStepper from './FormStepper/FormStepper'
-import PageWrapperGradient from '../../components/PageWrappers/PageWrapperGradient'
 import Titles from '../../components/General/Titles'
 import { useState } from 'react'
 import Overview from './Overview/Overview'
@@ -8,6 +7,7 @@ import KeyGeneration from './KeyGeneration/KeyGeneration'
 import Advicsories from './Advicsories/Advicsories'
 import ValidatorSetup from './ValidatorSetup/ValidatorSetup'
 import Activation from './Activation/Activation'
+import './layoutGradient.css'
 
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)
@@ -17,7 +17,7 @@ const ValidatorOnboarding = () => {
   }
 
   return (
-    <PageWrapperGradient>
+    <div className="gradient-wrapper">
       <YStack
         style={{
           width: '100%',
@@ -39,7 +39,7 @@ const ValidatorOnboarding = () => {
         {activeStep === 3 && <KeyGeneration />}
         {activeStep === 4 && <Activation />}
       </YStack>
-    </PageWrapperGradient>
+    </div>
   )
 }
 
