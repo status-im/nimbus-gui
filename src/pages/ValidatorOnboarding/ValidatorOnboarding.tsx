@@ -1,5 +1,5 @@
-import { Text as TextTam, YStack } from 'tamagui'
-import { Shadow, Text } from '@status-im/components'
+import { Stack, Text as TextTam, YStack } from 'tamagui'
+import { Button, Shadow, Text } from '@status-im/components'
 import FormStepper from './Stepper'
 import PageWrapperGradient from '../../components/PageWrappers/PageWrapperGradient'
 import Titles from '../../components/General/Titles'
@@ -54,6 +54,9 @@ const ValidatorOnboarding = () => {
             </div>
           </section>
         </Shadow>
+        <Stack marginTop={11} alignItems="flex-end">
+          <Button size={40}>Continue</Button>
+        </Stack>
       </YStack>
     </PageWrapperGradient>
   )
