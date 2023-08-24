@@ -6,7 +6,7 @@ import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import Header from '../../components/General/Header'
 import Titles from '../../components/General/Titles'
 import LabelInputField from '../../components/General/LabelInputField'
-import ColorPicker from '../../components/General/ColorPicker'
+import ColorPicker from '../../components/General/ColorPicker/ColorPicker'
 import EmojiPickerDialog from '../../components/General/EmojiPickerDialog'
 
 const CreateLocalNodePage = () => {
