@@ -1,6 +1,6 @@
-import './StepperStyles.css'
 import { useState } from 'react'
 import { Stepper, Step } from 'react-form-stepper'
+import './FormStepper.css'
 
 const FormStepper = () => {
   const [activeStep, setActiveStep] = useState<number>(0)

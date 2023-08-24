@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import StepperForm from './Stepper'
+import FormStepper from './FormStepper'
 
 const meta = {
-  title: 'ValidatorOnboarding/Stepper',
-  component: StepperForm,
+  title: 'ValidatorOnboarding/FormStepper',
+  component: FormStepper,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {},
-} satisfies Meta<typeof StepperForm>
+} satisfies Meta<typeof FormStepper>
 
 export default meta
 type Story = StoryObj<typeof meta>
