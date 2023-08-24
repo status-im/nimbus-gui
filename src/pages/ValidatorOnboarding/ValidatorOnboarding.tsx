@@ -4,6 +4,10 @@ import PageWrapperGradient from '../../components/PageWrappers/PageWrapperGradie
 import Titles from '../../components/General/Titles'
 import { useState } from 'react'
 import Overview from './Overview'
+import KeyGeneration from './KeyGeneration'
+import Advicsories from './Advicsories'
+import ValidatorSetup from './ValidatorSetup'
+import Activation from './Activation'
 
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)
@@ -30,6 +34,10 @@ const ValidatorOnboarding = () => {
         />
         <FormStepper activeStep={activeStep} changeActiveStep={changeActiveStep} />
         {activeStep === 0 && <Overview />}
+        {activeStep === 1 && <Advicsories />}
+        {activeStep === 2 && <ValidatorSetup />}
+        {activeStep === 3 && <KeyGeneration />}
+        {activeStep === 4 && <Activation />}
       </YStack>
     </PageWrapperGradient>
   )
