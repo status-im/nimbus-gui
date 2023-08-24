@@ -2,6 +2,7 @@ import { Stack, Text as TextTam, XStack, YStack } from 'tamagui'
 import { Button, Shadow, Text } from '@status-im/components'
 import { Link } from 'react-router-dom'
 import OverviewCard from './OverviewCard'
+import { ArrowRightIcon } from '@status-im/icons'
 
 const Overview = () => {
   return (
@@ -34,7 +35,12 @@ const Overview = () => {
           </Text>
           <Stack style={{ margin: '2% 0 4%' }}>
             <Text size={15}>
-              <Link to={'https://www.youtube.com/watch?v=dQw4w9WgXcQ'}> Learn more</Link>
+              <Link to={'/'}>
+                <XStack space={'$1'} style={{ alignItems: 'center', color: '#2A4CF4' }}>
+                  Learn more
+                  <ArrowRightIcon size={16} color="#2A4CF4" />
+                </XStack>
+              </Link>
             </Text>
           </Stack>
           <XStack space={'$5'}>
