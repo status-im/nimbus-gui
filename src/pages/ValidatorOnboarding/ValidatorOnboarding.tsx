@@ -1,5 +1,5 @@
-import { Text as TextTam, YStack } from 'tamagui'
-import { Shadow, Text } from '@status-im/components'
+import { Stack, Text as TextTam, YStack } from 'tamagui'
+import { Button, Shadow, Text } from '@status-im/components'
 import FormStepper from './Stepper'
 import PageWrapperGradient from '../../components/PageWrappers/PageWrapperGradient'
 
@@ -8,7 +8,7 @@ function ValidatorOnboarding() {
   return (
     <>
       <PageWrapperGradient>
-        <YStack style={{ maxWidth: '1052px', width: '100%', margin: '0 auto' }}>
+        <YStack style={{ maxWidth: '1052px', width: '100%', margin: '0 auto', maxHeight: '582px' }}>
           <YStack style={{ width: '100%', margin: '64px 0 1vh' }}>
             <Text size={19} weight={'semibold'}>
               Create Nimbus Validator
@@ -58,6 +58,11 @@ function ValidatorOnboarding() {
               </div>
             </section>
           </Shadow>
+          <Stack  marginTop="$4" alignItems='flex-end'>
+            <Button variant="blue" size={40} >
+              Continue
+            </Button>
+          </Stack>
         </YStack>
       </PageWrapperGradient>
     </>
