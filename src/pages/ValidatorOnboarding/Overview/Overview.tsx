@@ -1,6 +1,7 @@
 import { Stack, Text as TextTam, XStack, YStack } from 'tamagui'
 import { Button, Shadow, Text } from '@status-im/components'
 import { Link } from 'react-router-dom'
+import OverviewCard from './OverviewCard'
 
 const Overview = () => {
   return (
@@ -37,70 +38,10 @@ const Overview = () => {
             </Text>
           </Stack>
           <XStack space={'$5'}>
-            <YStack
-              style={{
-                borderRadius: '16px',
-                border: '1px solid rgba(0, 0, 0, 0.15)',
-                width: '45%',
-                padding: '12px 16px',
-                backgroundColor: '#FFF',
-              }}
-            >
-              <Text size={19} weight={'semibold'}>
-                Current APR
-              </Text>
-              <Text size={27} color="blue" weight={'semibold'}>
-                4.40%
-              </Text>
-            </YStack>
-            <YStack
-              style={{
-                borderRadius: '16px',
-                border: '1px solid rgba(0, 0, 0, 0.15)',
-                backgroundColor: '#FFF',
-                width: '45%',
-                padding: '12px 16px',
-              }}
-            >
-              <Text size={19} weight={'semibold'}>
-                Total ETH Staked
-              </Text>
-              <Text size={27} color="blue" weight={'semibold'}>
-                19,451,123
-              </Text>
-            </YStack>
-            <YStack
-              style={{
-                borderRadius: '16px',
-                border: '1px solid rgba(0, 0, 0, 0.15)',
-                width: '45%',
-                backgroundColor: '#FFF',
-                padding: '12px 16px',
-              }}
-            >
-              <Text size={19} weight={'semibold'}>
-                Estimated Activation Time
-              </Text>
-              <Text size={27} color="blue" weight={'semibold'}>
-                32 Days
-              </Text>
-            </YStack>
-            <YStack
-              style={{
-                borderRadius: '16px',
-                border: '1px solid rgba(0, 0, 0, 0.15)',
-                width: '45%',
-                backgroundColor: '#FFF',
-                padding: '12px 16px',
-              }}
-            >
-              <Text size={19} weight={'semibold'}>
-                Validator Queue
-              </Text>
-              <Text size={27} color="blue" weight={'semibold'}>
-                92603
-              </Text>
-            </YStack>
+            <OverviewCard text={'Current APR'} value={'4.40%'} />
+            <OverviewCard text={'Total ETH Staked'} value={'9,451,123'} />
+            <OverviewCard text={'Estimated Activation Time'} value={'32 Days'} />
+            <OverviewCard text={'Validator Queue'} value={'92603'} />
           </XStack>
         </YStack>
         <section className="layout-right">
