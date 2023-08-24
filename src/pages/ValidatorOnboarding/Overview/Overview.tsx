@@ -2,6 +2,7 @@ import { Stack, Text as TextTam, XStack, YStack } from 'tamagui'
 import { Button, Shadow, Text } from '@status-im/components'
 import { Link } from 'react-router-dom'
 import OverviewCard from './OverviewCard'
+import { ArrowRightIcon } from '@status-im/icons'
 
 const Overview = () => {
   return (
@@ -13,6 +14,7 @@ const Overview = () => {
           border: 'none',
           flexDirection: 'row',
           backgroundColor: '#fff',
+          zIndex: 999,
         }}
       >
         <YStack className="layout-left" space={'$5'} style={{ padding: '16px 32px' }}>
@@ -32,9 +34,14 @@ const Overview = () => {
             secured by proof-of-stake validators. By running a validator, you'll be helping to
             secure the Ethereum network.
           </Text>
-          <Stack style={{ margin: '2% 0 4%' }}>
+          <Stack style={{ margin: '2% 0 4%', maxWidth: 'fit-content' }}>
             <Text size={15}>
-              <Link to={'https://www.youtube.com/watch?v=dQw4w9WgXcQ'}> Learn more</Link>
+              <XStack space={'$1'} style={{ alignItems: 'center' }}>
+                <Link style={{ color: '#2A4CF4' }} to={'/'}>
+                  Learn more
+                </Link>
+                <ArrowRightIcon size={16} color="#2A4CF4" />
+              </XStack>
             </Text>
           </Stack>
           <XStack space={'$5'}>
@@ -54,7 +61,7 @@ const Overview = () => {
           </div>
         </section>
       </Shadow>
-      <Stack style={{ alignItems: 'end', width: '100%', marginTop: '16px' }}>
+      <Stack style={{ alignItems: 'end', width: '100%', marginTop: '16px', zIndex: 999 }}>
         <Button>Continue</Button>
       </Stack>
     </>
