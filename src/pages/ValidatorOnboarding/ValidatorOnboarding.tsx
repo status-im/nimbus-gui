@@ -54,6 +54,9 @@ const ValidatorOnboarding = () => {
             </div>
           </section>
         </Shadow>
+        <Stack marginTop={11} alignItems="flex-end">
+          <Button size={40}>Continue</Button>
+        </Stack>
       </YStack>
     </PageWrapperGradient>
   )
