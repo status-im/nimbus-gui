@@ -1,5 +1,6 @@
-import { Stack, Text as TextTam, YStack } from 'tamagui'
+import { Stack, Text as TextTam, XStack, YStack } from 'tamagui'
 import { Button, Shadow, Text } from '@status-im/components'
+import { Link } from 'react-router-dom'
 
 const Overview = () => {
   return (
@@ -12,7 +13,6 @@ const Overview = () => {
           flexDirection: 'row',
           backgroundColor: '#fff',
         }}
-        className="content"
       >
         <YStack className="layout-left" space={10} style={{ padding: '16px 32px' }}>
           <TextTam fontSize={27} fontWeight={'700'} style={{ marginBottom: '20px' }}>
@@ -32,6 +32,79 @@ const Overview = () => {
             secured by proof-of-stake validators. By running a validator, you'll be helping to
             secure the Ethereum network.
           </Text>
+          <Text size={13}>
+            <Link to={'www.youtube.com'}> Learn more</Link>
+          </Text>
+          <XStack style={{ justifyContent: 'space-between', width: '170%', height: '100px' }}>
+            <YStack
+              style={{
+                borderRadius: '16px',
+                border: '1px solid rgba(0, 0, 0, 0.15)',
+                width: '335px',
+
+                padding: '8px 16px',
+                backgroundColor: '#FFF',
+              }}
+            >
+              <Text size={19} weight={'semibold'}>
+                Current APR
+              </Text>
+              <Text size={27} color="blue" weight={'semibold'}>
+                afasfa
+              </Text>
+            </YStack>
+            <YStack
+              style={{
+                borderRadius: '16px',
+                border: '1px solid rgba(0, 0, 0, 0.15)',
+                backgroundColor: '#FFF',
+                width: '335px',
+
+                padding: '8px 16px',
+              }}
+            >
+              <Text size={19} weight={'semibold'}>
+                Current APR
+              </Text>
+              <Text size={27} color="blue" weight={'semibold'}>
+                afasfa
+              </Text>
+            </YStack>
+            <YStack
+              style={{
+                borderRadius: '16px',
+                border: '1px solid rgba(0, 0, 0, 0.15)',
+                width: '335px',
+
+                backgroundColor: '#FFF',
+                padding: '8px 16px',
+              }}
+            >
+              <Text size={19} weight={'semibold'}>
+                Current APR
+              </Text>
+              <Text size={27} color="blue" weight={'semibold'}>
+                afasfa
+              </Text>
+            </YStack>
+            <YStack
+              style={{
+                borderRadius: '16px',
+                border: '1px solid rgba(0, 0, 0, 0.15)',
+                width: '335px',
+
+                backgroundColor: '#FFF',
+                padding: '8px 16px',
+              }}
+            >
+              <Text size={19} weight={'semibold'}>
+                Current APR
+              </Text>
+              <Text size={27} color="blue" weight={'semibold'}>
+                afasfa
+              </Text>
+            </YStack>
+          </XStack>
         </YStack>
         <section className="layout-right">
           <div className="image-container">
