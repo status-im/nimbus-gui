@@ -1,13 +1,13 @@
 import { YStack } from 'tamagui'
-import FormStepper from './FormStepper'
+import FormStepper from './FormStepper/FormStepper'
 import PageWrapperGradient from '../../components/PageWrappers/PageWrapperGradient'
 import Titles from '../../components/General/Titles'
 import { useState } from 'react'
-import Overview from './Overview'
-import KeyGeneration from './KeyGeneration'
-import Advicsories from './Advicsories'
-import ValidatorSetup from './ValidatorSetup'
-import Activation from './Activation'
+import Overview from './Overview/Overview'
+import KeyGeneration from './KeyGeneration/KeyGeneration'
+import Advicsories from './Advicsories/Advicsories'
+import ValidatorSetup from './ValidatorSetup/ValidatorSetup'
+import Activation from './Activation/Activation'
 
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)
