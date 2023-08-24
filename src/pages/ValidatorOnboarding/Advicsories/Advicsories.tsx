@@ -1,6 +1,5 @@
 import { Button, Shadow, Text } from '@status-im/components'
 import { Stack, XStack, YStack } from 'tamagui'
-import IconText from '../../../components/General/IconText'
 import { Link } from 'react-router-dom'
 
 const Advicsories = () => {
@@ -41,8 +40,11 @@ const Advicsories = () => {
               with an otherwise healthy network does not result in slashing, but will result in
               small inactivity penalties.
             </Text>
-            <Text size={13} style={{ textDecorationLine: 'underline' }} color="#484848">
-              <Link to={'https://github.com/ethereum/consensus-specs'}>
+            <Text size={13}>
+              <Link
+                to={'https://github.com/ethereum/consensus-specs'}
+                style={{ textDecorationLine: 'underline', color: '#484848' }}
+              >
                 The Ethereum consensus layer specification
               </Link>
             </Text>
