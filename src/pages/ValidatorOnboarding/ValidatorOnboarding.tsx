@@ -1,20 +1,27 @@
 import { Stack, Text as TextTam, YStack } from 'tamagui'
 import { Button, Shadow, Text } from '@status-im/components'
-import FormStepper from './Stepper'
+import FormStepper from './FormStepper'
 import PageWrapperGradient from '../../components/PageWrappers/PageWrapperGradient'
 import Titles from '../../components/General/Titles'
 
 const ValidatorOnboarding = () => {
   return (
     <PageWrapperGradient>
-      <YStack style={{ width: '100%', margin: '0 auto', padding: '0 10%' }}>
-        <YStack style={{ width: '100%', margin: '64px 0 1vh' }}>
-          <Titles
-            title="Create Nimbus Validator"
-            subtitle="Earn Rewards for securing the Ethereum Network"
-          />
-          <FormStepper />
-        </YStack>
+      <YStack
+        style={{
+          width: '100%',
+          margin: '0 auto',
+          padding: '3% 10%',
+          justifyContent: 'start',
+          alignItems: 'start',
+        }}
+        space={4}
+      >
+        <Titles
+          title="Create Nimbus Validator"
+          subtitle="Earn Rewards for securing the Ethereum Network"
+        />
+        <FormStepper />
         <Shadow
           variant="$2"
           style={{
@@ -25,8 +32,8 @@ const ValidatorOnboarding = () => {
           }}
           className="content"
         >
-          <YStack className="layout-left" space={10} left={40} top={40}>
-            <TextTam fontSize={27} fontWeight={'700'} style={{ marginBottom: '30px' }}>
+          <YStack className="layout-left" space={10} style={{ padding: '16px 32px' }}>
+            <TextTam fontSize={27} fontWeight={'700'} style={{ marginBottom: '25px' }}>
               Overview
             </TextTam>
 
@@ -54,7 +61,7 @@ const ValidatorOnboarding = () => {
             </div>
           </section>
         </Shadow>
-        <Stack marginTop={11} alignItems="flex-end">
+        <Stack>
           <Button size={40}>Continue</Button>
         </Stack>
       </YStack>
