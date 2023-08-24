@@ -11,11 +11,10 @@ const ValidatorOnboarding = () => {
         style={{
           width: '100%',
           margin: '0 auto',
-          padding: '3% 10%',
+          padding: '2% 10%',
           justifyContent: 'start',
           alignItems: 'start',
         }}
-        space={4}
       >
         <Titles
           title="Create Nimbus Validator"
@@ -33,13 +32,13 @@ const ValidatorOnboarding = () => {
           className="content"
         >
           <YStack className="layout-left" space={10} style={{ padding: '16px 32px' }}>
-            <TextTam fontSize={27} fontWeight={'700'} style={{ marginBottom: '25px' }}>
+            <TextTam fontSize={27} fontWeight={'700'} style={{ marginBottom: '20px' }}>
               Overview
             </TextTam>
 
             <Text size={27}>
               Becoming a validator is a big responsibility with important preparation steps. Only
-              start the deposit process when youre ready."
+              start the deposit process when youre ready.
             </Text>
             <Text size={15} color="#939BA1">
               By running a validator, you'll be responsible for securing the network and receive
@@ -61,7 +60,7 @@ const ValidatorOnboarding = () => {
             </div>
           </section>
         </Shadow>
-        <Stack style={{ alignItems: 'end', width: '100%' }}>
+        <Stack style={{ alignItems: 'end', width: '100%', marginTop: '16px' }}>
           <Button>Continue</Button>
         </Stack>
       </YStack>
