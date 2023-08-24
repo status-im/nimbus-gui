@@ -40,7 +40,7 @@
 
 /* LAYOUT RIGHT ELEMENT WITH IMAGE TAKING UP THE WHOLE HIGHT OF THE VIEWPORT */
 .layout-right {
-    flex: 0 0 45%;
+    flex: 0 0 44.6%;
     max-width: 45%;
     z-index: 0;
 }
