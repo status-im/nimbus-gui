@@ -18,6 +18,7 @@ const ValidatorOnboarding = () => {
       >
         <Titles
           title="Create Nimbus Validator"
+          titleSize={19}
           subtitle="Earn Rewards for securing the Ethereum Network"
         />
         <FormStepper />
