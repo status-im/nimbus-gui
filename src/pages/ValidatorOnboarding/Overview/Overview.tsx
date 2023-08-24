@@ -33,7 +33,7 @@ const Overview = () => {
             secured by proof-of-stake validators. By running a validator, you'll be helping to
             secure the Ethereum network.
           </Text>
-          <Stack style={{ margin: '2% 0 4%' }}>
+          <Stack style={{ margin: '2% 0 4%', maxWidth: 'fit-content' }}>
             <Text size={15}>
               <Link to={'/'}>
                 <XStack space={'$1'} style={{ alignItems: 'center', color: '#2A4CF4' }}>
