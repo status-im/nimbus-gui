@@ -60,7 +60,7 @@ const Overview = () => {
           </div>
         </section>
       </Shadow>
-      <Stack style={{ alignItems: 'end', width: '100%', marginTop: '16px' }}>
+      <Stack style={{ alignItems: 'end', width: '100%', marginTop: '16px', zIndex: 999 }}>
         <Button>Continue</Button>
       </Stack>
     </>
