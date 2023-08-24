@@ -6,13 +6,21 @@ type TitlesProps = {
   title: string
   subtitle: string
   isAdvancedSettings?: boolean
+  titleSize?: 27 | 15 | 11 | 13 | 19
+  subtitleSize?: 27 | 15 | 11 | 13 | 19
 }
 
-const Titles = ({ title, subtitle, isAdvancedSettings }: TitlesProps) => {
+const Titles = ({
+  title,
+  subtitle,
+  isAdvancedSettings,
+  titleSize = 27,
+  subtitleSize = 15,
+}: TitlesProps) => {
   return (
     <YStack style={{ width: '100%', margin: '0 0 1em' }}>
       <XStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
-        <Text size={27} weight={'semibold'}>
+        <Text size={titleSize} weight={'semibold'}>
           {title}
         </Text>
         {isAdvancedSettings && (
@@ -21,7 +29,7 @@ const Titles = ({ title, subtitle, isAdvancedSettings }: TitlesProps) => {
           </Button>
         )}
       </XStack>
-      <Text size={15}>{subtitle}</Text>
+      <Text size={subtitleSize}>{subtitle}</Text>
     </YStack>
   )
 }
