@@ -2,21 +2,19 @@ import { Text as TextTam, YStack } from 'tamagui'
 import { Shadow, Text } from '@status-im/components'
 import FormStepper from './Stepper'
 import PageWrapperGradient from '../../components/PageWrappers/PageWrapperGradient'
+import Titles from '../../components/General/Titles'
 
 const ValidatorOnboarding = () => {
   return (
     <PageWrapperGradient>
       <YStack style={{ width: '100%', margin: '0 auto', padding: '0 10%' }}>
         <YStack style={{ width: '100%', margin: '64px 0 1vh' }}>
-          <Text size={19} weight={'semibold'}>
-            Create Nimbus Validator
-          </Text>
-          <Text size={15} weight="regular">
-            Earn Rewards for securing the Ethereum Network
-          </Text>
+          <Titles
+            title="Create Nimbus Validator"
+            subtitle="Earn Rewards for securing the Ethereum Network"
+          />
           <FormStepper />
         </YStack>
-
         <Shadow
           variant="$2"
           style={{
