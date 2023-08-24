@@ -16,5 +16,8 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Stepper: Story = {
-  args: {},
+  args: {
+    activeStep: 0,
+    changeActiveStep: () => {},
+  },
 }
