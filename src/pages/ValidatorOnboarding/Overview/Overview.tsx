@@ -35,12 +35,12 @@ const Overview = () => {
           </Text>
           <Stack style={{ margin: '2% 0 4%', maxWidth: 'fit-content' }}>
             <Text size={15}>
-              <Link to={'/'}>
-                <XStack space={'$1'} style={{ alignItems: 'center', color: '#2A4CF4' }}>
+              <XStack space={'$1'} style={{ alignItems: 'center' }}>
+                <Link style={{ color: '#2A4CF4' }} to={'/'}>
                   Learn more
-                  <ArrowRightIcon size={16} color="#2A4CF4" />
-                </XStack>
-              </Link>
+                </Link>
+                <ArrowRightIcon size={16} color="#2A4CF4" />
+              </XStack>
             </Text>
           </Stack>
           <XStack space={'$5'}>
