@@ -14,41 +14,35 @@ const Overview = () => {
           backgroundColor: '#fff',
         }}
       >
-        <YStack className="layout-left" space={10} style={{ padding: '16px 32px' }}>
-          <TextTam fontSize={27} fontWeight={'700'} style={{ marginBottom: '20px' }}>
+        <YStack className="layout-left" space={'$5'} style={{ padding: '16px 32px' }}>
+          <TextTam fontSize={27} fontWeight={'600'} style={{ marginBottom: '5px' }}>
             Overview
           </TextTam>
-
           <Text size={27}>
             Becoming a validator is a big responsibility with important preparation steps. Only
             start the deposit process when youre ready.
           </Text>
-          <Text size={19} color="#939BA1">
+          <Text size={15} color="#939BA1">
             By running a validator, you'll be responsible for securing the network and receive
             continuous payouts for actions that help the network reach consensus.
           </Text>
-          <Text size={19} color="#939BA1">
+          <Text size={15} color="#939BA1">
             Since the successful transition to proof-of-stake via The Merge, Ethereum is fully
             secured by proof-of-stake validators. By running a validator, you'll be helping to
             secure the Ethereum network.
           </Text>
-          <Text size={13}>
-            <Link to={'https://www.youtube.com/watch?v=dQw4w9WgXcQ'}> Learn more</Link>
-          </Text>
-          <XStack
-            style={{
-              justifyContent: 'space-between',
-              width: '180%',
-              height: '100px',
-              marginTop: '200px',
-            }}
-          >
+          <Stack style={{ margin: '2% 0 4%' }}>
+            <Text size={15}>
+              <Link to={'https://www.youtube.com/watch?v=dQw4w9WgXcQ'}> Learn more</Link>
+            </Text>
+          </Stack>
+          <XStack space={'$5'}>
             <YStack
               style={{
                 borderRadius: '16px',
                 border: '1px solid rgba(0, 0, 0, 0.15)',
-                width: '305px',
-                padding: '8px 16px',
+                width: '45%',
+                padding: '12px 16px',
                 backgroundColor: '#FFF',
               }}
             >
@@ -64,8 +58,8 @@ const Overview = () => {
                 borderRadius: '16px',
                 border: '1px solid rgba(0, 0, 0, 0.15)',
                 backgroundColor: '#FFF',
-                width: '305px',
-                padding: '8px 16px',
+                width: '45%',
+                padding: '12px 16px',
               }}
             >
               <Text size={19} weight={'semibold'}>
@@ -79,9 +73,9 @@ const Overview = () => {
               style={{
                 borderRadius: '16px',
                 border: '1px solid rgba(0, 0, 0, 0.15)',
-                width: '305px',
+                width: '45%',
                 backgroundColor: '#FFF',
-                padding: '8px 16px',
+                padding: '12px 16px',
               }}
             >
               <Text size={19} weight={'semibold'}>
@@ -95,9 +89,9 @@ const Overview = () => {
               style={{
                 borderRadius: '16px',
                 border: '1px solid rgba(0, 0, 0, 0.15)',
-                width: '305px',
+                width: '45%',
                 backgroundColor: '#FFF',
-                padding: '8px 16px',
+                padding: '12px 16px',
               }}
             >
               <Text size={19} weight={'semibold'}>
