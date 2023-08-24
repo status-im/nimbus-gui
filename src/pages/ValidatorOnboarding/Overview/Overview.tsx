@@ -14,6 +14,7 @@ const Overview = () => {
           border: 'none',
           flexDirection: 'row',
           backgroundColor: '#fff',
+          zIndex: 999,
         }}
       >
         <YStack className="layout-left" space={'$5'} style={{ padding: '16px 32px' }}>
