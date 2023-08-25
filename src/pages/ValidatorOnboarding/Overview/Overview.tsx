@@ -1,22 +1,14 @@
 import { Stack, Text as TextTam, XStack, YStack } from 'tamagui'
-import { Button, Shadow, Text } from '@status-im/components'
+import { Button, Text } from '@status-im/components'
 import { Link } from 'react-router-dom'
 import OverviewCard from './OverviewCard'
 import { ArrowRightIcon } from '@status-im/icons'
+import ValidatorBoxWrapper from '../ValidatorBoxWrapper/ValidatorBoxWrapper'
 
 const Overview = () => {
   return (
     <>
-      <Shadow
-        variant="$2"
-        style={{
-          borderRadius: '16px',
-          border: 'none',
-          flexDirection: 'row',
-          backgroundColor: '#fff',
-          zIndex: 999,
-        }}
-      >
+      <ValidatorBoxWrapper>
         <YStack className="layout-left" space={'$5'} style={{ padding: '16px 32px' }}>
           <TextTam fontSize={27} fontWeight={'600'} style={{ marginBottom: '5px' }}>
             Overview
@@ -60,7 +52,7 @@ const Overview = () => {
             />
           </div>
         </section>
-      </Shadow>
+      </ValidatorBoxWrapper>
       <Stack style={{ alignItems: 'end', width: '100%', marginTop: '16px', zIndex: 999 }}>
         <Button>Continue</Button>
       </Stack>
