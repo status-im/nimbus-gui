@@ -7,26 +7,10 @@ type KeyGenerationSyncCardProps = {
   synced: number
   total: number
   title: string
+  color: string
 }
 
-const KeyGenerationSyncCard = ({ synced, total, title }: KeyGenerationSyncCardProps) => {
-  const data = () => {
-    return [
-      {
-        id: 'storage',
-        label: 'Used',
-        value: synced,
-        color: '#2a4af5',
-      },
-      {
-        id: 'storage',
-        label: 'Free',
-        value: total - synced || 1,
-        color: '#E7EAEE',
-      },
-    ]
-  }
-
+const KeyGenerationSyncCard = ({ synced, total, title, color }: KeyGenerationSyncCardProps) => {
   return (
     <XStack
       space={'$2'}
@@ -39,7 +23,22 @@ const KeyGenerationSyncCard = ({ synced, total, title }: KeyGenerationSyncCardPr
           width: '35px',
         }}
       >
-        <StandardGauge data={data()} />
+        <StandardGauge
+          data={[
+            {
+              id: 'storage',
+              label: 'Used',
+              value: synced,
+              color: color,
+            },
+            {
+              id: 'storage',
+              label: 'Free',
+              value: total - synced || 1,
+              color: '#E7EAEE',
+            },
+          ]}
+        />
       </Stack>
       <YStack>
         <Text size={11} color="#84888e" weight={'semibold'}>
