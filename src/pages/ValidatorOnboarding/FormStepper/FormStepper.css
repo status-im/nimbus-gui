@@ -37,9 +37,28 @@
   content: attr(data-subtitle);
   position: absolute;
   top: calc(100% + 4px);
-  left: 30%; 
   font-size: 12px;
   color: #A2A9B0; 
   background: transparent;
   border: none;
+}
+
+[data-step="Overview"]::after {
+  left: 37.5%;
+}
+
+[data-step="Advicsories"]::after {
+  left: 33.5%;
+}
+
+[data-step="Validator Setup"]::after {
+  left: 29%;
+}
+
+[data-step="Key Generation"]::after {
+  left: 29%;
+}
+
+[data-step="Activation"]::after {
+  left: 36%;
 }
