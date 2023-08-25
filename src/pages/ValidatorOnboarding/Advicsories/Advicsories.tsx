@@ -1,7 +1,8 @@
-import { Button, Shadow, Text } from '@status-im/components'
+import { Button, Text } from '@status-im/components'
 import { useState } from 'react'
 import { Stack, XStack, YStack } from 'tamagui'
 import AdvisoriesContent from './AdvisoriesContent'
+import ValidatorBoxWrapper from '../ValidatorBoxWrapper/ValidatorBoxWrapper'
 
 type AdvisoryTopicsType = {
   [key: string]: string
@@ -21,17 +22,10 @@ const advisoryTopics: AdvisoryTopicsType = {
 
 const Advicsories = () => {
   const [selectedTitle, setSelectedTitle] = useState('Bad Behaviour')
+  
   return (
     <>
-      <Shadow
-        variant="$1"
-        style={{
-          borderRadius: '16px',
-          border: 'none',
-          backgroundColor: '#fff',
-          padding: '16px 32px',
-        }}
-      >
+      <ValidatorBoxWrapper>
         <XStack
           justifyContent={'space-between'}
           className="layout-left"
@@ -65,7 +59,7 @@ const Advicsories = () => {
             ></AdvisoriesContent>
           </YStack>
         </XStack>
-      </Shadow>
+      </ValidatorBoxWrapper>
       <Stack style={{ alignItems: 'end', width: '100%', marginTop: '16px' }}>
         <Button>Continue</Button>
       </Stack>
