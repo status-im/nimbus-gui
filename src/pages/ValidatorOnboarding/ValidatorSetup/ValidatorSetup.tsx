@@ -28,7 +28,7 @@ const ValidatorSetup = () => {
     },
   ]
   return (
-    <YStack style={{ width: '100%' }}>
+    <YStack style={{ width: '100%', padding: '16px 32px' }}>
       <XStack justifyContent={'space-between'}>
         <Text size={27} weight={'semibold'}>
           Validator Setup

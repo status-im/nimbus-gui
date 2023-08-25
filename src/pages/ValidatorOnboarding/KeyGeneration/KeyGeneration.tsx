@@ -3,7 +3,7 @@ import KeyGenerationHeader from './KeyGenerationHeader'
 
 const KeyGeneration = () => {
   return (
-    <YStack space={'$2'} style={{ width: '100%' }}>
+    <YStack space={'$2'} style={{ width: '100%', padding: '16px 32px' }}>
       <KeyGenerationHeader />
     </YStack>
   )
