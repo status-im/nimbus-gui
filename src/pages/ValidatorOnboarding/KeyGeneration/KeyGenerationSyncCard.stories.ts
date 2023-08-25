@@ -20,5 +20,6 @@ export const Page: Story = {
     synced: 123.524,
     total: 172.503,
     title: 'Execution Sync Status',
+    color: '#2a4af5',
   },
 }
