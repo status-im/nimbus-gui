@@ -1,7 +1,7 @@
 import { XStack, YStack } from 'tamagui'
-import LabelInputField from '../../components/General/LabelInputField'
+import LabelInputField from '../LabelInputField'
 import { Avatar, Text } from '@status-im/components'
-import ColorPicker from '../../components/General/ColorPicker/ColorPicker'
+import ColorPicker from '../ColorPicker/ColorPicker'
 import { ReactionIcon } from '@status-im/icons'
 
 const CreateAvatar = () => {
