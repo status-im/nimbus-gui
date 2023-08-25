@@ -5,6 +5,8 @@
     margin-bottom: 10px;
     margin-right: 10px;
     position: relative;
+    outline: none;
+    border: none;
 }
 
 .color-picker-button::before ,
@@ -20,18 +22,19 @@
     transition: 120ms opacity ease-in-out;
 }
 .color-picker-button::before {
-    width: 0.65em;
-    height: 0.65em;
-    box-shadow: inset 1em 1em white;
+    content: "\2713";
+    font-size: 25px;
+    color: white;
 }
 .color-picker-button::after {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 2px solid white;
+    border: 3px solid currentColor;
 }
 
 .color-picker-button:focus::before,   
+.color-picker-button:focus::after,   
 .color-picker-button:hover::after {
     opacity: 1;
 }

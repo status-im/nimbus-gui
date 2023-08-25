@@ -38,7 +38,7 @@ const CreateAvatar = () => {
             {isEmojiDialogOpen && <EmojiPickerDialog emojiStyle="TWITTER" />}
           </XStack>
         </YStack>
-        <YStack>
+        <YStack flexWrap="wrap" width="80%">
           <Text size={13} weight="regular" color={'#647084'}>
             Highlight Color
           </Text>

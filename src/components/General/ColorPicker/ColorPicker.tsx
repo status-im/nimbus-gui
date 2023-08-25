@@ -23,7 +23,7 @@ const ColorPicker = ({ setChosenColor }: ColorPickerProps) => {
 
   return (
     <>
-      <XStack my={10} width="80%" flexWrap="wrap">
+      <XStack my={10} flexWrap="wrap">
         {colors.map((color, i) => (
           <button
             key={i}
