@@ -37,7 +37,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Get PR number
         id: pull_request
-        run: echo "::set-output name=number::$(gh pr view --json number -q .number || echo "")"
+        run: echo "::set-output name=number::$(gh pr view --json number -q .number || echo "null")"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/setup-node@v2
@@ -66,6 +66,10 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            const pullRequestNumber = ${{ steps.pull_request.outputs.number }};
+            if (pullRequestNumber === null) {
+              return;
+            }
             const fs = require('fs');
             const deploymentUrl = fs.readFileSync('_vercel-deployment-url', 'utf8');
             await github.rest.issues.createComment({
