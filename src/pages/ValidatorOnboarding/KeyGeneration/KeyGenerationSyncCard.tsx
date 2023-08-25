@@ -3,13 +3,13 @@ import StandardGauge from '../../../components/Charts/StandardGauge'
 import { ClearIcon } from '@status-im/icons'
 import { Text } from '@status-im/components'
 
-type SyncCardProps = {
+type KeyGenerationSyncCardProps = {
   synced: number
   total: number
   title: string
 }
 
-const SyncCard = ({ synced, total, title }: SyncCardProps) => {
+const KeyGenerationSyncCard = ({ synced, total, title }: KeyGenerationSyncCardProps) => {
   const data = () => {
     return [
       {
@@ -54,4 +54,4 @@ const SyncCard = ({ synced, total, title }: SyncCardProps) => {
   )
 }
 
-export default SyncCard
+export default KeyGenerationSyncCard
