@@ -16,6 +16,7 @@ const ValidatorSetup = () => {
     {
       name: 'Geth',
       icon: '/icons/teku-circle',
+      isSelected: true,
     },
     {
       name: 'Erigon',
@@ -57,7 +58,12 @@ const ValidatorSetup = () => {
       <XStack justifyContent={'space-between'}>
         {execClientCardsContent.length &&
           execClientCardsContent.map(e => (
-            <ExecClientCard name={e.name} icon={e.icon} isComingSoon={e.isComingSoon || false} />
+            <ExecClientCard
+              name={e.name}
+              icon={e.icon}
+              isSelected={e.isSelected || false}
+              isComingSoon={e.isComingSoon}
+            />
           ))}
       </XStack>
     </YStack>

@@ -7,27 +7,26 @@ import { Text } from '@status-im/components'
 type ExecClientCardProps = {
   name: string
   icon: string
+  isSelected?: boolean
   isComingSoon?: boolean
 }
-const ExecClientCard = ({ name, icon, isComingSoon }: ExecClientCardProps) => {
-  const disabledCardStyle = {
-    backgroundColor: '#F5F5F5',
-    border: '1px solid #DCE0E5',
-    borderRadius: '16px',
-    padding: '2px 6px',
-  }
+const ExecClientCard = ({ name, icon, isSelected, isComingSoon }: ExecClientCardProps) => {
   return (
     <YStack
       style={{
-        backgroundColor: isComingSoon ? '#F5F5F5' : 'none',
-        border: '1px solid #DCE0E5',
+        backgroundColor: isComingSoon ? '#F5F5F5' : isSelected ? '#2A4AF50D' : 'none',
+        border: isComingSoon
+          ? '1px solid #F5F6F8'
+          : isSelected
+          ? '1px solid #2A4AF5'
+          : '1px solid #DCE0E5',
         borderRadius: '16px',
         padding: '12px 16px',
         width: '19%',
       }}
       space={'$12'}
     >
-      <Text size={27} weight={'semibold'}>
+      <Text size={27} weight={'semibold'} color={isComingSoon ? '#DCE0E5' : ''}>
         {name}
       </Text>
       <Icon src={icon} width={100} height={100} />
