@@ -105,10 +105,12 @@ jobs:
           script: |
             const fs = require('fs');
             const deploymentUrl = fs.readFileSync('_vercel-deployment-url', 'utf8');
+            const deploymentId = ${{ steps.vercel-deployment.outputs.deployment_id }};
+            console.log('deploymentId', deploymentId);
             await github.rest.repos.createDeploymentStatus({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              deployment_id: ${{ steps.vercel-deployment.outputs.deployment_id }},
+              deployment_id: deploymentId,
               state: 'success',
               environment_url: deploymentUrl,
               log_url: deploymentUrl,
