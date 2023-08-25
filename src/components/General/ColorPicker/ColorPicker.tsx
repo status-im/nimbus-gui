@@ -1,10 +1,12 @@
-import { useState } from 'react'
 import { XStack } from 'tamagui'
 import { CustomPicker } from 'react-color'
 import './ColorPicker.css'
 
-const ColorPicker = () => {
-  const [chosenColor, setChosenColor] = useState('#2A4AF5')
+type ColorPickerProps = {
+  setChosenColor: (a: string) => void
+}
+
+const ColorPicker = ({ setChosenColor }: ColorPickerProps) => {
   const colors = [
     '#2A4AF5',
     '#F6B03C',
@@ -27,7 +29,7 @@ const ColorPicker = () => {
             key={i}
             type="button"
             className="color-picker-button"
-            onClick={_e => setChosenColor(color)}
+            onClick={() => setChosenColor(color)}
             style={{ background: color, color: color }}
           ></button>
         ))}
