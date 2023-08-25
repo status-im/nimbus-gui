@@ -1,7 +1,7 @@
 // make func component for this file
 
 import { XStack, YStack } from 'tamagui'
-import { CloseCircleIcon } from '@status-im/icons'
+import { ClearIcon } from '@status-im/icons'
 import { Avatar, Text } from '@status-im/components'
 
 const PairedDeviceCard = () => {
@@ -27,7 +27,7 @@ const PairedDeviceCard = () => {
           </Text>
         </YStack>
       </XStack>
-      <CloseCircleIcon key={1} size={20} color="#A1ABBD" />
+      <ClearIcon size={20} color="#A1ABBD" />
     </XStack>
   )
 }

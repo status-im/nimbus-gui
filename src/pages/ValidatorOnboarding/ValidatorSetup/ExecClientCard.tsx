@@ -1,4 +1,4 @@
-import { YStack } from 'tamagui'
+import { Stack, XStack, YStack } from 'tamagui'
 import Icon from '../../../components/General/Icon'
 import { Text } from '@status-im/components'
 
@@ -26,9 +26,28 @@ const ExecClientCard = ({ name, icon, isSelected, isComingSoon }: ExecClientCard
       }}
       space={'$12'}
     >
-      <Text size={27} weight={'semibold'} color={isComingSoon ? '#DCE0E5' : ''}>
-        {name}
-      </Text>
+      <Stack>
+        <Text size={27} weight={'semibold'} color={isComingSoon ? '#DCE0E5' : ''}>
+          {name}
+        </Text>
+        {isComingSoon && (
+          <XStack
+            style={{
+              backgroundColor: '#2A4AF5',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              padding: '3px',
+              borderRadius: '67px',
+              width: '50%',
+            }}
+          >
+            <Text size={11} color="#fff">
+              COMING SOON
+            </Text>
+          </XStack>
+        )}
+      </Stack>
       <Icon src={icon} width={100} height={100} />
     </YStack>
   )

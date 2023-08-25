@@ -11,20 +11,20 @@ const ValidatorSetup = () => {
     },
     {
       name: 'Besu',
-      icon: '/icons/open-ethereum-circle',
+      icon: '/icons/hyperledger-besu-circle.png',
     },
     {
       name: 'Geth',
-      icon: '/icons/teku-circle',
+      icon: '/icons/gethereum-mascot-circle.png',
       isSelected: true,
     },
     {
       name: 'Erigon',
-      icon: '/icons/lighthouse-circle',
+      icon: '/icons/erigon-circle.png',
     },
     {
       name: 'Nimbus',
-      icon: '/icons/prysm-circle',
+      icon: '/icons/NimbusDisabled.svg',
       isComingSoon: true,
     },
   ]
