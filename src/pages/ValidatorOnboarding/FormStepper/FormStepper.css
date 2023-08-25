@@ -32,3 +32,14 @@
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
+
+.custom-step::after {
+  content: attr(data-subtitle);
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 30%; 
+  font-size: 12px;
+  color: #A2A9B0; 
+  background: transparent;
+  border: none;
+}

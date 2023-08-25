@@ -13,37 +13,47 @@ const FormStepper = ({ activeStep, changeActiveStep }: FormStepperProps) => {
       nonLinear={true}
       styleConfig={stepStyle}
       connectorStyleConfig={customConnectorStyle}
-      style={{ fontSize: '14px', zIndex: 999, width: '100%', padding: 0, marginBottom: '1rem' }}
+      style={{ fontSize: '14px', zIndex: 999, width: '100%', padding: 0, marginBottom: '2rem' }}
     >
       <Step
-        className="custom-step"
         label={'Overview'}
+        className="custom-step"
         onClick={() => changeActiveStep(0)}
         completed={activeStep >= 0}
+        data-subtitle="Get Started"
+        data-step="Overview"
       />
       <Step
-        className="custom-step"
         label="Advicsories"
+        className="custom-step"
         onClick={() => changeActiveStep(1)}
         completed={activeStep > 0}
+        data-subtitle="Understand your Duties"
+        data-step="Advicsories"
       />
       <Step
         label="Validator Setup"
         className="custom-step"
         onClick={() => changeActiveStep(2)}
         completed={activeStep > 1}
+        data-subtitle="Clients, Nodes & Validators"
+        data-step="Validator Setup"
       />
       <Step
         label="Key Generation"
         className="custom-step"
         onClick={() => changeActiveStep(3)}
         completed={activeStep > 2}
+        data-subtitle="Secure your Keypairs"
+        data-step="Key Generation"
       />
       <Step
         label="Activation"
         className="custom-step"
         onClick={() => changeActiveStep(4)}
         completed={activeStep > 3}
+        data-subtitle="Complete Setup"
+        data-step="Activation"
       />
     </Stepper>
   )

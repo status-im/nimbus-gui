@@ -3,30 +3,14 @@ import StandardGauge from '../../../components/Charts/StandardGauge'
 import { ClearIcon } from '@status-im/icons'
 import { Text } from '@status-im/components'
 
-type SyncCardProps = {
+type KeyGenerationSyncCardProps = {
   synced: number
   total: number
   title: string
+  color: string
 }
 
-const SyncCard = ({ synced, total, title }: SyncCardProps) => {
-  const data = () => {
-    return [
-      {
-        id: 'storage',
-        label: 'Used',
-        value: synced,
-        color: '#2a4af5',
-      },
-      {
-        id: 'storage',
-        label: 'Free',
-        value: total - synced || 1,
-        color: '#E7EAEE',
-      },
-    ]
-  }
-
+const KeyGenerationSyncCard = ({ synced, total, title, color }: KeyGenerationSyncCardProps) => {
   return (
     <XStack
       space={'$2'}
@@ -39,7 +23,22 @@ const SyncCard = ({ synced, total, title }: SyncCardProps) => {
           width: '35px',
         }}
       >
-        <StandardGauge data={data()} />
+        <StandardGauge
+          data={[
+            {
+              id: title,
+              label: title,
+              value: synced,
+              color: color,
+            },
+            {
+              id: 'free',
+              label: 'free',
+              value: total - synced || 1,
+              color: '#E7EAEE',
+            },
+          ]}
+        />
       </Stack>
       <YStack>
         <Text size={11} color="#84888e" weight={'semibold'}>
@@ -49,9 +48,9 @@ const SyncCard = ({ synced, total, title }: SyncCardProps) => {
           {synced} / {total}
         </Text>
       </YStack>
-      <ClearIcon size={20} />
+      <ClearIcon size={20} color="#A1ABBD" />
     </XStack>
   )
 }
 
-export default SyncCard
+export default KeyGenerationSyncCard
