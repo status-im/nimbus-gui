@@ -49,7 +49,7 @@ const KeyGenerationSyncCard = ({ synced, total, title }: KeyGenerationSyncCardPr
           {synced} / {total}
         </Text>
       </YStack>
-      <ClearIcon size={20} />
+      <ClearIcon size={20} color="#A1ABBD" />
     </XStack>
   )
 }
