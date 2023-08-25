@@ -7,7 +7,7 @@ import { ArrowRightIcon } from '@status-im/icons'
 const Overview = () => {
   return (
     <>
-      <YStack className="layout-left" space={'$5'} style={{ padding: '16px 32px' }}>
+      <YStack className="layout-left" space={'$5'}>
         <TextTam fontSize={27} fontWeight={'600'} style={{ marginBottom: '5px' }}>
           Overview
         </TextTam>
