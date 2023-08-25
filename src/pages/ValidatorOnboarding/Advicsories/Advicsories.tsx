@@ -23,15 +23,12 @@ const Advicsories = () => {
   const [selectedTitle, setSelectedTitle] = useState('Bad Behaviour')
 
   return (
-    <XStack
-      justifyContent={'space-between'}
-      className="layout-left"
-      space={10}
-      style={{ padding: '16px 32px' }}
-    >
-      <YStack>
-        <Stack>
-          <Text size={27}>Advisories</Text>
+    <XStack justifyContent={'space-between'} space={'$10'} style={{ padding: '16px 32px' }}>
+      <YStack justifyContent={'space-between'} space={'$2'}>
+        <Stack marginBottom="$6">
+          <Text size={27} weight={'semibold'}>
+            Advisories
+          </Text>
         </Stack>
         {Object.keys(advisoryTopics).map((title, index) => (
           <Stack key={title} onPress={() => setSelectedTitle(title)} style={{ cursor: 'pointer' }}>
@@ -45,12 +42,10 @@ const Advicsories = () => {
           </Stack>
         ))}
       </YStack>
-      <YStack>
-        <AdvisoriesContent
-          title={selectedTitle}
-          content={advisoryTopics[selectedTitle]}
-        ></AdvisoriesContent>
-      </YStack>
+      <AdvisoriesContent
+        title={selectedTitle}
+        content={advisoryTopics[selectedTitle]}
+      ></AdvisoriesContent>
     </XStack>
   )
 }
