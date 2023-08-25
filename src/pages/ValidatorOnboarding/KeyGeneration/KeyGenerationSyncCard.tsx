@@ -26,14 +26,14 @@ const KeyGenerationSyncCard = ({ synced, total, title, color }: KeyGenerationSyn
         <StandardGauge
           data={[
             {
-              id: 'storage',
-              label: 'Used',
+              id: title,
+              label: title,
               value: synced,
               color: color,
             },
             {
-              id: 'storage',
-              label: 'Free',
+              id: 'free',
+              label: 'free',
               value: total - synced || 1,
               color: '#E7EAEE',
             },
