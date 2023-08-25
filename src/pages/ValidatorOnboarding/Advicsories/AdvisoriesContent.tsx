@@ -1,12 +1,13 @@
 import { Text } from '@status-im/components'
 import { Link } from 'react-router-dom'
+import { YStack } from 'tamagui'
 type AdvisoriesContentProps = {
   title: string
   content: string
 }
 const AdvisoriesContent = ({ title, content }: AdvisoriesContentProps) => {
   return (
-    <>
+    <YStack justifyContent={'space-between'} space={'$2'}>
       <Text size={27}>{title}</Text>
       <Text size={13}>{content}</Text>
       <Text size={13}>
@@ -25,7 +26,7 @@ const AdvisoriesContent = ({ title, content }: AdvisoriesContentProps) => {
           More on slashing risks
         </Link>
       </Text>
-    </>
+    </YStack>
   )
 }
 export default AdvisoriesContent
