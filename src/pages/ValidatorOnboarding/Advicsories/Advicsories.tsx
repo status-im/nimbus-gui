@@ -1,8 +1,7 @@
-import { Button, Text } from '@status-im/components'
+import { Text } from '@status-im/components'
 import { useState } from 'react'
 import { Stack, XStack, YStack } from 'tamagui'
 import AdvisoriesContent from './AdvisoriesContent'
-import ValidatorBoxWrapper from '../ValidatorBoxWrapper/ValidatorBoxWrapper'
 
 type AdvisoryTopicsType = {
   [key: string]: string
@@ -24,41 +23,35 @@ const Advicsories = () => {
   const [selectedTitle, setSelectedTitle] = useState('Bad Behaviour')
 
   return (
-    <>
-      <ValidatorBoxWrapper>
-        <XStack justifyContent={'space-between'} space={'$10'} style={{ padding: '16px 32px' }}>
-          <YStack justifyContent={'space-between'} space={'$2'}>
-            <Stack marginBottom="$6">
-              <Text size={27} weight={'semibold'}>
-                Advisories
-              </Text>
-            </Stack>
-            {Object.keys(advisoryTopics).map((title, index) => (
-              <Stack
-                key={title}
-                onPress={() => setSelectedTitle(title)}
-                style={{ cursor: 'pointer' }}
-              >
-                <Text
-                  size={15}
-                  weight={selectedTitle === title && 'semibold'}
-                  color={selectedTitle === title ? 'blue' : undefined}
-                >
-                  {unicodeNumbers[index]} {title}
-                </Text>
-              </Stack>
-            ))}
-          </YStack>
-          <AdvisoriesContent
-            title={selectedTitle}
-            content={advisoryTopics[selectedTitle]}
-          ></AdvisoriesContent>
-        </XStack>
-      </ValidatorBoxWrapper>
-      <Stack style={{ alignItems: 'end', width: '100%', marginTop: '16px' }}>
-        <Button>Continue</Button>
-      </Stack>
-    </>
+    <XStack
+      justifyContent={'space-between'}
+      className="layout-left"
+      space={10}
+      style={{ padding: '16px 32px' }}
+    >
+      <YStack>
+        <Stack>
+          <Text size={27}>Advisories</Text>
+        </Stack>
+        {Object.keys(advisoryTopics).map((title, index) => (
+          <Stack key={title} onPress={() => setSelectedTitle(title)} style={{ cursor: 'pointer' }}>
+            <Text
+              size={15}
+              weight={selectedTitle === title && 'semibold'}
+              color={selectedTitle === title ? 'blue' : undefined}
+            >
+              {unicodeNumbers[index]} {title}
+            </Text>
+          </Stack>
+        ))}
+      </YStack>
+      <YStack>
+        <AdvisoriesContent
+          title={selectedTitle}
+          content={advisoryTopics[selectedTitle]}
+        ></AdvisoriesContent>
+      </YStack>
+    </XStack>
   )
 }
 
