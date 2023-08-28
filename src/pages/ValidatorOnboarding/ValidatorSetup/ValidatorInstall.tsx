@@ -2,6 +2,7 @@ import { XStack, Stack, YStack } from 'tamagui'
 import { InformationBox, Text } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
 import OsCard from './OsCard'
+import SyntaxHighlighterBox from './SyntaxHighlighter'
 
 const ValidatorSetupInstall = () => {
   return (
@@ -52,11 +53,14 @@ const ValidatorSetupInstall = () => {
               </Text>
             </YStack>
             {/* Cards */}
-            <XStack justifyContent={'space-between'} space={'$3'}>
+            <XStack justifyContent={'space-between'} space={'$3'} margin={'50px 0px'}>
               <OsCard icon="/icons/MAC.png" name="Mac" isSelected={true}></OsCard>
               <OsCard icon="/icons/Linux.png" name="Linux"></OsCard>
               <OsCard icon="/icons/windows.png" name="Windows"></OsCard>
             </XStack>
+            <SyntaxHighlighterBox
+              rows={['brew tap ethereum/ethereum', 'brew install ethereum']}
+            ></SyntaxHighlighterBox>
           </YStack>
         </Stack>
       </YStack>
