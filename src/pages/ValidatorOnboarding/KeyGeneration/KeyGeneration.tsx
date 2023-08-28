@@ -3,6 +3,7 @@ import KeyGenerationHeader from './KeyGenerationHeader'
 import RecoveryMechanism from './RecoveryMechanism'
 import { Button, InformationBox, Text } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
+import PasswordFields from './PasswordFields'
 
 const KeyGeneration = () => {
   return (
@@ -12,6 +13,7 @@ const KeyGeneration = () => {
       <Text size={27} weight={'semibold'}>
         4 Validators
       </Text>
+      <PasswordFields />
       <Button>Generate Key files</Button>
       <InformationBox
         message="You should see that you have one keystore per validator. This keystore contains your signing key, encrypted with your password. Warning: Do not store keys on multiple (backup) validator clients at once"
