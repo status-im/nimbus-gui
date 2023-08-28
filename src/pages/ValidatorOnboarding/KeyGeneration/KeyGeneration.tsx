@@ -4,12 +4,22 @@ import RecoveryMechanism from './RecoveryMechanism'
 import { Button, InformationBox, Text } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
 import PasswordFields from './PasswordFields'
+import { useState } from 'react'
 
 const KeyGeneration = () => {
+  const [selectedRecoveryMechanism, setSelectedRecoveryMechanism] = useState('key-files')
+
+  const handleRecoveryMechanismChange = (value: string) => {
+    setSelectedRecoveryMechanism(value)
+  }
+
   return (
     <YStack space={'$2'} style={{ width: '100%', padding: '16px 32px', alignItems: 'start' }}>
       <KeyGenerationHeader />
-      <RecoveryMechanism />
+      <RecoveryMechanism
+        selectedRecoveryMechanism={selectedRecoveryMechanism}
+        handleRecoveryMechanismChange={handleRecoveryMechanismChange}
+      />
       <Text size={27} weight={'semibold'}>
         4 Validators
       </Text>
