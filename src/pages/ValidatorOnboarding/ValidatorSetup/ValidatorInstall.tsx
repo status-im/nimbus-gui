@@ -1,6 +1,7 @@
 import { XStack, Stack, YStack } from 'tamagui'
 import { InformationBox, Text } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
+import OsCard from './OsCard'
 
 const ValidatorSetupInstall = () => {
   return (
@@ -34,6 +35,7 @@ const ValidatorSetupInstall = () => {
                 borderRadius: '15px',
                 padding: '6px 12px',
               }}
+              space={'$3'}
             >
               <Text size={27}> Installing Geth</Text>
               <Text size={13}>
@@ -49,6 +51,12 @@ const ValidatorSetupInstall = () => {
                 are also provided in each section.
               </Text>
             </YStack>
+            {/* Cards */}
+            <XStack justifyContent={'space-between'} space={'$3'}>
+              <OsCard icon="/icons/MAC.png" name="Mac" isSelected={true}></OsCard>
+              <OsCard icon="/icons/Linux.png" name="Linux"></OsCard>
+              <OsCard icon="/icons/windows.png" name="Windows"></OsCard>
+            </XStack>
           </YStack>
         </Stack>
       </YStack>
