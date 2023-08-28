@@ -7,7 +7,7 @@ type LabelInputProps = {
   placeholderText: string
 }
 
-function LabelInputField({ labelText, placeholderText }: LabelInputProps) {
+const LabelInputField = ({ labelText, placeholderText }: LabelInputProps) => {
   return (
     <Label flexDirection="column" alignItems="flex-start" my={10} width={'100%'}>
       <Text size={13} weight="regular" color={'#647084'}>
