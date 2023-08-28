@@ -14,7 +14,6 @@ const KeyGeneration = () => {
         4 Validators
       </Text>
       <PasswordFields />
-      <Button>Generate Key files</Button>
       <InformationBox
         message="You should see that you have one keystore per validator. This keystore contains your signing key, encrypted with your password. Warning: Do not store keys on multiple (backup) validator clients at once"
         variant="error"

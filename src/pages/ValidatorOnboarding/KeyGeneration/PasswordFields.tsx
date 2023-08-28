@@ -1,20 +1,29 @@
-import { Input, XStack, YStack } from 'tamagui'
+import { XStack, YStack } from 'tamagui'
 import BorderBox from '../../../components/General/BorderBox'
-import { Text } from '@status-im/components'
+import { Button, Text } from '@status-im/components'
+import LabelInputField from '../../../components/General/LabelInputField'
 
 const PasswordFields = () => {
+  const generateKeyFilesHandler = () => {}
+
   return (
-    <XStack space={'$2'} style={{ justifyContent: 'space-between' }}>
-      <YStack space={'$2'}>
-        <Input placeholder="Password" />
-        <Input placeholder="Confirm Password" />
-      </YStack>
-      <BorderBox>
-        <Text size={15} weight={'semibold'}>
-          Download Key Files
-        </Text>
-      </BorderBox>
-    </XStack>
+    <YStack space={'$2'}>
+      <XStack space={'$2'} style={{ justifyContent: 'space-between' }}>
+        <YStack space={'$1'}>
+          <LabelInputField labelText="Encryption Password" placeholderText="******************" />
+          <LabelInputField
+            labelText="Confirm Encryption Password"
+            placeholderText="******************"
+          />
+        </YStack>
+        <BorderBox>
+          <Text size={15} weight={'semibold'}>
+            Download Key Files
+          </Text>
+        </BorderBox>
+      </XStack>
+      <Button onPress={generateKeyFilesHandler}>Generate Key files</Button>
+    </YStack>
   )
 }
 
