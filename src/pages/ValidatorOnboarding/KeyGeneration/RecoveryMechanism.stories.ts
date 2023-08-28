@@ -16,5 +16,8 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Page: Story = {
-  args: {},
+  args: {
+    selectedRecoveryMechanism: 'Key Files',
+    handleRecoveryMechanismChange: () => {},
+  },
 }
