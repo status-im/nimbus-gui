@@ -7,7 +7,7 @@ import PasswordFields from './PasswordFields'
 import { useState } from 'react'
 
 const KeyGeneration = () => {
-  const [selectedRecoveryMechanism, setSelectedRecoveryMechanism] = useState('key-files')
+  const [selectedRecoveryMechanism, setSelectedRecoveryMechanism] = useState('Key Files')
 
   const handleRecoveryMechanismChange = (value: string) => {
     setSelectedRecoveryMechanism(value)
