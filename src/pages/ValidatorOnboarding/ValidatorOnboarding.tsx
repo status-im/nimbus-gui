@@ -5,12 +5,12 @@ import { useState } from 'react'
 import Overview from './Overview/Overview'
 import KeyGeneration from './KeyGeneration/KeyGeneration'
 import Advicsories from './Advicsories/Advicsories'
-import ValidatorSetup from './ValidatorSetup/ValidatorSetup'
 import Activation from './Activation/Activation'
 import './layoutGradient.css'
 import ValidatorBoxWrapper from './ValidatorBoxWrapper/ValidatorBoxWrapper'
 import { Button } from '@status-im/components'
 import { useNavigate } from 'react-router-dom'
+import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstall'
 
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)
@@ -48,7 +48,7 @@ const ValidatorOnboarding = () => {
         <ValidatorBoxWrapper>
           {activeStep === 0 && <Overview />}
           {activeStep === 1 && <Advicsories />}
-          {activeStep === 2 && <ValidatorSetup />}
+          {activeStep === 2 && <ValidatorSetupInstall />}
           {activeStep === 3 && <KeyGeneration />}
           {activeStep === 4 && <Activation />}
         </ValidatorBoxWrapper>
