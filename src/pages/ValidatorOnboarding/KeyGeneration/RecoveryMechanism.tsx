@@ -1,5 +1,5 @@
 import { Text } from '@status-im/components'
-import { XStack } from 'tamagui'
+import { XStack, YStack } from 'tamagui'
 import RecoveryMechanismCard from './RecoveryMechanismCard'
 
 type RecoveryMechanismProps = {
@@ -12,11 +12,11 @@ const RecoveryMechanism = ({
   handleRecoveryMechanismChange,
 }: RecoveryMechanismProps) => {
   return (
-    <XStack style={{ width: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
+    <YStack style={{ width: '100%' }}>
       <Text size={19} weight={'semibold'}>
         Select Recovery Mechanism
       </Text>
-      <XStack space={'$1'}>
+      <XStack space={'$4'} style={{ justifyContent: 'space-between', marginTop: '40px' }}>
         <RecoveryMechanismCard
           value="Key Files"
           selectedRecoveryMechanism={selectedRecoveryMechanism}
@@ -33,7 +33,7 @@ const RecoveryMechanism = ({
           handleRecoveryMechanismChange={handleRecoveryMechanismChange}
         />
       </XStack>
-    </XStack>
+    </YStack>
   )
 }
 
