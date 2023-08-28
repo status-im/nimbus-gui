@@ -19,6 +19,9 @@
     margin-left: 1rem;
     padding: 1rem 0.5rem;
 }
+.quick-start-bar ul  {
+    display: flex;
+}
 .quick-start-bar ul li {
     color: #0D1625;
     font-size: 13px;
