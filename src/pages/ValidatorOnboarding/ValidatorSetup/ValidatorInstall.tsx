@@ -51,6 +51,11 @@ const ValidatorSetupInstall = () => {
                 releases can be found here. Instructions for updating existing Geth installations
                 are also provided in each section.
               </Text>
+              <Text size={13}>
+                If a version number is returned, then Homebrew is installed. If not, Homebrew can be
+                installed by following the instructions here. With Homebrew installed, the following
+                commands add the Geth tap and install Geth:
+              </Text>
             </YStack>
             {/* Cards */}
             <XStack justifyContent={'space-between'} space={'$3'} margin={'50px 0px'}>
@@ -58,6 +63,12 @@ const ValidatorSetupInstall = () => {
               <OsCard icon="/icons/Linux.png" name="Linux"></OsCard>
               <OsCard icon="/icons/windows.png" name="Windows"></OsCard>
             </XStack>
+            <SyntaxHighlighterBox rows={['brew -v']}></SyntaxHighlighterBox>
+            <Text size={13}>
+              If a version number is returned, then Homebrew is installed. If not, Homebrew can be
+              installed by following the instructions here. With Homebrew installed, the following
+              commands add the Geth tap and install Geth:
+            </Text>
             <SyntaxHighlighterBox
               rows={['brew tap ethereum/ethereum', 'brew install ethereum']}
             ></SyntaxHighlighterBox>
