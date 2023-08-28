@@ -2,6 +2,7 @@ import { XStack, Stack, Text as TextTam, YStack } from 'tamagui'
 import PairedDeviceCard from './PairedDeviceCard'
 import { Text } from '@status-im/components'
 import ExecClientCard from './ExecClientCard'
+import { Link } from 'react-router-dom'
 
 const ValidatorSetup = () => {
   const execClientCardsContent = [
@@ -66,6 +67,12 @@ const ValidatorSetup = () => {
             />
           ))}
       </XStack>
+      <Stack marginTop={'10%'}>
+        <Text size={15} weight={'semibold'} color="#2A4CF4">
+          <Link to={'https://launchpad.ethereum.org/en/faq'}></Link>
+          View Execution client comparison chart
+        </Text>
+      </Stack>
     </YStack>
   )
 }
