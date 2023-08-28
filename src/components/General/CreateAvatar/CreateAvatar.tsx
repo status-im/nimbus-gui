@@ -6,10 +6,15 @@ import './CreateAvatar.css'
 import LabelInputField from '../LabelInputField'
 import ColorPicker from '../ColorPicker/ColorPicker'
 import EmojiPickerDialog from '../EmojiPickerDialog'
+import { Emoji, EmojiClickData } from 'emoji-picker-react'
 
 const CreateAvatar = () => {
   const [chosenColor, setChosenColor] = useState('#2A4AF5')
   const [isEmojiDialogOpen, setIsEmojiDialogOpen] = useState(false)
+  const [selectedEmoji, setSelectedEmoji] = useState<string>('1f600')
+  function changeEmoji(emojiData: EmojiClickData) {
+    setSelectedEmoji(emojiData.unified)
+  }
   return (
     <YStack my={16}>
       <XStack space>
@@ -22,7 +27,7 @@ const CreateAvatar = () => {
           </Text>
           <XStack my={10} alignItems={'end'}>
             <div className="device-avatar" style={{ background: chosenColor }}>
-              <img src="./icons/nodes-app-icon.png" alt="" />
+              {selectedEmoji ? <Emoji unified={selectedEmoji} size={30} /> : null}
             </div>
             <Avatar
               type="icon"
@@ -35,7 +40,9 @@ const CreateAvatar = () => {
                 />
               }
             />
-            {isEmojiDialogOpen && <EmojiPickerDialog emojiStyle="TWITTER" />}
+            {isEmojiDialogOpen && (
+              <EmojiPickerDialog changeEmoji={changeEmoji} emojiStyle="TWITTER" />
+            )}
           </XStack>
         </YStack>
         <YStack flexWrap="wrap" width="80%">
