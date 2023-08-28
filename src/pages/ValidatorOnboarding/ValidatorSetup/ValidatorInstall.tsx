@@ -3,8 +3,9 @@ import { InformationBox, Text } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
 import OsCard from './OsCard'
 import SyntaxHighlighterBox from './SyntaxHighlighter'
-
+import { useState } from 'react'
 const ValidatorSetupInstall = () => {
+  const [selectedOs, setSelectedOs] = useState('Mac')
   return (
     <YStack style={{ width: '100%', padding: '16px 32px' }}>
       <XStack justifyContent={'space-between'} style={{ marginBottom: '10px' }}>
@@ -59,9 +60,24 @@ const ValidatorSetupInstall = () => {
             </YStack>
             {/* Cards */}
             <XStack justifyContent={'space-between'} space={'$3'} margin={'50px 0px'}>
-              <OsCard icon="/icons/MAC.png" name="Mac" isSelected={true}></OsCard>
-              <OsCard icon="/icons/Linux.png" name="Linux"></OsCard>
-              <OsCard icon="/icons/windows.png" name="Windows"></OsCard>
+              <OsCard
+                icon="/icons/MAC.png"
+                name="Mac"
+                isSelected={selectedOs === 'Mac'}
+                onClick={() => setSelectedOs('Mac')}
+              />
+              <OsCard
+                icon="/icons/Linux.png"
+                name="Linux"
+                isSelected={selectedOs === 'Linux'}
+                onClick={() => setSelectedOs('Linux')}
+              />
+              <OsCard
+                icon="/icons/windows.png"
+                name="Windows"
+                isSelected={selectedOs === 'Windows'}
+                onClick={() => setSelectedOs('Windows')}
+              />
             </XStack>
             <SyntaxHighlighterBox rows={['brew -v']}></SyntaxHighlighterBox>
             <Text size={13}>

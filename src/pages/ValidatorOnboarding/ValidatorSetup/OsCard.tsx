@@ -7,9 +7,10 @@ import { Text } from '@status-im/components'
 type OsCardProps = {
   name: string
   icon: string
+  onClick?: () => void
   isSelected?: boolean
 }
-const OsCard = ({ name, icon, isSelected }: OsCardProps) => {
+const OsCard = ({ name, icon, onClick, isSelected }: OsCardProps) => {
   return (
     <YStack
       style={{
@@ -20,6 +21,7 @@ const OsCard = ({ name, icon, isSelected }: OsCardProps) => {
         width: '30%',
       }}
       space={'$12'}
+      onPress={onClick}
     >
       <Stack>
         <Text size={27} weight={'semibold'}>
