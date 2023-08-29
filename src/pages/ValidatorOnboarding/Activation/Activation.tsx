@@ -8,11 +8,26 @@ import { ArrowLeftIcon } from '@status-im/icons'
 
 const Activation = () => {
   const [showConfetti, setShowConfetti] = useState(true)
+  const styles = {
+    confettiContainer: {
+      position: 'relative' as const,
+      width: '100%',
+      height: '100%',
+    },
+    confettiCanvas: {
+      position: 'absolute' as const,
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      zIndex: 1,
+    },
+  }
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowConfetti(false)
-    }, 5000)
+    }, 10000)
 
     return () => {
       clearTimeout(timer)
@@ -20,9 +35,9 @@ const Activation = () => {
   }, [])
 
   return (
-    <Stack width={'100%'}>
+    <Stack style={styles.confettiContainer} width={'100%'}>
+      {showConfetti && <Confetti style={styles.confettiCanvas} />}
       <YStack style={{ padding: '16px 32px' }}>
-        {showConfetti && <Confetti width={1540} height={800} style={{ zIndex: 0 }} />}
         <YStack space={'$5'}>
           <Text size={27} weight={'semibold'}>
             Validator Setup
@@ -57,7 +72,7 @@ const Activation = () => {
             </XStack>
           </YStack>
         </YStack>
-        <Stack style={{  maxWidth: 'fit-content', marginTop: '50px' }}>
+        <Stack style={{ maxWidth: 'fit-content', marginTop: '50px' }}>
           <Text size={15}>
             <XStack space={'$1'} style={{ alignItems: 'center' }}>
               <ArrowLeftIcon size={16} color="#2A4CF4" />
