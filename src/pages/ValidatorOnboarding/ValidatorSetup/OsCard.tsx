@@ -2,8 +2,7 @@ import { Stack, YStack } from 'tamagui'
 import Icon from '../../../components/General/Icon'
 import { Text } from '@status-im/components'
 
-// make func component
-
+ 
 type OsCardProps = {
   name: string
   icon: string
@@ -18,7 +17,7 @@ const OsCard = ({ name, icon, onClick, isSelected }: OsCardProps) => {
         border: isSelected ? '1px solid #2A4AF566' : '1px solid rgba(0, 0, 0, 0.15);',
         borderRadius: '16px',
         padding: '12px 16px',
-        width: '30%',
+        width: '33%',
       }}
       space={'$12'}
       onPress={onClick}
