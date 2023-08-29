@@ -4,13 +4,13 @@ import RecoveryMechanismCard from './RecoveryMechanismCard'
 import { BOTH_KEY_AND_RECOVERY, KEY_FILES, RECOVERY_PHRASE } from '../../../constants'
 
 type RecoveryMechanismProps = {
-  selectedRecoveryMechanism: string
-  handleRecoveryMechanismChange: (value: string) => void
+  recoveryMechanism: string
+  handleRecMechanismChange: (value: string) => void
 }
 
 const RecoveryMechanism = ({
-  selectedRecoveryMechanism,
-  handleRecoveryMechanismChange,
+  recoveryMechanism,
+  handleRecMechanismChange,
 }: RecoveryMechanismProps) => {
   return (
     <YStack style={{ width: '100%' }}>
@@ -20,18 +20,18 @@ const RecoveryMechanism = ({
       <XStack space={'$4'} style={{ justifyContent: 'space-between', marginTop: '40px' }}>
         <RecoveryMechanismCard
           value={KEY_FILES}
-          selectedRecoveryMechanism={selectedRecoveryMechanism}
-          handleRecoveryMechanismChange={handleRecoveryMechanismChange}
+          recoveryMechanism={recoveryMechanism}
+          handleRecMechanismChange={handleRecMechanismChange}
         />
         <RecoveryMechanismCard
           value={RECOVERY_PHRASE}
-          selectedRecoveryMechanism={selectedRecoveryMechanism}
-          handleRecoveryMechanismChange={handleRecoveryMechanismChange}
+          recoveryMechanism={recoveryMechanism}
+          handleRecMechanismChange={handleRecMechanismChange}
         />
         <RecoveryMechanismCard
           value={BOTH_KEY_AND_RECOVERY}
-          selectedRecoveryMechanism={selectedRecoveryMechanism}
-          handleRecoveryMechanismChange={handleRecoveryMechanismChange}
+          recoveryMechanism={recoveryMechanism}
+          handleRecMechanismChange={handleRecMechanismChange}
         />
       </XStack>
     </YStack>

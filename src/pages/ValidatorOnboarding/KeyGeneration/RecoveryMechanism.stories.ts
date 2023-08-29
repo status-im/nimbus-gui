@@ -18,7 +18,7 @@ type Story = StoryObj<typeof meta>
 
 export const Page: Story = {
   args: {
-    selectedRecoveryMechanism: KEY_FILES,
-    handleRecoveryMechanismChange: () => {},
+    recoveryMechanism: KEY_FILES,
+    handleRecMechanismChange: () => {},
   },
 }
