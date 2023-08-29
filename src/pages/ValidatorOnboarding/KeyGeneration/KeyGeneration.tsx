@@ -5,9 +5,10 @@ import { Text } from '@status-im/components'
 import KeyFiles from './KeyFiles'
 import { useState } from 'react'
 import RecoveryPhrase from './RecoveryPhrase'
+import { KEY_FILES, RECOVERY_PHRASE } from '../../../constants'
 
 const KeyGeneration = () => {
-  const [selectedRecoveryMechanism, setSelectedRecoveryMechanism] = useState('Key Files')
+  const [selectedRecoveryMechanism, setSelectedRecoveryMechanism] = useState(KEY_FILES)
 
   const handleRecoveryMechanismChange = (value: string) => {
     setSelectedRecoveryMechanism(value)
@@ -23,8 +24,8 @@ const KeyGeneration = () => {
       <Text size={27} weight={'semibold'}>
         4 Validators
       </Text>
-      {selectedRecoveryMechanism === 'Key Files' && <KeyFiles />}
-      {selectedRecoveryMechanism === 'Recovery Phrase' && <RecoveryPhrase />}
+      {selectedRecoveryMechanism === KEY_FILES && <KeyFiles />}
+      {selectedRecoveryMechanism === RECOVERY_PHRASE && <RecoveryPhrase />}
     </YStack>
   )
 }
