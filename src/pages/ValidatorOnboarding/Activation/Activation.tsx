@@ -46,8 +46,8 @@ const Activation = () => {
             Congratulations! You have successfully setup your Nimbus Validators and are currently
             syncing your nodes.{' '}
           </Text>
-          <YStack space={'$2'} marginTop={'10px'} width={'33%'}>
-            <XStack space={'$2'} justifyContent={'space-between'}>
+          <YStack space={'$3'} marginTop={'10px'} width={'33%'}>
+            <XStack space={'$3'} justifyContent={'space-between'}>
               <ActivationCard text="Validators" value="4" />
               <ActivationCard
                 text="Execution Sync Status"
@@ -65,7 +65,7 @@ const Activation = () => {
                 gaugeTotal={200000}
               />
             </XStack>
-            <XStack space={'$2'}>
+            <XStack space={'$3'}>
               <ActivationCard text="Current APR" value="4.40%" />
               <ActivationCard text="Estimated Activation Time" value="32 Days" />
               <ActivationCard text="Estimated Activation Time" value="92603" />
