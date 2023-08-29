@@ -1,4 +1,4 @@
-import { Stack, XStack, YStack } from 'tamagui'
+import { Stack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 import ActivationSyncCard from './ActivationSyncCard'
 
@@ -44,7 +44,11 @@ const ActivationCard = ({
           <Text size={13} weight={'semibold'}>
             {text}
           </Text>
-          <ActivationSyncCard color={gaugeColor} synced={gaugeSynced} total={gaugeTotal} />
+          <ActivationSyncCard
+            color={gaugeColor || ''}
+            synced={gaugeSynced || 0}
+            total={gaugeTotal || 1}
+          />
         </Stack>
       )}
     </YStack>

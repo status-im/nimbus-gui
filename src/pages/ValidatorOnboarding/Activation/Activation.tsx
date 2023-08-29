@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { XStack, Stack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 import Confetti from 'react-confetti'
@@ -19,8 +19,8 @@ const Activation = () => {
 
   return (
     <Stack width={'100%'}>
-      {showConfetti && <Confetti width={1000} height={800} style={{ zIndex: 0 }} />}
       <YStack style={{ padding: '16px 32px' }}>
+        {showConfetti && <Confetti width={1540} height={800} style={{ zIndex: 0 }} />}
         <YStack space={'$5'}>
           <Text size={27} weight={'semibold'}>
             Validator Setup
@@ -32,8 +32,21 @@ const Activation = () => {
           <YStack space={'$2'} marginTop={'10px'} width={'33%'}>
             <XStack space={'$2'} justifyContent={'space-between'}>
               <ActivationCard text="Validators" value="4" />
-              <ActivationCard text="Execution Sync Status" value="" isGaugeIncluded={true} gaugeSynced={135324} gaugeTotal={200000}/>
-              <ActivationCard text="Execution Sync Status" value="" isGaugeIncluded={true} gaugeColor={'#EB5757'} gaugeSynced={35324} gaugeTotal={200000}/>
+              <ActivationCard
+                text="Execution Sync Status"
+                value=""
+                isGaugeIncluded={true}
+                gaugeSynced={135324}
+                gaugeTotal={200000}
+              />
+              <ActivationCard
+                text="Execution Sync Status"
+                value=""
+                isGaugeIncluded={true}
+                gaugeColor={'#EB5757'}
+                gaugeSynced={35324}
+                gaugeTotal={200000}
+              />
             </XStack>
             <XStack space={'$2'}>
               <ActivationCard text="Current APR" value="4.40%" />

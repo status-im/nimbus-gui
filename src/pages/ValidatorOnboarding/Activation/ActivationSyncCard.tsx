@@ -1,11 +1,11 @@
 import { Stack, XStack, YStack } from 'tamagui'
 import StandardGauge from '../../../components/Charts/StandardGauge'
 import { Text } from '@status-im/components'
-import BorderBox from '../../../components/General/BorderBox'
 
 type ActivationSyncCardProps = {
   synced: number
   total: number
+
   color: string
 }
 
