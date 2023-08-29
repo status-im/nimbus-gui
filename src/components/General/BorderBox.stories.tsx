@@ -14,7 +14,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const DefaultColors: Story = {
+export const Page: Story = {
   args: {
     children: 'BorderBox',
   },
