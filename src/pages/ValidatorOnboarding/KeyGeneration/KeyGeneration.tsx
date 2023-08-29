@@ -1,17 +1,23 @@
 import { YStack } from 'tamagui'
 import KeyGenerationHeader from './KeyGenerationHeader'
 import RecoveryMechanism from './RecoveryMechanism'
-import { Button, InformationBox, Text } from '@status-im/components'
-import { CloseCircleIcon } from '@status-im/icons'
-import PasswordFields from './PasswordFields'
+import { Text } from '@status-im/components'
+import KeyFiles from './KeyFiles'
 import { useState } from 'react'
+import RecoveryPhrase from './RecoveryPhrase'
+import { KEY_FILES, RECOVERY_PHRASE } from '../../../constants'
 
 const KeyGeneration = () => {
-  const [selectedRecoveryMechanism, setSelectedRecoveryMechanism] = useState('Key Files')
+  const [selectedRecoveryMechanism, setSelectedRecoveryMechanism] = useState(KEY_FILES)
 
   const handleRecoveryMechanismChange = (value: string) => {
     setSelectedRecoveryMechanism(value)
   }
+
+  const isKeyFiles = recoveryMechanism === KEY_FILES || recoveryMechanism === BOTH_KEY_AND_RECOVERY
+
+  const isRecoveryPhrase =
+    recoveryMechanism === RECOVERY_PHRASE || recoveryMechanism === BOTH_KEY_AND_RECOVERY
 
   return (
     <YStack space={'$2'} style={{ width: '100%', padding: '16px 32px', alignItems: 'start' }}>
@@ -23,26 +29,8 @@ const KeyGeneration = () => {
       <Text size={27} weight={'semibold'}>
         4 Validators
       </Text>
-      {selectedRecoveryMechanism === 'Key Files' && (
-        <>
-          <PasswordFields />
-          <InformationBox
-            message="You should see that you have one keystore per validator. This keystore contains your signing key, encrypted with your password. Warning: Do not store keys on multiple (backup) validator clients at once"
-            variant="error"
-            icon={<CloseCircleIcon size={20} />}
-          />
-        </>
-      )}
-      {selectedRecoveryMechanism === 'Recovery Phrase' && (
-        <>
-          <Button>Reveal Recovery Phrase</Button>
-          <InformationBox
-            message="Write down and keep your Secret Recovery Phrase in a secure place. Make sure no one is looking at your screen."
-            variant="error"
-            icon={<CloseCircleIcon size={20} />}
-          />
-        </>
-      )}
+      {isKeyFiles && <KeyFiles />}
+      {isRecoveryPhrase && <RecoveryPhrase />}
     </YStack>
   )
 }

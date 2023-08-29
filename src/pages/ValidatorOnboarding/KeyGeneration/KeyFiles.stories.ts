@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import PasswordFields from './PasswordFields'
+import KeyFiles from './KeyFiles'
 
 const meta = {
-  title: 'ValidatorOnboarding/PasswordFields',
-  component: PasswordFields,
+  title: 'ValidatorOnboarding/KeyFiles',
+  component: KeyFiles,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {},
-} satisfies Meta<typeof PasswordFields>
+} satisfies Meta<typeof KeyFiles>
 
 export default meta
 type Story = StoryObj<typeof meta>

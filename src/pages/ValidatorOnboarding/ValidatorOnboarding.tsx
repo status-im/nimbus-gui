@@ -11,7 +11,6 @@ import ValidatorBoxWrapper from './ValidatorBoxWrapper/ValidatorBoxWrapper'
 import { Button } from '@status-im/components'
 import { useNavigate } from 'react-router-dom'
 import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstall'
-import ValidatorSetup from './ValidatorSetup/ValidatorSetup'
 
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)

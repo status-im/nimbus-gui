@@ -1,6 +1,7 @@
 import { Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
 import RecoveryMechanismCard from './RecoveryMechanismCard'
+import { BOTH_KEY_AND_RECOVERY, KEY_FILES, RECOVERY_PHRASE } from '../../../constants'
 
 type RecoveryMechanismProps = {
   selectedRecoveryMechanism: string
@@ -18,17 +19,17 @@ const RecoveryMechanism = ({
       </Text>
       <XStack space={'$4'} style={{ justifyContent: 'space-between', marginTop: '40px' }}>
         <RecoveryMechanismCard
-          value="Key Files"
+          value={KEY_FILES}
           selectedRecoveryMechanism={selectedRecoveryMechanism}
           handleRecoveryMechanismChange={handleRecoveryMechanismChange}
         />
         <RecoveryMechanismCard
-          value="Recovery Phrase"
+          value={RECOVERY_PHRASE}
           selectedRecoveryMechanism={selectedRecoveryMechanism}
           handleRecoveryMechanismChange={handleRecoveryMechanismChange}
         />
         <RecoveryMechanismCard
-          value="Both Key Files & Recovery Phrase"
+          value={BOTH_KEY_AND_RECOVERY}
           selectedRecoveryMechanism={selectedRecoveryMechanism}
           handleRecoveryMechanismChange={handleRecoveryMechanismChange}
         />
