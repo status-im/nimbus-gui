@@ -33,7 +33,7 @@ const KeyGeneration = () => {
         </Text>
       </Stack>
       {isKeyFiles && <KeyFiles />}
-      {isRecoveryPhrase && <RecoveryPhrase />}
+      {isRecoveryPhrase && <RecoveryPhrase isKeyFiles={isKeyFiles} />}
     </YStack>
   )
 }

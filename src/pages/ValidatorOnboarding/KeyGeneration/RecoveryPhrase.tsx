@@ -3,7 +3,11 @@ import { Button, InformationBox, Text } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
 import { useState } from 'react'
 
-const RecoveryPhrase = () => {
+type RecoveryPhraseProps = {
+  isKeyFiles: boolean
+}
+
+const RecoveryPhrase = ({ isKeyFiles }: RecoveryPhraseProps) => {
   const [isReveal, setIsReveal] = useState(false)
 
   const revealHandler = () => {
@@ -11,7 +15,7 @@ const RecoveryPhrase = () => {
   }
 
   return (
-    <YStack space={'$4'} style={{ width: '100%' }}>
+    <YStack space={'$4'} style={{ width: '100%', marginTop: isKeyFiles ? '20px' : '0px' }}>
       <Stack
         style={{
           border: `1px solid #2A4AF566`,
