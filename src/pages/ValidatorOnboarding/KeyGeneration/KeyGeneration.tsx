@@ -14,6 +14,11 @@ const KeyGeneration = () => {
     setSelectedRecoveryMechanism(value)
   }
 
+  const isKeyFiles = recoveryMechanism === KEY_FILES || recoveryMechanism === BOTH_KEY_AND_RECOVERY
+
+  const isRecoveryPhrase =
+    recoveryMechanism === RECOVERY_PHRASE || recoveryMechanism === BOTH_KEY_AND_RECOVERY
+
   return (
     <YStack space={'$2'} style={{ width: '100%', padding: '16px 32px', alignItems: 'start' }}>
       <KeyGenerationHeader />
@@ -24,8 +29,8 @@ const KeyGeneration = () => {
       <Text size={27} weight={'semibold'}>
         4 Validators
       </Text>
-      {selectedRecoveryMechanism === KEY_FILES && <KeyFiles />}
-      {selectedRecoveryMechanism === RECOVERY_PHRASE && <RecoveryPhrase />}
+      {isKeyFiles && <KeyFiles />}
+      {isRecoveryPhrase && <RecoveryPhrase />}
     </YStack>
   )
 }
