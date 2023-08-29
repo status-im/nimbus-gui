@@ -58,8 +58,8 @@ const ValidatorSetupInstall = () => {
                 commands add the Geth tap and install Geth:
               </Text>
             </YStack>
-            {/* Cards */}
-            <XStack justifyContent={'space-between'} space={'$3'} margin={'50px 0px'}>
+
+            <XStack justifyContent={'space-between'} space={'$2'} margin={'50px 0px'}>
               <OsCard
                 icon="/icons/MAC.png"
                 name="Mac"
