@@ -16,7 +16,15 @@ const ConfirmRecoveryPhrase = () => {
     <YStack space={'$4'} style={{ width: '100%', marginTop: '20px' }}>
       <KeyGenerationTitle />
       <Text size={27}>Confirm Recovery Phrase</Text>
-      <Stack style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px 16px' }}>
+      <Stack
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(4, 1fr)',
+          gap: '20px 40px',
+          width: '80%',
+          marginBottom: '20px',
+        }}
+      >
         {words.map((word, index) => (
           <Input
             key={index}
@@ -27,6 +35,7 @@ const ConfirmRecoveryPhrase = () => {
             }
             value={word}
             onChange={e => changeWordHandler(e, index)}
+            style={{ fontWeight: '600' }}
           />
         ))}
       </Stack>
