@@ -15,17 +15,15 @@ const customStyle = {
 }
 const SyntaxHighlighterBox = ({ rows }: SyntaxHighlighterBoxProps) => {
   return (
-    <YStack>
-      <SyntaxHighlighter
-        language="bash"
-        showLineNumbers={true}
-        lineNumberStyle={{ backgroundColor: '#E7EAEE' }}
-      lineNumberContainerStyle={{color:'black'}}
+    <SyntaxHighlighter
+      language="bash"
+      showLineNumbers={true}
+      lineNumberStyle={{ backgroundColor: '#E7EAEE' }}
+      lineNumberContainerStyle={{ color: 'black' }}
       customStyle={customStyle}
-      >
-        {`${rows.join('\n')}`}
-      </SyntaxHighlighter>
-    </YStack>
+    >
+      {`${rows.join('\n')}`}
+    </SyntaxHighlighter>
   )
 }
 export default SyntaxHighlighterBox
