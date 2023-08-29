@@ -1,12 +1,15 @@
-import { YStack } from 'tamagui'
+import { Stack, XStack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
+import ActivationSyncCard from './ActivationSyncCard'
 
 type ActivationCardProps = {
   text: string
   value: string
+  isGaugeIncluded?: boolean
+  gaugeColor?: string
 }
 
-const ActivationCard = ({ text, value }: ActivationCardProps) => {
+const ActivationCard = ({ text, value, isGaugeIncluded, gaugeColor }: ActivationCardProps) => {
   return (
     <YStack
       style={{
@@ -17,12 +20,24 @@ const ActivationCard = ({ text, value }: ActivationCardProps) => {
         width: '100%',
       }}
     >
-      <Text size={13} weight={'semibold'}>
-        {text}
-      </Text>
-      <Text size={19} color="blue" weight={'semibold'}>
-        {value}
-      </Text>
+      {!isGaugeIncluded && (
+        <Stack>
+          <Text size={13} weight={'semibold'}>
+            {text}
+          </Text>
+          <Text size={19} color="blue" weight={'semibold'}>
+            {value}
+          </Text>
+        </Stack>
+      )}
+      {isGaugeIncluded && (
+        <Stack>
+          <Text size={13} weight={'semibold'}>
+            {text}
+          </Text>
+          <ActivationSyncCard color={gaugeColor} synced={132123} total={200000} />
+        </Stack>
+      )}
     </YStack>
   )
 }

@@ -10,15 +10,15 @@ const Activation = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowConfetti(false)
-    }, 5000)  
+    }, 5000)
 
     return () => {
-      clearTimeout(timer)  
+      clearTimeout(timer)
     }
-  }, [])  
+  }, [])
 
   return (
-    <Stack>
+    <Stack width={'100%'}>
       {showConfetti && <Confetti width={1000} height={800} style={{ zIndex: 0 }} />}
       <YStack style={{ padding: '16px 32px' }}>
         <YStack space={'$5'}>
@@ -32,13 +32,13 @@ const Activation = () => {
           <YStack space={'$2'} marginTop={'10px'} width={'33%'}>
             <XStack space={'$2'} justifyContent={'space-between'}>
               <ActivationCard text="Validators" value="4" />
-              <ActivationCard text="Execution Sync Status" value="fasfasf af sa" />
-              <ActivationCard text="Execution Sync Status" value="fasfasf af sa" />
+              <ActivationCard text="Execution Sync Status" value="" isGaugeIncluded={true} />
+              <ActivationCard text="Execution Sync Status" value="" isGaugeIncluded={true} gaugeColor={'#EB5757'} />
             </XStack>
             <XStack space={'$2'}>
               <ActivationCard text="Current APR" value="4.40%" />
               <ActivationCard text="Estimated Activation Time" value="32 Days" />
-              <ActivationCard text="Estimated Activation Time" value="fasfasf af sa" />
+              <ActivationCard text="Estimated Activation Time" value="" />
             </XStack>
           </YStack>
         </YStack>
