@@ -1,4 +1,4 @@
-import { YStack } from 'tamagui'
+import { Stack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 import { useState } from 'react'
 
@@ -27,9 +27,11 @@ const KeyGeneration = () => {
         recoveryMechanism={recoveryMechanism}
         handleRecMechanismChange={handleRecMechanismChange}
       />
-      <Text size={27} weight={'semibold'}>
-        4 Validators
-      </Text>
+      <Stack style={{ margin: '30px 0' }}>
+        <Text size={27} weight={'semibold'}>
+          4 Validators
+        </Text>
+      </Stack>
       {isKeyFiles && <KeyFiles />}
       {isRecoveryPhrase && <RecoveryPhrase />}
     </YStack>
