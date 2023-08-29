@@ -4,31 +4,32 @@ import { Text } from '@status-im/components'
 import ExecClientCard from './ExecClientCard'
 import { Link } from 'react-router-dom'
 
+const execClientCardsContent = [
+  {
+    name: 'Nethermind',
+    icon: '/icons/nethermind-circle.png',
+  },
+  {
+    name: 'Besu',
+    icon: '/icons/hyperledger-besu-circle.png',
+  },
+  {
+    name: 'Geth',
+    icon: '/icons/gethereum-mascot-circle.png',
+    isSelected: true,
+  },
+  {
+    name: 'Erigon',
+    icon: '/icons/erigon-circle.png',
+  },
+  {
+    name: 'Nimbus',
+    icon: '/icons/NimbusDisabled.svg',
+    isComingSoon: true,
+  },
+]
+
 const ValidatorSetup = () => {
-  const execClientCardsContent = [
-    {
-      name: 'Nethermind',
-      icon: '/icons/nethermind-circle.png',
-    },
-    {
-      name: 'Besu',
-      icon: '/icons/hyperledger-besu-circle.png',
-    },
-    {
-      name: 'Geth',
-      icon: '/icons/gethereum-mascot-circle.png',
-      isSelected: true,
-    },
-    {
-      name: 'Erigon',
-      icon: '/icons/erigon-circle.png',
-    },
-    {
-      name: 'Nimbus',
-      icon: '/icons/NimbusDisabled.svg',
-      isComingSoon: true,
-    },
-  ]
   return (
     <YStack style={{ width: '100%', padding: '16px 32px' }}>
       <XStack justifyContent={'space-between'}>
