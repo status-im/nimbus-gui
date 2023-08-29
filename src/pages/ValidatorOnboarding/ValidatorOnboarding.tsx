@@ -14,6 +14,7 @@ import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstall'
 
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)
+  const [isConfirmPhraseStage, setIsConfirmPhraseStage] = useState(false)
   const navigate = useNavigate()
 
   const changeActiveStep = (step: number) => {
@@ -21,7 +22,9 @@ const ValidatorOnboarding = () => {
   }
 
   const continueHandler = () => {
-    if (activeStep < 4) {
+    if (activeStep === 3 && isConfirmPhraseStage === false) {
+      setIsConfirmPhraseStage(true)
+    } else if (activeStep < 4) {
       setActiveStep(activeStep + 1)
     } else {
       navigate('/')
@@ -49,7 +52,7 @@ const ValidatorOnboarding = () => {
           {activeStep === 0 && <Overview />}
           {activeStep === 1 && <Advicsories />}
           {activeStep === 2 && <ValidatorSetupInstall />}
-          {activeStep === 3 && <KeyGeneration />}
+          {activeStep === 3 && <KeyGeneration isConfirmPhraseStage={isConfirmPhraseStage} />}
           {activeStep === 4 && <Activation />}
         </ValidatorBoxWrapper>
         <Stack style={{ alignItems: 'end', width: '100%', marginTop: '16px', zIndex: 999 }}>

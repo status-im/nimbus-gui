@@ -1,9 +1,7 @@
-import { XStack, YStack } from 'tamagui'
+import { Stack, XStack, YStack } from 'tamagui'
 import { Button, InformationBox, Input, Text } from '@status-im/components'
 import { ClearIcon, CloseCircleIcon } from '@status-im/icons'
 import { useState } from 'react'
-
-import BorderBox from '../../../components/General/BorderBox'
 
 const KeyFiles = () => {
   const [encryptedPassword, setEncryptedPassword] = useState('')
@@ -28,10 +26,10 @@ const KeyFiles = () => {
   }
 
   return (
-    <YStack space={'$2'}>
-      <XStack space={'$2'} style={{ justifyContent: 'space-between' }}>
-        <YStack space={'$1'}>
-          <YStack space={'$2'}>
+    <YStack space={'$4'}>
+      <XStack space={'$2'} style={{ justifyContent: 'space-between', width: '100%' }}>
+        <YStack space={'$4'} style={{ width: '66%' }}>
+          <YStack space={'$4'}>
             <Text size={15} color={'#647084'}>
               Encryption Password
             </Text>
@@ -68,13 +66,23 @@ const KeyFiles = () => {
             />
           </YStack>
         </YStack>
-        <BorderBox>
+        <YStack
+          style={{
+            border: '1px solid #DCE0E5',
+            borderRadius: '16px',
+            padding: '12px 16px',
+            width: '32%',
+            marginTop: '3.4%',
+          }}
+        >
           <Text size={15} weight={'semibold'}>
             Download Key Files
           </Text>
-        </BorderBox>
+        </YStack>
       </XStack>
-      <Button onPress={generateKeyFilesHandler}>Generate Key files</Button>
+      <Stack style={{ width: 'fit-content' }}>
+        <Button onPress={generateKeyFilesHandler}>Generate Key files</Button>
+      </Stack>
       <InformationBox
         message="You should see that you have one keystore per validator. This keystore contains your signing key, encrypted with your password. Warning: Do not store keys on multiple (backup) validator clients at once"
         variant="error"
