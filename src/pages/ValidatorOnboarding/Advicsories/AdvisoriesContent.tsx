@@ -16,7 +16,11 @@ const AdvisoriesContent = ({ title, content }: AdvisoriesContentProps) => {
       <YStack space={'$6'}>
         {content.length &&
           content.map(row => {
-            return <Text size={15}>{row}</Text>
+            return (
+              <Text key={row} size={15}>
+                {row}
+              </Text>
+            )
           })}
         <Text size={15}>
           <Link
