@@ -32,13 +32,13 @@ const Activation = () => {
           <YStack space={'$2'} marginTop={'10px'} width={'33%'}>
             <XStack space={'$2'} justifyContent={'space-between'}>
               <ActivationCard text="Validators" value="4" />
-              <ActivationCard text="Execution Sync Status" value="" isGaugeIncluded={true} />
-              <ActivationCard text="Execution Sync Status" value="" isGaugeIncluded={true} gaugeColor={'#EB5757'} />
+              <ActivationCard text="Execution Sync Status" value="" isGaugeIncluded={true} gaugeSynced={135324} gaugeTotal={200000}/>
+              <ActivationCard text="Execution Sync Status" value="" isGaugeIncluded={true} gaugeColor={'#EB5757'} gaugeSynced={35324} gaugeTotal={200000}/>
             </XStack>
             <XStack space={'$2'}>
               <ActivationCard text="Current APR" value="4.40%" />
               <ActivationCard text="Estimated Activation Time" value="32 Days" />
-              <ActivationCard text="Estimated Activation Time" value="" />
+              <ActivationCard text="Estimated Activation Time" value="92603" />
             </XStack>
           </YStack>
         </YStack>

@@ -7,9 +7,18 @@ type ActivationCardProps = {
   value: string
   isGaugeIncluded?: boolean
   gaugeColor?: string
+  gaugeSynced?: number
+  gaugeTotal?: number
 }
 
-const ActivationCard = ({ text, value, isGaugeIncluded, gaugeColor }: ActivationCardProps) => {
+const ActivationCard = ({
+  text,
+  value,
+  isGaugeIncluded,
+  gaugeColor,
+  gaugeSynced,
+  gaugeTotal,
+}: ActivationCardProps) => {
   return (
     <YStack
       style={{
@@ -35,7 +44,7 @@ const ActivationCard = ({ text, value, isGaugeIncluded, gaugeColor }: Activation
           <Text size={13} weight={'semibold'}>
             {text}
           </Text>
-          <ActivationSyncCard color={gaugeColor} synced={132123} total={200000} />
+          <ActivationSyncCard color={gaugeColor} synced={gaugeSynced} total={gaugeTotal} />
         </Stack>
       )}
     </YStack>
