@@ -17,11 +17,11 @@ const ValidatorSetupInstall = () => {
       <YStack>
         <Stack style={{ marginBottom: '4px' }}>
           <YStack space={'$3'}>
-            <Text size={15} weight={'semibold'}>
+            <Text size={19} weight={'semibold'}>
               Geth
             </Text>
 
-            <Text size={13} color="#647084">
+            <Text size={15} color="#647084">
               Geth is written in Go, fully open source and licensed under the GNU LGPL v3. Geth is
               one of the three original implementations of the Ethereum protocol.
             </Text>
@@ -33,14 +33,14 @@ const ValidatorSetupInstall = () => {
             />
             <YStack
               style={{
-                border: '1px solid #E7EAEE',
-                borderRadius: '15px',
+                border: '1px solid #00000026',
+                borderRadius: '16px',
                 padding: '6px 12px',
               }}
               space={'$3'}
             >
               <Text size={27}> Installing Geth</Text>
-              <Text size={13}>
+              <Text size={19} color="#647084" weight={'regular'}>
                 There are several ways to install Geth, including via a package manager, downloading
                 a pre-built bundle, running as a docker container or building from downloaded source
                 code. On this page the various installation options are explained for several major
@@ -52,42 +52,48 @@ const ValidatorSetupInstall = () => {
                 releases can be found here. Instructions for updating existing Geth installations
                 are also provided in each section.
               </Text>
-              <Text size={13}>
-                If a version number is returned, then Homebrew is installed. If not, Homebrew can be
-                installed by following the instructions here. With Homebrew installed, the following
-                commands add the Geth tap and install Geth:
-              </Text>
-            </YStack>
 
-            <XStack justifyContent={'space-between'} space={'$2'} margin={'50px 0px'}>
-              <OsCard
-                icon="/icons/MAC.png"
-                name="Mac"
-                isSelected={selectedOs === 'Mac'}
-                onClick={() => setSelectedOs('Mac')}
-              />
-              <OsCard
-                icon="/icons/Linux.png"
-                name="Linux"
-                isSelected={selectedOs === 'Linux'}
-                onClick={() => setSelectedOs('Linux')}
-              />
-              <OsCard
-                icon="/icons/windows.png"
-                name="Windows"
-                isSelected={selectedOs === 'Windows'}
-                onClick={() => setSelectedOs('Windows')}
-              />
-            </XStack>
-            <SyntaxHighlighterBox rows={['brew -v']}></SyntaxHighlighterBox>
-            <Text size={13}>
-              If a version number is returned, then Homebrew is installed. If not, Homebrew can be
-              installed by following the instructions here. With Homebrew installed, the following
-              commands add the Geth tap and install Geth:
-            </Text>
-            <SyntaxHighlighterBox
-              rows={['brew tap ethereum/ethereum', 'brew install ethereum']}
-            ></SyntaxHighlighterBox>
+              <XStack justifyContent={'space-between'} space={'$2'} margin={'50px 0px'}>
+                <OsCard
+                  icon="/icons/MAC.png"
+                  name="Mac"
+                  isSelected={selectedOs === 'Mac'}
+                  onClick={() => setSelectedOs('Mac')}
+                />
+                <OsCard
+                  icon="/icons/Linux.png"
+                  name="Linux"
+                  isSelected={selectedOs === 'Linux'}
+                  onClick={() => setSelectedOs('Linux')}
+                />
+                <OsCard
+                  icon="/icons/windows.png"
+                  name="Windows"
+                  isSelected={selectedOs === 'Windows'}
+                  onClick={() => setSelectedOs('Windows')}
+                />
+              </XStack>
+              <YStack space={'$2'}>
+                <Text size={27}> Package Managers</Text>
+                <Text size={15} weight={'semibold'}>
+                  MacOS via Homebrew
+                </Text>
+                <Text size={19} color="#647084" weight={'regular'}>
+                  The easiest way to install go-ethereum is to use the Geth Homebrew tap. The first
+                  step is to check that Homebrew is installed. The following command should return a
+                  version number.
+                </Text>
+                <SyntaxHighlighterBox rows={['brew -v']} />
+                <Text size={19} color="#647084" weight={'regular'}>
+                  If a version number is returned, then Homebrew is installed. If not, Homebrew can
+                  be installed by following the instructions here. With Homebrew installed, the
+                  following commands add the Geth tap and install Geth:
+                </Text>
+                <SyntaxHighlighterBox
+                  rows={['brew tap ethereum/ethereum', 'brew install ethereum']}
+                />
+              </YStack>
+            </YStack>
           </YStack>
         </Stack>
       </YStack>

@@ -11,15 +11,17 @@ const customStyle = {
     ...solarizedlight['pre[class*="language-"]'],
     backgroundColor: 'white',
   },
+  backgroundColor: 'white',
 }
 const SyntaxHighlighterBox = ({ rows }: SyntaxHighlighterBoxProps) => {
   return (
     <YStack>
       <SyntaxHighlighter
         language="bash"
-        style={customStyle}
         showLineNumbers={true}
-        lineNumberStyle={{ backgroundColor: '#E7EAEE', color: 'black' }}
+        lineNumberStyle={{ backgroundColor: '#E7EAEE' }}
+      lineNumberContainerStyle={{color:'black'}}
+      customStyle={customStyle}
       >
         {`${rows.join('\n')}`}
       </SyntaxHighlighter>
