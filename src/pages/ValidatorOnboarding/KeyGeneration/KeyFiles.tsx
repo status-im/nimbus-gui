@@ -72,6 +72,7 @@ const KeyFiles = () => {
             borderRadius: '16px',
             padding: '12px 16px',
             width: '32%',
+            marginTop: '3.4%',
           }}
         >
           <Text size={15} weight={'semibold'}>
