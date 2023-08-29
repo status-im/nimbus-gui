@@ -1,10 +1,10 @@
 import { YStack } from 'tamagui'
 import KeyGenerationHeader from './KeyGenerationHeader'
 import RecoveryMechanism from './RecoveryMechanism'
-import { Button, InformationBox, Text } from '@status-im/components'
-import { CloseCircleIcon } from '@status-im/icons'
+import { Text } from '@status-im/components'
 import PasswordFields from './PasswordFields'
 import { useState } from 'react'
+import RecoveryPhrase from './RecoveryPhrase'
 
 const KeyGeneration = () => {
   const [selectedRecoveryMechanism, setSelectedRecoveryMechanism] = useState('Key Files')
@@ -23,26 +23,8 @@ const KeyGeneration = () => {
       <Text size={27} weight={'semibold'}>
         4 Validators
       </Text>
-      {selectedRecoveryMechanism === 'Key Files' && (
-        <>
-          <PasswordFields />
-          <InformationBox
-            message="You should see that you have one keystore per validator. This keystore contains your signing key, encrypted with your password. Warning: Do not store keys on multiple (backup) validator clients at once"
-            variant="error"
-            icon={<CloseCircleIcon size={20} />}
-          />
-        </>
-      )}
-      {selectedRecoveryMechanism === 'Recovery Phrase' && (
-        <>
-          <Button>Reveal Recovery Phrase</Button>
-          <InformationBox
-            message="Write down and keep your Secret Recovery Phrase in a secure place. Make sure no one is looking at your screen."
-            variant="error"
-            icon={<CloseCircleIcon size={20} />}
-          />
-        </>
-      )}
+      {selectedRecoveryMechanism === 'Key Files' && <PasswordFields />}
+      {selectedRecoveryMechanism === 'Recovery Phrase' && <RecoveryPhrase />}
     </YStack>
   )
 }

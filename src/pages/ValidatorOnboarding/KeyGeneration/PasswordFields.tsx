@@ -1,9 +1,9 @@
 import { XStack, YStack } from 'tamagui'
-import { Button, Input, Text } from '@status-im/components'
-import { ClearIcon } from '@status-im/icons'
+import { Button, InformationBox, Input, Text } from '@status-im/components'
+import { ClearIcon, CloseCircleIcon } from '@status-im/icons'
+import { useState } from 'react'
 
 import BorderBox from '../../../components/General/BorderBox'
-import { useState } from 'react'
 
 const PasswordFields = () => {
   const [encryptedPassword, setEncryptedPassword] = useState('')
@@ -75,6 +75,11 @@ const PasswordFields = () => {
         </BorderBox>
       </XStack>
       <Button onPress={generateKeyFilesHandler}>Generate Key files</Button>
+      <InformationBox
+        message="You should see that you have one keystore per validator. This keystore contains your signing key, encrypted with your password. Warning: Do not store keys on multiple (backup) validator clients at once"
+        variant="error"
+        icon={<CloseCircleIcon size={20} />}
+      />
     </YStack>
   )
 }
