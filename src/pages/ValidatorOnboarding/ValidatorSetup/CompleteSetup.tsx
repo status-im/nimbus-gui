@@ -1,6 +1,6 @@
-import { XStack, Stack, YStack } from 'tamagui'
+import { XStack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
-import { useState } from 'react'
+
 const CompleteSetup = () => {
   return (
     <YStack style={{ width: '100%', padding: '16px 32px' }}>
