@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 import BorderBox from '../../../components/General/BorderBox'
 
-const PasswordFields = () => {
+const KeyFiles = () => {
   const [encryptedPassword, setEncryptedPassword] = useState('')
   const [confirmEncryptedPassword, setConfirmEncryptedPassword] = useState('')
 
@@ -84,4 +84,4 @@ const PasswordFields = () => {
   )
 }
 
-export default PasswordFields
+export default KeyFiles

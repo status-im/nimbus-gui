@@ -2,7 +2,7 @@ import { YStack } from 'tamagui'
 import KeyGenerationHeader from './KeyGenerationHeader'
 import RecoveryMechanism from './RecoveryMechanism'
 import { Text } from '@status-im/components'
-import PasswordFields from './PasswordFields'
+import KeyFiles from './KeyFiles'
 import { useState } from 'react'
 import RecoveryPhrase from './RecoveryPhrase'
 
@@ -23,7 +23,7 @@ const KeyGeneration = () => {
       <Text size={27} weight={'semibold'}>
         4 Validators
       </Text>
-      {selectedRecoveryMechanism === 'Key Files' && <PasswordFields />}
+      {selectedRecoveryMechanism === 'Key Files' && <KeyFiles />}
       {selectedRecoveryMechanism === 'Recovery Phrase' && <RecoveryPhrase />}
     </YStack>
   )
