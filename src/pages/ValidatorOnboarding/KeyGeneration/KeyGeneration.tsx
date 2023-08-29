@@ -1,9 +1,10 @@
 import { YStack } from 'tamagui'
+import { Text } from '@status-im/components'
+import { useState } from 'react'
+
 import KeyGenerationHeader from './KeyGenerationHeader'
 import RecoveryMechanism from './RecoveryMechanism'
-import { Text } from '@status-im/components'
 import KeyFiles from './KeyFiles'
-import { useState } from 'react'
 import RecoveryPhrase from './RecoveryPhrase'
 import { BOTH_KEY_AND_RECOVERY, KEY_FILES, RECOVERY_PHRASE } from '../../../constants'
 

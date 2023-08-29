@@ -28,10 +28,10 @@ const KeyFiles = () => {
   }
 
   return (
-    <YStack space={'$2'}>
+    <YStack space={'$4'}>
       <XStack space={'$2'} style={{ justifyContent: 'space-between' }}>
         <YStack space={'$1'}>
-          <YStack space={'$2'}>
+          <YStack space={'$4'}>
             <Text size={15} color={'#647084'}>
               Encryption Password
             </Text>
