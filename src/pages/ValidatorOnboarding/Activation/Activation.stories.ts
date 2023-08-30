@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import Activation from './Activation'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 const meta = {
   title: 'ValidatorOnboarding/Activation',
@@ -10,6 +11,7 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {},
+  decorators: [withRouter()],
 } satisfies Meta<typeof Activation>
 
 export default meta
