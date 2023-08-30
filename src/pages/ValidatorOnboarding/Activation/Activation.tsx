@@ -6,24 +6,24 @@ import ActivationCard from './ActivationCard'
 import { Link } from 'react-router-dom'
 import { ArrowLeftIcon } from '@status-im/icons'
 
+const styles = {
+  confettiContainer: {
+    position: 'relative' as const,
+    width: '100%',
+    height: '100%',
+  },
+  confettiCanvas: {
+    position: 'absolute' as const,
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    zIndex: 1,
+  },
+}
+
 const Activation = () => {
   const [showConfetti, setShowConfetti] = useState(true)
-
-  const styles = {
-    confettiContainer: {
-      position: 'relative' as const,
-      width: '100%',
-      height: '100%',
-    },
-    confettiCanvas: {
-      position: 'absolute' as const,
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-      zIndex: 1,
-    },
-  }
 
   useEffect(() => {
     const timer = setTimeout(() => {
