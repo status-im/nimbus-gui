@@ -25,6 +25,8 @@ const KeystoreFiles = () => {
     setConfirmEncryptedPassword('')
   }
 
+  const downloadKeyFilesHandler = () => {}
+
   return (
     <YStack space={'$4'}>
       <XStack space={'$2'} style={{ justifyContent: 'space-between', width: '100%' }}>
@@ -73,7 +75,9 @@ const KeystoreFiles = () => {
             padding: '12px 16px',
             width: '32%',
             marginTop: '3.4%',
+            cursor: 'pointer',
           }}
+          onClick={downloadKeyFilesHandler}
         >
           <Text size={15} weight={'semibold'}>
             Download Key Files
