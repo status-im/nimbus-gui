@@ -44,21 +44,25 @@
 }
 
 [data-step="Overview"]::after {
-  left: 37.5%;
+  left: 35%;
 }
 
 [data-step="Advicsories"]::after {
-  left: 33.5%;
+  left: 30%;
+}
+
+[data-step="Client Setup"]::after {
+  left: 32%;
 }
 
 [data-step="Validator Setup"]::after {
-  left: 29%;
+  left: 25%;
 }
 
 [data-step="Key Generation"]::after {
-  left: 29%;
+  left: 24.5%;
 }
 
 [data-step="Activation"]::after {
-  left: 36%;
+  left: 33%;
 }

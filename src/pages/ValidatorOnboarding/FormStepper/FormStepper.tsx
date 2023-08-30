@@ -44,7 +44,7 @@ const FormStepper = ({ activeStep, changeActiveStep }: FormStepperProps) => {
         className="custom-step"
         onClick={() => changeActiveStep(3)}
         completed={activeStep > 2}
-        data-subtitle="Clients, Nodes & Validators"
+        data-subtitle="Validators & Withdrawal"
         data-step="Validator Setup"
       />
       <Step
