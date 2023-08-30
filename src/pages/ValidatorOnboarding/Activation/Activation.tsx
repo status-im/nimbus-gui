@@ -53,16 +53,17 @@ const Activation = () => {
                 text="Execution Sync Status"
                 value=""
                 isGaugeIncluded={true}
-                gaugeSynced={135324}
-                gaugeTotal={200000}
+                gaugeColor={'#2a4af5'}
+                gaugeSynced={123524}
+                gaugeTotal={172503}
               />
               <ActivationCard
                 text="Execution Sync Status"
                 value=""
                 isGaugeIncluded={true}
                 gaugeColor={'#EB5757'}
-                gaugeSynced={35324}
-                gaugeTotal={200000}
+                gaugeSynced={123524}
+                gaugeTotal={172503}
               />
             </XStack>
             <XStack space={'$3'}>
