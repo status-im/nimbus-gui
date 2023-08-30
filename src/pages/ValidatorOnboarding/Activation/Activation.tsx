@@ -8,6 +8,7 @@ import { ArrowLeftIcon } from '@status-im/icons'
 
 const Activation = () => {
   const [showConfetti, setShowConfetti] = useState(true)
+
   const styles = {
     confettiContainer: {
       position: 'relative' as const,
@@ -44,7 +45,7 @@ const Activation = () => {
           </Text>
           <Text size={19}>
             Congratulations! You have successfully setup your Nimbus Validators and are currently
-            syncing your nodes.{' '}
+            syncing your nodes.
           </Text>
           <YStack space={'$3'} marginTop={'10px'} width={'33%'}>
             <XStack space={'$3'} justifyContent={'space-between'}>
@@ -69,7 +70,7 @@ const Activation = () => {
             <XStack space={'$3'}>
               <ActivationCard text="Current APR" value="4.40%" />
               <ActivationCard text="Estimated Activation Time" value="32 Days" />
-              <ActivationCard text="Estimated Activation Time" value="92603" />
+              <ActivationCard text="Validator Queue" value="92603" />
             </XStack>
           </YStack>
         </YStack>
