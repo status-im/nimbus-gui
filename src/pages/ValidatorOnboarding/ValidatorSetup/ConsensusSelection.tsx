@@ -3,6 +3,7 @@ import PairedDeviceCard from './PairedDeviceCard'
 import { Text } from '@status-im/components'
 import ExecClientCard from './ExecClientCard'
 import { Link } from 'react-router-dom'
+import ConsensusGaugeCard from './ConsensusSelectionCard'
 
 const ConsensusSelection = () => {
   return (
@@ -11,13 +12,21 @@ const ConsensusSelection = () => {
         <Text size={27} weight={'semibold'}>
           Validator Setup
         </Text>
-        <PairedDeviceCard />
+        <XStack space={'$2'}>
+          <ConsensusGaugeCard
+            color="blue"
+            synced={134879}
+            title="Execution Sync Status"
+            total={150000}
+          />
+          <PairedDeviceCard />
+        </XStack>
       </XStack>
 
       <YStack>
         <Stack style={{ marginBottom: '4px' }}>
           <Text size={13} color="#647084">
-            Execution Client Detection
+            Consensus Client Detection
           </Text>
         </Stack>
         <Text size={15} weight={'regular'}>
@@ -29,8 +38,8 @@ const ConsensusSelection = () => {
         </Text>
       </YStack>
 
-      <TextTam fontSize={27} style={{ margin: '5px', marginLeft: 0 }}>
-        Select Execution client
+      <TextTam fontSize={27} style={{ margin: '5px', marginLeft: 0, marginTop: '50px' }}>
+        Install Consensus client
       </TextTam>
 
       <Stack marginTop={'10%'}>
