@@ -20,3 +20,9 @@ export const Default: Story = {
     isConfirmPhraseStage: false,
   },
 }
+
+export const ConfirmPhraseStage: Story = {
+  args: {
+    isConfirmPhraseStage: true,
+  },
+}
