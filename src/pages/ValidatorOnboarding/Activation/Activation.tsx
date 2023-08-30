@@ -41,12 +41,14 @@ const Activation = () => {
       <YStack style={{ padding: '16px 32px' }}>
         <YStack space={'$5'}>
           <Text size={27} weight={'semibold'}>
-            Validator Setup
+            Activation
           </Text>
-          <Text size={19}>
-            Congratulations! You have successfully setup your Nimbus Validators and are currently
-            syncing your nodes.
-          </Text>
+          <Stack style={{ width: '66%' }}>
+            <Text size={27}>
+              Congratulations! You have successfully setup your Nimbus Validators and are currently
+              syncing your nodes.
+            </Text>
+          </Stack>
           <YStack space={'$3'} marginTop={'10px'} width={'33%'}>
             <XStack space={'$3'} justifyContent={'space-between'}>
               <ActivationCard text="Validators" value="4" />
