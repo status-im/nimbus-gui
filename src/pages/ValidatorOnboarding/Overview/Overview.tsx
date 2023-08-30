@@ -1,8 +1,7 @@
-import { Stack, Text as TextTam, XStack, YStack } from 'tamagui'
+import { Text as TextTam, XStack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
-import { Link } from 'react-router-dom'
 import OverviewCard from './OverviewCard'
-import { ArrowRightIcon } from '@status-im/icons'
+import LinkWithArrow from '../../../components/General/LinkWithArrow'
 
 const Overview = () => {
   return (
@@ -24,16 +23,7 @@ const Overview = () => {
           by proof-of-stake validators. By running a validator, you'll be helping to secure the
           Ethereum network.
         </Text>
-        <Stack style={{ margin: '2% 0 4%', maxWidth: 'fit-content' }}>
-          <Text size={15}>
-            <XStack space={'$1'} style={{ alignItems: 'center' }}>
-              <Link style={{ color: '#2A4CF4' }} to={'/'}>
-                Learn more
-              </Link>
-              <ArrowRightIcon size={16} color="#2A4CF4" />
-            </XStack>
-          </Text>
-        </Stack>
+        <LinkWithArrow text="Learn more" to={'/'} arrowRight={true} />
         <XStack space={'$5'}>
           <OverviewCard text={'Current APR'} value={'4.40%'} />
           <OverviewCard text={'Total ETH Staked'} value={'9,451,123'} />
