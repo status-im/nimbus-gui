@@ -12,6 +12,8 @@ import { Button } from '@status-im/components'
 import { useNavigate } from 'react-router-dom'
 import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstall'
 import ClientSetup from './ClientSetup/ClientSetup'
+import ValidatorSetup from './ValidatorSetup/ValidatorSetup'
+import ConsensusSelection from './ValidatorSetup/ConsensusSelection'
 
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)
@@ -53,7 +55,8 @@ const ValidatorOnboarding = () => {
           {activeStep === 0 && <Overview />}
           {activeStep === 1 && <Advicsories />}
           {activeStep === 2 && <ClientSetup />}
-          {activeStep === 3 && <ValidatorSetupInstall />}
+          {activeStep === 3 && <ConsensusSelection />}
+          {/* <ValidatorSetup/> or <ValidatorSetupInstall/> for activeStep 3 */}
           {activeStep === 4 && <KeyGeneration isConfirmPhraseStage={isConfirmPhraseStage} />}
           {activeStep === 5 && <Activation />}
         </ValidatorBoxWrapper>
