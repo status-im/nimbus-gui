@@ -4,12 +4,12 @@ import { Text } from '@status-im/components'
 import { formatNumberForGauge } from '../../../utilities'
 
 type ActivationSyncCardProps = {
-  synced: number
-  total: number
-  color: string
+  gaugeColor: string
+  gaugeSynced: number
+  gaugeTotal: number
 }
 
-const ActivationSyncCard = ({ synced, total, color }: ActivationSyncCardProps) => {
+const ActivationSyncCard = ({ gaugeColor, gaugeSynced, gaugeTotal }: ActivationSyncCardProps) => {
   return (
     <XStack space={'$2'} alignItems="center">
       <Stack
@@ -23,13 +23,13 @@ const ActivationSyncCard = ({ synced, total, color }: ActivationSyncCardProps) =
             {
               id: 'sync card',
               label: 'Sync Status',
-              value: synced,
-              color: color,
+              value: gaugeSynced,
+              color: gaugeColor,
             },
             {
               id: 'free',
               label: 'free',
-              value: total - synced || 1,
+              value: gaugeTotal - gaugeSynced || 1,
               color: '#E7EAEE',
             },
           ]}
@@ -37,7 +37,7 @@ const ActivationSyncCard = ({ synced, total, color }: ActivationSyncCardProps) =
       </Stack>
       <YStack>
         <Text size={15} weight={'semibold'}>
-          {formatNumberForGauge(synced)} / {formatNumberForGauge(total)}
+          {formatNumberForGauge(gaugeSynced)} / {formatNumberForGauge(gaugeTotal)}
         </Text>
       </YStack>
     </XStack>

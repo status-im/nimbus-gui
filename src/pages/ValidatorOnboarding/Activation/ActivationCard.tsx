@@ -45,9 +45,9 @@ const ActivationCard = ({
             {text}
           </Text>
           <ActivationSyncCard
-            color={gaugeColor || ''}
-            synced={gaugeSynced || 0}
-            total={gaugeTotal || 1}
+            gaugeColor={gaugeColor || ''}
+            gaugeSynced={gaugeSynced || 0}
+            gaugeTotal={gaugeTotal || 1}
           />
         </Stack>
       )}
