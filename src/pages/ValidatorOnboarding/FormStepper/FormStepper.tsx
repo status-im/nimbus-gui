@@ -6,6 +6,15 @@ type FormStepperProps = {
   changeActiveStep: (step: number) => void
 }
 
+const steps = [
+  { label: 'Overview', subtitle: 'Get Started' },
+  { label: 'Advicsories', subtitle: 'Understand your Duties' },
+  { label: 'Client Setup', subtitle: 'Execution & Consensus' },
+  { label: 'Validator Setup', subtitle: 'Validators & Withdrawal' },
+  { label: 'Key Generation', subtitle: 'Secure your Keypairs' },
+  { label: 'Activation', subtitle: 'Complete Setup' },
+]
+
 const FormStepper = ({ activeStep, changeActiveStep }: FormStepperProps) => {
   return (
     <Stepper
@@ -15,54 +24,17 @@ const FormStepper = ({ activeStep, changeActiveStep }: FormStepperProps) => {
       connectorStyleConfig={customConnectorStyle}
       style={{ fontSize: '14px', zIndex: 999, width: '100%', padding: 0, marginBottom: '2rem' }}
     >
-      <Step
-        label={'Overview'}
-        className="custom-step"
-        onClick={() => changeActiveStep(0)}
-        completed={activeStep >= 0}
-        data-subtitle="Get Started"
-        data-step="Overview"
-      />
-      <Step
-        label="Advicsories"
-        className="custom-step"
-        onClick={() => changeActiveStep(1)}
-        completed={activeStep > 0}
-        data-subtitle="Understand your Duties"
-        data-step="Advicsories"
-      />
-      <Step
-        label="Client Setup"
-        className="custom-step"
-        onClick={() => changeActiveStep(2)}
-        completed={activeStep > 1}
-        data-subtitle="Execution & Consensus"
-        data-step="Advicsories"
-      />
-      <Step
-        label="Validator Setup"
-        className="custom-step"
-        onClick={() => changeActiveStep(3)}
-        completed={activeStep > 2}
-        data-subtitle="Validators & Withdrawal"
-        data-step="Validator Setup"
-      />
-      <Step
-        label="Key Generation"
-        className="custom-step"
-        onClick={() => changeActiveStep(4)}
-        completed={activeStep > 3}
-        data-subtitle="Secure your Keypairs"
-        data-step="Key Generation"
-      />
-      <Step
-        label="Activation"
-        className="custom-step"
-        onClick={() => changeActiveStep(5)}
-        completed={activeStep > 4}
-        data-subtitle="Complete Setup"
-        data-step="Activation"
-      />
+      {steps.map((step, index) => (
+        <Step
+          key={index}
+          label={step.label}
+          className="custom-step"
+          onClick={() => changeActiveStep(index)}
+          completed={activeStep > index - 1}
+          data-subtitle={step.subtitle}
+          data-step={step.label}
+        />
+      ))}
     </Stepper>
   )
 }
