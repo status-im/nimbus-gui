@@ -4,7 +4,7 @@ import ActivationSyncCard from './ActivationSyncCard'
 
 type ActivationCardProps = {
   text: string
-  value: string
+  value?: string
   isGaugeIncluded?: boolean
   gaugeColor?: string
   gaugeSynced?: number

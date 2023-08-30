@@ -53,7 +53,6 @@ const Activation = () => {
               <ActivationCard text="Validators" value="4" />
               <ActivationCard
                 text="Execution Sync Status"
-                value=""
                 isGaugeIncluded={true}
                 gaugeColor={'#2a4af5'}
                 gaugeSynced={123.524}
@@ -61,7 +60,6 @@ const Activation = () => {
               />
               <ActivationCard
                 text="Execution Sync Status"
-                value=""
                 isGaugeIncluded={true}
                 gaugeColor={'#EB5757'}
                 gaugeSynced={123.524}

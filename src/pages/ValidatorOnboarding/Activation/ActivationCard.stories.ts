@@ -77,6 +77,5 @@ export const WithoutTitle: Story = {
 export const WithoutValue: Story = {
   args: {
     text: 'Title',
-    value: '',
   },
 }
