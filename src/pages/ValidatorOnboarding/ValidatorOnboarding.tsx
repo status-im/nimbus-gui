@@ -11,6 +11,7 @@ import ValidatorBoxWrapper from './ValidatorBoxWrapper/ValidatorBoxWrapper'
 import { Button } from '@status-im/components'
 import { useNavigate } from 'react-router-dom'
 import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstall'
+import ClientSetup from './ClientSetup/ClientSetup'
 
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)
@@ -51,9 +52,10 @@ const ValidatorOnboarding = () => {
         <ValidatorBoxWrapper>
           {activeStep === 0 && <Overview />}
           {activeStep === 1 && <Advicsories />}
-          {activeStep === 2 && <ValidatorSetupInstall />}
-          {activeStep === 3 && <KeyGeneration isConfirmPhraseStage={isConfirmPhraseStage} />}
-          {activeStep === 4 && <Activation />}
+          {activeStep === 2 && <ClientSetup />}
+          {activeStep === 3 && <ValidatorSetupInstall />}
+          {activeStep === 4 && <KeyGeneration isConfirmPhraseStage={isConfirmPhraseStage} />}
+          {activeStep === 5 && <Activation />}
         </ValidatorBoxWrapper>
         <Stack style={{ alignItems: 'end', width: '100%', marginTop: '16px', zIndex: 999 }}>
           <Button onPress={continueHandler}>
