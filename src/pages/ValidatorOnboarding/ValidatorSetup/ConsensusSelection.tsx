@@ -1,7 +1,6 @@
 import { XStack, Stack, Text as TextTam, YStack } from 'tamagui'
 import PairedDeviceCard from './PairedDeviceCard'
 import { Text } from '@status-im/components'
-import ExecClientCard from './ExecClientCard'
 import { Link } from 'react-router-dom'
 import ConsensusGaugeCard from './ConsensusSelectionCard'
 

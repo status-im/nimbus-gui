@@ -10,9 +10,7 @@ import './layoutGradient.css'
 import ValidatorBoxWrapper from './ValidatorBoxWrapper/ValidatorBoxWrapper'
 import { Button } from '@status-im/components'
 import { useNavigate } from 'react-router-dom'
-import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstall'
 import ClientSetup from './ClientSetup/ClientSetup'
-import ValidatorSetup from './ValidatorSetup/ValidatorSetup'
 import ConsensusSelection from './ValidatorSetup/ConsensusSelection'
 
 const ValidatorOnboarding = () => {
