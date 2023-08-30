@@ -8,11 +8,12 @@ type LinkWithArrowProps = {
   to: string
   arrowLeft?: boolean
   arrowRight?: boolean
+  style?: React.CSSProperties
 }
 
-const LinkWithArrow = ({ text, to, arrowLeft, arrowRight }: LinkWithArrowProps) => {
+const LinkWithArrow = ({ text, to, arrowLeft, arrowRight, style }: LinkWithArrowProps) => {
   return (
-    <Stack style={{ margin: '2% 0 4%', maxWidth: 'fit-content' }}>
+    <Stack style={{ maxWidth: 'fit-content', ...style }}>
       <Text size={15}>
         <XStack space={'$1'} style={{ alignItems: 'center' }}>
           {arrowLeft && <ArrowLeftIcon size={16} color="#2A4CF4" />}
