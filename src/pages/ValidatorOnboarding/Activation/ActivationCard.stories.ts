@@ -17,7 +17,14 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Page: Story = {
+export const Validators: Story = {
+  args: {
+    text: 'Validators',
+    value: '4',
+  },
+}
+
+export const ExecutionSyncStatus: Story = {
   args: {
     text: 'Execution Sync Status',
     value: '',
@@ -25,5 +32,37 @@ export const Page: Story = {
     gaugeColor: '#2a4af5',
     gaugeSynced: 123.524,
     gaugeTotal: 172.503,
+  },
+}
+
+export const ExecutionSyncStatusRed: Story = {
+  args: {
+    text: 'Execution Sync Status',
+    value: '',
+    isGaugeIncluded: true,
+    gaugeColor: '#EB5757',
+    gaugeSynced: 123.524,
+    gaugeTotal: 172.503,
+  },
+}
+
+export const CurrentAPR: Story = {
+  args: {
+    text: 'Current APR',
+    value: '4.40%',
+  },
+}
+
+export const EstimatedActivationTime: Story = {
+  args: {
+    text: 'Estimated Activation Time',
+    value: '32 Days',
+  },
+}
+
+export const ValidatorQueue: Story = {
+  args: {
+    text: 'Validator Queue',
+    value: '92603',
   },
 }
