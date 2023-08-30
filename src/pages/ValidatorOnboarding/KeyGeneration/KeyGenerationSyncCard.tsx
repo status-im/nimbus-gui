@@ -3,6 +3,7 @@ import StandardGauge from '../../../components/Charts/StandardGauge'
 import { ClearIcon } from '@status-im/icons'
 import { Text } from '@status-im/components'
 import BorderBox from '../../../components/General/BorderBox'
+import { formatNumberForGauge } from '../../../utilities'
 
 type KeyGenerationSyncCardProps = {
   synced: number
@@ -43,7 +44,7 @@ const KeyGenerationSyncCard = ({ synced, total, title, color }: KeyGenerationSyn
             {title}
           </Text>
           <Text size={15} weight={'semibold'}>
-            {synced} / {total}
+            {formatNumberForGauge(synced)} / {formatNumberForGauge(total)}
           </Text>
         </YStack>
         <ClearIcon size={20} color="#A1ABBD" />
