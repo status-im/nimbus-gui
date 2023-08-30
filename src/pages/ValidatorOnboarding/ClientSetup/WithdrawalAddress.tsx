@@ -1,9 +1,11 @@
 import { Stack, YStack } from 'tamagui'
 import { InformationBox, Input as StatusInput, Text } from '@status-im/components'
 import { ClearIcon, CloseCircleIcon } from '@status-im/icons'
+
 type WithdrawalAddressProps = {
   title: string
 }
+
 const WithdrawalAddress = ({ title }: WithdrawalAddressProps) => {
   return (
     <YStack space={'$4'}>

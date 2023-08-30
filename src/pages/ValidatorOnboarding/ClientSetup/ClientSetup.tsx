@@ -1,9 +1,10 @@
 import { Separator, Stack, XStack, YStack } from 'tamagui'
-import SetupRow from './SetupRow'
-import WithdrawalAddress from './WithdrawalAddress'
 import { Text } from '@status-im/components'
 import { ArrowRightIcon } from '@status-im/icons'
 import { Link } from 'react-router-dom'
+
+import SetupRow from './SetupRow'
+import WithdrawalAddress from './WithdrawalAddress'
 
 const ClientSetup = () => {
   return (

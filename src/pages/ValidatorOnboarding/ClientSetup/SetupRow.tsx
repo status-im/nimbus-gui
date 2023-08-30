@@ -1,10 +1,11 @@
 import { Stack, XStack, YStack } from 'tamagui'
 import { Input as StatusInput, Text } from '@status-im/components'
-import { AddIcon } from '@status-im/icons'
+import { AddIcon, ChevronDownIcon } from '@status-im/icons'
 
 type SetupRowProps = {
   title: string
 }
+
 const SetupRow = ({ title }: SetupRowProps) => {
   return (
     <YStack space={'$4'}>
@@ -27,9 +28,12 @@ const SetupRow = ({ title }: SetupRowProps) => {
           </Text>
         </YStack>
         <YStack space={'$2'}>
-          <Text size={19} weight={'semibold'} color="#09101C">
-            USD
-          </Text>
+          <XStack style={{ justifyContent: 'space-between' }}>
+            <Text size={19} weight={'semibold'} color="#09101C">
+              USD
+            </Text>
+            <ChevronDownIcon size={16} color={'#919191'} />
+          </XStack>
           <Text size={27} weight={'semibold'} color="#09101C">
             $4,273 USD
           </Text>
