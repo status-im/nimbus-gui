@@ -13,7 +13,7 @@ type KeyGenerationSyncCardProps = {
 
 const KeyGenerationSyncCard = ({ synced, total, title, color }: KeyGenerationSyncCardProps) => {
   return (
-    <BorderBox>
+    <BorderBox style={{ borderRadius: '10.1px', borderWidth: '0.5px' }}>
       <XStack space={'$2'} alignItems="center">
         <Stack
           style={{
