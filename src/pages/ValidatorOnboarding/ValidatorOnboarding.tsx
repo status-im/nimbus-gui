@@ -23,9 +23,9 @@ const ValidatorOnboarding = () => {
   }
 
   const continueHandler = () => {
-    if (activeStep === 3 && isConfirmPhraseStage === false) {
+    if (activeStep === 4 && isConfirmPhraseStage === false) {
       setIsConfirmPhraseStage(true)
-    } else if (activeStep < 4) {
+    } else if (activeStep < 5) {
       setActiveStep(activeStep + 1)
     } else {
       navigate('/')
@@ -59,7 +59,7 @@ const ValidatorOnboarding = () => {
         </ValidatorBoxWrapper>
         <Stack style={{ alignItems: 'end', width: '100%', marginTop: '16px', zIndex: 999 }}>
           <Button onPress={continueHandler}>
-            {activeStep < 4 ? 'Continue' : 'Continue to Dashboard'}
+            {activeStep < 5 ? 'Continue' : 'Continue to Dashboard'}
           </Button>
         </Stack>
       </YStack>
