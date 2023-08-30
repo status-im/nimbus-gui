@@ -1,4 +1,5 @@
 import { XStack } from 'tamagui'
+
 import KeyGenerationSyncCard from './KeyGenerationSyncCard'
 import KeyGenerationTitle from '../KeyGenerationTitle'
 

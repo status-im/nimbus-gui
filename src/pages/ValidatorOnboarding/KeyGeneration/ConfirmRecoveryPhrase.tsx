@@ -1,7 +1,8 @@
 import { Stack, YStack } from 'tamagui'
-import KeyGenerationTitle from './KeyGenerationTitle'
 import { Input, Text } from '@status-im/components'
 import { useState } from 'react'
+
+import KeyGenerationTitle from './KeyGenerationTitle'
 
 const ConfirmRecoveryPhrase = () => {
   const [words, setWords] = useState<string[]>(Array.from({ length: 24 }, () => ''))
@@ -9,6 +10,7 @@ const ConfirmRecoveryPhrase = () => {
   const changeWordHandler = (e: any, index: number) => {
     const newWords = [...words]
     newWords[index] = e.target.value
+    
     setWords(newWords)
   }
 

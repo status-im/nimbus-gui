@@ -3,7 +3,7 @@ import { Text } from '@status-im/components'
 import { useState } from 'react'
 
 import KeyGenerationHeader from './KeyGenerationHeader/KeyGenerationHeader'
-import RecoveryMechanism from './RecoveryMechanism'
+import RecoveryMechanism from './RecoveryMechanism/RecoveryMechanism'
 import KeystoreFiles from './KeystoreFiles'
 import RecoveryPhrase from './RecoveryPhrase'
 import { BOTH_KEY_AND_RECOVERY, KEYSTORE_FILES, RECOVERY_PHRASE } from '../../../constants'
