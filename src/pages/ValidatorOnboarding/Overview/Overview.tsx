@@ -23,7 +23,7 @@ const Overview = () => {
           by proof-of-stake validators. By running a validator, you'll be helping to secure the
           Ethereum network.
         </Text>
-        <LinkWithArrow text="Learn more" to={'/'} arrowRight={true} />
+        <LinkWithArrow text="Learn more" to={'/'} arrowRight={true} style={{ margin: '2% 0 4%' }} />
         <XStack space={'$5'}>
           <OverviewCard text={'Current APR'} value={'4.40%'} />
           <OverviewCard text={'Total ETH Staked'} value={'9,451,123'} />

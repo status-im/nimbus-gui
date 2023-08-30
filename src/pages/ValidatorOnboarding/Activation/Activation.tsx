@@ -3,8 +3,7 @@ import { XStack, Stack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 import Confetti from 'react-confetti'
 import ActivationCard from './ActivationCard'
-import { Link } from 'react-router-dom'
-import { ArrowLeftIcon } from '@status-im/icons'
+import LinkWithArrow from '../../../components/General/LinkWithArrow'
 
 const styles = {
   confettiContainer: {
@@ -76,16 +75,12 @@ const Activation = () => {
             </XStack>
           </YStack>
         </YStack>
-        <Stack style={{ maxWidth: 'fit-content', marginTop: '50px' }}>
-          <Text size={15}>
-            <XStack space={'$1'} style={{ alignItems: 'center' }}>
-              <ArrowLeftIcon size={16} color="#2A4CF4" />
-              <Link style={{ color: '#2A4CF4' }} to={'/'}>
-                Edit Validators
-              </Link>
-            </XStack>
-          </Text>
-        </Stack>
+        <LinkWithArrow
+          text="Edit Validators"
+          to="/"
+          arrowLeft={true}
+          style={{ marginTop: '44px', marginBottom: '88px' }}
+        />
       </YStack>
     </Stack>
   )
