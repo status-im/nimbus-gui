@@ -4,9 +4,9 @@ import { useState } from 'react'
 
 import KeyGenerationHeader from './KeyGenerationHeader'
 import RecoveryMechanism from './RecoveryMechanism'
-import KeyFiles from './KeyFiles'
+import KeystoreFiles from './KeystoreFiles'
 import RecoveryPhrase from './RecoveryPhrase'
-import { BOTH_KEY_AND_RECOVERY, KEY_FILES, RECOVERY_PHRASE } from '../../../constants'
+import { BOTH_KEY_AND_RECOVERY, KEYSTORE_FILES, RECOVERY_PHRASE } from '../../../constants'
 import ConfirmRecoveryPhrase from './ConfirmRecoveryPhrase'
 
 type KeyGenerationProps = {
@@ -14,9 +14,10 @@ type KeyGenerationProps = {
 }
 
 const KeyGeneration = ({ isConfirmPhraseStage }: KeyGenerationProps) => {
-  const [recoveryMechanism, setRecoveryMechanism] = useState(KEY_FILES)
+  const [recoveryMechanism, setRecoveryMechanism] = useState(KEYSTORE_FILES)
 
-  const isKeyFiles = recoveryMechanism === KEY_FILES || recoveryMechanism === BOTH_KEY_AND_RECOVERY
+  const isKeystoreFiles =
+    recoveryMechanism === KEYSTORE_FILES || recoveryMechanism === BOTH_KEY_AND_RECOVERY
 
   const isRecoveryPhrase =
     recoveryMechanism === RECOVERY_PHRASE || recoveryMechanism === BOTH_KEY_AND_RECOVERY
@@ -40,8 +41,8 @@ const KeyGeneration = ({ isConfirmPhraseStage }: KeyGenerationProps) => {
               4 Validators
             </Text>
           </Stack>
-          {isKeyFiles && <KeyFiles />}
-          {isRecoveryPhrase && <RecoveryPhrase isKeyFiles={isKeyFiles} />}
+          {isKeystoreFiles && <KeystoreFiles />}
+          {isRecoveryPhrase && <RecoveryPhrase isKeystoreFiles={isKeystoreFiles} />}
         </>
       )}
     </YStack>

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import RecoveryMechanismCard from './RecoveryMechanismCard'
-import { KEY_FILES } from '../../../constants'
+import { KEYSTORE_FILES } from '../../../constants'
 
 const meta = {
   title: 'ValidatorOnboarding/RecoveryMechanismCard',
@@ -18,8 +18,8 @@ type Story = StoryObj<typeof meta>
 
 export const Page: Story = {
   args: {
-    value: KEY_FILES,
-    recoveryMechanism: KEY_FILES,
+    value: KEYSTORE_FILES,
+    recoveryMechanism: KEYSTORE_FILES,
     handleRecMechanismChange: () => {},
   },
 }

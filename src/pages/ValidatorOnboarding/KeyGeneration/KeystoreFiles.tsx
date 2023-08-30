@@ -3,11 +3,11 @@ import { Button, InformationBox, Input, Text } from '@status-im/components'
 import { ClearIcon, CloseCircleIcon } from '@status-im/icons'
 import { useState } from 'react'
 
-const KeyFiles = () => {
+const KeystoreFiles = () => {
   const [encryptedPassword, setEncryptedPassword] = useState('')
   const [confirmEncryptedPassword, setConfirmEncryptedPassword] = useState('')
 
-  const generateKeyFilesHandler = () => {}
+  const generateKeystoreFilesHandler = () => {}
 
   const changeEncryptedPasswordHandler = (e: any) => {
     setEncryptedPassword(e.target.value)
@@ -81,7 +81,7 @@ const KeyFiles = () => {
         </YStack>
       </XStack>
       <Stack style={{ width: 'fit-content' }}>
-        <Button onPress={generateKeyFilesHandler}>Generate Key files</Button>
+        <Button onPress={generateKeystoreFilesHandler}>Generate Key files</Button>
       </Stack>
       <InformationBox
         message="You should see that you have one keystore per validator. This keystore contains your signing key, encrypted with your password. Warning: Do not store keys on multiple (backup) validator clients at once"
@@ -92,4 +92,4 @@ const KeyFiles = () => {
   )
 }
 
-export default KeyFiles
+export default KeystoreFiles

@@ -12,6 +12,6 @@ export const BAD_NETWORK_TEXT = 'Network Latency is high.'
 
 /* Validator Onboarding */
 
-export const KEY_FILES = 'Key Files'
+export const KEYSTORE_FILES = 'KeystoreFiles'
 export const RECOVERY_PHRASE = 'Recovery Phrase'
-export const BOTH_KEY_AND_RECOVERY = 'Both Key Files & Recovery Phrase'
+export const BOTH_KEY_AND_RECOVERY = 'Both KeystoreFiles & Recovery Phrase'

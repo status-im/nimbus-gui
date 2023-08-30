@@ -4,10 +4,10 @@ import { CloseCircleIcon } from '@status-im/icons'
 import { useState } from 'react'
 
 type RecoveryPhraseProps = {
-  isKeyFiles: boolean
+  isKeystoreFiles: boolean
 }
 
-const RecoveryPhrase = ({ isKeyFiles }: RecoveryPhraseProps) => {
+const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
   const [isReveal, setIsReveal] = useState(false)
 
   const revealHandler = () => {
@@ -15,7 +15,7 @@ const RecoveryPhrase = ({ isKeyFiles }: RecoveryPhraseProps) => {
   }
 
   return (
-    <YStack space={'$4'} style={{ width: '100%', marginTop: isKeyFiles ? '20px' : '0px' }}>
+    <YStack space={'$4'} style={{ width: '100%', marginTop: isKeystoreFiles ? '20px' : '0px' }}>
       <Stack
         style={{
           border: `1px solid #2A4AF566`,
