@@ -32,26 +32,34 @@ const FormStepper = ({ activeStep, changeActiveStep }: FormStepperProps) => {
         data-step="Advicsories"
       />
       <Step
-        label="Validator Setup"
+        label="Client Setup"
         className="custom-step"
         onClick={() => changeActiveStep(2)}
         completed={activeStep > 1}
+        data-subtitle="Execution & Consensus"
+        data-step="Advicsories"
+      />
+      <Step
+        label="Validator Setup"
+        className="custom-step"
+        onClick={() => changeActiveStep(3)}
+        completed={activeStep > 2}
         data-subtitle="Clients, Nodes & Validators"
         data-step="Validator Setup"
       />
       <Step
         label="Key Generation"
         className="custom-step"
-        onClick={() => changeActiveStep(3)}
-        completed={activeStep > 2}
+        onClick={() => changeActiveStep(4)}
+        completed={activeStep > 3}
         data-subtitle="Secure your Keypairs"
         data-step="Key Generation"
       />
       <Step
         label="Activation"
         className="custom-step"
-        onClick={() => changeActiveStep(4)}
-        completed={activeStep > 3}
+        onClick={() => changeActiveStep(5)}
+        completed={activeStep > 4}
         data-subtitle="Complete Setup"
         data-step="Activation"
       />
