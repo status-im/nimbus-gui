@@ -9,7 +9,7 @@ type RecoveryMechanismProps = {
   handleRecMechanismChange: (value: string) => void
 }
 
-const cards = [KEYSTORE_FILES, RECOVERY_PHRASE, BOTH_KEY_AND_RECOVERY]
+const cards = [RECOVERY_PHRASE, KEYSTORE_FILES, BOTH_KEY_AND_RECOVERY]
 
 const RecoveryMechanism = ({
   recoveryMechanism,
