@@ -2,7 +2,7 @@ import { Separator, Stack, XStack, YStack } from 'tamagui'
 import SetupRow from './SetupRow'
 import WithdrawalAddress from './WithdrawalAddress'
 import { Text } from '@status-im/components'
-import { ArrowLeftIcon  } from '@status-im/icons'
+import { ArrowRightIcon } from '@status-im/icons'
 import { Link } from 'react-router-dom'
 
 const ClientSetup = () => {
@@ -14,10 +14,10 @@ const ClientSetup = () => {
       <Stack style={{ maxWidth: 'fit-content', marginTop: '50px' }}>
         <Text size={15}>
           <XStack space={'$1'} style={{ alignItems: 'center' }}>
-            <ArrowLeftIcon size={16} color="#2A4CF4" />
             <Link style={{ color: '#2A4CF4' }} to={'/'}>
-              Edit Validators
+              Advanced Recovery Method
             </Link>
+            <ArrowRightIcon size={16} color="#2A4CF4" />
           </XStack>
         </Text>
       </Stack>
