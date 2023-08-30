@@ -1,9 +1,9 @@
 import { Stack, XStack, YStack } from 'tamagui'
-import StandardGauge from '../../../components/Charts/StandardGauge'
+import StandardGauge from '../../../../components/Charts/StandardGauge'
 import { ClearIcon } from '@status-im/icons'
 import { Text } from '@status-im/components'
-import BorderBox from '../../../components/General/BorderBox'
-import { formatNumberForGauge } from '../../../utilities'
+import BorderBox from '../../../../components/General/BorderBox'
+import { formatNumberForGauge } from '../../../../utilities'
 
 type KeyGenerationSyncCardProps = {
   synced: number

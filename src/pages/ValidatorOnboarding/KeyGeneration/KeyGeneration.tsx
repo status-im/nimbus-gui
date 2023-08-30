@@ -2,7 +2,7 @@ import { Stack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 import { useState } from 'react'
 
-import KeyGenerationHeader from './KeyGenerationHeader'
+import KeyGenerationHeader from './KeyGenerationHeader/KeyGenerationHeader'
 import RecoveryMechanism from './RecoveryMechanism'
 import KeystoreFiles from './KeystoreFiles'
 import RecoveryPhrase from './RecoveryPhrase'
