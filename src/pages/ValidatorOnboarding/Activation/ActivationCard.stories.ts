@@ -66,3 +66,17 @@ export const ValidatorQueue: Story = {
     value: '92603',
   },
 }
+
+export const WithoutTitle: Story = {
+  args: {
+    text: '',
+    value: '1',
+  },
+}
+
+export const WithoutValue: Story = {
+  args: {
+    text: 'Title',
+    value: '',
+  },
+}
