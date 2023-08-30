@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import ActivationSyncCard from './ActivationSyncCard'
-import { withRouter } from 'storybook-addon-react-router-v6'
 
 const meta = {
   title: 'ValidatorOnboarding/ActivationSyncCard',
@@ -29,6 +29,38 @@ export const Red: Story = {
   args: {
     gaugeColor: '#EB5757',
     gaugeSynced: 123.524,
+    gaugeTotal: 172.503,
+  },
+}
+
+export const MaxValue: Story = {
+  args: {
+    gaugeColor: '#2a4af5',
+    gaugeSynced: 172.503,
+    gaugeTotal: 172.503,
+  },
+}
+
+export const OverMaxValue: Story = {
+  args: {
+    gaugeColor: '#2a4af5',
+    gaugeSynced: 200,
+    gaugeTotal: 172.503,
+  },
+}
+
+export const MinValue: Story = {
+  args: {
+    gaugeColor: '#2a4af5',
+    gaugeSynced: 0,
+    gaugeTotal: 172.503,
+  },
+}
+
+export const UnderMinValue: Story = {
+  args: {
+    gaugeColor: '#2a4af5',
+    gaugeSynced: -100,
     gaugeTotal: 172.503,
   },
 }
