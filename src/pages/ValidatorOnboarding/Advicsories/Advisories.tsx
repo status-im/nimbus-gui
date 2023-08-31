@@ -9,7 +9,7 @@ type AdvisoryTopicsType = {
 }
 
 const Advisories = () => {
-  const [selectedTitle, setSelectedTitle] = useState('Bad Behaviour')
+  const [selectedTitle, setSelectedTitle] = useState(Object.keys(advisoryTopics)[3])
 
   const isSameTitle = (title: string) => selectedTitle === title
 
@@ -58,7 +58,7 @@ export default Advisories
 
 const unicodeNumbers = ['➀', '➁', '➂', '➃', '➄', '➅']
 
-const advisoryTopics: AdvisoryTopicsType = {
+export const advisoryTopics: AdvisoryTopicsType = {
   'Proof of Stake': [
     'Proof of Stake systems require validators to hold and lock up a certain amount of cryptocurrency to participate.',
     'In Proof of Stake, the chances of creating a block is proportional to the amount of cryptocurrency held.',
