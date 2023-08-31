@@ -4,31 +4,6 @@ import { Text } from '@status-im/components'
 import ExecClientCard from './ExecClientCard'
 import { Link } from 'react-router-dom'
 
-const execClientCardsContent = [
-  {
-    name: 'Nethermind',
-    icon: '/icons/nethermind-circle.png',
-  },
-  {
-    name: 'Besu',
-    icon: '/icons/hyperledger-besu-circle.png',
-  },
-  {
-    name: 'Geth',
-    icon: '/icons/gethereum-mascot-circle.png',
-    isSelected: true,
-  },
-  {
-    name: 'Erigon',
-    icon: '/icons/erigon-circle.png',
-  },
-  {
-    name: 'Nimbus',
-    icon: '/icons/NimbusDisabled.svg',
-    isComingSoon: true,
-  },
-]
-
 const ValidatorSetup = () => {
   return (
     <YStack style={{ width: '100%', padding: '16px 32px' }}>
@@ -58,15 +33,28 @@ const ValidatorSetup = () => {
         Select Execution client
       </TextTam>
       <XStack justifyContent={'space-between'}>
-        {execClientCardsContent.length &&
-          execClientCardsContent.map(e => (
-            <ExecClientCard
-              name={e.name}
-              icon={e.icon}
-              isSelected={e.isSelected || false}
-              isComingSoon={e.isComingSoon}
-            />
-          ))}
+        <ExecClientCard
+          name={'Nethermind'}
+          icon={'/icons/nethermind-circle.png'}
+          isSelected={false}
+        />
+        <ExecClientCard
+          name={'Besu'}
+          icon={'/icons/hyperledger-besu-circle.png'}
+          isSelected={false}
+        />
+        <ExecClientCard
+          name={'Geth'}
+          icon={'/icons/gethereum-mascot-circle.png'}
+          isSelected={true}
+        />
+        <ExecClientCard name={'Erigon'} icon={'/icons/erigon-circle.png'} isSelected={false} />
+        <ExecClientCard
+          name={'Nimbus'}
+          icon={'/icons/NimbusDisabled.svg'}
+          isSelected={false}
+          isComingSoon={true}
+        />
       </XStack>
       <Stack marginTop={'10%'}>
         <Text size={15} weight={'semibold'} color="#2A4CF4">
