@@ -1,12 +1,18 @@
 import { XStack, Stack, Text as TextTam, YStack } from 'tamagui'
 import PairedDeviceCard from './PairedDeviceCard'
 import { Text } from '@status-im/components'
-import { Link } from 'react-router-dom'
-import ConsensusGaugeCard from './ConsensusSelectionCard'
-
+import ConsensusGaugeCard from './ConsensusGaugeCard'
+import ConsensusClientCard from './ConsensusClientCard'
+ 
 const ConsensusSelection = () => {
+  const a = [
+    {
+      name: 'Nimbus',
+      icon: '/icons/Nimbus-black.png',
+    },
+  ]
   return (
-    <YStack style={{ width: '100%', padding: '16px 32px' }}>
+    <YStack style={{ width: '100%', padding: '32px' }}>
       <XStack justifyContent={'space-between'}>
         <Text size={27} weight={'semibold'}>
           Validator Setup
@@ -41,12 +47,9 @@ const ConsensusSelection = () => {
         Install Consensus client
       </TextTam>
 
-      <Stack marginTop={'10%'}>
-        <Text size={15} weight={'semibold'} color="#2A4CF4">
-          <Link to={'https://launchpad.ethereum.org/en/faq'}></Link>
-          View Execution client comparison chart
-        </Text>
-      </Stack>
+      <XStack>
+        <ConsensusClientCard name={a[0].name} icon={a[0].icon} />
+      </XStack>
     </YStack>
   )
 }
