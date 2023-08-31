@@ -48,7 +48,6 @@ ul{
   list-style-type: none;
   padding: 0;
   margin: 0;
-  display: flex;
 }
 ul li {
   padding: 0 1rem;

@@ -5,33 +5,24 @@ import EmojiPicker, {
   SuggestionMode,
   Categories,
 } from 'emoji-picker-react'
-import { useState } from 'react'
 import { Stack } from 'tamagui'
 
 type EmojiStyleType = 'FACEBOOK' | 'APPLE' | 'GOOGLE' | 'TWITTER' | 'NATIVE'
 
-function EmojiPickerDialog({ emojiStyle }: { emojiStyle: EmojiStyleType }) {
-  const [selectedEmoji, setSelectedEmoji] = useState<string>('')
-  console.log(selectedEmoji)
-  function onClick(emojiData: EmojiClickData) {
-    setSelectedEmoji(emojiData.unified)
-  }
+type EmojiPickerProps = {
+  emojiStyle: EmojiStyleType
+  changeEmoji: (emojiData: EmojiClickData) => void
+}
 
+function EmojiPickerDialog({ emojiStyle, changeEmoji }: EmojiPickerProps) {
   return (
-    <Stack position="absolute" zIndex={1} left={120}>
-      {/* <XStack>
-        Your selected Emoji is:
-        {selectedEmoji ? (
-          <Emoji unified={selectedEmoji} emojiStyle={EmojiStyle.APPLE} size={22} />
-        ) : null}
-      </XStack> */}
-
+    <Stack position="absolute" zIndex={1} left={100}>
       <EmojiPicker
-        onEmojiClick={onClick}
+        onEmojiClick={changeEmoji}
         autoFocusSearch={false}
         theme={Theme.AUTO}
         height={350}
-        width="100%"
+        width={350}
         emojiVersion="1"
         lazyLoadEmojis={false}
         previewConfig={{ showPreview: false }}

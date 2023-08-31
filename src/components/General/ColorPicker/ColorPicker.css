@@ -1,0 +1,40 @@
+.color-picker-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    position: relative;
+    outline: none;
+    border: none;
+}
+
+.color-picker-button::before ,
+.color-picker-button::after { 
+    display: block;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transform-origin: center;
+    opacity: 0;
+    transition: 120ms opacity ease-in-out;
+}
+.color-picker-button::before {
+    content: "\2713";
+    font-size: 25px;
+    color: white;
+}
+.color-picker-button::after {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid currentColor;
+}
+
+.color-picker-button:focus::before,   
+.color-picker-button:focus::after,   
+.color-picker-button:hover::after {
+    opacity: 1;
+}

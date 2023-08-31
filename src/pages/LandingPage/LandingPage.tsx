@@ -7,7 +7,7 @@ import { Button as StatusButton, Text } from '@status-im/components'
 import QuickStartBar from '../../components/General/QuickStartBar/QuickStartBar'
 import { useNavigate } from 'react-router'
 
-function LandingPage() {
+const LandingPage = () => {
   const navigate = useNavigate()
 
   const getStartedHanlder = () => {
@@ -21,7 +21,6 @@ function LandingPage() {
           <XStack pt={'70px'}>
             <NimbusLogo />
           </XStack>
-
           <YStack style={{ width: '100%', margin: '30vh 0 4vh' }}>
             <Text size={27} weight={'semibold'}>
               Light and performant clients, for all Ethereum validators.
