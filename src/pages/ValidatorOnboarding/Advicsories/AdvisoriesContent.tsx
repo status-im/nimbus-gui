@@ -7,22 +7,19 @@ type AdvisoriesContentProps = {
 }
 const AdvisoriesContent = ({ title, content }: AdvisoriesContentProps) => {
   return (
-    <YStack space={'$3'}>
+    <YStack space={'$1'} style={{ width: '70%' }}>
       <Stack style={{ marginBottom: '5%' }}>
         <Text size={27} weight={400}>
           {title}
         </Text>
       </Stack>
-      <YStack space={'$6'}>
-        {content.length &&
-          content.map(row => {
-            return (
-              <Text key={row} size={15}>
-                {row}
-              </Text>
-            )
-          })}
-        <Text size={15}>
+      <YStack space={'$4'}>
+        {content.map(row => (
+          <Text key={row} size={19}>
+            {row}
+          </Text>
+        ))}
+        <Text size={19}>
           <Link
             to={'https://github.com/ethereum/consensus-specs'}
             style={{ textDecorationLine: 'underline', color: '#484848' }}
@@ -30,7 +27,7 @@ const AdvisoriesContent = ({ title, content }: AdvisoriesContentProps) => {
             The Ethereum consensus layer specification
           </Link>
         </Text>
-        <Text size={15} weight={'semibold'}>
+        <Text size={19} weight={'semibold'}>
           <Link
             to={'https://github.com/ethereum/consensus-specs'}
             style={{ textDecorationLine: 'underline', color: '#2A4CF4', fontWeight: 'bold' }}
