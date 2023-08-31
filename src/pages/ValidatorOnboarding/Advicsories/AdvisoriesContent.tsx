@@ -1,10 +1,12 @@
 import { Text } from '@status-im/components'
 import { Link } from 'react-router-dom'
 import { Stack, YStack } from 'tamagui'
+
 type AdvisoriesContentProps = {
   title: string
   content: string[]
 }
+
 const AdvisoriesContent = ({ title, content }: AdvisoriesContentProps) => {
   return (
     <YStack space={'$1'} style={{ width: '70%' }}>
@@ -39,4 +41,5 @@ const AdvisoriesContent = ({ title, content }: AdvisoriesContentProps) => {
     </YStack>
   )
 }
+
 export default AdvisoriesContent
