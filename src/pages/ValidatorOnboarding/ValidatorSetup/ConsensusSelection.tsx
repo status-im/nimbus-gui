@@ -9,6 +9,11 @@ import { RootState } from '../../../redux/store'
 
 const ConsensusSelection = () => {
   const selectedClient = useSelector((state: RootState) => state.execClient.selectedClient) as
+    | 'Nethermind'
+    | 'Besu'
+    | 'Geth'
+    | 'Erigon'
+    | 'Nimbus'
 
   const clientIcons = {
     Nethermind: '/icons/nethermind-circle.png',
