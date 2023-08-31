@@ -4,7 +4,6 @@ import Titles from '../../components/General/Titles'
 import { useState } from 'react'
 import Overview from './Overview/Overview'
 import KeyGeneration from './KeyGeneration/KeyGeneration'
-import Advisories from './Advisories/Advisories'
 import Activation from './Activation/Activation'
 import './layoutGradient.css'
 import ValidatorBoxWrapper from './ValidatorBoxWrapper/ValidatorBoxWrapper'
@@ -12,6 +11,7 @@ import { Button } from '@status-im/components'
 import { useNavigate } from 'react-router-dom'
 import ClientSetup from './ClientSetup/ClientSetup'
 import ConsensusSelection from './ValidatorSetup/ConsensusSelection'
+import Advisories from './Advisories/Advisories'
 
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)
