@@ -16,9 +16,25 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Page: Story = {
+export const Selected: Story = {
   args: {
     value: KEYSTORE_FILES,
+    recoveryMechanism: KEYSTORE_FILES,
+    handleRecMechanismChange: () => {},
+  },
+}
+
+export const NotSelected: Story = {
+  args: {
+    value: KEYSTORE_FILES,
+    recoveryMechanism: '',
+    handleRecMechanismChange: () => {},
+  },
+}
+
+export const WithoutValue: Story = {
+  args: {
+    value: '',
     recoveryMechanism: KEYSTORE_FILES,
     handleRecMechanismChange: () => {},
   },
