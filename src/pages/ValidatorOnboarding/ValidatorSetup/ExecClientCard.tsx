@@ -48,7 +48,7 @@ const ExecClientCard = ({ name, icon, isSelected, isComingSoon }: ExecClientCard
           </XStack>
         )}
       </Stack>
-      <Icon src={icon} width={100} height={100} />
+      <Icon src={icon} width={100} height={100}  />
     </YStack>
   )
 }
