@@ -1,16 +1,20 @@
 import { Stack, XStack, YStack } from 'tamagui'
 import Icon from '../../../components/General/Icon'
 import { Text } from '@status-im/components'
-
-// make func component
+import { selectClient } from '../../../redux/ValidatorOnboarding/ValidatorSetup/slice'
+import { useDispatch, useSelector } from 'react-redux'
 
 type ExecClientCardProps = {
   name: string
   icon: string
-  isSelected?: boolean
+
   isComingSoon?: boolean
 }
-const ExecClientCard = ({ name, icon, isSelected, isComingSoon }: ExecClientCardProps) => {
+const ExecClientCard = ({ name, icon, isComingSoon }: ExecClientCardProps) => {
+  const dispatch = useDispatch()
+  const selectedClient = useSelector(selectClient)
+  const isSelected = selectedClient.payload.execClient.selectedClient === name
+ 
   return (
     <YStack
       style={{
@@ -25,6 +29,9 @@ const ExecClientCard = ({ name, icon, isSelected, isComingSoon }: ExecClientCard
         width: '19%',
       }}
       space={'$12'}
+      onClick={() => {
+        dispatch(selectClient(name))
+      }}
     >
       <Stack>
         <Text size={27} weight={'semibold'} color={isComingSoon ? '#DCE0E5' : ''}>
@@ -48,7 +55,7 @@ const ExecClientCard = ({ name, icon, isSelected, isComingSoon }: ExecClientCard
           </XStack>
         )}
       </Stack>
-      <Icon src={icon} width={100} height={100}  />
+      <Icon src={icon} width={100} height={100} />
     </YStack>
   )
 }
