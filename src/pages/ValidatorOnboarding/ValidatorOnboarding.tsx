@@ -12,10 +12,14 @@ import { useNavigate } from 'react-router-dom'
 import ClientSetup from './ClientSetup/ClientSetup'
 import ConsensusSelection from './ValidatorSetup/ConsensusSelection'
 import Advisories from './Advisories/Advisories'
+import ValidatorSetup from './ValidatorSetup/ValidatorSetup'
+import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstall'
 
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)
   const [isConfirmPhraseStage, setIsConfirmPhraseStage] = useState(false)
+  const [subStepValidatorSetup, setSubStepValidatorSetup] = useState(0)
+
   const navigate = useNavigate()
 
   const changeActiveStep = (step: number) => {
@@ -25,8 +29,13 @@ const ValidatorOnboarding = () => {
   const continueHandler = () => {
     if (activeStep === 4 && isConfirmPhraseStage === false) {
       setIsConfirmPhraseStage(true)
+    } else if (activeStep === 3 && subStepValidatorSetup < 2) {
+      setSubStepValidatorSetup(subStepValidatorSetup + 1)
     } else if (activeStep < 5) {
       setActiveStep(activeStep + 1)
+      if (activeStep === 3 && subStepValidatorSetup === 2) {
+        setSubStepValidatorSetup(0)
+      }
     } else {
       navigate('/')
     }
@@ -53,8 +62,11 @@ const ValidatorOnboarding = () => {
           {activeStep === 0 && <Overview />}
           {activeStep === 1 && <Advisories />}
           {activeStep === 2 && <ClientSetup />}
-          {activeStep === 3 && <ConsensusSelection />}
-          {/* <ValidatorSetup/> or <ValidatorSetupInstall/> for activeStep 3 */}
+
+          {activeStep === 3 && subStepValidatorSetup === 0 && <ValidatorSetup />}
+          {activeStep === 3 && subStepValidatorSetup === 1 && <ValidatorSetupInstall />}
+          {activeStep === 3 && subStepValidatorSetup === 2 && <ConsensusSelection />}
+          
           {activeStep === 4 && <KeyGeneration isConfirmPhraseStage={isConfirmPhraseStage} />}
           {activeStep === 5 && <Activation />}
         </ValidatorBoxWrapper>
