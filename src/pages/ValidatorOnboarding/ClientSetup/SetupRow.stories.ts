@@ -18,6 +18,12 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    title: 'Setup Row',
+    title: 'Setup up Validators',
+  },
+}
+
+export const WithoutTitle: Story = {
+  args: {
+    title: '',
   },
 }
