@@ -4,7 +4,7 @@ import Titles from '../../components/General/Titles'
 import { useState } from 'react'
 import Overview from './Overview/Overview'
 import KeyGeneration from './KeyGeneration/KeyGeneration'
-import Advicsories from './Advicsories/Advicsories'
+import Advisories from './Advisories/Advisories'
 import Activation from './Activation/Activation'
 import './layoutGradient.css'
 import ValidatorBoxWrapper from './ValidatorBoxWrapper/ValidatorBoxWrapper'
@@ -51,7 +51,7 @@ const ValidatorOnboarding = () => {
         <FormStepper activeStep={activeStep} changeActiveStep={changeActiveStep} />
         <ValidatorBoxWrapper>
           {activeStep === 0 && <Overview />}
-          {activeStep === 1 && <Advicsories />}
+          {activeStep === 1 && <Advisories />}
           {activeStep === 2 && <ClientSetup />}
           {activeStep === 3 && <ConsensusSelection />}
           {/* <ValidatorSetup/> or <ValidatorSetupInstall/> for activeStep 3 */}

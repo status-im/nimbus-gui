@@ -8,7 +8,7 @@ type AdvisoryTopicsType = {
   [key: string]: string[]
 }
 
-const Advicsories = () => {
+const Advisories = () => {
   const [selectedTitle, setSelectedTitle] = useState('Bad Behaviour')
 
   const isSameTitle = (title: string) => selectedTitle === title
@@ -54,7 +54,7 @@ const Advicsories = () => {
   )
 }
 
-export default Advicsories
+export default Advisories
 
 const unicodeNumbers = ['➀', '➁', '➂', '➃', '➄', '➅']
 

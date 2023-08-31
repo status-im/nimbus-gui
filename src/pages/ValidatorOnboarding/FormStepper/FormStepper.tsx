@@ -8,7 +8,7 @@ type FormStepperProps = {
 
 const steps = [
   { label: 'Overview', subtitle: 'Get Started' },
-  { label: 'Advicsories', subtitle: 'Understand your Duties' },
+  { label: 'Advisories', subtitle: 'Understand your Duties' },
   { label: 'Client Setup', subtitle: 'Execution & Consensus' },
   { label: 'Validator Setup', subtitle: 'Validators & Withdrawal' },
   { label: 'Key Generation', subtitle: 'Secure your Keypairs' },

@@ -21,7 +21,7 @@ export const OverviewActive: Story = {
   },
 }
 
-export const AdvicsoriesActive: Story = {
+export const AdvisoriesActive: Story = {
   args: {
     activeStep: 1,
     changeActiveStep: () => {},
