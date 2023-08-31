@@ -32,4 +32,5 @@ const WithdrawalAddress = ({ title }: WithdrawalAddressProps) => {
     </YStack>
   )
 }
+
 export default WithdrawalAddress

@@ -21,3 +21,9 @@ export const Default: Story = {
     title: 'Withdrawal Address',
   },
 }
+
+export const WithoutTitle: Story = {
+  args: {
+    title: '',
+  },
+}
