@@ -9,7 +9,6 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  argTypes: {},
 } satisfies Meta<typeof ValidatorBoxWrapper>
 
 export default meta

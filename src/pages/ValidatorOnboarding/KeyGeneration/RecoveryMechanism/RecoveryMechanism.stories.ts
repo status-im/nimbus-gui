@@ -10,7 +10,6 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  argTypes: {},
 } satisfies Meta<typeof RecoveryMechanism>
 
 export default meta
