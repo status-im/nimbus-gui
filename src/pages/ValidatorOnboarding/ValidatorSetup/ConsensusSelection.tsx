@@ -50,16 +50,17 @@ const ConsensusSelection = () => {
 
       <XStack space={'$8'}>
         <ConsensusClientCard name={a[0].name} icon={a[0].icon} />
-        <YStack width={'67%'} space={'$2'}>
-          <Text size={19}>The resource efficient Ethereum Clients.</Text>
+        <YStack width={'67%'} space={'$4'}>
+          <Text size={27}>The resource efficient Ethereum Clients.</Text>
           <Text size={15}>
             Nimbus is a client implementation for both execution and consensus layers that strives
             to be as lightweight as possible in terms of resources used. This allows it to perform
             well on embedded systems, resource-restricted devices -- including Raspberry Pis -- and
             multi-purpose servers.
           </Text>
-          <Text size={15}>
+          <Text size={19} weight={'semibold'}>
             <LinkWithArrow
+              textColor="black"
               text="Nimbus Documentation"
               arrowRight={true}
               to="https://www.youtube.com/watch?v=dQw4w9WgXcQ"

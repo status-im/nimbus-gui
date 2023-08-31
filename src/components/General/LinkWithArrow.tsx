@@ -8,9 +8,17 @@ type LinkWithArrowProps = {
   arrowLeft?: boolean
   arrowRight?: boolean
   style?: React.CSSProperties
+  textColor?: string
 }
 
-const LinkWithArrow = ({ text, to, arrowLeft, arrowRight, style }: LinkWithArrowProps) => {
+const LinkWithArrow = ({
+  text,
+  to,
+  arrowLeft,
+  arrowRight,
+  style,
+  textColor,
+}: LinkWithArrowProps) => {
   const navigate = useNavigate()
 
   const navigateHandler = () => {
@@ -29,7 +37,7 @@ const LinkWithArrow = ({ text, to, arrowLeft, arrowRight, style }: LinkWithArrow
       onClick={navigateHandler}
     >
       {arrowLeft && <ArrowLeftIcon size={20} color="#2A4CF4" />}
-      <Link style={{ color: '#2A4CF4', marginBottom: '2px' }} to={to}>
+      <Link style={{ color: textColor || '#2A4CF4', marginBottom: '2px' }} to={to}>
         {text}
       </Link>
       {arrowRight && <ArrowRightIcon size={20} color="#2A4CF4" />}
