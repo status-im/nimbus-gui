@@ -12,7 +12,7 @@ const OverviewCard = ({ text, value }: OverviewCardProps) => {
       style={{
         borderRadius: '16px',
         border: '1px solid rgba(0, 0, 0, 0.15)',
-        width: '45%',
+        width: '46%',
         padding: '12px 16px',
         backgroundColor: '#FFF',
       }}
