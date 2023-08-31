@@ -4,8 +4,11 @@ import { CloseCircleIcon } from '@status-im/icons'
 import OsCard from './OsCard'
 import SyntaxHighlighterBox from './SyntaxHighlighter'
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../../redux/store'
 const ValidatorSetupInstall = () => {
   const [selectedOs, setSelectedOs] = useState('Mac')
+  const selectedClient = useSelector((state: RootState) => state.execClient.selectedClient)
   return (
     <YStack style={{ width: '100%', padding: '16px 32px' }}>
       <XStack justifyContent={'space-between'} style={{ marginBottom: '10px' }}>
@@ -18,7 +21,7 @@ const ValidatorSetupInstall = () => {
         <Stack style={{ marginBottom: '4px' }}>
           <YStack space={'$3'}>
             <Text size={19} weight={'semibold'}>
-              Geth
+              {selectedClient}
             </Text>
 
             <Text size={15} color="#647084">
@@ -39,7 +42,7 @@ const ValidatorSetupInstall = () => {
               }}
               space={'$3'}
             >
-              <Text size={27}> Installing Geth</Text>
+              <Text size={27}> Installing {selectedClient}</Text>
               <Text size={19} color="#647084" weight={'regular'}>
                 There are several ways to install Geth, including via a package manager, downloading
                 a pre-built bundle, running as a docker container or building from downloaded source

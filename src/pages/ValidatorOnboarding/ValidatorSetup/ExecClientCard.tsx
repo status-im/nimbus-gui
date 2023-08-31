@@ -3,6 +3,7 @@ import Icon from '../../../components/General/Icon'
 import { Text } from '@status-im/components'
 import { selectClient } from '../../../redux/ValidatorOnboarding/ValidatorSetup/slice'
 import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../../../redux/store'
 
 type ExecClientCardProps = {
   name: string
@@ -12,9 +13,9 @@ type ExecClientCardProps = {
 }
 const ExecClientCard = ({ name, icon, isComingSoon }: ExecClientCardProps) => {
   const dispatch = useDispatch()
-  const selectedClient = useSelector(selectClient)
-  const isSelected = selectedClient.payload.execClient.selectedClient === name
- 
+  const selectedClient = useSelector((state: RootState) => state.execClient.selectedClient)
+  const isSelected = selectedClient === name
+
   return (
     <YStack
       style={{

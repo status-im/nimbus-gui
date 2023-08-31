@@ -4,12 +4,16 @@ import { Text } from '@status-im/components'
 import ConsensusGaugeCard from './ConsensusGaugeCard'
 import ConsensusClientCard from './ConsensusClientCard'
 import LinkWithArrow from '../../../components/General/LinkWithArrow'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../../redux/store'
 
 const ConsensusSelection = () => {
+  const selectedClient = useSelector((state: RootState) => state.execClient.selectedClient)
+
   const a = [
     {
-      name: 'Nimbus',
-      icon: '/icons/Nimbus-black.png',
+      name: selectedClient,
+      icon: '/icons/Nimbus-black.png', // FIXL change icon based on selectedClient
     },
   ]
   return (
@@ -53,7 +57,7 @@ const ConsensusSelection = () => {
         <YStack width={'67%'} space={'$4'}>
           <Text size={27}>The resource efficient Ethereum Clients.</Text>
           <Text size={15}>
-            Nimbus is a client implementation for both execution and consensus layers that strives
+            {selectedClient} is a client implementation for both execution and consensus layers that strives
             to be as lightweight as possible in terms of resources used. This allows it to perform
             well on embedded systems, resource-restricted devices -- including Raspberry Pis -- and
             multi-purpose servers.

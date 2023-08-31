@@ -36,7 +36,7 @@ const ValidatorSetup = () => {
         <ExecClientCard name={'Nethermind'} icon={'/icons/nethermind-circle.png'} />
         <ExecClientCard name={'Besu'} icon={'/icons/hyperledger-besu-circle.png'} />
         <ExecClientCard name={'Geth'} icon={'/icons/gethereum-mascot-circle.png'} />
-        <ExecClientCard name={'Erigon'} icon={'/icons/erigon-circle.png'} isSelected={false} />
+        <ExecClientCard name={'Erigon'} icon={'/icons/erigon-circle.png'} />
         <ExecClientCard name={'Nimbus'} icon={'/icons/NimbusDisabled.svg'} isComingSoon={true} />
       </XStack>
       <Stack marginTop={'10%'}>
