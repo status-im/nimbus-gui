@@ -8,12 +8,20 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../../redux/store'
 
 const ConsensusSelection = () => {
-  const selectedClient = useSelector((state: RootState) => state.execClient.selectedClient)
+  const selectedClient = useSelector((state: RootState) => state.execClient.selectedClient) as
+
+  const clientIcons = {
+    Nethermind: '/icons/nethermind-circle.png',
+    Besu: '/icons/hyperledger-besu-circle.png',
+    Geth: '/icons/gethereum-mascot-circle.png',
+    Erigon: '/icons/erigon-circle.png',
+    Nimbus: '/icons/NimbusDisabled.svg',
+  }
 
   const a = [
     {
       name: selectedClient,
-      icon: '/icons/Nimbus-black.png', // FIXL change icon based on selectedClient
+      icon: clientIcons[selectedClient],
     },
   ]
   return (
@@ -57,10 +65,10 @@ const ConsensusSelection = () => {
         <YStack width={'67%'} space={'$4'}>
           <Text size={27}>The resource efficient Ethereum Clients.</Text>
           <Text size={15}>
-            {selectedClient} is a client implementation for both execution and consensus layers that strives
-            to be as lightweight as possible in terms of resources used. This allows it to perform
-            well on embedded systems, resource-restricted devices -- including Raspberry Pis -- and
-            multi-purpose servers.
+            {selectedClient} is a client implementation for both execution and consensus layers that
+            strives to be as lightweight as possible in terms of resources used. This allows it to
+            perform well on embedded systems, resource-restricted devices -- including Raspberry Pis
+            -- and multi-purpose servers.
           </Text>
           <Text size={19} weight={'semibold'}>
             <LinkWithArrow
