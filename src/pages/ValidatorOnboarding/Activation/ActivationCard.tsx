@@ -31,17 +31,17 @@ const ActivationCard = ({
     >
       {!isGaugeIncluded && (
         <Stack>
-          <Text size={13} weight={'semibold'}>
+          <Text size={15} weight={'semibold'}>
             {text}
           </Text>
-          <Text size={19} color="blue" weight={'semibold'}>
+          <Text size={27} color="blue" weight={'semibold'}>
             {value}
           </Text>
         </Stack>
       )}
       {isGaugeIncluded && (
         <Stack>
-          <Text size={13} weight={'semibold'}>
+          <Text size={15} weight={'semibold'}>
             {text}
           </Text>
           <ActivationSyncCard
