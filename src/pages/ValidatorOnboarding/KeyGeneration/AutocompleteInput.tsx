@@ -4,6 +4,7 @@ import wordlist from 'web-bip39/wordlists/english'
 
 import { RootState } from '../../../redux/store'
 import { setMnemonic, setWord } from '../../../redux/ValidatorOnboarding/KeyGeneration/slice'
+import './AutocompleteInput.css'
 
 type AutocompleteInputProps = {
   index: number
@@ -50,9 +51,13 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
       />
       {isFocused && (
         <div className="suggestion-list">
-          {suggestions.map(s => (
-            <div key={s} className="suggestion-item" onClick={() => handleSuggestionClick(s)}>
-              {s}
+          {suggestions.map(suggestion => (
+            <div
+              key={suggestion}
+              className="suggestion-item"
+              onClick={() => handleSuggestionClick(suggestion)}
+            >
+              {suggestion}
             </div>
           ))}
         </div>
