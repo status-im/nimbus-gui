@@ -28,6 +28,7 @@
     "@tamagui/vite-plugin": "1.36.4",
     "@types/react": "18",
     "@types/react-dom": "18",
+    "bip39": "^3.1.0",
     "emoji-picker-react": "^4.4.11",
     "expo-modules-core": "^1.5.9",
     "react": "18",
