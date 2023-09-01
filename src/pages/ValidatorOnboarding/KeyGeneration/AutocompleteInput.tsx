@@ -11,6 +11,7 @@ type AutocompleteInputProps = {
 
 const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
   const [suggestions, setSuggestions] = useState<string[]>([])
+  const [isFocused, setIsFocused] = useState(false)
   const word = useSelector((state: RootState) => state.keyGeneration.words[index])
   const dispatch = useDispatch()
 
@@ -34,14 +35,28 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
     }
   }
 
+  const handleSuggestionClick = (suggestion: string) => {
+    dispatch(setWord({ index, word: suggestion }))
+  }
+
   return (
     <div>
-      <input type="text" value={word} onChange={handleInputChange} />
-      <div>
-        {suggestions.map(s => (
-          <div key={s}>{s}</div>
-        ))}
-      </div>
+      <input
+        type="text"
+        value={word}
+        onChange={handleInputChange}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+      />
+      {isFocused && (
+        <div className="suggestion-list">
+          {suggestions.map(s => (
+            <div key={s} className="suggestion-item" onClick={() => handleSuggestionClick(s)}>
+              {s}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
