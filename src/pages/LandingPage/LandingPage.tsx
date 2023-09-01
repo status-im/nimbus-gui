@@ -17,7 +17,7 @@ const LandingPage = () => {
 
   return (
     <>
-      <PageWrapperShadow rightImageSrc="./background-images/landing-page-bg.png">
+      <PageWrapperShadow rightImageSrc="./background-images/landing-page-bg.png" imgHeight="150%">
         <YStack className="landing-page">
           <XStack pt={'70px'}>
             <NimbusLogo />

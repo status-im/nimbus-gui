@@ -8,6 +8,7 @@ type PageWrapperShadowProps = {
   rightImageSrc?: string
   rightImageLogo?: boolean
   children: ReactNode
+  imgHeight?: string
 }
 
 const PageWrapperShadow = ({
@@ -15,6 +16,7 @@ const PageWrapperShadow = ({
   rightImageSrc,
   rightImageLogo,
   children,
+  imgHeight,
 }: PageWrapperShadowProps) => {
   const theme = useTheme()
 
@@ -28,7 +30,12 @@ const PageWrapperShadow = ({
       </section>
       <section className="layout-right">
         <div className="image-container">
-          <img src={rightImageSrc} alt="background" className="background-img" />
+          <img
+            src={rightImageSrc}
+            alt="background"
+            className="background-img"
+            style={{ height: imgHeight }}
+          />
           {rightImageLogo ? <NimbusLogoMark /> : null}
         </div>
       </section>
