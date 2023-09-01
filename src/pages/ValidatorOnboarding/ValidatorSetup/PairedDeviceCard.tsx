@@ -1,5 +1,3 @@
-// make func component for this file
-
 import { XStack, YStack } from 'tamagui'
 import { ClearIcon } from '@status-im/icons'
 import { Avatar, Text } from '@status-im/components'
@@ -31,4 +29,5 @@ const PairedDeviceCard = () => {
     </XStack>
   )
 }
+
 export default PairedDeviceCard

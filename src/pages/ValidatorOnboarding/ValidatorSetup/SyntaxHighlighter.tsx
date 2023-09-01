@@ -1,5 +1,6 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { solarizedlight } from 'react-syntax-highlighter/dist/esm/styles/prism'
+
 type SyntaxHighlighterBoxProps = {
   rows: string[]
 }
@@ -12,6 +13,7 @@ const customStyle = {
   },
   backgroundColor: 'white',
 }
+
 const SyntaxHighlighterBox = ({ rows }: SyntaxHighlighterBoxProps) => {
   return (
     <SyntaxHighlighter
@@ -25,4 +27,5 @@ const SyntaxHighlighterBox = ({ rows }: SyntaxHighlighterBoxProps) => {
     </SyntaxHighlighter>
   )
 }
+
 export default SyntaxHighlighterBox

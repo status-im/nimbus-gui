@@ -1,6 +1,7 @@
 import { Stack, XStack, YStack } from 'tamagui'
-import Icon from '../../../components/General/Icon'
 import { Text } from '@status-im/components'
+
+import Icon from '../../../components/General/Icon'
 import { selectClient } from '../../../redux/ValidatorOnboarding/ValidatorSetup/slice'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../../redux/store'
@@ -8,9 +9,9 @@ import { RootState } from '../../../redux/store'
 type ExecClientCardProps = {
   name: string
   icon: string
-
   isComingSoon?: boolean
 }
+
 const ExecClientCard = ({ name, icon, isComingSoon }: ExecClientCardProps) => {
   const dispatch = useDispatch()
   const selectedClient = useSelector((state: RootState) => state.execClient.selectedClient)
@@ -60,4 +61,5 @@ const ExecClientCard = ({ name, icon, isComingSoon }: ExecClientCardProps) => {
     </YStack>
   )
 }
+
 export default ExecClientCard

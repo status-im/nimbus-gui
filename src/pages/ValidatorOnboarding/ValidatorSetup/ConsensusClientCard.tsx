@@ -1,18 +1,19 @@
 import { Stack, YStack } from 'tamagui'
-import Icon from '../../../components/General/Icon'
 import { Text } from '@status-im/components'
 
- 
+import Icon from '../../../components/General/Icon'
+
 type ConsensusClientCardProps = {
   name: string
   icon: string
 }
+
 const ConsensusClientCard = ({ name, icon }: ConsensusClientCardProps) => {
   return (
     <YStack
       style={{
         backgroundColor: '#2A4AF50D',
-        border: '1px solid #2A4AF5', 
+        border: '1px solid #2A4AF5',
         borderRadius: '16px',
         padding: '12px 16px',
         width: '29%',
@@ -28,4 +29,5 @@ const ConsensusClientCard = ({ name, icon }: ConsensusClientCardProps) => {
     </YStack>
   )
 }
+
 export default ConsensusClientCard

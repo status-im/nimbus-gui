@@ -1,14 +1,17 @@
 import { XStack, Stack, YStack } from 'tamagui'
 import { InformationBox, Text } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
-import OsCard from './OsCard'
-import SyntaxHighlighterBox from './SyntaxHighlighter'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
+
+import OsCard from './OsCard'
+import SyntaxHighlighterBox from './SyntaxHighlighter'
 import { RootState } from '../../../redux/store'
+
 const ValidatorSetupInstall = () => {
   const [selectedOs, setSelectedOs] = useState('Mac')
   const selectedClient = useSelector((state: RootState) => state.execClient.selectedClient)
+
   return (
     <YStack style={{ width: '100%', padding: '16px 32px' }}>
       <XStack justifyContent={'space-between'} style={{ marginBottom: '10px' }}>

@@ -3,9 +3,11 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 interface ExecClientState {
   selectedClient: string
 }
+
 const initialState: ExecClientState = {
   selectedClient: '',
 }
+
 const execClientSlice = createSlice({
   name: 'execClient',
   initialState,

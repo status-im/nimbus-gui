@@ -1,10 +1,11 @@
 import { XStack, Stack, Text as TextTam, YStack } from 'tamagui'
-import PairedDeviceCard from './PairedDeviceCard'
 import { Text } from '@status-im/components'
+import { useSelector } from 'react-redux'
+
+import PairedDeviceCard from './PairedDeviceCard'
 import ConsensusGaugeCard from './ConsensusGaugeCard'
 import ConsensusClientCard from './ConsensusClientCard'
 import LinkWithArrow from '../../../components/General/LinkWithArrow'
-import { useSelector } from 'react-redux'
 import { RootState } from '../../../redux/store'
 
 const ConsensusSelection = () => {
@@ -23,12 +24,13 @@ const ConsensusSelection = () => {
     Nimbus: '/icons/NimbusDisabled.svg',
   }
 
-  const a = [
+  const clients = [
     {
       name: selectedClient,
       icon: clientIcons[selectedClient],
     },
   ]
+
   return (
     <YStack style={{ width: '100%', padding: '32px' }}>
       <XStack justifyContent={'space-between'}>
@@ -66,7 +68,7 @@ const ConsensusSelection = () => {
       </TextTam>
 
       <XStack space={'$8'}>
-        <ConsensusClientCard name={a[0].name} icon={a[0].icon} />
+        <ConsensusClientCard name={clients[0].name} icon={clients[0].icon} />
         <YStack width={'67%'} space={'$4'}>
           <Text size={27}>The resource efficient Ethereum Clients.</Text>
           <Text size={15}>

@@ -1,14 +1,15 @@
 import { Stack, YStack } from 'tamagui'
-import Icon from '../../../components/General/Icon'
 import { Text } from '@status-im/components'
 
- 
+import Icon from '../../../components/General/Icon'
+
 type OsCardProps = {
   name: string
   icon: string
   onClick?: () => void
   isSelected?: boolean
 }
+
 const OsCard = ({ name, icon, onClick, isSelected }: OsCardProps) => {
   return (
     <YStack
@@ -31,4 +32,5 @@ const OsCard = ({ name, icon, onClick, isSelected }: OsCardProps) => {
     </YStack>
   )
 }
+
 export default OsCard
