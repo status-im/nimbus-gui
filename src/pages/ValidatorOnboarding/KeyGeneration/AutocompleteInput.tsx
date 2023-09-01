@@ -37,17 +37,26 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
   }
 
   const handleSuggestionClick = (suggestion: string) => {
+    setIsFocused(false)
     dispatch(setWord({ index, word: suggestion }))
   }
 
+  const handleInputFocus = () => {
+    setIsFocused(true)
+  }
+
+  const handleInputBlur = () => {
+    setIsFocused(false)
+  }
+
   return (
-    <div>
+    <div className="autocomplete-container">
       <input
         type="text"
         value={word}
         onChange={handleInputChange}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
+        onFocus={handleInputFocus}
+        onBlur={handleInputBlur}
       />
       {isFocused && (
         <div className="suggestion-list">
@@ -55,7 +64,7 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
             <div
               key={suggestion}
               className="suggestion-item"
-              onClick={() => handleSuggestionClick(suggestion)}
+              onMouseDown={() => handleSuggestionClick(suggestion)}
             >
               {suggestion}
             </div>
