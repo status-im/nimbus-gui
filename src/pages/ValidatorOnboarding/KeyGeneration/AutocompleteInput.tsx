@@ -20,21 +20,17 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
+    const mnemonic = value.trim().split(' ')
+    const mnemonicLength = mnemonic.length
 
-    if (value.split(' ').length > 1) {
-      const mnemonic = value.trim().split(' ')
-
-      if (mnemonic.length < 24) {
-        for (let i = 0; i < 24; i++) {
-          if (!mnemonic[i]) {
-            mnemonic.push('')
-          }
-        }
-      }
-
+    if (mnemonicLength === 1) {
+      dispatch(setWord({ index, word: value }))
+    } else if (mnemonicLength === 24) {
       dispatch(setMnemonic(mnemonic))
     } else {
-      dispatch(setWord({ index, word: value }))
+      for (let i = index; i < mnemonicLength + index; i++) {
+        dispatch(setWord({ index: i, word: mnemonic.shift() || '' }))
+      }
     }
   }
 
