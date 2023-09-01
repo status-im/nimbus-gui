@@ -30,6 +30,7 @@ const DeviceSyncStatus = () => {
           justifyContent: 'end',
           alignItems: 'start',
           maxWidth: '100%',
+          marginTop: '4.4rem',
         }}
       >
         <NimbusLogo />

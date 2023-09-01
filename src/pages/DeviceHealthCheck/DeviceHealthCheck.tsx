@@ -23,6 +23,7 @@ const DeviceHealthCheck = () => {
           justifyContent: 'end',
           alignItems: 'start',
           marginBottom: '2rem',
+          marginTop: '4.4rem',
           maxWidth: '100%',
         }}
       >
