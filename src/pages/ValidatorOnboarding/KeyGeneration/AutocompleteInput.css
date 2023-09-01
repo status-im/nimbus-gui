@@ -19,6 +19,8 @@ input[type="text"],
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: white;
   padding: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: darkgrey transparent;
 }
 
 .suggestion-item {
@@ -29,4 +31,29 @@ input[type="text"],
 
 .suggestion-item:hover {
   background-color: #f1f1f1;
+}
+
+.suggestion-list::-webkit-scrollbar {
+  width: 4px; /* make it thinner */
+}
+
+.suggestion-list::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border-radius: 2px; /* round corners */
+}
+
+.suggestion-list::-webkit-scrollbar-thumb:hover {
+  background-color: grey;
+}
+
+.suggestion-list::-webkit-scrollbar-track {
+  background-color: transparent; /* make track transparent */
+}
+
+.suggestion-list::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.suggestion-list::-webkit-scrollbar-thumb:hover {
+  background-color: transparent;
 }
