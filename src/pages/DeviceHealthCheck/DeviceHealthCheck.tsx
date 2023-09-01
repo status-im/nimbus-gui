@@ -33,14 +33,14 @@ const DeviceHealthCheck = () => {
           subtitle="Configure your device to start Staking on Nimbus"
           isAdvancedSettings={true}
         />
-        <XStack space={'$4'}>
+        <XStack space={'$4'} width={'100%'}>
           <DeviceStorageHealth
             storage={deviceHealthState.storage}
             maxStorage={deviceHealthState.maxMemory}
           />
           <DeviceCPULoad load={deviceHealthState.cpuLoad} />
         </XStack>
-        <XStack space={'$4'}>
+        <XStack space={'$4'} width={'100%'}>
           <DeviceMemory
             currentMemory={deviceHealthState.memory}
             maxMemory={deviceHealthState.maxMemory}
