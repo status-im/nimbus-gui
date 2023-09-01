@@ -23,7 +23,7 @@ const keyGenerationSlice = createSlice({
       return { ...state, words: newWords }
     },
     setMnemonic: (state, action: PayloadAction<string[]>) => {
-      return { ...state, words: action.payload }
+      state.words = action.payload
     },
   },
 })
