@@ -16,7 +16,7 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    setSuggestions(wordlist.filter(w => w.startsWith(word)))
+    setSuggestions(wordlist.filter(w => w.includes(word.toLowerCase())))
   }, [word])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
