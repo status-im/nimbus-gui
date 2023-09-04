@@ -51,16 +51,17 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
 
   return (
     <div className="autocomplete-container">
-      <input
-        type="text"
-        value={word}
-        onChange={handleInputChange}
-        onFocus={handleInputFocus}
-        onBlur={handleInputBlur}
-      />
-      {isFocused && (
-        <div className="suggestion-list">
-          {suggestions.map(suggestion => (
+      <div className={isFocused ? 'suggestion-list' : ''}>
+        <input
+          type="text"
+          value={word}
+          onChange={handleInputChange}
+          onFocus={handleInputFocus}
+          onBlur={handleInputBlur}
+          style={{ marginBottom: isFocused ? '5px' : '0' }}
+        />
+        {isFocused &&
+          suggestions.map(suggestion => (
             <div
               key={suggestion}
               className="suggestion-item"
@@ -69,8 +70,7 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
               {suggestion}
             </div>
           ))}
-        </div>
-      )}
+      </div>
     </div>
   )
 }
