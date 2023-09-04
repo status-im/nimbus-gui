@@ -13,7 +13,7 @@ const ConfirmRecoveryPhrase = () => {
           display: 'grid',
           gridTemplateColumns: 'repeat(4, 1fr)',
           gap: '20px 40px',
-          width: '80%',
+          width: '70%',
           marginBottom: '20px',
         }}
       >
