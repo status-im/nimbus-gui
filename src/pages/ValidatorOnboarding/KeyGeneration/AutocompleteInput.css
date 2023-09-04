@@ -10,6 +10,22 @@
   padding: 12px;
   background-color: #f9f9f9;
   width: 100%;
+  font-size: 16px;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-number {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  line-height: 50;
+  transform: translateY(-50%);
+  pointer-events: none;  
+  z-index: 2;
+  color: #0D162566;
 }
 
 .suggestion-list {
@@ -30,6 +46,7 @@
   padding: 12px 16px;
   cursor: pointer;
   border-radius: 24px;
+  font-weight: 500;
 }
 
 .suggestion-item:hover {

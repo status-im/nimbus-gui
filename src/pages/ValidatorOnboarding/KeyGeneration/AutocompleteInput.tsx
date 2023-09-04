@@ -51,7 +51,7 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
   }
 
   const styleForInput = () => {
-    const style = { outline: 'none' }
+    const style = { outline: 'none', paddingLeft: index < 10 ? '30px' : '40px' }
 
     if (isFocused) {
       return { ...style, border: '2px solid #4360DF', marginBottom: '5px' }
@@ -63,14 +63,17 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
   return (
     <div className="autocomplete-container">
       <div className={isFocused ? 'suggestion-list' : ''}>
-        <input
-          className="autocomplete-input"
-          value={word}
-          onChange={handleInputChange}
-          onFocus={handleInputFocus}
-          onBlur={handleInputBlur}
-          style={styleForInput()}
-        />
+        <div className="input-wrapper">
+          <span className="input-number">{index + 1}.</span>
+          <input
+            className="autocomplete-input"
+            value={word}
+            onChange={handleInputChange}
+            onFocus={handleInputFocus}
+            onBlur={handleInputBlur}
+            style={styleForInput()}
+          />
+        </div>
         {isFocused &&
           suggestions.map(suggestion => (
             <div
