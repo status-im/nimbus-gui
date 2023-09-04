@@ -6,6 +6,24 @@ import { RootState } from '../../../redux/store'
 import { setMnemonic, setWord } from '../../../redux/ValidatorOnboarding/KeyGeneration/slice'
 import './AutocompleteInput.css'
 
+const styleForInput = (index: number, isFocused: boolean) => {
+  const style = {
+    outline: 'none',
+    padding: `12px 16px 12px ${index + 1 < 10 ? '35px' : '45px'}`,
+  }
+
+  if (isFocused) {
+    return {
+      ...style,
+      border: '2px solid #4360DF',
+      marginBottom: '5px',
+      backgroundColor: '#f1f2f4',
+    }
+  } else {
+    return style
+  }
+}
+
 type AutocompleteInputProps = {
   index: number
 }
@@ -42,6 +60,7 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
 
   const handleSuggestionClick = (e: React.MouseEvent, suggestion: string) => {
     e.preventDefault()
+
     setIsFocused(false)
     dispatch(setWord({ index, word: suggestion }))
   }
@@ -54,28 +73,20 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
     setIsFocused(false)
   }
 
-  const styleForInput = () => {
-    const style = { outline: 'none', paddingLeft: index < 10 ? '30px' : '40px' }
-
-    if (isFocused) {
-      return { ...style, border: '2px solid #4360DF', marginBottom: '5px' }
-    } else {
-      return style
-    }
-  }
-
   return (
     <div className="autocomplete-container">
       <div className={isFocused ? 'suggestion-list' : ''}>
         <div className="input-wrapper">
-          <span className="input-number">{index + 1}.</span>
+          <span className="input-number" style={{ top: isFocused ? '42%' : '48%' }}>
+            {index + 1}.
+          </span>
           <input
             className="autocomplete-input"
             value={word}
             onChange={handleInputChange}
             onFocus={handleInputFocus}
             onBlur={handleInputBlur}
-            style={styleForInput()}
+            style={styleForInput(index, isFocused)}
           />
         </div>
         {isFocused &&

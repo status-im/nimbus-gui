@@ -1,6 +1,7 @@
 import { Stack, YStack } from 'tamagui'
-import AutocompleteInput from './AutocompleteInput'
 import { Text } from '@status-im/components'
+
+import AutocompleteInput from './AutocompleteInput'
 import KeyGenerationTitle from './KeyGenerationTitle'
 
 const ConfirmRecoveryPhrase = () => {
@@ -14,7 +15,7 @@ const ConfirmRecoveryPhrase = () => {
           gridTemplateColumns: 'repeat(4, 1fr)',
           gap: '20px 40px',
           width: '70%',
-          marginBottom: '20px',
+          marginBottom: '10px',
         }}
       >
         {Array.from({ length: 24 }).map((_, index) => (
