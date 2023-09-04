@@ -3,9 +3,12 @@
   width: 100%;
 }
 
-input[type="text"],
-.suggestion-list {
+input[type="text"], .suggestion-list {
   box-sizing: border-box;
+  border: 1px solid #f7f8f9;
+  border-radius: 24px;
+  padding: 12px;
+  background-color: #f9f9f9;
   width: 100%;
 }
 
@@ -14,13 +17,13 @@ input[type="text"],
   z-index: 1000;
   max-height: 210px;
   overflow-y: scroll;
-  border: 1px solid #ccc;
+  border: 1px solid #f7f8f9;
   border-radius: 24px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: white;
+  background-color: #f7f8f9;
   padding: 10px;
   scrollbar-width: thin;
-  scrollbar-color: darkgrey transparent;
+  scrollbar-color: #f7f8f9 transparent;
 }
 
 .suggestion-item {
@@ -30,20 +33,16 @@ input[type="text"],
 }
 
 .suggestion-item:hover {
-  background-color: #f1f1f1;
+  background-color: #f1f2f4;
 }
 
 .suggestion-list::-webkit-scrollbar {
-  width: 4px;
+  width: 1px;
 }
 
 .suggestion-list::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
+  background-color: #f1f2f4;
   border-radius: 2px;
-}
-
-.suggestion-list::-webkit-scrollbar-thumb:hover {
-  background-color: grey;
 }
 
 .suggestion-list::-webkit-scrollbar-track {
