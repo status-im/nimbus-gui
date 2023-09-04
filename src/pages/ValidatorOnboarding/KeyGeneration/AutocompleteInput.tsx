@@ -21,6 +21,10 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
   }, [word])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!isFocused) {
+      handleInputFocus()
+    }
+
     const value = e.target.value
     const mnemonic = value.trim().split(' ')
     const mnemonicLength = mnemonic.length
