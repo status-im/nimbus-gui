@@ -12,7 +12,7 @@ input[type="text"],
 .suggestion-list {
   position: absolute;
   z-index: 1000;
-  max-height: 272px;
+  max-height: 210px;
   overflow-y: scroll;
   border: 1px solid #ccc;
   border-radius: 24px;
@@ -34,12 +34,12 @@ input[type="text"],
 }
 
 .suggestion-list::-webkit-scrollbar {
-  width: 4px; /* make it thinner */
+  width: 4px;
 }
 
 .suggestion-list::-webkit-scrollbar-thumb {
   background-color: darkgrey;
-  border-radius: 2px; /* round corners */
+  border-radius: 2px;
 }
 
 .suggestion-list::-webkit-scrollbar-thumb:hover {
@@ -47,7 +47,7 @@ input[type="text"],
 }
 
 .suggestion-list::-webkit-scrollbar-track {
-  background-color: transparent; /* make track transparent */
+  background-color: transparent;
 }
 
 .suggestion-list::-webkit-scrollbar-thumb {
