@@ -2,7 +2,7 @@ import { Stack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 
 import AutocompleteInput from './AutocompleteInput'
-import KeyGenerationTitle from './KeyGenerationTitle'
+import KeyGenerationTitle from '../KeyGenerationTitle'
 
 const ConfirmRecoveryPhrase = () => {
   return (

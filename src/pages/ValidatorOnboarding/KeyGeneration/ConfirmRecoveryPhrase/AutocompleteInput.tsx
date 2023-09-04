@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import wordlist from 'web-bip39/wordlists/english'
 
-import { RootState } from '../../../redux/store'
-import { setMnemonic, setWord } from '../../../redux/ValidatorOnboarding/KeyGeneration/slice'
+import { RootState } from '../../../../redux/store'
+import { setMnemonic, setWord } from '../../../../redux/ValidatorOnboarding/KeyGeneration/slice'
 import './AutocompleteInput.css'
 
 const styleForInput = (index: number, isFocused: boolean) => {

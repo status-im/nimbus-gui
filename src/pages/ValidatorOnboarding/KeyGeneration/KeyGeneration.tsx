@@ -7,7 +7,7 @@ import RecoveryMechanism from './RecoveryMechanism/RecoveryMechanism'
 import KeystoreFiles from './KeystoreFiles'
 import RecoveryPhrase from './RecoveryPhrase'
 import { BOTH_KEY_AND_RECOVERY, KEYSTORE_FILES, RECOVERY_PHRASE } from '../../../constants'
-import ConfirmRecoveryPhrase from './ConfirmRecoveryPhrase'
+import ConfirmRecoveryPhrase from './ConfirmRecoveryPhrase/ConfirmRecoveryPhrase'
 
 type KeyGenerationProps = {
   isConfirmPhraseStage: boolean
