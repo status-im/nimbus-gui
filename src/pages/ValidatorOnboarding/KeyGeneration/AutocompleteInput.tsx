@@ -36,7 +36,8 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
     }
   }
 
-  const handleSuggestionClick = (suggestion: string) => {
+  const handleSuggestionClick = (e: React.MouseEvent, suggestion: string) => {
+    e.preventDefault()
     setIsFocused(false)
     dispatch(setWord({ index, word: suggestion }))
   }
@@ -49,6 +50,16 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
     setIsFocused(false)
   }
 
+  const styleForInput = () => {
+    const style = { outline: 'none' }
+
+    if (isFocused) {
+      return { ...style, border: '2px solid #4360DF', marginBottom: '5px' }
+    } else {
+      return style
+    }
+  }
+
   return (
     <div className="autocomplete-container">
       <div className={isFocused ? 'suggestion-list' : ''}>
@@ -58,13 +69,14 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
           onChange={handleInputChange}
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
+          style={styleForInput()}
         />
         {isFocused &&
           suggestions.map(suggestion => (
             <div
               key={suggestion}
               className="suggestion-item"
-              onMouseDown={() => handleSuggestionClick(suggestion)}
+              onMouseDown={e => handleSuggestionClick(e, suggestion)}
             >
               {suggestion}
             </div>

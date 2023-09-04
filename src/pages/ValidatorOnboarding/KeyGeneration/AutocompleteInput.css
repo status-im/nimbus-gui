@@ -12,16 +12,10 @@
   width: 100%;
 }
 
-.autocomplete-input:focus {
-  outline: none;
-  border: 2px solid #4360DF;
-  margin-bottom: 5px;
-}
-
 .suggestion-list {
   position: absolute;
   z-index: 1000;
-  max-height: 210px;
+  max-height: 260px;
   overflow-y: scroll;
   border: 1px solid #f7f8f9;
   border-radius: 24px;
