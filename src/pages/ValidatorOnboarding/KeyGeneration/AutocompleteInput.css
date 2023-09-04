@@ -12,6 +12,11 @@ input[type="text"], .suggestion-list {
   width: 100%;
 }
 
+input[type="text"]:focus {
+  outline: none;
+  border: 2px solid #4360DF;
+}
+
 .suggestion-list {
   position: absolute;
   z-index: 1000;
