@@ -53,12 +53,11 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
     <div className="autocomplete-container">
       <div className={isFocused ? 'suggestion-list' : ''}>
         <input
-          type="text"
+          className="autocomplete-input"
           value={word}
           onChange={handleInputChange}
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
-          style={{ marginBottom: isFocused ? '5px' : '0' }}
         />
         {isFocused &&
           suggestions.map(suggestion => (

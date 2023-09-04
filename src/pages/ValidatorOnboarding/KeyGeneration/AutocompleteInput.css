@@ -3,7 +3,7 @@
   width: 100%;
 }
 
-input[type="text"], .suggestion-list {
+.autocomplete-input, .suggestion-list {
   box-sizing: border-box;
   border: 1px solid #f7f8f9;
   border-radius: 24px;
@@ -12,9 +12,10 @@ input[type="text"], .suggestion-list {
   width: 100%;
 }
 
-input[type="text"]:focus {
+.autocomplete-input:focus {
   outline: none;
   border: 2px solid #4360DF;
+  margin-bottom: 5px;
 }
 
 .suggestion-list {
