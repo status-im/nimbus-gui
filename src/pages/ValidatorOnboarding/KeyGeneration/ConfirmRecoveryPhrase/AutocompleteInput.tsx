@@ -4,7 +4,7 @@ import wordlist from 'web-bip39/wordlists/english'
 
 import { RootState } from '../../../../redux/store'
 import { setMnemonic, setWord } from '../../../../redux/ValidatorOnboarding/KeyGeneration/slice'
-import './AutocompleteInput.css'
+import styles from './AutocompleteInput.module.css'
 
 const styleForInput = (index: number, isFocused: boolean) => {
   const style = {
@@ -74,14 +74,14 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
   }
 
   return (
-    <div className="autocomplete-container">
-      <div className={isFocused ? 'suggestion-list' : ''}>
-        <div className="input-wrapper">
-          <span className="input-number" style={{ top: isFocused ? '42%' : '48%' }}>
+    <div className={styles['autocomplete-container']}>
+      <div className={isFocused ? styles['suggestion-list'] : ''}>
+        <div className={styles['input-wrapper']}>
+          <span className={styles['input-number']} style={{ top: isFocused ? '42%' : '48%' }}>
             {index + 1}.
           </span>
           <input
-            className="autocomplete-input"
+            className={styles['autocomplete-input']}
             value={word}
             onChange={handleInputChange}
             onFocus={handleInputFocus}
@@ -93,7 +93,7 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
           suggestions.map(suggestion => (
             <div
               key={suggestion}
-              className="suggestion-item"
+              className={styles['suggestion-item']}
               onMouseDown={e => handleSuggestionClick(e, suggestion)}
             >
               {suggestion}
