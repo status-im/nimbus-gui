@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { XStack, YStack } from 'tamagui'
 import { ClearIcon } from '@status-im/icons'
 import { Avatar, Text } from '@status-im/components'
-
-const PairedDeviceCard = (isVisibleState: boolean) => {
+type PairedDeviceCardProps = {
+  isVisibleState: boolean
+}
+const PairedDeviceCard = (isVisibleState: PairedDeviceCardProps) => {
   const [isVisible, setIsVisible] = useState(isVisibleState)
 
   if (!isVisible) return null
@@ -29,12 +31,7 @@ const PairedDeviceCard = (isVisibleState: boolean) => {
           </Text>
         </YStack>
       </XStack>
-      <ClearIcon
-        size={20}
-        color="#A1ABBD"
-        cursor={'pointer'}
-        onClick={() => setIsVisible(false)} 
-      />
+      <ClearIcon size={20} color="#A1ABBD" cursor={'pointer'} onClick={() => setIsVisible(false)} />
     </XStack>
   )
 }
