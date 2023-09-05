@@ -1,12 +1,17 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { XStack, YStack } from 'tamagui'
 import { ClearIcon } from '@status-im/icons'
 import { Avatar, Text } from '@status-im/components'
+
 type PairedDeviceCardProps = {
   isVisibleState: boolean
 }
 const PairedDeviceCard = (isVisibleState: PairedDeviceCardProps) => {
-  const [isVisible, setIsVisible] = useState(isVisibleState)
+  const [isVisible, setIsVisible] = useState(true)
+
+  useEffect(() => {
+    setIsVisible(isVisibleState.isVisibleState)
+  }, [isVisibleState])
 
   if (!isVisible) return null
 
