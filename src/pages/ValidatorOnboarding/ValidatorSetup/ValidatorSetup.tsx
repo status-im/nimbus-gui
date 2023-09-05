@@ -1,9 +1,9 @@
 import { XStack, Stack, Text as TextTam, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
-import { Link } from 'react-router-dom'
 
 import PairedDeviceCard from './PairedDeviceCard'
 import ExecClientCard from './ExecClientCard'
+import LinkWithArrow from '../../../components/General/LinkWithArrow'
 
 const ValidatorSetup = () => {
   return (
@@ -40,12 +40,11 @@ const ValidatorSetup = () => {
         <ExecClientCard name={'Erigon'} icon={'/icons/erigon-circle.png'} />
         <ExecClientCard name={'Nimbus'} icon={'/icons/NimbusDisabled.svg'} isComingSoon={true} />
       </XStack>
-      <Stack marginTop={'10%'}>
-        <Text size={15} weight={'semibold'} color="#2A4CF4">
-          <Link to={'https://launchpad.ethereum.org/en/faq'}></Link>
-          View Execution client comparison chart
-        </Text>
-      </Stack>
+      <LinkWithArrow
+        to="/"
+        text="View Execution client comparison chart"
+        style={{ marginTop: '6%' }}
+      />
     </YStack>
   )
 }
