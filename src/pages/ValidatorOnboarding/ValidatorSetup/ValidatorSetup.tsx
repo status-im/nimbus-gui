@@ -17,7 +17,7 @@ const ValidatorSetup = () => {
 
       <YStack>
         <Stack style={{ marginBottom: '4px' }}>
-          <Text size={13} color="#647084">
+          <Text size={13} color="#647084" weight={'semibold'}>
             Execution Client Detection
           </Text>
         </Stack>

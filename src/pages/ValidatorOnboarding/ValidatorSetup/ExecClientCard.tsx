@@ -1,9 +1,9 @@
 import { Stack, XStack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
+import { useDispatch, useSelector } from 'react-redux'
 
 import Icon from '../../../components/General/Icon'
 import { selectClient } from '../../../redux/ValidatorOnboarding/ValidatorSetup/slice'
-import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../../redux/store'
 
 type ExecClientCardProps = {
@@ -20,7 +20,7 @@ const ExecClientCard = ({ name, icon, isComingSoon }: ExecClientCardProps) => {
   return (
     <YStack
       style={{
-        backgroundColor: isComingSoon ? '#F5F5F5' : isSelected ? '#2A4AF50D' : 'none',
+        backgroundColor: isSelected ? '#2A4AF50D' : 'none',
         border: isComingSoon
           ? '1px solid #F5F6F8'
           : isSelected
