@@ -44,7 +44,7 @@ const ConsensusSelection = () => {
             title="Execution Sync Status"
             total={150000}
           />
-          <PairedDeviceCard />
+          <PairedDeviceCard isVisibleState={true} />
         </XStack>
       </XStack>
 
