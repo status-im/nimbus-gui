@@ -6,7 +6,7 @@ import { RootState } from '../../../../redux/store'
 import { setMnemonic, setWord } from '../../../../redux/ValidatorOnboarding/KeyGeneration/slice'
 import styles from './AutocompleteInput.module.css'
 
-const styleForInput = (index: number, isFocused: boolean) => {
+const inputStyle = (index: number, isFocused: boolean) => {
   const style = {
     outline: 'none',
     padding: `12px 16px 12px ${index + 1 < 10 ? '35px' : '45px'}`,
@@ -16,11 +16,23 @@ const styleForInput = (index: number, isFocused: boolean) => {
     return {
       ...style,
       border: '2px solid #4360DF',
-      marginBottom: '5px',
       backgroundColor: '#f1f2f4',
     }
   } else {
     return style
+  }
+}
+
+const autocompleteContainerStyle = (isFocused: boolean) => {
+  if (isFocused) {
+    return {
+      borderTopLeftRadius: '24px',
+      borderTopRightRadius: '24px',
+    }
+  } else {
+    return {
+      borderRadius: '24px',
+    }
   }
 }
 
@@ -74,21 +86,19 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
   }
 
   return (
-    <div className={styles['autocomplete-container']}>
+    <div style={autocompleteContainerStyle(isFocused)} className={styles['autocomplete-container']}>
+      <div className={styles['input-wrapper']}>
+        <span className={styles['input-number']}>{index + 1}.</span>
+        <input
+          className={styles['autocomplete-input']}
+          value={word}
+          onChange={handleInputChange}
+          onFocus={handleInputFocus}
+          onBlur={handleInputBlur}
+          style={inputStyle(index, isFocused)}
+        />
+      </div>
       <div className={isFocused ? styles['suggestion-list'] : ''}>
-        <div className={styles['input-wrapper']}>
-          <span className={styles['input-number']} style={{ top: isFocused ? '42%' : '48%' }}>
-            {index + 1}.
-          </span>
-          <input
-            className={styles['autocomplete-input']}
-            value={word}
-            onChange={handleInputChange}
-            onFocus={handleInputFocus}
-            onBlur={handleInputBlur}
-            style={styleForInput(index, isFocused)}
-          />
-        </div>
         {isFocused &&
           suggestions.map(suggestion => (
             <div

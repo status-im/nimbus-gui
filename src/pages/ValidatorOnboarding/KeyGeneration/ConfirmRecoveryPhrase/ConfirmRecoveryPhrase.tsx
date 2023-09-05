@@ -14,7 +14,7 @@ const ConfirmRecoveryPhrase = () => {
           display: 'grid',
           gridTemplateColumns: 'repeat(4, 1fr)',
           gap: '20px 40px',
-          width: '70%',
+          width: '72%',
           marginBottom: '10px',
         }}
       >
