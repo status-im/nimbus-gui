@@ -2,27 +2,23 @@ import React from 'react'
 import type { Preview } from '@storybook/react'
 import { TamaguiProvider } from '@tamagui/web'
 import { Provider as StatusProvider } from '@status-im/components'
-import '../src/index.css'
-import appConfig from '../tamagui.config'
 import { Provider as ReduxProvider } from 'react-redux'
+
+import appConfig from '../tamagui.config'
 import store from '../src/redux/store'
+import '../src/index.css'
 
 const preview: Preview = {
-  parameters: {
-    // layout: 'centered',
-  },
   decorators: [
-    Story => {
-      return (
-        <TamaguiProvider config={appConfig}>
-          <StatusProvider>
-            <ReduxProvider store={store}>
-              <Story />
-            </ReduxProvider>
-          </StatusProvider>
-        </TamaguiProvider>
-      )
-    },
+    Story => (
+      <TamaguiProvider config={appConfig}>
+        <StatusProvider>
+          <ReduxProvider store={store}>
+            <Story />
+          </ReduxProvider>
+        </StatusProvider>
+      </TamaguiProvider>
+    ),
   ],
 }
 
