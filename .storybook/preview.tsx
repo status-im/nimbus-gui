@@ -4,6 +4,8 @@ import { TamaguiProvider } from '@tamagui/web'
 import { Provider as StatusProvider } from '@status-im/components'
 import '../src/index.css'
 import appConfig from '../tamagui.config'
+import { Provider as ReduxProvider } from 'react-redux'
+import store from '../src/redux/store'
 
 const preview: Preview = {
   parameters: {
@@ -14,7 +16,9 @@ const preview: Preview = {
       return (
         <TamaguiProvider config={appConfig}>
           <StatusProvider>
-            <Story />
+            <ReduxProvider store={store}>
+              <Story />
+            </ReduxProvider>
           </StatusProvider>
         </TamaguiProvider>
       )
