@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Provider as ReduxProvider } from 'react-redux'
-import store from '../../redux/store'
-
+ 
 import DeviceSyncStatus from './DeviceSyncStatus'
 
 const meta = {
@@ -13,11 +11,9 @@ const meta = {
   tags: ['autodocs'],
   decorators: [
     Story => (
-      <ReduxProvider store={store}>
-        <div style={{ height: '100%', width: '100%' }}>
-          <Story />
-        </div>
-      </ReduxProvider>
+      <div style={{ height: '100%', width: '100%' }}>
+        <Story />
+      </div>
     ),
   ],
 } satisfies Meta<typeof DeviceSyncStatus>
