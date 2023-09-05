@@ -10,7 +10,7 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  decorators: [withRouter()],
+  decorators: [withRouter],
 } satisfies Meta<typeof Activation>
 
 export default meta

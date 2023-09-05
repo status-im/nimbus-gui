@@ -1,19 +1,20 @@
 import { Stack, YStack } from 'tamagui'
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { Button } from '@status-im/components'
+
 import FormStepper from './FormStepper/FormStepper'
 import Titles from '../../components/General/Titles'
-import { useState } from 'react'
 import Overview from './Overview/Overview'
 import KeyGeneration from './KeyGeneration/KeyGeneration'
 import Activation from './Activation/Activation'
-import './layoutGradient.css'
 import ValidatorBoxWrapper from './ValidatorBoxWrapper/ValidatorBoxWrapper'
-import { Button } from '@status-im/components'
-import { useNavigate } from 'react-router-dom'
 import ClientSetup from './ClientSetup/ClientSetup'
 import ConsensusSelection from './ValidatorSetup/ConsensusSelection'
 import Advisories from './Advisories/Advisories'
 import ValidatorSetup from './ValidatorSetup/ValidatorSetup'
 import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstall'
+import './layoutGradient.css'
 
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)
@@ -66,7 +67,7 @@ const ValidatorOnboarding = () => {
           {activeStep === 3 && subStepValidatorSetup === 0 && <ValidatorSetup />}
           {activeStep === 3 && subStepValidatorSetup === 1 && <ValidatorSetupInstall />}
           {activeStep === 3 && subStepValidatorSetup === 2 && <ConsensusSelection />}
-          
+
           {activeStep === 4 && <KeyGeneration isConfirmPhraseStage={isConfirmPhraseStage} />}
           {activeStep === 5 && <Activation />}
         </ValidatorBoxWrapper>

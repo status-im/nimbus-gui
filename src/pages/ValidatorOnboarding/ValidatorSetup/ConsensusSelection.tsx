@@ -8,6 +8,14 @@ import ConsensusClientCard from './ConsensusClientCard'
 import LinkWithArrow from '../../../components/General/LinkWithArrow'
 import { RootState } from '../../../redux/store'
 
+const clientIcons = {
+  Nethermind: '/icons/nethermind-circle.png',
+  Besu: '/icons/hyperledger-besu-circle.png',
+  Geth: '/icons/gethereum-mascot-circle.png',
+  Erigon: '/icons/erigon-circle.png',
+  Nimbus: '/icons/NimbusDisabled.svg',
+}
+
 const ConsensusSelection = () => {
   const selectedClient = useSelector((state: RootState) => state.execClient.selectedClient) as
     | 'Nethermind'
@@ -15,14 +23,6 @@ const ConsensusSelection = () => {
     | 'Geth'
     | 'Erigon'
     | 'Nimbus'
-
-  const clientIcons = {
-    Nethermind: '/icons/nethermind-circle.png',
-    Besu: '/icons/hyperledger-besu-circle.png',
-    Geth: '/icons/gethereum-mascot-circle.png',
-    Erigon: '/icons/erigon-circle.png',
-    Nimbus: '/icons/NimbusDisabled.svg',
-  }
 
   const clients = [
     {

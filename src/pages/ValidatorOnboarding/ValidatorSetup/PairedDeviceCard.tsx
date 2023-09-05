@@ -15,7 +15,6 @@ const PairedDeviceCard = () => {
     >
       <XStack space={'$3'} alignItems={'center'}>
         <Avatar backgroundColor="pink" size={32} type="user" name="RP" />
-
         <YStack>
           <Text size={13} color="#647084">
             Paired Device
