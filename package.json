@@ -23,6 +23,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "@status-im/colors": "*",
     "@status-im/components": "^0.3.0",
+    "@storybook/addon-actions": "^7.4.0",
     "@tamagui/config": "1.36.4",
     "@tamagui/react-17-patch": "1.36.4",
     "@tamagui/vite-plugin": "1.36.4",
