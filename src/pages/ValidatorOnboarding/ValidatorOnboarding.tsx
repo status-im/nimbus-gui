@@ -1,7 +1,6 @@
-import { Stack, XStack, YStack } from 'tamagui'
+import { YStack } from 'tamagui'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import { Button, InformationBox } from '@status-im/components'
 
 import FormStepper from './FormStepper/FormStepper'
 import Titles from '../../components/General/Titles'
@@ -14,14 +13,13 @@ import ConsensusSelection from './ValidatorSetup/ConsensusSelection'
 import Advisories from './Advisories/Advisories'
 import ValidatorSetup from './ValidatorSetup/ValidatorSetup'
 import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstall'
+import ContinueButton from './ContinueButton'
 import './layoutGradient.css'
-import { CloseCircleIcon } from '@status-im/icons'
 
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)
   const [isConfirmPhraseStage, setIsConfirmPhraseStage] = useState(false)
   const [subStepValidatorSetup, setSubStepValidatorSetup] = useState(0)
-
   const navigate = useNavigate()
 
   const changeActiveStep = (step: number) => {
@@ -72,20 +70,7 @@ const ValidatorOnboarding = () => {
           {activeStep === 4 && <KeyGeneration isConfirmPhraseStage={isConfirmPhraseStage} />}
           {activeStep === 5 && <Activation />}
         </ValidatorBoxWrapper>
-        <XStack style={{ width: '100%', marginTop: '16px', zIndex: 999, alignItems: 'center' }}>
-          <Stack style={{ width: '100%' }}>
-            <InformationBox
-              message="You have copy and pasted the entire Recovery Phrase. Please ensure you have secured it appropriately prior to continuing."
-              variant="error"
-              icon={<CloseCircleIcon size={20} />}
-            />
-          </Stack>
-          <Stack style={{ width: '100%', alignItems: 'end', zIndex: 999, position: 'absolute' }}>
-            <Button onPress={continueHandler} size={40}>
-              {activeStep < 5 ? 'Continue' : 'Continue to Dashboard'}
-            </Button>
-          </Stack>
-        </XStack>
+        <ContinueButton activeStep={activeStep} continueHandler={continueHandler} />
       </YStack>
     </div>
   )
