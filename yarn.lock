@@ -4479,7 +4479,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-actions@npm:7.4.0":
+"@storybook/addon-actions@npm:7.4.0, @storybook/addon-actions@npm:^7.4.0":
   version: 7.4.0
   resolution: "@storybook/addon-actions@npm:7.4.0"
   dependencies:
@@ -15064,6 +15064,7 @@ __metadata:
     "@reduxjs/toolkit": ^1.9.5
     "@status-im/colors": "*"
     "@status-im/components": ^0.3.0
+    "@storybook/addon-actions": ^7.4.0
     "@storybook/addon-essentials": ^7.2.0
     "@storybook/addon-interactions": ^7.2.0
     "@storybook/addon-links": ^7.2.0
