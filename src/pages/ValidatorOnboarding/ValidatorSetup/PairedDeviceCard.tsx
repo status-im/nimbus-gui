@@ -6,6 +6,7 @@ import { Avatar, Text } from '@status-im/components'
 type PairedDeviceCardProps = {
   isVisibleState: boolean
 }
+
 const PairedDeviceCard = ({ isVisibleState }: PairedDeviceCardProps) => {
   const [isVisible, setIsVisible] = useState(true)
 

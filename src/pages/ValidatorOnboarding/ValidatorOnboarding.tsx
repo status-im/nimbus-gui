@@ -1,7 +1,6 @@
-import { Stack, YStack } from 'tamagui'
+import { YStack } from 'tamagui'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import { Button } from '@status-im/components'
 
 import FormStepper from './FormStepper/FormStepper'
 import Titles from '../../components/General/Titles'
@@ -14,13 +13,13 @@ import ConsensusSelection from './ValidatorSetup/ConsensusSelection'
 import Advisories from './Advisories/Advisories'
 import ValidatorSetup from './ValidatorSetup/ValidatorSetup'
 import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstall'
+import ContinueButton from './ContinueButton'
 import './layoutGradient.css'
 
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)
   const [isConfirmPhraseStage, setIsConfirmPhraseStage] = useState(false)
   const [subStepValidatorSetup, setSubStepValidatorSetup] = useState(0)
-
   const navigate = useNavigate()
 
   const changeActiveStep = (step: number) => {
@@ -71,11 +70,7 @@ const ValidatorOnboarding = () => {
           {activeStep === 4 && <KeyGeneration isConfirmPhraseStage={isConfirmPhraseStage} />}
           {activeStep === 5 && <Activation />}
         </ValidatorBoxWrapper>
-        <Stack style={{ alignItems: 'end', width: '100%', marginTop: '16px', zIndex: 999 }}>
-          <Button onPress={continueHandler}>
-            {activeStep < 5 ? 'Continue' : 'Continue to Dashboard'}
-          </Button>
-        </Stack>
+        <ContinueButton activeStep={activeStep} continueHandler={continueHandler} />
       </YStack>
     </div>
   )

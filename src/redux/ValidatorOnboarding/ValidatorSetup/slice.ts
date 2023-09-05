@@ -5,7 +5,7 @@ interface ExecClientState {
 }
 
 const initialState: ExecClientState = {
-  selectedClient: '',
+  selectedClient: 'Erigon',
 }
 
 const execClientSlice = createSlice({
