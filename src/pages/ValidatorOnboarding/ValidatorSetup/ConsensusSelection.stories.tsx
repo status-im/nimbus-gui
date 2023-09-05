@@ -1,10 +1,12 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import ConsensusSelection from './ConsensusSelection'
 import { withRouter } from 'storybook-addon-react-router-v6'
-import { selectClient } from '../../../redux/ValidatorOnboarding/ValidatorSetup/slice'
 
-export default {
+import { selectClient } from '../../../redux/ValidatorOnboarding/ValidatorSetup/slice'
+import ConsensusSelection from './ConsensusSelection'
+import { StoryObj } from '@storybook/react'
+
+const meta = {
   title: 'ValidatorOnboarding/ConsensusSelection',
   component: ConsensusSelection,
   parameters: {
@@ -13,15 +15,15 @@ export default {
   tags: ['autodocs'],
   decorators: [withRouter()],
 }
+export default meta
+type Story = StoryObj<typeof meta>
 
-type ConsensusSelectionProps = React.ComponentPropsWithoutRef<typeof ConsensusSelection>
-
-export const Default: React.FC<ConsensusSelectionProps> = args => {
+export const Default: Story = (args: any ) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(selectClient('Erigon'))
-  }, [dispatch])
+  }, [])
 
   return <ConsensusSelection {...args} />
 }
