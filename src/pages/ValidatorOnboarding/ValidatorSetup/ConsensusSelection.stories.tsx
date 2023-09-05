@@ -1,24 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { action } from '@storybook/addon-actions';
-
-// This is just a mock action for demonstration.
-const myMockAction = () => ({ type: 'MY_ACTION_TYPE', payload: {} });
-
-export const Default: Story = (args) => {
-  const dispatch = useDispatch();
-
-  // Dispatch an action when the component mounts, for example.
-  useEffect(() => {
-    dispatch(myMockAction());
-  }, [dispatch]);
-
-  return <ConsensusSelection {...args} />;
-};
-
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import ConsensusSelection from './ConsensusSelection'
 import { withRouter } from 'storybook-addon-react-router-v6'
+import { selectClient } from '../../../redux/ValidatorOnboarding/ValidatorSetup/slice'
 
-const meta = {
+export default {
   title: 'ValidatorOnboarding/ConsensusSelection',
   component: ConsensusSelection,
   parameters: {
@@ -26,13 +12,16 @@ const meta = {
   },
   tags: ['autodocs'],
   decorators: [withRouter()],
-} satisfies Meta<typeof ConsensusSelection>
+}
 
-export default meta
-type Story = StoryObj<typeof meta>
+type ConsensusSelectionProps = React.ComponentPropsWithoutRef<typeof ConsensusSelection>
 
-export const Default: Story = {
-  args: {
-    
-  },
+export const Default: React.FC<ConsensusSelectionProps> = args => {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(selectClient('Erigon'))
+  }, [dispatch])
+
+  return <ConsensusSelection {...args} />
 }
