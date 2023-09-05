@@ -3,38 +3,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import wordlist from 'web-bip39/wordlists/english'
 
 import { RootState } from '../../../../redux/store'
-import { setMnemonic, setWord } from '../../../../redux/ValidatorOnboarding/KeyGeneration/slice'
+import {
+  setIsCopyPastedPhrase,
+  setMnemonic,
+  setWord,
+} from '../../../../redux/ValidatorOnboarding/KeyGeneration/slice'
 import styles from './AutocompleteInput.module.css'
-
-const inputStyle = (index: number, isFocused: boolean) => {
-  const style = {
-    outline: 'none',
-    padding: `12px 16px 12px ${index + 1 < 10 ? '35px' : '45px'}`,
-  }
-
-  if (isFocused) {
-    return {
-      ...style,
-      border: '2px solid #4360DF',
-      backgroundColor: '#f1f2f4',
-    }
-  } else {
-    return style
-  }
-}
-
-const autocompleteContainerStyle = (isFocused: boolean) => {
-  if (isFocused) {
-    return {
-      borderTopLeftRadius: '24px',
-      borderTopRightRadius: '24px',
-    }
-  } else {
-    return {
-      borderRadius: '24px',
-    }
-  }
-}
 
 type AutocompleteInputProps = {
   index: number
@@ -63,10 +37,12 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
       dispatch(setWord({ index, word: value }))
     } else if (mnemonicLength === 24) {
       dispatch(setMnemonic(mnemonic))
+      dispatch(setIsCopyPastedPhrase(true))
     } else {
       for (let i = index; i < mnemonicLength + index; i++) {
         dispatch(setWord({ index: i, word: mnemonic.shift() || '' }))
       }
+      dispatch(setIsCopyPastedPhrase(true))
     }
   }
 
@@ -115,3 +91,33 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
 }
 
 export default AutocompleteInput
+
+const inputStyle = (index: number, isFocused: boolean) => {
+  const style = {
+    outline: 'none',
+    padding: `12px 16px 12px ${index + 1 < 10 ? '35px' : '45px'}`,
+  }
+
+  if (isFocused) {
+    return {
+      ...style,
+      border: '2px solid #4360DF',
+      backgroundColor: '#f1f2f4',
+    }
+  } else {
+    return style
+  }
+}
+
+const autocompleteContainerStyle = (isFocused: boolean) => {
+  if (isFocused) {
+    return {
+      borderTopLeftRadius: '24px',
+      borderTopRightRadius: '24px',
+    }
+  } else {
+    return {
+      borderRadius: '24px',
+    }
+  }
+}

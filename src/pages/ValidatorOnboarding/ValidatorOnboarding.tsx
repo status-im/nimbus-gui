@@ -1,6 +1,7 @@
 import { YStack } from 'tamagui'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import FormStepper from './FormStepper/FormStepper'
 import Titles from '../../components/General/Titles'
@@ -14,16 +15,23 @@ import Advisories from './Advisories/Advisories'
 import ValidatorSetup from './ValidatorSetup/ValidatorSetup'
 import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstall'
 import ContinueButton from './ContinueButton'
+import { setIsCopyPastedPhrase } from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
+import { RootState } from '../../redux/store'
 import './layoutGradient.css'
 
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)
   const [isConfirmPhraseStage, setIsConfirmPhraseStage] = useState(false)
   const [subStepValidatorSetup, setSubStepValidatorSetup] = useState(0)
+  const isCopyPastedPhrase = useSelector(
+    (state: RootState) => state.keyGeneration.isCopyPastedPhrase,
+  )
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const changeActiveStep = (step: number) => {
     setActiveStep(step)
+    removeCopyPastePhraseInfoBox()
   }
 
   const continueHandler = () => {
@@ -38,6 +46,13 @@ const ValidatorOnboarding = () => {
       }
     } else {
       navigate('/')
+    }
+    removeCopyPastePhraseInfoBox()
+  }
+
+  const removeCopyPastePhraseInfoBox = () => {
+    if (isCopyPastedPhrase) {
+      dispatch(setIsCopyPastedPhrase(false))
     }
   }
 
