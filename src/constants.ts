@@ -9,3 +9,9 @@ export const BAD_STORAGE_TEXT =
 export const BAD_CPU_CLOCK_RATE_TEXT = 'Your CPU clock rate is below the recommended 2.4GHz.'
 export const BAD_RAM_MEMORY_TEXT = 'There is insufficient RAM required for selected services.'
 export const BAD_NETWORK_TEXT = 'Network Latency is high.'
+
+/* Validator Onboarding */
+
+export const KEYSTORE_FILES = 'KeystoreFiles'
+export const RECOVERY_PHRASE = 'Recovery Phrase'
+export const BOTH_KEY_AND_RECOVERY = 'Both KeystoreFiles & Recovery Phrase'

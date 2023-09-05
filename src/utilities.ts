@@ -14,11 +14,15 @@
  * }
  */
 export function assertUnreachable(value: never): never {
-    throw new Error(`Unreachable case: ${value}`);
+  throw new Error(`Unreachable case: ${value}`)
 }
 
 export const convertSecondsToTimerFormat = (seconds: number) => {
-    const minutes = Math.floor(seconds / 60)
-    const remainingSeconds = seconds % 60
-    return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`
-  }
+  const minutes = Math.floor(seconds / 60)
+  const remainingSeconds = seconds % 60
+  return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`
+}
+
+export const formatNumberForGauge = (n: number): string => {
+  return n.toString().replace(/\./g, ',')
+}

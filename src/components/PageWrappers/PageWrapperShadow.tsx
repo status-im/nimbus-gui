@@ -28,6 +28,7 @@ const PageWrapperShadow = ({
           <div className="container-inner">{children}</div>
         </div>
       </section>
+      
       <section className="layout-right">
         <div className="image-container">
           <img

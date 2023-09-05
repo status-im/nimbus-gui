@@ -1,0 +1,79 @@
+.autocomplete-container {
+  position: relative;
+  width: 100%;
+  background-color: #f9fafa;
+  border: 2px solid #f9fafa;
+}
+
+.suggestion-list {
+  box-sizing: border-box;
+  overflow-y: scroll;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f9fafa;
+  padding: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #f9fafa transparent;
+  border: '2px solid #f9fafa';
+  max-height: 250px;
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+.autocomplete-input {
+  box-sizing: border-box;
+  border: 2px solid #f7f8f9;
+  border-radius: 24px;
+  padding: 12px;
+  background-color: #f7f8f9;
+  width: 100%;
+  font-size: 16px;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-number {
+  position: absolute;
+  left: 15px;
+  transform: translateY(-50%);
+  pointer-events: none;  
+  z-index: 2;
+  color: #0D162566;
+  top: 48%;
+}
+
+.suggestion-item {
+  padding: 12px 16px;
+  cursor: pointer;
+  border-radius: 24px;
+  font-weight: 500;
+}
+
+.suggestion-item:hover {
+  background-color: #f1f2f4;
+}
+
+.suggestion-list::-webkit-scrollbar {
+  width: 1px;
+}
+
+.suggestion-list::-webkit-scrollbar-thumb {
+  background-color: #f1f2f4;
+  border-radius: 2px;
+}
+
+.suggestion-list::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.suggestion-list::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.suggestion-list::-webkit-scrollbar-thumb:hover {
+  background-color: transparent;
+}
