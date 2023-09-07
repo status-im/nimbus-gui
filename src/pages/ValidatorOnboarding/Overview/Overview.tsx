@@ -28,7 +28,7 @@ const Overview = () => {
           text="Learn More"
           to={'/'}
           arrowRight={true}
-          style={{ marginBottom: '1%' }}
+          style={{ marginBottom: '1%', fontSize: '13px' }}
         />
         <XStack space={'$3'}>
           <OverviewCard text={'Current APR'} value={'4.40%'} />

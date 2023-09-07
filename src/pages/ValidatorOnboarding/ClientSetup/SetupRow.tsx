@@ -9,7 +9,7 @@ type SetupRowProps = {
 const SetupRow = ({ title }: SetupRowProps) => {
   return (
     <YStack space={'$4'}>
-      <Text size={27} weight={'semibold'}>
+      <Text size={19} weight={'semibold'}>
         {title}
       </Text>
       <XStack justifyContent={'space-between'} width={'80%'}>
@@ -20,7 +20,7 @@ const SetupRow = ({ title }: SetupRowProps) => {
           <StatusInput icon={<AddIcon size={16} />} />
         </Stack>
         <YStack space={'$2'}>
-          <Text size={19} weight={'semibold'} color="#09101C">
+          <Text size={15} weight={'semibold'} color="#09101C">
             ETH
           </Text>
           <Text size={27} weight={'semibold'} color="#09101C">
@@ -29,7 +29,7 @@ const SetupRow = ({ title }: SetupRowProps) => {
         </YStack>
         <YStack space={'$2'}>
           <XStack style={{ justifyContent: 'space-between' }}>
-            <Text size={19} weight={'semibold'} color="#09101C">
+            <Text size={15} weight={'semibold'} color="#09101C">
               USD
             </Text>
             <ChevronDownIcon size={16} color={'#919191'} />

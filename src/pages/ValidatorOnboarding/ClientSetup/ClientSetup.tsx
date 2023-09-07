@@ -14,7 +14,7 @@ const ClientSetup = () => {
         text="Advanced Recovery Method"
         to={'/'}
         arrowRight={true}
-        style={{ marginBottom: '50px' }}
+        style={{ marginBottom: '50px', fontWeight: 'bold', fontSize: '15px' }}
       />
     </YStack>
   )
