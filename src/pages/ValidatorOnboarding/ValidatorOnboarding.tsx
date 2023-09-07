@@ -87,7 +87,11 @@ const ValidatorOnboarding = () => {
           {activeStep === 4 && <KeyGeneration isConfirmPhraseStage={isConfirmPhraseStage} />}
           {activeStep === 5 && <Activation />}
         </ValidatorBoxWrapper>
-        <ContinueButton activeStep={activeStep} continueHandler={continueHandler} />
+        <ContinueButton
+          activeStep={activeStep}
+          continueHandler={continueHandler}
+          isConfirmPhraseStage={isConfirmPhraseStage}
+        />
       </YStack>
     </div>
   )

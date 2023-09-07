@@ -8,12 +8,20 @@ import { RootState } from '../../redux/store'
 type ContinueButton = {
   continueHandler: () => void
   activeStep: number
+  isConfirmPhraseStage: boolean
 }
 
-const ContinueButton = ({ continueHandler, activeStep }: ContinueButton) => {
-  const isCopyPastedPhrase = useSelector(
-    (state: RootState) => state.keyGeneration.isCopyPastedPhrase,
+const ContinueButton = ({ continueHandler, activeStep, isConfirmPhraseStage }: ContinueButton) => {
+  const { isCopyPastedPhrase, isRightPhrase } = useSelector(
+    (state: RootState) => state.keyGeneration,
   )
+
+  const isDisabled = () => {
+    if (isConfirmPhraseStage && !isRightPhrase) {
+      return true
+    }
+    return false
+  }
 
   return (
     <XStack style={{ width: '100%', marginTop: '16px', zIndex: 999, alignItems: 'center' }}>
@@ -35,7 +43,7 @@ const ContinueButton = ({ continueHandler, activeStep }: ContinueButton) => {
           marginTop: isCopyPastedPhrase ? '0px' : '40px',
         }}
       >
-        <Button onPress={continueHandler} size={40}>
+        <Button onPress={continueHandler} size={40} disabled={isDisabled()}>
           {activeStep < 5 ? 'Continue' : 'Continue to Dashboard'}
         </Button>
       </Stack>

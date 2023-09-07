@@ -3,6 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 type KeyGenerationState = {
   words: string[]
   isCopyPastedPhrase: boolean
+  isRightPhrase: boolean
 }
 
 type wordProps = {
@@ -13,6 +14,7 @@ type wordProps = {
 const initialState: KeyGenerationState = {
   words: Array(24).fill(''),
   isCopyPastedPhrase: false,
+  isRightPhrase: false,
 }
 
 const keyGenerationSlice = createSlice({
@@ -30,13 +32,13 @@ const keyGenerationSlice = createSlice({
     setIsCopyPastedPhrase: (state, action: PayloadAction<boolean>) => {
       state.isCopyPastedPhrase = action.payload
     },
+    setIsRightPhrase: (state, action: PayloadAction<boolean>) => {
+      state.isRightPhrase = action.payload
+    },
   },
 })
 
-export const {
-  setWord,
-  setMnemonic,
-  setIsCopyPastedPhrase,
-} = keyGenerationSlice.actions
+export const { setWord, setMnemonic, setIsCopyPastedPhrase, setIsRightPhrase } =
+  keyGenerationSlice.actions
 
 export default keyGenerationSlice.reducer
