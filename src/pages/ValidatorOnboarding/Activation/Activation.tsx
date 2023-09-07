@@ -35,20 +35,20 @@ const Activation = () => {
   }, [])
 
   return (
-    <Stack style={styles.confettiContainer} width={'100%'}>
+    <Stack style={styles.confettiContainer} width={'100%'} minHeight={'65vh'}>
       {showConfetti && <Confetti style={styles.confettiCanvas} />}
-      <YStack style={{ padding: '16px 32px' }}>
+      <YStack style={{ padding: '26px 32px' }}>
         <YStack space={'$5'}>
           <Text size={27} weight={'semibold'}>
             Activation
           </Text>
           <Stack style={{ width: '66%' }}>
-            <Text size={27}>
+            <Text size={19}>
               Congratulations! You have successfully setup your Nimbus Validators and are currently
               syncing your nodes.
             </Text>
           </Stack>
-          <YStack space={'$3'} marginTop={'10px'} width={'33%'}>
+          <YStack space={'$3'} marginTop={'25px'} width={'33%'}>
             <XStack space={'$3'} justifyContent={'space-between'}>
               <ActivationCard text="Validators" value="4" />
               <ActivationCard
@@ -77,7 +77,7 @@ const Activation = () => {
           text="Edit Validators"
           to="/"
           arrowLeft={true}
-          style={{ marginTop: '44px', marginBottom: '88px' }}
+          style={{ marginTop: '44px', marginBottom: '88px', fontSize: '13px' }}
         />
       </YStack>
     </Stack>

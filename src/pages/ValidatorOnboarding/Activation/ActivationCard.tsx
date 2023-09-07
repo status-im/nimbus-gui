@@ -30,7 +30,7 @@ const ActivationCard = ({
       }}
     >
       {!isGaugeIncluded && (
-        <Stack>
+        <Stack space={'$2'}>
           <Text size={15} weight={'semibold'}>
             {text}
           </Text>
@@ -40,7 +40,7 @@ const ActivationCard = ({
         </Stack>
       )}
       {isGaugeIncluded && (
-        <Stack>
+        <Stack space={'$2'}>
           <Text size={15} weight={'semibold'}>
             {text}
           </Text>
