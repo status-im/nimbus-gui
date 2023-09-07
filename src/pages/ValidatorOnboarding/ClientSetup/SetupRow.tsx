@@ -1,12 +1,25 @@
 import { Stack, XStack, YStack } from 'tamagui'
 import { Input as StatusInput, Text } from '@status-im/components'
 import { AddIcon, ChevronDownIcon } from '@status-im/icons'
+import { useState } from 'react'
 
 type SetupRowProps = {
   title: string
 }
 
 const SetupRow = ({ title }: SetupRowProps) => {
+  const [validatorCount, setValidatorCount] = useState(0)
+
+  const addValidatorHandler = () => {
+    setValidatorCount((state: number) => state + 1)
+  }
+
+  const changeValidatorCountHandler = (e: any) => {
+    if (!isNaN(e.target.value)) {
+      setValidatorCount(Number(e.target.value))
+    }
+  }
+
   return (
     <YStack space={'$4'}>
       <Text size={19} weight={'semibold'}>
@@ -17,7 +30,12 @@ const SetupRow = ({ title }: SetupRowProps) => {
           <Text size={15} weight="regular" color={'#647084'}>
             How many Validators would you like to run?
           </Text>
-          <StatusInput icon={<AddIcon size={16} />} />
+          <StatusInput
+            icon={<AddIcon size={16} style={{ cursor: 'pointer' }} onClick={addValidatorHandler} />}
+            value={validatorCount.toString()}
+            onChange={changeValidatorCountHandler}
+            style={{ fontWeight: 'bold' }}
+          />
         </Stack>
         <YStack space={'$2'}>
           <Text size={15} weight={'semibold'} color="#09101C">

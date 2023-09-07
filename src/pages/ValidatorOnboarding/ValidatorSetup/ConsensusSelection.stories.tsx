@@ -10,7 +10,7 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  decorators: [withRouter()],
+  decorators: [withRouter],
 }
 export default meta
 type Story = StoryObj<typeof meta>

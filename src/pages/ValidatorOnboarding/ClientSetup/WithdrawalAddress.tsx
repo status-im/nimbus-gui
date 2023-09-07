@@ -1,12 +1,23 @@
 import { Stack, YStack } from 'tamagui'
 import { InformationBox, Input as StatusInput, Text } from '@status-im/components'
 import { ClearIcon, CloseCircleIcon } from '@status-im/icons'
+import { useState } from 'react'
 
 type WithdrawalAddressProps = {
   title: string
 }
 
 const WithdrawalAddress = ({ title }: WithdrawalAddressProps) => {
+  const [withdrawalAddress, setWithdrawalAddress] = useState('')
+
+  const changeWithdrawalAddressHandler = (e: any) => {
+    setWithdrawalAddress(e.target.value)
+  }
+
+  const removeWithdrawalAddressHandler = () => {
+    setWithdrawalAddress('')
+  }
+
   return (
     <YStack space={'$4'}>
       <Text size={19} weight={'semibold'}>
@@ -20,7 +31,15 @@ const WithdrawalAddress = ({ title }: WithdrawalAddressProps) => {
           <StatusInput
             placeholder={'******************'}
             width={'100%'}
-            icon={<ClearIcon size={16} />}
+            icon={
+              <ClearIcon
+                size={16}
+                style={{ cursor: 'pointer' }}
+                onClick={removeWithdrawalAddressHandler}
+              />
+            }
+            value={withdrawalAddress}
+            onChange={changeWithdrawalAddressHandler}
           />
         </Stack>
         <InformationBox

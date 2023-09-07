@@ -18,6 +18,7 @@ import ContinueButton from './ContinueButton'
 import { setIsCopyPastedPhrase } from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
 import { RootState } from '../../redux/store'
 import './layoutGradient.css'
+import ActivationValidatorSetup from './ValidatorSetup/ActivationValidatorSetup'
 
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)
@@ -37,7 +38,7 @@ const ValidatorOnboarding = () => {
   const continueHandler = () => {
     if (activeStep === 4 && isConfirmPhraseStage === false) {
       setIsConfirmPhraseStage(true)
-    } else if (activeStep === 3 && subStepValidatorSetup < 2) {
+    } else if (activeStep === 3 && subStepValidatorSetup < 3) {
       setSubStepValidatorSetup(subStepValidatorSetup + 1)
     } else if (activeStep < 5) {
       setActiveStep(activeStep + 1)
@@ -81,11 +82,16 @@ const ValidatorOnboarding = () => {
           {activeStep === 3 && subStepValidatorSetup === 0 && <ValidatorSetup />}
           {activeStep === 3 && subStepValidatorSetup === 1 && <ValidatorSetupInstall />}
           {activeStep === 3 && subStepValidatorSetup === 2 && <ConsensusSelection />}
+          {activeStep === 3 && subStepValidatorSetup === 3 && <ActivationValidatorSetup />}
 
           {activeStep === 4 && <KeyGeneration isConfirmPhraseStage={isConfirmPhraseStage} />}
           {activeStep === 5 && <Activation />}
         </ValidatorBoxWrapper>
-        <ContinueButton activeStep={activeStep} continueHandler={continueHandler} />
+        <ContinueButton
+          activeStep={activeStep}
+          continueHandler={continueHandler}
+          isConfirmPhraseStage={isConfirmPhraseStage}
+        />
       </YStack>
     </div>
   )
