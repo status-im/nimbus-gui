@@ -79,7 +79,7 @@ const ValidatorOnboarding = () => {
           {activeStep === 1 && <Advisories />}
           {activeStep === 2 && <ClientSetup />}
 
-          {activeStep === 3 && subStepValidatorSetup === 0 && <ActivationValidatorSetup />}
+          {activeStep === 3 && subStepValidatorSetup === 0 && <ValidatorSetup />}
           {activeStep === 3 && subStepValidatorSetup === 1 && <ValidatorSetupInstall />}
           {activeStep === 3 && subStepValidatorSetup === 2 && <ConsensusSelection />}
           {activeStep === 3 && subStepValidatorSetup === 3 && <ActivationValidatorSetup />}

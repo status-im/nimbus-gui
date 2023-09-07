@@ -67,14 +67,14 @@ const ActivationValidatorSetup = () => {
                             />
                         </XStack>
                         <XStack space={'$3'}>
-                            <ActivationCard text="Current APR" value="4.40%" />
-                            <ActivationCard text="Estimated Activation Time" value="32 Days" />
                             <ActivationCard text="Validator Queue" value="92603" />
+                            <ActivationCard text="Estimated Activation Time" value="32 Days" />
+                            <ActivationCard text="Current APR" value="4.40%" />
                         </XStack>
                     </YStack>
                 </YStack>
                 <LinkWithArrow
-                    text="Edit Validators"
+                    text="Skip to Dashboard"
                     to="/"
                     arrowLeft={true}
                     style={{ marginTop: '44px', marginBottom: '88px' }}
