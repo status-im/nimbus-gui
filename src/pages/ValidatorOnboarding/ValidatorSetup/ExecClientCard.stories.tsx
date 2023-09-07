@@ -6,9 +6,8 @@ import { withRouter } from 'storybook-addon-react-router-v6'
 const meta = {
   title: 'ValidatorOnboarding/ExecClientCard',
   component: ExecClientCard,
-
   tags: ['autodocs'],
-  decorators: [withRouter()],
+  decorators: [withRouter],
 } satisfies Meta<typeof ExecClientCard>
 
 export default meta
