@@ -34,6 +34,7 @@ const SetupRow = ({ title }: SetupRowProps) => {
             icon={<AddIcon size={16} style={{ cursor: 'pointer' }} onClick={addValidatorHandler} />}
             value={validatorCount.toString()}
             onChange={changeValidatorCountHandler}
+            style={{ fontWeight: 'bold' }}
           />
         </Stack>
         <YStack space={'$2'}>
