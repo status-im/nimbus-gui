@@ -33,11 +33,12 @@ const ValidatorOnboarding = () => {
   const changeActiveStep = (step: number) => {
     setActiveStep(step)
     removeCopyPastePhraseInfoBox()
+    removeConfirmPhraseStage()
   }
 
   const continueHandler = () => {
     if (activeStep === 4 && isConfirmPhraseStage === false) {
-      setIsConfirmPhraseStage(true)
+      return setIsConfirmPhraseStage(true)
     } else if (activeStep === 3 && subStepValidatorSetup < 3) {
       setSubStepValidatorSetup(subStepValidatorSetup + 1)
     } else if (activeStep < 5) {
@@ -49,11 +50,18 @@ const ValidatorOnboarding = () => {
       navigate('/')
     }
     removeCopyPastePhraseInfoBox()
+    removeConfirmPhraseStage()
   }
 
   const removeCopyPastePhraseInfoBox = () => {
     if (isCopyPastedPhrase) {
       dispatch(setIsCopyPastedPhrase(false))
+    }
+  }
+
+  const removeConfirmPhraseStage = () => {
+    if (isConfirmPhraseStage) {
+      setIsConfirmPhraseStage(false)
     }
   }
 
