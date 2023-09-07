@@ -1,4 +1,4 @@
-import { Text as TextTam, XStack, YStack } from 'tamagui'
+import { XStack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 
 import OverviewCard from './OverviewCard'
@@ -7,13 +7,13 @@ import LinkWithArrow from '../../../components/General/LinkWithArrow'
 const Overview = () => {
   return (
     <>
-      <YStack className="layout-left" space={'$5'} style={{ padding: '16px 32px' }}>
-        <TextTam fontSize={27} fontWeight={'600'}>
+      <YStack className="layout-left" space={'$5'} style={{ padding: '26px 0 32px 32px' }}>
+        <Text size={27} weight={'semibold'}>
           Overview
-        </TextTam>
-        <Text size={27}>
+        </Text>
+        <Text size={19}>
           Becoming a validator is a big responsibility with important preparation steps. Only start
-          the deposit process when youre ready.
+          the deposit process when you're ready.
         </Text>
         <Text size={15} color="#939BA1">
           By running a validator, you'll be responsible for securing the network and receive
@@ -25,7 +25,7 @@ const Overview = () => {
           Ethereum network.
         </Text>
         <LinkWithArrow
-          text="Learn more"
+          text="Learn More"
           to={'/'}
           arrowRight={true}
           style={{ marginBottom: '1%' }}
