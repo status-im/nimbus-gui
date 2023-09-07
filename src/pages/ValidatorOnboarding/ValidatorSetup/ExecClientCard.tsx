@@ -30,13 +30,13 @@ const ExecClientCard = ({ name, icon, isComingSoon }: ExecClientCardProps) => {
         padding: '12px 16px',
         width: '19%',
       }}
-      space={'$12'}
+      space={'$8'}
       onClick={() => {
         dispatch(selectClient(name))
       }}
     >
       <Stack>
-        <Text size={27} weight={'semibold'} color={isComingSoon ? '#DCE0E5' : ''}>
+        <Text size={19} weight={'semibold'} color={isComingSoon ? '#DCE0E5' : ''}>
           {name}
         </Text>
         {isComingSoon && (
@@ -46,9 +46,9 @@ const ExecClientCard = ({ name, icon, isComingSoon }: ExecClientCardProps) => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              padding: '3px',
+              padding: '3px 6px',
               borderRadius: '67px',
-              width: '50%',
+              width: 'fit-content',
             }}
           >
             <Text size={11} color="#fff">
