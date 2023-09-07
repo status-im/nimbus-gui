@@ -12,20 +12,17 @@ import styles from './AutocompleteInput.module.css'
 
 type AutocompleteInputProps = {
   index: number
-  isValid: boolean
-  changeIsValid: (isValid: boolean, index: number) => void
 }
 
-const AutocompleteInput = ({ index, isValid, changeIsValid }: AutocompleteInputProps) => {
+const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
   const [suggestions, setSuggestions] = useState<string[]>([])
   const [isFocused, setIsFocused] = useState(false)
   const word = useSelector((state: RootState) => state.keyGeneration.words[index])
   const dispatch = useDispatch()
 
   useEffect(() => {
-    const newSuggestions = getNewSuggestions(word)
-    setSuggestions(newSuggestions)
-  }, [])
+    setSuggestions(wordlist.filter(w => w.startsWith(word.toLowerCase())))
+  }, [word])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!isFocused) {
@@ -38,11 +35,6 @@ const AutocompleteInput = ({ index, isValid, changeIsValid }: AutocompleteInputP
 
     if (mnemonicLength === 1) {
       dispatch(setWord({ index, word: value }))
-
-      const newSuggestions = getNewSuggestions(value)
-      setSuggestions(newSuggestions)
-
-      changeIsValid(isWordValidTyping(value, newSuggestions), index)
     } else if (mnemonicLength === 24) {
       dispatch(setMnemonic(mnemonic))
       dispatch(setIsCopyPastedPhrase(true))
@@ -59,8 +51,6 @@ const AutocompleteInput = ({ index, isValid, changeIsValid }: AutocompleteInputP
 
     setIsFocused(false)
     dispatch(setWord({ index, word: suggestion }))
-
-    changeIsValid(isWordValidBlur(suggestion), index)
   }
 
   const handleInputFocus = () => {
@@ -69,19 +59,6 @@ const AutocompleteInput = ({ index, isValid, changeIsValid }: AutocompleteInputP
 
   const handleInputBlur = () => {
     setIsFocused(false)
-    changeIsValid(isWordValidBlur(word), index)
-  }
-
-  const getNewSuggestions = (value: string) => {
-    return wordlist.filter(w => w.startsWith(value.toLowerCase()))
-  }
-
-  const isWordValidTyping = (value: string, newSuggestions: string[]) => {
-    return wordlist.includes(value) || newSuggestions.length > 0 || value === ''
-  }
-
-  const isWordValidBlur = (value: string) => {
-    return wordlist.includes(value)
   }
 
   return (
@@ -94,7 +71,7 @@ const AutocompleteInput = ({ index, isValid, changeIsValid }: AutocompleteInputP
           onChange={handleInputChange}
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
-          style={inputStyle(index, isFocused, isValid)}
+          style={inputStyle(index, isFocused)}
         />
       </div>
       <div className={isFocused ? styles['suggestion-list'] : ''}>
@@ -115,17 +92,16 @@ const AutocompleteInput = ({ index, isValid, changeIsValid }: AutocompleteInputP
 
 export default AutocompleteInput
 
-const inputStyle = (index: number, isFocused: boolean, isValid: boolean) => {
+const inputStyle = (index: number, isFocused: boolean) => {
   const style = {
     outline: 'none',
     padding: `12px 16px 12px ${index + 1 < 10 ? '35px' : '45px'}`,
-    border: isValid ? 'none' : '2px solid #E53E3E',
   }
 
   if (isFocused) {
     return {
       ...style,
-      border: isValid ? '2px solid #4360DF' : '2px solid #E53E3E',
+      border: '2px solid #4360DF',
       backgroundColor: '#f1f2f4',
     }
   } else {
