@@ -7,8 +7,12 @@ import LinkWithArrow from '../../../components/General/LinkWithArrow'
 
 const ValidatorSetup = () => {
   return (
-    <YStack style={{ width: '100%', padding: '16px 32px' }}>
-      <XStack justifyContent={'space-between'}>
+    <YStack
+      style={{ width: '100%', padding: '26px 32px' }}
+      minHeight={'65vh'}
+      justifyContent={'space-between'}
+    >
+      <XStack justifyContent={'space-between'} alignItems={'center'}>
         <Text size={27} weight={'semibold'}>
           Validator Setup
         </Text>
@@ -21,7 +25,7 @@ const ValidatorSetup = () => {
             Execution Client Detection
           </Text>
         </Stack>
-        <Text size={15} weight={'regular'}>
+        <Text size={15}>
           No existing execution client installations have been detected on paired device.
         </Text>
         <Text size={13} color="#828282">
@@ -30,7 +34,7 @@ const ValidatorSetup = () => {
         </Text>
       </YStack>
 
-      <TextTam fontSize={27} style={{ margin: '5px', marginLeft: 0 }}>
+      <TextTam fontSize={27} style={{ marginTop: '15px', marginLeft: 0, marginBottom: '15px' }}>
         Select Execution client
       </TextTam>
       <XStack justifyContent={'space-between'}>
@@ -43,7 +47,7 @@ const ValidatorSetup = () => {
       <LinkWithArrow
         to="/"
         text="View Execution client comparison chart"
-        style={{ marginTop: '6%' }}
+        style={{ marginTop: '6%', fontWeight: 'bold' }}
       />
     </YStack>
   )

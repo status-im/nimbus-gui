@@ -6,7 +6,7 @@ import LinkWithArrow from '../../../components/General/LinkWithArrow'
 
 const ClientSetup = () => {
   return (
-    <YStack padding={'26px'} width={'100%'} space={'$8'}>
+    <YStack space={'$8'} padding={'26px'} width={'100%'} minHeight={'65vh'}>
       <SetupRow title={'Setup up Validators'} />
       <Separator borderColor={'#F0F2F5'} />
       <WithdrawalAddress title={'Withdrawal address'} />
