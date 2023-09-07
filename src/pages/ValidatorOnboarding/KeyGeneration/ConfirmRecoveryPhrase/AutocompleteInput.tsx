@@ -18,6 +18,7 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
   const [suggestions, setSuggestions] = useState<string[]>([])
   const [isFocused, setIsFocused] = useState(false)
   const word = useSelector((state: RootState) => state.keyGeneration.words[index])
+  const isValidWord = useSelector((state: RootState) => state.keyGeneration.validWords[index])
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -71,7 +72,7 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
           onChange={handleInputChange}
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
-          style={inputStyle(index, isFocused)}
+          style={inputStyle(index, isFocused, isValidWord)}
         />
       </div>
       <div className={isFocused ? styles['suggestion-list'] : ''}>
@@ -92,16 +93,17 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
 
 export default AutocompleteInput
 
-const inputStyle = (index: number, isFocused: boolean) => {
+const inputStyle = (index: number, isFocused: boolean, isValidWord: boolean) => {
   const style = {
     outline: 'none',
     padding: `12px 16px 12px ${index + 1 < 10 ? '35px' : '45px'}`,
+    border: isValidWord ? 'none' : '2px solid #E53E3E',
   }
 
   if (isFocused) {
     return {
       ...style,
-      border: '2px solid #4360DF',
+      border: isValidWord ? '2px solid #4360DF' : '2px solid #E53E3E',
       backgroundColor: '#f1f2f4',
     }
   } else {

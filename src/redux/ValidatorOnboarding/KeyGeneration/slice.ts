@@ -4,6 +4,7 @@ type KeyGenerationState = {
   words: string[]
   isCopyPastedPhrase: boolean
   isRightPhrase: boolean
+  validWords: boolean[]
 }
 
 type wordProps = {
@@ -15,6 +16,7 @@ const initialState: KeyGenerationState = {
   words: Array(24).fill(''),
   isCopyPastedPhrase: false,
   isRightPhrase: false,
+  validWords: Array(24).fill(true),
 }
 
 const keyGenerationSlice = createSlice({
@@ -35,10 +37,13 @@ const keyGenerationSlice = createSlice({
     setIsRightPhrase: (state, action: PayloadAction<boolean>) => {
       state.isRightPhrase = action.payload
     },
+    setValidWords: (state, action: PayloadAction<boolean[]>) => {
+      state.validWords = action.payload
+    },
   },
 })
 
-export const { setWord, setMnemonic, setIsCopyPastedPhrase, setIsRightPhrase } =
+export const { setWord, setMnemonic, setIsCopyPastedPhrase, setIsRightPhrase, setValidWords } =
   keyGenerationSlice.actions
 
 export default keyGenerationSlice.reducer
