@@ -73,12 +73,7 @@ const ActivationValidatorSetup = () => {
                         </XStack>
                     </YStack>
                 </YStack>
-                <LinkWithArrow
-                    text="Skip to Dashboard"
-                    to="/"
-                    arrowLeft={true}
-                    style={{ marginTop: '88px' }}
-                />
+                
             </YStack>
         </Stack>
     )
