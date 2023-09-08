@@ -3,8 +3,12 @@ import { Text } from '@status-im/components'
 
 import AutocompleteInput from './AutocompleteInput'
 import KeyGenerationTitle from '../KeyGenerationTitle'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../../../redux/store'
 
 const ConfirmRecoveryPhrase = () => {
+  const { validWords } = useSelector((state: RootState) => state.keyGeneration)
+
   return (
     <YStack space={'$4'} style={{ width: '100%', marginTop: '20px' }}>
       <KeyGenerationTitle />
@@ -18,7 +22,7 @@ const ConfirmRecoveryPhrase = () => {
           marginBottom: '10px',
         }}
       >
-        {Array.from({ length: 24 }).map((_, index) => (
+        {validWords.map((_, index) => (
           <AutocompleteInput key={index} index={index} />
         ))}
       </Stack>

@@ -60,7 +60,7 @@ const ValidatorOnboarding = () => {
     } else {
       navigate('/')
     }
-    
+
     removeCopyPastePhraseInfoBox()
     removeConfirmPhraseStage()
   }

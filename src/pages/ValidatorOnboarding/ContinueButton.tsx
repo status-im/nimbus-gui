@@ -14,7 +14,7 @@ type ContinueButton = {
 }
 
 const ContinueButton = ({ continueHandler, activeStep, isConfirmPhraseStage }: ContinueButton) => {
-  const { isCopyPastedPhrase, isRightPhrase, words } = useSelector(
+  const { isCopyPastedPhrase, isRightPhrase, words, validWords } = useSelector(
     (state: RootState) => state.keyGeneration,
   )
   const dispatch = useDispatch()
@@ -24,7 +24,10 @@ const ContinueButton = ({ continueHandler, activeStep, isConfirmPhraseStage }: C
   }, [words])
 
   const isDisabled = () => {
-    if (isConfirmPhraseStage && !isRightPhrase) {
+    if (
+      (isConfirmPhraseStage && !isRightPhrase) ||
+      (isConfirmPhraseStage && validWords.some(w => w === false))
+    ) {
       return true
     }
     return false

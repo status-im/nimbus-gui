@@ -6,6 +6,7 @@ import { RootState } from '../../../../redux/store'
 import {
   setIsCopyPastedPhrase,
   setMnemonic,
+  setValidWords,
   setWord,
 } from '../../../../redux/ValidatorOnboarding/KeyGeneration/slice'
 import styles from './AutocompleteInput.module.css'
@@ -19,11 +20,16 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
   const [isFocused, setIsFocused] = useState(false)
   const word = useSelector((state: RootState) => state.keyGeneration.words[index])
   const isValidWord = useSelector((state: RootState) => state.keyGeneration.validWords[index])
+  const validWords = useSelector((state: RootState) => state.keyGeneration.validWords)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    setSuggestions(wordlist.filter(w => w.startsWith(word.toLowerCase())))
+    setSuggestions(getNewSuggestions(word))
   }, [word])
+
+  const getNewSuggestions = (word: string) => {
+    return wordlist.filter(w => w.startsWith(word.toLowerCase()))
+  }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!isFocused) {
@@ -31,20 +37,29 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
     }
 
     const value = e.target.value
-    const mnemonic = value.trim().split(' ')
+    const mnemonic = value.trim().split(' ').slice(0, 24)
     const mnemonicLength = mnemonic.length
+    let newValidWords = [...validWords]
 
     if (mnemonicLength === 1) {
       dispatch(setWord({ index, word: value }))
+      newValidWords[index] = wordlist.includes(value) || getNewSuggestions(value).length > 0
     } else if (mnemonicLength === 24) {
       dispatch(setMnemonic(mnemonic))
       dispatch(setIsCopyPastedPhrase(true))
+      mnemonic.forEach((m, i) => {
+        newValidWords[i] = wordlist.includes(m)
+      })
     } else {
       for (let i = index; i < mnemonicLength + index; i++) {
-        dispatch(setWord({ index: i, word: mnemonic.shift() || '' }))
+        const mnemonicWord = mnemonic.shift() || ''
+        dispatch(setWord({ index: i, word: mnemonicWord }))
+        newValidWords[i] = wordlist.includes(mnemonicWord)
       }
       dispatch(setIsCopyPastedPhrase(true))
     }
+
+    dispatch(setValidWords(newValidWords))
   }
 
   const handleSuggestionClick = (e: React.MouseEvent, suggestion: string) => {
@@ -52,6 +67,10 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
 
     setIsFocused(false)
     dispatch(setWord({ index, word: suggestion }))
+
+    let newValidWords = [...validWords]
+    newValidWords[index] = wordlist.includes(suggestion)
+    dispatch(setValidWords(newValidWords))
   }
 
   const handleInputFocus = () => {
@@ -60,6 +79,9 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
 
   const handleInputBlur = () => {
     setIsFocused(false)
+    let newValidWords = [...validWords]
+    newValidWords[index] = wordlist.includes(word)
+    dispatch(setValidWords(newValidWords))
   }
 
   return (
