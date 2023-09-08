@@ -34,7 +34,7 @@ const Activation = () => {
       clearTimeout(timer)
     }
   }, [])
-  console.log(themes.light.blue.key)
+  console.log("$red")
   return (
     <Stack style={styles.confettiContainer} width={'100%'}>
       {showConfetti && <Confetti style={styles.confettiCanvas} />}
@@ -55,14 +55,14 @@ const Activation = () => {
               <ActivationCard
                 text="Execution Sync Status"
                 isGaugeIncluded={true}
-                gaugeColor={themes.light.blue.val}
+                gaugeColor={'$blue'}
                 gaugeSynced={123.524}
                 gaugeTotal={172.503}
               />
               <ActivationCard
                 text="Execution Sync Status"
                 isGaugeIncluded={true}
-                gaugeColor={themes.light.red.val}
+                gaugeColor={'$red'}
                 gaugeSynced={123.524}
                 gaugeTotal={172.503}
               />
