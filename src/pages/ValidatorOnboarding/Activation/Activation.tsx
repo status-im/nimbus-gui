@@ -4,7 +4,7 @@ import { Text } from '@status-im/components'
 import Confetti from 'react-confetti'
 import ActivationCard from './ActivationCard'
 import LinkWithArrow from '../../../components/General/LinkWithArrow'
-import { themes } from '../../../../themes'
+
 
 const styles = {
   confettiContainer: {
@@ -55,7 +55,7 @@ const Activation = () => {
               <ActivationCard
                 text="Execution Sync Status"
                 isGaugeIncluded={true}
-                gaugeColor={'$blue'}
+                gaugeColor={"$blue"}
                 gaugeSynced={123.524}
                 gaugeTotal={172.503}
               />
