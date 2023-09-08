@@ -43,10 +43,12 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
 
     if (mnemonicLength === 1) {
       dispatch(setWord({ index, word: value }))
+
       newValidWords[index] = wordlist.includes(value) || getNewSuggestions(value).length > 0
     } else if (mnemonicLength === 24) {
       dispatch(setMnemonic(mnemonic))
       dispatch(setIsCopyPastedPhrase(true))
+
       mnemonic.forEach((m, i) => {
         newValidWords[i] = wordlist.includes(m)
       })
@@ -56,6 +58,7 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
         dispatch(setWord({ index: i, word: mnemonicWord }))
         newValidWords[i] = wordlist.includes(mnemonicWord)
       }
+
       dispatch(setIsCopyPastedPhrase(true))
     }
 
@@ -79,6 +82,7 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
 
   const handleInputBlur = () => {
     setIsFocused(false)
+    
     let newValidWords = [...validWords]
     newValidWords[index] = wordlist.includes(word)
     dispatch(setValidWords(newValidWords))

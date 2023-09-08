@@ -43,7 +43,7 @@ const ValidatorSetup = () => {
       <LinkWithArrow
         to="/"
         text="View Execution client comparison chart"
-        style={{ marginTop: '6%' }}
+        style={{ marginTop: '3%' }}
       />
     </YStack>
   )

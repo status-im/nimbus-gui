@@ -39,7 +39,7 @@ const ActivationValidatorSetup = () => {
         <Stack style={styles.confettiContainer} width={'100%'} >
             {showConfetti && <Confetti style={styles.confettiCanvas} />}
             <YStack style={{ padding: '16px 32px' }}>
-                <YStack space={'$5'}>
+                <YStack space={'$3'}>
                     <Text size={27} weight={'semibold'}>
                         Activation
                     </Text>
@@ -77,7 +77,7 @@ const ActivationValidatorSetup = () => {
                     text="Skip to Dashboard"
                     to="/"
                     arrowLeft={true}
-                    style={{ marginTop: '44px', marginBottom: '88px' }}
+                    style={{ marginTop: '88px' }}
                 />
             </YStack>
         </Stack>
