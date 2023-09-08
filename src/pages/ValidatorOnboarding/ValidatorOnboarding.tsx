@@ -111,6 +111,7 @@ const ValidatorOnboarding = () => {
           activeStep={activeStep}
           continueHandler={continueHandler}
           isConfirmPhraseStage={isConfirmPhraseStage}
+          subStepValidatorSetup={subStepValidatorSetup}
         />
       </YStack>
     </div>

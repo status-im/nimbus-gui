@@ -6,14 +6,17 @@ import { useEffect } from 'react'
 
 import { RootState } from '../../redux/store'
 import { setIsRightPhrase } from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
+import LinkWithArrow from '../../components/General/LinkWithArrow'
 
 type ContinueButton = {
   continueHandler: () => void
   activeStep: number
   isConfirmPhraseStage: boolean
+  subStepValidatorSetup: number
 }
 
-const ContinueButton = ({ continueHandler, activeStep, isConfirmPhraseStage }: ContinueButton) => {
+const ContinueButton = ({ continueHandler, activeStep, isConfirmPhraseStage, subStepValidatorSetup }: ContinueButton) => {
+  console.log(activeStep)
   const { isCopyPastedPhrase, isRightPhrase, words, validWords } = useSelector(
     (state: RootState) => state.keyGeneration,
   )
@@ -33,31 +36,42 @@ const ContinueButton = ({ continueHandler, activeStep, isConfirmPhraseStage }: C
     return false
   }
 
+  const isActivationScreen = activeStep === 3 && subStepValidatorSetup === 3
+  console.log(isActivationScreen)
   return (
     <XStack style={{ width: '100%', marginTop: '16px', zIndex: 999, alignItems: 'center' }}>
-      <Stack style={{ width: '100%' }}>
-        {isCopyPastedPhrase && (
+      {isCopyPastedPhrase && (
+        <Stack style={{ width: '100%' }}>
           <InformationBox
             message="You have copy and pasted the entire Recovery Phrase. Please ensure you have secured it appropriately prior to continuing."
             variant="error"
             icon={<CloseCircleIcon size={20} />}
           />
-        )}
-      </Stack>
-      <Stack
+        </Stack>
+      )}
+      <XStack
         style={{
           width: '100%',
-          alignItems: 'end',
           zIndex: 999,
-          position: 'absolute',
+          justifyContent: isActivationScreen ? 'space-between' : 'end',
           marginTop: isCopyPastedPhrase ? '0px' : '40px',
         }}
       >
+        {isActivationScreen &&
+
+          <LinkWithArrow
+            text="Skip to Dashboard"
+            to="/"
+            arrowRight={true}
+            style={{ fontWeight: 'bold' }}
+          />
+        }
+
         <Button onPress={continueHandler} size={40} disabled={isDisabled()}>
           {activeStep < 5 ? 'Continue' : 'Continue to Dashboard'}
         </Button>
-      </Stack>
-    </XStack>
+      </XStack>
+    </XStack >
   )
 }
 
