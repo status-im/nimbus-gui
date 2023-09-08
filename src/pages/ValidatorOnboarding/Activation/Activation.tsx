@@ -4,6 +4,7 @@ import { Text } from '@status-im/components'
 import Confetti from 'react-confetti'
 import ActivationCard from './ActivationCard'
 import LinkWithArrow from '../../../components/General/LinkWithArrow'
+import { themes } from '../../../../themes'
 
 const styles = {
   confettiContainer: {
@@ -33,7 +34,7 @@ const Activation = () => {
       clearTimeout(timer)
     }
   }, [])
-
+  console.log(themes.light.blue.key)
   return (
     <Stack style={styles.confettiContainer} width={'100%'}>
       {showConfetti && <Confetti style={styles.confettiCanvas} />}
@@ -54,14 +55,14 @@ const Activation = () => {
               <ActivationCard
                 text="Execution Sync Status"
                 isGaugeIncluded={true}
-                gaugeColor={'#2a4af5'}
+                gaugeColor={themes.light.blue.val}
                 gaugeSynced={123.524}
                 gaugeTotal={172.503}
               />
               <ActivationCard
                 text="Execution Sync Status"
                 isGaugeIncluded={true}
-                gaugeColor={'#EB5757'}
+                gaugeColor={themes.light.red.val}
                 gaugeSynced={123.524}
                 gaugeTotal={172.503}
               />

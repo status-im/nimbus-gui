@@ -6,7 +6,7 @@ import { NodeIcon } from '@status-im/icons'
 import { Button as StatusButton, Text } from '@status-im/components'
 import QuickStartBar from '../../components/General/QuickStartBar/QuickStartBar'
 import { useNavigate } from 'react-router'
-
+import { themes } from '../../../themes'
 const LandingPage = () => {
   const navigate = useNavigate()
 
