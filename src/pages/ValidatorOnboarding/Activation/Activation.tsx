@@ -21,8 +21,35 @@ const styles = {
     zIndex: 0,
   },
 }
+type ActivationProps = {
+  validatorsValue: string;
+  executionSyncStatus1: {
+    text: string;
+    isGaugeIncluded: boolean;
+    gaugeColor: string;
+    gaugeSynced: number;
+    gaugeTotal: number;
+  };
+  executionSyncStatus2: {
+    text: string;
+    isGaugeIncluded: boolean;
+    gaugeColor: string;
+    gaugeSynced: number;
+    gaugeTotal: number;
+  };
+  currentAPRValue: string;
+  estimatedActivationTimeValue: string;
+  validatorQueueValue: string;
+};
 
-const Activation = () => {
+const Activation = ({
+  validatorsValue,
+  executionSyncStatus1,
+  executionSyncStatus2,
+  currentAPRValue,
+  estimatedActivationTimeValue,
+  validatorQueueValue,
+}) => {
   const [showConfetti, setShowConfetti] = useState(true)
 
   useEffect(() => {
@@ -51,26 +78,18 @@ const Activation = () => {
           </Stack>
           <YStack space={'$3'} marginTop={'10px'} width={'33%'}>
             <XStack space={'$3'} justifyContent={'space-between'}>
-              <ActivationCard text="Validators" value="4" />
+              <ActivationCard text="Validators" value={validatorsValue} />
               <ActivationCard
-                text="Execution Sync Status"
-                isGaugeIncluded={true}
-                gaugeColor={"$blue"}
-                gaugeSynced={123.524}
-                gaugeTotal={172.503}
+                {...executionSyncStatus1}
               />
               <ActivationCard
-                text="Execution Sync Status"
-                isGaugeIncluded={true}
-                gaugeColor={'$red'}
-                gaugeSynced={123.524}
-                gaugeTotal={172.503}
+                {...executionSyncStatus2}
               />
             </XStack>
             <XStack space={'$3'}>
-              <ActivationCard text="Current APR" value="4.40%" />
-              <ActivationCard text="Estimated Activation Time" value="32 Days" />
-              <ActivationCard text="Validator Queue" value="92603" />
+              <ActivationCard text="Current APR" value={currentAPRValue} />
+              <ActivationCard text="Estimated Activation Time" value={estimatedActivationTimeValue} />
+              <ActivationCard text="Validator Queue" value={validatorQueueValue} />
             </XStack>
           </YStack>
         </YStack>
