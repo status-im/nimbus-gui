@@ -3,7 +3,7 @@ import { XStack, Stack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 import Confetti from 'react-confetti'
 
-import ActivationCard from '../Activation/ActivationCard'
+import ActivationCard from '../../Activation/ActivationCard'
 
 const ActivationValidatorSetup = () => {
   const [showConfetti, setShowConfetti] = useState(true)

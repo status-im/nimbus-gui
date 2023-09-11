@@ -10,10 +10,10 @@ import KeyGeneration from './KeyGeneration/KeyGeneration'
 import Activation from './Activation/Activation'
 import ValidatorBoxWrapper from './ValidatorBoxWrapper/ValidatorBoxWrapper'
 import ClientSetup from './ClientSetup/ClientSetup'
-import ConsensusSelection from './ValidatorSetup/ConsensusSelection'
+import ConsensusSelection from './ValidatorSetup/ConsensusClient/ConsensusSelection'
 import Advisories from './Advisories/Advisories'
-import ValidatorSetup from './ValidatorSetup/ValidatorSetup'
-import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstall'
+import ValidatorSetup from './ValidatorSetup/Validator Setup/ValidatorSetup'
+import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstalling/ValidatorInstall'
 import ContinueButton from './ContinueButton'
 import {
   setIsCopyPastedPhrase,
@@ -21,7 +21,7 @@ import {
 } from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
 import { RootState } from '../../redux/store'
 import './layoutGradient.css'
-import ActivationValidatorSetup from './ValidatorSetup/ActivationValidatorSetup'
+import ActivationValidatorSetup from './ValidatorSetup/ValidatorActivation/ActivationValidatorSetup'
 import wordlist from 'web-bip39/wordlists/english'
 
 const ValidatorOnboarding = () => {
