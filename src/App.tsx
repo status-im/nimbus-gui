@@ -13,6 +13,7 @@ import PinnedNotification from './components/General/PinnedNottification'
 import { RootState } from './redux/store'
 import CreateLocalNodePage from './pages/CreateLocalNodePage/CreateLocalNodePage'
 import ValidatorOnboarding from './pages/ValidatorOnboarding/ValidatorOnboarding'
+import Dashboard from './pages/Dashboard/Dashboard'
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
   },
   { path: '/create-local-node', element: <CreateLocalNodePage /> },
   { path: '/validator-onboarding', element: <ValidatorOnboarding /> },
+  { path: '/dashboard', element: <Dashboard /> },
 ])
 
 function App() {
