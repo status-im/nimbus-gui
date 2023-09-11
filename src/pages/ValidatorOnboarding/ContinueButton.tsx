@@ -55,7 +55,7 @@ const ContinueButton = ({
         {isActivationValScreen && (
           <LinkWithArrow
             text="Skip to Dashboard"
-            to="/"
+            to="/dashboard"
             arrowRight={true}
             style={{ fontWeight: 'bold', zIndex: 1000 }}
           />

@@ -2,6 +2,7 @@ import { YStack } from 'tamagui'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import wordlist from 'web-bip39/wordlists/english'
 
 import FormStepper from './FormStepper/FormStepper'
 import Titles from '../../components/General/Titles'
@@ -20,9 +21,8 @@ import {
   setValidWords,
 } from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
 import { RootState } from '../../redux/store'
-import './layoutGradient.css'
 import ActivationValidatorSetup from './ValidatorSetup/ValidatorActivation/ActivationValidatorSetup'
-import wordlist from 'web-bip39/wordlists/english'
+import './layoutGradient.css'
 
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)
@@ -58,7 +58,7 @@ const ValidatorOnboarding = () => {
         setSubStepValidatorSetup(0)
       }
     } else {
-      navigate('/')
+      navigate('/dashboard')
     }
 
     removeCopyPastePhraseInfoBox()
@@ -105,26 +105,28 @@ const ValidatorOnboarding = () => {
           {activeStep === 3 && subStepValidatorSetup === 3 && <ActivationValidatorSetup />}
 
           {activeStep === 4 && <KeyGeneration isConfirmPhraseStage={isConfirmPhraseStage} />}
-          {activeStep === 5 && <Activation
-            validatorsValue='4'
-            executionSyncStatus1={{
-              text: "Execution Sync Status",
-              isGaugeIncluded: true,
-              gaugeColor: "$blue",
-              gaugeSynced: 123.524,
-              gaugeTotal: 172.503,
-            }}
-            executionSyncStatus2={{
-              text: "Execution Sync Status",
-              isGaugeIncluded: true,
-              gaugeColor: "$red",
-              gaugeSynced: 123.524,
-              gaugeTotal: 172.503,
-            }}
-            currentAPRValue="4.40%"
-            estimatedActivationTimeValue="32 Days"
-            validatorQueueValue="92603"
-          />}
+          {activeStep === 5 && (
+            <Activation
+              validatorsValue="4"
+              executionSyncStatus1={{
+                text: 'Execution Sync Status',
+                isGaugeIncluded: true,
+                gaugeColor: '$blue',
+                gaugeSynced: 123.524,
+                gaugeTotal: 172.503,
+              }}
+              executionSyncStatus2={{
+                text: 'Execution Sync Status',
+                isGaugeIncluded: true,
+                gaugeColor: '$red',
+                gaugeSynced: 123.524,
+                gaugeTotal: 172.503,
+              }}
+              currentAPRValue="4.40%"
+              estimatedActivationTimeValue="32 Days"
+              validatorQueueValue="92603"
+            />
+          )}
         </ValidatorBoxWrapper>
         <ContinueButton
           activeStep={activeStep}
