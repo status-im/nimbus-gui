@@ -2,45 +2,30 @@ import { useState, useEffect } from 'react'
 import { XStack, Stack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 import Confetti from 'react-confetti'
+
 import ActivationCard from './ActivationCard'
 import LinkWithArrow from '../../../components/General/LinkWithArrow'
 
-
-const styles = {
-  confettiContainer: {
-    position: 'relative' as const,
-    width: '100%',
-    height: '100%',
-  },
-  confettiCanvas: {
-    position: 'absolute' as const,
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    zIndex: 0,
-  },
-}
 type ActivationProps = {
-  validatorsValue: string;
+  validatorsValue: string
   executionSyncStatus1: {
-    text: string;
-    isGaugeIncluded: boolean;
-    gaugeColor: string;
-    gaugeSynced: number;
-    gaugeTotal: number;
-  };
+    text: string
+    isGaugeIncluded: boolean
+    gaugeColor: string
+    gaugeSynced: number
+    gaugeTotal: number
+  }
   executionSyncStatus2: {
-    text: string;
-    isGaugeIncluded: boolean;
-    gaugeColor: string;
-    gaugeSynced: number;
-    gaugeTotal: number;
-  };
-  currentAPRValue: string;
-  estimatedActivationTimeValue: string;
-  validatorQueueValue: string;
-};
+    text: string
+    isGaugeIncluded: boolean
+    gaugeColor: string
+    gaugeSynced: number
+    gaugeTotal: number
+  }
+  currentAPRValue: string
+  estimatedActivationTimeValue: string
+  validatorQueueValue: string
+}
 
 const Activation = ({
   validatorsValue,
@@ -79,16 +64,15 @@ const Activation = ({
           <YStack space={'$3'} marginTop={'10px'} width={'33%'}>
             <XStack space={'$3'} justifyContent={'space-between'}>
               <ActivationCard text="Validators" value={validatorsValue} />
-              <ActivationCard
-                {...executionSyncStatus1}
-              />
-              <ActivationCard
-                {...executionSyncStatus2}
-              />
+              <ActivationCard {...executionSyncStatus1} />
+              <ActivationCard {...executionSyncStatus2} />
             </XStack>
             <XStack space={'$3'}>
               <ActivationCard text="Current APR" value={currentAPRValue} />
-              <ActivationCard text="Estimated Activation Time" value={estimatedActivationTimeValue} />
+              <ActivationCard
+                text="Estimated Activation Time"
+                value={estimatedActivationTimeValue}
+              />
               <ActivationCard text="Validator Queue" value={validatorQueueValue} />
             </XStack>
           </YStack>
@@ -105,3 +89,19 @@ const Activation = ({
 }
 
 export default Activation
+
+const styles = {
+  confettiContainer: {
+    position: 'relative' as const,
+    width: '100%',
+    height: '100%',
+  },
+  confettiCanvas: {
+    position: 'absolute' as const,
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    zIndex: 0,
+  },
+}

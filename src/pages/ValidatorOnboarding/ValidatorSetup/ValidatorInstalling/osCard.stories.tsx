@@ -1,23 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import osCard from './OsCard'
+import OsCard from './OsCard'
 
 const meta = {
-    title: 'ValidatorOnboarding/osCard',
-    component: osCard,
-    parameters: {
-        layout: 'centered',
-    },
-    tags: ['autodocs'],
-} satisfies Meta<typeof osCard>
+  title: 'ValidatorOnboarding/OsCard',
+  component: OsCard,
+  tags: ['autodocs'],
+} satisfies Meta<typeof OsCard>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-    args: {
-        icon: "/icons/MAC.png",
-        name: "Mac",
-        isSelected: true
-    },
+  args: {
+    icon: '/icons/MAC.png',
+    name: 'Mac',
+    isSelected: true,
+  },
 }
