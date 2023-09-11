@@ -106,7 +106,7 @@ const ValidatorOnboarding = () => {
 
           {activeStep === 4 && <KeyGeneration isConfirmPhraseStage={isConfirmPhraseStage} />}
           {activeStep === 5 && <Activation
-            validatorsValue={'4'}
+            validatorsValue='4'
             executionSyncStatus1={{
               text: "Execution Sync Status",
               isGaugeIncluded: true,
