@@ -12,6 +12,7 @@ import { useSelector } from 'react-redux'
 import PinnedNotification from './components/General/PinnedNottification'
 import { RootState } from './redux/store'
 import CreateLocalNodePage from './pages/CreateLocalNodePage/CreateLocalNodePage'
+import ValidatorOnboarding from './pages/ValidatorOnboarding/ValidatorOnboarding'
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,7 @@ const router = createBrowserRouter([
     element: <PairDevice />,
   },
   { path: '/create-local-node', element: <CreateLocalNodePage /> },
+  { path: '/validator-onboarding', element: <ValidatorOnboarding /> },
 ])
 
 function App() {

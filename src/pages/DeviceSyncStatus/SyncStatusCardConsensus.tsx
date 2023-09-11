@@ -5,33 +5,31 @@ import Icon from '../../components/General/Icon'
 import StandardGauge from '../../components/Charts/StandardGauge'
 import IconText from '../../components/General/IconText'
 import { TokenIcon } from '@status-im/icons'
+import { formatNumberForGauge } from '../../utilities'
 
 interface DeviceStorageHealthProps {
   synced: number
   total: number
 }
+
 const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, total }) => {
   const message = synced === total ? 'Synced all data' : 'Syncing'
 
-  const data = () => {
-    return [
-      {
-        id: 'storage',
-        label: 'Used',
-        value: synced,
-        color: '#ff6161',
-      },
-      {
-        id: 'storage',
-        label: 'Free',
-        value: total - synced || 1,
-        color: '#E7EAEE',
-      },
-    ]
-  }
-  const formatNumber = (n: number): string => {
-    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-  }
+  const data = [
+    {
+      id: 'storage',
+      label: 'Used',
+      value: synced,
+      color: '#ff6161',
+    },
+    {
+      id: 'storage',
+      label: 'Free',
+      value: total - synced || 1,
+      color: '#E7EAEE',
+    },
+  ]
+
   return (
     <Shadow
       variant="$2"
@@ -63,7 +61,7 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
                   width: '115px',
                 }}
               >
-                <StandardGauge data={data()} />
+                <StandardGauge data={data} />
               </Stack>
             </XStack>
           </YStack>
@@ -74,7 +72,7 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
         <XStack space={'$2'} style={{ padding: '10px 16px 10px 16px' }}>
           <IconText icon={<TokenIcon size={16} />}>{message}</IconText>
           <Text size={13}>
-            {formatNumber(synced)} / {formatNumber(total)}
+            {formatNumberForGauge(synced)} / {formatNumberForGauge(total)}
           </Text>
         </XStack>
       </YStack>

@@ -10,14 +10,13 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  argTypes: {},
   decorators: [withRouter],
 } satisfies Meta<typeof SyncStatus>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Page: Story = {
+export const Default: Story = {
   args: {
     isPairing: true,
   },

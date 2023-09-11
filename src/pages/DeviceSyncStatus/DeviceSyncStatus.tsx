@@ -13,6 +13,7 @@ import { useEffect } from 'react'
 
 const DeviceSyncStatus = () => {
   const dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(
       setPinnedMessage({
@@ -22,6 +23,7 @@ const DeviceSyncStatus = () => {
       }),
     )
   }, [dispatch])
+
   return (
     <PageWrapperShadow rightImageSrc="./background-images/sync-status-background.png">
       <YStack
@@ -38,8 +40,8 @@ const DeviceSyncStatus = () => {
           subtitle="Monitor your Validator Client and Beacon Node syncing progression."
         />
         <YStack style={{ width: '100%' }}>
-          <SyncStatusCardExecution synced={132432} total={200000} />
-          <SyncStatusCardConsensus synced={149500} total={160000} />
+          <SyncStatusCardExecution synced={132.432} total={200.0} />
+          <SyncStatusCardConsensus synced={149.5} total={160.0} />
         </YStack>
         <Stack style={{ marginTop: '1rem' }}>
           <Button>Continue</Button>
