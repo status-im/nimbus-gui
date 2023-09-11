@@ -83,7 +83,7 @@ const ValidatorOnboarding = () => {
         style={{
           width: '100%',
           margin: '0 auto',
-          padding: '2% 10% 4%',
+          padding: '2% 10% 2%',
           justifyContent: 'start',
           alignItems: 'start',
         }}
