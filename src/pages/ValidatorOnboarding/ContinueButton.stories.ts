@@ -21,6 +21,7 @@ export const Default: Story = {
     continueHandler: () => {},
     activeStep: 0,
     isConfirmPhraseStage: false,
+    subStepValidatorSetup: 0,
   },
 }
 
@@ -29,5 +30,6 @@ export const Disabled: Story = {
     continueHandler: () => {},
     activeStep: 0,
     isConfirmPhraseStage: true,
+    subStepValidatorSetup: 0,
   },
 }

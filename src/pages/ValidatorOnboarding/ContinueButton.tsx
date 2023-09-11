@@ -15,8 +15,12 @@ type ContinueButton = {
   subStepValidatorSetup: number
 }
 
-const ContinueButton = ({ continueHandler, activeStep, isConfirmPhraseStage, subStepValidatorSetup }: ContinueButton) => {
-  console.log(activeStep)
+const ContinueButton = ({
+  continueHandler,
+  activeStep,
+  isConfirmPhraseStage,
+  subStepValidatorSetup,
+}: ContinueButton) => {
   const { isCopyPastedPhrase, isRightPhrase, words, validWords } = useSelector(
     (state: RootState) => state.keyGeneration,
   )
@@ -36,8 +40,8 @@ const ContinueButton = ({ continueHandler, activeStep, isConfirmPhraseStage, sub
     return false
   }
 
-  const isActivationScreen = activeStep === 3 && subStepValidatorSetup === 3
-  console.log(isActivationScreen)
+  const isActivationValScreen = activeStep === 3 && subStepValidatorSetup === 3
+
   return (
     <XStack style={{ width: '100%', marginTop: '16px', zIndex: 999, alignItems: 'center' }}>
       {isCopyPastedPhrase && (
@@ -53,25 +57,23 @@ const ContinueButton = ({ continueHandler, activeStep, isConfirmPhraseStage, sub
         style={{
           width: '100%',
           zIndex: 999,
-          justifyContent: isActivationScreen ? 'space-between' : 'end',
+          justifyContent: isActivationValScreen ? 'space-between' : 'end',
           marginTop: isCopyPastedPhrase ? '0px' : '40px',
         }}
       >
-        {isActivationScreen &&
-
+        {isActivationValScreen && (
           <LinkWithArrow
             text="Skip to Dashboard"
             to="/"
             arrowRight={true}
             style={{ fontWeight: 'bold' }}
           />
-        }
-
+        )}
         <Button onPress={continueHandler} size={40} disabled={isDisabled()}>
           {activeStep < 5 ? 'Continue' : 'Continue to Dashboard'}
         </Button>
       </XStack>
-    </XStack >
+    </XStack>
   )
 }
 
