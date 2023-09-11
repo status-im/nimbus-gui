@@ -12,7 +12,7 @@ import ValidatorBoxWrapper from './ValidatorBoxWrapper/ValidatorBoxWrapper'
 import ClientSetup from './ClientSetup/ClientSetup'
 import ConsensusSelection from './ValidatorSetup/ConsensusClient/ConsensusSelection'
 import Advisories from './Advisories/Advisories'
-import ValidatorSetup from './ValidatorSetup/Validator Setup/ValidatorSetup'
+import ValidatorSetup from './ValidatorSetup/ValidatorSetup/ValidatorSetup'
 import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstalling/ValidatorInstall'
 import ContinueButton from './ContinueButton'
 import {
