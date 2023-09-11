@@ -82,7 +82,7 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
 
   const handleInputBlur = () => {
     setIsFocused(false)
-    
+
     let newValidWords = [...validWords]
     newValidWords[index] = wordlist.includes(word)
     dispatch(setValidWords(newValidWords))
@@ -123,7 +123,7 @@ const inputStyle = (index: number, isFocused: boolean, isValidWord: boolean) => 
   const style = {
     outline: 'none',
     padding: `12px 16px 12px ${index + 1 < 10 ? '35px' : '45px'}`,
-    border: isValidWord ? 'none' : '2px solid #E53E3E',
+    border: isValidWord ? '2px solid #f7f8f9' : '2px solid #E53E3E',
   }
 
   if (isFocused) {
