@@ -1,4 +1,4 @@
-import { Stack, XStack } from 'tamagui'
+import { Stack, YStack } from 'tamagui'
 import { Button, InformationBox } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
 import { useDispatch, useSelector } from 'react-redux'
@@ -43,7 +43,7 @@ const ContinueButton = ({
   const isActivationValScreen = activeStep === 3 && subStepValidatorSetup === 3
 
   return (
-    <XStack style={{ width: '100%', alignItems: 'center', zIndex: 999, marginTop: '40px' }}>
+    <YStack style={{ width: '100%', alignItems: 'center', zIndex: 999, marginTop: '30px' }}>
       <Stack style={{ width: '100%' }}>
         {isCopyPastedPhrase && (
           <InformationBox
@@ -66,14 +66,13 @@ const ContinueButton = ({
           width: '100%',
           zIndex: 999,
           alignItems: 'end',
-          position: 'absolute',
         }}
       >
         <Button onPress={continueHandler} size={40} disabled={isDisabled()}>
           {activeStep < 5 ? 'Continue' : 'Continue to Dashboard'}
         </Button>
       </Stack>
-    </XStack>
+    </YStack>
   )
 }
 
