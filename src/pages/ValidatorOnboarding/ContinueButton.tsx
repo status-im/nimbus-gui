@@ -43,7 +43,7 @@ const ContinueButton = ({
   const isActivationValScreen = activeStep === 3 && subStepValidatorSetup === 3
 
   return (
-    <XStack style={{ width: '100%', marginTop: '16px', zIndex: 999, alignItems: 'center' }}>
+    <XStack style={{ width: '100%', zIndex: 999, alignItems: 'center' }}>
       {isCopyPastedPhrase && (
         <Stack style={{ width: '100%' }}>
           <InformationBox
