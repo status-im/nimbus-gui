@@ -55,6 +55,7 @@ span[class*="Connector-"]  {
   top: calc(100% + 4px);
   left: 8px;
   font-size: 12px;
+  font-family: "Inter", sans-serif;
   color: #A2A9B0; 
   width: max-content;
 }
