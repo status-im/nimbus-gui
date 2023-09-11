@@ -34,7 +34,7 @@ const Activation = () => {
       clearTimeout(timer)
     }
   }, [])
-  console.log("$red")
+
   return (
     <Stack style={styles.confettiContainer} width={'100%'}>
       {showConfetti && <Confetti style={styles.confettiCanvas} />}
