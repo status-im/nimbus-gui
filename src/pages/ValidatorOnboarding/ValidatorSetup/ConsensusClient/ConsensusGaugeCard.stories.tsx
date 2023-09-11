@@ -18,6 +18,6 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    color:'orange',  synced:140000, total:200000, title: 'Synced Files'
+    color: 'orange', synced: 140000, total: 200000, title: 'Synced Files'
   },
 }

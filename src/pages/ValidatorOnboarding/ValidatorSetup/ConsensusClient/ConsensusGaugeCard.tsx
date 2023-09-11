@@ -2,9 +2,9 @@ import { Stack, XStack, YStack } from 'tamagui'
 import { ClearIcon } from '@status-im/icons'
 import { Text } from '@status-im/components'
 
-import StandardGauge from '../../../components/Charts/StandardGauge'
-import BorderBox from '../../../components/General/BorderBox'
-import { formatNumberForGauge } from '../../../utilities'
+import StandardGauge from '../../../../components/Charts/StandardGauge'
+import BorderBox from '../../../../components/General/BorderBox'
+import { formatNumberForGauge } from '../../../../utilities'
 
 type ConsensusGaugeCardProps = {
   synced: number

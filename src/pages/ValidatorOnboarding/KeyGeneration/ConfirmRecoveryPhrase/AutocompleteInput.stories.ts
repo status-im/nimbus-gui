@@ -19,3 +19,9 @@ export const Default: Story = {
     index: 0,
   },
 }
+
+export const OtherWord: Story = {
+  args: {
+    index: 2,
+  },
+}

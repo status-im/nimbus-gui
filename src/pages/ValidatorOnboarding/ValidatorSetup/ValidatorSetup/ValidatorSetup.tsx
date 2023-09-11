@@ -1,9 +1,9 @@
 import { XStack, Stack, Text as TextTam, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 
-import PairedDeviceCard from './PairedDeviceCard'
+import PairedDeviceCard from '../ConsensusClient/PairedDeviceCard'
 import ExecClientCard from './ExecClientCard'
-import LinkWithArrow from '../../../components/General/LinkWithArrow'
+import LinkWithArrow from '../../../../components/General/LinkWithArrow'
 
 const ValidatorSetup = () => {
   return (

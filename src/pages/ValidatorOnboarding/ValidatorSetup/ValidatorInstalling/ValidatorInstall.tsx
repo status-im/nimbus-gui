@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 
 import OsCard from './OsCard'
 import SyntaxHighlighterBox from './SyntaxHighlighter'
-import { RootState } from '../../../redux/store'
+import { RootState } from '../../../../redux/store'
 
 const ValidatorSetupInstall = () => {
   const [selectedOs, setSelectedOs] = useState('Mac')

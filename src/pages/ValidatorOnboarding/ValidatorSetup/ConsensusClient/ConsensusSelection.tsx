@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux'
 import PairedDeviceCard from './PairedDeviceCard'
 import ConsensusGaugeCard from './ConsensusGaugeCard'
 import ConsensusClientCard from './ConsensusClientCard'
-import LinkWithArrow from '../../../components/General/LinkWithArrow'
-import { RootState } from '../../../redux/store'
+import LinkWithArrow from '../../../../components/General/LinkWithArrow'
+import { RootState } from '../../../../redux/store'
 
 const clientIcons = {
   Nethermind: '/icons/nethermind-circle.png',

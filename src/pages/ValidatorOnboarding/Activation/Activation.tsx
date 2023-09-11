@@ -2,26 +2,39 @@ import { useState, useEffect } from 'react'
 import { XStack, Stack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 import Confetti from 'react-confetti'
+
 import ActivationCard from './ActivationCard'
 import LinkWithArrow from '../../../components/General/LinkWithArrow'
 
-const styles = {
-  confettiContainer: {
-    position: 'relative' as const,
-    width: '100%',
-    height: '100%',
-  },
-  confettiCanvas: {
-    position: 'absolute' as const,
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    zIndex: 0,
-  },
+type ActivationProps = {
+  validatorsValue: string
+  executionSyncStatus1: {
+    text: string
+    isGaugeIncluded: boolean
+    gaugeColor: string
+    gaugeSynced: number
+    gaugeTotal: number
+  }
+  executionSyncStatus2: {
+    text: string
+    isGaugeIncluded: boolean
+    gaugeColor: string
+    gaugeSynced: number
+    gaugeTotal: number
+  }
+  currentAPRValue: string
+  estimatedActivationTimeValue: string
+  validatorQueueValue: string
 }
 
-const Activation = () => {
+const Activation = ({
+  validatorsValue,
+  executionSyncStatus1,
+  executionSyncStatus2,
+  currentAPRValue,
+  estimatedActivationTimeValue,
+  validatorQueueValue,
+}: ActivationProps) => {
   const [showConfetti, setShowConfetti] = useState(true)
 
   useEffect(() => {
@@ -50,26 +63,17 @@ const Activation = () => {
           </Stack>
           <YStack space={'$3'} marginTop={'25px'} width={'33%'}>
             <XStack space={'$3'} justifyContent={'space-between'}>
-              <ActivationCard text="Validators" value="4" />
-              <ActivationCard
-                text="Execution Sync Status"
-                isGaugeIncluded={true}
-                gaugeColor={'#2a4af5'}
-                gaugeSynced={123.524}
-                gaugeTotal={172.503}
-              />
-              <ActivationCard
-                text="Execution Sync Status"
-                isGaugeIncluded={true}
-                gaugeColor={'#EB5757'}
-                gaugeSynced={123.524}
-                gaugeTotal={172.503}
-              />
+              <ActivationCard text="Validators" value={validatorsValue} />
+              <ActivationCard {...executionSyncStatus1} />
+              <ActivationCard {...executionSyncStatus2} />
             </XStack>
             <XStack space={'$3'}>
-              <ActivationCard text="Current APR" value="4.40%" />
-              <ActivationCard text="Estimated Activation Time" value="32 Days" />
-              <ActivationCard text="Validator Queue" value="92603" />
+              <ActivationCard text="Current APR" value={currentAPRValue} />
+              <ActivationCard
+                text="Estimated Activation Time"
+                value={estimatedActivationTimeValue}
+              />
+              <ActivationCard text="Validator Queue" value={validatorQueueValue} />
             </XStack>
           </YStack>
         </YStack>
@@ -85,3 +89,19 @@ const Activation = () => {
 }
 
 export default Activation
+
+const styles = {
+  confettiContainer: {
+    position: 'relative' as const,
+    width: '100%',
+    height: '100%',
+  },
+  confettiCanvas: {
+    position: 'absolute' as const,
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    zIndex: 0,
+  },
+}

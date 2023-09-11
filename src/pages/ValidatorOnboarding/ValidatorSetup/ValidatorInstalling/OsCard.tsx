@@ -1,7 +1,7 @@
 import { Stack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 
-import Icon from '../../../components/General/Icon'
+import Icon from '../../../../components/General/Icon'
 
 type OsCardProps = {
   name: string
