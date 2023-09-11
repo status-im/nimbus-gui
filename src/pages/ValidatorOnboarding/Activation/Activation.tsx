@@ -49,7 +49,7 @@ const Activation = ({
   currentAPRValue,
   estimatedActivationTimeValue,
   validatorQueueValue,
-}) => {
+}: ActivationProps) => {
   const [showConfetti, setShowConfetti] = useState(true)
 
   useEffect(() => {
