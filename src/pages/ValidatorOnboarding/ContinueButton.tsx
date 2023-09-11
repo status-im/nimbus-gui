@@ -43,36 +43,36 @@ const ContinueButton = ({
   const isActivationValScreen = activeStep === 3 && subStepValidatorSetup === 3
 
   return (
-    <XStack style={{ width: '100%', zIndex: 999, alignItems: 'center' }}>
-      {isCopyPastedPhrase && (
-        <Stack style={{ width: '100%' }}>
+    <XStack style={{ width: '100%', alignItems: 'center', zIndex: 999, marginTop: '40px' }}>
+      <Stack style={{ width: '100%' }}>
+        {isCopyPastedPhrase && (
           <InformationBox
             message="You have copy and pasted the entire Recovery Phrase. Please ensure you have secured it appropriately prior to continuing."
             variant="error"
             icon={<CloseCircleIcon size={20} />}
           />
-        </Stack>
-      )}
-      <XStack
-        style={{
-          width: '100%',
-          zIndex: 999,
-          justifyContent: isActivationValScreen ? 'space-between' : 'end',
-          marginTop: isCopyPastedPhrase ? '0px' : '40px',
-        }}
-      >
+        )}
         {isActivationValScreen && (
           <LinkWithArrow
             text="Skip to Dashboard"
             to="/"
             arrowRight={true}
-            style={{ fontWeight: 'bold' }}
+            style={{ fontWeight: 'bold', zIndex: 1000 }}
           />
         )}
+      </Stack>
+      <Stack
+        style={{
+          width: '100%',
+          zIndex: 999,
+          alignItems: 'end',
+          position: 'absolute',
+        }}
+      >
         <Button onPress={continueHandler} size={40} disabled={isDisabled()}>
           {activeStep < 5 ? 'Continue' : 'Continue to Dashboard'}
         </Button>
-      </XStack>
+      </Stack>
     </XStack>
   )
 }
