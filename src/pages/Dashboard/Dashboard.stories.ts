@@ -2,17 +2,18 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import Dashboard from './Dashboard'
 
-const meta: Meta = {
+const meta = {
   title: 'Pages/Dashboard',
   component: Dashboard,
-  decorators: [],
+  parameters: {
+    layout: 'centered',
+  },
   tags: ['autodocs'],
-}
+} satisfies Meta<typeof Dashboard>
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-type DashboardStory = StoryObj<typeof Dashboard>
-
-export const Page: DashboardStory = {
+export const Page: Story = {
   args: {},
 }

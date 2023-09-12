@@ -2,17 +2,21 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import BasicInfoCard from './BasicInfoCard'
 
-const meta: Meta = {
+const meta = {
   title: 'Dashboard/BasicInfoCard',
   component: BasicInfoCard,
-  decorators: [],
+  parameters: {
+    layout: 'centered',
+  },
   tags: ['autodocs'],
-}
+} satisfies Meta<typeof BasicInfoCard>
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-type BasicInfoCardStory = StoryObj<typeof BasicInfoCard>
-
-export const Page: BasicInfoCardStory = {
-  args: {},
+export const Default: Story = {
+  args: {
+    title: 'Default',
+    value: '10',
+  },
 }

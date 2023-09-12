@@ -2,17 +2,18 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import SyncStatusCard from './SyncStatusCard'
 
-const meta: Meta = {
+const meta = {
   title: 'Dashboard/SyncStatusCard',
   component: SyncStatusCard,
-  decorators: [],
+  parameters: {
+    layout: 'centered',
+  },
   tags: ['autodocs'],
-}
+} satisfies Meta<typeof SyncStatusCard>
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-type SyncStatusCardStory = StoryObj<typeof SyncStatusCard>
-
-export const Page: SyncStatusCardStory = {
+export const Default: Story = {
   args: {},
 }

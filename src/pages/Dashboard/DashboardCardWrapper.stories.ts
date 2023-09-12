@@ -2,17 +2,20 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import DashboardCardWrapper from './DashboardCardWrapper'
 
-const meta: Meta = {
+const meta = {
   title: 'Dashboard/DashboardCardWrapper',
   component: DashboardCardWrapper,
-  decorators: [],
+  parameters: {
+    layout: 'centered',
+  },
   tags: ['autodocs'],
-}
+} satisfies Meta<typeof DashboardCardWrapper>
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-type DashboardCardWrapperStory = StoryObj<typeof DashboardCardWrapper>
-
-export const Page: DashboardCardWrapperStory = {
-  args: {},
+export const Default: Story = {
+  args: {
+    children: 'Default',
+  },
 }
