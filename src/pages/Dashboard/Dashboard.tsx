@@ -1,9 +1,21 @@
-import { Stack, XStack } from 'tamagui'
+import { Stack, YStack } from 'tamagui'
+
 import BasicInfoCard from './BasicInfoCard'
+import AddCard from '../../components/General/AddCard'
 
 const Dashboard = () => {
   return (
-    <XStack>
+    <YStack>
+      <YStack
+        style={{
+          borderRadius: '16px',
+          boxShadow: '0 0 8px rgba(0, 0, 0, 0.1)',
+          width: 'fit-content',
+        }}
+      >
+        <AddCard />
+        <AddCard />
+      </YStack>
       <Stack
         style={{
           display: 'grid',
@@ -18,7 +30,7 @@ const Dashboard = () => {
         <BasicInfoCard title="Avg. Effectiveness" value="4" />
         <BasicInfoCard title="Participation Rate" value="6" />
       </Stack>
-    </XStack>
+    </YStack>
   )
 }
 

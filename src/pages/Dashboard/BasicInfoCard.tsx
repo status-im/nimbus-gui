@@ -1,5 +1,6 @@
 import { Text } from '@status-im/components'
 import { YStack } from 'tamagui'
+
 import DashboardCardWrapper from './DashboardCardWrapper'
 
 type BasicInfoCardProps = {

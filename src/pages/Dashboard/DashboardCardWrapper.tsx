@@ -14,7 +14,7 @@ const DashboardCardWrapper = ({ children }: DashboardCardWrapperProps) => {
       }}
     >
       {children}
-    </Stack>
+    </Stack> 
   )
 }
 
