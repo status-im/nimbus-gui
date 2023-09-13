@@ -16,12 +16,12 @@ const AddCard = () => {
       }}
     >
       <AddIcon
-        size={12}
+        size={16}
         color="white"
         style={{
           backgroundColor: '#2A4AF5',
           borderRadius: '50%',
-          padding: '6px',
+          padding: '5px',
         }}
       />
     </Stack>
