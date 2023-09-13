@@ -3,6 +3,7 @@ import { XStack, YStack } from 'tamagui'
 import BasicInfoCards from './BasicInfoCards/BasicInfoCards'
 import AddCardsContainer from '../../components/General/AddCards/AddCardsContainer'
 import SyncStatusCard from './SyncStatusCard'
+import BalanceChardCard from './BalanceLineChart/BalanceChardCard'
 
 const Dashboard = () => {
   return (
@@ -15,6 +16,7 @@ const Dashboard = () => {
         <XStack space={'$2'}></XStack>
       </XStack>
       <BasicInfoCards />
+      <BalanceChardCard/>
     </YStack>
   )
 }
