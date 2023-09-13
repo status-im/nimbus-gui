@@ -68,6 +68,12 @@ const CPUCard = ({ load }: CPUCardProps) => {
                 </XStack>
                 <Separator borderColor={'#e3e3e3'} />
                 <XStack space={'$4'} style={{ padding: '10px 16px 10px 16px' }}>
+                    <IconText
+                        icon={message === 'Good' ? <Icon src='icons/active.svg' width={16} /> : <IncorrectIcon size={16} />}
+                        weight={'semibold'}
+                    >
+                        {message}
+                    </IconText>
                     {message === 'Poor' && (
                         <Text size={13} color="#E95460">
                             {((currentLoad / 80) * 100).toFixed(0)}% Utilization
