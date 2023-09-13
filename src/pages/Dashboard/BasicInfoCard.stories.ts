@@ -16,7 +16,35 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    title: 'Default',
-    value: '10',
+    title: 'Active Validators',
+    value: '6',
+  },
+}
+
+export const WithoutTitle: Story = {
+  args: {
+    title: '',
+    value: '6',
+  },
+}
+
+export const WithoutValue: Story = {
+  args: {
+    title: 'Active Validators',
+    value: '',
+  },
+}
+
+export const Empty: Story = {
+  args: {
+    title: '',
+    value: '',
+  },
+}
+
+export const WithLongData: Story = {
+  args: {
+    title: 'This is a very long title that is for testing purposes only',
+    value: '666666',
   },
 }
