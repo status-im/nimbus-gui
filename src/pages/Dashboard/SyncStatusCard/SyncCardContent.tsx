@@ -1,7 +1,7 @@
 import { YStack } from 'tamagui'
 
 const SyncCardContent = () => {
-  return <YStack></YStack>
+  return <YStack>Client</YStack>
 }
 
 export default SyncCardContent
