@@ -7,7 +7,6 @@ const AddCardsContainer = () => {
       style={{
         borderRadius: '16px',
         boxShadow: '0 0 8px rgba(0, 0, 0, 0.1)',
-        width: 'fit-content',
       }}
     >
       <AddCard />

@@ -5,7 +5,7 @@ import AddCardsContainer from '../../components/General/AddCards/AddCardsContain
 
 const Dashboard = () => {
   return (
-    <YStack space={'$2'}>
+    <YStack space={'$2'} alignItems="start">
       <AddCardsContainer />
       <BasicInfoCards />
     </YStack>
