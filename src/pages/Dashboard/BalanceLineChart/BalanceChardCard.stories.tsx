@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import BalanceChardCard from './BalanceChardCard'
 
 const meta = {
-  title: 'Pages/BalanceChardCard',
+  title: 'Dashboard/BalanceChardCard',
   component: BalanceChardCard,
   parameters: {
     layout: 'centered',
