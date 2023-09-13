@@ -28,6 +28,7 @@
     "@tamagui/react-17-patch": "1.36.4",
     "@tamagui/vite-plugin": "1.36.4",
     "@types/react": "18",
+    "@types/react-chartjs-2": "^2.5.7",
     "@types/react-dom": "18",
     "chart.js": "^4.4.0",
     "emoji-picker-react": "^4.4.11",
