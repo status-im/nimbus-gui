@@ -1,7 +1,7 @@
 import { YStack } from 'tamagui'
 
 import BasicInfoCards from './BasicInfoCards/BasicInfoCards'
-import AddCardsContainer from './AddCardsContainer'
+import AddCardsContainer from '../../components/General/AddCards/AddCardsContainer'
 
 const Dashboard = () => {
   return (

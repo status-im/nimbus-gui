@@ -1,5 +1,5 @@
 import { YStack } from 'tamagui'
-import AddCard from '../../components/General/AddCard'
+import AddCard from './AddCard'
 
 const AddCardsContainer = () => {
   return (
