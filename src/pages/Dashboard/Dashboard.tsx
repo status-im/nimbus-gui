@@ -4,6 +4,7 @@ import BasicInfoCards from './BasicInfoCards/BasicInfoCards'
 import AddCardsContainer from '../../components/General/AddCards/AddCardsContainer'
 import SyncStatusCard from './SyncStatusCard/SyncStatusCard'
 import BalanceChardCard from './BalanceLineChart/BalanceChardCard'
+import CPUCard from './CPULoad/CPUCard'
 
 const Dashboard = () => {
   return (
@@ -14,6 +15,7 @@ const Dashboard = () => {
           <SyncStatusCard />
         </XStack>
         <BalanceChardCard />
+        <CPUCard load={[12, 31, 3, 2, 24,]} />
       </XStack>
       <BasicInfoCards />
     </YStack>
