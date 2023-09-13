@@ -17,11 +17,11 @@ const AdvisoriesContent = ({ title, content }: AdvisoriesContentProps) => {
       </Stack>
       <YStack space={'$4'}>
         {content.map(row => (
-          <Text key={row} size={19}>
+          <Text key={row} size={15}>
             {row}
           </Text>
         ))}
-        <Text size={19}>
+        <Text size={15}>
           <Link
             to={'https://github.com/ethereum/consensus-specs'}
             style={{ textDecorationLine: 'underline', color: '#484848' }}
@@ -29,7 +29,7 @@ const AdvisoriesContent = ({ title, content }: AdvisoriesContentProps) => {
             The Ethereum consensus layer specification
           </Link>
         </Text>
-        <Text size={19} weight={'semibold'}>
+        <Text size={15} weight={'semibold'}>
           <Link
             to={'https://github.com/ethereum/consensus-specs'}
             style={{ textDecorationLine: 'underline', color: '#2A4CF4', fontWeight: 'bold' }}

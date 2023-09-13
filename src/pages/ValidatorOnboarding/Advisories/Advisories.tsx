@@ -15,8 +15,8 @@ const Advisories = () => {
 
   return (
     <XStack
-      style={{ padding: '16px 32px', justifyContent: 'space-between' }}
-      height={'65vh'}
+      style={{ padding: '30px 33px', justifyContent: 'space-between' }}
+      minHeight={'65vh'}
       width={'100%'}
     >
       <YStack space={'$2'}>
@@ -33,7 +33,7 @@ const Advisories = () => {
             space={'$2'}
           >
             <Text
-              size={27}
+              size={19}
               weight={isSameTitle(title) && 'semibold'}
               color={isSameTitle(title) ? 'blue' : ''}
             >

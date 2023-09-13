@@ -20,9 +20,9 @@ const PairedDeviceCard = ({ isVisibleState }: PairedDeviceCardProps) => {
     <XStack
       space={'$7'}
       style={{
-        padding: '2px 6px',
+        padding: '6px 12px',
         border: '1px solid #DCE0E5',
-        borderRadius: '15px',
+        borderRadius: '10px',
       }}
       alignItems={'center'}
     >

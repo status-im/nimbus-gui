@@ -25,13 +25,17 @@ const DeviceSyncStatus = () => {
   }, [dispatch])
 
   return (
-    <PageWrapperShadow rightImageSrc="./background-images/sync-status-background.png">
+    <PageWrapperShadow
+      rightImageSrc="./background-images/sync-status-background.png"
+      imgHeight="120%"
+    >
       <YStack
         space={'$4'}
         style={{
           justifyContent: 'end',
           alignItems: 'start',
           maxWidth: '100%',
+          marginTop: '4.4rem',
         }}
       >
         <NimbusLogo />

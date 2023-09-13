@@ -12,12 +12,12 @@ const OverviewCard = ({ text, value }: OverviewCardProps) => {
       style={{
         borderRadius: '16px',
         border: '1px solid rgba(0, 0, 0, 0.15)',
-        width: '46%',
+        width: '44%',
         padding: '12px 16px',
         backgroundColor: '#FFF',
       }}
     >
-      <Text size={19} weight={'semibold'}>
+      <Text size={15} weight={'semibold'}>
         {text}
       </Text>
       <Text size={27} color="blue" weight={'semibold'}>

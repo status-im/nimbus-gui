@@ -82,8 +82,8 @@ const ValidatorOnboarding = () => {
       <YStack
         style={{
           width: '100%',
-          margin: '0 auto',
-          padding: '2% 10% 2%',
+          maxWidth: '1100px',
+          margin: '4rem auto 2rem',
           justifyContent: 'start',
           alignItems: 'start',
         }}
@@ -105,26 +105,28 @@ const ValidatorOnboarding = () => {
           {activeStep === 3 && subStepValidatorSetup === 3 && <ActivationValidatorSetup />}
 
           {activeStep === 4 && <KeyGeneration isConfirmPhraseStage={isConfirmPhraseStage} />}
-          {activeStep === 5 && <Activation
-            validatorsValue='4'
-            executionSyncStatus1={{
-              text: "Execution Sync Status",
-              isGaugeIncluded: true,
-              gaugeColor: "$blue",
-              gaugeSynced: 123.524,
-              gaugeTotal: 172.503,
-            }}
-            executionSyncStatus2={{
-              text: "Execution Sync Status",
-              isGaugeIncluded: true,
-              gaugeColor: "$red",
-              gaugeSynced: 123.524,
-              gaugeTotal: 172.503,
-            }}
-            currentAPRValue="4.40%"
-            estimatedActivationTimeValue="32 Days"
-            validatorQueueValue="92603"
-          />}
+          {activeStep === 5 && (
+            <Activation
+              validatorsValue="4"
+              executionSyncStatus1={{
+                text: 'Execution Sync Status',
+                isGaugeIncluded: true,
+                gaugeColor: '$blue',
+                gaugeSynced: 123.524,
+                gaugeTotal: 172.503,
+              }}
+              executionSyncStatus2={{
+                text: 'Execution Sync Status',
+                isGaugeIncluded: true,
+                gaugeColor: '$red',
+                gaugeSynced: 123.524,
+                gaugeTotal: 172.503,
+              }}
+              currentAPRValue="4.40%"
+              estimatedActivationTimeValue="32 Days"
+              validatorQueueValue="92603"
+            />
+          )}
         </ValidatorBoxWrapper>
         <ContinueButton
           activeStep={activeStep}
