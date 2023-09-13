@@ -10,7 +10,6 @@ import {
     Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import faker from 'faker';
 
 ChartJS.register(
     CategoryScale,
@@ -22,7 +21,9 @@ ChartJS.register(
     Filler,
     Legend
 );
+
 const exampleData = [
+
     {
         id: 1,
         year: 2016,
@@ -53,23 +54,25 @@ const exampleData = [
         userGain: 4300,
         userLost: 234
     }
+
 ];
-const labelsEx = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const years = exampleData.map(item => item.year.toString());
+const userGains = exampleData.map(item => item.userGain);
 
 const data = {
-    labels: labelsEx,
+    labels: years,
     datasets: [
         {
-            label: 'Dataset',
-            data: exampleData,
-            borderColor: 'light-red',
-            backgroundColor: 'light-red',
+            label: 'User Gain',
+            data: userGains,
+            borderColor: 'red',
+            backgroundColor: 'red',
             fill: true,
-            start: true,
-            origin: true
+
         }
     ]
 };
+
 const config = {
     type: 'line',
     data: data,
@@ -88,6 +91,7 @@ const config = {
         }
     },
 };
+
 const options = {
     responsive: true,
     plugins: {
@@ -96,13 +100,13 @@ const options = {
         },
         title: {
             display: true,
-            text: 'Chart.js Line Chart',
+            text: 'User Gain Over Years',
         },
     },
 };
+
 const LineChart = () => {
-
     return <Line options={options} data={data} />;
-
 }
+
 export default LineChart;
