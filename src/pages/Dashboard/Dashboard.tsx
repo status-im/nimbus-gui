@@ -1,10 +1,10 @@
-import { XStack } from 'tamagui'
+import { Stack, XStack } from 'tamagui'
 import BasicInfoCard from './BasicInfoCard'
 
 const Dashboard = () => {
   return (
     <XStack>
-      <div
+      <Stack
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(5, 1fr)',
@@ -17,7 +17,7 @@ const Dashboard = () => {
         <BasicInfoCard title="At Headslot" value="-6" />
         <BasicInfoCard title="Avg. Effectiveness" value="4" />
         <BasicInfoCard title="Participation Rate" value="6" />
-      </div>
+      </Stack>
     </XStack>
   )
 }

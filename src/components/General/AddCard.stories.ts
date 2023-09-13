@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import AddCard from './AddCard'
 
 const meta: Meta = {
-  title: 'Dashboard/AddCard',
+  title: 'General/AddCard',
   component: AddCard,
   decorators: [],
   tags: ['autodocs'],

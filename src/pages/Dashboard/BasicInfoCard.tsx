@@ -12,7 +12,6 @@ const BasicInfoCard = ({ title, value }: BasicInfoCardProps) => {
     <DashboardCardWrapper>
       <YStack
         style={{
-          padding: '12px 16px',
           width: '100%',
         }}
       >
