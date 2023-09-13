@@ -7,16 +7,15 @@ import BalanceChardCard from './BalanceLineChart/BalanceChardCard'
 
 const Dashboard = () => {
   return (
-    <YStack space={'$2'} alignItems="start">
-      <XStack space={'$2'}>
+    <YStack space={'$4'} alignItems="start">
+      <XStack space={'$4'} style={{ width: '100%' }}>
         <XStack space={'$4'}>
-          <SyncStatusCard />
           <AddCardsContainer />
+          <SyncStatusCard />
         </XStack>
-        <XStack space={'$2'}></XStack>
+        <BalanceChardCard />
       </XStack>
       <BasicInfoCards />
-      <BalanceChardCard/>
     </YStack>
   )
 }
