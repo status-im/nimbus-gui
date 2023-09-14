@@ -6,6 +6,7 @@ import Icon from "../../../components/General/Icon";
 
 import { Calendar } from '@status-im/components'
 import { useState } from "react";
+
 type DateRangeType = {
     start: Date | null;
     end: Date | null;
@@ -38,8 +39,8 @@ const BalanceChardCard = () => {
                             </XStack>
                         </YStack>
                         <XStack onClick={() => setIsCalendarVisible((prev) => !prev)} style={{ border: '2px solid #09101C14', height: 'fit-content', padding: '3px', borderRadius: '10px' }}>
-                            <Text size={13} weight={'semibold'}>{dateRange.start ? dateRange.start.toLocaleDateString() : 'Start Date'}</Text>
-                            <Text size={13} weight={'semibold'}>{dateRange.end ? dateRange.end.toLocaleDateString() : 'End Date'}</Text>
+                            <Text size={13} weight={'semibold'}>{dateRange.start ? dateRange.start.toLocaleDateString() + '  ->' : 'Start Date -> '}   </Text>
+                            <Text size={13} weight={'semibold'}>{dateRange.end ? dateRange.end.toLocaleDateString() : ' End Date'}</Text>
                             <Icon src="/icons/edit.svg" />
                         </XStack>
                     </XStack>
