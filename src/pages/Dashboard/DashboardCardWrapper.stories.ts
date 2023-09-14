@@ -19,3 +19,10 @@ export const Default: Story = {
     children: 'Default',
   },
 }
+
+export const WithoutPadding: Story = {
+  args: {
+    children: 'Default',
+    padding: '0',
+  },
+}
