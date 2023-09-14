@@ -43,8 +43,9 @@ const BalanceChardCard = () => {
                             <Text size={13} weight={'semibold'}>{dateRange.end ? dateRange.end.toLocaleDateString() : ' End Date'}</Text>
                             <Icon src="/icons/edit.svg" />
                         </XStack>
+                        {isCalendarVisible && <Calendar style={{ ...calendarStyle }} onDayClick={handleDayClick} />}
                     </XStack>
-                    {isCalendarVisible && <Calendar style={{ ...calendarStyle }} onDayClick={handleDayClick} />}
+
                     <LineChart />
                 </YStack>
             </Stack>
