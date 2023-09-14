@@ -8,23 +8,20 @@ import { Calendar } from '@status-im/components'
 import { useState } from "react";
 
 type DateRangeType = {
-    start: Date | null;
-    end: Date | null;
+    from: Date | undefined;
+    to: Date | undefined;
 };
+
 const BalanceChardCard = () => {
     const [isCalendarVisible, setIsCalendarVisible] = useState(false)
-    const [dateRange, setDateRange] = useState<DateRangeType>({ start: null, end: null });
     const calendarStyle = { backgroundColor: 'white', width: 'fit-content' }
+    const [dateRange, setDateRange] = useState<DateRangeType>({ from: undefined, to: undefined });
 
-    const handleDayClick = (day: any) => {
-        if (!dateRange.start) {
-            setDateRange({ start: day, end: null });
-        } else if (!dateRange.end) {
-            setDateRange({ start: dateRange.start, end: day });
-        } else {
-            setDateRange({ start: day, end: null });
-        }
+
+    const handleRangeSelect = (range: DateRangeType) => {
+        setDateRange(range);
     };
+
     return (
         <DashboardCardWrapper >
             <Stack style={{ width: '536px' }}>
@@ -39,11 +36,18 @@ const BalanceChardCard = () => {
                             </XStack>
                         </YStack>
                         <XStack onClick={() => setIsCalendarVisible((prev) => !prev)} style={{ border: '2px solid #09101C14', height: 'fit-content', padding: '3px', borderRadius: '10px' }}>
-                            <Text size={13} weight={'semibold'}>{dateRange.start ? dateRange.start.toLocaleDateString() + '  ->' : 'Start Date -> '}   </Text>
-                            <Text size={13} weight={'semibold'}>{dateRange.end ? dateRange.end.toLocaleDateString() : ' End Date'}</Text>
+                            <Text size={13} weight={'semibold'}>{dateRange.from ? dateRange.from.toLocaleDateString() + '  ->' : 'Start Date -> '}   </Text>
+                            <Text size={13} weight={'semibold'}>{dateRange.to ? dateRange.to.toLocaleDateString() : ' End Date'}</Text>
                             <Icon src="/icons/edit.svg" />
                         </XStack>
-                        {isCalendarVisible && <Calendar style={{ ...calendarStyle }} onDayClick={handleDayClick} />}
+                        {isCalendarVisible && (
+                            <Calendar
+                                style={calendarStyle}
+                                mode="range"
+                                selected={dateRange}
+                                onSelect={handleRangeSelect}
+                            />
+                        )}
                     </XStack>
 
                     <LineChart />
