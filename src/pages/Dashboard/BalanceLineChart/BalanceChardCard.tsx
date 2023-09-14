@@ -1,3 +1,4 @@
+import './calendar.css'
 import { Stack, XStack, YStack } from "tamagui";
 import DashboardCardWrapper from "../DashboardCardWrapper";
 import { Text } from "@status-im/components";
@@ -19,6 +20,9 @@ const BalanceChardCard = () => {
 
 
     const handleRangeSelect = (range: DateRangeType) => {
+        if (!range) {
+            setDateRange({ from: undefined, to: undefined })
+        }
         setDateRange(range);
     };
 
@@ -36,8 +40,8 @@ const BalanceChardCard = () => {
                             </XStack>
                         </YStack>
                         <XStack onClick={() => setIsCalendarVisible((prev) => !prev)} style={{ border: '2px solid #09101C14', height: 'fit-content', padding: '3px', borderRadius: '10px' }}>
-                            <Text size={13} weight={'semibold'}>{dateRange.from ? dateRange.from.toLocaleDateString() + '  ->' : 'Start Date -> '}   </Text>
-                            <Text size={13} weight={'semibold'}>{dateRange.to ? dateRange.to.toLocaleDateString() : ' End Date'}</Text>
+                            <Text size={13} weight={'semibold'}>{dateRange?.from ? dateRange.from.toLocaleDateString() + '  ->' : 'Start Date -> '}   </Text>
+                            <Text size={13} weight={'semibold'}>{dateRange?.to ? dateRange.to.toLocaleDateString() : ' End Date'}</Text>
                             <Icon src="/icons/edit.svg" />
                         </XStack>
                         {isCalendarVisible && (
