@@ -1,21 +1,15 @@
-import { Stack } from 'tamagui'
+import { Shadow } from '@status-im/components'
 
 type DashboardCardWrapperProps = {
   children: React.ReactNode
+  padding?: string
 }
 
-const DashboardCardWrapper = ({ children }: DashboardCardWrapperProps) => {
+const DashboardCardWrapper = ({ children, padding = '12px 16px' }: DashboardCardWrapperProps) => {
   return (
-    <Stack
-      style={{
-        borderRadius: '16px',
-        boxShadow: '0 0 8px rgba(0, 0, 0, 0.1)',
-        padding: '12px 16px',
-        backgroundColor: '$background',
-      }}
-    >
+    <Shadow variant="$1" style={{ borderRadius: '16px', padding, backgroundColor: '$background' }}>
       {children}
-    </Stack>
+    </Shadow>
   )
 }
 

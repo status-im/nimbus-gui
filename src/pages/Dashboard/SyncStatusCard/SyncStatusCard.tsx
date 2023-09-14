@@ -1,4 +1,5 @@
 import { YStack } from 'tamagui'
+
 import SyncCardContent from './SyncCardContent'
 
 const SyncStatusCard = () => {
