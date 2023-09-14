@@ -1,19 +1,16 @@
 import { YStack } from 'tamagui'
 
 import AddCard from './AddCard'
+import DashboardCardWrapper from '../../../pages/Dashboard/DashboardCardWrapper'
 
 const AddCardsContainer = () => {
   return (
-    <YStack
-      style={{
-        borderRadius: '16px',
-        boxShadow: '0 0 8px rgba(0, 0, 0, 0.1)',
-        backgroundColor: '$background',
-      }}
-    >
-      <AddCard />
-      <AddCard />
-    </YStack>
+    <DashboardCardWrapper padding="0">
+      <YStack>
+        <AddCard />
+        <AddCard />
+      </YStack>
+    </DashboardCardWrapper>
   )
 }
 
