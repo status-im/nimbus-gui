@@ -40,8 +40,8 @@ const DeviceSyncStatus = () => {
           subtitle="Monitor your Validator Client and Beacon Node syncing progression."
         />
         <YStack style={{ width: '100%' }}>
-          <SyncStatusCardExecution synced={132.432} total={200.0} />
-          <SyncStatusCardConsensus synced={149.5} total={160.0} />
+          <SyncStatusCardExecution synced={132.432} total={200} />
+          <SyncStatusCardConsensus synced={149.5} total={160} />
         </YStack>
         <Stack style={{ marginTop: '1rem' }}>
           <Button>Continue</Button>
