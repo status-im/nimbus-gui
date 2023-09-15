@@ -12,10 +12,17 @@ import { useState } from "react";
 const years = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEPT', 'OCT', 'NOV', 'DEC']
 const userGains = [10000, 15000, 17500, 20000, 19000, 23222, 25000, 20000, 20000, 21000, 22300, 21000]
 
+const getMonthIndicesFromRange = (range: DateRange) => {
+    if (!range.from || !range.to) return [0, 11];
+
+    return [range.from.getMonth(), range.to.getMonth()];
+};
 const BalanceChardCard = () => {
     const [isCalendarVisible, setIsCalendarVisible] = useState(false)
     const [dateRange, setDateRange] = useState<DateRange>({ from: undefined, to: undefined });
-
+    const [startMonth, endMonth] = getMonthIndicesFromRange(dateRange);
+    const filteredYears = years.slice(startMonth, endMonth + 1);
+    const filteredUserGains = userGains.slice(startMonth, endMonth + 1);
 
     const handleRangeSelect = (
         range: DateRange | undefined,
@@ -26,6 +33,9 @@ const BalanceChardCard = () => {
             return;
         }
         setDateRange(range);
+        if (range.from && range.to) {
+            setIsCalendarVisible(false)
+        }
     };
 
     return (
@@ -46,8 +56,6 @@ const BalanceChardCard = () => {
                             <Icon src="/icons/edit.svg" />
                         </XStack>
                     </XStack>
-
-                    <LineChart years={years} userGains={userGains} />
                     {isCalendarVisible && (
                         <Calendar
                             style={{ backgroundColor: 'white', position: 'absolute', zIndex: 1000, top: '100%', right: '0' }}
@@ -56,6 +64,7 @@ const BalanceChardCard = () => {
                             onSelect={handleRangeSelect}
                         />
                     )}
+                    <LineChart years={filteredYears} userGains={filteredUserGains} />
                 </YStack>
             </Stack>
         </DashboardCardWrapper>
