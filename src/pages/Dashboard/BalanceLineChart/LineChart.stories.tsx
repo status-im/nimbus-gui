@@ -12,6 +12,13 @@ const meta = {
         layout: 'centered',
     },
     tags: ['autodocs'],
+    decorators: [StoryObj =>
+    (
+        <Stack width={'536px'}>
+            <StoryObj />,
+        </Stack>
+    )
+    ]
 } satisfies Meta<typeof LineChart>
 
 export default meta
