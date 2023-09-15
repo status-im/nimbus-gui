@@ -55,10 +55,8 @@ interface DataItem {
 
 const UptimeChart = () => {
     return (
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer  >
             <BarChart
-                width={500}
-                height={300}
                 data={data}
                 margin={{
                     top: 5,
@@ -66,6 +64,7 @@ const UptimeChart = () => {
                     left: 20,
                     bottom: 5,
                 }}
+                style={{ backgroundColor: '#F0F2F5' }}
             >
                 <Bar dataKey="pv" barSize={2} fill="#E95460" />
             </BarChart>

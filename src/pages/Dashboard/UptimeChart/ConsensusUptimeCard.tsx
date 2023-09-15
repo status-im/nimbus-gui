@@ -17,9 +17,11 @@ const ConsensusUptimeCard = () => {
                     <Text size={27} weight={'semibold'}>98%</Text>
                     <Text size={13} color='$red'>-2%</Text>
                 </XStack>
-                <Stack width={'100%'} height={'50%'}>
-                    <UptimeChart />
-                </Stack>
+                <XStack width={'100%'} height={'50%'} justifyContent="center" alignItems="center">
+                    <Stack style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '80%', height: '100%' }}>
+                        <UptimeChart />
+                    </Stack>
+                </XStack>
             </YStack>
 
         </Shadow >
