@@ -1,6 +1,7 @@
-import { Separator, XStack, YStack } from 'tamagui'
-import { Text } from '@status-im/components'
+import { Separator, Stack, XStack, YStack } from 'tamagui'
+import { Shadow, Text } from '@status-im/components'
 import { SwapIcon } from '@status-im/icons'
+import { CSSProperties } from 'react'
 
 import { formatNumberWithComa } from '../../../utilities'
 import IconText from '../../../components/General/IconText'
@@ -9,22 +10,37 @@ type SyncCardContentProps = {
   title: string
   value: number
   total: number
+  isTop?: boolean
 }
 
-const SyncCardContent = ({ title, value, total }: SyncCardContentProps) => {
+const SyncCardContent = ({ title, value, total, isTop }: SyncCardContentProps) => {
+  const style: CSSProperties = {}
+
+  if (isTop === true) {
+    style.borderTopLeftRadius = '16px'
+    style.borderTopRightRadius = '16px'
+  } else if (isTop === false) {
+    style.borderBottomLeftRadius = '16px'
+    style.borderBottomRightRadius = '16px'
+  }
+
   return (
-    <YStack>
-      <Text size={15} weight={'semibold'}>
-        {title}
-      </Text>
-      <Separator borderColor={'#e3e3e3'} />
-      <XStack space={'$2'} style={{ padding: '10px 16px 10px 16px' }}>
-        <IconText icon={<SwapIcon size={16} />}>Syncing</IconText>
-        <Text size={13}>
-          {formatNumberWithComa(value)} / {formatNumberWithComa(total)}
-        </Text>
-      </XStack>
-    </YStack>
+    <Shadow variant="$1" style={style}>
+      <YStack>
+        <Stack style={{ width: '260px', height: '84px', paddingTop: '12px', paddingLeft: '16px' }}>
+          <Text size={15} weight={'semibold'} color="#647084">
+            {title}
+          </Text>
+        </Stack>
+        <Separator borderColor={'#e3e3e3'} />
+        <XStack space={'$3'} style={{ padding: '12px 16px' }}>
+          <IconText icon={<SwapIcon size={16} />}>Syncing</IconText>
+          <Text size={13} weight={'semibold'}>
+            {formatNumberWithComa(value)} / {formatNumberWithComa(total)}
+          </Text>
+        </XStack>
+      </YStack>
+    </Shadow>
   )
 }
 
