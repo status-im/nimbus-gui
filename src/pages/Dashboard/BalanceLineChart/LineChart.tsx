@@ -34,7 +34,6 @@ const LineChart = ({ years, userGains }: LineChartProps) => {
                 fill: true,
                 tension: 0.4,
                 pointRadius: 0,
-
             }
         ],
         options: {
