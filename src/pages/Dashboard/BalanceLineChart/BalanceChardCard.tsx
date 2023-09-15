@@ -7,9 +7,9 @@ import { DateRange } from 'react-day-picker'
 import DashboardCardWrapper from '../DashboardCardWrapper'
 import LineChart from './LineChart'
 import Icon from '../../../components/General/Icon'
+import { years } from '../../../constants'
 import './calendar.css'
 
-const years = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEPT', 'OCT', 'NOV', 'DEC']
 const userGains = [
   10000, 15000, 17500, 20000, 19000, 23222, 25000, 20000, 20000, 21000, 22300, 21000,
 ]
