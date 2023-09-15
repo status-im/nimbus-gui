@@ -1,6 +1,9 @@
 import { Separator, XStack, YStack } from 'tamagui'
-import { formatNumberForGauge } from '../../../utilities'
 import { Text } from '@status-im/components'
+import { SwapIcon } from '@status-im/icons'
+
+import { formatNumberForGauge } from '../../../utilities'
+import IconText from '../../../components/General/IconText'
 
 type SyncCardContentProps = {
   title: string
@@ -16,7 +19,7 @@ const SyncCardContent = ({ title, value, total }: SyncCardContentProps) => {
       </Text>
       <Separator borderColor={'#e3e3e3'} />
       <XStack space={'$2'} style={{ padding: '10px 16px 10px 16px' }}>
-        {/* <IconText icon={<TokenIcon size={16} />}>Syncing</IconText> */}
+        <IconText icon={<SwapIcon size={16} />}>Syncing</IconText>
         <Text size={13}>
           {formatNumberForGauge(value)} / {formatNumberForGauge(total)}
         </Text>

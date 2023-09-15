@@ -1,8 +1,8 @@
 import { Separator, YStack } from 'tamagui'
+import { Text } from '@status-im/components'
 
 import SyncCardContent from './SyncCardContent'
 import DashboardCardWrapper from '../DashboardCardWrapper'
-import { Text } from '@status-im/components'
 
 const SyncStatusCard = () => {
   return (
