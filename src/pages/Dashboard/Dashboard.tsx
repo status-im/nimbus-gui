@@ -5,7 +5,8 @@ import AddCardsContainer from '../../components/General/AddCards/AddCardsContain
 import SyncStatusCard from './SyncStatusCard/SyncStatusCard'
 import BalanceChardCard from './BalanceLineChart/BalanceChardCard'
 import CPUCard from './CPULoad/CPUCard'
-import ConsensusUptimeCard from './UptimeChart/ConsensusUptimeCard'
+import ConsensusUptimeCard from './ConsensusUptime/ConsensusUptimeCard'
+import ExecutionUptime from './ExecutionUptime/ExecutionUptime'
 
 const Dashboard = () => {
   return (
@@ -20,6 +21,7 @@ const Dashboard = () => {
       </XStack>
       <BasicInfoCards />
       <ConsensusUptimeCard />
+      <ExecutionUptime />
     </YStack>
   )
 }
