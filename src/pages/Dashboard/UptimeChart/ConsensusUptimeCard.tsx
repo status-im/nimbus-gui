@@ -10,7 +10,6 @@ const ConsensusUptimeCard = () => {
                 borderRadius: '16px',
             }}
         >
-
             <YStack space={'$3'} width={'260px'} height={'156px'}>
                 <Text size={15} weight={'semibold'}>Consensus Uptime </Text>
                 <XStack space={'$2'}>

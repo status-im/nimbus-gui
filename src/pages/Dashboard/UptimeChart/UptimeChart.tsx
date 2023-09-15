@@ -10,7 +10,7 @@ const data: DataItem[] = [
     },
     {
         // name: 'Feb',
-        pv: 0   ,
+        pv: 0,
         pa: 0
     },
     {
@@ -46,14 +46,11 @@ interface DataItem {
     pv: number;
 }
 
-
 const UptimeChart = () => {
     return (
         <ResponsiveContainer  >
             <BarChart
                 data={data}
-                margin={{
-                }}
                 style={{ backgroundColor: '#F0F2F5' }}
             >
                 {/* <XAxis dataKey="name" fontSize={'10px'} width={50} /> */}
