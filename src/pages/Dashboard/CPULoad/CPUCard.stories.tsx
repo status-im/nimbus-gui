@@ -14,6 +14,6 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Page: Story = {
-  args: {load:[32,12,45,10]},
+export const Default: Story = {
+  args: { load: [32, 12, 45, 10] },
 }
