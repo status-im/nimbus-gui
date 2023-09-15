@@ -10,12 +10,10 @@ import { useState } from "react";
 
 
 const years = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEPT', 'OCT', 'NOV', 'DEC']
-
 const userGains = [10000, 15000, 17500, 20000, 19000, 23222, 25000, 20000, 20000, 21000, 22300, 21000]
 
 const BalanceChardCard = () => {
     const [isCalendarVisible, setIsCalendarVisible] = useState(false)
-    const calendarStyle = { backgroundColor: 'white', width: 'fit-content' }
     const [dateRange, setDateRange] = useState<DateRange>({ from: undefined, to: undefined });
 
 
@@ -29,11 +27,11 @@ const BalanceChardCard = () => {
         }
         setDateRange(range);
     };
+
     return (
         <DashboardCardWrapper >
             <Stack style={{ width: '536px' }}>
-                <YStack>
-
+                <YStack space={'$4'}>
                     <XStack justifyContent={'space-between'}>
                         <YStack>
                             <Text size={15} weight={'semibold'}> Balance</Text>
@@ -47,17 +45,17 @@ const BalanceChardCard = () => {
                             <Text size={13} weight={'semibold'}>{dateRange?.to ? dateRange.to.toLocaleDateString() : ' End Date'}</Text>
                             <Icon src="/icons/edit.svg" />
                         </XStack>
-                        {isCalendarVisible && (
-                            <Calendar
-                                style={calendarStyle}
-                                mode="range"
-                                selected={dateRange}
-                                onSelect={handleRangeSelect}
-                            />
-                        )}
                     </XStack>
 
                     <LineChart years={years} userGains={userGains} />
+                    {isCalendarVisible && (
+                        <Calendar
+                            style={{ backgroundColor: 'white', position: 'absolute', zIndex: 1000, top: '100%', right: '0' }}
+                            mode="range"
+                            selected={dateRange}
+                            onSelect={handleRangeSelect}
+                        />
+                    )}
                 </YStack>
             </Stack>
         </DashboardCardWrapper>
