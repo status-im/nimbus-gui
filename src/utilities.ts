@@ -24,5 +24,5 @@ export const convertSecondsToTimerFormat = (seconds: number) => {
 }
 
 export const formatNumberForGauge = (n: number): string => {
-  return n.toString().replace(/\./g, ',')
+  return n.toFixed(3).replace(/\./g, ',')
 }
