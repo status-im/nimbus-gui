@@ -13,6 +13,10 @@ type DateRangeType = {
     to: Date | undefined;
 };
 
+const years = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEPT', 'OCT', 'NOV', 'DEC']
+
+const userGains = [10000, 15000, 17500, 20000, 19000, 23222, 25000, 20000, 20000, 21000, 22300, 21000]
+
 const BalanceChardCard = () => {
     const [isCalendarVisible, setIsCalendarVisible] = useState(false)
     const calendarStyle = { backgroundColor: 'white', width: 'fit-content' }
@@ -54,7 +58,7 @@ const BalanceChardCard = () => {
                         )}
                     </XStack>
 
-                    <LineChart />
+                    <LineChart years={years} userGains={userGains} />
                 </YStack>
             </Stack>
         </DashboardCardWrapper>
