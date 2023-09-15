@@ -1,6 +1,7 @@
 
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar,  ResponsiveContainer } from 'recharts';
 // @NOTE: XAxis for months or days
+// @NOTE: XAxis, YAxis, CartesianGrid, Tooltip, Legend, = You can use in wider chart
 
 interface DataItem {
     name?: string;
