@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import LineChart from './LineChart'
 import { Stack } from 'tamagui'
+
+import LineChart from './LineChart'
 import { years } from '../../../constants'
 
 const userGains = [

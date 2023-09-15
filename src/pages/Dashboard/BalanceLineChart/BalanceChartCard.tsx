@@ -20,7 +20,7 @@ const getMonthIndicesFromRange = (range: DateRange) => {
   return [range.from.getMonth(), range.to.getMonth()]
 }
 
-const BalanceChardCard = () => {
+const BalanceChartCard = () => {
   const [isCalendarVisible, setIsCalendarVisible] = useState(false)
   const [dateRange, setDateRange] = useState<DateRange>({ from: undefined, to: undefined })
   const [startMonth, endMonth] = getMonthIndicesFromRange(dateRange)
@@ -102,4 +102,4 @@ const BalanceChardCard = () => {
   )
 }
 
-export default BalanceChardCard
+export default BalanceChartCard
