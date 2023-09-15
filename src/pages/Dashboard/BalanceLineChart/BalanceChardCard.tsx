@@ -4,14 +4,10 @@ import DashboardCardWrapper from "../DashboardCardWrapper";
 import { Text } from "@status-im/components";
 import LineChart from "./LineChart";
 import Icon from "../../../components/General/Icon";
-
+import { DateRange } from 'react-day-picker';
 import { Calendar } from '@status-im/components'
 import { useState } from "react";
 
-type DateRangeType = {
-    from: Date | undefined;
-    to: Date | undefined;
-};
 
 const years = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEPT', 'OCT', 'NOV', 'DEC']
 
@@ -20,16 +16,19 @@ const userGains = [10000, 15000, 17500, 20000, 19000, 23222, 25000, 20000, 20000
 const BalanceChardCard = () => {
     const [isCalendarVisible, setIsCalendarVisible] = useState(false)
     const calendarStyle = { backgroundColor: 'white', width: 'fit-content' }
-    const [dateRange, setDateRange] = useState<DateRangeType>({ from: undefined, to: undefined });
+    const [dateRange, setDateRange] = useState<DateRange>({ from: undefined, to: undefined });
 
 
-    const handleRangeSelect = (range: DateRangeType) => {
+    const handleRangeSelect = (
+        range: DateRange | undefined,
+        // @NOTE: You can take selectedDay: Date,
+    ) => {
         if (!range) {
-            setDateRange({ from: undefined, to: undefined })
+            setDateRange({ from: undefined, to: undefined });
+            return;
         }
         setDateRange(range);
     };
-
     return (
         <DashboardCardWrapper >
             <Stack style={{ width: '536px' }}>
