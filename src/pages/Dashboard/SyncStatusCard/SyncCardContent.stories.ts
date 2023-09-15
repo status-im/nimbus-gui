@@ -15,5 +15,5 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: {},
+  args: { title: 'Sync Status', total: 113220, value: 50000 },
 }
