@@ -7,6 +7,7 @@ import BalanceChardCard from './BalanceLineChart/BalanceChardCard'
 import CPUCard from './CPULoad/CPUCard'
 import ConsensusUptimeCard from './ConsensusUptime/ConsensusUptimeCard'
 import ExecutionUptime from './ExecutionUptime/ExecutionUptime'
+import DeviceUptime from './DeviceUptime/DeviceUptime'
 
 const Dashboard = () => {
   return (
@@ -20,9 +21,12 @@ const Dashboard = () => {
         <CPUCard load={[12, 31, 3, 2, 24,]} />
       </XStack>
       <BasicInfoCards />
-      <ConsensusUptimeCard />
-      <ExecutionUptime />
-    </YStack>
+      <XStack space="$3">
+        <ConsensusUptimeCard />
+        <ExecutionUptime />
+        <DeviceUptime />
+      </XStack>
+    </YStack >
   )
 }
 
