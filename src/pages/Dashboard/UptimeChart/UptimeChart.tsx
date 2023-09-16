@@ -1,7 +1,4 @@
-
-import { BarChart, Bar,  ResponsiveContainer } from 'recharts';
-// @NOTE: XAxis for months or days
-// @NOTE: XAxis, YAxis, CartesianGrid, Tooltip, Legend, = You can use in wider chart
+import { BarChart, Bar, ResponsiveContainer, XAxis } from 'recharts';
 
 interface DataItem {
     name?: string;
@@ -20,10 +17,12 @@ const UptimeChart = ({ data }: UptimeChartProps) => {
                 data={data}
                 style={{ backgroundColor: '#F0F2F5' }}
             >
-                {/* <XAxis dataKey="name" fontSize={'10px'} width={50} /> */}
                 <Bar dataKey="pv" barSize={2} fill="#E95460" />
                 {/* <XAxis dataKey="name" fontSize={'10px'} width={50} /> */}
                 <Bar dataKey="pa" barSize={2} fill="#E95460" />
+                {data[0].name && (
+                    <XAxis dataKey="name" fontSize={'10px'} tickMargin={10} />
+                )}
             </BarChart>
         </ResponsiveContainer>
     );
