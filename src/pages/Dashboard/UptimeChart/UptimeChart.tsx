@@ -1,13 +1,13 @@
 import { BarChart, Bar, ResponsiveContainer, XAxis } from 'recharts';
 
-interface DataItem {
-    name?: string;
-    pa: number;
-    pv: number;
+type DataItem = {
+  name?: string
+  pa: number
+  pv: number
 }
 
 type UptimeChartProps = {
-    data: DataItem[];
+  data: DataItem[]
 }
 
 const UptimeChart = ({ data }: UptimeChartProps) => {
@@ -27,4 +27,5 @@ const UptimeChart = ({ data }: UptimeChartProps) => {
         </ResponsiveContainer>
     );
 }
-export default UptimeChart;
+
+export default UptimeChart

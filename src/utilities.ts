@@ -23,6 +23,6 @@ export const convertSecondsToTimerFormat = (seconds: number) => {
   return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`
 }
 
-export const formatNumberForGauge = (n: number): string => {
-  return n.toString().replace(/\./g, ',')
+export const formatNumberWithComa = (n: number): string => {
+  return n.toFixed(3).replace(/\./g, ',')
 }

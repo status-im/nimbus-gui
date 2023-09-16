@@ -1,19 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import ConsensusUptimeCard from './ConsensusUptimeCard'
+import UptimeChart from './UptimeChart'
 
 const meta = {
-  title: 'Dashboard/ConsensusUptimeCard',
-  component: ConsensusUptimeCard,
+  title: 'Dashboard/UptimeChart',
+  component: UptimeChart,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof ConsensusUptimeCard>
+} satisfies Meta<typeof UptimeChart>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: {},
+  args: {
+    data: [],
+  },
 }

@@ -1,7 +1,7 @@
 import { Stack, XStack, YStack } from 'tamagui'
 import StandardGauge from '../../../components/Charts/StandardGauge'
 import { Text } from '@status-im/components'
-import { formatNumberForGauge } from '../../../utilities'
+import { formatNumberWithComa } from '../../../utilities'
 
 type ActivationSyncCardProps = {
   gaugeColor: string
@@ -37,7 +37,7 @@ const ActivationSyncCard = ({ gaugeColor, gaugeSynced, gaugeTotal }: ActivationS
       </Stack>
       <YStack>
         <Text size={15} weight={'semibold'}>
-          {formatNumberForGauge(gaugeSynced)} / {formatNumberForGauge(gaugeTotal)}
+          {formatNumberWithComa(gaugeSynced)} / {formatNumberWithComa(gaugeTotal)}
         </Text>
       </YStack>
     </XStack>
