@@ -10,6 +10,7 @@ import ExecutionUptime from './ExecutionUptime/ExecutionUptime'
 import DeviceUptime from './DeviceUptime/DeviceUptime'
 import TitleLogo from './TitleLogo'
 import StorageCard from './StorageCard/StorageCard'
+import NetworkCard from './NetworkCard/NetworkCard'
 
 const Dashboard = () => {
   return (
@@ -29,8 +30,8 @@ const Dashboard = () => {
         <ExecutionUptime />
         <DeviceUptime />
         <StorageCard maxStorage={100} storage={82} ></StorageCard>
-        <NetworkCard></NetworkCard>
       </XStack>
+        <NetworkCard downloadRate={[12,31,2,12,3,23]} uploadRate={[31,12,3,13,3,]}></NetworkCard>
     </YStack >
   )
 }
