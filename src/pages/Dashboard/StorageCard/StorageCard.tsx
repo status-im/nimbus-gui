@@ -5,11 +5,11 @@ import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
 import StandardGauge from '../../../components/Charts/StandardGauge'
 import IconText from '../../../components/General/IconText'
 import Icon from '../../../components/General/Icon'
-interface DeviceStorageHealthProps {
+type StorageCardProps = {
     storage: number
     maxStorage: number
 }
-const StorageCard: React.FC<DeviceStorageHealthProps> = ({ storage, maxStorage }) => {
+const StorageCard = ({ storage, maxStorage }: StorageCardProps) => {
     const message = storage < maxStorage ? 'Good' : 'Poor'
     const free = maxStorage - storage
     const utilization = (storage / (maxStorage || 1)) * 100
