@@ -21,14 +21,14 @@ const Dashboard = () => {
           <SyncStatusCard />
         </XStack>
         <BalanceChartCard />
-        <CPUCard load={[12, 31, 3, 2, 24]} />
+        <CPUCard load={[12, 31, 3, 2, 24, 98]} />
       </XStack>
       <BasicInfoCards />
       <XStack space="$3">
         <ConsensusUptimeCard />
         <ExecutionUptime />
         <DeviceUptime />
-        <StorageCard maxStorage={50} storage={20} ></StorageCard>
+        <StorageCard maxStorage={100} storage={82} ></StorageCard>
       </XStack>
     </YStack >
   )
