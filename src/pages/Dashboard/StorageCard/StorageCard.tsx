@@ -81,7 +81,7 @@ const StorageCard: React.FC<DeviceStorageHealthProps> = ({ storage, maxStorage }
                         }
                         weight={'semibold'}
                     >
-                        {message == 'Good' ? message : 'Fair'}
+                        {message}
                     </IconText>
                     {message === 'Poor' && (
                         <Text size={13} color="#E95460">

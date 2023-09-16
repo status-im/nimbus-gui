@@ -18,5 +18,5 @@ export const Default: Story = {
     args: { storage: 45, maxStorage: 100 },
 }
 export const BadStats: Story = {
-    args: { storage: 90, maxStorage: 100 }
+    args: { storage: 110, maxStorage: 100 }
 }
