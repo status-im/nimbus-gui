@@ -29,6 +29,7 @@ const Dashboard = () => {
         <ExecutionUptime />
         <DeviceUptime />
         <StorageCard maxStorage={100} storage={82} ></StorageCard>
+        <NetworkCard></NetworkCard>
       </XStack>
     </YStack >
   )
