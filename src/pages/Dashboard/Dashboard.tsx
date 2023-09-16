@@ -9,6 +9,7 @@ import ConsensusUptimeCard from './ConsensusUptime/ConsensusUptimeCard'
 import ExecutionUptime from './ExecutionUptime/ExecutionUptime'
 import DeviceUptime from './DeviceUptime/DeviceUptime'
 import TitleLogo from './TitleLogo'
+import StorageCard from './StorageCard/StorageCard'
 
 const Dashboard = () => {
   return (
@@ -27,6 +28,7 @@ const Dashboard = () => {
         <ConsensusUptimeCard />
         <ExecutionUptime />
         <DeviceUptime />
+        <StorageCard maxStorage={50} storage={20} ></StorageCard>
       </XStack>
     </YStack >
   )

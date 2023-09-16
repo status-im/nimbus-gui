@@ -79,7 +79,8 @@ const DeviceUptime = () => {
     const [isCalendarVisible, setIsCalendarVisible] = useState(false)
     const [dateRange, setDateRange] = useState<DateRange>({ from: undefined, to: undefined })
     const [startMonth, endMonth] = getMonthIndicesFromRange(dateRange)
-    
+
+    console.log(startMonth, endMonth)
     const handleRangeSelect = (
         range: DateRange | undefined,
         // @NOTE: You can take selectedDay: Date,
