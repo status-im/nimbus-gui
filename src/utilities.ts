@@ -13,6 +13,8 @@
  *      assertUnreachable(user.role);
  * }
  */
+import { DateRange } from 'react-day-picker'
+
 export function assertUnreachable(value: never): never {
   throw new Error(`Unreachable case: ${value}`)
 }
@@ -25,4 +27,10 @@ export const convertSecondsToTimerFormat = (seconds: number) => {
 
 export const formatNumberWithComa = (n: number): string => {
   return n.toFixed(3).replace(/\./g, ',')
+}
+
+export const getMonthIndicesFromRange = (range: DateRange) => {
+  if (!range.from || !range.to) return [0, 11]
+
+  return [range.from.getMonth(), range.to.getMonth()]
 }
