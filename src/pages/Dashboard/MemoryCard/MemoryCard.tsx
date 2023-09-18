@@ -4,6 +4,22 @@ import { Shadow as ShadowBox, Text } from '@status-im/components'
 import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
 import IconText from '../../../components/General/IconText'
 
+type DataPoint = {
+    x: number
+    y: number
+}
+
+type ChartData = {
+    id: string
+    color: string
+    data: DataPoint[]
+    maxValue?: number
+}
+
+type MemoryCardProps = {
+    currentMemory: number[]
+    maxMemory: number
+}
 const MemoryCard = ({ currentMemory, maxMemory }: MemoryCardProps) => {
     const chartData: ChartData[] = [
         {
