@@ -2,10 +2,8 @@ import { XStack, YStack } from 'tamagui'
 
 import LeftSidebar from './LeftSidebar'
 import RightSidebar from './RightSidebar'
-
 import BasicInfoCards from './BasicInfoCards/BasicInfoCards'
 import AddCardsContainer from '../../components/General/AddCards/AddCardsContainer'
-import SyncStatusCard from './SyncStatusCard/SyncStatusCard'
 import BalanceChartCard from './BalanceChartCard/BalanceChartCard'
 import CPUCard from './CPULoad/CPUCard'
 import ConsensusUptimeCard from './ConsensusUptime/ConsensusUptimeCard'
@@ -14,6 +12,7 @@ import DeviceUptime from './DeviceUptime/DeviceUptime'
 import TitleLogo from './TitleLogo'
 import StorageCard from './StorageCard/StorageCard'
 import NetworkCard from './NetworkCard/NetworkCard'
+import SyncStatusCard from './SyncStatusCard/SyncStatusCard'
 
 const Dashboard = () => {
   return (
