@@ -1,5 +1,5 @@
- 
-import { Paragraph, Separator, XStack, YStack } from 'tamagui'
+
+import { Paragraph, Separator, Stack, XStack, YStack } from 'tamagui'
 import { Shadow as ShadowBox, Text } from '@status-im/components'
 import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
 import StandartLineChart from '../../../components/Charts/StandardLineChart'
@@ -55,7 +55,7 @@ const NetworkCard = ({ uploadRate, downloadRate }: NetworkCardProps) => {
         backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
       }}
     >
-      <YStack>
+      <YStack >
         <XStack
           justifyContent="space-between"
           style={{
@@ -66,10 +66,19 @@ const NetworkCard = ({ uploadRate, downloadRate }: NetworkCardProps) => {
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
             <StandartLineChart data={chartData} />
           </div>
-          <YStack space={'$3'}>
-            <Paragraph color={'#09101C'} size={'$6'} fontWeight={'600'}>
-              Network
-            </Paragraph>
+          <YStack space={'$3'} width={'100%'}>
+            <XStack justifyContent='space-between' width={'100%'}>
+              <Stack>
+
+                <Paragraph color={'#09101C'} size={'$6'} fontWeight={'600'}>
+                  Network
+                </Paragraph>
+              </Stack>
+              <YStack>
+                <Text size={11} weight={'semibold'}>Uptime</Text>
+                <Text size={11} weight={'medium'}>23:20:02</Text>
+              </YStack>
+            </XStack>
             <Paragraph color={'#09101C'} size={'$8'} fontWeight={'700'}>
               {currentLoad} GB
             </Paragraph>
@@ -88,8 +97,8 @@ const NetworkCard = ({ uploadRate, downloadRate }: NetworkCardProps) => {
             </Text>
           )}
         </XStack>
-      </YStack>
-    </ShadowBox>
+      </YStack >
+    </ShadowBox >
   )
 }
 
