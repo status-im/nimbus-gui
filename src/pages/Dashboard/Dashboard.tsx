@@ -1,5 +1,8 @@
 import { XStack, YStack } from 'tamagui'
 
+import LeftSidebar from './LeftSidebar'
+import RightSidebar from './RightSidebar'
+
 import BasicInfoCards from './BasicInfoCards/BasicInfoCards'
 import AddCardsContainer from '../../components/General/AddCards/AddCardsContainer'
 import SyncStatusCard from './SyncStatusCard/SyncStatusCard'
@@ -10,14 +13,20 @@ const Dashboard = () => {
   return (
     <YStack space={'$4'} alignItems="start">
       <XStack space={'$4'} style={{ width: '100%' }}>
-        <XStack space={'$4'}>
-          <AddCardsContainer />
-          <SyncStatusCard />
-        </XStack>
-        <BalanceChardCard />
-        <CPUCard load={[12, 31, 3, 2, 24,]} />
+        <LeftSidebar />
+        <YStack space={'$4'} alignItems="start">
+          <XStack space={'$4'} style={{ width: '100%' }}>
+            <XStack space={'$4'}>
+              <AddCardsContainer />
+              <SyncStatusCard />
+            </XStack>
+            <BalanceChardCard />
+            <CPUCard load={[12, 31, 3, 2, 24]} />
+          </XStack>
+          <BasicInfoCards />
+        </YStack>
+        <RightSidebar />
       </XStack>
-      <BasicInfoCards />
     </YStack>
   )
 }
