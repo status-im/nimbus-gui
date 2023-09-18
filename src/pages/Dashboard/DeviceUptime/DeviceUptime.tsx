@@ -70,7 +70,7 @@ const data: DataItem[] = [
   },
 ]
 
-type DataItem {
+type DataItem = {
   name?: string
   pa: number
   pv: number
