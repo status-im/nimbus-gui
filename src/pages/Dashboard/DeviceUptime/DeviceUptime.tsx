@@ -79,8 +79,8 @@ const DeviceUptime = () => {
     const [isCalendarVisible, setIsCalendarVisible] = useState(false)
     const [dateRange, setDateRange] = useState<DateRange>({ from: undefined, to: undefined })
     const [startMonth, endMonth] = getMonthIndicesFromRange(dateRange)
+    const filteredMonths = data.slice(startMonth, endMonth + 1)
 
-    console.log(startMonth, endMonth)
     const handleRangeSelect = (
         range: DateRange | undefined,
         // @NOTE: You can take selectedDay: Date,
@@ -106,7 +106,7 @@ const DeviceUptime = () => {
                 <XStack justifyContent={'space-between'}>
                     <YStack>
                         <Text size={15} weight={'semibold'}>
-                            Balance
+                            Device Uptime
                         </Text>
                         <XStack
                             style={{ alignItems: 'end' }}
@@ -155,7 +155,7 @@ const DeviceUptime = () => {
                 </XStack>
                 <XStack height={'50%'} justifyContent="center" alignItems="center">
                     <Stack style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '504px', height: '100%' }}>
-                        <UptimeChart data={data} />
+                        <UptimeChart data={filteredMonths} />
                     </Stack>
                 </XStack>
             </YStack>

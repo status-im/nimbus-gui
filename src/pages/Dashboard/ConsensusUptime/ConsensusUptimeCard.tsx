@@ -6,8 +6,6 @@ import Icon from '../../../components/General/Icon'
 
 const data: DataItem[] = [
   {
-    // @NOTE: if you want to add name in the XAxis. You need to set the names here
-    // name: 'Jan',
     pv: 1,
     pa: 1,
   },
