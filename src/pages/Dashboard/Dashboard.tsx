@@ -13,6 +13,7 @@ import TitleLogo from './TitleLogo'
 import StorageCard from './StorageCard/StorageCard'
 import NetworkCard from './NetworkCard/NetworkCard'
 import SyncStatusCard from './SyncStatusCard/SyncStatusCard'
+import MemoryCard from './MemoryCard/MemoryCard'
 
 const Dashboard = () => {
   return (
@@ -43,11 +44,12 @@ const Dashboard = () => {
                 <StorageCard maxStorage={100} storage={82}></StorageCard>
                 <CPUCard load={[12, 31, 3, 2, 24, 98]} />
               </XStack>
-              <XStack>
+              <XStack justifyContent="space-between">
                 <NetworkCard
                   downloadRate={[12, 31, 2, 12, 3, 23]}
                   uploadRate={[31, 12, 3, 13, 3]}
-                ></NetworkCard>
+                />
+                <MemoryCard currentMemory={[21,33,3,42,]} maxMemory={50} />
               </XStack>
             </YStack>
           </XStack>
