@@ -1,6 +1,6 @@
 import { IconButton } from '@status-im/components'
 import { NodeIcon } from '@status-im/icons'
-import { XStack, YStack } from 'tamagui'
+import { YStack } from 'tamagui'
 
 const LeftSidebar = () => {
   return (
@@ -15,9 +15,9 @@ const LeftSidebar = () => {
         border: '1px solid #F0F2F5',
       }}
     >
-      <IconButton icon={<NodeIcon size={20} />} variant="ghost" />
-      <IconButton icon={<NodeIcon size={20} />} variant="ghost" disabled />
       <IconButton icon={<NodeIcon size={20} />} variant="ghost" selected />
+      <IconButton icon={<NodeIcon size={20} />} variant="ghost" />
+      <IconButton icon={<NodeIcon size={20} />} variant="outline" disabled />
       <IconButton icon={<NodeIcon size={20} />} variant="ghost" />
       <IconButton icon={<NodeIcon size={20} />} variant="ghost" />
       <IconButton icon={<NodeIcon size={20} />} variant="ghost" />

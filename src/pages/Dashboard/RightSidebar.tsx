@@ -1,6 +1,5 @@
-import { IconButton } from '@status-im/components'
-import { NodeIcon } from '@status-im/icons'
-import { XStack, YStack } from 'tamagui'
+import { SidebarMembers } from '@status-im/components'
+import { YStack } from 'tamagui'
 
 const RightSidebar = () => {
   return (
@@ -8,9 +7,9 @@ const RightSidebar = () => {
       space={'$4'}
       minHeight={'100vh'}
       background={'#FFF'}
-      style={{ padding: '8px', borderTopLeftRadius: '20px' }}
+      style={{ padding: '8px', border: '1px solid #F0F2F5' }}
     >
-      <IconButton icon={<NodeIcon size={20} />} aria-selected={true} />
+      <SidebarMembers />
     </YStack>
   )
 }

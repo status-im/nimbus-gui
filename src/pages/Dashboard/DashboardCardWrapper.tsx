@@ -7,7 +7,10 @@ type DashboardCardWrapperProps = {
 
 const DashboardCardWrapper = ({ children, padding = '12px 16px' }: DashboardCardWrapperProps) => {
   return (
-    <Shadow variant="$1" style={{ borderRadius: '16px', padding, backgroundColor: '$background' }}>
+    <Shadow
+      variant="$1"
+      style={{ flexGrow: '1', borderRadius: '16px', padding, backgroundColor: '$background' }}
+    >
       {children}
     </Shadow>
   )

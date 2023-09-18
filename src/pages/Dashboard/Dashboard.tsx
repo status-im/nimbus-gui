@@ -17,31 +17,41 @@ import NetworkCard from './NetworkCard/NetworkCard'
 
 const Dashboard = () => {
   return (
-    <YStack space={'$4'} alignItems="start">
-      <XStack space={'$4'} style={{ width: '100%' }}>
+    <YStack minHeight={'100vh'} maxWidth={'100vw'}>
+      <XStack justifyContent={'space-between'}>
         <LeftSidebar />
 
-        <YStack space={'$4'} alignItems="start">
+        <YStack space={'$4'} alignItems="start" px="24px" style={{ flexGrow: '1' }}>
           <TitleLogo />
-          <XStack space={'$4'} style={{ width: '100%' }}>
+          <XStack justifyContent="space-between" style={{ width: '100%' }}>
             <XStack space={'$4'}>
-              <AddCardsContainer />
               <SyncStatusCard />
+              <AddCardsContainer />
             </XStack>
             <BalanceChartCard />
-            <CPUCard load={[12, 31, 3, 2, 24, 98]} />
           </XStack>
           <BasicInfoCards />
           <XStack space="$3">
-            <ConsensusUptimeCard />
-            <ExecutionUptime />
-            <DeviceUptime />
-            <StorageCard maxStorage={100} storage={82}></StorageCard>
+            <YStack space={'$4'}>
+              <XStack justifyContent="space-between">
+                <ConsensusUptimeCard />
+                <ExecutionUptime />
+              </XStack>
+              <DeviceUptime />
+            </YStack>
+            <YStack space={'$4'}>
+              <XStack justifyContent="space-between">
+                <StorageCard maxStorage={100} storage={82}></StorageCard>
+                <CPUCard load={[12, 31, 3, 2, 24, 98]} />
+              </XStack>
+              <XStack>
+                <NetworkCard
+                  downloadRate={[12, 31, 2, 12, 3, 23]}
+                  uploadRate={[31, 12, 3, 13, 3]}
+                ></NetworkCard>
+              </XStack>
+            </YStack>
           </XStack>
-          <NetworkCard
-            downloadRate={[12, 31, 2, 12, 3, 23]}
-            uploadRate={[31, 12, 3, 13, 3]}
-          ></NetworkCard>
         </YStack>
 
         <RightSidebar />

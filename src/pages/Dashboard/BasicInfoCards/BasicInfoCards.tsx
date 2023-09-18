@@ -8,7 +8,7 @@ const BasicInfoCards = () => {
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(5, 1fr)',
-        gap: '20px',
+        gap: '1vw',
         width: '100%',
       }}
     >

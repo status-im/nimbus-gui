@@ -15,8 +15,6 @@ const userGains = [
   10000, 15000, 17500, 20000, 19000, 23222, 25000, 20000, 20000, 21000, 22300, 21000,
 ]
 
-
-
 const BalanceChartCard = () => {
   const [isCalendarVisible, setIsCalendarVisible] = useState(false)
   const [dateRange, setDateRange] = useState<DateRange>({ from: undefined, to: undefined })
@@ -40,7 +38,7 @@ const BalanceChartCard = () => {
 
   return (
     <DashboardCardWrapper>
-      <Stack style={{ width: '536px' }}>
+      <Stack>
         <YStack space={'$4'}>
           <XStack justifyContent={'space-between'}>
             <YStack>

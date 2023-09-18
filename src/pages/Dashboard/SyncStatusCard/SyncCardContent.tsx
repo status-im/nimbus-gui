@@ -27,7 +27,7 @@ const SyncCardContent = ({ title, value, total, isTop }: SyncCardContentProps) =
   return (
     <Shadow variant="$1" style={style}>
       <YStack>
-        <Stack style={{ width: '260px', height: '84px', paddingTop: '12px', paddingLeft: '16px' }}>
+        <Stack style={{ minHeight: '90px', padding: '12px 16px' }}>
           <Text size={15} weight={'semibold'} color="#647084">
             {title}
           </Text>
