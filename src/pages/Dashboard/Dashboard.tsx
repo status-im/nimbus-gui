@@ -41,7 +41,7 @@ const Dashboard = () => {
             </YStack>
             <YStack space={'$4'}>
               <XStack justifyContent="space-between">
-                <StorageCard maxStorage={100} storage={82}></StorageCard>
+                <StorageCard maxStorage={100} storage={82} />
                 <CPUCard load={[12, 31, 3, 2, 24, 98]} />
               </XStack>
               <XStack justifyContent="space-between">
@@ -49,7 +49,7 @@ const Dashboard = () => {
                   downloadRate={[12, 31, 2, 12, 3, 23]}
                   uploadRate={[31, 12, 3, 13, 3]}
                 />
-                <MemoryCard currentMemory={[21,33,3,42,]} maxMemory={50} />
+                <MemoryCard currentMemory={[21, 33, 3, 42]} maxMemory={50} />
               </XStack>
             </YStack>
           </XStack>

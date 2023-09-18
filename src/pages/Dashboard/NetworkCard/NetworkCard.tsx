@@ -1,7 +1,7 @@
-
 import { Paragraph, Separator, Stack, XStack, YStack } from 'tamagui'
 import { Shadow as ShadowBox, Text } from '@status-im/components'
 import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
+
 import StandartLineChart from '../../../components/Charts/StandardLineChart'
 import IconText from '../../../components/General/IconText'
 
@@ -20,6 +20,7 @@ type NetworkCardProps = {
   uploadRate: number[]
   downloadRate: number[]
 }
+
 const NetworkCard = ({ uploadRate, downloadRate }: NetworkCardProps) => {
   const chartData: ChartData[] = [
     {
@@ -39,6 +40,7 @@ const NetworkCard = ({ uploadRate, downloadRate }: NetworkCardProps) => {
       })),
     },
   ]
+  
   const currentLoad =
     chartData[0].data.length > 0 ? chartData[0].data[chartData[0].data.length - 1].y : 0
 
@@ -55,7 +57,7 @@ const NetworkCard = ({ uploadRate, downloadRate }: NetworkCardProps) => {
         backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
       }}
     >
-      <YStack >
+      <YStack>
         <XStack
           justifyContent="space-between"
           style={{
@@ -67,16 +69,19 @@ const NetworkCard = ({ uploadRate, downloadRate }: NetworkCardProps) => {
             <StandartLineChart data={chartData} />
           </div>
           <YStack space={'$3'} width={'100%'}>
-            <XStack justifyContent='space-between' width={'100%'}>
+            <XStack justifyContent="space-between" width={'100%'}>
               <Stack>
-
                 <Paragraph color={'#09101C'} size={'$6'} fontWeight={'600'}>
                   Network
                 </Paragraph>
               </Stack>
               <YStack>
-                <Text size={11} weight={'semibold'}>Uptime</Text>
-                <Text size={11} weight={'medium'}>23:20:02</Text>
+                <Text size={11} weight={'semibold'}>
+                  Uptime
+                </Text>
+                <Text size={11} weight={'medium'}>
+                  23:20:02
+                </Text>
               </YStack>
             </XStack>
             <Paragraph color={'#09101C'} size={'$8'} fontWeight={'700'}>
@@ -97,8 +102,8 @@ const NetworkCard = ({ uploadRate, downloadRate }: NetworkCardProps) => {
             </Text>
           )}
         </XStack>
-      </YStack >
-    </ShadowBox >
+      </YStack>
+    </ShadowBox>
   )
 }
 
