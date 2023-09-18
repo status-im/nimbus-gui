@@ -3,7 +3,7 @@ import { Shadow, Text } from '@status-im/components'
 import StandardGauge from '../../components/Charts/StandardGauge'
 import IconText from '../../components/General/IconText'
 import { TokenIcon } from '@status-im/icons'
-import { formatNumberForGauge } from '../../utilities'
+import { formatNumberWithComa } from '../../utilities'
 
 interface DeviceStorageHealthProps {
   synced: number
@@ -73,7 +73,7 @@ const SyncStatusCardExecution: React.FC<DeviceStorageHealthProps> = ({ synced, t
         <XStack space={'$2'} style={{ padding: '10px 16px 10px 16px' }}>
           <IconText icon={<TokenIcon size={16} />}>{message}</IconText>
           <Text size={13}>
-            {formatNumberForGauge(synced)} / {formatNumberForGauge(total)}
+            {formatNumberWithComa(synced)} / {formatNumberWithComa(total)}
           </Text>
         </XStack>
       </YStack>
