@@ -39,12 +39,12 @@ const Dashboard = () => {
               </XStack>
               <DeviceUptime />
             </YStack>
-            <YStack space={'$4'}>
-              <XStack justifyContent="space-between">
+            <YStack space={'$4'} >
+              <XStack space="$4" >
                 <StorageCard maxStorage={100} storage={82} />
                 <CPUCard load={[12, 31, 3, 2, 24, 98]} />
               </XStack>
-              <XStack justifyContent="space-between">
+              <XStack space="$4">
                 <NetworkCard
                   downloadRate={[12, 31, 2, 12, 3, 23]}
                   uploadRate={[31, 12, 3, 13, 3]}

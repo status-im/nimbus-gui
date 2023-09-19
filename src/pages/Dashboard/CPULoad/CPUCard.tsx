@@ -41,13 +41,16 @@ const CPUCard = ({ load }: CPUCardProps) => {
     <Shadow
       variant="$2"
       style={{
-        minHeight: '136px',
+
         borderRadius: '16px',
         border: message === 'Poor' ? '1px solid  #D92344' : 'none',
         backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
       }}
     >
-      <YStack>
+      <YStack style={{
+        width: '284px',
+        height: '136px',
+      }}>
         <XStack
           justifyContent="space-between"
           style={{
