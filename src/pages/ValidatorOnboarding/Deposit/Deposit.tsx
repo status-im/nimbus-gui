@@ -27,6 +27,7 @@ const Deposit = () => {
           message="Your Validator balances currently require a deposit. If you have already made a deposit using Launchpad please wait until the transaction is posted on execution layer to continue."
           variant="error"
           onClosePress={onCloseInfoBox}
+          icon={<PlaceholderIcon size={16} />}
         />
       )}
       <Text size={19} weight={'semibold'}>
