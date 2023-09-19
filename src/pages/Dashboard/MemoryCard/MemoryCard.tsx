@@ -1,5 +1,5 @@
 import { Paragraph, Separator, Stack, XStack, YStack } from 'tamagui'
-import { Shadow as ShadowBox, Text } from '@status-im/components'
+import {  Text } from '@status-im/components'
 import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
 
 import StandartLineChart from '../../../components/Charts/StandardLineChart'
@@ -24,6 +24,7 @@ type MemoryCardProps = {
 }
 
 const MemoryCard = ({ currentMemory, maxMemory }: MemoryCardProps) => {
+
   const chartData: ChartData[] = [
     {
       id: 'cpu',
@@ -68,7 +69,9 @@ const MemoryCard = ({ currentMemory, maxMemory }: MemoryCardProps) => {
             </Paragraph>
           </YStack>
         </XStack>
+
         <Separator borderColor={'#e3e3e3'} />
+        
         <XStack space={'$4'} style={{ padding: '10px 16px 10px 16px' }}>
           <IconText
             icon={message === 'Good' ? <CheckCircleIcon size={16} /> : <IncorrectIcon size={16} />}

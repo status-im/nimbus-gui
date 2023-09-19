@@ -1,10 +1,11 @@
-import { Paragraph, Separator, XStack, YStack } from 'tamagui'
+import { Paragraph, Separator, Stack, XStack, YStack } from 'tamagui'
 import { Shadow, Text } from '@status-im/components'
 import { IncorrectIcon } from '@status-im/icons'
 
 import StandartLineChart from '../../../components/Charts/StandardLineChart'
 import IconText from '../../../components/General/IconText'
 import Icon from '../../../components/General/Icon'
+import DashboardCardWrapper from '../DashboardCardWrapper'
 
 type DataPoint = {
   x: number
@@ -38,18 +39,14 @@ const CPUCard = ({ load }: CPUCardProps) => {
   const message = currentLoad < 80 ? 'Good' : 'Poor'
 
   return (
-    <Shadow
-      variant="$2"
-      style={{
-
-        borderRadius: '16px',
-        border: message === 'Poor' ? '1px solid  #D92344' : 'none',
-        backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
-      }}
-    >
+    <DashboardCardWrapper padding='0'>
       <YStack style={{
         width: '284px',
         height: '136px',
+        borderRadius: '16px',
+        border: message === 'Poor' ? '1px solid  #D92344' : 'none',
+        backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
+
       }}>
         <XStack
           justifyContent="space-between"
@@ -58,9 +55,9 @@ const CPUCard = ({ load }: CPUCardProps) => {
             position: 'relative',
           }}
         >
-          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
+          <Stack style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
             <StandartLineChart data={chartData} />
-          </div>
+          </Stack>
           <YStack space={'$3'}>
             <Paragraph color={'#09101C'} size={'$6'} fontWeight={'600'}>
               CPU
@@ -91,7 +88,7 @@ const CPUCard = ({ load }: CPUCardProps) => {
           )}
         </XStack>
       </YStack>
-    </Shadow>
+    </DashboardCardWrapper>
   )
 }
 

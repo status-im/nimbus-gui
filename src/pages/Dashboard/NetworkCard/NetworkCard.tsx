@@ -1,5 +1,5 @@
 import { Paragraph, Separator, Stack, XStack, YStack } from 'tamagui'
-import { Shadow as ShadowBox, Text } from '@status-im/components'
+import {  Text } from '@status-im/components'
 import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
 
 import StandartLineChart from '../../../components/Charts/StandardLineChart'
@@ -23,6 +23,7 @@ type NetworkCardProps = {
 }
 
 const NetworkCard = ({ uploadRate, downloadRate }: NetworkCardProps) => {
+  
   const chartData: ChartData[] = [
     {
       id: 'uploadRate',
