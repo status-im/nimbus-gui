@@ -1,9 +1,10 @@
-import { Paragraph, Separator, XStack, YStack } from 'tamagui'
+import { Paragraph, Separator, Stack, XStack, YStack } from 'tamagui'
 import { Shadow as ShadowBox, Text } from '@status-im/components'
 import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
 
 import StandartLineChart from '../../../components/Charts/StandardLineChart'
 import IconText from '../../../components/General/IconText'
+import DashboardCardWrapper from '../DashboardCardWrapper'
 
 type DataPoint = {
   x: number
@@ -40,17 +41,16 @@ const MemoryCard = ({ currentMemory, maxMemory }: MemoryCardProps) => {
   const message = currentLoad < maxMemory ? 'Good' : 'Poor'
 
   return (
-    <ShadowBox
-      variant="$2"
-      style={{
-        borderRadius: '16px',
-        border: message === 'Poor' ? '1px solid  #D92344' : 'none',
-        backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
-      }}
-    >
+    <DashboardCardWrapper  padding='0'>
+
+
       <YStack style={{
         width: '284px',
         height: '136px',
+        borderRadius: '16px',
+        border: message === 'Poor' ? '1px solid  #D92344' : 'none',
+        backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
+
       }}>
         <XStack
           justifyContent="space-between"
@@ -59,9 +59,9 @@ const MemoryCard = ({ currentMemory, maxMemory }: MemoryCardProps) => {
             position: 'relative',
           }}
         >
-          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
+          <Stack style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
             <StandartLineChart data={chartData} />
-          </div>
+          </Stack>
           <YStack space={'$3'}>
             <Paragraph color={'#09101C'} size={'$6'} fontWeight={'600'}>
               Memory
@@ -85,7 +85,7 @@ const MemoryCard = ({ currentMemory, maxMemory }: MemoryCardProps) => {
           )}
         </XStack>
       </YStack>
-    </ShadowBox>
+    </DashboardCardWrapper >
   )
 }
 

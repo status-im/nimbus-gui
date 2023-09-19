@@ -45,11 +45,11 @@ const Dashboard = () => {
                 <CPUCard load={[12, 31, 3, 2, 24, 98]} />
               </XStack>
               <XStack space="$4">
+                <MemoryCard currentMemory={[21, 33, 3, 42,35]} maxMemory={50} />
                 <NetworkCard
                   downloadRate={[12, 31, 2, 12, 3, 23]}
                   uploadRate={[31, 12, 3, 13, 3]}
                 />
-                <MemoryCard currentMemory={[21, 33, 3, 42]} maxMemory={50} />
               </XStack>
             </YStack>
           </XStack>
