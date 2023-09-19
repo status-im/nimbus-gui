@@ -1,10 +1,21 @@
 import { Avatar, Button, DividerLine, InformationBox, Input, Text } from '@status-im/components'
-import { PlaceholderIcon } from '@status-im/icons'
+import { PlaceholderIcon, AddIcon } from '@status-im/icons'
 import { Stack, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
 
 const Deposit = () => {
   const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(true)
+  const [validatorCount, setValidatorCount] = useState(0)
+
+  const addValidatorHandler = () => {
+    setValidatorCount((state: number) => state + 1)
+  }
+
+  const changeValidatorCountHandler = (e: any) => {
+    if (!isNaN(e.target.value)) {
+      setValidatorCount(Number(e.target.value))
+    }
+  }
 
   const onCloseInfoBox = () => {
     setIsInfoBoxVisible(false)
@@ -20,7 +31,12 @@ const Deposit = () => {
         <Text size={15} weight="regular" color={'#647084'}>
           Connect you Wallet to stake required ETH for new validators
         </Text>
-        <Input style={{ fontWeight: 'bold' }} />
+        <Input
+          icon={<AddIcon size={16} style={{ cursor: 'pointer' }} onClick={addValidatorHandler} />}
+          style={{ fontWeight: 'bold' }}
+          value={validatorCount.toString()}
+          onChange={changeValidatorCountHandler}
+        />
       </Stack>
       {isInfoBoxVisible && (
         <InformationBox
