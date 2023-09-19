@@ -1,4 +1,5 @@
 import { Stepper, Step } from 'react-form-stepper'
+
 import './FormStepper.css'
 
 type FormStepperProps = {
@@ -13,6 +14,7 @@ const steps = [
   { label: 'Validator Setup', subtitle: 'Validators & Withdrawal' },
   { label: 'Key Generation', subtitle: 'Secure your Keypairs' },
   { label: 'Activation', subtitle: 'Complete Setup' },
+  { label: 'Deposit', subtitle: 'Stake your ETH' },
 ]
 
 const FormStepper = ({ activeStep, changeActiveStep }: FormStepperProps) => {

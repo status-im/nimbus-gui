@@ -2,6 +2,7 @@ import { YStack } from 'tamagui'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import wordlist from 'web-bip39/wordlists/english'
 
 import FormStepper from './FormStepper/FormStepper'
 import Titles from '../../components/General/Titles'
@@ -20,9 +21,8 @@ import {
   setValidWords,
 } from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
 import { RootState } from '../../redux/store'
-import './layoutGradient.css'
 import ActivationValidatorSetup from './ValidatorSetup/ValidatorActivation/ActivationValidatorSetup'
-import wordlist from 'web-bip39/wordlists/english'
+import './layoutGradient.css'
 
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)
