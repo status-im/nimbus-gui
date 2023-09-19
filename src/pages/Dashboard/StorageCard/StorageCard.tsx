@@ -1,10 +1,11 @@
-import { Paragraph, Separator, XStack, YStack } from 'tamagui'
+import { Paragraph, Separator, Stack, XStack, YStack } from 'tamagui'
 import { Shadow, Text } from '@status-im/components'
 import { IncorrectIcon } from '@status-im/icons'
 
 import StandardGauge from '../../../components/Charts/StandardGauge'
 import IconText from '../../../components/General/IconText'
 import Icon from '../../../components/General/Icon'
+import DashboardCardWrapper from '../DashboardCardWrapper'
 
 type StorageCardProps = {
   storage: number
@@ -34,17 +35,14 @@ const StorageCard = ({ storage, maxStorage }: StorageCardProps) => {
   }
 
   return (
-    <Shadow
-      variant="$2"
-      style={{
+    <DashboardCardWrapper padding="0"   >
+      <YStack style={{
         width: '284px',
         height: '136px',
         borderRadius: '16px',
         border: message === 'Poor' ? '1px solid  #D92344' : 'none',
         backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
-      }}
-    >
-      <YStack>
+      }}>
         <XStack
           justifyContent="space-between"
           style={{
@@ -52,7 +50,7 @@ const StorageCard = ({ storage, maxStorage }: StorageCardProps) => {
             position: 'relative',
           }}
         >
-          <div
+          <Stack
             style={{
               position: 'absolute',
               right: '44px',
@@ -61,7 +59,7 @@ const StorageCard = ({ storage, maxStorage }: StorageCardProps) => {
             }}
           >
             <StandardGauge data={data(free)} />
-          </div>
+          </Stack>
           <YStack space={'$3'}>
             <Paragraph color={'#09101C'} size={'$6'} fontWeight={'600'}>
               Storage
@@ -92,7 +90,7 @@ const StorageCard = ({ storage, maxStorage }: StorageCardProps) => {
           )}
         </XStack>
       </YStack>
-    </Shadow>
+    </DashboardCardWrapper>
   )
 }
 
