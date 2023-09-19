@@ -2,6 +2,7 @@ import { Avatar, Button, DividerLine, InformationBox, Input, Text } from '@statu
 import { PlaceholderIcon, AddIcon } from '@status-im/icons'
 import { Stack, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
+import ValidatorRequest from './ValidatorRequest'
 
 const Deposit = () => {
   const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(true)
@@ -26,7 +27,6 @@ const Deposit = () => {
       <Text size={19} weight={'semibold'}>
         Deposit Funds
       </Text>
-      <DividerLine />
       <Stack space={'$2'}>
         <Text size={15} weight="regular" color={'#647084'}>
           Connect you Wallet to stake required ETH for new validators
@@ -38,6 +38,10 @@ const Deposit = () => {
           onChange={changeValidatorCountHandler}
         />
       </Stack>
+      <DividerLine />
+
+      <ValidatorRequest />
+      <ValidatorRequest />
       {isInfoBoxVisible && (
         <InformationBox
           message="Your Validator balances currently require a deposit. If you have already made a deposit using Launchpad please wait until the transaction is posted on execution layer to continue."
