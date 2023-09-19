@@ -1,8 +1,10 @@
-import { Avatar, Button, DividerLine, InformationBox, Input, Text } from '@status-im/components'
-import { PlaceholderIcon, AddIcon, ChevronDownIcon } from '@status-im/icons'
-import { Stack, XStack, YStack } from 'tamagui'
+import { Avatar, Button, DividerLine, InformationBox, Text } from '@status-im/components'
+import { PlaceholderIcon } from '@status-im/icons'
+import { XStack, YStack } from 'tamagui'
 import { useState } from 'react'
+
 import ValidatorRequest from './ValidatorRequest'
+import Validators from './Validators'
 
 const Deposit = () => {
   const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(true)
@@ -27,38 +29,11 @@ const Deposit = () => {
       <Text size={19} weight={'semibold'}>
         Deposit Funds
       </Text>
-      <XStack justifyContent={'space-between'} width={'80%'}>
-        <Stack space={'$2'}>
-          <Text size={15} weight="regular" color={'#647084'}>
-            Connect you Wallet to stake required ETH for new validators
-          </Text>
-          <Input
-            icon={<AddIcon size={16} style={{ cursor: 'pointer' }} onClick={addValidatorHandler} />}
-            style={{ fontWeight: 'bold' }}
-            value={validatorCount.toString()}
-            onChange={changeValidatorCountHandler}
-          />
-        </Stack>
-        <YStack space={'$2'}>
-          <Text size={15} weight={'semibold'} color="#09101C">
-            ETH
-          </Text>
-          <Text size={27} weight={'semibold'} color="#09101C">
-            64
-          </Text>
-        </YStack>
-        <YStack space={'$2'}>
-          <XStack style={{ justifyContent: 'space-between' }}>
-            <Text size={15} weight={'semibold'} color="#09101C">
-              USD
-            </Text>
-            <ChevronDownIcon size={16} color={'#919191'} />
-          </XStack>
-          <Text size={27} weight={'semibold'} color="#09101C">
-            $4,273 USD
-          </Text>
-        </YStack>
-      </XStack>
+      <Validators
+        validatorCount={validatorCount}
+        addValidatorHandler={addValidatorHandler}
+        changeValidatorCountHandler={changeValidatorCountHandler}
+      />
       <DividerLine />
       <ValidatorRequest />
       <ValidatorRequest />
