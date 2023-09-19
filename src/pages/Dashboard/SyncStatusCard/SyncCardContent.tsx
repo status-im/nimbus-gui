@@ -5,6 +5,8 @@ import { CSSProperties } from 'react'
 
 import { formatNumberWithComa } from '../../../utilities'
 import IconText from '../../../components/General/IconText'
+import Icon from '../../../components/General/Icon'
+import StandardGauge from '../../../components/Charts/StandardGauge'
 
 type SyncCardContentProps = {
   title: string
@@ -12,7 +14,20 @@ type SyncCardContentProps = {
   total: number
   isTop?: boolean
 }
-
+const data = [
+  {
+    id: 'storage',
+    label: 'Used',
+    value: 132156,
+    color: '#ff6161',
+  },
+  {
+    id: 'storage',
+    label: 'Free',
+    value: 200000,
+    color: '#E7EAEE',
+  },
+]
 const SyncCardContent = ({ title, value, total, isTop }: SyncCardContentProps) => {
   const style: CSSProperties = {}
 
@@ -31,6 +46,17 @@ const SyncCardContent = ({ title, value, total, isTop }: SyncCardContentProps) =
           <Text size={15} weight={'semibold'} color="#647084">
             {title}
           </Text>
+          <XStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+            <Icon src="./icons/vector.svg" height={46} width={93} />
+            <Stack
+              style={{
+                height: '115px',
+                width: '115px',
+              }}
+            >
+              <StandardGauge data={data} />
+            </Stack>
+          </XStack>
         </Stack>
         <Separator borderColor={'#e3e3e3'} />
         <XStack space={'$3'} style={{ padding: '12px 16px' }}>
