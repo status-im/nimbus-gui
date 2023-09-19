@@ -47,8 +47,8 @@ const Dashboard = () => {
               <XStack space="$4">
                 <MemoryCard currentMemory={[21, 33, 3, 42,35]} maxMemory={50} />
                 <NetworkCard
-                  downloadRate={[12, 31, 2, 12, 3, 23]}
-                  uploadRate={[31, 12, 3, 13, 3]}
+                  downloadRate={[12, 31, 2, 12, 3, 23,90]}
+                  uploadRate={[31, 12, 3, 13, 3,45,65]}
                 />
               </XStack>
             </YStack>

@@ -41,16 +41,13 @@ const MemoryCard = ({ currentMemory, maxMemory }: MemoryCardProps) => {
   const message = currentLoad < maxMemory ? 'Good' : 'Poor'
 
   return (
-    <DashboardCardWrapper  padding='0'>
-
-
+    <DashboardCardWrapper padding='0'>
       <YStack style={{
         width: '284px',
         height: '136px',
         borderRadius: '16px',
         border: message === 'Poor' ? '1px solid  #D92344' : 'none',
         backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
-
       }}>
         <XStack
           justifyContent="space-between"
