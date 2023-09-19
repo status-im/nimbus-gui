@@ -69,7 +69,7 @@ const ContinueButton = ({
         }}
       >
         <Button onPress={continueHandler} size={40} disabled={isDisabled()}>
-          {activeStep < 5 ? 'Continue' : 'Continue to Dashboard'}
+          {activeStep < 6 ? 'Continue' : 'Continue to Dashboard'}
         </Button>
       </Stack>
     </YStack>

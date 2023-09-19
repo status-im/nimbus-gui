@@ -52,7 +52,7 @@ const ValidatorOnboarding = () => {
       }
     } else if (activeStep === 3 && subStepValidatorSetup < 3) {
       setSubStepValidatorSetup(subStepValidatorSetup + 1)
-    } else if (activeStep < 5) {
+    } else if (activeStep < 6) {
       setActiveStep(activeStep + 1)
       if (activeStep === 3 && subStepValidatorSetup === 2) {
         setSubStepValidatorSetup(0)
