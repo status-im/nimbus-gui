@@ -23,6 +23,7 @@ import {
 import { RootState } from '../../redux/store'
 import ActivationValidatorSetup from './ValidatorSetup/ValidatorActivation/ActivationValidatorSetup'
 import './layoutGradient.css'
+import Deposit from './Deposit/Deposit'
 
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)
@@ -127,6 +128,7 @@ const ValidatorOnboarding = () => {
               validatorQueueValue="92603"
             />
           )}
+          {activeStep === 6 && <Deposit />}
         </ValidatorBoxWrapper>
         <ContinueButton
           activeStep={activeStep}
