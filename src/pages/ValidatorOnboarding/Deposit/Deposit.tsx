@@ -1,7 +1,15 @@
 import { Avatar, Button, DividerLine, InformationBox, Input, Text } from '@status-im/components'
+import { PlaceholderIcon } from '@status-im/icons'
 import { Stack, XStack, YStack } from 'tamagui'
+import { useState } from 'react'
 
 const Deposit = () => {
+  const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(true)
+
+  const onCloseInfoBox = () => {
+    setIsInfoBoxVisible(false)
+  }
+
   return (
     <YStack space={'$2'} style={{ width: '100%', padding: '16px 32px', alignItems: 'start' }}>
       <Text size={19} weight={'semibold'}>
@@ -14,10 +22,13 @@ const Deposit = () => {
         </Text>
         <Input style={{ fontWeight: 'bold' }} />
       </Stack>
-      <InformationBox
-        message="Your Validator balances currently require a deposit. If you have already made a deposit using Launchpad please wait until the transaction is posted on execution layer to continue."
-        variant="error"
-      />
+      {isInfoBoxVisible && (
+        <InformationBox
+          message="Your Validator balances currently require a deposit. If you have already made a deposit using Launchpad please wait until the transaction is posted on execution layer to continue."
+          variant="error"
+          onClosePress={onCloseInfoBox}
+        />
+      )}
       <Text size={19} weight={'semibold'}>
         Connect Wallet
       </Text>
