@@ -23,7 +23,7 @@ const Dashboard = () => {
 
         <YStack space={'$4'} alignItems="start" px="24px" style={{ flexGrow: '1' }}>
           <TitleLogo />
-          <XStack justifyContent="space-between" style={{ width: '100%' }}>
+          <XStack space={'$4'} justifyContent={'space-between'} >
             <XStack space={'$4'}>
               <SyncStatusCard />
               <AddCardsContainer />
@@ -31,6 +31,8 @@ const Dashboard = () => {
             <BalanceChartCard />
           </XStack>
           <BasicInfoCards />
+
+
           <XStack space="$3">
             <YStack space={'$4'}>
               <XStack justifyContent="space-between">
@@ -45,10 +47,10 @@ const Dashboard = () => {
                 <CPUCard load={[12, 31, 3, 2, 24, 98]} />
               </XStack>
               <XStack space="$4">
-                <MemoryCard currentMemory={[21, 33, 3, 42,35]} maxMemory={50} />
+                <MemoryCard currentMemory={[21, 33, 3, 42, 35]} maxMemory={50} />
                 <NetworkCard
-                  downloadRate={[12, 31, 2, 12, 3, 23,90]}
-                  uploadRate={[31, 12, 3, 13, 3,45,65]}
+                  downloadRate={[12, 31, 22, 12, 23, 23, 90]}
+                  uploadRate={[31, 22, 32, 132, 32, 45, 65]}
                 />
               </XStack>
             </YStack>

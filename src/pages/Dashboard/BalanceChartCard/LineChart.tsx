@@ -31,8 +31,9 @@ const LineChart = ({ years, userGains }: LineChartProps) => {
     ],
     options: {
       responsive: true,
-      maintainAspectRatio: true,
+
     },
+
   }
 
   return <Line options={data.options} data={data} />
