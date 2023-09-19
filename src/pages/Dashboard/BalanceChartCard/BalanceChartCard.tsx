@@ -38,61 +38,63 @@ const BalanceChartCard = () => {
 
   return (
     <DashboardCardWrapper>
-      <Stack>
-        <YStack space={'$4'}>
-          <XStack justifyContent={'space-between'}>
-            <YStack>
-              <Text size={15} weight={'semibold'}>
-                Balance
-              </Text>
-              <XStack
-                style={{ alignItems: 'end' }}
-                space={'$1'}
-                onClick={() => setIsCalendarVisible(true)}
-              >
-                <Text size={27} weight={'semibold'}>
-                  24,273
-                </Text>
-                <Text size={11} color="#23ADA0">
-                  1.56%
-                </Text>
-              </XStack>
-            </YStack>
+
+      <YStack space={'$4'} style={{ width: '536px' }}>
+        <XStack justifyContent={'space-between'}>
+          <YStack>
+            <Text size={15} weight={'semibold'}>
+              Balance
+            </Text>
             <XStack
-              onClick={() => setIsCalendarVisible(prev => !prev)}
-              style={{
-                border: '2px solid #09101C14',
-                height: 'fit-content',
-                padding: '3px',
-                borderRadius: '10px',
-              }}
+              style={{ alignItems: 'end' }}
+              space={'$1'}
+              onClick={() => setIsCalendarVisible(true)}
             >
-              <Text size={13} weight={'semibold'}>
-                {dateRange?.from ? dateRange.from.toLocaleDateString() + '  ->' : 'Start Date -> '}{' '}
+              <Text size={27} weight={'semibold'}>
+                24,273
               </Text>
-              <Text size={13} weight={'semibold'}>
-                {dateRange?.to ? dateRange.to.toLocaleDateString() : ' End Date'}
+              <Text size={11} color="#23ADA0">
+                1.56%
               </Text>
-              <Icon src="/icons/edit.svg" />
             </XStack>
+          </YStack>
+          <XStack
+            onClick={() => setIsCalendarVisible(prev => !prev)}
+            style={{
+              border: '2px solid #09101C14',
+              height: 'fit-content',
+              padding: '3px',
+              borderRadius: '10px',
+            }}
+          >
+            <Text size={13} weight={'semibold'}>
+              {dateRange?.from ? dateRange.from.toLocaleDateString() + '  ->' : 'Start Date -> '}{' '}
+            </Text>
+            <Text size={13} weight={'semibold'}>
+              {dateRange?.to ? dateRange.to.toLocaleDateString() : ' End Date'}
+            </Text>
+            <Icon src="/icons/edit.svg" />
           </XStack>
-          {isCalendarVisible && (
-            <Calendar
-              style={{
-                backgroundColor: 'white',
-                position: 'absolute',
-                zIndex: 1000,
-                top: '100%',
-                right: '0',
-              }}
-              mode="range"
-              selected={dateRange}
-              onSelect={handleRangeSelect}
-            />
-          )}
+        </XStack>
+        {isCalendarVisible && (
+          <Calendar
+            style={{
+              backgroundColor: 'white',
+              position: 'absolute',
+              zIndex: 1000,
+              top: '100%',
+              right: '0',
+            }}
+            mode="range"
+            selected={dateRange}
+            onSelect={handleRangeSelect}
+          />
+        )}
+        <Stack  >
           <LineChart years={filteredYears} userGains={filteredUserGains} />
-        </YStack>
-      </Stack>
+        </Stack>
+      </YStack>
+
     </DashboardCardWrapper>
   )
 }
