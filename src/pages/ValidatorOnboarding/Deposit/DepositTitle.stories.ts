@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import DepositHeader from './DepositHeader'
+import DepositTitle from './DepositTitle'
 
 const meta = {
-  title: 'ValidatorOnboarding/DepositHeader',
-  component: DepositHeader,
+  title: 'ValidatorOnboarding/DepositTitle',
+  component: DepositTitle,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof DepositHeader>
+} satisfies Meta<typeof DepositTitle>
 
 export default meta
 type Story = StoryObj<typeof meta>

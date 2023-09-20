@@ -1,10 +1,10 @@
 import { Text } from '@status-im/components'
 
-type DepositHeaderProps = {
+type DepositTitleProps = {
   isTransactionConfirmation: boolean
 }
 
-const DepositHeader = ({ isTransactionConfirmation }: DepositHeaderProps) => {
+const DepositTitle = ({ isTransactionConfirmation }: DepositTitleProps) => {
   return (
     <Text size={19} weight={'semibold'}>
       {isTransactionConfirmation ? 'Transaction Confirmation' : 'Deposit Funds'}
@@ -12,4 +12,4 @@ const DepositHeader = ({ isTransactionConfirmation }: DepositHeaderProps) => {
   )
 }
 
-export default DepositHeader
+export default DepositTitle
