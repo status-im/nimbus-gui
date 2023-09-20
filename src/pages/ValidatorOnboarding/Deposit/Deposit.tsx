@@ -1,10 +1,11 @@
-import { Avatar, Button, DividerLine, InformationBox, Text } from '@status-im/components'
+import { DividerLine, InformationBox, Text } from '@status-im/components'
 import { PlaceholderIcon } from '@status-im/icons'
-import { XStack, YStack } from 'tamagui'
+import { YStack } from 'tamagui'
 import { useState } from 'react'
 
 import ValidatorRequest from './ValidatorRequest'
 import Validators from './Validators'
+import ConnectWallet from './ConnectWallet'
 
 const Deposit = () => {
   const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(true)
@@ -45,17 +46,7 @@ const Deposit = () => {
           icon={<PlaceholderIcon size={16} />}
         />
       )}
-      <Text size={19} weight={'semibold'}>
-        Connect Wallet
-      </Text>
-      <XStack space={'$2'} alignItems={'center'}>
-        <Avatar
-          type="icon"
-          size={32}
-          icon={<img src={'/icons/eth-logo.svg'} alt="eth-logo" style={{ width: '100%' }} />}
-        />
-        <Button>Connect Wallet</Button>
-      </XStack>
+      <ConnectWallet />
     </YStack>
   )
 }
