@@ -48,6 +48,9 @@ const Deposit = () => {
           icon={<PlaceholderIcon size={16} />}
         />
       )}
+      <Text size={19} weight={'semibold'}>
+        Connect Wallet
+      </Text>
       <ConnectWallet />
     </YStack>
   )

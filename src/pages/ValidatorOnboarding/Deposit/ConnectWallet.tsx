@@ -6,9 +6,6 @@ const ConnectWallet = () => {
 
   return (
     <YStack space={'$3'}>
-      <Text size={19} weight={'semibold'}>
-        Connect Wallet
-      </Text>
       <XStack space={'$2'} alignItems={'center'}>
         <Avatar
           type="icon"
