@@ -7,6 +7,7 @@ import ValidatorRequest from './ValidatorRequest'
 import Validators from './Validators'
 import ConnectWallet from './ConnectWallet'
 import ConnectedWallet from './ConnectedWallet'
+import DepositHeader from './DepositHeader'
 
 const Deposit = () => {
   const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(true)
@@ -14,6 +15,7 @@ const Deposit = () => {
 
   const validatorRequests = [1, 2]
   const isConnectedWallet = false
+  const isTransactionConfirmation = true
 
   const addValidatorHandler = () => {
     setValidatorCount((state: number) => state + 1)
@@ -31,9 +33,7 @@ const Deposit = () => {
 
   return (
     <YStack space={'$3'} style={{ width: '100%', padding: '16px 32px', alignItems: 'start' }}>
-      <Text size={19} weight={'semibold'}>
-        Deposit Funds
-      </Text>
+      <DepositHeader isTransactionConfirmation={isTransactionConfirmation} />
       <Validators
         validatorCount={validatorCount}
         addValidatorHandler={addValidatorHandler}
