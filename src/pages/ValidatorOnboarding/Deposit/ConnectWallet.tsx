@@ -2,6 +2,8 @@ import { Avatar, Button, Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
 
 const ConnectWallet = () => {
+  const onConnectWalletClick = () => {}
+
   return (
     <YStack space={'$3'}>
       <Text size={19} weight={'semibold'}>
@@ -13,7 +15,7 @@ const ConnectWallet = () => {
           size={32}
           icon={<img src={'/icons/eth-logo.svg'} alt="eth-logo" style={{ width: '100%' }} />}
         />
-        <Button>Connect Wallet</Button>
+        <Button onPress={onConnectWalletClick}>Connect Wallet</Button>
       </XStack>
     </YStack>
   )
