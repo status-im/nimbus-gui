@@ -6,11 +6,14 @@ import { useState } from 'react'
 import ValidatorRequest from './ValidatorRequest'
 import Validators from './Validators'
 import ConnectWallet from './ConnectWallet'
+import ConnectedWallet from './ConnectedWallet'
 
 const Deposit = () => {
   const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(true)
   const [validatorCount, setValidatorCount] = useState(0)
+
   const validatorRequests = [1, 2]
+  const isConnectedWallet = false
 
   const addValidatorHandler = () => {
     setValidatorCount((state: number) => state + 1)
@@ -51,7 +54,7 @@ const Deposit = () => {
       <Text size={19} weight={'semibold'}>
         Connect Wallet
       </Text>
-      <ConnectWallet />
+      {isConnectedWallet ? <ConnectedWallet /> : <ConnectWallet />}
     </YStack>
   )
 }
