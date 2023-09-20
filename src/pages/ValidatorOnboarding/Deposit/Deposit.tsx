@@ -10,6 +10,7 @@ import ConnectWallet from './ConnectWallet'
 const Deposit = () => {
   const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(true)
   const [validatorCount, setValidatorCount] = useState(0)
+  const validatorRequests = [1, 2]
 
   const addValidatorHandler = () => {
     setValidatorCount((state: number) => state + 1)
@@ -36,8 +37,9 @@ const Deposit = () => {
         changeValidatorCountHandler={changeValidatorCountHandler}
       />
       <DividerLine />
-      <ValidatorRequest />
-      <ValidatorRequest />
+      {validatorRequests.map((_, index) => (
+        <ValidatorRequest key={index} />
+      ))}
       {isInfoBoxVisible && (
         <InformationBox
           message="Your Validator balances currently require a deposit. If you have already made a deposit using Launchpad please wait until the transaction is posted on execution layer to continue."
