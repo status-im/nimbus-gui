@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import ConnectWallet from './ConnectWallet'
+import ConnectedWallet from './ConnectedWallet'
 
 const meta = {
-  title: 'ValidatorOnboarding/ConnectWallet',
-  component: ConnectWallet,
+  title: 'ValidatorOnboarding/ConnectedWallet',
+  component: ConnectedWallet,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof ConnectWallet>
+} satisfies Meta<typeof ConnectedWallet>
 
 export default meta
 type Story = StoryObj<typeof meta>
