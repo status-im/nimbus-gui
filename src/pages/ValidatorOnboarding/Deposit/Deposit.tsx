@@ -8,6 +8,7 @@ import Validators from './Validators'
 import ConnectWallet from './ConnectWallet'
 import ConnectedWallet from './ConnectedWallet'
 import DepositHeader from './DepositHeader'
+import DepositSubtitle from './DepositSubtitle'
 
 const Deposit = () => {
   const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(true)
@@ -34,11 +35,15 @@ const Deposit = () => {
   return (
     <YStack space={'$3'} style={{ width: '100%', padding: '16px 32px', alignItems: 'start' }}>
       <DepositHeader isTransactionConfirmation={isTransactionConfirmation} />
-      <Validators
-        validatorCount={validatorCount}
-        addValidatorHandler={addValidatorHandler}
-        changeValidatorCountHandler={changeValidatorCountHandler}
-      />
+      {isTransactionConfirmation ? (
+        <DepositSubtitle />
+      ) : (
+        <Validators
+          validatorCount={validatorCount}
+          addValidatorHandler={addValidatorHandler}
+          changeValidatorCountHandler={changeValidatorCountHandler}
+        />
+      )}
       <DividerLine />
       {validatorRequests.map((_, index) => (
         <ValidatorRequest key={index} />

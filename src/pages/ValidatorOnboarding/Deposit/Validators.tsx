@@ -1,6 +1,7 @@
 import { Input, Text } from '@status-im/components'
 import { AddIcon, ChevronDownIcon } from '@status-im/icons'
 import { Stack, XStack, YStack } from 'tamagui'
+import DepositSubtitle from './DepositSubtitle'
 
 type ValidatorsProps = {
   validatorCount: number
@@ -16,9 +17,7 @@ const Validators = ({
   return (
     <XStack justifyContent={'space-between'} width={'80%'}>
       <Stack space={'$2'}>
-        <Text size={15} weight="regular" color={'#647084'}>
-          Connect you Wallet to stake required ETH for new validators
-        </Text>
+        <DepositSubtitle />
         <Input
           icon={<AddIcon size={16} style={{ cursor: 'pointer' }} onClick={addValidatorHandler} />}
           style={{ fontWeight: 'bold' }}
