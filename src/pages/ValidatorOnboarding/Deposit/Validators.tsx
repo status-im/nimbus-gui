@@ -27,21 +27,21 @@ const Validators = ({
         />
       </Stack>
       <YStack space={'$2'}>
-        <Text size={15} weight={'semibold'} color="#09101C">
+        <Text size={15} weight={'semibold'}>
           ETH
         </Text>
-        <Text size={27} weight={'semibold'} color="#09101C">
+        <Text size={27} weight={'semibold'}>
           64
         </Text>
       </YStack>
       <YStack space={'$2'}>
         <XStack style={{ justifyContent: 'space-between' }}>
-          <Text size={15} weight={'semibold'} color="#09101C">
+          <Text size={15} weight={'semibold'}>
             USD
           </Text>
-          <ChevronDownIcon size={16} color={'#919191'} />
+          <ChevronDownIcon size={16} color={'#919191'} style={{ cursor: 'pointer' }} />
         </XStack>
-        <Text size={27} weight={'semibold'} color="#09101C">
+        <Text size={27} weight={'semibold'}>
           $4,273 USD
         </Text>
       </YStack>
