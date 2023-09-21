@@ -1,5 +1,14 @@
 import { IconButton } from '@status-im/components'
-import { NodeIcon } from '@status-im/icons'
+import {
+  DashboardIcon,
+  SpeedIcon,
+  ChartIcon,
+  HeartIcon,
+  CodeBlockIcon,
+  CommunitiesIcon,
+  ActivityCenterIcon,
+  SettingsIcon,
+} from '@status-im/icons'
 import { YStack } from 'tamagui'
 
 const LeftSidebar = () => {
@@ -15,13 +24,14 @@ const LeftSidebar = () => {
         border: '1px solid #F0F2F5',
       }}
     >
-      <IconButton icon={<NodeIcon size={20} />} variant="ghost" selected />
-      <IconButton icon={<NodeIcon size={20} />} variant="ghost" />
-      <IconButton icon={<NodeIcon size={20} />} variant="outline" disabled />
-      <IconButton icon={<NodeIcon size={20} />} variant="ghost" />
-      <IconButton icon={<NodeIcon size={20} />} variant="ghost" />
-      <IconButton icon={<NodeIcon size={20} />} variant="ghost" />
-      <IconButton icon={<NodeIcon size={20} />} variant="ghost" />
+      <IconButton icon={<DashboardIcon size={20} />} variant="ghost" selected />
+      <IconButton icon={<SpeedIcon size={20} />} variant="ghost" />
+      <IconButton icon={<ChartIcon size={20} />} variant="outline" disabled />
+      <IconButton icon={<HeartIcon size={20} />} variant="ghost" />
+      <IconButton icon={<CodeBlockIcon size={20} />} variant="ghost" />
+      <IconButton icon={<CommunitiesIcon size={20} />} variant="ghost" />
+      <IconButton icon={<ActivityCenterIcon size={20} />} variant="ghost" />
+      <IconButton icon={<SettingsIcon size={20} />} variant="ghost" />
     </YStack>
   )
 }
