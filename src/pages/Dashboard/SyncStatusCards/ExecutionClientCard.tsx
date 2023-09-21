@@ -9,7 +9,6 @@ import Icon from '../../../components/General/Icon'
 import StandardGauge from '../../../components/Charts/StandardGauge'
 
 type ExecutionClientCardProps = {
-  title: string
   value: number
   total: number
   isTop?: boolean
@@ -28,7 +27,7 @@ const data = [
     color: '#E7EAEE',
   },
 ]
-const ExecutionClientCard = ({ title, value, total, isTop }: ExecutionClientCardProps) => {
+const ExecutionClientCard = ({ value, total, isTop }: ExecutionClientCardProps) => {
   const style: CSSProperties = {}
 
   if (isTop === true) {
@@ -44,7 +43,7 @@ const ExecutionClientCard = ({ title, value, total, isTop }: ExecutionClientCard
       <YStack>
         <Stack style={{ minHeight: '90px', padding: '12px 16px' }}>
           <Text size={15} weight={'semibold'} color="#647084">
-            {title}
+            Execution Client
           </Text>
           <XStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
             <Icon src="./icons/vector.svg" height={46} width={93} />

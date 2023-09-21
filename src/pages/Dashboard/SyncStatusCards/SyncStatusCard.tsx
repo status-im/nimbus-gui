@@ -15,9 +15,9 @@ const SyncStatusCard = () => {
           </Text>
         </Stack>
         <YStack>
-          <ConsensusCard title={'Execution Client'} value={123.424} total={170} isTop={true} />
+          <ExecutionClientCard value={123.424} total={170} isTop={false} />
           <Separator borderColor={'#e3e3e3'} />
-          <ExecutionClientCard title={'Consensus Client'} value={123.424} total={170} isTop={false} />
+          <ConsensusCard  value={123.424} total={170} isTop={true} />
         </YStack>
       </YStack>
     </DashboardCardWrapper>
