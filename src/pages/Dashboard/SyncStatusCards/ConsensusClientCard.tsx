@@ -3,7 +3,7 @@ import { Shadow, Text } from '@status-im/components'
 import { SwapIcon } from '@status-im/icons'
 import { CSSProperties } from 'react'
 
-import { formatNumberWithComa } from '../../../utilities'
+import { formatNumbersWithComa } from '../../../utilities'
 import IconText from '../../../components/General/IconText'
 import Icon from '../../../components/General/Icon'
 import StandardGauge from '../../../components/Charts/StandardGauge'
@@ -20,7 +20,7 @@ const ConsensusCard = ({ value, total, isTop }: ConsensusCardProps) => {
         {
             id: 'storage',
             label: 'Used',
-            value,
+            value:value,
             color: '#ff6161',
         },
         {
@@ -61,7 +61,7 @@ const ConsensusCard = ({ value, total, isTop }: ConsensusCardProps) => {
                 <XStack space={'$3'} style={{ padding: '12px 16px' }}>
                     <IconText icon={<SwapIcon size={16} />}>Syncing</IconText>
                     <Text size={13} weight={'semibold'}>
-                        {formatNumberWithComa(value)} / {formatNumberWithComa(total)}
+                        {formatNumbersWithComa(value)} / {formatNumbersWithComa(total)}
                     </Text>
                 </XStack>
             </YStack>

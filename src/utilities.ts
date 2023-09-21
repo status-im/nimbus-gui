@@ -25,9 +25,11 @@ export const convertSecondsToTimerFormat = (seconds: number) => {
   return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`
 }
 
-export const formatNumberWithComa = (n: number): string => {
-  return n.toFixed(3).replace(/\./g, ',')
-}
+export const formatNumbersWithComa = (n: number): string => {
+  const parts = n.toString().split('.');
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return parts.join('.');
+};
 
 export const getMonthIndicesFromRange = (range: DateRange) => {
   if (!range.from || !range.to) return [0, 11]
