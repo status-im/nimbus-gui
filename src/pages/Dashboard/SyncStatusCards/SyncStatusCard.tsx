@@ -1,8 +1,9 @@
 import { Separator, Stack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 
-import SyncCardContent from './SyncCardContent'
 import DashboardCardWrapper from '../DashboardCardWrapper'
+import ExecutionClientCard from './ExecutionClientCard'
+import ConsensusCard from './ConsensusClientCard'
 
 const SyncStatusCard = () => {
   return (
@@ -14,9 +15,9 @@ const SyncStatusCard = () => {
           </Text>
         </Stack>
         <YStack>
-          <SyncCardContent title={'Execution Client'} value={123.424} total={170} isTop={true} />
+          <ConsensusCard title={'Execution Client'} value={123.424} total={170} isTop={true} />
           <Separator borderColor={'#e3e3e3'} />
-          <SyncCardContent title={'Consensus Client'} value={123.424} total={170} isTop={false} />
+          <ExecutionClientCard title={'Consensus Client'} value={123.424} total={170} isTop={false} />
         </YStack>
       </YStack>
     </DashboardCardWrapper>

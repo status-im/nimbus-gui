@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import SyncCardContent from './SyncCardContent'
+import SyncCardContent from './ExecutionClientCard'
 
 const meta = {
   title: 'Dashboard/SyncCardContent',

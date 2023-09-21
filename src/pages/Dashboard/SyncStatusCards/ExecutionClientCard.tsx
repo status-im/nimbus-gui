@@ -8,7 +8,7 @@ import IconText from '../../../components/General/IconText'
 import Icon from '../../../components/General/Icon'
 import StandardGauge from '../../../components/Charts/StandardGauge'
 
-type SyncCardContentProps = {
+type ExecutionClientCardProps = {
   title: string
   value: number
   total: number
@@ -28,7 +28,7 @@ const data = [
     color: '#E7EAEE',
   },
 ]
-const SyncCardContent = ({ title, value, total, isTop }: SyncCardContentProps) => {
+const ExecutionClientCard = ({ title, value, total, isTop }: ExecutionClientCardProps) => {
   const style: CSSProperties = {}
 
   if (isTop === true) {
@@ -70,4 +70,4 @@ const SyncCardContent = ({ title, value, total, isTop }: SyncCardContentProps) =
   )
 }
 
-export default SyncCardContent
+export default ExecutionClientCard
