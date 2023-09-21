@@ -56,3 +56,70 @@ export const WithoutLabels: Story = {
 
     },
 }
+
+export const WithMonths: Story = {
+    args: {
+        data: [
+            {
+                name: 'Jan',
+                pv: 0,
+                pa: 0,
+            },
+            {
+                name: 'Feb',
+                pv: 0,
+                pa: 0,
+            },
+            {
+                name: 'Mar',
+                pv: 0,
+                pa: 0,
+            },
+            {
+                name: 'Apr',
+                pv: 0,
+                pa: 0,
+            },
+            {
+                name: 'May',
+                pv: 0,
+                pa: 0,
+            },
+            {
+                name: 'Aug',
+                pv: 0,
+                pa: 0,
+            },
+            {
+                name: 'Jun',
+                pv: 0,
+                pa: 0,
+            },
+            {
+                name: 'Jul',
+                pv: 1,
+                pa: 0,
+            },
+            {
+                name: 'Sep',
+                pv: 0,
+                pa: 0,
+            },
+            {
+                name: 'Oct',
+                pv: 0,
+                pa: 0,
+            },
+            {
+                name: 'Nov',
+                pv: 1,
+                pa: 1,
+            },
+            {
+                name: 'Dec',
+                pv: 1,
+                pa: 1,
+            },
+        ]
+    }
+}
