@@ -4,7 +4,7 @@ import { Text } from '@status-im/components'
 
 import StandardGauge from '../../../../components/Charts/StandardGauge'
 import BorderBox from '../../../../components/General/BorderBox'
-import { formatNumberWithComa } from '../../../../utilities'
+import { formatNumbersWithComa } from '../../../../utilities'
 
 type ConsensusGaugeCardProps = {
   synced: number
@@ -45,7 +45,7 @@ const ConsensusGaugeCard = ({ synced, total, title, color }: ConsensusGaugeCardP
             {title}
           </Text>
           <Text size={15} weight={'semibold'}>
-            {formatNumberWithComa(synced)} / {formatNumberWithComa(total)}
+            {formatNumbersWithComa(synced)} / {formatNumbersWithComa(total)}
           </Text>
         </YStack>
         <ClearIcon size={20} color="#A1ABBD" />
