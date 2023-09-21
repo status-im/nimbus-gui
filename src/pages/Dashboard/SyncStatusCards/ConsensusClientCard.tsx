@@ -13,23 +13,23 @@ type ConsensusCardProps = {
     total: number
     isTop?: boolean
 }
-const data = [
-    {
-        id: 'storage',
-        label: 'Used',
-        value: 132156,
-        color: '#ff6161',
-    },
-    {
-        id: 'storage',
-        label: 'Free',
-        value: 200000,
-        color: '#E7EAEE',
-    },
-]
+
 const ConsensusCard = ({ value, total, isTop }: ConsensusCardProps) => {
     const style: CSSProperties = {}
-
+    const data = [
+        {
+            id: 'storage',
+            label: 'Used',
+            value,
+            color: '#ff6161',
+        },
+        {
+            id: 'storage',
+            label: 'Free',
+            value: total,
+            color: '#E7EAEE',
+        },
+    ]
     if (isTop === true) {
         style.borderTopLeftRadius = '16px'
         style.borderTopRightRadius = '16px'

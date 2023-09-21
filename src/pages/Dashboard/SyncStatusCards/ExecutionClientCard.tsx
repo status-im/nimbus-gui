@@ -5,7 +5,7 @@ import { CSSProperties } from 'react'
 
 import { formatNumberWithComa } from '../../../utilities'
 import IconText from '../../../components/General/IconText'
-import Icon from '../../../components/General/Icon'
+
 import StandardGauge from '../../../components/Charts/StandardGauge'
 
 type ExecutionClientCardProps = {
@@ -13,21 +13,22 @@ type ExecutionClientCardProps = {
   total: number
   isTop?: boolean
 }
-const data = [
-  {
-    id: 'storage',
-    label: 'Used',
-    value: 132156,
-    color: '#7140FD',
-  },
-  {
-    id: 'storage',
-    label: 'Free',
-    value: 200000,
-    color: '#E7EAEE',
-  },
-]
+
 const ExecutionClientCard = ({ value, total, isTop }: ExecutionClientCardProps) => {
+  const data = [
+    {
+      id: 'storage',
+      label: 'Used',
+      value,
+      color: '#7140FD',
+    },
+    {
+      id: 'storage',
+      label: 'Free',
+      value: total,
+      color: '#E7EAEE',
+    },
+  ]
   const style: CSSProperties = {}
 
   if (isTop === true) {
@@ -46,7 +47,7 @@ const ExecutionClientCard = ({ value, total, isTop }: ExecutionClientCardProps) 
             Execution Client
           </Text>
           <XStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
-            <Icon src="./icons/vector.svg" height={30} width={60} />
+            <Text size={19} weight={'semibold'}>Geth</Text>
             <Stack
               style={{
                 height: '56px',
