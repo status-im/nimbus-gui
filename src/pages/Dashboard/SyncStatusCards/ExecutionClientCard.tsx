@@ -11,10 +11,10 @@ import StandardGauge from '../../../components/Charts/StandardGauge'
 type ExecutionClientCardProps = {
   value: number
   total: number
-  isTop?: boolean
+
 }
 
-const ExecutionClientCard = ({ value, total, isTop }: ExecutionClientCardProps) => {
+const ExecutionClientCard = ({ value, total }: ExecutionClientCardProps) => {
   const data = [
     {
       id: 'storage',
@@ -31,13 +31,7 @@ const ExecutionClientCard = ({ value, total, isTop }: ExecutionClientCardProps) 
   ]
   const style: CSSProperties = {}
 
-  if (isTop === true) {
-    style.borderTopLeftRadius = '16px'
-    style.borderTopRightRadius = '16px'
-  } else if (isTop === false) {
-    style.borderBottomLeftRadius = '16px'
-    style.borderBottomRightRadius = '16px'
-  }
+
 
   return (
     <Shadow variant="$1" style={style}>

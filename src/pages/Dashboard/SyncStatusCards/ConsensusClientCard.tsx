@@ -11,16 +11,16 @@ import StandardGauge from '../../../components/Charts/StandardGauge'
 type ConsensusCardProps = {
     value: number
     total: number
-    isTop?: boolean
+
 }
 
-const ConsensusCard = ({ value, total, isTop }: ConsensusCardProps) => {
+const ConsensusCard = ({ value, total }: ConsensusCardProps) => {
     const style: CSSProperties = {}
     const data = [
         {
             id: 'storage',
             label: 'Used',
-            value:value,
+            value: value,
             color: '#ff6161',
         },
         {
@@ -30,13 +30,7 @@ const ConsensusCard = ({ value, total, isTop }: ConsensusCardProps) => {
             color: '#E7EAEE',
         },
     ]
-    if (isTop === true) {
-        style.borderTopLeftRadius = '16px'
-        style.borderTopRightRadius = '16px'
-    } else if (isTop === false) {
-        style.borderBottomLeftRadius = '16px'
-        style.borderBottomRightRadius = '16px'
-    }
+
 
     return (
         <Shadow variant="$1" style={style}>
