@@ -18,7 +18,7 @@ const data = [
     id: 'storage',
     label: 'Used',
     value: 132156,
-    color: '#ff6161',
+    color: '#7140FD',
   },
   {
     id: 'storage',
@@ -46,11 +46,11 @@ const ExecutionClientCard = ({ value, total, isTop }: ExecutionClientCardProps) 
             Execution Client
           </Text>
           <XStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
-            <Icon src="./icons/vector.svg" height={46} width={93} />
+            <Icon src="./icons/vector.svg" height={30} width={60} />
             <Stack
               style={{
-                height: '115px',
-                width: '115px',
+                height: '56px',
+                width: '56px',
               }}
             >
               <StandardGauge data={data} />
