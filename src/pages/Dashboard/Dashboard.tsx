@@ -12,7 +12,7 @@ import DeviceUptime from './DeviceUptime/DeviceUptime'
 import TitleLogo from './TitleLogo'
 import StorageCard from './StorageCard/StorageCard'
 import NetworkCard from './NetworkCard/NetworkCard'
-import SyncStatusCard from './SyncStatusCards/SyncStatusCard'
+import SyncStatusCard from './SyncStatusCards/SyncStatusCards'
 import MemoryCard from './MemoryCard/MemoryCard'
 
 const Dashboard = () => {
