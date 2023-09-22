@@ -15,5 +15,10 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: {},
+  args: {
+    validator: {
+      name: '1',
+      address: 'zQ3asdf9d4Gs0',
+    },
+  },
 }
