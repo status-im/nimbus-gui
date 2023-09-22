@@ -1,4 +1,4 @@
-import { Separator, XStack, YStack } from 'tamagui'
+import { Separator, Switch, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
 import { Button, Input, Text } from '@status-im/components'
 
@@ -18,10 +18,12 @@ const ConnectExistingInstance = () => {
     const isPaired = false
     const isPairing = false
     const [encryptedPassword, setEncryptedPassword] = useState('')
+    const [isBeaconSwitchOn, setIsBeaconSwitchOn] = useState(false)
 
     const changeEncryptedPasswordHandler = (value: string) => {
         setEncryptedPassword(value)
     }
+
     const clearEncryptedPasswordHandler = () => {
         setEncryptedPassword('')
     }
@@ -48,7 +50,19 @@ const ConnectExistingInstance = () => {
                         Advanced
                     </Button>
                 </XStack>
-
+                {/* two rows  */}
+                <YStack>
+                    <XStack>
+                        <YStack><Text size={15} weight={'#647084'}>Protocol</Text>
+                           
+                            <Switch size="$2"  checked={isBeaconSwitchOn} onCheckedChange={() => setIsBeaconSwitchOn(prev => !prev)}>
+                                <Switch.Thumb   />
+                            </Switch>
+                        </YStack>
+                        <YStack></YStack>
+                    </XStack>
+                    <XStack></XStack>
+                </YStack>
                 <Separator borderColor={'#e3e3e3'} />
                 <YStack space={'$2'}>
                     <Text size={11} color={'#647084'}>
