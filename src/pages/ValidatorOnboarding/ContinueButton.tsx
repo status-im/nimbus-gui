@@ -24,6 +24,7 @@ const ContinueButton = ({
   const { isCopyPastedPhrase, isRightPhrase, words, validWords } = useSelector(
     (state: RootState) => state.keyGeneration,
   )
+  const { isWalletConnected } = useSelector((state: RootState) => state.deposit)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -31,9 +32,12 @@ const ContinueButton = ({
   }, [words])
 
   const isDisabled = () => {
+    const isDepositWalletConnected = isWalletConnected === false && activeStep === 5
+
     if (
       (isConfirmPhraseStage && !isRightPhrase) ||
-      (isConfirmPhraseStage && validWords.some(w => w === false))
+      (isConfirmPhraseStage && validWords.some(w => w === false)) ||
+      isDepositWalletConnected
     ) {
       return true
     }
