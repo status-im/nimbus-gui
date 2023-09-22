@@ -10,9 +10,9 @@ import CreateAvatar from '../../components/General/CreateAvatar/CreateAvatar'
 import GenerateId from './GenerateId'
 import { NodeIcon } from '@status-im/icons'
 import Header from '../../components/General/Header'
+import Icon from '../../components/General/Icon'
 
 const PairDevice = () => {
-  const [autoChecked, setAutoChecked] = useState(false)
   const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
   const isPaired = false
   const isPairing = false
@@ -41,19 +41,10 @@ const PairDevice = () => {
         )}
         <Separator borderColor={'#e3e3e3'} />
         <Text size={19} weight={'semibold'} color="#09101C">
-          Settings
+          Advanced Settings
         </Text>
         <XStack space={'$4'}>
-          <Checkbox
-            id="port-checkbox"
-            variant="outline"
-            selected={autoChecked}
-            onCheckedChange={v => {
-              setAutoChecked(v)
-            }}
-            size={20}
-          />
-          <Text size={15}>Auto Connect Paired Device</Text>
+          <Button icon={<Icon src='/icons/connection-blue.svg' width={20} />} variant='outline'  > Connect via IP </Button>
         </XStack>
         {isPaired && <CreateAvatar />}
         <Separator borderColor={'#e3e3e3'} />
