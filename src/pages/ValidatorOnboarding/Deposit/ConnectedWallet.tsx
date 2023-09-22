@@ -8,7 +8,9 @@ const ConnectedWallet = () => {
         <Avatar
           type="icon"
           size={32}
-          icon={<img src={'/icons/eth-logo.svg'} alt="eth-logo" style={{ width: '100%' }} />}
+          icon={
+            <img src={'/icons/connected-wallet-eth-logo.svg'} alt="connected-wallet-eth-logo" />
+          }
         />
         <YStack space={'$1'}>
           <Text size={13} weight={'semibold'}>
