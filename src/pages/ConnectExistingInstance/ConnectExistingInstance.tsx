@@ -48,14 +48,7 @@ const ConnectExistingInstance = () => {
                         Advanced
                     </Button>
                 </XStack>
-                {/* {isPaired ? <PairedSuccessfully /> : <GenerateId isAwaitingPairing={isAwaitingPairing} />} */}
-                {/* {!isPaired && (
-          <SyncStatus
-            isPairing={isPairing}
-            isAwaitingPairing={isAwaitingPairing}
-            changeSetIsAwaitingPairing={changeSetIsAwaitingPairing}
-          />
-        )} */}
+
                 <Separator borderColor={'#e3e3e3'} />
                 <YStack space={'$2'}>
                     <Text size={11} color={'#647084'}>
