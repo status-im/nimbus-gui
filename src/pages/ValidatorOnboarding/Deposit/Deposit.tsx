@@ -17,7 +17,10 @@ const Deposit = () => {
   const [validatorCount, setValidatorCount] = useState(0)
   const { isWalletConnected } = useSelector((state: RootState) => state.deposit)
 
-  const validatorRequests = [1, 2]
+  const validatorRequests = [
+    { name: '1', address: 'zQ3...9d4Gs0' },
+    { name: '2', address: 'zQ3...9d4Gs0' },
+  ]
   const isTransactionConfirmation = false
 
   const addValidatorHandler = () => {
@@ -48,8 +51,8 @@ const Deposit = () => {
         />
       )}
       <DividerLine />
-      {validatorRequests.map((_, index) => (
-        <ValidatorRequest key={index} />
+      {validatorRequests.map((validator, index) => (
+        <ValidatorRequest validator={validator} key={index} />
       ))}
       {isInfoBoxVisible && (
         <InformationBox
