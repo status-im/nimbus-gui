@@ -55,8 +55,8 @@ const ConnectExistingInstance = () => {
                     <XStack>
                         <YStack><Text size={15} weight={'#647084'}>Protocol</Text>
                            
-                            <Switch size="$2"  checked={isBeaconSwitchOn} onCheckedChange={() => setIsBeaconSwitchOn(prev => !prev)}>
-                                <Switch.Thumb   />
+                            <Switch size="$2" style={isBeaconSwitchOn ? { backgroundColor: '#2A4AF5' } : { backgroundColor: 'grey' }} checked={isBeaconSwitchOn} onCheckedChange={() => setIsBeaconSwitchOn(prev => !prev)}>
+                                <Switch.Thumb style={{ backgroundColor: '#fff', border: '1px solid #2A4AF5' }} />
                             </Switch>
                         </YStack>
                         <YStack></YStack>
