@@ -7,7 +7,7 @@ import NimbusLogo from '../../components/Logos/NimbusLogo'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import SyncStatusCardConsensus from './SyncStatusCardConsensus'
 import SyncStatusCardExecution from './SyncStatusCardExecution'
-import { setPinnedMessage } from '../../redux/PinnedMessage/slice'
+import { setPinnedMessage } from '../../redux/pinnedMessage/slice'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 
