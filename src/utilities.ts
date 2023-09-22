@@ -26,3 +26,10 @@ export const convertSecondsToTimerFormat = (seconds: number) => {
 export const formatNumberForGauge = (n: number): string => {
   return n.toString().replace(/\./g, ',')
 }
+
+export const getFormattedValidatorAddress = (address: string) => {
+  // zQ3asdf9d4Gs0 -> zQ3...9d4Gs0
+  const start = address.slice(0, 3)
+  const end = address.slice(-6)
+  return `${start}...${end}`
+}

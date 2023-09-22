@@ -1,6 +1,8 @@
 import { Avatar, DividerLine, Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
 
+import { getFormattedValidatorAddress } from '../../../utilities'
+
 type ValidatorRequestProps = {
   validator: {
     name: string
@@ -25,7 +27,7 @@ const ValidatorRequest = ({ validator }: ValidatorRequestProps) => {
               Validator {validator.name}
             </Text>
             <Text size={13} color="#647084">
-              {validator.address}
+              {getFormattedValidatorAddress(validator.address)}
             </Text>
           </YStack>
         </XStack>

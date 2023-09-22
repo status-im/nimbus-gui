@@ -18,8 +18,8 @@ const Deposit = () => {
   const { isWalletConnected } = useSelector((state: RootState) => state.deposit)
 
   const validatorRequests = [
-    { name: '1', address: 'zQ3...9d4Gs0' },
-    { name: '2', address: 'zQ3...9d4Gs0' },
+    { name: '1', address: 'zQ3asdf9d4Gs0' },
+    { name: '2', address: 'zQ3asdf9d4Gs0' },
   ]
   const isTransactionConfirmation = false
 
