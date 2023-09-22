@@ -24,9 +24,10 @@ const Deposit = () => {
     setValidatorCount((state: number) => state + 1)
   }
 
-  const changeValidatorCountHandler = (e: any) => {
-    if (!isNaN(e.target.value)) {
-      setValidatorCount(Number(e.target.value))
+  const changeValidatorCountHandler = (value: string) => {
+    const numberValue = Number(value)
+    if (!isNaN(numberValue)) {
+      setValidatorCount(numberValue)
     }
   }
 

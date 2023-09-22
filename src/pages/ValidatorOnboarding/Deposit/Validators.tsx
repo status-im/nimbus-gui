@@ -1,12 +1,13 @@
 import { Input, Text } from '@status-im/components'
 import { AddIcon, ChevronDownIcon } from '@status-im/icons'
 import { Stack, XStack, YStack } from 'tamagui'
+
 import DepositSubtitle from './DepositSubtitle'
 
 type ValidatorsProps = {
   validatorCount: number
   addValidatorHandler: () => void
-  changeValidatorCountHandler: (e: any) => void
+  changeValidatorCountHandler: (value: string) => void
 }
 
 const Validators = ({
@@ -22,7 +23,7 @@ const Validators = ({
           icon={<AddIcon size={16} style={{ cursor: 'pointer' }} onClick={addValidatorHandler} />}
           style={{ fontWeight: 'bold' }}
           value={validatorCount.toString()}
-          onChange={changeValidatorCountHandler}
+          onChangeText={changeValidatorCountHandler}
         />
       </Stack>
       <YStack space={'$2'}>

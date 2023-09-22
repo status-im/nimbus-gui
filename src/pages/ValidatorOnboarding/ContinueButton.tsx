@@ -24,7 +24,7 @@ const ContinueButton = ({
   )
   const { isWalletConnected } = useSelector((state: RootState) => state.deposit)
 
-  const isActivationValScreen = activeStep === 3 && subStepValidatorSetup === 3
+  const isActivationValidatorScreen = activeStep === 3 && subStepValidatorSetup === 3
 
   const isDisabled = () => {
     const isDepositWalletConnected = isWalletConnected === false && activeStep === 5
@@ -52,7 +52,7 @@ const ContinueButton = ({
             icon={<CloseCircleIcon size={20} />}
           />
         )}
-        {isActivationValScreen && (
+        {isActivationValidatorScreen && (
           <LinkWithArrow
             text="Skip to Dashboard"
             to="/"
