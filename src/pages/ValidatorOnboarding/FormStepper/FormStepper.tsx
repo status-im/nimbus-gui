@@ -13,8 +13,8 @@ const steps = [
   { label: 'Client Setup', subtitle: 'Execution & Consensus' },
   { label: 'Validator Setup', subtitle: 'Validators & Withdrawal' },
   { label: 'Key Generation', subtitle: 'Secure your Keypairs' },
-  { label: 'Activation', subtitle: 'Complete Setup' },
   { label: 'Deposit', subtitle: 'Stake your ETH' },
+  { label: 'Activation', subtitle: 'Complete Setup' },
 ]
 
 const FormStepper = ({ activeStep, changeActiveStep }: FormStepperProps) => {

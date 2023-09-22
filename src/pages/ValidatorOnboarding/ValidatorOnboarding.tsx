@@ -106,7 +106,8 @@ const ValidatorOnboarding = () => {
           {activeStep === 3 && subStepValidatorSetup === 3 && <ActivationValidatorSetup />}
 
           {activeStep === 4 && <KeyGeneration isConfirmPhraseStage={isConfirmPhraseStage} />}
-          {activeStep === 5 && (
+          {activeStep === 5 && <Deposit />}
+          {activeStep === 6 && (
             <Activation
               validatorsValue="4"
               executionSyncStatus1={{
@@ -128,7 +129,6 @@ const ValidatorOnboarding = () => {
               validatorQueueValue="92603"
             />
           )}
-          {activeStep === 6 && <Deposit />}
         </ValidatorBoxWrapper>
         <ContinueButton
           activeStep={activeStep}
