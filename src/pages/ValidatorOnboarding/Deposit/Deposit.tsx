@@ -2,6 +2,7 @@ import { DividerLine, InformationBox, Text } from '@status-im/components'
 import { PlaceholderIcon } from '@status-im/icons'
 import { YStack } from 'tamagui'
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 import ValidatorRequest from './ValidatorRequest'
 import Validators from './Validators'
@@ -9,7 +10,6 @@ import ConnectWallet from './ConnectWallet'
 import ConnectedWallet from './ConnectedWallet'
 import DepositTitle from './DepositTitle'
 import DepositSubtitle from './DepositSubtitle'
-import { useSelector } from 'react-redux'
 import { RootState } from '../../../redux/store'
 
 const Deposit = () => {
