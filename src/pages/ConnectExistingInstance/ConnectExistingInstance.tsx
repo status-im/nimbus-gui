@@ -1,6 +1,6 @@
 import { Separator, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
-import { Button, Text } from '@status-im/components'
+import { Button, Input, Text } from '@status-im/components'
 
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 
@@ -8,7 +8,7 @@ import Titles from '../../components/General/Titles'
 
 import CreateAvatar from '../../components/General/CreateAvatar/CreateAvatar'
 
-import { NodeIcon, SettingsIcon, CompleteIdIcon } from '@status-im/icons'
+import { NodeIcon, SettingsIcon, CompleteIdIcon, ClearIcon } from '@status-im/icons'
 import Header from '../../components/General/Header'
 import Icon from '../../components/General/Icon'
 import PairedSuccessfully from '../PairDevice/PairedSuccessfully'
@@ -17,11 +17,11 @@ const ConnectExistingInstance = () => {
     const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
     const isPaired = false
     const isPairing = false
+    const [encryptedPassword, setEncryptedPassword] = useState('')
 
     const changeSetIsAwaitingPairing = (result: boolean) => {
         setIsAwaitingPairing(result)
     }
-
     return (
         <PageWrapperShadow rightImageSrc="./background-images/day-night-bg.png" rightImageLogo={true}>
             <YStack
@@ -53,6 +53,24 @@ const ConnectExistingInstance = () => {
             changeSetIsAwaitingPairing={changeSetIsAwaitingPairing}
           />
         )} */}
+                <Separator borderColor={'#e3e3e3'} />
+                <YStack space={'$2'}>
+                    <Text size={11} color={'#647084'}>
+                        API Token
+                    </Text>
+                    <Input
+                        placeholder={'*****_*******_******'}
+                        icon={
+                            <ClearIcon
+                                size={16}
+                                color="#A1ABBD"
+                                style={{ cursor: 'pointer' }}
+                            />
+                        }
+                        value={encryptedPassword}
+                        onChangeText={changeEncryptedPasswordHandler}
+                    />
+                </YStack>
                 <Separator borderColor={'#e3e3e3'} />
                 <Text size={19} weight={'semibold'} color="#09101C">
                     Advanced Settings
