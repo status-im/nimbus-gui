@@ -19,8 +19,11 @@ const ConnectExistingInstance = () => {
     const isPairing = false
     const [encryptedPassword, setEncryptedPassword] = useState('')
 
-    const changeSetIsAwaitingPairing = (result: boolean) => {
-        setIsAwaitingPairing(result)
+    const changeEncryptedPasswordHandler = (value: string) => {
+        setEncryptedPassword(value)
+    }
+    const clearEncryptedPasswordHandler = () => {
+        setEncryptedPassword('')
     }
     return (
         <PageWrapperShadow rightImageSrc="./background-images/day-night-bg.png" rightImageLogo={true}>
@@ -65,6 +68,7 @@ const ConnectExistingInstance = () => {
                                 size={16}
                                 color="#A1ABBD"
                                 style={{ cursor: 'pointer' }}
+                                onClick={clearEncryptedPasswordHandler}
                             />
                         }
                         value={encryptedPassword}
