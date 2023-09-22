@@ -14,9 +14,10 @@ const SetupRow = ({ title }: SetupRowProps) => {
     setValidatorCount((state: number) => state + 1)
   }
 
-  const changeValidatorCountHandler = (e: any) => {
-    if (!isNaN(e.target.value)) {
-      setValidatorCount(Number(e.target.value))
+  const changeValidatorCountHandler = (value: string) => {
+    const numberValue = Number(value)
+    if (!isNaN(numberValue)) {
+      setValidatorCount(numberValue)
     }
   }
 
@@ -33,7 +34,7 @@ const SetupRow = ({ title }: SetupRowProps) => {
           <StatusInput
             icon={<AddIcon size={16} style={{ cursor: 'pointer' }} onClick={addValidatorHandler} />}
             value={validatorCount.toString()}
-            onChange={changeValidatorCountHandler}
+            onChangeText={changeValidatorCountHandler}
             style={{ fontWeight: 'bold' }}
           />
         </Stack>

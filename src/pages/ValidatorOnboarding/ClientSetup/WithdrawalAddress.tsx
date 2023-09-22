@@ -10,8 +10,8 @@ type WithdrawalAddressProps = {
 const WithdrawalAddress = ({ title }: WithdrawalAddressProps) => {
   const [withdrawalAddress, setWithdrawalAddress] = useState('')
 
-  const changeWithdrawalAddressHandler = (e: any) => {
-    setWithdrawalAddress(e.target.value)
+  const changeWithdrawalAddressHandler = (value: string) => {
+    setWithdrawalAddress(value)
   }
 
   const removeWithdrawalAddressHandler = () => {
@@ -39,7 +39,7 @@ const WithdrawalAddress = ({ title }: WithdrawalAddressProps) => {
               />
             }
             value={withdrawalAddress}
-            onChange={changeWithdrawalAddressHandler}
+            onChangeText={changeWithdrawalAddressHandler}
           />
         </Stack>
         <InformationBox

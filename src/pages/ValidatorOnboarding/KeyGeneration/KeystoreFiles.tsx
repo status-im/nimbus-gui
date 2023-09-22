@@ -9,12 +9,12 @@ const KeystoreFiles = () => {
 
   const generateKeystoreFilesHandler = () => {}
 
-  const changeEncryptedPasswordHandler = (e: any) => {
-    setEncryptedPassword(e.target.value)
+  const changeEncryptedPasswordHandler = (value: string) => {
+    setEncryptedPassword(value)
   }
 
-  const changeConfirmEncryptedPasswordHandler = (e: any) => {
-    setConfirmEncryptedPassword(e.target.value)
+  const changeConfirmEncryptedPasswordHandler = (value: string) => {
+    setConfirmEncryptedPassword(value)
   }
 
   const clearEncryptedPasswordHandler = () => {
@@ -46,7 +46,7 @@ const KeystoreFiles = () => {
                 />
               }
               value={encryptedPassword}
-              onChange={changeEncryptedPasswordHandler}
+              onChangeText={changeEncryptedPasswordHandler}
             />
           </YStack>
           <YStack space={'$2'}>
@@ -64,7 +64,7 @@ const KeystoreFiles = () => {
                 />
               }
               value={confirmEncryptedPassword}
-              onChange={changeConfirmEncryptedPasswordHandler}
+              onChangeText={changeConfirmEncryptedPasswordHandler}
             />
           </YStack>
         </YStack>
