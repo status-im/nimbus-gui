@@ -1,6 +1,6 @@
-import { Separator, Switch, XStack, YStack } from 'tamagui'
+import { Separator, Stack, Switch, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
-import { Button, Input, Text } from '@status-im/components'
+import { Button, Checkbox, Input, Text } from '@status-im/components'
 
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 
@@ -12,13 +12,11 @@ import { NodeIcon, SettingsIcon, CompleteIdIcon, ClearIcon } from '@status-im/ic
 import Header from '../../components/General/Header'
 import Icon from '../../components/General/Icon'
 import PairedSuccessfully from '../PairDevice/PairedSuccessfully'
+import ClientAddressRow from './ClientAddressRow'
 
 const ConnectExistingInstance = () => {
-    const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
     const isPaired = false
-    const isPairing = false
     const [encryptedPassword, setEncryptedPassword] = useState('')
-    const [isBeaconSwitchOn, setIsBeaconSwitchOn] = useState(false)
 
     const changeEncryptedPasswordHandler = (value: string) => {
         setEncryptedPassword(value)
@@ -51,18 +49,7 @@ const ConnectExistingInstance = () => {
                     </Button>
                 </XStack>
                 {/* two rows  */}
-                <YStack>
-                    <XStack>
-                        <YStack><Text size={15} weight={'#647084'}>Protocol</Text>
-                           
-                            <Switch size="$2" style={isBeaconSwitchOn ? { backgroundColor: '#2A4AF5' } : { backgroundColor: 'grey' }} checked={isBeaconSwitchOn} onCheckedChange={() => setIsBeaconSwitchOn(prev => !prev)}>
-                                <Switch.Thumb style={{ backgroundColor: '#fff', border: '1px solid #2A4AF5' }} />
-                            </Switch>
-                        </YStack>
-                        <YStack></YStack>
-                    </XStack>
-                    <XStack></XStack>
-                </YStack>
+                <ClientAddressRow />
                 <Separator borderColor={'#e3e3e3'} />
                 <YStack space={'$2'}>
                     <Text size={11} color={'#647084'}>
@@ -89,10 +76,10 @@ const ConnectExistingInstance = () => {
                 <XStack space={'$4'}>
                     <Button icon={<CompleteIdIcon size={20} color="#2A4AF5" />} variant='outline'  >Pair with ID </Button>
                 </XStack>
-                {isPaired && <CreateAvatar />}
+
                 <Separator borderColor={'#e3e3e3'} />
                 <XStack>
-                    <Button icon={<NodeIcon size={20} />} disabled={!isPaired}>
+                    <Button icon={<NodeIcon size={20} />}  >
                         Continue
                     </Button>
                 </XStack>
