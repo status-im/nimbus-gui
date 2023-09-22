@@ -4,11 +4,6 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import wordlist from 'web-bip39/wordlists/english'
 
-import { RootState } from '../../redux/store'
-import {
-  setIsCopyPastedPhrase,
-  setValidWords,
-} from '../../redux/validatorOnboarding/keyGeneration/slice'
 import FormStepper from './FormStepper/FormStepper'
 import Titles from '../../components/General/Titles'
 import Overview from './Overview/Overview'
@@ -21,9 +16,14 @@ import Advisories from './Advisories/Advisories'
 import ValidatorSetup from './ValidatorSetup/ValidatorSetup/ValidatorSetup'
 import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstalling/ValidatorInstall'
 import ContinueButton from './ContinueButton'
+import {
+  setIsCopyPastedPhrase,
+  setValidWords,
+} from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
+import { RootState } from '../../redux/store'
 import ActivationValidatorSetup from './ValidatorSetup/ValidatorActivation/ActivationValidatorSetup'
-import Deposit from './Deposit/Deposit'
 import './layoutGradient.css'
+import Deposit from './Deposit/Deposit'
 
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)

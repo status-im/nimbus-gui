@@ -2,10 +2,10 @@ import { configureStore } from '@reduxjs/toolkit'
 
 import themeReducer from './theme/slice'
 import deviceHealthReducer from './deviceHealthCheck/slice'
-import pinnedMessageReducer from './pinnedMessage/slice'
-import execClientReducer from './validatorOnboarding/validatorSetup/slice'
-import keyGenerationReducer from './validatorOnboarding/keyGeneration/slice'
-import depositReducer from './validatorOnboarding/deposit/slice'
+import pinnedMessageReducer from './PinnedMessage/slice'
+import execClientReducer from './ValidatorOnboarding/ValidatorSetup/slice'
+import keyGenerationReducer from './ValidatorOnboarding/KeyGeneration/slice'
+import depositReducer from './ValidatorOnboarding/Deposit/slice'
 
 const store = configureStore({
   reducer: {

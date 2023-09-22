@@ -8,7 +8,7 @@ import {
   setMnemonic,
   setValidWords,
   setWord,
-} from '../../../../redux/validatorOnboarding/keyGeneration/slice'
+} from '../../../../redux/ValidatorOnboarding/KeyGeneration/slice'
 import styles from './AutocompleteInput.module.css'
 
 type AutocompleteInputProps = {
