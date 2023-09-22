@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 type DepositState = {
   isWalletConnected: boolean
@@ -12,7 +12,7 @@ const depositSlice = createSlice({
   name: 'deposit',
   initialState,
   reducers: {
-    setIsWalletConnected: (state, action) => {
+    setIsWalletConnected: (state, action: PayloadAction<boolean>) => {
       state.isWalletConnected = action.payload
     },
   },
