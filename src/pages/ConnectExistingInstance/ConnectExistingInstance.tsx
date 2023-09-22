@@ -1,14 +1,14 @@
 import { Separator, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
-import { Button, Checkbox, Text } from '@status-im/components'
+import { Button, Text } from '@status-im/components'
 
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
-import SyncStatus from './SyncStatus'
+
 import Titles from '../../components/General/Titles'
 
 import CreateAvatar from '../../components/General/CreateAvatar/CreateAvatar'
-import GenerateId from './GenerateId'
-import { NodeIcon } from '@status-im/icons'
+
+import { NodeIcon, SettingsIcon, CompleteIdIcon } from '@status-im/icons'
 import Header from '../../components/General/Header'
 import Icon from '../../components/General/Icon'
 import PairedSuccessfully from '../PairDevice/PairedSuccessfully'
@@ -32,6 +32,19 @@ const ConnectExistingInstance = () => {
             >
                 <Header selectedTag="pair" />
                 <Titles title="Connect to existing Nimbus Instance" subtitle="Pair your existing device to the Nimbus Node Manager " />
+                <XStack style={{ justifyContent: 'space-between' }}>
+                    <Text size={19} weight={'semibold'} color="#09101C">
+                        Connect via IP
+                    </Text>
+                    <Button
+                        variant="grey"
+                        size={24}
+                        icon={<SettingsIcon size={20} />}
+
+                    >
+                        Advanced
+                    </Button>
+                </XStack>
                 {/* {isPaired ? <PairedSuccessfully /> : <GenerateId isAwaitingPairing={isAwaitingPairing} />} */}
                 {/* {!isPaired && (
           <SyncStatus
@@ -45,7 +58,7 @@ const ConnectExistingInstance = () => {
                     Advanced Settings
                 </Text>
                 <XStack space={'$4'}>
-                    <Button icon={<Icon src='/icons/connection-blue.svg' width={20} />} variant='outline'  > Connect via IP </Button>
+                    <Button icon={<CompleteIdIcon size={20} color="#2A4AF5" />} variant='outline'  >Pair with ID </Button>
                 </XStack>
                 {isPaired && <CreateAvatar />}
                 <Separator borderColor={'#e3e3e3'} />
