@@ -4,7 +4,7 @@ import ConnectDevicePage from './ConnectDevicePage'
 import { withRouter } from 'storybook-addon-react-router-v6'
 
 const meta = {
-  title: 'Pages/ConnectDevicePage',
+  title: 'Connect-Device/ConnectDevicePage',
   component: ConnectDevicePage,
   parameters: {
     layout: 'centered',
