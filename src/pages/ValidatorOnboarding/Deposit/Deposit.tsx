@@ -9,13 +9,15 @@ import ConnectWallet from './ConnectWallet'
 import ConnectedWallet from './ConnectedWallet'
 import DepositTitle from './DepositTitle'
 import DepositSubtitle from './DepositSubtitle'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../../redux/store'
 
 const Deposit = () => {
   const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(true)
   const [validatorCount, setValidatorCount] = useState(0)
+  const { isWalletConnected } = useSelector((state: RootState) => state.deposit)
 
   const validatorRequests = [1, 2]
-  const isConnectedWallet = false
   const isTransactionConfirmation = false
 
   const addValidatorHandler = () => {
@@ -59,7 +61,7 @@ const Deposit = () => {
       <Text size={19} weight={'semibold'}>
         Connect Wallet
       </Text>
-      {isConnectedWallet ? <ConnectedWallet /> : <ConnectWallet />}
+      {isWalletConnected ? <ConnectedWallet /> : <ConnectWallet />}
     </YStack>
   )
 }
