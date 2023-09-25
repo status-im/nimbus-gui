@@ -71,7 +71,7 @@ const ConnectExistingInstance = () => {
                 </XStack>
                 <Separator borderColor={'#e3e3e3'} />
                 <XStack>
-                    <Button icon={<NodeIcon size={20} />}  >
+                    <Button icon={<NodeIcon size={20} />} variant='blue' >
                         Continue
                     </Button>
                 </XStack>
