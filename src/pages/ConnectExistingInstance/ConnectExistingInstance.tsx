@@ -4,7 +4,7 @@ import { Button, Input, Text } from '@status-im/components'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 
 import Titles from '../../components/General/Titles'
- 
+
 import { NodeIcon, SettingsIcon, CompleteIdIcon, ClearIcon } from '@status-im/icons'
 import Header from '../../components/General/Header'
 
@@ -17,10 +17,7 @@ const ConnectExistingInstance = () => {
     const changeEncryptedPasswordHandler = (value: string) => {
         setEncryptedPassword(value)
     }
-
-    const clearEncryptedPasswordHandler = () => {
-        setEncryptedPassword('')
-    }
+ 
     return (
         <PageWrapperShadow rightImageSrc="./background-images/day-night-bg.png" rightImageLogo={true}>
             <YStack
@@ -57,8 +54,8 @@ const ConnectExistingInstance = () => {
                             <ClearIcon
                                 size={16}
                                 color="#A1ABBD"
+                                onClick={()=>setEncryptedPassword('')}
                                 style={{ cursor: 'pointer' }}
-                                onClick={clearEncryptedPasswordHandler}
                             />
                         }
                         value={encryptedPassword}
@@ -72,7 +69,6 @@ const ConnectExistingInstance = () => {
                 <XStack space={'$4'}>
                     <Button icon={<CompleteIdIcon size={20} color="#2A4AF5" />} variant='outline'  >Pair with ID </Button>
                 </XStack>
-
                 <Separator borderColor={'#e3e3e3'} />
                 <XStack>
                     <Button icon={<NodeIcon size={20} />}  >
