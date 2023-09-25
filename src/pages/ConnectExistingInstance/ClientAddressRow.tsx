@@ -1,6 +1,6 @@
-import { Input, Text } from "@status-im/components"
+import { Checkbox, Input, Text } from "@status-im/components"
 import { useState } from "react"
-import { Checkbox, Stack, Switch, XStack, YStack } from "tamagui"
+import { Stack, Switch, XStack, YStack } from "tamagui"
 
 const ClientAddressRow = () => {
     const [isBeaconSwitchOn, setIsBeaconSwitchOn] = useState(false)
@@ -39,11 +39,10 @@ const ClientAddressRow = () => {
                     <Input
                         placeholder={''}
                         value={vcPort}
-                        onChangeText={(e) => { setVcPort(e)}}
+                        onChangeText={(e) => { setVcPort(e) }}
                     />
                 </YStack>
                 <Stack style={{ alignItems: 'center', justifyContent: 'center' }} height={'100%'} width={'10%'}>
-
                     <Checkbox
                         id='checkforaddress'
                         variant="outline"
