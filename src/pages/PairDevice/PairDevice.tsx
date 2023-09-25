@@ -1,6 +1,6 @@
 import { Separator, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
-import { Button, Checkbox, Text } from '@status-im/components'
+import { Button, Text } from '@status-im/components'
 
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import SyncStatus from './SyncStatus'
