@@ -1,8 +1,13 @@
 import { Avatar, Button } from '@status-im/components'
+import { useWeb3Modal } from '@web3modal/react'
 import { XStack } from 'tamagui'
 
 const ConnectWallet = () => {
-  const onConnectWalletClick = () => {}
+  const { open } = useWeb3Modal()
+
+  const onConnectWalletClick = () => {
+    open()
+  }
 
   return (
     <XStack space={'$2'} alignItems={'center'}>
