@@ -22,3 +22,30 @@ export const Default: Story = {
     },
   },
 }
+
+export const WithoutName: Story = {
+  args: {
+    validator: {
+      name: '',
+      address: 'zQ3asdf9d4Gs0',
+    },
+  },
+}
+
+export const WithoutAddress: Story = {
+  args: {
+    validator: {
+      name: '1',
+      address: '',
+    },
+  },
+}
+
+export const WithoutValues: Story = {
+  args: {
+    validator: {
+      name: '',
+      address: '',
+    },
+  },
+}
