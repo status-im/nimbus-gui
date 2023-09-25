@@ -9,7 +9,7 @@ import { NodeIcon, SettingsIcon, CompleteIdIcon, ClearIcon } from '@status-im/ic
 import Header from '../../components/General/Header'
 
 import ClientAddressRow from './ClientAddressRow'
-import BeackonAddress from './BeaconAddress'
+import BeaconAddress from './BeaconAddress'
 
 const ConnectExistingInstance = () => {
     const [encryptedPassword, setEncryptedPassword] = useState('')
@@ -42,7 +42,7 @@ const ConnectExistingInstance = () => {
                     </Button>
                 </XStack>
                 <ClientAddressRow />
-                <BeackonAddress />
+                <BeaconAddress />
                 <Separator borderColor={'#e3e3e3'} />
                 <YStack space={'$2'}>
                     <Text size={11} color={'#647084'}>
