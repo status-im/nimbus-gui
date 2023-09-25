@@ -1,22 +1,17 @@
 import { Separator, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
 import { Button, Input, Text } from '@status-im/components'
-
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 
 import Titles from '../../components/General/Titles'
-
-import CreateAvatar from '../../components/General/CreateAvatar/CreateAvatar'
-
+ 
 import { NodeIcon, SettingsIcon, CompleteIdIcon, ClearIcon } from '@status-im/icons'
 import Header from '../../components/General/Header'
-import Icon from '../../components/General/Icon'
-import PairedSuccessfully from '../PairDevice/PairedSuccessfully'
+
 import ClientAddressRow from './ClientAddressRow'
 import BeackonAddress from './BeaconAddress'
 
 const ConnectExistingInstance = () => {
-    const isPaired = false
     const [encryptedPassword, setEncryptedPassword] = useState('')
 
     const changeEncryptedPasswordHandler = (value: string) => {
@@ -50,7 +45,7 @@ const ConnectExistingInstance = () => {
                     </Button>
                 </XStack>
                 <ClientAddressRow />
-                <BeackonAddress/> 
+                <BeackonAddress />
                 <Separator borderColor={'#e3e3e3'} />
                 <YStack space={'$2'}>
                     <Text size={11} color={'#647084'}>
