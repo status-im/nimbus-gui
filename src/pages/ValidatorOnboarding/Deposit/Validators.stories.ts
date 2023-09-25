@@ -18,3 +18,19 @@ export const Default: Story = {
     changeValidatorCountHandler: () => {},
   },
 }
+
+export const WithoutValidatorCount: Story = {
+  args: {
+    validatorCount: 0,
+    addValidatorHandler: () => {},
+    changeValidatorCountHandler: () => {},
+  },
+}
+
+export const WithLongValidatorCount: Story = {
+  args: {
+    validatorCount: 2000,
+    addValidatorHandler: () => {},
+    changeValidatorCountHandler: () => {},
+  },
+}
