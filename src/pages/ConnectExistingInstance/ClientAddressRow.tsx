@@ -7,7 +7,7 @@ const ClientAddressRow = () => {
     const [inputAdress, setInputAdress] = useState('')
     const [vcPort, setVcPort] = useState('')
     const [isClientAddressChecked, setIsClientAddressChecked] = useState(false)
-    
+
     return (
         <YStack>
             <XStack justifyContent={'space-between'}>
@@ -28,7 +28,7 @@ const ClientAddressRow = () => {
                     <Input
                         placeholder={''}
                         value={inputAdress}
-                        onChangeText={() => { }}
+                        onChangeText={(e) => { setInputAdress(e) }}
                     />
                 </YStack>
 
@@ -39,7 +39,7 @@ const ClientAddressRow = () => {
                     <Input
                         placeholder={''}
                         value={vcPort}
-                        onChangeText={() => { }}
+                        onChangeText={(e) => { setVcPort(e)}}
                     />
                 </YStack>
                 <Stack style={{ alignItems: 'center', justifyContent: 'center' }} height={'100%'} width={'10%'}>

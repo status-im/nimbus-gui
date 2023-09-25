@@ -49,7 +49,6 @@ const ConnectExistingInstance = () => {
                         Advanced
                     </Button>
                 </XStack>
-                {/* two rows  */}
                 <ClientAddressRow />
                 <BeackonAddress/> 
                 <Separator borderColor={'#e3e3e3'} />

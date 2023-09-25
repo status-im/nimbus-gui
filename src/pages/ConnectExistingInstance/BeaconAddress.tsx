@@ -7,7 +7,7 @@ const BeackonAddress = () => {
     const [inputAdress, setInputAdress] = useState('')
     const [vcPort, setVcPort] = useState('')
     const [isClientAddressChecked, setIsClientAddressChecked] = useState(false)
-    
+
     return (
         <YStack>
             <XStack justifyContent={'space-between'}>
@@ -23,12 +23,12 @@ const BeackonAddress = () => {
                 </YStack>
                 <YStack space={'$2'}>
                     <Text size={11} color={'#647084'} weight={'regular'}>
-                    Beacon Address
+                        Beacon Address
                     </Text>
                     <Input
                         placeholder={''}
                         value={inputAdress}
-                        onChangeText={() => { }}
+                        onChangeText={(e) => { setInputAdress(e) }}
                     />
                 </YStack>
 
@@ -39,7 +39,7 @@ const BeackonAddress = () => {
                     <Input
                         placeholder={''}
                         value={vcPort}
-                        onChangeText={() => { }}
+                        onChangeText={(e) => { setVcPort(e) }}
                     />
                 </YStack>
                 <Stack style={{ alignItems: 'center', justifyContent: 'center' }} height={'100%'} width={'10%'}>
