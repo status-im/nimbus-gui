@@ -1,6 +1,6 @@
-import { Separator, Stack, Switch, XStack, YStack } from 'tamagui'
+import { Separator, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
-import { Button, Checkbox, Input, Text } from '@status-im/components'
+import { Button, Input, Text } from '@status-im/components'
 
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 
@@ -13,6 +13,7 @@ import Header from '../../components/General/Header'
 import Icon from '../../components/General/Icon'
 import PairedSuccessfully from '../PairDevice/PairedSuccessfully'
 import ClientAddressRow from './ClientAddressRow'
+import BeackonAddress from './BeaconAddress'
 
 const ConnectExistingInstance = () => {
     const isPaired = false
@@ -50,6 +51,7 @@ const ConnectExistingInstance = () => {
                 </XStack>
                 {/* two rows  */}
                 <ClientAddressRow />
+                <BeackonAddress/> 
                 <Separator borderColor={'#e3e3e3'} />
                 <YStack space={'$2'}>
                     <Text size={11} color={'#647084'}>
