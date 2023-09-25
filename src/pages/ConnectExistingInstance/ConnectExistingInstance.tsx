@@ -17,7 +17,7 @@ const ConnectExistingInstance = () => {
     const changeEncryptedPasswordHandler = (value: string) => {
         setEncryptedPassword(value)
     }
- 
+
     return (
         <PageWrapperShadow rightImageSrc="./background-images/day-night-bg.png" rightImageLogo={true}>
             <YStack
@@ -54,7 +54,7 @@ const ConnectExistingInstance = () => {
                             <ClearIcon
                                 size={16}
                                 color="#A1ABBD"
-                                onClick={()=>setEncryptedPassword('')}
+                                onClick={() => setEncryptedPassword('')}
                                 style={{ cursor: 'pointer' }}
                             />
                         }
@@ -67,7 +67,7 @@ const ConnectExistingInstance = () => {
                     Advanced Settings
                 </Text>
                 <XStack space={'$4'}>
-                    <Button icon={<CompleteIdIcon size={20} color="#2A4AF5" />} variant='outline'  >Pair with ID </Button>
+                    <Button icon={<CompleteIdIcon size={20} color='#2A4AF5' />} variant='outline'  >Pair with ID </Button>
                 </XStack>
                 <Separator borderColor={'#e3e3e3'} />
                 <XStack>
