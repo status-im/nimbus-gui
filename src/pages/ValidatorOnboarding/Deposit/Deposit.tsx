@@ -39,7 +39,10 @@ const Deposit = () => {
   }
 
   return (
-    <YStack space={'$3'} style={{ width: '100%', padding: '16px 32px', alignItems: 'start' }}>
+    <YStack
+      space={'$3'}
+      style={{ width: '100%', padding: '16px 32px', alignItems: 'start', paddingBottom: '30px' }}
+    >
       <DepositTitle isTransactionConfirmation={isTransactionConfirmation} />
       {isTransactionConfirmation ? (
         <DepositSubtitle />

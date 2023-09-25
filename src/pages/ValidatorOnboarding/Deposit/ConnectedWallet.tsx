@@ -1,5 +1,5 @@
 import { Avatar, Text } from '@status-im/components'
-import { XStack, YStack } from 'tamagui'
+import { Stack, XStack, YStack } from 'tamagui'
 
 import { getFormattedWalletAddress } from '../../../utilities'
 
@@ -14,14 +14,16 @@ const ConnectedWallet = () => {
             <img src={'/icons/connected-wallet-eth-logo.svg'} alt="connected-wallet-eth-logo" />
           }
         />
-        <YStack space={'$1'}>
+        <YStack>
           <Text size={13} weight={'semibold'}>
             Ethereum Mainnet
           </Text>
           <Text size={13}>{getFormattedWalletAddress('0xb9dasdfc35')}</Text>
-          <Text size={13} color="#2A4CF4">
-            Connected
-          </Text>
+          <Stack style={{ marginTop: '3px' }}>
+            <Text size={13} color="#2A4CF4" weight={'semiboldF'}>
+              Connected
+            </Text>
+          </Stack>
         </YStack>
       </XStack>
       <YStack>
