@@ -1,28 +1,28 @@
 .quick-start-bar {
-    border-radius: 18px;
-    border: 1px solid rgba(0, 0, 0, 0.10);
-    opacity: 0.949999988079071;
-    background: rgba(255, 255, 255, 0.70);
-    backdrop-filter: blur(15px);
-    display: flex;
-    align-items: center;
-    width: 66%;
-    margin: 0 auto;
-    padding: 12px 1rem;
-    position: relative;
-    top: -18vh;
+  border-radius: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  opacity: 0.949999988079071;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(15px);
+  display: flex;
+  align-items: center;
+  width: 66%;
+  margin: 0 auto;
+  padding: 12px 1rem;
+  position: relative;
+  top: -18vh;
 }
 .quick-start-bar > div {
-    width: 100%;
-    border-radius: 24px;
-    background: rgba(100, 112, 132, 0.05);
-    margin-left: 1rem;
-    padding: 1rem 0.5rem;
+  width: 100%;
+  border-radius: 24px;
+  background: rgba(100, 112, 132, 0.05);
+  margin-left: 1rem;
+  padding: 1rem 0.5rem;
 }
-.quick-start-bar ul  {
-    display: flex;
+.quick-start-bar ul {
+  display: flex;
 }
 .quick-start-bar ul li {
-    color: #0D1625;
-    font-size: 13px;
+  color: #0d1625;
+  font-size: 13px;
 }
