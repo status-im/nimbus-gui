@@ -103,7 +103,7 @@ const DeviceUptime = () => {
         borderRadius: '16px',
       }}
     >
-      <YStack space={'$3'} width={'560px'} height={'156px'} padding={'$3'}>
+      <YStack space={'$3'} width={'100%'} minHeight={'156px'} padding={'$3'}>
         <XStack justifyContent={'space-between'}>
           <YStack>
             <Text size={15} weight={'semibold'}>
@@ -160,7 +160,7 @@ const DeviceUptime = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              width: '504px',
+              width: '100%',
               height: '100%',
             }}
           >
