@@ -18,13 +18,13 @@ const OsCard = ({ name, icon, onClick, isSelected }: OsCardProps) => {
         border: isSelected ? '1px solid #2A4AF566' : '1px solid rgba(0, 0, 0, 0.15);',
         borderRadius: '16px',
         padding: '12px 16px',
-        width: '33%',
+        width: '32%',
       }}
-      space={'$12'}
+      space={'$8'}
       onPress={onClick}
     >
       <Stack>
-        <Text size={27} weight={'semibold'}>
+        <Text size={19} weight={'semibold'}>
           {name}
         </Text>
       </Stack>

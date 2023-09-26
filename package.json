@@ -10,7 +10,9 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test-storybook": "test-storybook"
+    "test-storybook": "test-storybook",
+    "format:check": "yarn prettier --check src",
+    "format": "yarn prettier --write src"
   },
   "resolutions": {
     "@tamagui/web": "1.36.4",

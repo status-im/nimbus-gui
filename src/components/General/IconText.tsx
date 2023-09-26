@@ -17,7 +17,7 @@ const IconText = ({ icon, children, weight }: IconTextProps) => {
       space={'$2'}
     >
       {icon}
-      <Text size={13} color={'#000000'} weight={weight}>
+      <Text size={13} color={'#09101C'} weight={weight}>
         {children}
       </Text>
     </XStack>

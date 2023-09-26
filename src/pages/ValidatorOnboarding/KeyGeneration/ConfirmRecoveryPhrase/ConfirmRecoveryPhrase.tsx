@@ -12,7 +12,7 @@ const ConfirmRecoveryPhrase = () => {
   return (
     <YStack space={'$3'} style={{ width: '100%', marginTop: '20px' }}>
       <KeyGenerationTitle />
-      <Text size={27}>Confirm Recovery Phrase</Text>
+      <Text size={19}>Confirm Recovery Phrase</Text>
       <Stack
         style={{
           display: 'grid',

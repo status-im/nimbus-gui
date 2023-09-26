@@ -18,10 +18,10 @@ const ConsensusClientCard = ({ name, icon }: ConsensusClientCardProps) => {
         padding: '12px 16px',
         width: '29%',
       }}
-      space={'$10'}
+      space={'$8'}
     >
       <Stack>
-        <Text size={27} weight={'semibold'}>
+        <Text size={15} weight={'semibold'}>
           {name}
         </Text>
       </Stack>
