@@ -12,6 +12,7 @@ const ValidatorListItem = () => {
         borderRadius: '12px',
         backgroundColor: 'rgba(42, 74, 245, 0.05);',
       }}
+      width="90%"
     >
       <XStack alignItems="center">
         <Avatar
