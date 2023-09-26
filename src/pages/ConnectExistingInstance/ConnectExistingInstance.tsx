@@ -66,7 +66,7 @@ const ConnectExistingInstance = () => {
         </Text>
         <XStack space={'$4'}>
           <Button icon={<CompleteIdIcon size={20} color="#2A4AF5" />} variant="outline">
-            Pair with ID{' '}
+            Pair with ID
           </Button>
         </XStack>
         <Separator borderColor={'#e3e3e3'} />
