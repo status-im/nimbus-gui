@@ -44,7 +44,10 @@ const PairDevice = () => {
           Advanced Settings
         </Text>
         <XStack space={'$4'}>
-          <Button icon={<Icon src='/icons/connection-blue.svg' width={20} />} variant='outline'  > Connect via IP </Button>
+          <Button icon={<Icon src="/icons/connection-blue.svg" width={20} />} variant="outline">
+            {' '}
+            Connect via IP{' '}
+          </Button>
         </XStack>
         {isPaired && <CreateAvatar />}
         <Separator borderColor={'#e3e3e3'} />
