@@ -1,7 +1,7 @@
 import { XStack, YStack } from 'tamagui'
 
 import LeftSidebar from './LeftSidebar'
-import RightSidebar from './RightSidebar'
+import RightSidebar from './RightSideBar/RightSidebar'
 import BasicInfoCards from './BasicInfoCards/BasicInfoCards'
 import AddCardsContainer from '../../components/General/AddCards/AddCardsContainer'
 import BalanceChartCard from './BalanceChartCard/BalanceChartCard'
