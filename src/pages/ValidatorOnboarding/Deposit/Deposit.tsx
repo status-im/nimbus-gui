@@ -14,7 +14,7 @@ import { RootState } from '../../../redux/store'
 
 const Deposit = () => {
   const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(true)
-  const [validatorCount, setValidatorCount] = useState(0)
+  const [validatorCount, setValidatorCount] = useState(2)
   const { isWalletConnected } = useSelector((state: RootState) => state.deposit)
   const isTransactionConfirmation = false
 
