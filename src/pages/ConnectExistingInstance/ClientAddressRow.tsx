@@ -41,13 +41,14 @@ const ClientAddressRow = () => {
                         onChangeText={(e) => { setVcPort(e) }}
                     />
                 </YStack>
-                <Stack style={{ alignItems: 'center', justifyContent: 'center' }} height={'100%'} width={'10%'}>
+                <Stack style={{ alignItems: 'center', justifyContent: 'center' }} height={'100%'} marginTop={'10px'} width={'fit-content'} >
                     <Checkbox
                         id='checkforaddress'
                         variant="outline"
                         selected={isClientAddressChecked}
                         onCheckedChange={() => setIsClientAddressChecked(prev => !prev)}
-                        size={32}
+                        size={20}
+                        
                     />
                 </Stack>
             </XStack>
