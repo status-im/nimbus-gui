@@ -9,7 +9,7 @@ import {
   ActivityCenterIcon,
   SettingsIcon,
 } from '@status-im/icons'
-import { YStack } from 'tamagui'
+import { Stack, YStack } from 'tamagui'
 
 const LeftSidebar = () => {
   return (
@@ -30,7 +30,19 @@ const LeftSidebar = () => {
       <IconButton icon={<HeartIcon size={20} />} variant="ghost" />
       <IconButton icon={<CodeBlockIcon size={20} />} variant="ghost" />
       <IconButton icon={<CommunitiesIcon size={20} />} variant="ghost" />
-      <IconButton icon={<ActivityCenterIcon size={20} />} variant="ghost" />
+      <Stack style={{ position: 'relative', display: 'inline-block' }}>
+        <IconButton icon={<ActivityCenterIcon size={20} />} variant="ghost" />
+        <Stack style={{
+          position: 'absolute',
+          right: 7,
+          top: 5,
+          width: '9px',
+          height: '9px',
+          borderRadius: '50%',
+          backgroundColor: '#1992D7',
+          border: '1.5px solid #fff'
+        }} />
+      </Stack>
       <IconButton icon={<SettingsIcon size={20} />} variant="ghost" />
     </YStack>
   )
