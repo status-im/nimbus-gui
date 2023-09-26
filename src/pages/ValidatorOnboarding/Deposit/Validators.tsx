@@ -1,4 +1,4 @@
-import { DropdownMenu, Input, Text } from '@status-im/components'
+import { Button, DropdownMenu, Input, Text } from '@status-im/components'
 import { AddIcon, ChevronDownIcon, EditIcon } from '@status-im/icons'
 import { Stack, XStack, YStack } from 'tamagui'
 
@@ -41,7 +41,11 @@ const Validators = ({
             USD
           </Text>
           <DropdownMenu>
-            <ChevronDownIcon size={16} color={'#919191'} style={{ cursor: 'pointer' }} />
+            <Button
+              variant="ghost"
+              size={24}
+              icon={<ChevronDownIcon size={16} color={'#919191'} />}
+            />
             <DropdownMenu.Content sideOffset={10} position="absolute" zIndex={999}>
               <DropdownMenu.Item
                 icon={<EditIcon size={20} />}
