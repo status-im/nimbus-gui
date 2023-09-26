@@ -4,13 +4,10 @@ import { XStack, YStack } from 'tamagui'
 import { getFormattedValidatorAddress } from '../../../utilities'
 
 type ValidatorRequestProps = {
-  validator: {
-    name: string
-    address: string
-  }
+  number: number
 }
 
-const ValidatorRequest = ({ validator }: ValidatorRequestProps) => {
+const ValidatorRequest = ({ number }: ValidatorRequestProps) => {
   return (
     <YStack space={'$3'} style={{ width: '100%' }}>
       <XStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
@@ -19,15 +16,15 @@ const ValidatorRequest = ({ validator }: ValidatorRequestProps) => {
             type="user"
             size={32}
             src="/icons/validator-request.svg"
-            name={validator.name}
+            name={number.toString()}
             indicator="online"
           />
           <YStack>
             <Text size={13} weight={'semibold'}>
-              Validator {validator.name}
+              Validator {number}
             </Text>
             <Text size={13} color="#647084">
-              {getFormattedValidatorAddress(validator.address)}
+              {getFormattedValidatorAddress('zQ3asdf9d4Gs0')}
             </Text>
           </YStack>
         </XStack>
