@@ -1,5 +1,5 @@
 import { Paragraph, Separator, Stack, XStack, YStack } from 'tamagui'
-import {  Text } from '@status-im/components'
+import { Text } from '@status-im/components'
 import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
 
 import StandartLineChart from '../../../components/Charts/StandardLineChart'
@@ -23,7 +23,6 @@ type NetworkCardProps = {
 }
 
 const NetworkCard = ({ uploadRate, downloadRate }: NetworkCardProps) => {
-  
   const chartData: ChartData[] = [
     {
       id: 'uploadRate',
@@ -49,16 +48,16 @@ const NetworkCard = ({ uploadRate, downloadRate }: NetworkCardProps) => {
   const message = currentLoad > 60 ? 'Good' : 'Poor'
 
   return (
-    <DashboardCardWrapper padding='0'>
-
-
-      <YStack style={{
-        width: '284px',
-        height: '136px',
-        borderRadius: '16px',
-        border: message === 'Poor' ? '1px solid  #D92344' : 'none',
-        backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
-      }}>
+    <DashboardCardWrapper padding="0">
+      <YStack
+        style={{
+          width: '284px',
+          height: '136px',
+          borderRadius: '16px',
+          border: message === 'Poor' ? '1px solid  #D92344' : 'none',
+          backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
+        }}
+      >
         <XStack
           justifyContent="space-between"
           style={{

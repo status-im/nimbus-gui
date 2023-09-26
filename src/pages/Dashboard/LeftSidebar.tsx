@@ -7,14 +7,13 @@ import {
   CommunitiesIcon,
   ActivityCenterIcon,
   SettingsIcon,
-} from '@status-im/icons';
-import { YStack } from 'tamagui';
-import IconButtonWithDot from './IconButtonWithDot';
-import { useDispatch, useSelector } from 'react-redux';
+} from '@status-im/icons'
+import { YStack } from 'tamagui'
+import IconButtonWithDot from './IconButtonWithDot'
+import { useDispatch, useSelector } from 'react-redux'
 
 const LeftSidebar = () => {
-
-  const buttons = useSelector((state: any) => state.leftSidebar.buttons);
+  const buttons = useSelector((state: any) => state.leftSidebar.buttons)
   console.log(buttons)
   return (
     <YStack
@@ -28,9 +27,19 @@ const LeftSidebar = () => {
         border: '1px solid #F0F2F5',
       }}
     >
-      <IconButtonWithDot iconEl={<DashboardIcon size={20} />} variant="ghost" isDotOn={false} selected={true} />
+      <IconButtonWithDot
+        iconEl={<DashboardIcon size={20} />}
+        variant="ghost"
+        isDotOn={false}
+        selected={true}
+      />
       <IconButtonWithDot iconEl={<SpeedIcon size={20} />} variant="ghost" isDotOn={false} />
-      <IconButtonWithDot iconEl={<ChartIcon size={20} />} variant="outline" isDotOn={false} disabled={true} />
+      <IconButtonWithDot
+        iconEl={<ChartIcon size={20} />}
+        variant="outline"
+        isDotOn={false}
+        disabled={true}
+      />
       <IconButtonWithDot iconEl={<HeartIcon size={20} />} variant="ghost" isDotOn={false} />
       <IconButtonWithDot iconEl={<CodeBlockIcon size={20} />} variant="ghost" isDotOn={false} />
       <IconButtonWithDot iconEl={<CommunitiesIcon size={20} />} variant="ghost" isDotOn={false} />
@@ -40,4 +49,4 @@ const LeftSidebar = () => {
   )
 }
 
-export default LeftSidebar;
+export default LeftSidebar

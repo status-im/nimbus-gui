@@ -23,7 +23,7 @@ const Dashboard = () => {
 
         <YStack space={'$4'} alignItems="start" px="24px" style={{ flexGrow: '1' }}>
           <TitleLogo />
-          <XStack space={'$4'} justifyContent={'space-between'} >
+          <XStack space={'$4'} justifyContent={'space-between'}>
             <XStack space={'$4'}>
               <SyncStatusCard />
               <AddCardsContainer />
@@ -31,7 +31,6 @@ const Dashboard = () => {
             <BalanceChartCard />
           </XStack>
           <BasicInfoCards />
-
 
           <XStack space="$3">
             <YStack space={'$4'}>
@@ -41,8 +40,8 @@ const Dashboard = () => {
               </XStack>
               <DeviceUptime />
             </YStack>
-            <YStack space={'$4'} >
-              <XStack space="$4" >
+            <YStack space={'$4'}>
+              <XStack space="$4">
                 <StorageCard maxStorage={100} storage={82} />
                 <CPUCard load={[12, 31, 3, 2, 24, 98]} />
               </XStack>

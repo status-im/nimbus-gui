@@ -18,5 +18,5 @@ export const Default: Story = {
   args: { load: [32, 12, 45, 10] },
 }
 export const BadStats: Story = {
-  args:{load:[12,32,14,35,65,90]}
+  args: { load: [12, 32, 14, 35, 65, 90] },
 }
