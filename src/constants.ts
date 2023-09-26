@@ -17,3 +17,17 @@ export const RECOVERY_PHRASE = 'Recovery Phrase'
 export const BOTH_KEY_AND_RECOVERY = 'Both KeystoreFiles & Recovery Phrase'
 
 export const ETH_PER_VALIDATOR = 32
+
+// for now, this will be constant values
+export const CURRENCIES = [
+  {
+    name: 'USD',
+    symbol: '$',
+    price: 1583.42,
+  },
+  {
+    name: 'EUR',
+    symbol: '€',
+    price: 1323.61,
+  },
+]
