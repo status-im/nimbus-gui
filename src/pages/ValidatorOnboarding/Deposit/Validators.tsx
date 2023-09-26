@@ -1,5 +1,5 @@
-import { Input, Text } from '@status-im/components'
-import { AddIcon, ChevronDownIcon } from '@status-im/icons'
+import { DropdownMenu, Input, Text } from '@status-im/components'
+import { AddIcon, ChevronDownIcon, EditIcon } from '@status-im/icons'
 import { Stack, XStack, YStack } from 'tamagui'
 
 import DepositSubtitle from './DepositSubtitle'
@@ -40,7 +40,31 @@ const Validators = ({
           <Text size={15} weight={'semibold'}>
             USD
           </Text>
-          <ChevronDownIcon size={16} color={'#919191'} style={{ cursor: 'pointer' }} />
+          <DropdownMenu>
+            <ChevronDownIcon size={16} color={'#919191'} style={{ cursor: 'pointer' }} />
+            <DropdownMenu.Content sideOffset={10}>
+              <DropdownMenu.Item
+                icon={<EditIcon size={20} />}
+                label="asdf"
+                onSelect={() => console.log('e')}
+              />
+              <DropdownMenu.Item
+                icon={<EditIcon size={20} />}
+                label="asdf"
+                onSelect={() => console.log('e')}
+              />
+              <DropdownMenu.Item
+                icon={<EditIcon size={20} />}
+                label="asdf"
+                onSelect={() => console.log('e')}
+              />
+              <DropdownMenu.Item
+                icon={<EditIcon size={20} />}
+                label="asdf"
+                onSelect={() => console.log('e')}
+              />
+            </DropdownMenu.Content>
+          </DropdownMenu>
         </XStack>
         <Text size={27} weight={'semibold'}>
           $4,273 USD
