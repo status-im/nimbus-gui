@@ -42,7 +42,7 @@ const Validators = ({
           </Text>
           <DropdownMenu>
             <ChevronDownIcon size={16} color={'#919191'} style={{ cursor: 'pointer' }} />
-            <DropdownMenu.Content sideOffset={10}>
+            <DropdownMenu.Content sideOffset={10} position="absolute" zIndex={999}>
               <DropdownMenu.Item
                 icon={<EditIcon size={20} />}
                 label="asdf"
