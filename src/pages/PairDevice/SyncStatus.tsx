@@ -48,8 +48,8 @@ const SyncStatus = ({
   const timer = convertSecondsToTimerFormat(elapsedTime)
 
   const connectViaIpHandler = () => {
-    navigate('/connect-device');
-  };
+    navigate('/connect-device')
+  }
 
   return (
     <YStack space={'$2'}>
@@ -91,7 +91,7 @@ const SyncStatus = ({
       )}
       {isAwaitingPairing && (
         <XStack>
-          <Button icon={<Icon src={ConnectionIcon} />} size={40} onPress={connectViaIpHandler} >
+          <Button icon={<Icon src={ConnectionIcon} />} size={40} onPress={connectViaIpHandler}>
             Connect via IP
           </Button>
         </XStack>
