@@ -50,9 +50,13 @@ const Validators = ({
               icon={<ChevronDownIcon size={16} color={'#919191'} />}
             />
             <DropdownMenu.Content sideOffset={10} position="absolute" zIndex={999}>
-              <DropdownMenu.Item label="USD" onSelect={() => console.log('e')} />
-              <DropdownMenu.Item label="EUR" onSelect={() => console.log('e')} />
-              <DropdownMenu.Item label="JPY" onSelect={() => console.log('e')} />
+              {CURRENCIES.map(currency => (
+                <DropdownMenu.Item
+                  key={currency.name}
+                  label={currency.name}
+                  onSelect={() => setCurrency(currency)}
+                />
+              ))}
             </DropdownMenu.Content>
           </DropdownMenu>
         </XStack>
