@@ -10,6 +10,7 @@ import {
   SettingsIcon,
 } from '@status-im/icons'
 import { Stack, YStack } from 'tamagui'
+import IconButtonWithDot from './IconButtonWithDot'
 
 const LeftSidebar = () => {
   return (
@@ -43,6 +44,7 @@ const LeftSidebar = () => {
           border: '1.5px solid #fff'
         }} />
       </Stack>
+      <IconButtonWithDot iconEl={<ActivityCenterIcon size={20} />} variant="ghost" isDotOn={true} />
       <IconButton icon={<SettingsIcon size={20} />} variant="ghost" />
     </YStack>
   )
