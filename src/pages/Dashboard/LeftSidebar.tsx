@@ -11,11 +11,25 @@ import {
 import { YStack } from 'tamagui'
 import IconButtonWithDot from './IconButtonWithDot'
 import { useDispatch, useSelector } from 'react-redux'
+import { toggleButtonSelection } from '../../redux/Sidebars/slice'
 
 const LeftSidebar = () => {
+ 
   const buttons = useSelector((state: any) => state.leftSidebar.buttons)
-  console.log(buttons)
-  return (
+
+  const renderIcon = (id: string) => {
+    switch (id) {
+      case 'dashboard': return <DashboardIcon size={20} />;
+      case 'speed': return <SpeedIcon size={20} />;
+      case 'chart': return <ChartIcon size={20} />;
+      case 'heart': return <HeartIcon size={20} />;
+      case 'codeBlock': return <CodeBlockIcon size={20} />;
+      case 'communities': return <CommunitiesIcon size={20} />;
+      case 'activityCenter': return <ActivityCenterIcon size={20} />;
+      case 'settings': return <SettingsIcon size={20} />;
+      default: return null;
+    }
+  }; return (
     <YStack
       space={'$4'}
       minHeight={'100vh'}
