@@ -13,6 +13,7 @@ import PinnedNotification from './components/General/PinnedNottification'
 import { RootState } from './redux/store'
 import CreateLocalNodePage from './pages/CreateLocalNodePage/CreateLocalNodePage'
 import ValidatorOnboarding from './pages/ValidatorOnboarding/ValidatorOnboarding'
+import ConnectExistingInstance from './pages/ConnectExistingInstance/ConnectExistingInstance'
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: '/pair-device',
     element: <PairDevice />,
+  },
+  {
+    path: '/pair-existing-instance',
+    element: <ConnectExistingInstance />,
   },
   { path: '/create-local-node', element: <CreateLocalNodePage /> },
   { path: '/validator-onboarding', element: <ValidatorOnboarding /> },
