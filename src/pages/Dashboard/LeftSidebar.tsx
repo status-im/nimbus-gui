@@ -41,26 +41,19 @@ const LeftSidebar = () => {
         border: '1px solid #F0F2F5',
       }}
     >
-      <IconButtonWithDot
-        iconEl={<DashboardIcon size={20} />}
-        variant="ghost"
-        isDotOn={false}
-        selected={true}
-      />
-      <IconButtonWithDot iconEl={<SpeedIcon size={20} />} variant="ghost" isDotOn={false} />
-      <IconButtonWithDot
-        iconEl={<ChartIcon size={20} />}
-        variant="outline"
-        isDotOn={false}
-        disabled={true}
-      />
-      <IconButtonWithDot iconEl={<HeartIcon size={20} />} variant="ghost" isDotOn={false} />
-      <IconButtonWithDot iconEl={<CodeBlockIcon size={20} />} variant="ghost" isDotOn={false} />
-      <IconButtonWithDot iconEl={<CommunitiesIcon size={20} />} variant="ghost" isDotOn={false} />
-      <IconButtonWithDot iconEl={<ActivityCenterIcon size={20} />} variant="ghost" isDotOn={true} />
-      <IconButtonWithDot iconEl={<SettingsIcon size={20} />} variant="ghost" isDotOn={false} />
+      {buttons.map((button: any) => (
+        <IconButtonWithDot
+          key={button.id}
+          iconEl={renderIcon(button.id)}
+          variant={button.isDisabled ? "outline" : "ghost"}
+          isDotOn={button.isDotOn}
+          selected={button.isSelected}
+          disabled={button.isDisabled}
+          id={button.id}
+        />
+      ))}
     </YStack>
-  )
+  );
 }
 
 export default LeftSidebar
