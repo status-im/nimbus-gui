@@ -1,16 +1,35 @@
-import { XStack, YStack } from 'tamagui'
-import { Avatar, Checkbox, Text } from '@status-im/components'
-import { VerifiedIcon, ContactIcon } from '@status-im/icons'
+import { useState } from 'react';
+import { XStack, YStack } from 'tamagui';
+import { Avatar, Checkbox, Text } from '@status-im/components';
+import { VerifiedIcon, ContactIcon } from '@status-im/icons';
 
-const ValidatorListItem = () => {
+type ValidatorListItemProps = {
+  name: string;
+  avatarKey: string;
+  selected?: boolean;
+};
+
+const ValidatorListItem = ({ name, avatarKey, selected }: ValidatorListItemProps) => {
+  const [hovered, setHovered] = useState(false);
+  const [isSelected, setIsSelected] = useState(selected);
+
+  const handleMouseEnter = () => setHovered(true);
+  const handleMouseLeave = () => setHovered(false);
+  const handleClick = () => setIsSelected(!isSelected);
+
+  const backgroundColor = isSelected || hovered ? 'rgba(42, 74, 245, 0.05)' : 'transparent';
+
   return (
     <XStack
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
       justifyContent="space-between"
       alignItems="center"
       style={{
         padding: '6px 8px',
         borderRadius: '12px',
-        backgroundColor: 'rgba(42, 74, 245, 0.05);',
+        backgroundColor: backgroundColor,
       }}
       width="90%"
     >
@@ -31,15 +50,17 @@ const ValidatorListItem = () => {
         />
         <YStack pl="8px">
           <Text size={13} weight={'semibold'}>
-            Validator 1
+            {name}
             <VerifiedIcon size={20} /> <ContactIcon size={20} />
           </Text>
-          <Text size={13}>Validator 1</Text>
+          <Text size={13}>{avatarKey}</Text>
         </YStack>
       </XStack>
-      <Checkbox id="" variant="outline" size={20} selected />
+      {isSelected &&
+        <Checkbox id="" variant="outline" size={20} selected={isSelected} />
+      }
     </XStack>
-  )
+  );
 }
 
-export default ValidatorListItem
+export default ValidatorListItem;
