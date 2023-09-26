@@ -1,20 +1,20 @@
 .custom-step {
   background-color: #ffffff;
 }
-div[class*="StepMain-"]  {
+div[class*='StepMain-'] {
   align-items: start;
 }
-div[class*="LabelContainer-"] span[class*="Label-"]  {
+div[class*='LabelContainer-'] span[class*='Label-'] {
   text-align: initial;
   text-transform: uppercase;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
-div[class*="ConnectorContainer-"]  {
+div[class*='ConnectorContainer-'] {
   right: unset;
   left: calc(-100% + 28px);
   width: 100%;
 }
-span[class*="Connector-"]  {
+span[class*='Connector-'] {
   position: relative;
   z-index: -1;
 }
@@ -55,7 +55,7 @@ span[class*="Connector-"]  {
   top: calc(100% + 4px);
   left: 8px;
   font-size: 12px;
-  font-family: "Inter", sans-serif;
-  color: #A2A9B0; 
+  font-family: 'Inter', sans-serif;
+  color: #a2a9b0;
   width: max-content;
 }
