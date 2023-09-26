@@ -1,10 +1,11 @@
 import { useState } from 'react'
-import { Button, DropdownMenu, Input, Text } from '@status-im/components'
-import { AddIcon, ChevronDownIcon } from '@status-im/icons'
+import { Input, Text } from '@status-im/components'
+import { AddIcon } from '@status-im/icons'
 import { Stack, XStack, YStack } from 'tamagui'
 
 import DepositSubtitle from './DepositSubtitle'
 import { CURRENCIES, ETH_PER_VALIDATOR } from '../../../constants'
+import CurrencyDropdown from '../../../components/General/CurrencyDropdown'
 
 type ValidatorsProps = {
   validatorCount: number
@@ -18,7 +19,12 @@ const Validators = ({
   changeValidatorCountHandler,
 }: ValidatorsProps) => {
   const [currency, setCurrency] = useState(CURRENCIES[0])
+
   const totalPrice = (validatorCount * currency.price).toFixed(2)
+
+  const changeCurrency = (currency: (typeof CURRENCIES)[0]) => {
+    setCurrency(currency)
+  }
 
   return (
     <XStack justifyContent={'space-between'} width={'80%'}>
@@ -44,22 +50,7 @@ const Validators = ({
           <Text size={15} weight={'semibold'}>
             {currency.name}
           </Text>
-          <DropdownMenu>
-            <Button
-              variant="ghost"
-              size={24}
-              icon={<ChevronDownIcon size={16} color={'#919191'} />}
-            />
-            <DropdownMenu.Content sideOffset={10} position="absolute" zIndex={999}>
-              {CURRENCIES.map(currency => (
-                <DropdownMenu.Item
-                  key={currency.name}
-                  label={currency.name}
-                  onSelect={() => setCurrency(currency)}
-                />
-              ))}
-            </DropdownMenu.Content>
-          </DropdownMenu>
+          <CurrencyDropdown changeCurrency={changeCurrency} />
         </XStack>
         <Text size={27} weight={'semibold'}>
           {currency.symbol}
