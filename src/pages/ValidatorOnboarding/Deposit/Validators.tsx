@@ -42,7 +42,7 @@ const Validators = ({
       <YStack space={'$2'}>
         <XStack style={{ justifyContent: 'space-between' }}>
           <Text size={15} weight={'semibold'}>
-            USD
+            {currency.name}
           </Text>
           <DropdownMenu>
             <Button
