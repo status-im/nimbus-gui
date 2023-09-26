@@ -8,10 +8,14 @@ import {
   ActivityCenterIcon,
   SettingsIcon,
 } from '@status-im/icons';
-import { Stack, YStack } from 'tamagui';
+import { YStack } from 'tamagui';
 import IconButtonWithDot from './IconButtonWithDot';
+import { useDispatch, useSelector } from 'react-redux';
 
 const LeftSidebar = () => {
+
+  const buttons = useSelector((state: any) => state.leftSidebar.buttons);
+  console.log(buttons)
   return (
     <YStack
       space={'$4'}
