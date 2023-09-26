@@ -21,7 +21,7 @@ const IconButtonWithDot = ({
     id
 }: IconButtonWithDotProps) => {
     const dispatch = useDispatch()
-    const onClickHandler = (id) => { if (!disabled) dispatch(toggleButtonSelection(id)) }
+    const onClickHandler = (id: string) => { if (!disabled) dispatch(toggleButtonSelection(id)) }
 
     return (
         <Stack style={{ position: 'relative', display: 'inline-block' }}>

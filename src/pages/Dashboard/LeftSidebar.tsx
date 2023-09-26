@@ -10,11 +10,9 @@ import {
 } from '@status-im/icons'
 import { YStack } from 'tamagui'
 import IconButtonWithDot from './IconButtonWithDot'
-import { useDispatch, useSelector } from 'react-redux'
-import { toggleButtonSelection } from '../../redux/Sidebars/slice'
+import { useSelector } from 'react-redux'
 
 const LeftSidebar = () => {
- 
   const buttons = useSelector((state: any) => state.leftSidebar.buttons)
 
   const renderIcon = (id: string) => {
@@ -29,6 +27,7 @@ const LeftSidebar = () => {
       case 'settings': return <SettingsIcon size={20} />;
       default: return null;
     }
+    
   }; return (
     <YStack
       space={'$4'}
