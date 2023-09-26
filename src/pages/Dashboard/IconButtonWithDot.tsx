@@ -6,12 +6,14 @@ type IconButtonWithDotProps = {
     iconEl: any;
     variant: 'ghost' | 'outline';
     isDotOn: boolean;
+    selected?: boolean;
+    disabled?: boolean;
 };
 
-const IconButtonWithDot = ({ iconEl, variant, isDotOn }: IconButtonWithDotProps) => {
+const IconButtonWithDot = ({ iconEl, variant, isDotOn, selected, disabled }: IconButtonWithDotProps) => {
     return (
         <Stack style={{ position: 'relative', display: 'inline-block' }} >
-            <IconButton icon={iconEl} variant={variant} />
+            <IconButton icon={iconEl} variant={variant} selected={selected} disabled={disabled} />
             {isDotOn && (
                 <Stack style={{
                     position: 'absolute',

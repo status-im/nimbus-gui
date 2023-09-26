@@ -1,4 +1,3 @@
-import { IconButton } from '@status-im/components'
 import {
   DashboardIcon,
   SpeedIcon,
@@ -8,9 +7,9 @@ import {
   CommunitiesIcon,
   ActivityCenterIcon,
   SettingsIcon,
-} from '@status-im/icons'
-import { Stack, YStack } from 'tamagui'
-import IconButtonWithDot from './IconButtonWithDot'
+} from '@status-im/icons';
+import { Stack, YStack } from 'tamagui';
+import IconButtonWithDot from './IconButtonWithDot';
 
 const LeftSidebar = () => {
   return (
@@ -25,29 +24,16 @@ const LeftSidebar = () => {
         border: '1px solid #F0F2F5',
       }}
     >
-      <IconButton icon={<DashboardIcon size={20} />} variant="ghost" selected />
-      <IconButton icon={<SpeedIcon size={20} />} variant="ghost" />
-      <IconButton icon={<ChartIcon size={20} />} variant="outline" disabled />
-      <IconButton icon={<HeartIcon size={20} />} variant="ghost" />
-      <IconButton icon={<CodeBlockIcon size={20} />} variant="ghost" />
-      <IconButton icon={<CommunitiesIcon size={20} />} variant="ghost" />
-      <Stack style={{ position: 'relative', display: 'inline-block' }}>
-        <IconButton icon={<ActivityCenterIcon size={20} />} variant="ghost" />
-        <Stack style={{
-          position: 'absolute',
-          right: 7,
-          top: 5,
-          width: '9px',
-          height: '9px',
-          borderRadius: '50%',
-          backgroundColor: '#1992D7',
-          border: '1.5px solid #fff'
-        }} />
-      </Stack>
+      <IconButtonWithDot iconEl={<DashboardIcon size={20} />} variant="ghost" isDotOn={false} selected={true} />
+      <IconButtonWithDot iconEl={<SpeedIcon size={20} />} variant="ghost" isDotOn={false} />
+      <IconButtonWithDot iconEl={<ChartIcon size={20} />} variant="outline" isDotOn={false} disabled={true} />
+      <IconButtonWithDot iconEl={<HeartIcon size={20} />} variant="ghost" isDotOn={false} />
+      <IconButtonWithDot iconEl={<CodeBlockIcon size={20} />} variant="ghost" isDotOn={false} />
+      <IconButtonWithDot iconEl={<CommunitiesIcon size={20} />} variant="ghost" isDotOn={false} />
       <IconButtonWithDot iconEl={<ActivityCenterIcon size={20} />} variant="ghost" isDotOn={true} />
-      <IconButton icon={<SettingsIcon size={20} />} variant="ghost" />
+      <IconButtonWithDot iconEl={<SettingsIcon size={20} />} variant="ghost" isDotOn={false} />
     </YStack>
   )
 }
 
-export default LeftSidebar
+export default LeftSidebar;
