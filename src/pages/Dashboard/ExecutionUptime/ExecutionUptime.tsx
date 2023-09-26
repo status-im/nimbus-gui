@@ -48,9 +48,10 @@ const ExecutionUptime = () => {
       variant="$2"
       style={{
         borderRadius: '16px',
+        width: '48%',
       }}
     >
-      <YStack space={'$3'} width={'260px'} height={'156px'} padding={'$3'}>
+      <YStack space={'$3'} width={'100%'} minHeight={'156px'} padding={'$3'}>
         <YStack>
           <Text size={15} weight={'semibold'}>
             Execution Uptime
@@ -71,7 +72,7 @@ const ExecutionUptime = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              width: '228px',
+              width: '100%',
               height: '100%',
             }}
           >
