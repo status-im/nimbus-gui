@@ -1,6 +1,7 @@
 import { Avatar, Tabs, Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
 import ValidatorListItem from './ValidatorListItem'
+import InputSearch from './SearchInput'
 // import { NodeIcon } from '@status-im/icons'
 
 const RightSidebar = () => {
@@ -34,6 +35,7 @@ const RightSidebar = () => {
           </Tabs.Trigger>
         </Tabs.List>
         <Tabs.Content value="active">
+          <InputSearch />
           <YStack>
             <ValidatorListItem />
             <ValidatorListItem />
