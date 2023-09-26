@@ -1,9 +1,10 @@
+import { useState } from 'react'
 import { Button, DropdownMenu, Input, Text } from '@status-im/components'
-import { AddIcon, ChevronDownIcon, EditIcon } from '@status-im/icons'
+import { AddIcon, ChevronDownIcon } from '@status-im/icons'
 import { Stack, XStack, YStack } from 'tamagui'
 
 import DepositSubtitle from './DepositSubtitle'
-import { ETH_PER_VALIDATOR } from '../../../constants'
+import { CURRENCIES, ETH_PER_VALIDATOR } from '../../../constants'
 
 type ValidatorsProps = {
   validatorCount: number
@@ -16,6 +17,8 @@ const Validators = ({
   addValidatorHandler,
   changeValidatorCountHandler,
 }: ValidatorsProps) => {
+  const [currency, setCurrency] = useState(CURRENCIES[0])
+
   return (
     <XStack justifyContent={'space-between'} width={'80%'}>
       <Stack space={'$2'}>
@@ -54,7 +57,8 @@ const Validators = ({
           </DropdownMenu>
         </XStack>
         <Text size={27} weight={'semibold'}>
-          $4,273 USD
+          {currency.symbol}
+          {validatorCount * currency.price} {currency.name}
         </Text>
       </YStack>
     </XStack>
