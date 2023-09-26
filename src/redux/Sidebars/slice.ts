@@ -28,8 +28,18 @@ const leftSidebarSlice = createSlice({
     name: 'leftSidebar',
     initialState,
     reducers: {
+        toggleButtonSelection: (state, action: PayloadAction<string>) => {
+            state.buttons.forEach(button => {
+                button.isSelected = button.id === action.payload;
+            });
+        },
+        toggleDot: (state, action: PayloadAction<string>) => {
+            const button = state.buttons.find(button => button.id === action.payload);
+            if (button) button.isDotOn = !button.isDotOn;
+        },
     },
 });
 
 export const { toggleButtonSelection, toggleDot } = leftSidebarSlice.actions;
 
+export default leftSidebarSlice.reducer;
