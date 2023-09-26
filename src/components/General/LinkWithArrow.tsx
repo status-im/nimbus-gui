@@ -37,7 +37,15 @@ const LinkWithArrow = ({
       onClick={navigateHandler}
     >
       {arrowLeft && <ArrowLeftIcon size={20} color="#2A4CF4" />}
-      <Link style={{ color: textColor || '#2A4CF4', marginBottom: '2px' }} to={to}>
+      <Link
+        style={{
+          color: textColor || '#2A4CF4',
+          marginBottom: '2px',
+          fontSize: 'inherit',
+          fontWeight: 'inherit',
+        }}
+        to={to}
+      >
         {text}
       </Link>
       {arrowRight && <ArrowRightIcon size={20} color="#2A4CF4" />}

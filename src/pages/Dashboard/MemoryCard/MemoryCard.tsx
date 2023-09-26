@@ -1,5 +1,5 @@
 import { Paragraph, Separator, Stack, XStack, YStack } from 'tamagui'
-import {  Text } from '@status-im/components'
+import { Text } from '@status-im/components'
 import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
 
 import StandartLineChart from '../../../components/Charts/StandardLineChart'
@@ -24,7 +24,6 @@ type MemoryCardProps = {
 }
 
 const MemoryCard = ({ currentMemory, maxMemory }: MemoryCardProps) => {
-
   const chartData: ChartData[] = [
     {
       id: 'cpu',
@@ -42,14 +41,16 @@ const MemoryCard = ({ currentMemory, maxMemory }: MemoryCardProps) => {
   const message = currentLoad < maxMemory ? 'Good' : 'Poor'
 
   return (
-    <DashboardCardWrapper padding='0'>
-      <YStack style={{
-        width: '284px',
-        height: '136px',
-        borderRadius: '16px',
-        border: message === 'Poor' ? '1px solid  #D92344' : 'none',
-        backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
-      }}>
+    <DashboardCardWrapper padding="0">
+      <YStack
+        style={{
+          width: '284px',
+          height: '136px',
+          borderRadius: '16px',
+          border: message === 'Poor' ? '1px solid  #D92344' : 'none',
+          backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
+        }}
+      >
         <XStack
           justifyContent="space-between"
           style={{
@@ -71,7 +72,7 @@ const MemoryCard = ({ currentMemory, maxMemory }: MemoryCardProps) => {
         </XStack>
 
         <Separator borderColor={'#e3e3e3'} />
-        
+
         <XStack space={'$4'} style={{ padding: '10px 16px 10px 16px' }}>
           <IconText
             icon={message === 'Good' ? <CheckCircleIcon size={16} /> : <IncorrectIcon size={16} />}
@@ -85,7 +86,7 @@ const MemoryCard = ({ currentMemory, maxMemory }: MemoryCardProps) => {
           )}
         </XStack>
       </YStack>
-    </DashboardCardWrapper >
+    </DashboardCardWrapper>
   )
 }
 

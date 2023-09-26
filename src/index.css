@@ -1,12 +1,55 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('./Inter-font/Inter-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('./Inter-font/Inter-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('./Inter-font/Inter-Medium.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('./Inter-font/Inter-SemiBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('./Inter-font/Inter-Bold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('./Inter-font/Inter-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  
+
   color-scheme: light dark;
   color: rgba(0, 0, 0, 0.87);
   background-color: #242424;
-  
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -22,7 +65,12 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1.2;
   font-weight: 700;
 }
@@ -44,7 +92,7 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-ul{
+ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -55,7 +103,7 @@ ul li {
 }
 @media (prefers-color-scheme: light) {
   :root {
-    color: #09101C;
+    color: #09101c;
     background-color: #ffffff;
   }
   a:hover {

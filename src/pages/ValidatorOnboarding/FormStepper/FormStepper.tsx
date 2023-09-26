@@ -22,7 +22,14 @@ const FormStepper = ({ activeStep, changeActiveStep }: FormStepperProps) => {
       nonLinear={true}
       styleConfig={stepStyle}
       connectorStyleConfig={customConnectorStyle}
-      style={{ fontSize: '14px', zIndex: 999, width: '100%', padding: 0, marginBottom: '2rem' }}
+      style={{
+        fontSize: '14px',
+        zIndex: 999,
+        width: '100%',
+        padding: 0,
+        marginBottom: '3rem',
+        fontFamily: 'Inter',
+      }}
     >
       {steps.map((step, index) => (
         <Step

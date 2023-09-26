@@ -20,7 +20,7 @@ const WithdrawalAddress = ({ title }: WithdrawalAddressProps) => {
 
   return (
     <YStack space={'$4'}>
-      <Text size={27} weight={'semibold'}>
+      <Text size={19} weight={'semibold'}>
         {title}
       </Text>
       <YStack space={'$3'}>

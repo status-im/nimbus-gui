@@ -1,6 +1,6 @@
 import StandartLineChart from './StandardLineChart'
 import IconText from '../General/IconText'
-import { Paragraph, Separator, XStack, YStack } from 'tamagui'
+import { Separator, XStack, YStack } from 'tamagui'
 import { Shadow, Text } from '@status-im/components'
 import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
 
@@ -38,8 +38,8 @@ const DeviceCPULoad: React.FC<DeviceCPULoadProps> = ({ load }) => {
     <Shadow
       variant="$2"
       style={{
-        width: '284px',
-        height: '136px',
+        width: '50%',
+        minHeight: '135px',
         borderRadius: '16px',
         border: message === 'Poor' ? '1px solid  #D92344' : 'none',
         backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
@@ -49,7 +49,7 @@ const DeviceCPULoad: React.FC<DeviceCPULoadProps> = ({ load }) => {
         <XStack
           justifyContent="space-between"
           style={{
-            padding: '8px 16px',
+            padding: '0.75rem 1rem',
             position: 'relative',
           }}
         >
@@ -57,16 +57,16 @@ const DeviceCPULoad: React.FC<DeviceCPULoadProps> = ({ load }) => {
             <StandartLineChart data={chartData} />
           </div>
           <YStack space={'$3'}>
-            <Paragraph color={'#09101C'} size={'$6'} fontWeight={'600'}>
+            <Text size={15} weight={'semibold'}>
               CPU
-            </Paragraph>
-            <Paragraph color={'#09101C'} size={'$8'} fontWeight={'700'}>
+            </Text>
+            <Text size={27} weight={'semibold'}>
               {currentLoad} GB
-            </Paragraph>
+            </Text>
           </YStack>
         </XStack>
         <Separator borderColor={'#e3e3e3'} />
-        <XStack space={'$4'} style={{ padding: '10px 16px 10px 16px' }}>
+        <XStack space={'$4'} style={{ padding: '0.65rem 1rem' }}>
           <IconText
             icon={message === 'Good' ? <CheckCircleIcon size={16} /> : <IncorrectIcon size={16} />}
             weight={'semibold'}
@@ -74,7 +74,7 @@ const DeviceCPULoad: React.FC<DeviceCPULoadProps> = ({ load }) => {
             {message}
           </IconText>
           {message === 'Poor' && (
-            <Text size={13} color="#E95460">
+            <Text size={13} color={'#E95460'} weight={'semibold'}>
               {((currentLoad / 80) * 100).toFixed(0)}% Utilization
             </Text>
           )}

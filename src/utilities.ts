@@ -26,10 +26,10 @@ export const convertSecondsToTimerFormat = (seconds: number) => {
 }
 
 export const formatNumbersWithComa = (n: number): string => {
-  const parts = n.toString().split('.');
-  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  return parts.join('.');
-};
+  const parts = n.toString().split('.')
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  return parts.join('.')
+}
 
 export const getMonthIndicesFromRange = (range: DateRange) => {
   if (!range.from || !range.to) return [0, 11]

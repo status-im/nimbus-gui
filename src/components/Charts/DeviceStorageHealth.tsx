@@ -1,5 +1,5 @@
 import IconText from '../General/IconText'
-import { Paragraph, Separator, XStack, YStack } from 'tamagui'
+import { Separator, XStack, YStack } from 'tamagui'
 import StandardGauge from './StandardGauge'
 import { Shadow, Text } from '@status-im/components'
 import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
@@ -33,8 +33,8 @@ const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxS
     <Shadow
       variant="$2"
       style={{
-        width: '284px',
-        height: '136px',
+        width: '50%',
+        minHeight: '135px',
         borderRadius: '16px',
         border: message === 'Poor' ? '1px solid  #D92344' : 'none',
         backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
@@ -44,31 +44,31 @@ const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxS
         <XStack
           justifyContent="space-between"
           style={{
-            padding: '8px 16px',
+            padding: '0.75rem 1rem',
             position: 'relative',
           }}
         >
           <div
             style={{
               position: 'absolute',
-              right: '44px',
-              width: '75px',
-              height: '75px',
+              right: '33px',
+              width: '4.75rem',
+              height: '4.75rem',
             }}
           >
             <StandardGauge data={data(free)} />
           </div>
           <YStack space={'$3'}>
-            <Paragraph color={'#09101C'} size={'$6'} fontWeight={'600'}>
+            <Text size={15} weight={'semibold'}>
               Storage
-            </Paragraph>
-            <Paragraph color={'#09101C'} size={'$8'} fontWeight={'700'}>
+            </Text>
+            <Text size={27} weight={'semibold'}>
               {storage} GB
-            </Paragraph>
+            </Text>
           </YStack>
         </XStack>
         <Separator borderColor={'#e3e3e3'} />
-        <XStack space={'$4'} style={{ padding: '10px 16px 10px 16px' }}>
+        <XStack space={'$4'} style={{ padding: '0.65rem 1rem' }}>
           <IconText
             icon={message === 'Good' ? <CheckCircleIcon size={16} /> : <IncorrectIcon size={16} />}
             weight={'semibold'}
@@ -76,7 +76,7 @@ const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxS
             {message}
           </IconText>
           {message === 'Poor' && (
-            <Text size={13} color="#E95460">
+            <Text size={13} color={'#E95460'} weight={'semibold'}>
               {utilization.toFixed(0)}% Utilization
             </Text>
           )}

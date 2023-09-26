@@ -11,7 +11,6 @@ import StandardGauge from '../../../components/Charts/StandardGauge'
 type ExecutionClientCardProps = {
   value: number
   total: number
-
 }
 
 const ExecutionClientCard = ({ value, total }: ExecutionClientCardProps) => {
@@ -31,8 +30,6 @@ const ExecutionClientCard = ({ value, total }: ExecutionClientCardProps) => {
   ]
   const style: CSSProperties = {}
 
-
-
   return (
     <Shadow variant="$1" style={style}>
       <YStack>
@@ -41,7 +38,9 @@ const ExecutionClientCard = ({ value, total }: ExecutionClientCardProps) => {
             Execution Client
           </Text>
           <XStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
-            <Text size={19} weight={'semibold'}>Geth</Text>
+            <Text size={19} weight={'semibold'}>
+              Geth
+            </Text>
             <Stack
               style={{
                 height: '56px',

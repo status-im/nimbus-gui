@@ -16,13 +16,14 @@ const DeviceHealthCheck = () => {
   const deviceHealthState = useSelector((state: RootState) => state.deviceHealth)
 
   return (
-    <PageWrapperShadow rightImageSrc="./background-images/eye-background.png">
+    <PageWrapperShadow rightImageSrc="./background-images/eye-background.png" imgHeight="100%">
       <YStack
         space={'$4'}
         style={{
           justifyContent: 'end',
           alignItems: 'start',
           marginBottom: '2rem',
+          marginTop: '4.4rem',
           maxWidth: '100%',
         }}
       >
@@ -32,14 +33,14 @@ const DeviceHealthCheck = () => {
           subtitle="Configure your device to start Staking on Nimbus"
           isAdvancedSettings={true}
         />
-        <XStack space={'$4'}>
+        <XStack space={'$4'} width={'100%'}>
           <DeviceStorageHealth
             storage={deviceHealthState.storage}
             maxStorage={deviceHealthState.maxMemory}
           />
           <DeviceCPULoad load={deviceHealthState.cpuLoad} />
         </XStack>
-        <XStack space={'$4'}>
+        <XStack space={'$4'} width={'100%'}>
           <DeviceMemory
             currentMemory={deviceHealthState.memory}
             maxMemory={deviceHealthState.maxMemory}

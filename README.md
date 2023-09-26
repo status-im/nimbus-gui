@@ -1,27 +1,36 @@
 # nimbus-gui
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A GUI for managing your [Nimbus](https://nimbus.team/) nodes.
 
-Currently, two official plugins are available:
+## Deployed pages showing the project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+We have a Storybook up at https://nimbus-gui.github.io/nimbus-gui/ which shows
+the components of the project. We also have a deployed version of the GUI up at
+https://nimbus-gui.vercel.app/ which shows the GUI as it currently looks in the
+`main` branch of the
+[`nimbus-gui/nimbus-gui`](https://github.com/nimbus-gui/nimbus-gui) repository.
 
-## Expanding the ESLint configuration
+## Development and running the project yourself
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Dependencies
 
-- Configure the top-level `parserOptions` property like this:
+Run `yarn` in the root directory of the project in order to install dependencies.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+### Running a development server
+
+If you want to run a development server to see what the GUI looks like you can
+run the following command:
+
+```bash
+yarn dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+This will start the server on port 5173 and you can open https://localhost:5173
+in order to see the page.
+
+### Running storybook locally
+
+If you want to run the Storybook locally you can simply run `yarn storybook` in
+the root of the project. This is useful if you want to contribute a component
+and be sure that it renders as you expect it to, without testing it out on any
+given page.

@@ -1,10 +1,9 @@
-
-.nimbus-logomark{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.nimbus-logomark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .nimbus-logomark svg {
-    width: auto;
-    height: 24px;
+  width: auto;
+  height: 24px;
 }

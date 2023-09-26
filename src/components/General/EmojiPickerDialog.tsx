@@ -16,13 +16,13 @@ type EmojiPickerProps = {
 
 function EmojiPickerDialog({ emojiStyle, changeEmoji }: EmojiPickerProps) {
   return (
-    <Stack position="absolute" zIndex={1} left={100}>
+    <Stack position="absolute" zIndex={1} left={100} top={-150}>
       <EmojiPicker
         onEmojiClick={changeEmoji}
         autoFocusSearch={false}
         theme={Theme.AUTO}
-        height={350}
-        width={350}
+        height={'50vh'}
+        width={'50vw'}
         emojiVersion="1"
         lazyLoadEmojis={false}
         previewConfig={{ showPreview: false }}

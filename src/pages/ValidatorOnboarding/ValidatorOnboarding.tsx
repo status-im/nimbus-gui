@@ -82,8 +82,8 @@ const ValidatorOnboarding = () => {
       <YStack
         style={{
           width: '100%',
-          margin: '0 auto',
-          padding: '2% 10% 2%',
+          maxWidth: '1100px',
+          margin: '4rem auto 2rem',
           justifyContent: 'start',
           alignItems: 'start',
         }}

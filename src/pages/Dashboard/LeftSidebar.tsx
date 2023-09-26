@@ -1,4 +1,3 @@
-import { IconButton } from '@status-im/components'
 import {
   DashboardIcon,
   SpeedIcon,
@@ -10,8 +9,12 @@ import {
   SettingsIcon,
 } from '@status-im/icons'
 import { YStack } from 'tamagui'
+import IconButtonWithDot from './IconButtonWithDot'
+import { useDispatch, useSelector } from 'react-redux'
 
 const LeftSidebar = () => {
+  const buttons = useSelector((state: any) => state.leftSidebar.buttons)
+  console.log(buttons)
   return (
     <YStack
       space={'$4'}
@@ -24,14 +27,24 @@ const LeftSidebar = () => {
         border: '1px solid #F0F2F5',
       }}
     >
-      <IconButton icon={<DashboardIcon size={20} />} variant="ghost" selected />
-      <IconButton icon={<SpeedIcon size={20} />} variant="ghost" />
-      <IconButton icon={<ChartIcon size={20} />} variant="outline" disabled />
-      <IconButton icon={<HeartIcon size={20} />} variant="ghost" />
-      <IconButton icon={<CodeBlockIcon size={20} />} variant="ghost" />
-      <IconButton icon={<CommunitiesIcon size={20} />} variant="ghost" />
-      <IconButton icon={<ActivityCenterIcon size={20} />} variant="ghost" />
-      <IconButton icon={<SettingsIcon size={20} />} variant="ghost" />
+      <IconButtonWithDot
+        iconEl={<DashboardIcon size={20} />}
+        variant="ghost"
+        isDotOn={false}
+        selected={true}
+      />
+      <IconButtonWithDot iconEl={<SpeedIcon size={20} />} variant="ghost" isDotOn={false} />
+      <IconButtonWithDot
+        iconEl={<ChartIcon size={20} />}
+        variant="outline"
+        isDotOn={false}
+        disabled={true}
+      />
+      <IconButtonWithDot iconEl={<HeartIcon size={20} />} variant="ghost" isDotOn={false} />
+      <IconButtonWithDot iconEl={<CodeBlockIcon size={20} />} variant="ghost" isDotOn={false} />
+      <IconButtonWithDot iconEl={<CommunitiesIcon size={20} />} variant="ghost" isDotOn={false} />
+      <IconButtonWithDot iconEl={<ActivityCenterIcon size={20} />} variant="ghost" isDotOn={true} />
+      <IconButtonWithDot iconEl={<SettingsIcon size={20} />} variant="ghost" isDotOn={false} />
     </YStack>
   )
 }

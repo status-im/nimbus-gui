@@ -32,29 +32,29 @@ const ConsensusSelection = () => {
   ]
 
   return (
-    <YStack style={{ width: '100%', padding: '32px' }}>
-      <XStack justifyContent={'space-between'}>
+    <YStack style={{ width: '100%', padding: '32px' }} minHeight={'65vh'}>
+      <XStack justifyContent={'space-between'} alignItems={'center'} mb={'30px'}>
         <Text size={27} weight={'semibold'}>
           Validator Setup
         </Text>
         <XStack space={'$2'}>
+          <PairedDeviceCard isVisibleState={true} />
           <ConsensusGaugeCard
             color="blue"
             synced={134879}
             title="Execution Sync Status"
             total={150000}
           />
-          <PairedDeviceCard isVisibleState={true} />
         </XStack>
       </XStack>
 
-      <YStack>
+      <YStack mb={'50px'}>
         <Stack style={{ marginBottom: '4px' }}>
           <Text size={13} color="#647084">
             Consensus Client Detection
           </Text>
         </Stack>
-        <Text size={15} weight={'regular'}>
+        <Text size={15}>
           No existing execution client installations have been detected on paired device.
         </Text>
         <Text size={13} color="#828282">
@@ -63,14 +63,14 @@ const ConsensusSelection = () => {
         </Text>
       </YStack>
 
-      <TextTam fontSize={27} style={{ margin: '5px', marginLeft: 0, marginTop: '50px' }}>
+      <TextTam fontSize={19} style={{ marginLeft: 0, marginTop: '50px', marginBottom: '25px' }}>
         Install Consensus client
       </TextTam>
 
       <XStack space={'$8'}>
         <ConsensusClientCard name={clients[0].name} icon={clients[0].icon} />
         <YStack width={'67%'} space={'$4'}>
-          <Text size={27}>The resource efficient Ethereum Clients.</Text>
+          <Text size={19}>The resource efficient Ethereum Clients.</Text>
           <Text size={15}>
             {selectedClient} is a client implementation for both execution and consensus layers that
             strives to be as lightweight as possible in terms of resources used. This allows it to
@@ -81,6 +81,7 @@ const ConsensusSelection = () => {
             <LinkWithArrow
               textColor="black"
               text="Nimbus Documentation"
+              style={{ fontSize: '15px' }}
               arrowRight={true}
               to="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
             />

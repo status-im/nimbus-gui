@@ -38,7 +38,6 @@ const BalanceChartCard = () => {
 
   return (
     <DashboardCardWrapper>
-
       <YStack space={'$4'} style={{ width: '536px' }}>
         <XStack justifyContent={'space-between'}>
           <YStack>
@@ -90,11 +89,10 @@ const BalanceChartCard = () => {
             onSelect={handleRangeSelect}
           />
         )}
-        <Stack  >
+        <Stack>
           <LineChart years={filteredYears} userGains={filteredUserGains} />
         </Stack>
       </YStack>
-
     </DashboardCardWrapper>
   )
 }
