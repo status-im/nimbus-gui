@@ -5,6 +5,7 @@ interface SidebarButton {
   isDotOn: boolean
   isSelected: boolean
   isDisabled?: boolean
+  
 }
 
 interface LeftSidebarState {
