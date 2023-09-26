@@ -47,26 +47,9 @@ const Validators = ({
               icon={<ChevronDownIcon size={16} color={'#919191'} />}
             />
             <DropdownMenu.Content sideOffset={10} position="absolute" zIndex={999}>
-              <DropdownMenu.Item
-                icon={<EditIcon size={20} />}
-                label="asdf"
-                onSelect={() => console.log('e')}
-              />
-              <DropdownMenu.Item
-                icon={<EditIcon size={20} />}
-                label="asdf"
-                onSelect={() => console.log('e')}
-              />
-              <DropdownMenu.Item
-                icon={<EditIcon size={20} />}
-                label="asdf"
-                onSelect={() => console.log('e')}
-              />
-              <DropdownMenu.Item
-                icon={<EditIcon size={20} />}
-                label="asdf"
-                onSelect={() => console.log('e')}
-              />
+              <DropdownMenu.Item label="USD" onSelect={() => console.log('e')} />
+              <DropdownMenu.Item label="EUR" onSelect={() => console.log('e')} />
+              <DropdownMenu.Item label="JPY" onSelect={() => console.log('e')} />
             </DropdownMenu.Content>
           </DropdownMenu>
         </XStack>
