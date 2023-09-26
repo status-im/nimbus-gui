@@ -37,10 +37,10 @@ const RightSidebar = () => {
         <Tabs.Content value="active">
           <InputSearch />
           <YStack>
-            <ValidatorListItem />
-            <ValidatorListItem />
-            <ValidatorListItem />
-            <ValidatorListItem />
+            <ValidatorListItem name={'Validator 1'} avatarKey={'37880sfsef38fsb'} selected={true} />
+            <ValidatorListItem name={'Validator 2'} avatarKey={'37880sfsef38fsb'} />
+            <ValidatorListItem name={'Validator 3'} avatarKey={'37880sfsef38fsb'} />
+            <ValidatorListItem name={'Validator 4'} avatarKey={'37880sfsef38fsb'} />
           </YStack>
         </Tabs.Content>
         <Tabs.Content value="pending"></Tabs.Content>
