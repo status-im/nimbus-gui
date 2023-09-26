@@ -18,6 +18,7 @@ const Validators = ({
   changeValidatorCountHandler,
 }: ValidatorsProps) => {
   const [currency, setCurrency] = useState(CURRENCIES[0])
+  const totalPrice = (validatorCount * currency.price).toFixed(2)
 
   return (
     <XStack justifyContent={'space-between'} width={'80%'}>
@@ -62,7 +63,7 @@ const Validators = ({
         </XStack>
         <Text size={27} weight={'semibold'}>
           {currency.symbol}
-          {validatorCount * currency.price} {currency.name}
+          {totalPrice} {currency.name}
         </Text>
       </YStack>
     </XStack>
