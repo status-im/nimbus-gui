@@ -3,6 +3,7 @@ import { AddIcon, ChevronDownIcon } from '@status-im/icons'
 import { Stack, XStack, YStack } from 'tamagui'
 
 import DepositSubtitle from './DepositSubtitle'
+import { ETH_PER_VALIDATOR } from '../../../constants'
 
 type ValidatorsProps = {
   validatorCount: number
@@ -31,7 +32,7 @@ const Validators = ({
           ETH
         </Text>
         <Text size={27} weight={'semibold'}>
-          64
+          {validatorCount * ETH_PER_VALIDATOR}
         </Text>
       </YStack>
       <YStack space={'$2'}>
