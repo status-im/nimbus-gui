@@ -4,6 +4,7 @@ import IconText from '../General/IconText'
 import { Separator, XStack, YStack } from 'tamagui'
 import { Shadow as ShadowBox, Text } from '@status-im/components'
 import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
+import { useState } from 'react'
 
 type DataPoint = {
   x: number
@@ -22,6 +23,9 @@ type DeviceMemoryHealthProps = {
   maxMemory: number
 }
 const DeviceMemoryHealth = ({ currentMemory, maxMemory }: DeviceMemoryHealthProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+
   const dataObj = currentMemory.map((yValue, index: number) => ({
     x: index + 1,
     y: yValue,
@@ -48,8 +52,10 @@ const DeviceMemoryHealth = ({ currentMemory, maxMemory }: DeviceMemoryHealthProp
         minHeight: '135px',
         borderRadius: '16px',
         border: message === 'Poor' ? '1px solid  #D92344' : 'none',
-        backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
+        backgroundColor: isHovered ? '#f8f6ff' : (message === 'Poor' ? '#fefafa' : '#fff'),
       }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <YStack>
         <XStack
