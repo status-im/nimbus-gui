@@ -3,18 +3,19 @@ import { Input, Text } from '@status-im/components'
 import { AddIcon } from '@status-im/icons'
 import { Stack, XStack, YStack } from 'tamagui'
 
-import DepositSubtitle from '../../pages/ValidatorOnboarding/Deposit/DepositSubtitle'
 import { CURRENCIES, ETH_PER_VALIDATOR } from '../../constants'
 import CurrencyDropdown from './CurrencyDropdown'
 
 type ValidatorsMenuWithPriceProps = {
   validatorCount: number
   changeValidatorCountHandler: (value: string) => void
+  label: string
 }
 
 const ValidatorsMenuWithPrice = ({
   validatorCount,
   changeValidatorCountHandler,
+  label,
 }: ValidatorsMenuWithPriceProps) => {
   const [currency, setCurrency] = useState(CURRENCIES[0])
 
@@ -27,7 +28,9 @@ const ValidatorsMenuWithPrice = ({
   return (
     <XStack justifyContent={'space-between'} width={'80%'}>
       <Stack space={'$2'}>
-        <DepositSubtitle />
+        <Text size={15} weight="regular" color={'#647084'}>
+          {label}
+        </Text>
         <Input
           icon={
             <AddIcon

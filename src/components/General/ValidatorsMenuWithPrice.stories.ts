@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import ValidatorsMenuWithPrice from './ValidatorsMenuWithPrice'
+import { DEPOSIT_SUBTITLE } from '../../constants'
 
 const meta = {
   title: 'General/ValidatorsMenuWithPrice',
@@ -15,6 +16,7 @@ export const Default: Story = {
   args: {
     validatorCount: 2,
     changeValidatorCountHandler: () => {},
+    label: DEPOSIT_SUBTITLE,
   },
 }
 
@@ -22,6 +24,7 @@ export const WithoutValidatorCount: Story = {
   args: {
     validatorCount: 0,
     changeValidatorCountHandler: () => {},
+    label: DEPOSIT_SUBTITLE,
   },
 }
 
@@ -29,5 +32,6 @@ export const WithLongValidatorCount: Story = {
   args: {
     validatorCount: 2000,
     changeValidatorCountHandler: () => {},
+    label: DEPOSIT_SUBTITLE,
   },
 }
