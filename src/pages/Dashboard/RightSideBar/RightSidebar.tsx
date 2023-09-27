@@ -1,9 +1,9 @@
 import { Avatar, InformationBox, Tabs, Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
 import ValidatorListItem from './ValidatorListItem'
-import InputSearch from './SearchInput'
 import { CloseCircleIcon, ChevronRightIcon } from '@status-im/icons'
 import AddCard from '../../../components/General/AddCards/AddCard'
+import ValidatorsList from './ValidatorsList'
 
 const RightSidebar = () => {
   return (
@@ -42,14 +42,8 @@ const RightSidebar = () => {
             Inactive
           </Tabs.Trigger>
         </Tabs.List>
-        <Tabs.Content value="active" style={{ marginTop: '16px' }}>
-          <InputSearch />
-          <YStack space={'$2'} mt="16px">
-            <ValidatorListItem name={'Validator 1'} avatarKey={'37880sfsef38fsb'} selected={true} />
-            <ValidatorListItem name={'Validator 2'} avatarKey={'37880sfsef38fsb'} />
-            <ValidatorListItem name={'Validator 3'} avatarKey={'37880sfsef38fsb'} />
-            <ValidatorListItem name={'Validator 4'} avatarKey={'37880sfsef38fsb'} />
-          </YStack>
+        <Tabs.Content value="active">
+          <ValidatorsList />
         </Tabs.Content>
         <Tabs.Content value="pending">
           <ValidatorListItem name={'Validator 5'} avatarKey={'37880sfsef38fsb'} />

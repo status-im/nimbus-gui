@@ -1,9 +1,11 @@
 import { Input } from "@status-im/components"
 import { SearchIcon } from "@status-im/icons"
-import { useState } from "react"
 
-const InputSearch = () => {
-    const [value, setValue] = useState('')
+type InputSearchProps = {
+    value: string
+    setValue: (value: string) => void
+}
+const InputSearch = ({ value, setValue }: InputSearchProps) => {
 
     return (
         <>

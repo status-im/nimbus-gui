@@ -6,10 +6,18 @@ import { VerifiedIcon, ContactIcon } from '@status-im/icons'
 type ValidatorListItemProps = {
   name: string
   avatarKey: string
+  isAvatarChipIncluded?: boolean
+  isVerified?: boolean
   selected?: boolean
 }
 
-const ValidatorListItem = ({ name, avatarKey, selected }: ValidatorListItemProps) => {
+const ValidatorListItem = ({
+  name,
+  avatarKey,
+  selected,
+  isAvatarChipIncluded,
+  isVerified,
+}: ValidatorListItemProps) => {
   const [hovered, setHovered] = useState(false)
   const [isSelected, setIsSelected] = useState(selected)
 
@@ -51,7 +59,8 @@ const ValidatorListItem = ({ name, avatarKey, selected }: ValidatorListItemProps
         <YStack pl="8px">
           <Text size={13} weight={'semibold'}>
             {name}
-            <VerifiedIcon size={20} /> <ContactIcon size={20} />
+            {isVerified && <VerifiedIcon size={20} />}
+            {isAvatarChipIncluded && <ContactIcon size={20} />}
           </Text>
           <Text size={13}>{avatarKey}</Text>
         </YStack>
