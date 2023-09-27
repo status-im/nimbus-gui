@@ -3,6 +3,7 @@ import IconText from '../General/IconText'
 import { Separator, XStack, YStack } from 'tamagui'
 import { Shadow as ShadowBox, Text } from '@status-im/components'
 import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
+import { useState } from 'react'
 
 type DataPoint = {
   x: number
@@ -20,6 +21,9 @@ type DeviceNetworkHealthProps = {
   downloadRate: number[]
 }
 const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+
   const THRESHOLD = 60;
   const GOOD_COLOR = '#8DC6BC';
   const POOR_COLOR_UPLOAD = '#e95460';
@@ -53,8 +57,10 @@ const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthPr
         minHeight: '135px',
         borderRadius: '16px',
         border: upload.message === 'Poor' ? '1px solid  #D92344' : 'none',
-        backgroundColor: upload.message === 'Poor' ? '#fefafa' : '#fff',
+        backgroundColor: isHovered ? '#f8f6ff' : (upload.message === 'Poor' ? '#fefafa' : '#fff'),
       }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <YStack>
         <XStack
