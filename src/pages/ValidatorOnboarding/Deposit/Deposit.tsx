@@ -18,10 +18,6 @@ const Deposit = () => {
   const { isWalletConnected } = useSelector((state: RootState) => state.deposit)
   const isTransactionConfirmation = false
 
-  const addValidatorHandler = () => {
-    setValidatorCount((state: number) => state + 1)
-  }
-
   const changeValidatorCountHandler = (value: string) => {
     const numberValue = Number(value)
     if (!isNaN(numberValue)) {
@@ -44,7 +40,6 @@ const Deposit = () => {
       ) : (
         <ValidatorsMenuWithPrice
           validatorCount={validatorCount}
-          addValidatorHandler={addValidatorHandler}
           changeValidatorCountHandler={changeValidatorCountHandler}
         />
       )}

@@ -9,13 +9,11 @@ import CurrencyDropdown from './CurrencyDropdown'
 
 type ValidatorsMenuWithPriceProps = {
   validatorCount: number
-  addValidatorHandler: () => void
   changeValidatorCountHandler: (value: string) => void
 }
 
 const ValidatorsMenuWithPrice = ({
   validatorCount,
-  addValidatorHandler,
   changeValidatorCountHandler,
 }: ValidatorsMenuWithPriceProps) => {
   const [currency, setCurrency] = useState(CURRENCIES[0])
@@ -31,7 +29,13 @@ const ValidatorsMenuWithPrice = ({
       <Stack space={'$2'}>
         <DepositSubtitle />
         <Input
-          icon={<AddIcon size={16} style={{ cursor: 'pointer' }} onClick={addValidatorHandler} />}
+          icon={
+            <AddIcon
+              size={16}
+              style={{ cursor: 'pointer' }}
+              onClick={() => changeValidatorCountHandler((validatorCount + 1).toString())}
+            />
+          }
           style={{ fontWeight: 'bold' }}
           value={validatorCount.toString()}
           onChangeText={changeValidatorCountHandler}

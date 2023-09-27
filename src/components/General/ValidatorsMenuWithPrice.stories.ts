@@ -14,7 +14,6 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     validatorCount: 2,
-    addValidatorHandler: () => {},
     changeValidatorCountHandler: () => {},
   },
 }
@@ -22,7 +21,6 @@ export const Default: Story = {
 export const WithoutValidatorCount: Story = {
   args: {
     validatorCount: 0,
-    addValidatorHandler: () => {},
     changeValidatorCountHandler: () => {},
   },
 }
@@ -30,7 +28,6 @@ export const WithoutValidatorCount: Story = {
 export const WithLongValidatorCount: Story = {
   args: {
     validatorCount: 2000,
-    addValidatorHandler: () => {},
     changeValidatorCountHandler: () => {},
   },
 }
