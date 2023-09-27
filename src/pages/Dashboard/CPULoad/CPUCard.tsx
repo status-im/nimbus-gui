@@ -1,5 +1,5 @@
-import { Paragraph, Separator, Stack, XStack, YStack } from 'tamagui'
-import { Shadow, Text } from '@status-im/components'
+import { Separator, Stack, XStack, YStack } from 'tamagui'
+import { Text } from '@status-im/components'
 import { IncorrectIcon } from '@status-im/icons'
 
 import StandartLineChart from '../../../components/Charts/StandardLineChart'
@@ -39,11 +39,11 @@ const CPUCard = ({ load }: CPUCardProps) => {
   const message = currentLoad < 80 ? 'Good' : 'Poor'
 
   return (
-    <DashboardCardWrapper padding="0">
+    <DashboardCardWrapper padding="0" width="48%">
       <YStack
         style={{
-          width: '284px',
-          height: '136px',
+          width: '100%',
+          minHeight: '156px',
           borderRadius: '16px',
           border: message === 'Poor' ? '1px solid  #D92344' : 'none',
           backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
@@ -54,22 +54,23 @@ const CPUCard = ({ load }: CPUCardProps) => {
           style={{
             padding: '8px 16px',
             position: 'relative',
+            flexGrow: '1',
           }}
         >
+          <YStack space={'$3'} justifyContent="space-between">
+            <Text size={15} weight={'semibold'}>
+              CPU
+            </Text>
+            <Text size={27} weight={'semibold'}>
+              {currentLoad} GB
+            </Text>
+          </YStack>
           <Stack style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
             <StandartLineChart data={chartData} />
           </Stack>
-          <YStack space={'$3'}>
-            <Paragraph color={'#09101C'} size={'$6'} fontWeight={'600'}>
-              CPU
-            </Paragraph>
-            <Paragraph color={'#09101C'} size={'$8'} fontWeight={'700'}>
-              {currentLoad} GB
-            </Paragraph>
-          </YStack>
         </XStack>
-        <Separator borderColor={'#e3e3e3'} />
-        <XStack space={'$4'} style={{ padding: '10px 16px 10px 16px' }}>
+        <Separator borderColor={'#e3e3e3'} style={{ marginTop: 'auto' }} />
+        <XStack space={'$4'} style={{ padding: '10px 16px' }}>
           <IconText
             icon={
               message === 'Good' ? (

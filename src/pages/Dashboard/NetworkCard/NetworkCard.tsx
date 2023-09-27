@@ -1,4 +1,4 @@
-import { Paragraph, Separator, Stack, XStack, YStack } from 'tamagui'
+import { Separator, Stack, XStack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
 
@@ -48,11 +48,11 @@ const NetworkCard = ({ uploadRate, downloadRate }: NetworkCardProps) => {
   const message = currentLoad > 60 ? 'Good' : 'Poor'
 
   return (
-    <DashboardCardWrapper padding="0">
+    <DashboardCardWrapper padding="0" width="48%">
       <YStack
         style={{
-          width: '284px',
-          height: '136px',
+          width: '100%',
+          minHeight: '156px',
           borderRadius: '16px',
           border: message === 'Poor' ? '1px solid  #D92344' : 'none',
           backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
@@ -63,17 +63,18 @@ const NetworkCard = ({ uploadRate, downloadRate }: NetworkCardProps) => {
           style={{
             padding: '8px 16px',
             position: 'relative',
+            flexGrow: '1',
           }}
         >
           <Stack style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
             <StandartLineChart data={chartData} />
           </Stack>
-          <YStack space={'$3'} width={'100%'}>
+          <YStack space={'$3'} width={'100%'} justifyContent="space-between">
             <XStack justifyContent="space-between" width={'100%'}>
               <Stack>
-                <Paragraph color={'#09101C'} size={'$6'} fontWeight={'600'}>
+                <Text size={15} weight={'semibold'}>
                   Network
-                </Paragraph>
+                </Text>
               </Stack>
               <YStack>
                 <Text size={11} weight={'semibold'}>
@@ -84,13 +85,13 @@ const NetworkCard = ({ uploadRate, downloadRate }: NetworkCardProps) => {
                 </Text>
               </YStack>
             </XStack>
-            <Paragraph color={'#09101C'} size={'$8'} fontWeight={'700'}>
+            <Text size={27} weight={'semibold'}>
               {currentLoad} GB
-            </Paragraph>
+            </Text>
           </YStack>
         </XStack>
-        <Separator borderColor={'#e3e3e3'} />
-        <XStack space={'$4'} style={{ padding: '10px 16px 25px 16px' }}>
+        <Separator borderColor={'#e3e3e3'} style={{ marginTop: 'auto' }} />
+        <XStack space={'$4'} style={{ padding: '10px 16px' }}>
           <IconText
             icon={message === 'Good' ? <CheckCircleIcon size={16} /> : <IncorrectIcon size={16} />}
           >

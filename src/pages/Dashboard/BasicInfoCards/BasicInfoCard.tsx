@@ -10,7 +10,7 @@ type BasicInfoCardProps = {
 
 const BasicInfoCard = ({ title, value }: BasicInfoCardProps) => {
   return (
-    <DashboardCardWrapper>
+    <DashboardCardWrapper width="100%">
       <YStack
         style={{
           width: '100%',
