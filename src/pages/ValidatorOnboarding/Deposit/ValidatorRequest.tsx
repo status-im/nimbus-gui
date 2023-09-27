@@ -10,30 +10,34 @@ type ValidatorRequestProps = {
 const ValidatorRequest = ({ number }: ValidatorRequestProps) => {
   return (
     <YStack space={'$3'} style={{ width: '100%' }}>
-      <XStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
-        <XStack space={'$2'}>
-          <Avatar
-            type="user"
-            size={32}
-            src="/icons/validator-request.svg"
-            name={number.toString()}
-            indicator="online"
-          />
-          <YStack>
-            <Text size={13} weight={'semibold'}>
-              Validator {number}
-            </Text>
-            <Text size={13} color="#647084">
-              {getFormattedValidatorAddress('zQ3asdf9d4Gs0')}
-            </Text>
-          </YStack>
+      <XStack style={{ justifyContent: 'space-between', width: '100%' }}>
+        <XStack style={{ justifyContent: 'space-between', width: '40%' }}>
+          <XStack space={'$2'}>
+            <Avatar
+              type="user"
+              size={32}
+              src="/icons/validator-request.svg"
+              name={number.toString()}
+              indicator="online"
+            />
+            <YStack>
+              <Text size={13} weight={'semibold'}>
+                Validator {number}
+              </Text>
+              <Text size={13} color="#647084">
+                {getFormattedValidatorAddress('zQ3asdf9d4Gs0')}
+              </Text>
+            </YStack>
+          </XStack>
+          <Text size={13} color="#647084" weight={'semibold'}>
+            Keys Generated
+          </Text>
         </XStack>
-        <Text size={13} color="#647084" weight={'semibold'}>
-          Keys Generated
-        </Text>
-        <Text size={13} color="#2F80ED" weight={'semibold'}>
-          Requires Deposit
-        </Text>
+        <XStack style={{ justifyContent: true ? 'end' : 'space-between', width: '60%' }}>
+          <Text size={13} color="#2F80ED" weight={'semibold'}>
+            Requires Deposit
+          </Text>
+        </XStack>
       </XStack>
       <DividerLine />
     </YStack>
