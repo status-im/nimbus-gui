@@ -3,6 +3,7 @@ import { Separator, XStack, YStack } from 'tamagui'
 import StandardGauge from './StandardGauge'
 import { Shadow, Text } from '@status-im/components'
 import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
+import { useState } from 'react'
 
 interface DeviceStorageHealthProps {
   storage: number
@@ -12,6 +13,7 @@ const GOOD_COLOR = '#8DC6BC';
 const POOR_COLOR = '#E95460';
 
 const DeviceStorageHealth = ({ storage, maxStorage }: DeviceStorageHealthProps) => {
+  const [isHovered, setIsHovered] = useState(false);
 
   const message = storage < maxStorage ? 'Good' : 'Poor';
   const free = maxStorage - storage;
@@ -41,8 +43,10 @@ const DeviceStorageHealth = ({ storage, maxStorage }: DeviceStorageHealthProps) 
         minHeight: '135px',
         borderRadius: '16px',
         border: message === 'Poor' ? '1px solid  #D92344' : 'none',
-        backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
+        backgroundColor: isHovered ? '#f8f6ff' : (message === 'Poor' ? '#fefafa' : '#fff'),
       }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <YStack>
         <XStack
