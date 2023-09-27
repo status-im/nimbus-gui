@@ -21,10 +21,15 @@ const Dashboard = () => {
       <XStack justifyContent={'space-between'}>
         <LeftSidebar />
 
-        <YStack space={'$4'} alignItems="start" px="24px" style={{ flexGrow: '1' }}>
+        <YStack
+          space={'$4'}
+          alignItems="start"
+          px="24px"
+          style={{ flexGrow: '1', marginTop: '16px' }}
+        >
           <TitleLogo />
           <XStack space={'$4'} justifyContent={'space-between'} width={'100%'}>
-            <XStack space={'$4'} width={'50%'}>
+            <XStack space={'$4'} width={'40%'}>
               <SyncStatusCard />
               <AddCardsContainer />
             </XStack>
