@@ -3,6 +3,7 @@ import { XStack, YStack } from 'tamagui'
 import ValidatorListItem from './ValidatorListItem'
 import InputSearch from './SearchInput'
 import { CloseCircleIcon, ChevronRightIcon } from '@status-im/icons'
+import AddCard from '../../../components/General/AddCards/AddCard'
 
 const RightSidebar = () => {
   return (
@@ -21,7 +22,14 @@ const RightSidebar = () => {
           <Text size={13}>0xb9d...c35</Text>
         </YStack>
       </XStack>
-
+      <XStack alignItems="center" justifyContent="space-between">
+        <YStack backgroundColor={'#2A4AF5'} style={{ padding: '8px 12px', borderRadius: '16px' }}>
+          <Text size={15} weight={'semibold'} color={'#FFF'}>
+            Diamond Hands
+          </Text>
+        </YStack>
+        <AddCard padding={'0 2vw'} />
+      </XStack>
       <Tabs defaultValue="active">
         <Tabs.List size={32}>
           <Tabs.Trigger type="default" value="active">

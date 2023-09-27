@@ -7,8 +7,8 @@ const AddCardsContainer = () => {
   return (
     <DashboardCardWrapper padding="0">
       <YStack>
-        <AddCard />
-        <AddCard />
+        <AddCard padding={'0 7vw'} />
+        <AddCard padding={'0 7vw'} />
       </YStack>
     </DashboardCardWrapper>
   )

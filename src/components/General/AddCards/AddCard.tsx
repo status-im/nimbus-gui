@@ -1,7 +1,11 @@
 import { Stack } from 'tamagui'
 import { AddIcon } from '@status-im/icons'
 
-const AddCard = () => {
+type AddCardProps = {
+  padding: string
+}
+
+const AddCard = ({ padding }: AddCardProps) => {
   return (
     <Stack
       style={{
@@ -9,7 +13,7 @@ const AddCard = () => {
         borderRadius: '16px',
         cursor: 'pointer',
         minHeight: '150px',
-        padding: '0 7vw',
+        padding: padding,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
