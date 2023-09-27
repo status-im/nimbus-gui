@@ -1,5 +1,5 @@
 import IconText from '../General/IconText'
-import { Separator, XStack, YStack } from 'tamagui'
+import { Separator, Stack, XStack, YStack } from 'tamagui'
 import StandardGauge from './StandardGauge'
 import { Shadow, Text } from '@status-im/components'
 import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
@@ -56,7 +56,7 @@ const DeviceStorageHealth = ({ storage, maxStorage }: DeviceStorageHealthProps) 
             position: 'relative',
           }}
         >
-          <div
+          <Stack
             style={{
               position: 'absolute',
               right: '33px',
@@ -65,7 +65,7 @@ const DeviceStorageHealth = ({ storage, maxStorage }: DeviceStorageHealthProps) 
             }}
           >
             <StandardGauge data={data(free)} />
-          </div>
+          </Stack>
           <YStack space={'$3'}>
             <Text size={15} weight={'semibold'}>
               Storage
