@@ -1,25 +1,39 @@
-// create component for this file
-
-import { Stack, YStack } from "tamagui"
-import ValidatorListItem from "./ValidatorListItem"
-import InputSearch from "./SearchInput"
-import { useState } from "react"
+import { Stack, YStack } from "tamagui";
+import ValidatorListItem from "./ValidatorListItem";
+import InputSearch from "./SearchInput";
+import { useState, useEffect } from "react";
 
 const ValidatorsList = () => {
-    const [searchValue, setSearchValue] = useState('')
+    const [searchValue, setSearchValue] = useState('');
+    const validators = [
+        { name: 'Validator 1', avatarKey: '37880sfsef38fsb', selected: true, isAvatarChipIncluded: true, isVerified: true },
+        { name: 'Validator 2', avatarKey: 'hs880sfsef38fsb', isVerified: true },
+        { name: 'Validator 3', avatarKey: '3nh880sfsef38fsb', isAvatarChipIncluded: true },
+        { name: 'Validator 4', avatarKey: 'fh7880sfsef38fsb' },
+    ];
+    const [filteredValidators, setFilteredValidators] = useState(validators);
+
+    useEffect(() => {
+        if (searchValue) {
+            const filtered = validators.filter(validator =>
+                validator.name.toLowerCase().includes(searchValue.toLowerCase())
+            );
+            setFilteredValidators(filtered);
+        } else {
+            setFilteredValidators(validators);
+        }
+    }, [searchValue, validators]);
 
     return (
-
         <Stack>
             <InputSearch value={searchValue} setValue={setSearchValue} />
             <YStack space={'$1'}>
-                <ValidatorListItem name={'Validator 1'} avatarKey={'37880sfsef38fsb'} selected={true} isAvatarChipIncluded isVerified />
-                <ValidatorListItem name={'Validator 2'} avatarKey={'hs880sfsef38fsb'} isVerified />
-                <ValidatorListItem name={'Validator 3'} avatarKey={'3nh880sfsef38fsb'} isAvatarChipIncluded />
-                <ValidatorListItem name={'Validator 4'} avatarKey={'fh7880sfsef38fsb'} />
+                {filteredValidators.map(validator => (
+                    <ValidatorListItem {...validator} />
+                ))}
             </YStack>
         </Stack>
-    )
+    );
 }
 
-export default ValidatorsList
+export default ValidatorsList;
