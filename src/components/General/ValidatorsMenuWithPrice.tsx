@@ -12,18 +12,22 @@ type ValidatorsMenuWithPriceProps = {
   label: string
 }
 
+export type CurrencyType = keyof typeof CURRENCIES
+
 const ValidatorsMenuWithPrice = ({
   validatorCount,
   changeValidatorCountHandler,
   label,
 }: ValidatorsMenuWithPriceProps) => {
-  const [currency, setCurrency] = useState(CURRENCIES[0])
+  const [currency, setCurrency] = useState(Object.keys(CURRENCIES)[0] as CurrencyType)
 
-  const changeCurrency = (currency: (typeof CURRENCIES)[0]) => {
-    setCurrency(currency)
+  const changeCurrency = (currency: CurrencyType) => {
+    if (CURRENCIES[currency]) {
+      setCurrency(currency)
+    }
   }
 
-  const totalPrice = validatorCount * currency.price
+  const totalPrice = validatorCount * CURRENCIES[currency as keyof typeof CURRENCIES]
 
   return (
     <XStack justifyContent={'space-between'} width={'80%'}>
@@ -55,13 +59,12 @@ const ValidatorsMenuWithPrice = ({
       <YStack space={'$2'}>
         <XStack style={{ justifyContent: 'space-between' }}>
           <Text size={15} weight={'semibold'}>
-            {currency.name}
+            {currency}
           </Text>
           <CurrencyDropdown changeCurrency={changeCurrency} />
         </XStack>
         <Text size={27} weight={'semibold'}>
-          {currency.symbol}
-          {totalPrice.toFixed(2)} {currency.name}
+          {totalPrice.toFixed(2)} {currency}
         </Text>
       </YStack>
     </XStack>

@@ -2,9 +2,10 @@ import { Button, DropdownMenu } from '@status-im/components'
 import { ChevronDownIcon } from '@status-im/icons'
 
 import { CURRENCIES } from '../../constants'
+import { CurrencyType } from './ValidatorsMenuWithPrice'
 
 type CurrencyDropdownProps = {
-  changeCurrency: (currency: (typeof CURRENCIES)[0]) => void
+  changeCurrency: (currency: CurrencyType) => void
 }
 
 const CurrencyDropdown = ({ changeCurrency }: CurrencyDropdownProps) => {
@@ -12,11 +13,11 @@ const CurrencyDropdown = ({ changeCurrency }: CurrencyDropdownProps) => {
     <DropdownMenu>
       <Button variant="ghost" size={24} icon={<ChevronDownIcon size={16} color={'#919191'} />} />
       <DropdownMenu.Content sideOffset={10} position="absolute" zIndex={999}>
-        {CURRENCIES.map(currency => (
+        {Object.keys(CURRENCIES).map(currency => (
           <DropdownMenu.Item
-            key={currency.name}
-            label={currency.name}
-            onSelect={() => changeCurrency(currency)}
+            key={currency}
+            label={currency}
+            onSelect={() => changeCurrency(currency as CurrencyType)}
           />
         ))}
       </DropdownMenu.Content>
