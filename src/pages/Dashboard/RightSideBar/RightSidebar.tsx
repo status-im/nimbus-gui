@@ -2,8 +2,7 @@ import { Avatar, Tabs, Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
 import ValidatorListItem from './ValidatorListItem'
 import InputSearch from './SearchInput'
-// import { NodeIcon } from '@status-im/icons'
-
+ 
 const RightSidebar = () => {
   return (
     <YStack
@@ -36,11 +35,11 @@ const RightSidebar = () => {
         </Tabs.List>
         <Tabs.Content value="active">
           <InputSearch />
-          <YStack>
-            <ValidatorListItem name={'Validator 1'} avatarKey={'37880sfsef38fsb'} selected={true} />
-            <ValidatorListItem name={'Validator 2'} avatarKey={'37880sfsef38fsb'} />
-            <ValidatorListItem name={'Validator 3'} avatarKey={'37880sfsef38fsb'} />
-            <ValidatorListItem name={'Validator 4'} avatarKey={'37880sfsef38fsb'} />
+          <YStack space={'$1'}>
+            <ValidatorListItem name={'Validator 1'} avatarKey={'37880sfsef38fsb'} selected={true} isAvatarChipIncluded isVerified />
+            <ValidatorListItem name={'Validator 2'} avatarKey={'hs880sfsef38fsb'} isVerified/>
+            <ValidatorListItem name={'Validator 3'} avatarKey={'3nh880sfsef38fsb'} isAvatarChipIncluded/>
+            <ValidatorListItem name={'Validator 4'} avatarKey={'fh7880sfsef38fsb'} />
           </YStack>
         </Tabs.Content>
         <Tabs.Content value="pending"></Tabs.Content>
