@@ -20,28 +20,30 @@ type DeviceNetworkHealthProps = {
   downloadRate: number[]
 }
 const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthProps) => {
-  const chartData: ChartData[] = [
-    {
-      id: 'uploadRate',
-      color: '#8DC6BC',
-      data: uploadRate.map((yValue, index: number) => ({
-        x: index + 1,
-        y: yValue,
-      })),
-    },
-    {
-      id: 'downloadRate',
-      color: '#D92344',
-      data: downloadRate.map((yValue, index: number) => ({
-        x: index + 1,
-        y: yValue,
-      })),
-    },
-  ]
-  const currentLoad =
-    chartData[0].data.length > 0 ? chartData[0].data[chartData[0].data.length - 1].y : 0
+  const THRESHOLD = 60;
+  const GOOD_COLOR = '#8DC6BC';
+  const POOR_COLOR_UPLOAD = '#e95460';
+  const POOR_COLOR_DOWNLOAD = '#D92344';
 
-  const message = currentLoad > 60 ? 'Good' : 'Poor'
+  const processDataRate = (rate: number[], id: string, poorColor: string) => {
+    const dataObj = rate.map((yValue, index: number) => ({ x: index + 1, y: yValue }));
+    const currentLoad = dataObj.length > 0 ? dataObj[dataObj.length - 1].y : 0;
+    const message = currentLoad > THRESHOLD ? 'Good' : 'Poor';
+    const color = message === 'Good' ? GOOD_COLOR : poorColor;
+
+    return {
+      id,
+      color,
+      data: dataObj,
+      currentLoad,
+      message,
+    };
+  };
+
+  const upload = processDataRate(uploadRate, 'uploadRate', POOR_COLOR_UPLOAD);
+  const download = processDataRate(downloadRate, 'downloadRate', POOR_COLOR_DOWNLOAD);
+
+  const chartData: ChartData[] = [upload, download];
 
   return (
     <ShadowBox
@@ -50,8 +52,8 @@ const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthPr
         width: '50%',
         minHeight: '135px',
         borderRadius: '16px',
-        border: message === 'Poor' ? '1px solid  #D92344' : 'none',
-        backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
+        border: upload.message === 'Poor' ? '1px solid  #D92344' : 'none',
+        backgroundColor:  upload.message === 'Poor' ? '#fefafa' : '#fff',
       }}
     >
       <YStack>
@@ -70,21 +72,21 @@ const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthPr
               Network
             </Text>
             <Text size={27} weight={'semibold'}>
-              {currentLoad} GB
+              {upload.currentLoad} GB
             </Text>
           </YStack>
         </XStack>
         <Separator borderColor={'#e3e3e3'} />
         <XStack space={'$4'} style={{ padding: '0.65rem 1rem' }}>
           <IconText
-            icon={message === 'Good' ? <CheckCircleIcon size={16} /> : <IncorrectIcon size={16} />}
+            icon={ upload.message === 'Good' ? <CheckCircleIcon size={16} /> : <IncorrectIcon size={16} />}
             weight={'semibold'}
           >
-            {message}
+            { upload.message}
           </IconText>
-          {message === 'Poor' && (
+          { upload.message === 'Poor' && (
             <Text size={13} color={'#E95460'} weight={'semibold'}>
-              {((currentLoad / 60) * 100).toFixed(0)}% Utilization
+              {((upload.currentLoad / 60) * 100).toFixed(0)}% Utilization
             </Text>
           )}
         </XStack>
