@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import ValidatorsMenuWithPrice from './ValidatorsMenuWithPrice'
-import { DEPOSIT_SUBTITLE } from '../../constants'
+import { CLIENT_SETUP_SUBTITLE, DEPOSIT_SUBTITLE } from '../../constants'
 
 const meta = {
   title: 'General/ValidatorsMenuWithPrice',
@@ -24,7 +24,7 @@ export const ClientSetupLabel: Story = {
   args: {
     validatorCount: 2,
     changeValidatorCountHandler: () => {},
-    label: 'How many Validators would you like to run?',
+    label: CLIENT_SETUP_SUBTITLE,
   },
 }
 
