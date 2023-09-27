@@ -23,7 +23,6 @@ type DeviceNetworkHealthProps = {
 const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
-
   const THRESHOLD = 60;
   const GOOD_COLOR = '#8DC6BC';
   const POOR_COLOR_UPLOAD = '#e95460';
