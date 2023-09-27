@@ -4,6 +4,10 @@ import { Stack, XStack, YStack } from 'tamagui'
 import { getFormattedWalletAddress } from '../../../utilities'
 
 const ConnectedWallet = () => {
+  const network = 'Ethereum Mainnet'
+  const address = '0xb9dasdfc35'
+  const balance = 68.21
+
   return (
     <XStack style={{ width: '100%', justifyContent: 'space-between' }}>
       <XStack space={'$2'}>
@@ -16,9 +20,9 @@ const ConnectedWallet = () => {
         />
         <YStack>
           <Text size={13} weight={'semibold'}>
-            Ethereum Mainnet
+            {network}
           </Text>
-          <Text size={13}>{getFormattedWalletAddress('0xb9dasdfc35')}</Text>
+          <Text size={13}>{getFormattedWalletAddress(address)}</Text>
           <Stack style={{ marginTop: '3px' }}>
             <Text size={13} color="#2A4CF4" weight={'semiboldF'}>
               Connected
@@ -31,7 +35,7 @@ const ConnectedWallet = () => {
           Balance
         </Text>
         <Text size={27} weight={'semibold'}>
-          68.21 ETH
+          {balance} ETH
         </Text>
       </YStack>
     </XStack>
