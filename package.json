@@ -29,8 +29,6 @@
     "@tamagui/vite-plugin": "1.36.4",
     "@types/react": "18",
     "@types/react-dom": "18",
-    "@web3modal/ethereum": "^2.7.1",
-    "@web3modal/react": "^2.7.1",
     "emoji-picker-react": "^4.4.11",
     "expo-modules-core": "^1.5.9",
     "react": "18",
@@ -44,8 +42,6 @@
     "react-router-dom": "^6.14.2",
     "react-syntax-highlighter": "^15.5.0",
     "tamagui": "1.36.4",
-    "viem": "^1.12.2",
-    "wagmi": "^1.4.2",
     "web-bip39": "^0.0.3"
   },
   "devDependencies": {
