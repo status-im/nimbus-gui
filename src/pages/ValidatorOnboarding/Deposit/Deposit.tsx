@@ -46,7 +46,7 @@ const Deposit = () => {
           label={DEPOSIT_SUBTITLE}
         />
       )}
-      <DividerLine />
+      <DividerLine style={{ marginTop: '15px' }} />
       {Array.from({ length: validatorCount }).map((_, index) => (
         <ValidatorRequest key={index} number={index + 1} />
       ))}

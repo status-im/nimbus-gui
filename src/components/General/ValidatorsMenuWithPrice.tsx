@@ -19,11 +19,11 @@ const ValidatorsMenuWithPrice = ({
 }: ValidatorsMenuWithPriceProps) => {
   const [currency, setCurrency] = useState(CURRENCIES[0])
 
-  const totalPrice = (validatorCount * currency.price).toFixed(2)
-
   const changeCurrency = (currency: (typeof CURRENCIES)[0]) => {
     setCurrency(currency)
   }
+
+  const totalPrice = validatorCount * currency.price
 
   return (
     <XStack justifyContent={'space-between'} width={'80%'}>
@@ -61,7 +61,7 @@ const ValidatorsMenuWithPrice = ({
         </XStack>
         <Text size={27} weight={'semibold'}>
           {currency.symbol}
-          {totalPrice} {currency.name}
+          {totalPrice.toFixed(2)} {currency.name}
         </Text>
       </YStack>
     </XStack>
