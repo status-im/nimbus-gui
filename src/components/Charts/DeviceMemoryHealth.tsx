@@ -22,21 +22,23 @@ type DeviceMemoryHealthProps = {
   maxMemory: number
 }
 const DeviceMemoryHealth = ({ currentMemory, maxMemory }: DeviceMemoryHealthProps) => {
+  const dataObj = currentMemory.map((yValue, index: number) => ({
+    x: index + 1,
+    y: yValue,
+  }))
+  const currentLoad =
+    dataObj.length > 0 ? dataObj[dataObj.length - 1].y : 0
+
+  const message = currentLoad < maxMemory ? 'Good' : 'Poor'
+
   const chartData: ChartData[] = [
     {
       id: 'cpu',
-      color: '#8DC6BC',
-      data: currentMemory.map((yValue, index: number) => ({
-        x: index + 1,
-        y: yValue,
-      })),
+      color: message == 'Good' ? '#8DC6BC' : '#e95460',
+      data: dataObj,
       maxValue: maxMemory,
     },
   ]
-  const currentLoad =
-    chartData[0].data.length > 0 ? chartData[0].data[chartData[0].data.length - 1].y : 0
-
-  const message = currentLoad < maxMemory ? 'Good' : 'Poor'
 
   return (
     <ShadowBox
