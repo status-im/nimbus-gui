@@ -53,7 +53,7 @@ const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthPr
         minHeight: '135px',
         borderRadius: '16px',
         border: upload.message === 'Poor' ? '1px solid  #D92344' : 'none',
-        backgroundColor:  upload.message === 'Poor' ? '#fefafa' : '#fff',
+        backgroundColor: upload.message === 'Poor' ? '#fefafa' : '#fff',
       }}
     >
       <YStack>
@@ -79,12 +79,12 @@ const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthPr
         <Separator borderColor={'#e3e3e3'} />
         <XStack space={'$4'} style={{ padding: '0.65rem 1rem' }}>
           <IconText
-            icon={ upload.message === 'Good' ? <CheckCircleIcon size={16} /> : <IncorrectIcon size={16} />}
+            icon={upload.message === 'Good' ? <CheckCircleIcon size={16} /> : <IncorrectIcon size={16} />}
             weight={'semibold'}
           >
-            { upload.message}
+            {upload.message}
           </IconText>
-          { upload.message === 'Poor' && (
+          {upload.message === 'Poor' && (
             <Text size={13} color={'#E95460'} weight={'semibold'}>
               {((upload.currentLoad / 60) * 100).toFixed(0)}% Utilization
             </Text>
