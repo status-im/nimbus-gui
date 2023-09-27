@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import ValidatorRequest from './ValidatorRequest'
-import Validators from '../../../components/General/Validators'
+import ValidatorsMenuWithPrice from '../../../components/General/ValidatorsMenuWithPrice'
 import ConnectWallet from './ConnectWallet'
 import ConnectedWallet from './ConnectedWallet'
 import DepositTitle from './DepositTitle'
@@ -42,7 +42,7 @@ const Deposit = () => {
       {isTransactionConfirmation ? (
         <DepositSubtitle />
       ) : (
-        <Validators
+        <ValidatorsMenuWithPrice
           validatorCount={validatorCount}
           addValidatorHandler={addValidatorHandler}
           changeValidatorCountHandler={changeValidatorCountHandler}

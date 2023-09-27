@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import Validators from './Validators'
+import ValidatorsMenuWithPrice from './ValidatorsMenuWithPrice'
 
 const meta = {
-  title: 'General/Validators',
-  component: Validators,
+  title: 'General/ValidatorsMenuWithPrice',
+  component: ValidatorsMenuWithPrice,
   tags: ['autodocs'],
-} satisfies Meta<typeof Validators>
+} satisfies Meta<typeof ValidatorsMenuWithPrice>
 
 export default meta
 type Story = StoryObj<typeof meta>

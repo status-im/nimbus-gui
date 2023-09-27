@@ -7,17 +7,17 @@ import DepositSubtitle from '../../pages/ValidatorOnboarding/Deposit/DepositSubt
 import { CURRENCIES, ETH_PER_VALIDATOR } from '../../constants'
 import CurrencyDropdown from './CurrencyDropdown'
 
-type ValidatorsProps = {
+type ValidatorsMenuWithPriceProps = {
   validatorCount: number
   addValidatorHandler: () => void
   changeValidatorCountHandler: (value: string) => void
 }
 
-const Validators = ({
+const ValidatorsMenuWithPrice = ({
   validatorCount,
   addValidatorHandler,
   changeValidatorCountHandler,
-}: ValidatorsProps) => {
+}: ValidatorsMenuWithPriceProps) => {
   const [currency, setCurrency] = useState(CURRENCIES[0])
 
   const totalPrice = (validatorCount * currency.price).toFixed(2)
@@ -61,4 +61,4 @@ const Validators = ({
   )
 }
 
-export default Validators
+export default ValidatorsMenuWithPrice
