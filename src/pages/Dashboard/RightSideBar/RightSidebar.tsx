@@ -1,8 +1,8 @@
-import { Avatar, Tabs, Text } from '@status-im/components'
+import { Avatar, InformationBox, Tabs, Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
 import ValidatorListItem from './ValidatorListItem'
 import InputSearch from './SearchInput'
-// import { NodeIcon } from '@status-im/icons'
+import { CloseCircleIcon, ChevronRightIcon } from '@status-im/icons'
 
 const RightSidebar = () => {
   return (
@@ -34,18 +34,77 @@ const RightSidebar = () => {
             Inactive
           </Tabs.Trigger>
         </Tabs.List>
-        <Tabs.Content value="active">
+        <Tabs.Content value="active" style={{ marginTop: '16px' }}>
           <InputSearch />
-          <YStack>
+          <YStack space={'$2'} mt="16px">
             <ValidatorListItem name={'Validator 1'} avatarKey={'37880sfsef38fsb'} selected={true} />
             <ValidatorListItem name={'Validator 2'} avatarKey={'37880sfsef38fsb'} />
             <ValidatorListItem name={'Validator 3'} avatarKey={'37880sfsef38fsb'} />
             <ValidatorListItem name={'Validator 4'} avatarKey={'37880sfsef38fsb'} />
           </YStack>
         </Tabs.Content>
-        <Tabs.Content value="pending"></Tabs.Content>
-        <Tabs.Content value="inactive"></Tabs.Content>
+        <Tabs.Content value="pending">
+          <ValidatorListItem name={'Validator 5'} avatarKey={'37880sfsef38fsb'} />
+        </Tabs.Content>
+        <Tabs.Content value="inactive">
+          <ValidatorListItem name={'Validator 6'} avatarKey={'37880sfsef38fsb'} />
+        </Tabs.Content>
       </Tabs>
+
+      <YStack space={'$2'}>
+        <XStack justifyContent="space-between">
+          <Text size={15} weight={'semibold'}>
+            Alerts
+          </Text>
+          <div style={{ marginRight: '8px' }}>
+            <ChevronRightIcon size={20} />
+          </div>
+        </XStack>
+        <InformationBox
+          message="Network: Participation rate below 66%"
+          icon={<CloseCircleIcon size={20} />}
+          variant="default"
+          onClosePress={() => alert('dismissed')}
+        />
+        <InformationBox
+          message="Node: 32 Peers Connected"
+          icon={<CloseCircleIcon size={20} />}
+          variant="information"
+          onClosePress={() => alert('dismissed')}
+        />
+        <InformationBox
+          message="Node / Validator: Process Down"
+          icon={<CloseCircleIcon size={20} />}
+          variant="error"
+          onClosePress={() => alert('dismissed')}
+        />
+      </YStack>
+
+      <YStack space={'$2'}>
+        <XStack justifyContent="space-between">
+          <Text size={15} weight={'semibold'}>
+            Logs
+          </Text>
+          <div style={{ marginRight: '8px' }}>
+            <ChevronRightIcon size={20} />
+          </div>
+        </XStack>
+        <InformationBox
+          message="Critical Logs: 0.01 / M"
+          icon={<CloseCircleIcon size={20} />}
+          variant="default"
+        />
+        <InformationBox
+          message="Warning Logs: 0.01 / M"
+          icon={<CloseCircleIcon size={20} />}
+          variant="default"
+        />
+        <InformationBox
+          message="Error Logs: 0.01 / M"
+          icon={<CloseCircleIcon size={20} />}
+          variant="default"
+        />
+      </YStack>
     </YStack>
   )
 }

@@ -1,23 +1,23 @@
-import { useState } from 'react';
-import { XStack, YStack } from 'tamagui';
-import { Avatar, Checkbox, Text } from '@status-im/components';
-import { VerifiedIcon, ContactIcon } from '@status-im/icons';
+import { useState } from 'react'
+import { XStack, YStack } from 'tamagui'
+import { Avatar, Checkbox, Text } from '@status-im/components'
+import { VerifiedIcon, ContactIcon } from '@status-im/icons'
 
 type ValidatorListItemProps = {
-  name: string;
-  avatarKey: string;
-  selected?: boolean;
-};
+  name: string
+  avatarKey: string
+  selected?: boolean
+}
 
 const ValidatorListItem = ({ name, avatarKey, selected }: ValidatorListItemProps) => {
-  const [hovered, setHovered] = useState(false);
-  const [isSelected, setIsSelected] = useState(selected);
+  const [hovered, setHovered] = useState(false)
+  const [isSelected, setIsSelected] = useState(selected)
 
-  const handleMouseEnter = () => setHovered(true);
-  const handleMouseLeave = () => setHovered(false);
-  const handleClick = () => setIsSelected(!isSelected);
+  const handleMouseEnter = () => setHovered(true)
+  const handleMouseLeave = () => setHovered(false)
+  const handleClick = () => setIsSelected(!isSelected)
 
-  const backgroundColor = isSelected || hovered ? 'rgba(42, 74, 245, 0.05)' : 'transparent';
+  const backgroundColor = isSelected || hovered ? 'rgba(42, 74, 245, 0.05)' : 'transparent'
 
   return (
     <XStack
@@ -37,7 +37,7 @@ const ValidatorListItem = ({ name, avatarKey, selected }: ValidatorListItemProps
         <Avatar
           type="user"
           size={32}
-          name="1"
+          name={name}
           backgroundColor="$red-50"
           colorHash={[
             [3, 30],
@@ -56,11 +56,9 @@ const ValidatorListItem = ({ name, avatarKey, selected }: ValidatorListItemProps
           <Text size={13}>{avatarKey}</Text>
         </YStack>
       </XStack>
-      {isSelected &&
-        <Checkbox id="" variant="outline" size={20} selected={isSelected} />
-      }
+      {isSelected && <Checkbox id="" variant="outline" size={20} selected={isSelected} />}
     </XStack>
-  );
+  )
 }
 
-export default ValidatorListItem;
+export default ValidatorListItem
