@@ -1,11 +1,6 @@
 import { TamaguiProvider, Theme } from 'tamagui'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Provider as StatusProvider } from '@status-im/components'
-import { EthereumClient, w3mConnectors, w3mProvider } from '@web3modal/ethereum'
-import { Web3Modal } from '@web3modal/react'
-import { configureChains, createConfig, WagmiConfig } from 'wagmi'
-import { arbitrum, mainnet, polygon } from 'wagmi/chains'
-
 import './App.css'
 import config from '../tamagui.config'
 import LandingPage from './pages/LandingPage/LandingPage'
@@ -44,17 +39,6 @@ const router = createBrowserRouter([
   { path: '/validator-onboarding', element: <ValidatorOnboarding /> },
 ])
 
-const chains = [arbitrum, mainnet, polygon]
-const projectId = 'YOUR_PROJECT_ID'
-
-const { publicClient } = configureChains(chains, [w3mProvider({ projectId })])
-const wagmiConfig = createConfig({
-  autoConnect: true,
-  connectors: w3mConnectors({ projectId, chains }),
-  publicClient,
-})
-const ethereumClient = new EthereumClient(wagmiConfig, chains)
-
 function App() {
   const theme = useSelector((state: RootState) => state.theme)
 
@@ -62,11 +46,8 @@ function App() {
     <TamaguiProvider config={config}>
       <StatusProvider>
         <Theme name={theme}>
-          <WagmiConfig config={wagmiConfig}>
-            <PinnedNotification />
-            <RouterProvider router={router} />
-          </WagmiConfig>
-          <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
+          <PinnedNotification />
+          <RouterProvider router={router} />
         </Theme>
       </StatusProvider>
     </TamaguiProvider>
