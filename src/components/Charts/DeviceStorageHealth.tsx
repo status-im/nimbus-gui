@@ -3,14 +3,19 @@ import { Separator, XStack, YStack } from 'tamagui'
 import StandardGauge from './StandardGauge'
 import { Shadow, Text } from '@status-im/components'
 import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
+
 interface DeviceStorageHealthProps {
   storage: number
   maxStorage: number
 }
-const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxStorage }) => {
-  const message = storage < maxStorage ? 'Good' : 'Poor'
-  const free = maxStorage - storage
-  const utilization = (storage / (maxStorage || 1)) * 100
+const GOOD_COLOR = '#8DC6BC'; 
+const POOR_COLOR = '#E95460';
+
+const DeviceStorageHealth = ({ storage, maxStorage }: DeviceStorageHealthProps) => {
+
+  const message = storage < maxStorage ? 'Good' : 'Poor';
+  const free = maxStorage - storage;
+  const utilization = (storage / (maxStorage || 1)) * 100;
 
   const data = (free: number) => {
     return [
@@ -18,7 +23,7 @@ const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxS
         id: 'storage',
         label: 'Used',
         value: storage,
-        color: '#E95460',
+        color: message === 'Good' ? GOOD_COLOR : POOR_COLOR,
       },
       {
         id: 'storage',
@@ -26,9 +31,8 @@ const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxS
         value: free,
         color: '#E7EAEE',
       },
-    ]
+    ];
   }
-
   return (
     <Shadow
       variant="$2"
