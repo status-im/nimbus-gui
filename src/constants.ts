@@ -31,3 +31,4 @@ export const CURRENCIES = [
     price: 1323.61,
   },
 ]
+export const DEPOSIT_SUBTITLE = 'Connect you Wallet to stake required ETH for new validators'

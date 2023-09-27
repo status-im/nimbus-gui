@@ -9,8 +9,8 @@ import ValidatorsMenuWithPrice from '../../../components/General/ValidatorsMenuW
 import ConnectWallet from './ConnectWallet'
 import ConnectedWallet from './ConnectedWallet'
 import DepositTitle from './DepositTitle'
-import DepositSubtitle from './DepositSubtitle'
 import { RootState } from '../../../redux/store'
+import { DEPOSIT_SUBTITLE } from '../../../constants'
 
 const Deposit = () => {
   const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(true)
@@ -36,11 +36,14 @@ const Deposit = () => {
     >
       <DepositTitle isTransactionConfirmation={isTransactionConfirmation} />
       {isTransactionConfirmation ? (
-        <DepositSubtitle />
+        <Text size={15} weight="regular" color={'#647084'}>
+          {DEPOSIT_SUBTITLE}
+        </Text>
       ) : (
         <ValidatorsMenuWithPrice
           validatorCount={validatorCount}
           changeValidatorCountHandler={changeValidatorCountHandler}
+          label={DEPOSIT_SUBTITLE}
         />
       )}
       <DividerLine />
