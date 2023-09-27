@@ -27,7 +27,8 @@ const ValidatorsMenuWithPrice = ({
     }
   }
 
-  const totalPrice = validatorCount * CURRENCIES[currency as keyof typeof CURRENCIES]
+  const totalETH = validatorCount * ETH_PER_VALIDATOR
+  const totalPrice = totalETH * CURRENCIES[currency as keyof typeof CURRENCIES]
 
   return (
     <XStack justifyContent={'space-between'} width={'80%'}>
@@ -53,10 +54,10 @@ const ValidatorsMenuWithPrice = ({
           ETH
         </Text>
         <Text size={27} weight={'semibold'}>
-          {validatorCount * ETH_PER_VALIDATOR}
+          {totalETH}
         </Text>
       </YStack>
-      <YStack space={'$2'}>
+      <YStack space={'$2'} justifyContent={'start'} alignItems={'start'}>
         <XStack style={{ justifyContent: 'space-between' }}>
           <Text size={15} weight={'semibold'}>
             {currency}
