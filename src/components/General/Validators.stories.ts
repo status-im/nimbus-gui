@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import Validators from './Validators'
 
 const meta = {
-  title: 'ValidatorOnboarding/Validators',
+  title: 'General/Validators',
   component: Validators,
   tags: ['autodocs'],
 } satisfies Meta<typeof Validators>

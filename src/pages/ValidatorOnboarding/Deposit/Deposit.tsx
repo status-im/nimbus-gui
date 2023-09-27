@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import ValidatorRequest from './ValidatorRequest'
-import Validators from './Validators'
+import Validators from '../../../components/General/Validators'
 import ConnectWallet from './ConnectWallet'
 import ConnectedWallet from './ConnectedWallet'
 import DepositTitle from './DepositTitle'

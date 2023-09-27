@@ -3,9 +3,9 @@ import { Input, Text } from '@status-im/components'
 import { AddIcon } from '@status-im/icons'
 import { Stack, XStack, YStack } from 'tamagui'
 
-import DepositSubtitle from './DepositSubtitle'
-import { CURRENCIES, ETH_PER_VALIDATOR } from '../../../constants'
-import CurrencyDropdown from '../../../components/General/CurrencyDropdown'
+import DepositSubtitle from '../../pages/ValidatorOnboarding/Deposit/DepositSubtitle'
+import { CURRENCIES, ETH_PER_VALIDATOR } from '../../constants'
+import CurrencyDropdown from './CurrencyDropdown'
 
 type ValidatorsProps = {
   validatorCount: number
