@@ -5,10 +5,10 @@ import { useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import ValidatorRequest from './ValidatorRequest'
-import ValidatorsMenuWithPrice from '../../../components/General/ValidatorsMenuWithPrice'
 import ConnectWallet from './ConnectWallet'
 import ConnectedWallet from './ConnectedWallet'
 import DepositTitle from './DepositTitle'
+import ValidatorsMenuWithPrice from '../../../components/General/ValidatorsMenuWithPrice'
 import { RootState } from '../../../redux/store'
 import { DEPOSIT_SUBTITLE } from '../../../constants'
 
@@ -16,7 +16,7 @@ const Deposit = () => {
   const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(true)
   const [validatorCount, setValidatorCount] = useState(2)
   const { isWalletConnected } = useSelector((state: RootState) => state.deposit)
-  const isTransactionConfirmation = false
+  let isTransactionConfirmation = false
 
   const changeValidatorCountHandler = (value: string) => {
     const numberValue = Number(value)
@@ -46,11 +46,12 @@ const Deposit = () => {
           label={DEPOSIT_SUBTITLE}
         />
       )}
-      <DividerLine style={{ marginTop: '15px' }} />
+      {isTransactionConfirmation && <ConnectedWallet />}
+      <DividerLine style={{ marginTop: isTransactionConfirmation ? '0px' : '15px' }} />
       {Array.from({ length: validatorCount }).map((_, index) => (
         <ValidatorRequest key={index} number={index + 1} />
       ))}
-      {isInfoBoxVisible && (
+      {isInfoBoxVisible && !isTransactionConfirmation && (
         <InformationBox
           message="Your Validator balances currently require a deposit. If you have already made a deposit using Launchpad please wait until the transaction is posted on execution layer to continue."
           variant="error"
@@ -58,10 +59,14 @@ const Deposit = () => {
           icon={<PlaceholderIcon size={16} />}
         />
       )}
-      <Text size={19} weight={'semibold'}>
-        Connect Wallet
-      </Text>
-      {isWalletConnected ? <ConnectedWallet /> : <ConnectWallet />}
+      {!isTransactionConfirmation && (
+        <YStack space={'$3'}>
+          <Text size={19} weight={'semibold'}>
+            Connect Wallet
+          </Text>
+          {isWalletConnected ? <ConnectedWallet /> : <ConnectWallet />}
+        </YStack>
+      )}
     </YStack>
   )
 }
