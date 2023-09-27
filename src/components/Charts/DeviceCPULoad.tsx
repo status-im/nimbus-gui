@@ -3,6 +3,7 @@ import IconText from '../General/IconText'
 import { Separator, XStack, YStack } from 'tamagui'
 import { Shadow, Text } from '@status-im/components'
 import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
+import { useState } from 'react'
 
 type DataPoint = {
   x: number
@@ -18,7 +19,8 @@ type ChartData = {
 type DeviceCPULoadProps = {
   load: number[]
 }
-const DeviceCPULoad: React.FC<DeviceCPULoadProps> = ({ load }) => {
+const DeviceCPULoad = ({ load }: DeviceCPULoadProps) => {
+  const [isHovered, setIsHovered] = useState(false);
 
   const dataObj = load.map((yValue, index: number) => ({
     x: index + 1,
@@ -45,8 +47,10 @@ const DeviceCPULoad: React.FC<DeviceCPULoadProps> = ({ load }) => {
         minHeight: '135px',
         borderRadius: '16px',
         border: message === 'Poor' ? '1px solid  #D92344' : 'none',
-        backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
+        backgroundColor: isHovered ? '#f8f6ff' : (message === 'Poor' ? '#fefafa' : '#fff'),
       }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <YStack>
         <XStack
