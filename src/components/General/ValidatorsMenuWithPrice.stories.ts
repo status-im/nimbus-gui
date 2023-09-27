@@ -20,11 +20,11 @@ export const Default: Story = {
   },
 }
 
-export const WithoutValidatorCount: Story = {
+export const ClientSetupLabel: Story = {
   args: {
-    validatorCount: 0,
+    validatorCount: 2,
     changeValidatorCountHandler: () => {},
-    label: DEPOSIT_SUBTITLE,
+    label: 'How many Validators would you like to run?',
   },
 }
 
@@ -33,5 +33,29 @@ export const WithLongValidatorCount: Story = {
     validatorCount: 2000,
     changeValidatorCountHandler: () => {},
     label: DEPOSIT_SUBTITLE,
+  },
+}
+
+export const WithoutValidatorCount: Story = {
+  args: {
+    validatorCount: 0,
+    changeValidatorCountHandler: () => {},
+    label: DEPOSIT_SUBTITLE,
+  },
+}
+
+export const WithoutLabel: Story = {
+  args: {
+    validatorCount: 2,
+    changeValidatorCountHandler: () => {},
+    label: '',
+  },
+}
+
+export const WithoutValues: Story = {
+  args: {
+    validatorCount: 0,
+    changeValidatorCountHandler: () => {},
+    label: '',
   },
 }
