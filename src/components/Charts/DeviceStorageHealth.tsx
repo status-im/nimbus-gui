@@ -9,7 +9,7 @@ interface DeviceStorageHealthProps {
   storage: number
   maxStorage: number
 }
-const GOOD_COLOR = '#8DC6BC'; 
+const GOOD_COLOR = '#8DC6BC';
 const POOR_COLOR = '#E95460';
 
 const DeviceStorageHealth = ({ storage, maxStorage }: DeviceStorageHealthProps) => {
@@ -42,7 +42,7 @@ const DeviceStorageHealth = ({ storage, maxStorage }: DeviceStorageHealthProps) 
         width: '50%',
         minHeight: '135px',
         borderRadius: '16px',
-        border: message === 'Poor' ? '1px solid  #D92344' : 'none',
+        border: message === 'Poor' ? '1px solid #D92344' : '1px solid #E0E0E0',  
         backgroundColor: isHovered ? '#f8f6ff' : (message === 'Poor' ? '#fefafa' : '#fff'),
       }}
       onMouseEnter={() => setIsHovered(true)}
