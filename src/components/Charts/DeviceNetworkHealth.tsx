@@ -52,7 +52,7 @@ const DeviceNetworkHealth = ({ latency }: DeviceNetworkHealthProps) => {
         width: '50%',
         minHeight: '135px',
         borderRadius: '16px',
-        border: processedLatency.message === 'Poor' ? '1px solid  #D92344' : 'none',
+        border: processedLatency.message === 'Poor' ? '1px solid #D92344' : '1px solid #E0E0E0',  
         backgroundColor: isHovered ? '#f8f6ff' : (processedLatency.message === 'Poor' ? '#fefafa' : '#fff'),
       }}
       onMouseEnter={() => setIsHovered(true)}
