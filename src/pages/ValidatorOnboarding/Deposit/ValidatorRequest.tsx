@@ -2,6 +2,7 @@ import { Avatar, DividerLine, Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
 
 import { getFormattedValidatorAddress } from '../../../utilities'
+import TransactionStatus from './TransactionStatus'
 
 type ValidatorRequestProps = {
   number: number
@@ -43,15 +44,10 @@ const ValidatorRequest = ({ number, isTransactionConfirmation }: ValidatorReques
             alignItems: 'center',
           }}
         >
-          {isTransactionConfirmation ? (
-            <Text size={13} color="#2F80ED" weight={'semibold'}>
-              Transaction {transactionStatus}
-            </Text>
-          ) : (
-            <Text size={13} color="#2F80ED" weight={'semibold'}>
-              Requires Deposit
-            </Text>
-          )}
+          <TransactionStatus
+            isTransactionConfirmation={isTransactionConfirmation}
+            transactionStatus={transactionStatus}
+          />
         </XStack>
       </XStack>
       <DividerLine />
