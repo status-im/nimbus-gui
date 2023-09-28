@@ -23,6 +23,7 @@ import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstalling/Validato
 import ContinueButton from './ContinueButton'
 import ActivationValidatorSetup from './ValidatorSetup/ValidatorActivation/ActivationValidatorSetup'
 import Deposit from './Deposit/Deposit'
+import { setIsTransactionConfirmation } from '../../redux/ValidatorOnboarding/Deposit/slice'
 import './layoutGradient.css'
 
 const ValidatorOnboarding = () => {
@@ -30,6 +31,7 @@ const ValidatorOnboarding = () => {
   const [isConfirmPhraseStage, setIsConfirmPhraseStage] = useState(false)
   const [subStepValidatorSetup, setSubStepValidatorSetup] = useState(0)
   const { isCopyPastedPhrase, words } = useSelector((state: RootState) => state.keyGeneration)
+  const { isWalletConnected } = useSelector((state: RootState) => state.deposit)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -53,6 +55,8 @@ const ValidatorOnboarding = () => {
       }
     } else if (activeStep === 3 && subStepValidatorSetup < 3) {
       setSubStepValidatorSetup(subStepValidatorSetup + 1)
+    } else if (isWalletConnected && activeStep === 5) {
+      dispatch(setIsTransactionConfirmation(true))
     } else if (activeStep < 6) {
       setActiveStep(activeStep + 1)
       if (activeStep === 3 && subStepValidatorSetup === 2) {
