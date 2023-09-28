@@ -46,8 +46,8 @@ const DeviceHealthCheck = () => {
             maxMemory={deviceHealthState.maxMemory}
           />
           <DeviceNetworkHealth
-            uploadRate={deviceHealthState.uploadRate}
-            downloadRate={deviceHealthState.downloadRate}
+            latency={deviceHealthState.latency}
+
           />
         </XStack>
         <HealthInfoSection
