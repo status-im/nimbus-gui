@@ -3,7 +3,7 @@ import { FullscreenMacOsIcon, MinimizeMacOsIcon, CloseMacOsIcon } from '@status-
 import { XStack } from 'tamagui'
 import { useSelector } from 'react-redux'
 
-import { RootState } from '../../../redux/store'
+import { RootState } from '../../../../redux/store'
 
 type VTransactionStatusProps = {
   transactionStatus: string

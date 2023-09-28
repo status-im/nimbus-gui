@@ -4,7 +4,7 @@ import { YStack } from 'tamagui'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 
-import ValidatorRequest from './ValidatorRequest'
+import ValidatorRequest from './ValidatorRequest/ValidatorRequest'
 import ConnectWallet from './ConnectWallet'
 import ConnectedWallet from './ConnectedWallet'
 import DepositTitle from './DepositTitle'

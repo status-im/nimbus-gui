@@ -2,9 +2,9 @@ import { Avatar, DividerLine, Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
 import { useSelector } from 'react-redux'
 
-import { getFormattedValidatorAddress } from '../../../utilities'
+import { getFormattedValidatorAddress } from '../../../../utilities'
 import TransactionStatus from './TransactionStatus'
-import { RootState } from '../../../redux/store'
+import { RootState } from '../../../../redux/store'
 
 type ValidatorRequestProps = {
   number: number
