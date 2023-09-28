@@ -16,7 +16,7 @@ const ValidatorRequest = ({ number, isTransactionConfirmation }: ValidatorReques
   return (
     <YStack space={'$3'} style={{ width: '100%' }}>
       <XStack style={{ justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
-        <XStack style={{ justifyContent: 'space-between', width: '40%', alignItems: 'center' }}>
+        <XStack style={{ justifyContent: 'space-between', width: '44%', alignItems: 'center' }}>
           <XStack space={'$2'}>
             <Avatar
               type="user"
@@ -41,7 +41,7 @@ const ValidatorRequest = ({ number, isTransactionConfirmation }: ValidatorReques
         <XStack
           style={{
             justifyContent: isTransactionConfirmation ? 'space-between' : 'end',
-            width: '60%',
+            width: '53%',
             alignItems: 'center',
           }}
         >
