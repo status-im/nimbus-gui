@@ -1,17 +1,16 @@
 import { Text } from '@status-im/components'
 import { FullscreenMacOsIcon, MinimizeMacOsIcon, CloseMacOsIcon } from '@status-im/icons'
 import { XStack } from 'tamagui'
-import { useSelector } from 'react-redux'
-
-import { RootState } from '../../../../redux/store'
 
 type VTransactionStatusProps = {
   transactionStatus: string
+  isTransactionConfirmation?: boolean
 }
 
-const TransactionStatus = ({ transactionStatus }: VTransactionStatusProps) => {
-  const { isTransactionConfirmation } = useSelector((state: RootState) => state.deposit)
-
+const TransactionStatus = ({
+  transactionStatus,
+  isTransactionConfirmation,
+}: VTransactionStatusProps) => {
   const isTransactionCompleted = transactionStatus === 'Complete'
 
   return (

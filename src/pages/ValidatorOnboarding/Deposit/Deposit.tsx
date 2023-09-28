@@ -50,7 +50,11 @@ const Deposit = () => {
       {isTransactionConfirmation && <ConnectedWallet />}
       <DividerLine style={{ marginTop: isTransactionConfirmation ? '0px' : '15px' }} />
       {Array.from({ length: validatorCount }).map((_, index) => (
-        <ValidatorRequest key={index} number={index + 1} />
+        <ValidatorRequest
+          key={index}
+          number={index + 1}
+          isTransactionConfirmation={isTransactionConfirmation}
+        />
       ))}
       {isInfoBoxVisible && !isTransactionConfirmation && (
         <InformationBox

@@ -17,17 +17,20 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     number: 1,
+    isTransactionConfirmation: false,
   },
 }
 
 export const TransactionConfirmation: Story = {
   args: {
     number: 1,
+    isTransactionConfirmation: true,
   },
 }
 
 export const BigNumber: Story = {
   args: {
     number: 123456789,
+    isTransactionConfirmation: false,
   },
 }

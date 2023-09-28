@@ -1,18 +1,15 @@
 import { Avatar, DividerLine, Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
-import { useSelector } from 'react-redux'
 
 import { getFormattedValidatorAddress } from '../../../../utilities'
 import TransactionStatus from './TransactionStatus'
-import { RootState } from '../../../../redux/store'
 
 type ValidatorRequestProps = {
   number: number
+  isTransactionConfirmation?: boolean
 }
 
-const ValidatorRequest = ({ number }: ValidatorRequestProps) => {
-  const { isTransactionConfirmation } = useSelector((state: RootState) => state.deposit)
-
+const ValidatorRequest = ({ number, isTransactionConfirmation }: ValidatorRequestProps) => {
   let transactionStatus = 'Complete'
   const isTransactionCompleted = transactionStatus === 'Complete'
 
@@ -57,7 +54,10 @@ const ValidatorRequest = ({ number }: ValidatorRequestProps) => {
               {isTransactionCompleted ? 32 : 0} ETH
             </Text>
           )}
-          <TransactionStatus transactionStatus={transactionStatus} />
+          <TransactionStatus
+            transactionStatus={transactionStatus}
+            isTransactionConfirmation={isTransactionConfirmation}
+          />
         </XStack>
       </XStack>
       <DividerLine />
