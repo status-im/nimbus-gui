@@ -11,6 +11,7 @@ type ValidatorRequestProps = {
 
 const ValidatorRequest = ({ number, isTransactionConfirmation }: ValidatorRequestProps) => {
   let transactionStatus = 'Complete'
+  // const isTransactionCompleted = transactionStatus === 'Complete'
 
   return (
     <YStack space={'$3'} style={{ width: '100%' }}>
@@ -39,11 +40,16 @@ const ValidatorRequest = ({ number, isTransactionConfirmation }: ValidatorReques
         </XStack>
         <XStack
           style={{
-            justifyContent: true ? 'end' : 'space-between',
+            justifyContent: isTransactionConfirmation ? 'space-between' : 'end',
             width: '60%',
             alignItems: 'center',
           }}
         >
+          {isTransactionConfirmation && (
+            <Text color="#2A4AF5" size={13}>
+              0.1 ETH
+            </Text>
+          )}
           <TransactionStatus
             isTransactionConfirmation={isTransactionConfirmation}
             transactionStatus={transactionStatus}
