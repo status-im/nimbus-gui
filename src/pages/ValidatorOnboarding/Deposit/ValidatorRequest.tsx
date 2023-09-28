@@ -5,13 +5,16 @@ import { getFormattedValidatorAddress } from '../../../utilities'
 
 type ValidatorRequestProps = {
   number: number
+  isTransactionConfirmation: boolean
 }
 
-const ValidatorRequest = ({ number }: ValidatorRequestProps) => {
+const ValidatorRequest = ({ number, isTransactionConfirmation }: ValidatorRequestProps) => {
+  let transactionStatus = 'Complete'
+
   return (
     <YStack space={'$3'} style={{ width: '100%' }}>
-      <XStack style={{ justifyContent: 'space-between', width: '100%' }}>
-        <XStack style={{ justifyContent: 'space-between', width: '40%' }}>
+      <XStack style={{ justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
+        <XStack style={{ justifyContent: 'space-between', width: '40%', alignItems: 'center' }}>
           <XStack space={'$2'}>
             <Avatar
               type="user"
@@ -33,10 +36,22 @@ const ValidatorRequest = ({ number }: ValidatorRequestProps) => {
             Keys Generated
           </Text>
         </XStack>
-        <XStack style={{ justifyContent: true ? 'end' : 'space-between', width: '60%' }}>
-          <Text size={13} color="#2F80ED" weight={'semibold'}>
-            Requires Deposit
-          </Text>
+        <XStack
+          style={{
+            justifyContent: true ? 'end' : 'space-between',
+            width: '60%',
+            alignItems: 'center',
+          }}
+        >
+          {isTransactionConfirmation ? (
+            <Text size={13} color="#2F80ED" weight={'semibold'}>
+              Transaction {transactionStatus}
+            </Text>
+          ) : (
+            <Text size={13} color="#2F80ED" weight={'semibold'}>
+              Requires Deposit
+            </Text>
+          )}
         </XStack>
       </XStack>
       <DividerLine />

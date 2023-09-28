@@ -16,7 +16,7 @@ const Deposit = () => {
   const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(true)
   const [validatorCount, setValidatorCount] = useState(2)
   const { isWalletConnected } = useSelector((state: RootState) => state.deposit)
-  let isTransactionConfirmation = false
+  let isTransactionConfirmation = true
 
   const changeValidatorCountHandler = (value: string) => {
     const numberValue = Number(value)
@@ -49,7 +49,11 @@ const Deposit = () => {
       {isTransactionConfirmation && <ConnectedWallet />}
       <DividerLine style={{ marginTop: isTransactionConfirmation ? '0px' : '15px' }} />
       {Array.from({ length: validatorCount }).map((_, index) => (
-        <ValidatorRequest key={index} number={index + 1} />
+        <ValidatorRequest
+          key={index}
+          number={index + 1}
+          isTransactionConfirmation={isTransactionConfirmation}
+        />
       ))}
       {isInfoBoxVisible && !isTransactionConfirmation && (
         <InformationBox
