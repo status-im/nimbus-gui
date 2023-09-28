@@ -16,28 +16,24 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    isTransactionConfirmation: false,
     transactionStatus: '',
   },
 }
 
 export const Complete: Story = {
   args: {
-    isTransactionConfirmation: true,
     transactionStatus: 'Complete',
   },
 }
 
 export const Pending: Story = {
   args: {
-    isTransactionConfirmation: true,
     transactionStatus: 'Pending',
   },
 }
 
 export const Fail: Story = {
   args: {
-    isTransactionConfirmation: true,
     transactionStatus: 'Fail',
   },
 }

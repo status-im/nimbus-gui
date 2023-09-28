@@ -15,8 +15,9 @@ import { DEPOSIT_SUBTITLE } from '../../../constants'
 const Deposit = () => {
   const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(true)
   const [validatorCount, setValidatorCount] = useState(2)
-  const { isWalletConnected } = useSelector((state: RootState) => state.deposit)
-  let isTransactionConfirmation = true
+  const { isWalletConnected, isTransactionConfirmation } = useSelector(
+    (state: RootState) => state.deposit,
+  )
 
   const changeValidatorCountHandler = (value: string) => {
     const numberValue = Number(value)
@@ -34,7 +35,7 @@ const Deposit = () => {
       space={'$3'}
       style={{ width: '100%', padding: '16px 32px', alignItems: 'start', paddingBottom: '30px' }}
     >
-      <DepositTitle isTransactionConfirmation={isTransactionConfirmation} />
+      <DepositTitle />
       {isTransactionConfirmation ? (
         <Text size={15} weight="regular" color={'#647084'}>
           {DEPOSIT_SUBTITLE}
@@ -49,11 +50,7 @@ const Deposit = () => {
       {isTransactionConfirmation && <ConnectedWallet />}
       <DividerLine style={{ marginTop: isTransactionConfirmation ? '0px' : '15px' }} />
       {Array.from({ length: validatorCount }).map((_, index) => (
-        <ValidatorRequest
-          key={index}
-          number={index + 1}
-          isTransactionConfirmation={isTransactionConfirmation}
-        />
+        <ValidatorRequest key={index} number={index + 1} />
       ))}
       {isInfoBoxVisible && !isTransactionConfirmation && (
         <InformationBox

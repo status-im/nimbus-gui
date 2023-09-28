@@ -15,13 +15,5 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: {
-    isTransactionConfirmation: false,
-  },
-}
-
-export const TransactionConfirmation: Story = {
-  args: {
-    isTransactionConfirmation: true,
-  },
+  args: {},
 }

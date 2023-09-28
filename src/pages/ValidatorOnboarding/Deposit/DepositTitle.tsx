@@ -1,10 +1,11 @@
 import { Text } from '@status-im/components'
+import { useSelector } from 'react-redux'
 
-type DepositTitleProps = {
-  isTransactionConfirmation: boolean
-}
+import { RootState } from '../../../redux/store'
 
-const DepositTitle = ({ isTransactionConfirmation }: DepositTitleProps) => {
+const DepositTitle = () => {
+  const { isTransactionConfirmation } = useSelector((state: RootState) => state.deposit)
+
   return (
     <Text size={19} weight={'semibold'}>
       {isTransactionConfirmation ? 'Transaction Confirmation' : 'Deposit Funds'}
