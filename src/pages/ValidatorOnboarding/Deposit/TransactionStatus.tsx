@@ -1,5 +1,5 @@
 import { Text } from '@status-im/components'
-import { FullscreenMacOsIcon, CloseMacOsIcon, MinimizeMacOsIcon } from '@status-im/icons'
+import { FullscreenMacOsIcon, MinimizeMacOsIcon, CloseMacOsIcon } from '@status-im/icons'
 import { XStack } from 'tamagui'
 
 type VTransactionStatusProps = {
@@ -16,8 +16,8 @@ const TransactionStatus = ({
       {isTransactionConfirmation ? (
         <XStack space={'$2'} alignItems={'center'}>
           {transactionStatus === 'Complete' && <FullscreenMacOsIcon size={16} />}
-          {transactionStatus === 'Failed' && <CloseMacOsIcon size={16} />}
           {transactionStatus === 'Pending' && <MinimizeMacOsIcon size={16} />}
+          {transactionStatus === 'Fail' && <CloseMacOsIcon size={16} />}
           <Text size={13} color="#2F80ED" weight={'semibold'}>
             Transaction {transactionStatus}
           </Text>
