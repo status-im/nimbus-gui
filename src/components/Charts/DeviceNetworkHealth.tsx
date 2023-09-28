@@ -15,38 +15,35 @@ type ChartData = {
   color: string
   data: DataPoint[]
 }
-
 type DeviceNetworkHealthProps = {
-  uploadRate: number[]
-  downloadRate: number[]
-}
-const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthProps) => {
+  latency: number[];
+};
+
+const DeviceNetworkHealth = ({ latency }: DeviceNetworkHealthProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const THRESHOLD = 60;
   const GOOD_COLOR = '#8DC6BC';
-  const POOR_COLOR_UPLOAD = '#e95460';
-  const POOR_COLOR_DOWNLOAD = '#D92344';
+  const POOR_COLOR_LATENCY = '#D92344';
 
-  const processDataRate = (rate: number[], id: string, poorColor: string) => {
-    const dataObj = rate.map((yValue, index: number) => ({ x: index + 1, y: yValue }));
-    const currentLoad = dataObj.length > 0 ? dataObj[dataObj.length - 1].y : 0;
-    const message = currentLoad > THRESHOLD ? 'Good' : 'Poor';
-    const color = message === 'Good' ? GOOD_COLOR : poorColor;
+  const processLatency = (latency: number[], id: string) => {
+    const dataObj = latency.map((yValue, index: number) => ({ x: index + 1, y: yValue }));
+    const currentLatency = dataObj.length > 0 ? dataObj[dataObj.length - 1].y : 0;
+    const message = currentLatency < THRESHOLD ? 'Good' : 'Poor';
+    const color = message === 'Good' ? GOOD_COLOR : POOR_COLOR_LATENCY;
 
     return {
       id,
       color,
       data: dataObj,
-      currentLoad,
+      currentLatency,
       message,
     };
   };
 
-  const upload = processDataRate(uploadRate, 'uploadRate', POOR_COLOR_UPLOAD);
-  const download = processDataRate(downloadRate, 'downloadRate', POOR_COLOR_DOWNLOAD);
+  const processedLatency = processLatency(latency, 'latency');
 
-  const chartData: ChartData[] = [upload, download];
+  const chartData: ChartData[] = [processedLatency];
 
   return (
     <ShadowBox
@@ -55,8 +52,8 @@ const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthPr
         width: '50%',
         minHeight: '135px',
         borderRadius: '16px',
-        border: upload.message === 'Poor' ? '1px solid  #D92344' : 'none',
-        backgroundColor: isHovered ? '#f8f6ff' : (upload.message === 'Poor' ? '#fefafa' : '#fff'),
+        border: processedLatency.message === 'Poor' ? '1px solid  #D92344' : 'none',
+        backgroundColor: isHovered ? '#f8f6ff' : (processedLatency.message === 'Poor' ? '#fefafa' : '#fff'),
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -77,26 +74,26 @@ const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthPr
               Network
             </Text>
             <Text size={27} weight={'semibold'}>
-              {upload.currentLoad} GB
+              {processedLatency.currentLatency} ms
             </Text>
           </YStack>
         </XStack>
         <Separator borderColor={'#e3e3e3'} />
         <XStack space={'$4'} style={{ padding: '0.65rem 1rem' }}>
           <IconText
-            icon={upload.message === 'Good' ? <CheckCircleIcon size={16} /> : <IncorrectIcon size={16} />}
+            icon={processedLatency.message === 'Good' ? <CheckCircleIcon size={16} /> : <IncorrectIcon size={16} />}
             weight={'semibold'}
           >
-            {upload.message}
+            {processedLatency.message}
           </IconText>
-          {upload.message === 'Poor' && (
+          {processedLatency.message === 'Poor' && (
             <Text size={13} color={'#E95460'} weight={'semibold'}>
-              {((upload.currentLoad / 60) * 100).toFixed(0)}% Utilization
+              {`High Latency: ${processedLatency.currentLatency}ms`}
             </Text>
           )}
         </XStack>
       </YStack>
-    </ShadowBox>
+    </ShadowBox >
   )
 }
 
