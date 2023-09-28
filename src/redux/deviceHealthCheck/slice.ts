@@ -13,10 +13,10 @@ interface DeviceHealthState {
 const initialState: DeviceHealthState = {
   storage: 44,
   maxStorage: 100,
-  cpuLoad: [12, 123, 4, 90],
-  memory: [25, 31, 5, 14, 20, 81],
+  cpuLoad: [25, 31, 5, 14, 20, 81, 50, 34, 12, 123, 4, 90, 56, 35, 90],
+  memory: [15, 31, 5, 14, 20, 81, 50, 34, 12, 123, 4, 90, 56, 35, 90],
   maxMemory: 120,
-  latency: [1, 14,5, 25, 65, 4, 82,59],
+  latency: [55, 31, 5, 14, 20, 81, 50, 34, 12, 50, 4, 90, 56, 35, 80],
 
 }
 
