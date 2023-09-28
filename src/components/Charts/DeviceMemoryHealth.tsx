@@ -51,7 +51,7 @@ const DeviceMemoryHealth = ({ currentMemory, maxMemory }: DeviceMemoryHealthProp
         width: '50%',
         minHeight: '135px',
         borderRadius: '16px',
-        border: message === 'Poor' ? '1px solid  #D92344' : 'none',
+        border: message === 'Poor' ? '1px solid #D92344' : '1px solid #E0E0E0',  
         backgroundColor: isHovered ? '#f8f6ff' : (message === 'Poor' ? '#fefafa' : '#fff'),
       }}
       onMouseEnter={() => setIsHovered(true)}
