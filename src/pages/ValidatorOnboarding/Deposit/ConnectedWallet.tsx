@@ -19,10 +19,12 @@ const ConnectedWallet = () => {
           }
         />
         <YStack>
-          <Text size={13} weight={'semibold'}>
+          <Text size={15} weight={'semibold'}>
             {network}
           </Text>
-          <Text size={13}>{getFormattedWalletAddress(address)}</Text>
+          <Text size={13} weight={'semibold'}>
+            {getFormattedWalletAddress(address)}
+          </Text>
           <Stack style={{ marginTop: '3px' }}>
             <Text size={13} color="#2A4CF4" weight={'semiboldF'}>
               Connected
