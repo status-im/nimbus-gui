@@ -51,7 +51,7 @@ const DeviceMemoryHealth = ({ currentMemory, maxMemory }: DeviceMemoryHealthProp
         width: '50%',
         minHeight: '135px',
         borderRadius: '16px',
-        border: message === 'Poor' ? '1px solid #D92344' : '1px solid #E0E0E0',  
+        border: message === 'Poor' ? '1px solid #D92344' : '1px solid #E0E0E0',
         backgroundColor: isHovered ? '#f8f6ff' : (message === 'Poor' ? '#fefafa' : '#fff'),
       }}
       onMouseEnter={() => setIsHovered(true)}
@@ -66,7 +66,7 @@ const DeviceMemoryHealth = ({ currentMemory, maxMemory }: DeviceMemoryHealthProp
           }}
         >
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
-            <StandartLineChart data={chartData} />
+            <StandartLineChart data={chartData} isInteractive={false} />
           </div>
           <YStack space={'$3'}>
             <Text size={15} weight={'semibold'}>

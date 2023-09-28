@@ -42,7 +42,7 @@ const DeviceStorageHealth = ({ storage, maxStorage }: DeviceStorageHealthProps) 
         width: '50%',
         minHeight: '135px',
         borderRadius: '16px',
-        border: message === 'Poor' ? '1px solid #D92344' : '1px solid #E0E0E0',  
+        border: message === 'Poor' ? '1px solid #D92344' : '1px solid #E0E0E0',
         backgroundColor: isHovered ? '#f8f6ff' : (message === 'Poor' ? '#fefafa' : '#fff'),
       }}
       onMouseEnter={() => setIsHovered(true)}
@@ -64,7 +64,7 @@ const DeviceStorageHealth = ({ storage, maxStorage }: DeviceStorageHealthProps) 
               height: '4.75rem',
             }}
           >
-            <StandardGauge data={data(free)} />
+            <StandardGauge data={data(free)} isInteractive={false}/>
           </Stack>
           <YStack space={'$3'}>
             <Text size={15} weight={'semibold'}>
