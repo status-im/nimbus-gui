@@ -26,7 +26,7 @@ const FormStepper = ({ activeStep, changeActiveStep }: FormStepperProps) => {
       connectorStyleConfig={customConnectorStyle}
       style={{
         fontSize: '14px',
-        zIndex: 999,
+        zIndex: 1,
         width: '100%',
         padding: 0,
         marginBottom: '3rem',

@@ -14,7 +14,7 @@ const ValidatorBoxWrapper = ({ children }: ValidatorBoxWrapperProps) => {
         border: 'none',
         flexDirection: 'row',
         backgroundColor: '#fff',
-        zIndex: 999,
+        zIndex: 1,
         width: '100%',
       }}
     >
