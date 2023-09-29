@@ -29,11 +29,11 @@ const GenerateId = ({ isAwaitingPairing }: GenerateIdProps) => {
         </StatusText>
         <Button
           variant="outline"
-          size={24}
+          size={32}
           icon={<CompleteIdIcon size={20} />}
           onPress={generateIdHandler}
         >
-          Generate ID
+         Regenerate ID
         </Button>
       </XStack>
       <YStack space={'$2'}>

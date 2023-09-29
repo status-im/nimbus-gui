@@ -15,7 +15,7 @@ import Icon from '../../components/General/Icon'
 const PairDevice = () => {
   const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
   const isPaired = false
-  const isPairing = false
+  const isPairing = true
 
   const changeSetIsAwaitingPairing = (result: boolean) => {
     setIsAwaitingPairing(result)
