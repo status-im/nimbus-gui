@@ -20,14 +20,13 @@ type DeviceCPULoadProps = {
   load: number[]
 }
 const DeviceCPULoad = ({ load }: DeviceCPULoadProps) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(false)
 
   const dataObj = load.map((yValue, index: number) => ({
     x: index + 1,
     y: yValue,
   }))
-  const currentLoad =
-    dataObj.length > 0 ? dataObj[dataObj.length - 1].y : 0
+  const currentLoad = dataObj.length > 0 ? dataObj[dataObj.length - 1].y : 0
 
   const message = currentLoad < 80 ? 'Good' : 'Poor'
 
@@ -47,7 +46,7 @@ const DeviceCPULoad = ({ load }: DeviceCPULoadProps) => {
         minHeight: '135px',
         borderRadius: '16px',
         border: message === 'Poor' ? '1px solid #D92344' : '1px solid #E0E0E0',
-        backgroundColor: isHovered ? '#f8f6ff' : (message === 'Poor' ? '#fefafa' : '#fff'),
+        backgroundColor: isHovered ? '#f8f6ff' : message === 'Poor' ? '#fefafa' : '#fff',
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

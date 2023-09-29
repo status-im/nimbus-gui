@@ -9,15 +9,15 @@ interface DeviceStorageHealthProps {
   storage: number
   maxStorage: number
 }
-const GOOD_COLOR = '#8DC6BC';
-const POOR_COLOR = '#E95460';
+const GOOD_COLOR = '#8DC6BC'
+const POOR_COLOR = '#E95460'
 
 const DeviceStorageHealth = ({ storage, maxStorage }: DeviceStorageHealthProps) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(false)
 
-  const message = storage < maxStorage ? 'Good' : 'Poor';
-  const free = maxStorage - storage;
-  const utilization = (storage / (maxStorage || 1)) * 100;
+  const message = storage < maxStorage ? 'Good' : 'Poor'
+  const free = maxStorage - storage
+  const utilization = (storage / (maxStorage || 1)) * 100
 
   const data = (free: number) => {
     return [
@@ -33,7 +33,7 @@ const DeviceStorageHealth = ({ storage, maxStorage }: DeviceStorageHealthProps) 
         value: free,
         color: '#E7EAEE',
       },
-    ];
+    ]
   }
   return (
     <Shadow
@@ -43,7 +43,7 @@ const DeviceStorageHealth = ({ storage, maxStorage }: DeviceStorageHealthProps) 
         minHeight: '135px',
         borderRadius: '16px',
         border: message === 'Poor' ? '1px solid #D92344' : '1px solid #E0E0E0',
-        backgroundColor: isHovered ? '#f8f6ff' : (message === 'Poor' ? '#fefafa' : '#fff'),
+        backgroundColor: isHovered ? '#f8f6ff' : message === 'Poor' ? '#fefafa' : '#fff',
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -64,7 +64,7 @@ const DeviceStorageHealth = ({ storage, maxStorage }: DeviceStorageHealthProps) 
               height: '4.75rem',
             }}
           >
-            <StandardGauge data={data(free)} isInteractive={false}/>
+            <StandardGauge data={data(free)} isInteractive={false} />
           </Stack>
           <YStack space={'$3'}>
             <Text size={15} weight={'semibold'}>

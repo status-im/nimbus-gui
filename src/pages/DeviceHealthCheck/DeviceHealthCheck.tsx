@@ -45,10 +45,7 @@ const DeviceHealthCheck = () => {
             currentMemory={deviceHealthState.memory}
             maxMemory={deviceHealthState.maxMemory}
           />
-          <DeviceNetworkHealth
-            latency={deviceHealthState.latency}
-
-          />
+          <DeviceNetworkHealth latency={deviceHealthState.latency} />
         </XStack>
         <HealthInfoSection
           usedStorage={120}

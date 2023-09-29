@@ -7,7 +7,6 @@ interface DeviceHealthState {
   memory: number[]
   maxMemory: number
   latency: number[]
-
 }
 
 const initialState: DeviceHealthState = {
@@ -17,7 +16,6 @@ const initialState: DeviceHealthState = {
   memory: [15, 31, 5, 14, 20, 81, 50, 34, 12, 123, 4, 90, 56, 35, 90],
   maxMemory: 120,
   latency: [55, 31, 5, 14, 20, 81, 50, 34, 12, 50, 4, 90, 56, 35, 59],
-
 }
 
 const deviceHealthSlice = createSlice({
@@ -41,12 +39,8 @@ const deviceHealthSlice = createSlice({
       state.memory = action.payload.memory
       state.maxMemory = action.payload.maxMemory
     },
-    setNetworkHealth: (
-      state: DeviceHealthState,
-      action: PayloadAction<{ latency: number[] }>,
-    ) => {
+    setNetworkHealth: (state: DeviceHealthState, action: PayloadAction<{ latency: number[] }>) => {
       state.latency = action.payload.latency
-
     },
   },
 })

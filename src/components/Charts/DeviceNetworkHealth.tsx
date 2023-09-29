@@ -16,21 +16,21 @@ type ChartData = {
   data: DataPoint[]
 }
 type DeviceNetworkHealthProps = {
-  latency: number[];
-};
+  latency: number[]
+}
 
 const DeviceNetworkHealth = ({ latency }: DeviceNetworkHealthProps) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(false)
 
-  const THRESHOLD = 60;
-  const GOOD_COLOR = '#8DC6BC';
-  const POOR_COLOR_LATENCY = '#D92344';
+  const THRESHOLD = 60
+  const GOOD_COLOR = '#8DC6BC'
+  const POOR_COLOR_LATENCY = '#D92344'
 
   const processLatency = (latency: number[], id: string) => {
-    const dataObj = latency.map((yValue, index: number) => ({ x: index + 1, y: yValue }));
-    const currentLatency = dataObj.length > 0 ? dataObj[dataObj.length - 1].y : 0;
-    const message = currentLatency < THRESHOLD ? 'Good' : 'Poor';
-    const color = message === 'Good' ? GOOD_COLOR : POOR_COLOR_LATENCY;
+    const dataObj = latency.map((yValue, index: number) => ({ x: index + 1, y: yValue }))
+    const currentLatency = dataObj.length > 0 ? dataObj[dataObj.length - 1].y : 0
+    const message = currentLatency < THRESHOLD ? 'Good' : 'Poor'
+    const color = message === 'Good' ? GOOD_COLOR : POOR_COLOR_LATENCY
 
     return {
       id,
@@ -38,12 +38,12 @@ const DeviceNetworkHealth = ({ latency }: DeviceNetworkHealthProps) => {
       data: dataObj,
       currentLatency,
       message,
-    };
-  };
+    }
+  }
 
-  const processedLatency = processLatency(latency, 'latency');
+  const processedLatency = processLatency(latency, 'latency')
 
-  const chartData: ChartData[] = [processedLatency];
+  const chartData: ChartData[] = [processedLatency]
 
   return (
     <ShadowBox
@@ -53,7 +53,11 @@ const DeviceNetworkHealth = ({ latency }: DeviceNetworkHealthProps) => {
         minHeight: '135px',
         borderRadius: '16px',
         border: processedLatency.message === 'Poor' ? '1px solid #D92344' : '1px solid #E0E0E0',
-        backgroundColor: isHovered ? '#f8f6ff' : (processedLatency.message === 'Poor' ? '#fefafa' : '#fff'),
+        backgroundColor: isHovered
+          ? '#f8f6ff'
+          : processedLatency.message === 'Poor'
+          ? '#fefafa'
+          : '#fff',
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -81,7 +85,13 @@ const DeviceNetworkHealth = ({ latency }: DeviceNetworkHealthProps) => {
         <Separator borderColor={'#e3e3e3'} />
         <XStack space={'$4'} style={{ padding: '0.65rem 1rem' }}>
           <IconText
-            icon={processedLatency.message === 'Good' ? <CheckCircleIcon size={16} /> : <IncorrectIcon size={16} />}
+            icon={
+              processedLatency.message === 'Good' ? (
+                <CheckCircleIcon size={16} />
+              ) : (
+                <IncorrectIcon size={16} />
+              )
+            }
             weight={'semibold'}
           >
             {processedLatency.message}
@@ -93,7 +103,7 @@ const DeviceNetworkHealth = ({ latency }: DeviceNetworkHealthProps) => {
           )}
         </XStack>
       </YStack>
-    </ShadowBox >
+    </ShadowBox>
   )
 }
 

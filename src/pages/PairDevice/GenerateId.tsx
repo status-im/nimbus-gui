@@ -33,7 +33,7 @@ const GenerateId = ({ isAwaitingPairing }: GenerateIdProps) => {
           icon={<CompleteIdIcon size={20} />}
           onPress={generateIdHandler}
         >
-         Regenerate ID
+          Regenerate ID
         </Button>
       </XStack>
       <YStack space={'$2'}>

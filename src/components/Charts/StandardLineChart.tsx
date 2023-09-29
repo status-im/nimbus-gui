@@ -31,7 +31,6 @@ const StandartLineChart = ({ data, isInteractive }: StandartLineChartProps) => {
         stacked: true,
         reverse: false,
       }}
-
       axisTop={null}
       axisRight={null}
       axisBottom={null}
