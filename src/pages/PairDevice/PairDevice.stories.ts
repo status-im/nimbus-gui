@@ -4,7 +4,7 @@ import { withRouter } from 'storybook-addon-react-router-v6'
 import PairDevice from './PairDevice'
 
 const meta = {
-  title: 'Pages/PairDevice',
+  title: 'Connect-Device/PairDevice',
   component: PairDevice,
   parameters: {
     layout: 'centered',
