@@ -1,7 +1,7 @@
 import { Shadow } from '@status-im/components'
 
 type DashboardCardWrapperProps = {
-  children: React.ReactNode
+  children: string
   padding?: string
   width: string
 }
