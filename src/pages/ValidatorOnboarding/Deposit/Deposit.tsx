@@ -65,7 +65,7 @@ const Deposit = () => {
         />
       )}
       {!isTransactionConfirmation && (
-        <YStack space={'$3'}>
+        <YStack space={'$3'} style={{ width: '100%' }}>
           <Text size={19} weight={'semibold'}>
             Connect Wallet
           </Text>
