@@ -2,8 +2,13 @@ import { Stack, YStack } from 'tamagui'
 import ValidatorListItem from './ValidatorListItem'
 import InputSearch from './SearchInput'
 import { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { setCountOfValidators } from '../../../redux/RightSidebar/slice'
+
 
 const ValidatorsList = () => {
+  const dispatch = useDispatch()
+
   const [searchValue, setSearchValue] = useState('')
   const validators = [
     {
@@ -25,8 +30,11 @@ const ValidatorsList = () => {
       const filtered = validators.filter(validator =>
         validator.name.toLowerCase().includes(searchValue.toLowerCase()),
       )
+      const filteredCount = filtered.length
+      dispatch(setCountOfValidators(filteredCount))
       setFilteredValidators(filtered)
     } else {
+      dispatch(setCountOfValidators(validators.length))
       setFilteredValidators(validators)
     }
   }, [searchValue, validators])
