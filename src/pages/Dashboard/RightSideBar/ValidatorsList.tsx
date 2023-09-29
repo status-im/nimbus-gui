@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { setCountOfValidators } from '../../../redux/RightSidebar/slice'
 
-
 const ValidatorsList = () => {
   const dispatch = useDispatch()
 

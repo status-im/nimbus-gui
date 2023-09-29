@@ -15,7 +15,7 @@ const store = configureStore({
     theme: themeReducer,
     keyGeneration: keyGenerationReducer,
     leftSidebar: leftSidebarReducer,
-    rightSidebar: rightSidebarReducer
+    rightSidebar: rightSidebarReducer,
   },
 })
 

@@ -17,18 +17,27 @@ const LeftSidebar = () => {
 
   const renderIcon = (id: string) => {
     switch (id) {
-      case 'dashboard': return <DashboardIcon size={20} />;
-      case 'speed': return <SpeedIcon size={20} />;
-      case 'chart': return <ChartIcon size={20} />;
-      case 'heart': return <HeartIcon size={20} />;
-      case 'codeBlock': return <CodeBlockIcon size={20} />;
-      case 'communities': return <CommunitiesIcon size={20} />;
-      case 'activityCenter': return <ActivityCenterIcon size={20} />;
-      case 'settings': return <SettingsIcon size={20} />;
-      default: return null;
+      case 'dashboard':
+        return <DashboardIcon size={20} />
+      case 'speed':
+        return <SpeedIcon size={20} />
+      case 'chart':
+        return <ChartIcon size={20} />
+      case 'heart':
+        return <HeartIcon size={20} />
+      case 'codeBlock':
+        return <CodeBlockIcon size={20} />
+      case 'communities':
+        return <CommunitiesIcon size={20} />
+      case 'activityCenter':
+        return <ActivityCenterIcon size={20} />
+      case 'settings':
+        return <SettingsIcon size={20} />
+      default:
+        return null
     }
-    
-  }; return (
+  }
+  return (
     <YStack
       space={'$4'}
       minHeight={'100vh'}
@@ -44,7 +53,7 @@ const LeftSidebar = () => {
         <IconButtonWithDot
           key={button.id}
           iconEl={renderIcon(button.id)}
-          variant={button.isDisabled ? "outline" : "ghost"}
+          variant={button.isDisabled ? 'outline' : 'ghost'}
           isDotOn={button.isDotOn}
           selected={button.isSelected}
           disabled={button.isDisabled}
@@ -52,7 +61,7 @@ const LeftSidebar = () => {
         />
       ))}
     </YStack>
-  );
+  )
 }
 
 export default LeftSidebar

@@ -1,25 +1,23 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 type RightSidebarStateType = {
-    countOfValidators: number;
-};
+  countOfValidators: number
+}
 
 const initialState: RightSidebarStateType = {
-    countOfValidators: 0,
-};
+  countOfValidators: 0,
+}
 
 const rightSidebarSlice = createSlice({
-    name: 'rightSidebar',
-    initialState,
-    reducers: {
-        setCountOfValidators: (state, action: PayloadAction<number>) => {
-            state.countOfValidators = action.payload;
-        },
+  name: 'rightSidebar',
+  initialState,
+  reducers: {
+    setCountOfValidators: (state, action: PayloadAction<number>) => {
+      state.countOfValidators = action.payload
     },
-});
+  },
+})
 
-export const {
-    setCountOfValidators,
-} = rightSidebarSlice.actions;
+export const { setCountOfValidators } = rightSidebarSlice.actions
 
-export default rightSidebarSlice.reducer;
+export default rightSidebarSlice.reducer

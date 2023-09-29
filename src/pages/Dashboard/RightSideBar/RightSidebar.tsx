@@ -48,8 +48,12 @@ const RightSidebar = () => {
         <AddCard padding={'0 2vw'} />
       </XStack>
       <XStack justifyContent={'space-between'} width={'85%'}>
-        <Text size={19} weight={'semibold'}>Validators</Text>
-        <Text size={19} weight={'semibold'}>{countOfValidators}</Text>
+        <Text size={19} weight={'semibold'}>
+          Validators
+        </Text>
+        <Text size={19} weight={'semibold'}>
+          {countOfValidators}
+        </Text>
       </XStack>
       <Tabs defaultValue="active">
         <Tabs.List size={32}>
