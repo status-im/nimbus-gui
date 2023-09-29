@@ -1,12 +1,15 @@
 import { Avatar, Tabs, Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
-import ValidatorListItem from './ValidatorListItem'
+
 import AddCard from '../../../components/General/AddCards/AddCard'
 import ValidatorsList from './ValidatorsList'
 import AlertsList from './AlertsList'
 import LogsList from './LogsList'
+import { useSelector } from 'react-redux'
 
 const RightSidebar = () => {
+  const countOfValidators = useSelector((state: any) => state.rightSidebar.countOfValidators)
+
   return (
     <YStack
       space={'$4'}
@@ -44,7 +47,10 @@ const RightSidebar = () => {
         </YStack>
         <AddCard padding={'0 2vw'} />
       </XStack>
-
+      <XStack justifyContent={'space-between'} width={'85%'}>
+        <Text size={19} weight={'semibold'}>Validators</Text>
+        <Text size={19} weight={'semibold'}>{countOfValidators}</Text>
+      </XStack>
       <Tabs defaultValue="active">
         <Tabs.List size={32}>
           <Tabs.Trigger type="default" value="active">
@@ -61,10 +67,10 @@ const RightSidebar = () => {
           <ValidatorsList />
         </Tabs.Content>
         <Tabs.Content value="pending">
-          <ValidatorListItem name={'Validator 5'} avatarKey={'37880sfsef38fsb'} />
+          <ValidatorsList />
         </Tabs.Content>
         <Tabs.Content value="inactive">
-          <ValidatorListItem name={'Validator 6'} avatarKey={'37880sfsef38fsb'} />
+          <ValidatorsList />
         </Tabs.Content>
       </Tabs>
 
