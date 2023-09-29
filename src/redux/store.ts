@@ -5,6 +5,7 @@ import execClientReducer from './ValidatorOnboarding/ValidatorSetup/slice'
 import themeReducer from './theme/slice'
 import keyGenerationReducer from './ValidatorOnboarding/KeyGeneration/slice'
 import leftSidebarReducer from './Sidebars/slice'
+import rightSidebarReducer from './RightSidebar/slice'
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     theme: themeReducer,
     keyGeneration: keyGenerationReducer,
     leftSidebar: leftSidebarReducer,
+    rightSidebar: rightSidebarReducer
   },
 })
 
