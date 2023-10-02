@@ -1,10 +1,22 @@
 import { Avatar, Button } from '@status-im/components'
 import { useConnectWallet } from '@web3-onboard/react'
 import { XStack } from 'tamagui'
-import { ethers } from 'ethers'
+import { useDispatch } from 'react-redux'
+
+import { setIsWalletConnected } from '../../../redux/ValidatorOnboarding/Deposit/slice'
+import { useEffect } from 'react'
 
 const ConnectWallet = () => {
   const [{ wallet, connecting }, connect, disconnect] = useConnectWallet()
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (wallet) {
+      dispatch(setIsWalletConnected(true))
+    } else {
+      dispatch(setIsWalletConnected(false))
+    }
+  }, [wallet])
 
   const onConnectWalletClick = () => {
     if (wallet) {
