@@ -1,5 +1,5 @@
 import { Avatar, Button } from '@status-im/components'
-import { useConnectWallet } from '@web3-onboard/react'
+import { useAccountCenter, useConnectWallet } from '@web3-onboard/react'
 import { XStack } from 'tamagui'
 import { useDispatch } from 'react-redux'
 
@@ -8,6 +8,7 @@ import { useEffect } from 'react'
 
 const ConnectWallet = () => {
   const [{ wallet, connecting }, connect, disconnect] = useConnectWallet()
+  const updateAccountCenter = useAccountCenter()
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -23,6 +24,7 @@ const ConnectWallet = () => {
       disconnect(wallet)
     } else {
       connect()
+      updateAccountCenter({ enabled: false })
     }
   }
 
