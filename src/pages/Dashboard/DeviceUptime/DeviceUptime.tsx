@@ -129,6 +129,7 @@ const DeviceUptime = () => {
               height: 'fit-content',
               padding: '3px',
               borderRadius: '10px',
+              cursor: 'pointer',
             }}
           >
             <Text size={13} weight={'semibold'}>
