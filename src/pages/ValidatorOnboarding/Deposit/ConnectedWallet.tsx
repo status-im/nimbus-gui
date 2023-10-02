@@ -2,11 +2,12 @@ import { Avatar, Text } from '@status-im/components'
 import { Stack, XStack, YStack } from 'tamagui'
 
 import { getFormattedWalletAddress } from '../../../utilities'
+import { useConnectWallet } from '@web3-onboard/react'
 
 const ConnectedWallet = () => {
-  const network = 'Ethereum Mainnet'
-  const address = '0xb9dasdfc35'
-  const balance = 68.21
+  const [{ wallet }] = useConnectWallet()
+  const address = wallet?.accounts[0].address || ''
+  const balance = Number(wallet?.accounts[0].balance) || 0
 
   return (
     <XStack style={{ width: '100%', justifyContent: 'space-between' }}>
@@ -20,7 +21,7 @@ const ConnectedWallet = () => {
         />
         <YStack>
           <Text size={15} weight={'semibold'}>
-            {network}
+            Ethereum Mainnet
           </Text>
           <Text size={13} weight={'semibold'}>
             {getFormattedWalletAddress(address)}
