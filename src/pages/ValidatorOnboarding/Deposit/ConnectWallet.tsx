@@ -14,10 +14,10 @@ const ConnectWallet = () => {
     }
   }
 
-  let ethersProvider
-  if (wallet) {
-    ethersProvider = new ethers.BrowserProvider(wallet.provider, 'any')
-  }
+  // let ethersProvider
+  // if (wallet) {
+  //   ethersProvider = new ethers.BrowserProvider(wallet.provider, 'any')
+  // }
 
   return (
     <XStack space={'$2'} alignItems={'center'}>
