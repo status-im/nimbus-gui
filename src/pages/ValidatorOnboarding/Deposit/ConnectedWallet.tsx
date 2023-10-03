@@ -3,11 +3,33 @@ import { Stack, XStack, YStack } from 'tamagui'
 
 import { getFormattedWalletAddress } from '../../../utilities'
 import { useConnectWallet } from '@web3-onboard/react'
+import { useEffect, useState } from 'react'
+import { ethers } from 'ethers'
 
 const ConnectedWallet = () => {
   const [{ wallet }] = useConnectWallet()
-  const address = wallet?.accounts[0].address || ''
-  const balance = Number(wallet?.accounts[0].balance) || 0
+  const [address, setAddress] = useState('')
+  const [balance, setBalance] = useState('')
+  const [networkName, setNetworkName] = useState('')
+
+  useEffect(() => {
+    const fetchBalance = async () => {
+      if (wallet?.provider) {
+        const ethProvider = new ethers.BrowserProvider(wallet.provider)
+        const signer = ethProvider.getSigner()
+
+        const address = (await signer).address
+        const userBalance = await ethProvider.getBalance(address)
+        const network = await ethProvider.getNetwork()
+
+        setAddress(address)
+        setBalance(ethers.formatEther(userBalance))
+        setNetworkName(network.name)
+      }
+    }
+
+    fetchBalance()
+  }, [wallet])
 
   return (
     <XStack style={{ width: '100%', justifyContent: 'space-between' }}>
@@ -21,7 +43,7 @@ const ConnectedWallet = () => {
         />
         <YStack>
           <Text size={15} weight={'semibold'}>
-            Ethereum Mainnet
+            {networkName}
           </Text>
           <Text size={13} weight={'semibold'}>
             {getFormattedWalletAddress(address)}
