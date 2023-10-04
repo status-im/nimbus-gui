@@ -7,80 +7,11 @@ import UptimeChart from '../UptimeChart/UptimeChart'
 import Icon from '../../../components/General/Icon'
 import { getMonthIndicesFromRange } from '../../../utilities'
 
-const data: DataItem[] = [
-  {
-    name: 'Jan',
-    pv: 0,
-    pa: 0,
-  },
-  {
-    name: 'Feb',
-    pv: 0,
-    pa: 0,
-  },
-  {
-    name: 'Mar',
-    pv: 0,
-    pa: 0,
-  },
-  {
-    name: 'Apr',
-    pv: 0,
-    pa: 0,
-  },
-  {
-    name: 'May',
-    pv: 0,
-    pa: 0,
-  },
-  {
-    name: 'Aug',
-    pv: 0,
-    pa: 0,
-  },
-  {
-    name: 'Jun',
-    pv: 0,
-    pa: 0,
-  },
-  {
-    name: 'Jul',
-    pv: 1,
-    pa: 0,
-  },
-  {
-    name: 'Sep',
-    pv: 0,
-    pa: 0,
-  },
-  {
-    name: 'Oct',
-    pv: 0,
-    pa: 0,
-  },
-  {
-    name: 'Nov',
-    pv: 1,
-    pa: 1,
-  },
-  {
-    name: 'Dec',
-    pv: 1,
-    pa: 1,
-  },
-]
-
-type DataItem = {
-  name?: string
-  pa: number
-  pv: number
-}
 
 const DeviceUptime = () => {
   const [isCalendarVisible, setIsCalendarVisible] = useState(false)
   const [dateRange, setDateRange] = useState<DateRange>({ from: undefined, to: undefined })
   const [startMonth, endMonth] = getMonthIndicesFromRange(dateRange)
-  const filteredMonths = data.slice(startMonth, endMonth + 1)
 
   const handleRangeSelect = (
     range: DateRange | undefined,
@@ -165,7 +96,7 @@ const DeviceUptime = () => {
               height: '100%',
             }}
           >
-            <UptimeChart data={filteredMonths} />
+            <UptimeChart startMonth={startMonth} endMonth={endMonth} monthlyActivity={[0, 10, 30, 40, 50, 10, 70, 10,60, 30, 10, 0, 0]} />
           </Stack>
         </XStack>
       </YStack>
