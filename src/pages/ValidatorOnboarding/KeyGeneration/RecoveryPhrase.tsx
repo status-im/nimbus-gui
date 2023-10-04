@@ -35,11 +35,16 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
           padding: '28px 18px',
           backgroundColor: '#f4f6fe',
           width: '100%',
-          height: '176px',
         }}
       >
         <YStack space={'$2'} style={{ filter: `blur(${isReveal ? '0px' : '4px'})` }}>
-          <XStack space={'$1'}>
+          <XStack
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(6, 1fr)',
+              gap: '5px 0px',
+            }}
+          >
             {generatedMnemonic.split(' ').map((word, index) => (
               <Text key={index} size={19} weight={'semibold'}>
                 {word}
