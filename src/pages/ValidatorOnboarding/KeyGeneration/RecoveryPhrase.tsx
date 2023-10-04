@@ -1,7 +1,9 @@
 import { Stack, XStack, YStack } from 'tamagui'
 import { Button, InformationBox, Text } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { generateMnemonic } from 'web-bip39'
+import wordlist from 'web-bip39/wordlists/english'
 
 type RecoveryPhraseProps = {
   isKeystoreFiles: boolean
@@ -9,6 +11,15 @@ type RecoveryPhraseProps = {
 
 const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
   const [isReveal, setIsReveal] = useState(false)
+  const [generatedMnemonic, setGeneratedMnemonic] = useState('')
+
+  useEffect(() => {
+    const getMnemonic = async () => {
+      const mnemonic = await generateMnemonic(wordlist, 256)
+      setGeneratedMnemonic(mnemonic)
+    }
+    getMnemonic()
+  }, [])
 
   const revealHandler = () => {
     setIsReveal(state => !state)
