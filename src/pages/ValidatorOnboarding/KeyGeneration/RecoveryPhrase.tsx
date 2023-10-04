@@ -14,12 +14,13 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
   const [generatedMnemonic, setGeneratedMnemonic] = useState('')
 
   useEffect(() => {
-    const getMnemonic = async () => {
-      const mnemonic = await generateMnemonic(wordlist, 256)
-      setGeneratedMnemonic(mnemonic)
-    }
     getMnemonic()
   }, [])
+
+  const getMnemonic = async () => {
+    const mnemonic = await generateMnemonic(wordlist, 256)
+    setGeneratedMnemonic(mnemonic)
+  }
 
   const revealHandler = () => {
     setIsReveal(state => !state)
@@ -38,21 +39,12 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
         }}
       >
         <YStack space={'$2'} style={{ filter: `blur(${isReveal ? '0px' : '4px'})` }}>
-          <XStack space={'$6'}>
-            <Text size={19} weight={'semibold'}>
-              this is your secret recovery phrase for the validator
-            </Text>
-            <Text size={19} weight={'semibold'}>
-              this is your secret recovery phrase for the validator
-            </Text>
-          </XStack>
-          <XStack space={'$6'}>
-            <Text size={19} weight={'semibold'}>
-              this is your secret recovery phrase for the validator
-            </Text>
-            <Text size={19} weight={'semibold'}>
-              this is your secret recovery phrase for the validator
-            </Text>
+          <XStack space={'$1'}>
+            {generatedMnemonic.split(' ').map((word, index) => (
+              <Text key={index} size={19} weight={'semibold'}>
+                {word}
+              </Text>
+            ))}
           </XStack>
         </YStack>
       </Stack>
