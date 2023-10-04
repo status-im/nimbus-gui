@@ -1,3 +1,4 @@
+import { BarChart, Bar, ResponsiveContainer, XAxis } from 'recharts';
 
 const data: DataItem[] = [
   {
@@ -158,7 +159,6 @@ const data: DataItem[] = [
     'ten': 0,
   },
 ]
-import { BarChart, Bar, ResponsiveContainer, XAxis } from 'recharts';
 
 type DataItem = {
   name: string;
@@ -180,13 +180,13 @@ type UptimeChartProps = {
   endMonth: number;
 };
 
-const updateMonthlyValues = (data:any, monthlyActivity:any) => {
-  
+const updateMonthlyValues = (data: any, monthlyActivity: any) => {
   if (!Array.isArray(monthlyActivity) || monthlyActivity.length !== 12) {
     console.error("monthlyActivity should be an array with 12 values");
     return;
   }
-   const keys = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+
+  const keys = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
 
   for (let i = 0; i < data.length; i++) {
     const month = data[i];
@@ -200,7 +200,6 @@ const updateMonthlyValues = (data:any, monthlyActivity:any) => {
       }
     }
   }
-
   return data;
 }
 
