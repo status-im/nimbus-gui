@@ -9,7 +9,7 @@ type AdvisoryTopicsType = {
 }
 
 const Advisories = () => {
-  const [selectedTitle, setSelectedTitle] = useState(Object.keys(advisoryTopics)[3])
+  const [selectedTitle, setSelectedTitle] = useState(Object.keys(advisoryTopics)[0])
 
   const isSameTitle = (title: string) => selectedTitle === title
 
