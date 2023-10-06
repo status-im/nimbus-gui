@@ -23,7 +23,9 @@ type Story = StoryObj<typeof meta>
 
 export const WithMonths: Story = {
   args: {
-
-    monthlyActivity:[3, 2, 5, 4, 6, 7, 8, 0, 10, 0, 0, 3], startMonth: 0, endMonth: 12, withLabels: true
+    monthlyActivity: [3, 2, 5, 4, 6, 7, 8, 0, 10, 0, 0, 3],
+    startMonth: 0,
+    endMonth: 12,
+    withLabels: true,
   },
 }

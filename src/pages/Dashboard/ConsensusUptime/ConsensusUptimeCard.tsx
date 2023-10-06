@@ -4,10 +4,8 @@ import { Stack, XStack, YStack } from 'tamagui'
 import UptimeChart from '../UptimeChart/UptimeChart'
 import Icon from '../../../components/General/Icon'
 
- 
-
 const ConsensusUptimeCard = () => {
-  const monthlyActivity = [3,0,5,4,6,7,8,9,10,1,2,3]
+  const monthlyActivity = [3, 0, 5, 4, 6, 7, 8, 9, 10, 1, 2, 3]
   return (
     <Shadow
       variant="$2"
@@ -41,7 +39,12 @@ const ConsensusUptimeCard = () => {
               height: '100%',
             }}
           >
-            <UptimeChart monthlyActivity={monthlyActivity} startMonth={0} endMonth={1} withLabels={false}/>
+            <UptimeChart
+              monthlyActivity={monthlyActivity}
+              startMonth={0}
+              endMonth={1}
+              withLabels={false}
+            />
           </Stack>
         </XStack>
       </YStack>
