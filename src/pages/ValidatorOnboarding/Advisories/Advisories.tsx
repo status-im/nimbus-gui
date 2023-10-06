@@ -25,9 +25,7 @@ const Advisories = ({ advisoriesIcons, subStepAdvisories }: AdvisoriesProps) => 
     const index = topics.indexOf(currentTitle);
     return index <= subStepAdvisories ? true : false;
   }
-
-  const isSameTitle = (title: string) => selectedTitle === title
-
+ 
   return (
     <XStack
       style={{ padding: '30px 33px', justifyContent: 'space-between' }}
