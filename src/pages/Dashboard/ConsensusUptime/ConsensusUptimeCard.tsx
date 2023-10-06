@@ -7,7 +7,7 @@ import Icon from '../../../components/General/Icon'
  
 
 const ConsensusUptimeCard = () => {
-  const monthlyActivity = [30,20,50,40,60,70,80,90,100,10,20,30]
+  const monthlyActivity = [3,0,5,4,6,7,8,9,10,1,2,3]
   return (
     <Shadow
       variant="$2"

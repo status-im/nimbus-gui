@@ -6,7 +6,7 @@ import UptimeChart from '../UptimeChart/UptimeChart'
  
  
 const ExecutionUptime = () => {
-  const monthlyActivity = [0,20,0,0,0,10,0,0,0,0,0,30]
+  const monthlyActivity = [3,0,5,4,6,7,0,9,10,1,2,3]
   return (
     <Shadow
       variant="$2"
