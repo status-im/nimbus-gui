@@ -3,46 +3,10 @@ import { Stack, XStack, YStack } from 'tamagui'
 
 import Icon from '../../../components/General/Icon'
 import UptimeChart from '../UptimeChart/UptimeChart'
-
-const data: DataItem[] = [
-  {
-    // @NOTE: if you want to add name in the XAxis. You need to set the names here
-    pv: 1,
-    pa: 1,
-  },
-  {
-    pv: 0,
-    pa: 0,
-  },
-  {
-    pv: 0,
-    pa: 0,
-  },
-  {
-    pv: 0,
-    pa: 1,
-  },
-  {
-    pv: 0,
-    pa: 0,
-  },
-  {
-    pv: 1,
-    pa: 0,
-  },
-  {
-    pv: 0,
-    pa: 1,
-  },
-]
-
-type DataItem = {
-  name?: string
-  pa: number
-  pv: number
-}
-
+ 
+ 
 const ExecutionUptime = () => {
+  const monthlyActivity = [0,20,0,0,0,10,0,0,0,0,0,30]
   return (
     <Shadow
       variant="$2"
@@ -76,7 +40,7 @@ const ExecutionUptime = () => {
               height: '100%',
             }}
           >
-            <UptimeChart data={data} />
+            <UptimeChart monthlyActivity={monthlyActivity} startMonth={0} endMonth={8} withLabels={false} />
           </Stack>
         </XStack>
       </YStack>
