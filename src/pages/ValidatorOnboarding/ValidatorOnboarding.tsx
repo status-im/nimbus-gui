@@ -37,21 +37,12 @@ const ValidatorOnboarding = () => {
 
   const [isAdvisoriesComplete, setIsAdvisoriesComplete] = useState(false)
   const unicodeNumbers = ['➀', '➁', '➂', '➃', '➄', '➅']
-  const advisoriesIcon = unicodeNumbers.map((number, index) => {
-    if (index <= subStepAdvisories) {
-      return '✓';
-    } else {
-      return number;
-    }
-  })
-
-
+  const advisoriesIcon = unicodeNumbers.map((number, index) => index <= subStepAdvisories ? '✓' : number)
 
   const changeActiveStep = (step: number) => {
     if (step < activeStep) {
       return setActiveStep(step)
     }
-
     removeCopyPastePhraseInfoBox()
     removeConfirmPhraseStage()
   }
@@ -61,6 +52,7 @@ const ValidatorOnboarding = () => {
       if (subStepAdvisories === 5) {
         setIsAdvisoriesComplete(true)
         setActiveStep(activeStep + 1)
+        setSubStepAdvisories(0)
       }
       return setSubStepAdvisories(subStepAdvisories + 1)
     } else if (activeStep === 4 && isConfirmPhraseStage === false) {
@@ -120,7 +112,7 @@ const ValidatorOnboarding = () => {
         <FormStepper activeStep={activeStep} changeActiveStep={changeActiveStep} />
         <ValidatorBoxWrapper>
           {activeStep === 0 && <Overview />}
-          {activeStep === 1 && <Advisories advisoriesIcons={advisoriesIcon} subStepAdvisories={subStepAdvisories}/>}
+          {activeStep === 1 && <Advisories advisoriesIcons={advisoriesIcon} subStepAdvisories={subStepAdvisories} />}
           {activeStep === 2 && <ClientSetup />}
 
           {activeStep === 3 && subStepValidatorSetup === 0 && <ValidatorSetup />}
