@@ -33,7 +33,10 @@ const ValidatorOnboarding = () => {
   const dispatch = useDispatch()
 
   const changeActiveStep = (step: number) => {
-    setActiveStep(step)
+    if (step < activeStep) {
+      return setActiveStep(step)
+    }
+
     removeCopyPastePhraseInfoBox()
     removeConfirmPhraseStage()
   }
