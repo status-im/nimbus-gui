@@ -178,6 +178,7 @@ type UptimeChartProps = {
   monthlyActivity: number[];
   startMonth: number;
   endMonth: number;
+  withLabels: boolean;
 };
 
 const updateMonthlyValues = (data: any, monthlyActivity: any) => {
@@ -203,7 +204,7 @@ const updateMonthlyValues = (data: any, monthlyActivity: any) => {
   return data;
 }
 
-const UptimeChart = ({ monthlyActivity, startMonth, endMonth }: UptimeChartProps) => {
+const UptimeChart = ({ monthlyActivity, startMonth, endMonth, withLabels }: UptimeChartProps) => {
 
   const updatedData = updateMonthlyValues(data, monthlyActivity);
   console.log(updatedData)
@@ -213,7 +214,7 @@ const UptimeChart = ({ monthlyActivity, startMonth, endMonth }: UptimeChartProps
   return (
     <ResponsiveContainer>
       <BarChart data={filteredData} style={{ backgroundColor: '#F0F2F5' }}>
-        <Bar dataKey="one" barSize={10} fill="#E95460" />
+        <Bar dataKey="one" barSize={withLabels ? 10 : 1} fill="#E95460" />
         <Bar dataKey="two" barSize={10} fill="#E95460" />
         <Bar dataKey="three" barSize={10} fill="#E95460" />
         <Bar dataKey="four" barSize={10} fill="#E95460" />
@@ -223,7 +224,7 @@ const UptimeChart = ({ monthlyActivity, startMonth, endMonth }: UptimeChartProps
         <Bar dataKey="eight" barSize={10} fill="#E95460" />
         <Bar dataKey="nine" barSize={10} fill="#E95460" />
         <Bar dataKey="ten" barSize={10} fill="#E95460" />
-        <XAxis dataKey="name" fontSize={'10px'} tickMargin={10} />
+        {withLabels && <XAxis dataKey="name" fontSize={'10px'} tickMargin={10} />}
       </BarChart>
     </ResponsiveContainer>
   );

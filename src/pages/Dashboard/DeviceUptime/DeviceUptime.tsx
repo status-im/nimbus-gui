@@ -96,7 +96,7 @@ const DeviceUptime = () => {
               height: '100%',
             }}
           >
-            <UptimeChart startMonth={startMonth} endMonth={endMonth} monthlyActivity={[10, 1, 3, 4, 5, 1, 7, 1,6, 3, 1, 9]} />
+            <UptimeChart startMonth={startMonth} endMonth={endMonth} monthlyActivity={[10, 1, 3, 4, 5, 1, 7, 1,6, 3, 1, 9]} withLabels={true}/>
           </Stack>
         </XStack>
       </YStack>
