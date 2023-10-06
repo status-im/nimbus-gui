@@ -28,7 +28,6 @@ const FormStepper = ({ activeStep, changeActiveStep }: FormStepperProps) => {
         width: '100%',
         padding: 0,
         marginBottom: '3rem',
-        fontFamily: 'Inter',
       }}
     >
       {steps.map((step, index) => (
