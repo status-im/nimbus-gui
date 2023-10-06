@@ -28,9 +28,24 @@ const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)
   const [isConfirmPhraseStage, setIsConfirmPhraseStage] = useState(false)
   const [subStepValidatorSetup, setSubStepValidatorSetup] = useState(0)
+
+  const [subStepAdvisories, setSubStepAdvisories] = useState(0);
+
   const { isCopyPastedPhrase, words } = useSelector((state: RootState) => state.keyGeneration)
   const navigate = useNavigate()
   const dispatch = useDispatch()
+
+  const [isAdvisoriesComplete, setIsAdvisoriesComplete] = useState(false)
+  const unicodeNumbers = ['➀', '➁', '➂', '➃', '➄', '➅']
+  const advisoriesIcon = unicodeNumbers.map((number, index) => {
+    if (index <= subStepAdvisories) {
+      return '✓';
+    } else {
+      return number;
+    }
+  })
+
+
 
   const changeActiveStep = (step: number) => {
     if (step < activeStep) {
@@ -42,7 +57,13 @@ const ValidatorOnboarding = () => {
   }
 
   const continueHandler = () => {
-    if (activeStep === 4 && isConfirmPhraseStage === false) {
+    if (activeStep === 1 && isAdvisoriesComplete === false) {
+      if (subStepAdvisories === 5) {
+        setIsAdvisoriesComplete(true)
+        setActiveStep(activeStep + 1)
+      }
+      return setSubStepAdvisories(subStepAdvisories + 1)
+    } else if (activeStep === 4 && isConfirmPhraseStage === false) {
       return setIsConfirmPhraseStage(true)
     } else if (activeStep === 4 && isConfirmPhraseStage === true) {
       const newValidWords = words.map(w => wordlist.includes(w))
@@ -99,7 +120,7 @@ const ValidatorOnboarding = () => {
         <FormStepper activeStep={activeStep} changeActiveStep={changeActiveStep} />
         <ValidatorBoxWrapper>
           {activeStep === 0 && <Overview />}
-          {activeStep === 1 && <Advisories />}
+          {activeStep === 1 && <Advisories advisoriesIcons={advisoriesIcon} subStepAdvisories={subStepAdvisories}/>}
           {activeStep === 2 && <ClientSetup />}
 
           {activeStep === 3 && subStepValidatorSetup === 0 && <ValidatorSetup />}
