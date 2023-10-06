@@ -4,44 +4,10 @@ import { Stack, XStack, YStack } from 'tamagui'
 import UptimeChart from '../UptimeChart/UptimeChart'
 import Icon from '../../../components/General/Icon'
 
-const data: DataItem[] = [
-  {
-    pv: 1,
-    pa: 1,
-  },
-  {
-    pv: 0,
-    pa: 0,
-  },
-  {
-    pv: 1,
-    pa: 0,
-  },
-  {
-    pv: 0,
-    pa: 0,
-  },
-  {
-    pv: 0,
-    pa: 0,
-  },
-  {
-    pv: 1,
-    pa: 1,
-  },
-  {
-    pv: 1,
-    pa: 1,
-  },
-]
-
-type DataItem = {
-  name?: string
-  pa: number
-  pv: number
-}
+ 
 
 const ConsensusUptimeCard = () => {
+  const monthlyActivity = [30,20,50,40,60,70,80,90,100,10,20,30]
   return (
     <Shadow
       variant="$2"
@@ -75,7 +41,7 @@ const ConsensusUptimeCard = () => {
               height: '100%',
             }}
           >
-            <UptimeChart data={data} />
+            <UptimeChart monthlyActivity={monthlyActivity} startMonth={0} endMonth={1} withLabels={false}/>
           </Stack>
         </XStack>
       </YStack>
