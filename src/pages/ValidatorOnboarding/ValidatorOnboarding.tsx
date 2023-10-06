@@ -29,7 +29,7 @@ const ValidatorOnboarding = () => {
   const [isConfirmPhraseStage, setIsConfirmPhraseStage] = useState(false)
   const [subStepValidatorSetup, setSubStepValidatorSetup] = useState(0)
 
-  const [subStepAdvisories, setSubStepAdvisories] = useState(0);
+  const [subStepAdvisories, setSubStepAdvisories] = useState(0)
 
   const { isCopyPastedPhrase, words } = useSelector((state: RootState) => state.keyGeneration)
   const navigate = useNavigate()
@@ -37,7 +37,9 @@ const ValidatorOnboarding = () => {
 
   const [isAdvisoriesComplete, setIsAdvisoriesComplete] = useState(false)
   const unicodeNumbers = ['➀', '➁', '➂', '➃', '➄', '➅']
-  const advisoriesIcon = unicodeNumbers.map((number, index) => index <= subStepAdvisories ? '✓' : number)
+  const advisoriesIcon = unicodeNumbers.map((number, index) =>
+    index <= subStepAdvisories ? '✓' : number,
+  )
 
   const changeActiveStep = (step: number) => {
     if (step < activeStep) {
@@ -112,7 +114,9 @@ const ValidatorOnboarding = () => {
         <FormStepper activeStep={activeStep} changeActiveStep={changeActiveStep} />
         <ValidatorBoxWrapper>
           {activeStep === 0 && <Overview />}
-          {activeStep === 1 && <Advisories advisoriesIcons={advisoriesIcon} subStepAdvisories={subStepAdvisories} />}
+          {activeStep === 1 && (
+            <Advisories advisoriesIcons={advisoriesIcon} subStepAdvisories={subStepAdvisories} />
+          )}
           {activeStep === 2 && <ClientSetup />}
 
           {activeStep === 3 && subStepValidatorSetup === 0 && <ValidatorSetup />}

@@ -1,5 +1,5 @@
 import { Text } from '@status-im/components'
-import { useState, useEffect   } from 'react'
+import { useState, useEffect } from 'react'
 import { Stack, XStack, YStack } from 'tamagui'
 
 import AdvisoriesContent from './AdvisoriesContent'
@@ -19,13 +19,12 @@ const Advisories = ({ advisoriesIcons, subStepAdvisories }: AdvisoriesProps) => 
     setSelectedTitle(Object.keys(advisoryTopics)[subStepAdvisories])
   }, [subStepAdvisories])
 
-
   const isCurrent = (currentTitle: string): boolean => {
-    const topics = Object.keys(advisoryTopics);
-    const index = topics.indexOf(currentTitle);
-    return index <= subStepAdvisories ? true : false;
+    const topics = Object.keys(advisoryTopics)
+    const index = topics.indexOf(currentTitle)
+    return index <= subStepAdvisories ? true : false
   }
- 
+
   return (
     <XStack
       style={{ padding: '30px 33px', justifyContent: 'space-between' }}
