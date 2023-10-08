@@ -25,7 +25,14 @@ const KeystoreFiles = () => {
     setConfirmEncryptedPassword('')
   }
 
-  const downloadKeyFilesHandler = () => {}
+  const downloadKeyFilesHandler = () => {
+    const element = document.createElement('a')
+    const file = new Blob([''], { type: 'text/plain' })
+    element.href = URL.createObjectURL(file)
+    element.download = 'keystore_files.txt'
+    document.body.appendChild(element)
+    element.click()
+  }
 
   return (
     <YStack space={'$4'}>
