@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { KEYSTORE_FILES } from '../../../constants'
 
 type KeyGenerationState = {
   mnemonic: string[]
@@ -6,6 +7,7 @@ type KeyGenerationState = {
   validWords: boolean[]
   generatedMnemonic: string[]
   isConfirmPhraseStage: boolean
+  recoveryMechanism: string
 }
 
 type wordProps = {
@@ -19,6 +21,7 @@ const initialState: KeyGenerationState = {
   validWords: Array(24).fill(true),
   generatedMnemonic: Array(24).fill(''),
   isConfirmPhraseStage: false,
+  recoveryMechanism: KEYSTORE_FILES,
 }
 
 const keyGenerationSlice = createSlice({
@@ -45,6 +48,9 @@ const keyGenerationSlice = createSlice({
     setIsConfirmPhraseStage: (state, action: PayloadAction<boolean>) => {
       state.isConfirmPhraseStage = action.payload
     },
+    setRecoveryMechanism: (state, action: PayloadAction<string>) => {
+      state.recoveryMechanism = action.payload
+    },
   },
 })
 
@@ -55,6 +61,7 @@ export const {
   setValidWords,
   setGeneratedMnemonic,
   setIsConfirmPhraseStage,
+  setRecoveryMechanism,
 } = keyGenerationSlice.actions
 
 export default keyGenerationSlice.reducer
