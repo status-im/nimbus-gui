@@ -50,7 +50,7 @@ const ContinueButton = ({ continueHandler, activeStep, subStepValidatorSetup }: 
       {isActivationValScreen && (
         <LinkWithArrow
           text="Skip to Dashboard"
-          to="/"
+          to="/dashboard"
           arrowRight={true}
           style={{ fontWeight: 'bold', zIndex: 999 }}
         />
