@@ -8,6 +8,8 @@ const KeystoreFiles = () => {
   const [confirmEncryptedPassword, setConfirmEncryptedPassword] = useState('')
   const [encryptedPasswordError, setEncryptedPasswordError] = useState(false)
   const [confirmEncryptedPasswordError, setConfirmEncryptedPasswordError] = useState(false)
+  const [displayEncryptedPassword, setDisplayEncryptedPassword] = useState('')
+  const [displayConfirmEncryptedPassword, setDisplayConfirmEncryptedPassword] = useState('')
 
   const generateKeystoreFilesHandler = () => {
     if (
@@ -25,11 +27,15 @@ const KeystoreFiles = () => {
   }
 
   const changeEncryptedPasswordHandler = (e: any) => {
-    setEncryptedPassword(e.target.value)
+    const password = e.target.value
+    setEncryptedPassword(password)
+    setDisplayEncryptedPassword(getHidedPassword(password.length))
   }
 
   const changeConfirmEncryptedPasswordHandler = (e: any) => {
-    setConfirmEncryptedPassword(e.target.value)
+    const password = e.target.value
+    setConfirmEncryptedPassword(password)
+    setDisplayConfirmEncryptedPassword(getHidedPassword(password.length))
   }
 
   const clearEncryptedPasswordHandler = () => {
@@ -47,6 +53,10 @@ const KeystoreFiles = () => {
     element.download = 'keystore_files.txt'
     document.body.appendChild(element)
     element.click()
+  }
+
+  const getHidedPassword = (passwordLength: number) => {
+    return '*'.repeat(passwordLength)
   }
 
   return (
@@ -68,7 +78,7 @@ const KeystoreFiles = () => {
                 />
               }
               error={encryptedPasswordError}
-              value={encryptedPassword}
+              value={displayEncryptedPassword}
               onChange={changeEncryptedPasswordHandler}
             />
           </YStack>
@@ -87,7 +97,7 @@ const KeystoreFiles = () => {
                 />
               }
               error={confirmEncryptedPasswordError}
-              value={confirmEncryptedPassword}
+              value={displayConfirmEncryptedPassword}
               onChange={changeConfirmEncryptedPasswordHandler}
             />
           </YStack>
