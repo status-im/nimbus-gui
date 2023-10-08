@@ -31,6 +31,15 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
     setIsReveal(state => !state)
   }
 
+  const copyRecoveryPhraseHandler = () => {
+    if (isKeystoreFiles) {
+      return
+    }
+
+    const text = generatedMnemonic.join(' ')
+    navigator.clipboard.writeText(text)
+  }
+
   return (
     <YStack space={'$4'} style={{ width: '100%', marginTop: isKeystoreFiles ? '20px' : '0px' }}>
       <Stack
@@ -42,7 +51,11 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
           width: '100%',
         }}
       >
-        <YStack space={'$2'} style={{ filter: `blur(${isReveal ? '0px' : '4px'})` }}>
+        <YStack
+          space={'$2'}
+          style={{ filter: `blur(${isReveal ? '0px' : '4px'})`, cursor: 'pointer' }}
+          onClick={copyRecoveryPhraseHandler}
+        >
           <XStack
             style={{
               display: 'grid',
