@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 
 import { RootState } from '../../redux/store'
 import LinkWithArrow from '../../components/General/LinkWithArrow'
+import { useEffect, useState } from 'react'
 
 type ContinueButton = {
   continueHandler: () => void
@@ -13,20 +14,25 @@ type ContinueButton = {
 }
 
 const ContinueButton = ({ continueHandler, activeStep, subStepValidatorSetup }: ContinueButton) => {
+  const [isDisabled, setIsDisabled] = useState(false)
   const { isCopyPastedPhrase, mnemonic, validWords, isConfirmPhraseStage } = useSelector(
     (state: RootState) => state.keyGeneration,
   )
   const isActivationValScreen = activeStep === 3 && subStepValidatorSetup === 3
 
-  const isDisabled = () => {
-    if (
-      (isConfirmPhraseStage && mnemonic.some(word => word === '')) ||
-      (isConfirmPhraseStage && validWords.some(w => w === false))
-    ) {
-      return true
+  useEffect(() => {
+    const getDisabledButton = () => {
+      if (activeStep === 4 && isConfirmPhraseStage) {
+        if (mnemonic.some(word => word === '') || validWords.some(w => w === false)) {
+          return false
+        }
+      }
+
+      return false
     }
-    return false
-  }
+
+    setIsDisabled(getDisabledButton())
+  }, [activeStep, subStepValidatorSetup, isConfirmPhraseStage, mnemonic, validWords])
 
   return (
     <XStack
@@ -55,7 +61,7 @@ const ContinueButton = ({ continueHandler, activeStep, subStepValidatorSetup }: 
           style={{ fontWeight: 'bold', zIndex: 999 }}
         />
       )}
-      <Button onPress={continueHandler} size={40} disabled={isDisabled()}>
+      <Button onPress={continueHandler} size={40} disabled={isDisabled}>
         {activeStep < 5 ? 'Continue' : 'Continue to Dashboard'}
       </Button>
     </XStack>
