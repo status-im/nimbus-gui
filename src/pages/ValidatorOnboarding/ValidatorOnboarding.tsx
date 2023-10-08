@@ -23,13 +23,18 @@ import {
 import { RootState } from '../../redux/store'
 import ActivationValidatorSetup from './ValidatorSetup/ValidatorActivation/ActivationValidatorSetup'
 import './layoutGradient.css'
+import { KEYSTORE_FILES } from '../../constants'
 
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)
   const [subStepValidatorSetup, setSubStepValidatorSetup] = useState(0)
-  const { isCopyPastedPhrase, mnemonic, isConfirmPhraseStage, generatedMnemonic } = useSelector(
-    (state: RootState) => state.keyGeneration,
-  )
+  const {
+    isCopyPastedPhrase,
+    mnemonic,
+    isConfirmPhraseStage,
+    generatedMnemonic,
+    recoveryMechanism,
+  } = useSelector((state: RootState) => state.keyGeneration)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -38,7 +43,13 @@ const ValidatorOnboarding = () => {
   }
 
   const continueHandler = async () => {
-    if (activeStep === 4 && isConfirmPhraseStage === false) {
+    if (
+      activeStep === 4 &&
+      isConfirmPhraseStage === false &&
+      recoveryMechanism === KEYSTORE_FILES
+    ) {
+      setActiveStep(activeStep + 1)
+    } else if (activeStep === 4 && isConfirmPhraseStage === false) {
       return dispatch(setIsConfirmPhraseStage(true))
     } else if (activeStep === 4 && isConfirmPhraseStage === true) {
       const newValidWords = mnemonic.map((w, index) => generatedMnemonic[index] === w)
