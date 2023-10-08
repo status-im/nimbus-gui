@@ -42,35 +42,44 @@ const ValidatorOnboarding = () => {
     setActiveStep(step)
   }
 
-  const continueHandler = async () => {
-    if (
-      activeStep === 4 &&
-      isConfirmPhraseStage === false &&
-      recoveryMechanism === KEYSTORE_FILES
-    ) {
-      setActiveStep(activeStep + 1)
-    } else if (activeStep === 4 && isConfirmPhraseStage === false) {
+  const handleStep3 = () => {
+    subStepValidatorSetup < 3
+      ? setSubStepValidatorSetup(subStepValidatorSetup + 1)
+      : setSubStepValidatorSetup(0)
+  }
+
+  const handleStep4 = () => {
+    if (!isConfirmPhraseStage && recoveryMechanism === KEYSTORE_FILES) {
+      return setActiveStep(activeStep + 1)
+    }
+
+    if (!isConfirmPhraseStage) {
       return dispatch(setIsConfirmPhraseStage(true))
-    } else if (activeStep === 4 && isConfirmPhraseStage === true) {
+    }
+
+    if (isConfirmPhraseStage) {
       const newValidWords = mnemonic.map((w, index) => generatedMnemonic[index] === w)
       dispatch(setValidWords(newValidWords))
 
-      if (newValidWords.some(w => w === false)) {
-        return
+      if (!newValidWords.includes(false)) {
+        setActiveStep(activeStep + 1)
+        removeCopyPastePhraseInfoBox()
+        dispatch(setIsConfirmPhraseStage(false))
       }
+    }
+  }
 
-      setActiveStep(activeStep + 1)
-      removeCopyPastePhraseInfoBox()
-      dispatch(setIsConfirmPhraseStage(false))
-    } else if (activeStep === 3 && subStepValidatorSetup < 3) {
-      setSubStepValidatorSetup(subStepValidatorSetup + 1)
-    } else if (activeStep < 5) {
-      setActiveStep(activeStep + 1)
-      if (activeStep === 3 && subStepValidatorSetup === 2) {
-        setSubStepValidatorSetup(0)
-      }
+  const continueHandler = () => {
+    if (activeStep === 3) {
+      handleStep3()
+    } else if (activeStep === 4) {
+      handleStep4()
     } else {
-      navigate('/')
+      if (activeStep < 5) {
+        setActiveStep(activeStep + 1)
+      } else {
+        navigate('/')
+      }
     }
   }
 
