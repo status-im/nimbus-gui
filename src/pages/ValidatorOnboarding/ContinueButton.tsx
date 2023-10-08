@@ -2,10 +2,10 @@ import { Stack, XStack } from 'tamagui'
 import { Button, InformationBox } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
 import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
 
 import { RootState } from '../../redux/store'
 import LinkWithArrow from '../../components/General/LinkWithArrow'
-import { useEffect, useState } from 'react'
 
 type ContinueButton = {
   continueHandler: () => void
