@@ -34,8 +34,6 @@ const ValidatorOnboarding = () => {
 
   const changeActiveStep = (step: number) => {
     setActiveStep(step)
-    removeCopyPastePhraseInfoBox()
-    removeConfirmPhraseStage()
   }
 
   const continueHandler = () => {
@@ -47,6 +45,8 @@ const ValidatorOnboarding = () => {
 
       if (newValidWords.every(w => w === true)) {
         setActiveStep(activeStep + 1)
+        removeCopyPastePhraseInfoBox()
+        removeConfirmPhraseStage()
       } else {
         return
       }
@@ -60,9 +60,6 @@ const ValidatorOnboarding = () => {
     } else {
       navigate('/')
     }
-
-    removeCopyPastePhraseInfoBox()
-    removeConfirmPhraseStage()
   }
 
   const removeCopyPastePhraseInfoBox = () => {
