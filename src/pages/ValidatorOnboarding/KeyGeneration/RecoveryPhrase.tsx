@@ -4,6 +4,10 @@ import { CloseCircleIcon } from '@status-im/icons'
 import { useEffect, useState } from 'react'
 import { generateMnemonic } from 'web-bip39'
 import wordlist from 'web-bip39/wordlists/english'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { RootState } from '../../../redux/store'
+import { setGeneratedMnemonic } from '../../../redux/ValidatorOnboarding/KeyGeneration/slice'
 
 type RecoveryPhraseProps = {
   isKeystoreFiles: boolean
@@ -11,7 +15,8 @@ type RecoveryPhraseProps = {
 
 const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
   const [isReveal, setIsReveal] = useState(false)
-  const [generatedMnemonic, setGeneratedMnemonic] = useState('')
+  const { generatedMnemonic } = useSelector((state: RootState) => state.keyGeneration)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     getMnemonic()
@@ -19,7 +24,7 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
 
   const getMnemonic = async () => {
     const mnemonic = await generateMnemonic(wordlist, 256)
-    setGeneratedMnemonic(mnemonic)
+    dispatch(setGeneratedMnemonic(mnemonic.split(' ')))
   }
 
   const revealHandler = () => {
@@ -45,7 +50,7 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
               gap: '5px 0px',
             }}
           >
-            {generatedMnemonic.split(' ').map((word, index) => (
+            {generatedMnemonic.map((word, index) => (
               <Text key={index} size={19} weight={'semibold'}>
                 {word}
               </Text>
