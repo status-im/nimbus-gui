@@ -18,7 +18,7 @@ type AutocompleteInputProps = {
 const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
   const [suggestions, setSuggestions] = useState<string[]>([])
   const [isFocused, setIsFocused] = useState(false)
-  const word = useSelector((state: RootState) => state.keyGeneration.words[index])
+  const word = useSelector((state: RootState) => state.keyGeneration.mnemonic[index])
   const isValidWord = useSelector((state: RootState) => state.keyGeneration.validWords[index])
   const validWords = useSelector((state: RootState) => state.keyGeneration.validWords)
   const dispatch = useDispatch()

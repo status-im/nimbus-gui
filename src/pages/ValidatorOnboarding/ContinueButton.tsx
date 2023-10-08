@@ -15,13 +15,13 @@ type ContinueButton = {
 }
 
 const ContinueButton = ({ continueHandler, activeStep, subStepValidatorSetup }: ContinueButton) => {
-  const { isCopyPastedPhrase, isRightPhrase, words, validWords, isConfirmPhraseStage } =
+  const { isCopyPastedPhrase, isRightPhrase, mnemonic, validWords, isConfirmPhraseStage } =
     useSelector((state: RootState) => state.keyGeneration)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(setIsRightPhrase(words.every(word => word !== '')))
-  }, [words])
+    dispatch(setIsRightPhrase(mnemonic.every(word => word !== '')))
+  }, [mnemonic])
 
   const isDisabled = () => {
     if (

@@ -27,7 +27,7 @@ import './layoutGradient.css'
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)
   const [subStepValidatorSetup, setSubStepValidatorSetup] = useState(0)
-  const { isCopyPastedPhrase, words, isConfirmPhraseStage, generatedMnemonic } = useSelector(
+  const { isCopyPastedPhrase, mnemonic, isConfirmPhraseStage, generatedMnemonic } = useSelector(
     (state: RootState) => state.keyGeneration,
   )
   const navigate = useNavigate()
@@ -41,7 +41,7 @@ const ValidatorOnboarding = () => {
     if (activeStep === 4 && isConfirmPhraseStage === false) {
       return dispatch(setIsConfirmPhraseStage(true))
     } else if (activeStep === 4 && isConfirmPhraseStage === true) {
-      const newValidWords = words.map((w, index) => generatedMnemonic[index] === w)
+      const newValidWords = mnemonic.map((w, index) => generatedMnemonic[index] === w)
       dispatch(setValidWords(newValidWords))
 
       if (newValidWords.some(w => w === false)) {
