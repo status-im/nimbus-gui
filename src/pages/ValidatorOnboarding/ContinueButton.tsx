@@ -1,11 +1,9 @@
 import { Stack, YStack } from 'tamagui'
 import { Button, InformationBox } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
-import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 
 import { RootState } from '../../redux/store'
-import { setIsRightPhrase } from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
 import LinkWithArrow from '../../components/General/LinkWithArrow'
 
 type ContinueButton = {
@@ -15,17 +13,13 @@ type ContinueButton = {
 }
 
 const ContinueButton = ({ continueHandler, activeStep, subStepValidatorSetup }: ContinueButton) => {
-  const { isCopyPastedPhrase, isRightPhrase, mnemonic, validWords, isConfirmPhraseStage } =
-    useSelector((state: RootState) => state.keyGeneration)
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(setIsRightPhrase(mnemonic.every(word => word !== '')))
-  }, [mnemonic])
+  const { isCopyPastedPhrase, mnemonic, validWords, isConfirmPhraseStage } = useSelector(
+    (state: RootState) => state.keyGeneration,
+  )
 
   const isDisabled = () => {
     if (
-      (isConfirmPhraseStage && !isRightPhrase) ||
+      (isConfirmPhraseStage && mnemonic.some(word => word === '')) ||
       (isConfirmPhraseStage && validWords.some(w => w === false))
     ) {
       return true
