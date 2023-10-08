@@ -2,7 +2,6 @@ import { YStack } from 'tamagui'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import wordlist from 'web-bip39/wordlists/english'
 
 import FormStepper from './FormStepper/FormStepper'
 import Titles from '../../components/General/Titles'
@@ -28,7 +27,7 @@ import './layoutGradient.css'
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)
   const [subStepValidatorSetup, setSubStepValidatorSetup] = useState(0)
-  const { isCopyPastedPhrase, words, isConfirmPhraseStage } = useSelector(
+  const { isCopyPastedPhrase, words, isConfirmPhraseStage, generatedMnemonic } = useSelector(
     (state: RootState) => state.keyGeneration,
   )
   const navigate = useNavigate()
@@ -38,20 +37,20 @@ const ValidatorOnboarding = () => {
     setActiveStep(step)
   }
 
-  const continueHandler = () => {
+  const continueHandler = async () => {
     if (activeStep === 4 && isConfirmPhraseStage === false) {
       return dispatch(setIsConfirmPhraseStage(true))
     } else if (activeStep === 4 && isConfirmPhraseStage === true) {
-      const newValidWords = words.map(w => wordlist.includes(w))
+      const newValidWords = words.map((w, index) => generatedMnemonic[index] === w)
       dispatch(setValidWords(newValidWords))
 
-      if (newValidWords.every(w => w === true)) {
-        setActiveStep(activeStep + 1)
-        removeCopyPastePhraseInfoBox()
-        dispatch(setIsConfirmPhraseStage(false))
-      } else {
+      if (newValidWords.some(w => w === false)) {
         return
       }
+
+      setActiveStep(activeStep + 1)
+      removeCopyPastePhraseInfoBox()
+      dispatch(setIsConfirmPhraseStage(false))
     } else if (activeStep === 3 && subStepValidatorSetup < 3) {
       setSubStepValidatorSetup(subStepValidatorSetup + 1)
     } else if (activeStep < 5) {
