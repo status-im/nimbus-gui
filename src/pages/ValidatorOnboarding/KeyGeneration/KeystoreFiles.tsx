@@ -6,8 +6,23 @@ import { useState } from 'react'
 const KeystoreFiles = () => {
   const [encryptedPassword, setEncryptedPassword] = useState('')
   const [confirmEncryptedPassword, setConfirmEncryptedPassword] = useState('')
+  const [encryptedPasswordError, setEncryptedPasswordError] = useState(false)
+  const [confirmEncryptedPasswordError, setConfirmEncryptedPasswordError] = useState(false)
 
-  const generateKeystoreFilesHandler = () => {}
+  const generateKeystoreFilesHandler = () => {
+    if (
+      encryptedPassword !== confirmEncryptedPassword ||
+      encryptedPassword === '' ||
+      confirmEncryptedPassword === ''
+    ) {
+      setEncryptedPasswordError(true)
+      setConfirmEncryptedPasswordError(true)
+      return
+    }
+
+    setEncryptedPasswordError(false)
+    setConfirmEncryptedPasswordError(false)
+  }
 
   const changeEncryptedPasswordHandler = (e: any) => {
     setEncryptedPassword(e.target.value)
@@ -52,6 +67,7 @@ const KeystoreFiles = () => {
                   onClick={clearEncryptedPasswordHandler}
                 />
               }
+              error={encryptedPasswordError}
               value={encryptedPassword}
               onChange={changeEncryptedPasswordHandler}
             />
@@ -70,6 +86,7 @@ const KeystoreFiles = () => {
                   onClick={clearConfirmEncryptedPasswordHandler}
                 />
               }
+              error={confirmEncryptedPasswordError}
               value={confirmEncryptedPassword}
               onChange={changeConfirmEncryptedPasswordHandler}
             />
