@@ -6,6 +6,7 @@ type KeyGenerationState = {
   isRightPhrase: boolean
   validWords: boolean[]
   generatedMnemonic: string[]
+  isConfirmPhraseStage: boolean
 }
 
 type wordProps = {
@@ -19,6 +20,7 @@ const initialState: KeyGenerationState = {
   isRightPhrase: false,
   validWords: Array(24).fill(true),
   generatedMnemonic: Array(24).fill(''),
+  isConfirmPhraseStage: false,
 }
 
 const keyGenerationSlice = createSlice({
@@ -45,6 +47,9 @@ const keyGenerationSlice = createSlice({
     setGeneratedMnemonic: (state, action: PayloadAction<string[]>) => {
       state.generatedMnemonic = action.payload
     },
+    setIsConfirmPhraseStage: (state, action: PayloadAction<boolean>) => {
+      state.isConfirmPhraseStage = action.payload
+    },
   },
 })
 
@@ -55,6 +60,7 @@ export const {
   setIsRightPhrase,
   setValidWords,
   setGeneratedMnemonic,
+  setIsConfirmPhraseStage,
 } = keyGenerationSlice.actions
 
 export default keyGenerationSlice.reducer
