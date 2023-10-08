@@ -20,7 +20,7 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
   const [isFocused, setIsFocused] = useState(false)
   const word = useSelector((state: RootState) => state.keyGeneration.mnemonic[index])
   const isValidWord = useSelector((state: RootState) => state.keyGeneration.validWords[index])
-  const validWords = useSelector((state: RootState) => state.keyGeneration.validWords)
+  const { validWords, generatedMnemonic } = useSelector((state: RootState) => state.keyGeneration)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -43,20 +43,20 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
 
     if (mnemonicLength === 1) {
       dispatch(setWord({ index, word: value }))
-
-      newValidWords[index] = wordlist.includes(value) || getNewSuggestions(value).length > 0
+      newValidWords[index] =
+        generatedMnemonic[index] === value || generatedMnemonic[index].startsWith(value)
     } else if (mnemonicLength === 24) {
       dispatch(setMnemonic(mnemonic))
       dispatch(setIsCopyPastedPhrase(true))
 
       mnemonic.forEach((m, i) => {
-        newValidWords[i] = wordlist.includes(m)
+        newValidWords[i] = generatedMnemonic[i] === m
       })
     } else {
       for (let i = index; i < mnemonicLength + index; i++) {
         const mnemonicWord = mnemonic.shift() || ''
         dispatch(setWord({ index: i, word: mnemonicWord }))
-        newValidWords[i] = wordlist.includes(mnemonicWord)
+        newValidWords[i] = generatedMnemonic[i] === mnemonicWord
       }
 
       dispatch(setIsCopyPastedPhrase(true))
@@ -72,7 +72,7 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
     dispatch(setWord({ index, word: suggestion }))
 
     let newValidWords = [...validWords]
-    newValidWords[index] = wordlist.includes(suggestion)
+    newValidWords[index] = generatedMnemonic[index] === suggestion
     dispatch(setValidWords(newValidWords))
   }
 
@@ -84,7 +84,7 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
     setIsFocused(false)
 
     let newValidWords = [...validWords]
-    newValidWords[index] = wordlist.includes(word)
+    newValidWords[index] = generatedMnemonic[index] === word
     dispatch(setValidWords(newValidWords))
   }
 
