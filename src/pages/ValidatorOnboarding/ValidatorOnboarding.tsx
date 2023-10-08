@@ -17,6 +17,7 @@ import ValidatorSetup from './ValidatorSetup/ValidatorSetup/ValidatorSetup'
 import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstalling/ValidatorInstall'
 import ContinueButton from './ContinueButton'
 import {
+  setIsConfirmPhraseStage,
   setIsCopyPastedPhrase,
   setValidWords,
 } from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
@@ -26,9 +27,10 @@ import './layoutGradient.css'
 
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)
-  const [isConfirmPhraseStage, setIsConfirmPhraseStage] = useState(false)
   const [subStepValidatorSetup, setSubStepValidatorSetup] = useState(0)
-  const { isCopyPastedPhrase, words } = useSelector((state: RootState) => state.keyGeneration)
+  const { isCopyPastedPhrase, words, isConfirmPhraseStage } = useSelector(
+    (state: RootState) => state.keyGeneration,
+  )
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -38,7 +40,7 @@ const ValidatorOnboarding = () => {
 
   const continueHandler = () => {
     if (activeStep === 4 && isConfirmPhraseStage === false) {
-      return setIsConfirmPhraseStage(true)
+      return dispatch(setIsConfirmPhraseStage(true))
     } else if (activeStep === 4 && isConfirmPhraseStage === true) {
       const newValidWords = words.map(w => wordlist.includes(w))
       dispatch(setValidWords(newValidWords))
@@ -46,7 +48,7 @@ const ValidatorOnboarding = () => {
       if (newValidWords.every(w => w === true)) {
         setActiveStep(activeStep + 1)
         removeCopyPastePhraseInfoBox()
-        removeConfirmPhraseStage()
+        dispatch(setIsConfirmPhraseStage(false))
       } else {
         return
       }
@@ -65,12 +67,6 @@ const ValidatorOnboarding = () => {
   const removeCopyPastePhraseInfoBox = () => {
     if (isCopyPastedPhrase) {
       dispatch(setIsCopyPastedPhrase(false))
-    }
-  }
-
-  const removeConfirmPhraseStage = () => {
-    if (isConfirmPhraseStage) {
-      setIsConfirmPhraseStage(false)
     }
   }
 
@@ -128,7 +124,6 @@ const ValidatorOnboarding = () => {
         <ContinueButton
           activeStep={activeStep}
           continueHandler={continueHandler}
-          isConfirmPhraseStage={isConfirmPhraseStage}
           subStepValidatorSetup={subStepValidatorSetup}
         />
       </YStack>

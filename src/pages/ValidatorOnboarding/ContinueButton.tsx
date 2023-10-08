@@ -11,19 +11,12 @@ import LinkWithArrow from '../../components/General/LinkWithArrow'
 type ContinueButton = {
   continueHandler: () => void
   activeStep: number
-  isConfirmPhraseStage: boolean
   subStepValidatorSetup: number
 }
 
-const ContinueButton = ({
-  continueHandler,
-  activeStep,
-  isConfirmPhraseStage,
-  subStepValidatorSetup,
-}: ContinueButton) => {
-  const { isCopyPastedPhrase, isRightPhrase, words, validWords } = useSelector(
-    (state: RootState) => state.keyGeneration,
-  )
+const ContinueButton = ({ continueHandler, activeStep, subStepValidatorSetup }: ContinueButton) => {
+  const { isCopyPastedPhrase, isRightPhrase, words, validWords, isConfirmPhraseStage } =
+    useSelector((state: RootState) => state.keyGeneration)
   const dispatch = useDispatch()
 
   useEffect(() => {
