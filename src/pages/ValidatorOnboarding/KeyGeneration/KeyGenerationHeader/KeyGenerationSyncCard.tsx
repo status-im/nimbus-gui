@@ -22,7 +22,7 @@ const KeyGenerationSyncCard = ({ synced, total, title, color }: KeyGenerationSyn
   }
 
   if (isOpen === false) {
-    return
+    return null
   }
 
   return (
