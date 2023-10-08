@@ -22,8 +22,8 @@ import {
 } from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
 import { RootState } from '../../redux/store'
 import ActivationValidatorSetup from './ValidatorSetup/ValidatorActivation/ActivationValidatorSetup'
-import './layoutGradient.css'
 import { KEYSTORE_FILES } from '../../constants'
+import './layoutGradient.css'
 
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)

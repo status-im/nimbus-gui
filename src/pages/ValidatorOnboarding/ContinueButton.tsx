@@ -23,11 +23,10 @@ const ContinueButton = ({ continueHandler, activeStep, subStepValidatorSetup }: 
   useEffect(() => {
     const getDisabledButton = () => {
       if (activeStep === 4 && isConfirmPhraseStage) {
-        if (mnemonic.some(word => word === '') || validWords.some(w => w === false)) {
+        if (validWords.some(w => w === false)) {
           return false
         }
       }
-
       return false
     }
 
