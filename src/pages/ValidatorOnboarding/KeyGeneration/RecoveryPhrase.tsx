@@ -54,7 +54,9 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
         </YStack>
       </Stack>
       <Stack style={{ width: 'fit-content', marginBottom: '12px' }}>
-        <Button onPress={revealHandler}>Reveal Recovery Phrase</Button>
+        <Button onPress={revealHandler}>
+          {isReveal ? 'Hide Recovery Phrase' : 'Reveal Recovery Phrase'}
+        </Button>
       </Stack>
       <InformationBox
         message="Write down and keep your Secret Recovery Phrase in a secure place. Make sure no one is looking at your screen."
