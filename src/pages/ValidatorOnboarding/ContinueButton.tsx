@@ -11,6 +11,7 @@ type ContinueButton = {
   activeStep: number
   isConfirmPhraseStage: boolean
   subStepValidatorSetup: number
+  isValidatorSet?: boolean
 }
 
 const ContinueButton = ({
@@ -18,6 +19,7 @@ const ContinueButton = ({
   activeStep,
   isConfirmPhraseStage,
   subStepValidatorSetup,
+  isValidatorSet
 }: ContinueButton) => {
   const { isCopyPastedPhrase, words, validWords } = useSelector(
     (state: RootState) => state.keyGeneration,
@@ -68,7 +70,7 @@ const ContinueButton = ({
           alignItems: 'end',
         }}
       >
-        <Button onPress={continueHandler} size={40} disabled={isDisabled()}>
+        <Button onPress={continueHandler} size={40} disabled={isDisabled() || (isValidatorSet === false && activeStep === 3)}>
           {activeStep < 6 ? 'Continue' : 'Continue to Dashboard'}
         </Button>
       </Stack>

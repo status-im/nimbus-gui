@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Separator, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 
@@ -6,14 +6,20 @@ import WithdrawalAddress from './WithdrawalAddress'
 import LinkWithArrow from '../../../components/General/LinkWithArrow'
 import ValidatorsMenuWithPrice from '../../../components/General/ValidatorsMenuWithPrice'
 import { CLIENT_SETUP_SUBTITLE } from '../../../constants'
-
-const ClientSetup = () => {
+type ClientSetupProps = {
+  setIsValidatorSet: (value: boolean) => void
+}
+const ClientSetup = ({ setIsValidatorSet }: ClientSetupProps) => {
   const [validatorCount, setValidatorCount] = useState(0)
+  useEffect(() => {
+    setIsValidatorSet(validatorCount > 0)
+  }, [validatorCount])
 
   const changeValidatorCountHandler = (value: string) => {
     const numberValue = Number(value)
     if (!isNaN(numberValue)) {
       setValidatorCount(numberValue)
+
     }
   }
 

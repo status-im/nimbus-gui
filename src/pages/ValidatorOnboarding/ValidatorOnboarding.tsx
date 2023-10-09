@@ -33,6 +33,8 @@ const ValidatorOnboarding = () => {
 
   const [subStepAdvisories, setSubStepAdvisories] = useState(0)
 
+  const [isValidatorSet, setIsValidatorSet] = useState(false)
+
   const { isCopyPastedPhrase, words } = useSelector((state: RootState) => state.keyGeneration)
   const { isWalletConnected } = useSelector((state: RootState) => state.deposit)
   const navigate = useNavigate()
@@ -127,7 +129,7 @@ const ValidatorOnboarding = () => {
           {activeStep === 2 && subStepValidatorSetup === 1 && <ValidatorSetupInstall />}
           {activeStep === 2 && subStepValidatorSetup === 2 && <ConsensusSelection />}
           {activeStep === 2 && subStepValidatorSetup === 3 && <ActivationValidatorSetup />}
-          {activeStep === 3 && <ClientSetup />}
+          {activeStep === 3 && <ClientSetup setIsValidatorSet={setIsValidatorSet}/>}
 
           {activeStep === 4 && <KeyGeneration isConfirmPhraseStage={isConfirmPhraseStage} />}
           {activeStep === 5 && <Deposit />}
@@ -159,6 +161,7 @@ const ValidatorOnboarding = () => {
           continueHandler={continueHandler}
           isConfirmPhraseStage={isConfirmPhraseStage}
           subStepValidatorSetup={subStepValidatorSetup}
+          isValidatorSet={isValidatorSet}
         />
       </YStack>
     </div>
