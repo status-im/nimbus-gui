@@ -10,6 +10,13 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  argTypes: {
+    recoveryMechanism: {
+      options: [RECOVERY_PHRASE, KEYSTORE_FILES, BOTH_KEY_AND_RECOVERY],
+      control: { type: 'radio' },
+      defaultValue: KEYSTORE_FILES,
+    },
+  },
 } satisfies Meta<typeof RecoveryMechanism>
 
 export default meta
