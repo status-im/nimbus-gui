@@ -18,8 +18,7 @@ const KeystoreFiles = () => {
       confirmEncryptedPassword === ''
     ) {
       setEncryptedPasswordError(true)
-      setConfirmEncryptedPasswordError(true)
-      return
+      return setConfirmEncryptedPasswordError(true)
     }
 
     setEncryptedPasswordError(false)
@@ -36,14 +35,6 @@ const KeystoreFiles = () => {
     const password = e.target.value
     setConfirmEncryptedPassword(password)
     setDisplayConfirmEncryptedPassword(getHidedPassword(password.length))
-  }
-
-  const clearEncryptedPasswordHandler = () => {
-    setEncryptedPassword('')
-  }
-
-  const clearConfirmEncryptedPasswordHandler = () => {
-    setConfirmEncryptedPassword('')
   }
 
   const downloadKeyFilesHandler = () => {
@@ -74,7 +65,7 @@ const KeystoreFiles = () => {
                   size={16}
                   color="#A1ABBD"
                   style={{ cursor: 'pointer' }}
-                  onClick={clearEncryptedPasswordHandler}
+                  onClick={() => setEncryptedPassword('')}
                 />
               }
               error={encryptedPasswordError}
@@ -93,7 +84,7 @@ const KeystoreFiles = () => {
                   size={16}
                   color="#A1ABBD"
                   style={{ cursor: 'pointer' }}
-                  onClick={clearConfirmEncryptedPasswordHandler}
+                  onClick={() => setConfirmEncryptedPassword('')}
                 />
               }
               error={confirmEncryptedPasswordError}
