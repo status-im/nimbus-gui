@@ -19,7 +19,6 @@ const ClientSetup = ({ setIsValidatorSet }: ClientSetupProps) => {
     const numberValue = Number(value)
     if (!isNaN(numberValue)) {
       setValidatorCount(numberValue)
-
     }
   }
 

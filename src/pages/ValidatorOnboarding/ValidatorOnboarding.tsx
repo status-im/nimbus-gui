@@ -129,7 +129,7 @@ const ValidatorOnboarding = () => {
           {activeStep === 2 && subStepValidatorSetup === 1 && <ValidatorSetupInstall />}
           {activeStep === 2 && subStepValidatorSetup === 2 && <ConsensusSelection />}
           {activeStep === 2 && subStepValidatorSetup === 3 && <ActivationValidatorSetup />}
-          {activeStep === 3 && <ClientSetup setIsValidatorSet={setIsValidatorSet}/>}
+          {activeStep === 3 && <ClientSetup setIsValidatorSet={setIsValidatorSet} />}
 
           {activeStep === 4 && <KeyGeneration isConfirmPhraseStage={isConfirmPhraseStage} />}
           {activeStep === 5 && <Deposit />}
