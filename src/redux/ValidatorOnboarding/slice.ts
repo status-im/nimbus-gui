@@ -1,15 +1,28 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-type ValidatorOnboardingState = {}
+type ValidatorOnboardingState = {
+  activeStep: number
+  subStepValidatorSetup: number
+}
 
-const initialState: ValidatorOnboardingState = {}
+const initialState: ValidatorOnboardingState = {
+  activeStep: 0,
+  subStepValidatorSetup: 0,
+}
 
 const validatorOnboardingSlice = createSlice({
   name: 'validatorOnboarding',
   initialState,
-  reducers: {},
+  reducers: {
+    setActiveStep(state, action: PayloadAction<number>) {
+      state.activeStep = action.payload
+    },
+    setSubStepValidatorSetup(state, action: PayloadAction<number>) {
+      state.subStepValidatorSetup = action.payload
+    },
+  },
 })
 
-export const {} = validatorOnboardingSlice.actions
+export const { setActiveStep, setSubStepValidatorSetup } = validatorOnboardingSlice.actions
 
 export default validatorOnboardingSlice.reducer
