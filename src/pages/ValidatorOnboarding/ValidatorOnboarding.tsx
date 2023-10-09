@@ -2,7 +2,13 @@ import { YStack } from 'tamagui'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import wordlist from 'web-bip39/wordlists/english'
 
+import {
+  setIsCopyPastedPhrase,
+  setValidWords,
+} from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
+import { RootState } from '../../redux/store'
 import FormStepper from './FormStepper/FormStepper'
 import Titles from '../../components/General/Titles'
 import Overview from './Overview/Overview'
@@ -15,14 +21,10 @@ import Advisories from './Advisories/Advisories'
 import ValidatorSetup from './ValidatorSetup/ValidatorSetup/ValidatorSetup'
 import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstalling/ValidatorInstall'
 import ContinueButton from './ContinueButton'
-import {
-  setIsCopyPastedPhrase,
-  setValidWords,
-} from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
-import { RootState } from '../../redux/store'
-import './layoutGradient.css'
 import ActivationValidatorSetup from './ValidatorSetup/ValidatorActivation/ActivationValidatorSetup'
-import wordlist from 'web-bip39/wordlists/english'
+import Deposit from './Deposit/Deposit'
+import { setIsTransactionConfirmation } from '../../redux/ValidatorOnboarding/Deposit/slice'
+import './layoutGradient.css'
 
 const ValidatorOnboarding = () => {
   const [activeStep, setActiveStep] = useState(0)
@@ -32,6 +34,7 @@ const ValidatorOnboarding = () => {
   const [subStepAdvisories, setSubStepAdvisories] = useState(0)
 
   const { isCopyPastedPhrase, words } = useSelector((state: RootState) => state.keyGeneration)
+  const { isWalletConnected } = useSelector((state: RootState) => state.deposit)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -70,7 +73,9 @@ const ValidatorOnboarding = () => {
       }
     } else if (activeStep === 3 && subStepValidatorSetup < 3) {
       setSubStepValidatorSetup(subStepValidatorSetup + 1)
-    } else if (activeStep < 5) {
+    } else if (isWalletConnected && activeStep === 5) {
+      dispatch(setIsTransactionConfirmation(true))
+    } else if (activeStep < 6) {
       setActiveStep(activeStep + 1)
       if (activeStep === 3 && subStepValidatorSetup === 2) {
         setSubStepValidatorSetup(0)
@@ -125,7 +130,8 @@ const ValidatorOnboarding = () => {
           {activeStep === 3 && <ClientSetup />}
 
           {activeStep === 4 && <KeyGeneration isConfirmPhraseStage={isConfirmPhraseStage} />}
-          {activeStep === 5 && (
+          {activeStep === 5 && <Deposit />}
+          {activeStep === 6 && (
             <Activation
               validatorsValue="4"
               executionSyncStatus1={{

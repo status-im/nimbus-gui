@@ -1,11 +1,9 @@
 import { Stack, YStack } from 'tamagui'
 import { Button, InformationBox } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
-import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 
 import { RootState } from '../../redux/store'
-import { setIsRightPhrase } from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
 import LinkWithArrow from '../../components/General/LinkWithArrow'
 
 type ContinueButton = {
@@ -21,26 +19,28 @@ const ContinueButton = ({
   isConfirmPhraseStage,
   subStepValidatorSetup,
 }: ContinueButton) => {
-  const { isCopyPastedPhrase, isRightPhrase, words, validWords } = useSelector(
+  const { isCopyPastedPhrase, words, validWords } = useSelector(
     (state: RootState) => state.keyGeneration,
   )
-  const dispatch = useDispatch()
+  const { isWalletConnected } = useSelector((state: RootState) => state.deposit)
 
-  useEffect(() => {
-    dispatch(setIsRightPhrase(words.every(word => word !== '')))
-  }, [words])
+  const isActivationValidatorScreen = activeStep === 3 && subStepValidatorSetup === 3
 
   const isDisabled = () => {
-    if (
-      (isConfirmPhraseStage && !isRightPhrase) ||
-      (isConfirmPhraseStage && validWords.some(w => w === false))
-    ) {
+    const isDepositWalletConnected = isWalletConnected === false && activeStep === 5
+    let isEmptyPhrase = false
+    let isNotValidWords = false
+
+    if (isConfirmPhraseStage) {
+      isEmptyPhrase = words.some(word => word === '')
+      isNotValidWords = validWords.every(word => word === false)
+    }
+
+    if (isEmptyPhrase || isNotValidWords || isDepositWalletConnected) {
       return true
     }
     return false
   }
-
-  const isActivationValScreen = activeStep === 3 && subStepValidatorSetup === 3
 
   return (
     <YStack style={{ width: '100%', alignItems: 'center', zIndex: 999, marginTop: '30px' }}>
@@ -52,7 +52,7 @@ const ContinueButton = ({
             icon={<CloseCircleIcon size={20} />}
           />
         )}
-        {isActivationValScreen && (
+        {isActivationValidatorScreen && (
           <LinkWithArrow
             text="Skip to Dashboard"
             to="/"
@@ -69,7 +69,7 @@ const ContinueButton = ({
         }}
       >
         <Button onPress={continueHandler} size={40} disabled={isDisabled()}>
-          {activeStep < 5 ? 'Continue' : 'Continue to Dashboard'}
+          {activeStep < 6 ? 'Continue' : 'Continue to Dashboard'}
         </Button>
       </Stack>
     </YStack>

@@ -1,4 +1,5 @@
 import { Stepper, Step } from 'react-form-stepper'
+
 import './FormStepper.css'
 
 type FormStepperProps = {
@@ -12,6 +13,7 @@ const steps = [
   { label: 'Client Setup', subtitle: 'Execution & Consensus' },
   { label: 'Validator Setup', subtitle: 'Validators & Withdrawal' },
   { label: 'Key Generation', subtitle: 'Secure your Keypairs' },
+  { label: 'Deposit', subtitle: 'Stake your ETH' },
   { label: 'Activation', subtitle: 'Complete Setup' },
 ]
 
@@ -24,7 +26,7 @@ const FormStepper = ({ activeStep, changeActiveStep }: FormStepperProps) => {
       connectorStyleConfig={customConnectorStyle}
       style={{
         fontSize: '14px',
-        zIndex: 999,
+        zIndex: 1,
         width: '100%',
         padding: 0,
         marginBottom: '3rem',
