@@ -1,23 +1,35 @@
 import { Stack, XStack } from 'tamagui'
 import { Button, InformationBox } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { RootState } from '../../redux/store'
 import LinkWithArrow from '../../components/General/LinkWithArrow'
+import { setActiveStep, setSubStepValidatorSetup } from '../../redux/ValidatorOnboarding/slice'
+import { KEYSTORE_FILES } from '../../constants'
+import {
+  setIsConfirmPhraseStage,
+  setIsCopyPastedPhrase,
+  setValidWords,
+} from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
 
-type ContinueButton = {
-  continueHandler: () => void
-  activeStep: number
-  subStepValidatorSetup: number
-}
-
-const ContinueButton = ({ continueHandler, activeStep, subStepValidatorSetup }: ContinueButton) => {
+const ContinueButton = () => {
   const [isDisabled, setIsDisabled] = useState(false)
-  const { isCopyPastedPhrase, mnemonic, validWords, isConfirmPhraseStage } = useSelector(
-    (state: RootState) => state.keyGeneration,
+  const {
+    isCopyPastedPhrase,
+    mnemonic,
+    validWords,
+    isConfirmPhraseStage,
+    recoveryMechanism,
+    generatedMnemonic,
+  } = useSelector((state: RootState) => state.keyGeneration)
+  const { activeStep, subStepValidatorSetup } = useSelector(
+    (state: RootState) => state.validatorOnboarding,
   )
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const isActivationValScreen = activeStep === 3 && subStepValidatorSetup === 3
 
   useEffect(() => {
@@ -32,6 +44,49 @@ const ContinueButton = ({ continueHandler, activeStep, subStepValidatorSetup }: 
 
     setIsDisabled(getDisabledButton())
   }, [activeStep, subStepValidatorSetup, isConfirmPhraseStage, mnemonic, validWords])
+
+  const handleStep3 = () => {
+    subStepValidatorSetup < 3
+      ? dispatch(setSubStepValidatorSetup(subStepValidatorSetup + 1))
+      : dispatch(setSubStepValidatorSetup(0))
+  }
+
+  const handleStep4 = () => {
+    if (!isConfirmPhraseStage && recoveryMechanism === KEYSTORE_FILES) {
+      return dispatch(setActiveStep(activeStep + 1))
+    }
+
+    if (!isConfirmPhraseStage) {
+      return dispatch(setIsConfirmPhraseStage(true))
+    }
+
+    if (isConfirmPhraseStage) {
+      const newValidWords = mnemonic.map((w, index) => generatedMnemonic[index] === w)
+      dispatch(setValidWords(newValidWords))
+
+      if (!newValidWords.includes(false)) {
+        setActiveStep(activeStep + 1)
+        dispatch(setIsConfirmPhraseStage(false))
+        if (isCopyPastedPhrase) {
+          dispatch(setIsCopyPastedPhrase(false))
+        }
+      }
+    }
+  }
+
+  const continueHandler = () => {
+    if (activeStep === 3) {
+      handleStep3()
+    } else if (activeStep === 4) {
+      handleStep4()
+    } else {
+      if (activeStep < 5) {
+        setActiveStep(activeStep + 1)
+      } else {
+        navigate('/')
+      }
+    }
+  }
 
   return (
     <XStack
