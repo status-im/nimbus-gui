@@ -71,7 +71,7 @@ const ValidatorOnboarding = () => {
       } else {
         return
       }
-    } else if (activeStep === 3 && subStepValidatorSetup < 3) {
+    } else if (activeStep === 2 && subStepValidatorSetup < 3) {
       setSubStepValidatorSetup(subStepValidatorSetup + 1)
     } else if (isWalletConnected && activeStep === 5) {
       dispatch(setIsTransactionConfirmation(true))
