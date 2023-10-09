@@ -53,7 +53,9 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
         newValidWords[i] = generatedMnemonic[i] === m
       })
     } else {
-      for (let i = index; i < mnemonicLength + index; i++) {
+      const endIndex = mnemonicLength + index > 24 ? 24 : mnemonicLength + index
+
+      for (let i = index; i < endIndex; i++) {
         const mnemonicWord = newMnemonic.shift() || ''
         dispatch(setWord({ index: i, word: mnemonicWord }))
         newValidWords[i] = generatedMnemonic[i] === mnemonicWord
