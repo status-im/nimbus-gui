@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+
 import { KEYSTORE_FILES } from '../../../constants'
 
 type KeyGenerationState = {
@@ -33,9 +34,6 @@ const keyGenerationSlice = createSlice({
       newMnemonic[action.payload.index] = action.payload.word
       state.mnemonic = newMnemonic
     },
-    setMnemonic: (state, action: PayloadAction<string[]>) => {
-      state.mnemonic = action.payload
-    },
     setIsCopyPastedPhrase: (state, action: PayloadAction<boolean>) => {
       state.isCopyPastedPhrase = action.payload
     },
@@ -56,7 +54,6 @@ const keyGenerationSlice = createSlice({
 
 export const {
   setWord,
-  setMnemonic,
   setIsCopyPastedPhrase,
   setValidWords,
   setGeneratedMnemonic,

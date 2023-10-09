@@ -5,7 +5,6 @@ import wordlist from 'web-bip39/wordlists/english'
 import { RootState } from '../../../../redux/store'
 import {
   setIsCopyPastedPhrase,
-  setMnemonic,
   setValidWords,
   setWord,
 } from '../../../../redux/ValidatorOnboarding/KeyGeneration/slice'
@@ -46,8 +45,8 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
         updateWord(index, value, newValidWords)
         break
       case 24:
-        dispatch(setMnemonic(newMnemonic))
         dispatch(setIsCopyPastedPhrase(true))
+        updateMultipleWords(newMnemonic, newValidWords)
         break
       default:
         const endIndex = Math.min(newMnemonicLength + index, 24)
