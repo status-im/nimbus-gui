@@ -32,39 +32,45 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target
+    const newMnemonic = value.trim().split(' ')
+    const newMnemonicLength = newMnemonic.length
+    let newValidWords = [...validWords]
+
     if (!isFocused) {
       handleInputFocus()
     }
 
-    const value = e.target.value
-    const newMnemonic = value.trim().split(' ').slice(0, 24)
-    const mnemonicLength = newMnemonic.length
-    let newValidWords = [...validWords]
-
-    if (mnemonicLength === 1) {
-      dispatch(setWord({ index, word: value }))
-      newValidWords[index] =
-        generatedMnemonic[index] === value || generatedMnemonic[index].startsWith(value)
-    } else if (mnemonicLength === 24) {
-      dispatch(setMnemonic(newMnemonic))
-      dispatch(setIsCopyPastedPhrase(true))
-
-      newMnemonic.forEach((m, i) => {
-        newValidWords[i] = generatedMnemonic[i] === m
-      })
-    } else {
-      const endIndex = mnemonicLength + index > 24 ? 24 : mnemonicLength + index
-
-      for (let i = index; i < endIndex; i++) {
-        const mnemonicWord = newMnemonic.shift() || ''
-        dispatch(setWord({ index: i, word: mnemonicWord }))
-        newValidWords[i] = generatedMnemonic[i] === mnemonicWord
-      }
-
-      dispatch(setIsCopyPastedPhrase(true))
+    switch (newMnemonicLength) {
+      case 1:
+        updateWord(index, value, newValidWords)
+        break
+      case 24:
+        dispatch(setMnemonic(newMnemonic))
+        dispatch(setIsCopyPastedPhrase(true))
+        break
+      default:
+        const endIndex = Math.min(newMnemonicLength + index, 24)
+        const partialMnemonic = newMnemonic.slice(0, endIndex - index)
+        dispatch(setIsCopyPastedPhrase(true))
+        updateMultipleWords(partialMnemonic, newValidWords, index)
+        break
     }
 
     dispatch(setValidWords(newValidWords))
+  }
+
+  const updateWord = (idx: number, word: string, validWords: boolean[]) => {
+    dispatch(setWord({ index: idx, word }))
+    validWords[idx] = generatedMnemonic[idx] === word || generatedMnemonic[idx].startsWith(word)
+  }
+
+  const updateMultipleWords = (words: string[], validWords: boolean[], startIndex: number = 0) => {
+    words.forEach((word, idx) => {
+      const actualIdx = startIndex + idx
+      dispatch(setWord({ index: actualIdx, word }))
+      validWords[actualIdx] = generatedMnemonic[actualIdx] === word
+    })
   }
 
   const handleSuggestionClick = (e: React.MouseEvent, suggestion: string) => {
