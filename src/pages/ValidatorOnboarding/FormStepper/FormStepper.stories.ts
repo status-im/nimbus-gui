@@ -9,6 +9,13 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  argTypes: {
+    activeStep: {
+      options: [0, 1, 2, 3, 4, 5],
+      control: { type: 'radio' },
+      defaultValue: 0,
+    },
+  },
 } satisfies Meta<typeof FormStepper>
 
 export default meta
