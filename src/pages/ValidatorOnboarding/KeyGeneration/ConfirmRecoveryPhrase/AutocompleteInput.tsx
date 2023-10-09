@@ -37,8 +37,8 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
     }
 
     const value = e.target.value
-    const mnemonic = value.trim().split(' ').slice(0, 24)
-    const mnemonicLength = mnemonic.length
+    const newMnemonic = value.trim().split(' ').slice(0, 24)
+    const mnemonicLength = newMnemonic.length
     let newValidWords = [...validWords]
 
     if (mnemonicLength === 1) {
@@ -46,15 +46,15 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
       newValidWords[index] =
         generatedMnemonic[index] === value || generatedMnemonic[index].startsWith(value)
     } else if (mnemonicLength === 24) {
-      dispatch(setMnemonic(mnemonic))
+      dispatch(setMnemonic(newMnemonic))
       dispatch(setIsCopyPastedPhrase(true))
 
-      mnemonic.forEach((m, i) => {
+      newMnemonic.forEach((m, i) => {
         newValidWords[i] = generatedMnemonic[i] === m
       })
     } else {
       for (let i = index; i < mnemonicLength + index; i++) {
-        const mnemonicWord = mnemonic.shift() || ''
+        const mnemonicWord = newMnemonic.shift() || ''
         dispatch(setWord({ index: i, word: mnemonicWord }))
         newValidWords[i] = generatedMnemonic[i] === mnemonicWord
       }
