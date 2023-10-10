@@ -52,6 +52,11 @@ const ContinueButton = () => {
     setIsDisabled(getDisabledButton())
   }, [activeStep, subStepValidatorSetup, isConfirmPhraseStage, mnemonic, validWords])
 
+  const handleStep1 = () => {
+    subStepAdvisories < 5
+      ? dispatch(setSubStepAdvisories(subStepAdvisories + 1))
+      : dispatch(setSubStepAdvisories(0))
+  }
   const handleStep3 = () => {
     subStepValidatorSetup < 3
       ? dispatch(setSubStepValidatorSetup(subStepValidatorSetup + 1))
@@ -83,14 +88,7 @@ const ContinueButton = () => {
 
   const continueHandler = () => {
     if (activeStep === 1) {
-      if (activeStep === 1 && isAdvisoriesComplete === false) {
-        if (subStepAdvisories === 5) {
-          dispatch(setIsAdvisoriesComplete(true))
-          dispatch(setActiveStep(activeStep + 1))
-          dispatch(setSubStepAdvisories(0))
-        }
-        return setSubStepAdvisories(subStepAdvisories + 1)
-      }
+      handleStep1()
     } else if (activeStep === 3) {
       handleStep3()
     } else if (activeStep === 4) {
