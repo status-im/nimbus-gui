@@ -6,15 +6,11 @@ import { BOTH_KEY_AND_RECOVERY, KEYSTORE_FILES, RECOVERY_PHRASE } from '../../..
 
 type RecoveryMechanismProps = {
   recoveryMechanism: string
-  handleRecMechanismChange: (value: string) => void
 }
 
 const cards = [RECOVERY_PHRASE, KEYSTORE_FILES, BOTH_KEY_AND_RECOVERY]
 
-const RecoveryMechanism = ({
-  recoveryMechanism,
-  handleRecMechanismChange,
-}: RecoveryMechanismProps) => {
+const RecoveryMechanism = ({ recoveryMechanism }: RecoveryMechanismProps) => {
   return (
     <YStack style={{ width: '100%' }}>
       <Text size={19} weight={'semibold'}>
@@ -22,12 +18,7 @@ const RecoveryMechanism = ({
       </Text>
       <XStack space={'$4'} style={{ justifyContent: 'space-between', marginTop: '40px' }}>
         {cards.map(value => (
-          <RecoveryMechanismCard
-            key={value}
-            value={value}
-            recoveryMechanism={recoveryMechanism}
-            handleRecMechanismChange={handleRecMechanismChange}
-          />
+          <RecoveryMechanismCard key={value} value={value} recoveryMechanism={recoveryMechanism} />
         ))}
       </XStack>
     </YStack>

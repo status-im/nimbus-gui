@@ -16,6 +16,7 @@ import ValidatorOnboarding from './pages/ValidatorOnboarding/ValidatorOnboarding
 import Dashboard from './pages/Dashboard/Dashboard'
 import './App.css'
 import ConnectExistingInstance from './pages/ConnectExistingInstance/ConnectExistingInstance'
+import './App.css'
 
 const router = createBrowserRouter([
   {

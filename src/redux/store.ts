@@ -6,6 +6,7 @@ import themeReducer from './theme/slice'
 import keyGenerationReducer from './ValidatorOnboarding/KeyGeneration/slice'
 import leftSidebarReducer from './Sidebars/slice'
 import rightSidebarReducer from './RightSidebar/slice'
+import validatorOnboardingReducer from './ValidatorOnboarding/slice'
 
 const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ const store = configureStore({
     keyGeneration: keyGenerationReducer,
     leftSidebar: leftSidebarReducer,
     rightSidebar: rightSidebarReducer,
+    validatorOnboarding: validatorOnboardingReducer,
   },
 })
 

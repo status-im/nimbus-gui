@@ -5,7 +5,6 @@ import wordlist from 'web-bip39/wordlists/english'
 import { RootState } from '../../../../redux/store'
 import {
   setIsCopyPastedPhrase,
-  setMnemonic,
   setValidWords,
   setWord,
 } from '../../../../redux/ValidatorOnboarding/KeyGeneration/slice'
@@ -18,9 +17,9 @@ type AutocompleteInputProps = {
 const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
   const [suggestions, setSuggestions] = useState<string[]>([])
   const [isFocused, setIsFocused] = useState(false)
-  const word = useSelector((state: RootState) => state.keyGeneration.words[index])
+  const word = useSelector((state: RootState) => state.keyGeneration.mnemonic[index])
   const isValidWord = useSelector((state: RootState) => state.keyGeneration.validWords[index])
-  const validWords = useSelector((state: RootState) => state.keyGeneration.validWords)
+  const { validWords, generatedMnemonic } = useSelector((state: RootState) => state.keyGeneration)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -32,37 +31,45 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target
+    const newMnemonic = value.trim().split(' ')
+    const newMnemonicLength = newMnemonic.length
+    let newValidWords = [...validWords]
+
     if (!isFocused) {
       handleInputFocus()
     }
 
-    const value = e.target.value
-    const mnemonic = value.trim().split(' ').slice(0, 24)
-    const mnemonicLength = mnemonic.length
-    let newValidWords = [...validWords]
-
-    if (mnemonicLength === 1) {
-      dispatch(setWord({ index, word: value }))
-
-      newValidWords[index] = wordlist.includes(value) || getNewSuggestions(value).length > 0
-    } else if (mnemonicLength === 24) {
-      dispatch(setMnemonic(mnemonic))
-      dispatch(setIsCopyPastedPhrase(true))
-
-      mnemonic.forEach((m, i) => {
-        newValidWords[i] = wordlist.includes(m)
-      })
-    } else {
-      for (let i = index; i < mnemonicLength + index; i++) {
-        const mnemonicWord = mnemonic.shift() || ''
-        dispatch(setWord({ index: i, word: mnemonicWord }))
-        newValidWords[i] = wordlist.includes(mnemonicWord)
-      }
-
-      dispatch(setIsCopyPastedPhrase(true))
+    switch (newMnemonicLength) {
+      case 1:
+        updateWord(index, value, newValidWords)
+        break
+      case 24:
+        dispatch(setIsCopyPastedPhrase(true))
+        updateMultipleWords(newMnemonic, newValidWords)
+        break
+      default:
+        const endIndex = Math.min(newMnemonicLength + index, 24)
+        const partialMnemonic = newMnemonic.slice(0, endIndex - index)
+        dispatch(setIsCopyPastedPhrase(true))
+        updateMultipleWords(partialMnemonic, newValidWords, index)
+        break
     }
 
     dispatch(setValidWords(newValidWords))
+  }
+
+  const updateWord = (idx: number, word: string, validWords: boolean[]) => {
+    dispatch(setWord({ index: idx, word }))
+    validWords[idx] = generatedMnemonic[idx] === word || generatedMnemonic[idx].startsWith(word)
+  }
+
+  const updateMultipleWords = (words: string[], validWords: boolean[], startIndex: number = 0) => {
+    words.forEach((word, idx) => {
+      const actualIdx = startIndex + idx
+      dispatch(setWord({ index: actualIdx, word }))
+      validWords[actualIdx] = generatedMnemonic[actualIdx] === word
+    })
   }
 
   const handleSuggestionClick = (e: React.MouseEvent, suggestion: string) => {
@@ -72,7 +79,7 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
     dispatch(setWord({ index, word: suggestion }))
 
     let newValidWords = [...validWords]
-    newValidWords[index] = wordlist.includes(suggestion)
+    newValidWords[index] = generatedMnemonic[index] === suggestion
     dispatch(setValidWords(newValidWords))
   }
 
@@ -84,7 +91,7 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
     setIsFocused(false)
 
     let newValidWords = [...validWords]
-    newValidWords[index] = wordlist.includes(word)
+    newValidWords[index] = generatedMnemonic[index] === word
     dispatch(setValidWords(newValidWords))
   }
 
