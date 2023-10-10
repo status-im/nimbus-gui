@@ -17,7 +17,7 @@ import {
 } from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
 import {
   setSubStepAdvisories,
-  setIsAdvisoriesComplete,
+  
 } from '../../redux/ValidatorOnboarding/Advisories/slice'
 
 const ContinueButton = () => {
@@ -34,7 +34,7 @@ const ContinueButton = () => {
   const { activeStep, subStepValidatorSetup } = useSelector(
     (state: RootState) => state.validatorOnboarding,
   )
-  const { subStepAdvisories, isAdvisoriesComplete, isValidatorSet } = useSelector(
+  const { subStepAdvisories,  isValidatorSet } = useSelector(
     (state: RootState) => state.advisories,
   )
 
