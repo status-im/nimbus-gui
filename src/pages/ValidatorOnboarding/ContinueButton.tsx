@@ -31,7 +31,10 @@ const ContinueButton = () => {
   const { activeStep, subStepValidatorSetup } = useSelector(
     (state: RootState) => state.validatorOnboarding,
   )
-  const { subStepAdvisories, isValidatorSet } = useSelector((state: RootState) => state.advisories)
+  const { isValidatorSet } = useSelector(
+    (state: RootState) => state.validatorSetup,
+  )
+  const { subStepAdvisories } = useSelector((state: RootState) => state.advisories)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -41,14 +44,14 @@ const ContinueButton = () => {
     const getDisabledButton = () => {
       if (activeStep === 4 && isConfirmPhraseStage) {
         if (validWords.some(w => w === false)) {
-          return false
+          return true
         }
-      }
+      } else if (activeStep === 3 && !isValidatorSet) { return true }
       return false
     }
 
     setIsDisabled(getDisabledButton())
-  }, [activeStep, subStepValidatorSetup, isConfirmPhraseStage, mnemonic, validWords])
+  }, [activeStep, subStepValidatorSetup, isConfirmPhraseStage, mnemonic, validWords, isValidatorSet])
 
   const handleStep1 = () => {
     if (subStepAdvisories < 5) {
@@ -58,12 +61,7 @@ const ContinueButton = () => {
       dispatch(setActiveStep(activeStep + 1))
     }
   }
-  const handleStep3 = () => {
-    subStepValidatorSetup < 3
-      ? dispatch(setSubStepValidatorSetup(subStepValidatorSetup + 1))
-      : dispatch(setSubStepValidatorSetup(0))
-  }
-
+ 
   const handleStep4 = () => {
     if (!isConfirmPhraseStage && recoveryMechanism === KEYSTORE_FILES) {
       return dispatch(setActiveStep(activeStep + 1))
@@ -90,8 +88,7 @@ const ContinueButton = () => {
   const continueHandler = () => {
     if (activeStep === 1) {
       handleStep1()
-    } else if (activeStep === 3) {
-      handleStep3()
+
     } else if (activeStep === 4) {
       handleStep4()
     } else {
@@ -133,7 +130,7 @@ const ContinueButton = () => {
       <Button
         onPress={continueHandler}
         size={40}
-        disabled={isDisabled || (isValidatorSet === false && activeStep === 3)}
+        disabled={isDisabled}
       >
         {activeStep < 5 ? 'Continue' : 'Continue to Dashboard'}
       </Button>

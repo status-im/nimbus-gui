@@ -6,12 +6,15 @@ import WithdrawalAddress from './WithdrawalAddress'
 import LinkWithArrow from '../../../components/General/LinkWithArrow'
 import ValidatorsMenuWithPrice from '../../../components/General/ValidatorsMenuWithPrice'
 import { CLIENT_SETUP_SUBTITLE } from '../../../constants'
+import { useDispatch } from 'react-redux'
+import { setIsValidatorSet } from '../../../redux/ValidatorOnboarding/ValidatorSetup/slice'
 
 const ClientSetup = () => {
-  const [, setIsValidatorSet] = useState(false)
+  const dispatch = useDispatch()
   const [validatorCount, setValidatorCount] = useState(0)
+  
   useEffect(() => {
-    setIsValidatorSet(validatorCount > 0)
+    dispatch(setIsValidatorSet(validatorCount > 0))
   }, [validatorCount])
 
   const changeValidatorCountHandler = (value: string) => {
