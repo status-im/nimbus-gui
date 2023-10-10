@@ -1,7 +1,8 @@
-import { Stack, YStack } from 'tamagui'
+import { Stack, YStack, validPseudoKeys } from 'tamagui'
 import { InformationBox, Input as StatusInput, Text } from '@status-im/components'
 import { ClearIcon, CloseCircleIcon } from '@status-im/icons'
 import { useState } from 'react'
+import { isAddress } from 'web3-validator';
 
 type WithdrawalAddressProps = {
   title: string
@@ -9,7 +10,7 @@ type WithdrawalAddressProps = {
 
 const WithdrawalAddress = ({ title }: WithdrawalAddressProps) => {
   const [withdrawalAddress, setWithdrawalAddress] = useState('')
-
+  const [isValidAddress, setIsValidAddress] = useState(true);
   const changeWithdrawalAddressHandler = (value: string) => {
     setWithdrawalAddress(value)
   }
@@ -17,7 +18,12 @@ const WithdrawalAddress = ({ title }: WithdrawalAddressProps) => {
   const removeWithdrawalAddressHandler = () => {
     setWithdrawalAddress('')
   }
+  const checkAddress = (e: any) => {
 
+    if (e.nativeEvent.text.length !== 0) {
+      setIsValidAddress(isAddress(e.nativeEvent.text));
+    }
+  }
   return (
     <YStack space={'$4'}>
       <Text size={19} weight={'semibold'}>
@@ -40,6 +46,7 @@ const WithdrawalAddress = ({ title }: WithdrawalAddressProps) => {
             }
             value={withdrawalAddress}
             onChangeText={changeWithdrawalAddressHandler}
+            onBlur={(e) => checkAddress(e)}
           />
         </Stack>
         <InformationBox
@@ -47,6 +54,13 @@ const WithdrawalAddress = ({ title }: WithdrawalAddressProps) => {
           variant="error"
           icon={<CloseCircleIcon size={20} color="$red" />}
         />
+        {!isValidAddress && (
+          <InformationBox
+            message="Not valid ethereum address"
+            variant="error"
+            icon={<CloseCircleIcon size={20} color="$red" />}
+          />
+        )}
       </YStack>
     </YStack>
   )

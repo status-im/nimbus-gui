@@ -54,7 +54,8 @@
     "react-syntax-highlighter": "^15.5.0",
     "recharts": "^2.8.0",
     "tamagui": "1.36.4",
-    "web-bip39": "^0.0.3"
+    "web-bip39": "^0.0.3",
+    "web3-validator": "^2.0.2"
   },
   "devDependencies": {
     "@fsouza/prettierd": "^0.24.2",
