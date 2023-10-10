@@ -8,7 +8,7 @@ import ValidatorsMenuWithPrice from '../../../components/General/ValidatorsMenuW
 import { CLIENT_SETUP_SUBTITLE } from '../../../constants'
 
 const ClientSetup = () => {
-  const [ , setIsValidatorSet] = useState(false)
+  const [, setIsValidatorSet] = useState(false)
   const [validatorCount, setValidatorCount] = useState(0)
   useEffect(() => {
     setIsValidatorSet(validatorCount > 0)

@@ -15,10 +15,7 @@ import {
   setIsCopyPastedPhrase,
   setValidWords,
 } from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
-import {
-  setSubStepAdvisories,
-
-} from '../../redux/ValidatorOnboarding/Advisories/slice'
+import { setSubStepAdvisories } from '../../redux/ValidatorOnboarding/Advisories/slice'
 
 const ContinueButton = () => {
   const [isDisabled, setIsDisabled] = useState(false)
@@ -34,9 +31,7 @@ const ContinueButton = () => {
   const { activeStep, subStepValidatorSetup } = useSelector(
     (state: RootState) => state.validatorOnboarding,
   )
-  const { subStepAdvisories, isValidatorSet } = useSelector(
-    (state: RootState) => state.advisories,
-  )
+  const { subStepAdvisories, isValidatorSet } = useSelector((state: RootState) => state.advisories)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
