@@ -16,6 +16,8 @@ import PairDevice from './pages/PairDevice/PairDevice'
 import PinnedNotification from './components/General/PinnedNottification'
 import CreateLocalNodePage from './pages/CreateLocalNodePage/CreateLocalNodePage'
 import ValidatorOnboarding from './pages/ValidatorOnboarding/ValidatorOnboarding'
+import Dashboard from './pages/Dashboard/Dashboard'
+import './App.css'
 import ConnectExistingInstance from './pages/ConnectExistingInstance/ConnectExistingInstance'
 import './App.css'
 
@@ -78,6 +80,7 @@ const router = createBrowserRouter([
   },
   { path: '/create-local-node', element: <CreateLocalNodePage /> },
   { path: '/validator-onboarding', element: <ValidatorOnboarding /> },
+  { path: '/dashboard', element: <Dashboard /> },
 ])
 
 function App() {
