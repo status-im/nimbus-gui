@@ -6,10 +6,10 @@ import WithdrawalAddress from './WithdrawalAddress'
 import LinkWithArrow from '../../../components/General/LinkWithArrow'
 import ValidatorsMenuWithPrice from '../../../components/General/ValidatorsMenuWithPrice'
 import { CLIENT_SETUP_SUBTITLE } from '../../../constants'
-type ClientSetupProps = {
-  setIsValidatorSet: (value: boolean) => void
-}
-const ClientSetup = ({ setIsValidatorSet }: ClientSetupProps) => {
+
+const ClientSetup = () => {
+  
+  const [isValidatorSet, setIsValidatorSet] = useState(false)
   const [validatorCount, setValidatorCount] = useState(0)
   useEffect(() => {
     setIsValidatorSet(validatorCount > 0)
