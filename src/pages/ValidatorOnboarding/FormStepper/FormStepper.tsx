@@ -22,7 +22,12 @@ type FormStepperProps = {
 
 const FormStepper = ({ activeStep }: FormStepperProps) => {
   const dispatch = useDispatch()
+  const changeStepOnClickHandler = (index: number) => {
+    if (activeStep > index) {
 
+      dispatch(setActiveStep(index))
+    }
+  }
   return (
     <Stepper
       activeStep={activeStep}
@@ -42,7 +47,7 @@ const FormStepper = ({ activeStep }: FormStepperProps) => {
           key={index}
           label={step.label}
           className="custom-step"
-          onClick={() => dispatch(setActiveStep(index))}
+          onClick={() => changeStepOnClickHandler(index)}
           completed={activeStep > index - 1}
           data-subtitle={step.subtitle}
           data-step={step.label}

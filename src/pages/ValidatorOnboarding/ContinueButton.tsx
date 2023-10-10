@@ -98,6 +98,7 @@ const ContinueButton = () => {
   }
 
   const continueHandler = () => {
+    
     if (activeStep === 1) {
       handleStep1()
     } else if (activeStep === 2) {
