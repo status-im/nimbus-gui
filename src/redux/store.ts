@@ -6,6 +6,7 @@ import pinnedMessageReducer from './PinnedMessage/slice'
 import execClientReducer from './ValidatorOnboarding/ValidatorSetup/slice'
 import keyGenerationReducer from './ValidatorOnboarding/KeyGeneration/slice'
 import depositReducer from './ValidatorOnboarding/Deposit/slice'
+import validatorOnboardingReducer from './ValidatorOnboarding/slice'
 
 const store = configureStore({
   reducer: {
@@ -15,6 +16,7 @@ const store = configureStore({
     theme: themeReducer,
     keyGeneration: keyGenerationReducer,
     deposit: depositReducer,
+    validatorOnboarding: validatorOnboardingReducer,
   },
 })
 

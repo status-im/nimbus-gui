@@ -1,7 +1,13 @@
 import { Stack, XStack, YStack } from 'tamagui'
 import { Button, InformationBox, Text } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { generateMnemonic } from 'web-bip39'
+import wordlist from 'web-bip39/wordlists/english'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { RootState } from '../../../redux/store'
+import { setGeneratedMnemonic } from '../../../redux/ValidatorOnboarding/KeyGeneration/slice'
 
 type RecoveryPhraseProps = {
   isKeystoreFiles: boolean
@@ -9,9 +15,29 @@ type RecoveryPhraseProps = {
 
 const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
   const [isReveal, setIsReveal] = useState(false)
+  const { generatedMnemonic } = useSelector((state: RootState) => state.keyGeneration)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    getMnemonic()
+  }, [])
+
+  const getMnemonic = async () => {
+    const mnemonic = await generateMnemonic(wordlist, 256)
+    dispatch(setGeneratedMnemonic(mnemonic.split(' ')))
+  }
 
   const revealHandler = () => {
     setIsReveal(state => !state)
+  }
+
+  const copyRecoveryPhraseHandler = () => {
+    if (isKeystoreFiles) {
+      return
+    }
+
+    const text = generatedMnemonic.join(' ')
+    navigator.clipboard.writeText(text)
   }
 
   return (
@@ -23,30 +49,32 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
           padding: '28px 18px',
           backgroundColor: '#f4f6fe',
           width: '100%',
-          height: '176px',
         }}
       >
-        <YStack space={'$2'} style={{ filter: `blur(${isReveal ? '0px' : '4px'})` }}>
-          <XStack space={'$6'}>
-            <Text size={19} weight={'semibold'}>
-              this is your secret recovery phrase for the validator
-            </Text>
-            <Text size={19} weight={'semibold'}>
-              this is your secret recovery phrase for the validator
-            </Text>
-          </XStack>
-          <XStack space={'$6'}>
-            <Text size={19} weight={'semibold'}>
-              this is your secret recovery phrase for the validator
-            </Text>
-            <Text size={19} weight={'semibold'}>
-              this is your secret recovery phrase for the validator
-            </Text>
+        <YStack
+          space={'$2'}
+          style={{ filter: `blur(${isReveal ? '0px' : '4px'})`, cursor: 'pointer' }}
+          onClick={copyRecoveryPhraseHandler}
+        >
+          <XStack
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(6, 1fr)',
+              gap: '5px 0px',
+            }}
+          >
+            {generatedMnemonic.map((word, index) => (
+              <Text key={index} size={19} weight={'semibold'}>
+                {word}
+              </Text>
+            ))}
           </XStack>
         </YStack>
       </Stack>
       <Stack style={{ width: 'fit-content', marginBottom: '12px' }}>
-        <Button onPress={revealHandler}>Reveal Recovery Phrase</Button>
+        <Button onPress={revealHandler}>
+          {isReveal ? 'Hide Recovery Phrase' : 'Reveal Recovery Phrase'}
+        </Button>
       </Stack>
       <InformationBox
         message="Write down and keep your Secret Recovery Phrase in a secure place. Make sure no one is looking at your screen."

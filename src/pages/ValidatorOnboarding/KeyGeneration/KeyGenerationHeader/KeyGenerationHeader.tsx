@@ -5,7 +5,7 @@ import KeyGenerationTitle from '../KeyGenerationTitle'
 
 const KeyGenerationHeader = () => {
   return (
-    <XStack style={{ width: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
+    <XStack style={{ width: '100%', justifyContent: 'space-between' }}>
       <KeyGenerationTitle />
       <XStack space={'$2'}>
         <KeyGenerationSyncCard

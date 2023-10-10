@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import wordlist from 'web-bip39/wordlists/english'
+ц
 
 import {
   setIsCopyPastedPhrase,
@@ -21,15 +22,24 @@ import Advisories from './Advisories/Advisories'
 import ValidatorSetup from './ValidatorSetup/ValidatorSetup/ValidatorSetup'
 import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstalling/ValidatorInstall'
 import ContinueButton from './ContinueButton'
+
+ 
 import ActivationValidatorSetup from './ValidatorSetup/ValidatorActivation/ActivationValidatorSetup'
+import './layoutGradient.css'
+ 
+ 
 import Deposit from './Deposit/Deposit'
 import { setIsTransactionConfirmation } from '../../redux/ValidatorOnboarding/Deposit/slice'
 import './layoutGradient.css'
 
 const ValidatorOnboarding = () => {
-  const [activeStep, setActiveStep] = useState(0)
+  const { activeStep, subStepValidatorSetup } = useSelector(
+    (state: RootState) => state.validatorOnboarding,
+  )
+  const { isConfirmPhraseStage } = useSelector((state: RootState) => state.keyGeneration)
+ 
   const [isConfirmPhraseStage, setIsConfirmPhraseStage] = useState(false)
-  const [subStepValidatorSetup, setSubStepValidatorSetup] = useState(0)
+  
 
   const [subStepAdvisories, setSubStepAdvisories] = useState(0)
 
@@ -101,7 +111,7 @@ const ValidatorOnboarding = () => {
       setIsConfirmPhraseStage(false)
     }
   }
-
+ 
   return (
     <div className="gradient-wrapper">
       <YStack
@@ -118,7 +128,7 @@ const ValidatorOnboarding = () => {
           titleSize={19}
           subtitle="Earn Rewards for securing the Ethereum Network"
         />
-        <FormStepper activeStep={activeStep} changeActiveStep={changeActiveStep} />
+        <FormStepper activeStep={activeStep} />
         <ValidatorBoxWrapper>
           {activeStep === 0 && <Overview />}
           {activeStep === 1 && (
@@ -156,13 +166,7 @@ const ValidatorOnboarding = () => {
             />
           )}
         </ValidatorBoxWrapper>
-        <ContinueButton
-          activeStep={activeStep}
-          continueHandler={continueHandler}
-          isConfirmPhraseStage={isConfirmPhraseStage}
-          subStepValidatorSetup={subStepValidatorSetup}
-          isValidatorSet={isValidatorSet}
-        />
+        <ContinueButton />
       </YStack>
     </div>
   )
