@@ -1,7 +1,7 @@
 import { Stack, XStack } from 'tamagui'
 import { Button, InformationBox } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
-import { useSelector } from 'react-redux'
+
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -15,6 +15,7 @@ import {
   setIsCopyPastedPhrase,
   setValidWords,
 } from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
+import { setSubStepAdvisories, setIsAdvisoriesComplete } from '../../redux/ValidatorOnboarding/Advisories/slice'
 
 const ContinueButton = () => {
   const [isDisabled, setIsDisabled] = useState(false)
@@ -26,9 +27,14 @@ const ContinueButton = () => {
     recoveryMechanism,
     generatedMnemonic,
   } = useSelector((state: RootState) => state.keyGeneration)
+
   const { activeStep, subStepValidatorSetup } = useSelector(
     (state: RootState) => state.validatorOnboarding,
   )
+  const { subStepAdvisories, isAdvisoriesComplete, isValidatorSet } = useSelector(
+    (state: RootState) => state.advisories,
+  )
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const isActivationValScreen = activeStep === 3 && subStepValidatorSetup === 3
@@ -76,13 +82,22 @@ const ContinueButton = () => {
   }
 
   const continueHandler = () => {
-    if (activeStep === 3) {
+    if (activeStep === 1) {
+      if (activeStep === 1 && isAdvisoriesComplete === false) {
+        if (subStepAdvisories === 5) {
+          dispatch(setIsAdvisoriesComplete(true))
+          dispatch(setActiveStep(activeStep + 1))
+          dispatch(setSubStepAdvisories(0))
+        }
+        return setSubStepAdvisories(subStepAdvisories + 1)
+      }
+    } else if (activeStep === 3) {
       handleStep3()
     } else if (activeStep === 4) {
       handleStep4()
     } else {
       if (activeStep < 5) {
-        setActiveStep(activeStep + 1)
+        dispatch(setActiveStep(activeStep + 1))
       } else {
         navigate('/')
       }
