@@ -1,29 +1,27 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface AdvisoriesState {
-  subStepAdvisories: number
-  isValidatorSet: boolean
+    subStepAdvisories: number
+
 }
 
 const initialState = {
-  subStepAdvisories: 0,
-  isAdvisoriesComplete: false,
-  isValidatorSet: false,
+    subStepAdvisories: 0,
+
+
 }
 
 const AdvisoriesSlice = createSlice({
-  name: 'execClient',
-  initialState,
-  reducers: {
-    setSubStepAdvisories: (state: AdvisoriesState, action: PayloadAction<number>) => {
-      state.subStepAdvisories = action.payload
+    name: 'advisories',
+    initialState,
+    reducers: {
+        setSubStepAdvisories: (state: AdvisoriesState, action: PayloadAction<number>) => {
+            state.subStepAdvisories = action.payload
+        },
+
     },
-    setIsValidatorSet: (state: AdvisoriesState, action: PayloadAction<boolean>) => {
-      state.isValidatorSet = action.payload
-    },
-  },
 })
 
-export const { setSubStepAdvisories, setIsValidatorSet } = AdvisoriesSlice.actions
+export const { setSubStepAdvisories } = AdvisoriesSlice.actions
 
 export default AdvisoriesSlice.reducer
