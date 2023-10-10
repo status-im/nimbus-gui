@@ -10,13 +10,9 @@ type AdvisoryTopicsType = {
   [key: string]: string[]
 }
 
-
-
 const Advisories = () => {
-  const { subStepAdvisories } = useSelector(
-    (state: RootState) => state.advisories,
-  )
-  
+  const { subStepAdvisories } = useSelector((state: RootState) => state.advisories)
+
   const unicodeNumbers = ['➀', '➁', '➂', '➃', '➄', '➅']
   const advisoriesIcons = unicodeNumbers.map((number, index) =>
     index <= subStepAdvisories ? '✓' : number,

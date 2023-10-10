@@ -15,7 +15,10 @@ import {
   setIsCopyPastedPhrase,
   setValidWords,
 } from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
-import { setSubStepAdvisories, setIsAdvisoriesComplete } from '../../redux/ValidatorOnboarding/Advisories/slice'
+import {
+  setSubStepAdvisories,
+  setIsAdvisoriesComplete,
+} from '../../redux/ValidatorOnboarding/Advisories/slice'
 
 const ContinueButton = () => {
   const [isDisabled, setIsDisabled] = useState(false)
@@ -129,7 +132,11 @@ const ContinueButton = () => {
           style={{ fontWeight: 'bold', zIndex: 999 }}
         />
       )}
-      <Button onPress={continueHandler} size={40} disabled={isDisabled || (isValidatorSet === false && activeStep === 3)}>
+      <Button
+        onPress={continueHandler}
+        size={40}
+        disabled={isDisabled || (isValidatorSet === false && activeStep === 3)}
+      >
         {activeStep < 5 ? 'Continue' : 'Continue to Dashboard'}
       </Button>
     </XStack>

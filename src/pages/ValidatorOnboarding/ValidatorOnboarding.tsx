@@ -2,7 +2,6 @@ import { YStack } from 'tamagui'
 
 import { useSelector } from 'react-redux'
 
-
 import { RootState } from '../../redux/store'
 import FormStepper from './FormStepper/FormStepper'
 import Titles from '../../components/General/Titles'
@@ -17,10 +16,8 @@ import ValidatorSetup from './ValidatorSetup/ValidatorSetup/ValidatorSetup'
 import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstalling/ValidatorInstall'
 import ContinueButton from './ContinueButton'
 
-
 import ActivationValidatorSetup from './ValidatorSetup/ValidatorActivation/ActivationValidatorSetup'
 import './layoutGradient.css'
-
 
 import Deposit from './Deposit/Deposit'
 
@@ -50,9 +47,7 @@ const ValidatorOnboarding = () => {
         <FormStepper activeStep={activeStep} />
         <ValidatorBoxWrapper>
           {activeStep === 0 && <Overview />}
-          {activeStep === 1 && (
-            <Advisories />
-          )}
+          {activeStep === 1 && <Advisories />}
 
           {activeStep === 2 && subStepValidatorSetup === 0 && <ValidatorSetup />}
           {activeStep === 2 && subStepValidatorSetup === 1 && <ValidatorSetupInstall />}
