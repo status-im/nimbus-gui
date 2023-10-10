@@ -88,8 +88,7 @@ const ContinueButton = () => {
       dispatch(setValidWords(newValidWords))
 
       if (!newValidWords.includes(false)) {
-        setActiveStep(activeStep + 1)
-        dispatch(setIsConfirmPhraseStage(false))
+        dispatch(setActiveStep(activeStep + 1))
         if (isCopyPastedPhrase) {
           dispatch(setIsCopyPastedPhrase(false))
         }
