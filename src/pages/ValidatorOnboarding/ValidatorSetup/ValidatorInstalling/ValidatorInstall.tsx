@@ -61,7 +61,7 @@ const ValidatorSetupInstall = () => {
 
               <XStack justifyContent={'space-between'} my={'15px'}>
                 <OsCard
-                  icon="/icons/MAC.png"
+                  icon="/icons/MAC.svg"
                   name="MacOS"
                   isSelected={selectedOs === 'Mac'}
                   onClick={() => setSelectedOs('Mac')}
