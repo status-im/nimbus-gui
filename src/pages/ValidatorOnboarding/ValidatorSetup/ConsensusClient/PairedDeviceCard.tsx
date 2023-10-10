@@ -1,11 +1,8 @@
-
 import { XStack, YStack } from 'tamagui'
 import { InfoIcon } from '@status-im/icons'
 import { Avatar, Text } from '@status-im/components'
 
-
 const PairedDeviceCard = () => {
-
   return (
     <XStack
       space={'$7'}
