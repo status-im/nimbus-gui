@@ -31,9 +31,7 @@ const ContinueButton = () => {
   const { activeStep, subStepValidatorSetup } = useSelector(
     (state: RootState) => state.validatorOnboarding,
   )
-  const { isValidatorSet } = useSelector(
-    (state: RootState) => state.validatorSetup,
-  )
+  const { isValidatorSet } = useSelector((state: RootState) => state.validatorSetup)
   const { subStepAdvisories } = useSelector((state: RootState) => state.advisories)
 
   const dispatch = useDispatch()
@@ -46,12 +44,21 @@ const ContinueButton = () => {
         if (validWords.some(w => w === false)) {
           return true
         }
-      } else if (activeStep === 3 && !isValidatorSet) { return true }
+      } else if (activeStep === 3 && !isValidatorSet) {
+        return true
+      }
       return false
     }
 
     setIsDisabled(getDisabledButton())
-  }, [activeStep, subStepValidatorSetup, isConfirmPhraseStage, mnemonic, validWords, isValidatorSet])
+  }, [
+    activeStep,
+    subStepValidatorSetup,
+    isConfirmPhraseStage,
+    mnemonic,
+    validWords,
+    isValidatorSet,
+  ])
 
   const handleStep1 = () => {
     if (subStepAdvisories < 5) {
@@ -62,11 +69,10 @@ const ContinueButton = () => {
     }
   }
   const handleStep2 = () => {
-    if(subStepValidatorSetup === 3) {
+    if (subStepValidatorSetup === 3) {
       return dispatch(setActiveStep(activeStep + 1))
     }
     dispatch(setSubStepValidatorSetup(subStepValidatorSetup + 1))
-
   }
   const handleStep4 = () => {
     if (!isConfirmPhraseStage && recoveryMechanism === KEYSTORE_FILES) {
@@ -96,7 +102,6 @@ const ContinueButton = () => {
       handleStep1()
     } else if (activeStep === 2) {
       handleStep2()
-
     } else if (activeStep === 4) {
       handleStep4()
     } else {
@@ -135,11 +140,7 @@ const ContinueButton = () => {
           style={{ fontWeight: 'bold', zIndex: 999 }}
         />
       )}
-      <Button
-        onPress={continueHandler}
-        size={40}
-        disabled={isDisabled}
-      >
+      <Button onPress={continueHandler} size={40} disabled={isDisabled}>
         {activeStep < 5 ? 'Continue' : 'Continue to Dashboard'}
       </Button>
     </XStack>

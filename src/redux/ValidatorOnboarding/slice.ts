@@ -3,7 +3,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 type ValidatorOnboardingState = {
   activeStep: number
   subStepValidatorSetup: number
-  
 }
 
 const initialState: ValidatorOnboardingState = {

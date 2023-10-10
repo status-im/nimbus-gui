@@ -12,7 +12,7 @@ import { setIsValidatorSet } from '../../../redux/ValidatorOnboarding/ValidatorS
 const ClientSetup = () => {
   const dispatch = useDispatch()
   const [validatorCount, setValidatorCount] = useState(0)
-  
+
   useEffect(() => {
     dispatch(setIsValidatorSet(validatorCount > 0))
   }, [validatorCount])

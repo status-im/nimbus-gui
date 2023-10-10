@@ -24,8 +24,8 @@ const ExecClientCard = ({ name, icon, isComingSoon }: ExecClientCardProps) => {
         border: isComingSoon
           ? '1px solid #F5F6F8'
           : isSelected
-            ? '1px solid #2A4AF5'
-            : '1px solid #DCE0E5',
+          ? '1px solid #2A4AF5'
+          : '1px solid #DCE0E5',
         borderRadius: '16px',
         padding: '12px 16px',
         width: '19%',

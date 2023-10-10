@@ -1,25 +1,21 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface AdvisoriesState {
-    subStepAdvisories: number
-
+  subStepAdvisories: number
 }
 
 const initialState = {
-    subStepAdvisories: 0,
-
-
+  subStepAdvisories: 0,
 }
 
 const AdvisoriesSlice = createSlice({
-    name: 'advisories',
-    initialState,
-    reducers: {
-        setSubStepAdvisories: (state: AdvisoriesState, action: PayloadAction<number>) => {
-            state.subStepAdvisories = action.payload
-        },
-
+  name: 'advisories',
+  initialState,
+  reducers: {
+    setSubStepAdvisories: (state: AdvisoriesState, action: PayloadAction<number>) => {
+      state.subStepAdvisories = action.payload
     },
+  },
 })
 
 export const { setSubStepAdvisories } = AdvisoriesSlice.actions
