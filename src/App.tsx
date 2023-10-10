@@ -16,8 +16,8 @@ import PairDevice from './pages/PairDevice/PairDevice'
 import PinnedNotification from './components/General/PinnedNottification'
 import CreateLocalNodePage from './pages/CreateLocalNodePage/CreateLocalNodePage'
 import ValidatorOnboarding from './pages/ValidatorOnboarding/ValidatorOnboarding'
-import './App.css'
 import { ethereumRopsten, wcV2InitOptions, apiKey } from './constants'
+import './App.css'
 
 const injected = injectedModule()
 const walletConnect = walletConnectModule(wcV2InitOptions)
