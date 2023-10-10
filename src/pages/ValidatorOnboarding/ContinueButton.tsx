@@ -17,7 +17,7 @@ import {
 } from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
 import {
   setSubStepAdvisories,
-  
+
 } from '../../redux/ValidatorOnboarding/Advisories/slice'
 
 const ContinueButton = () => {
@@ -34,7 +34,7 @@ const ContinueButton = () => {
   const { activeStep, subStepValidatorSetup } = useSelector(
     (state: RootState) => state.validatorOnboarding,
   )
-  const { subStepAdvisories,  isValidatorSet } = useSelector(
+  const { subStepAdvisories, isValidatorSet } = useSelector(
     (state: RootState) => state.advisories,
   )
 
@@ -56,9 +56,12 @@ const ContinueButton = () => {
   }, [activeStep, subStepValidatorSetup, isConfirmPhraseStage, mnemonic, validWords])
 
   const handleStep1 = () => {
-    subStepAdvisories < 5
-      ? dispatch(setSubStepAdvisories(subStepAdvisories + 1))
-      : dispatch(setSubStepAdvisories(0))
+    if (subStepAdvisories < 5) {
+      dispatch(setSubStepAdvisories(subStepAdvisories + 1))
+    } else {
+      dispatch(setSubStepAdvisories(0))
+      dispatch(setActiveStep(activeStep + 1))
+    }
   }
   const handleStep3 = () => {
     subStepValidatorSetup < 3
