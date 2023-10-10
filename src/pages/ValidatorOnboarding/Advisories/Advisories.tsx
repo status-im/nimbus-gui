@@ -3,17 +3,25 @@ import { useState, useEffect } from 'react'
 import { Stack, XStack, YStack } from 'tamagui'
 
 import AdvisoriesContent from './AdvisoriesContent'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../../redux/store'
 
 type AdvisoryTopicsType = {
   [key: string]: string[]
 }
 
-type AdvisoriesProps = {
-  advisoriesIcons: string[]
-  subStepAdvisories: number
-}
 
-const Advisories = ({ advisoriesIcons, subStepAdvisories }: AdvisoriesProps) => {
+
+const Advisories = () => {
+  const { subStepAdvisories } = useSelector(
+    (state: RootState) => state.advisories,
+  )
+  
+  const unicodeNumbers = ['➀', '➁', '➂', '➃', '➄', '➅']
+  const advisoriesIcons = unicodeNumbers.map((number, index) =>
+    index <= subStepAdvisories ? '✓' : number,
+  )
+
   const [selectedTitle, setSelectedTitle] = useState(Object.keys(advisoryTopics)[0])
   useEffect(() => {
     setSelectedTitle(Object.keys(advisoryTopics)[subStepAdvisories])
