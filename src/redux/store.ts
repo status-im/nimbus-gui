@@ -7,6 +7,7 @@ import execClientReducer from './ValidatorOnboarding/ValidatorSetup/slice'
 import keyGenerationReducer from './ValidatorOnboarding/KeyGeneration/slice'
 import depositReducer from './ValidatorOnboarding/Deposit/slice'
 import validatorOnboardingReducer from './ValidatorOnboarding/slice'
+import advisoriesReducer from './ValidatorOnboarding/Advisories/slice'
 
 const store = configureStore({
   reducer: {
@@ -17,6 +18,7 @@ const store = configureStore({
     keyGeneration: keyGenerationReducer,
     deposit: depositReducer,
     validatorOnboarding: validatorOnboardingReducer,
+    advisories: advisoriesReducer,
   },
 })
 
