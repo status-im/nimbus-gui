@@ -38,7 +38,7 @@ const ConsensusSelection = () => {
           Validator Setup
         </Text>
         <XStack space={'$2'}>
-          <PairedDeviceCard isVisibleState={true} />
+          <PairedDeviceCard />
           <ConsensusGaugeCard
             color="blue"
             synced={134879}
