@@ -61,7 +61,13 @@ const ContinueButton = () => {
       dispatch(setActiveStep(activeStep + 1))
     }
   }
- 
+  const handleStep2 = () => {
+    if(subStepValidatorSetup === 3) {
+      return dispatch(setActiveStep(activeStep + 1))
+    }
+    dispatch(setSubStepValidatorSetup(subStepValidatorSetup + 1))
+
+  }
   const handleStep4 = () => {
     if (!isConfirmPhraseStage && recoveryMechanism === KEYSTORE_FILES) {
       return dispatch(setActiveStep(activeStep + 1))
@@ -88,6 +94,8 @@ const ContinueButton = () => {
   const continueHandler = () => {
     if (activeStep === 1) {
       handleStep1()
+    } else if (activeStep === 2) {
+      handleStep2()
 
     } else if (activeStep === 4) {
       handleStep4()
