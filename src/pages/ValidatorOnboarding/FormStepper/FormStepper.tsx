@@ -24,7 +24,6 @@ const FormStepper = ({ activeStep }: FormStepperProps) => {
   const dispatch = useDispatch()
   const changeStepOnClickHandler = (index: number) => {
     if (activeStep > index) {
-
       dispatch(setActiveStep(index))
     }
   }
