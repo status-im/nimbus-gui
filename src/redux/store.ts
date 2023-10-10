@@ -4,6 +4,8 @@ import pinnedMessageReducer from './PinnedMessage/slice'
 import execClientReducer from './ValidatorOnboarding/ValidatorSetup/slice'
 import themeReducer from './theme/slice'
 import keyGenerationReducer from './ValidatorOnboarding/KeyGeneration/slice'
+import leftSidebarReducer from './Sidebars/slice'
+import rightSidebarReducer from './RightSidebar/slice'
 import validatorOnboardingReducer from './ValidatorOnboarding/slice'
 
 const store = configureStore({
@@ -13,6 +15,8 @@ const store = configureStore({
     execClient: execClientReducer,
     theme: themeReducer,
     keyGeneration: keyGenerationReducer,
+    leftSidebar: leftSidebarReducer,
+    rightSidebar: rightSidebarReducer,
     validatorOnboarding: validatorOnboardingReducer,
   },
 })

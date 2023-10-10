@@ -1,4 +1,5 @@
 import { YStack } from 'tamagui'
+
 import { useSelector } from 'react-redux'
 
 import FormStepper from './FormStepper/FormStepper'

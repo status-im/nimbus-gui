@@ -15,3 +15,20 @@ export const BAD_NETWORK_TEXT = 'Network Latency is high.'
 export const KEYSTORE_FILES = 'KeystoreFiles'
 export const RECOVERY_PHRASE = 'Recovery Phrase'
 export const BOTH_KEY_AND_RECOVERY = 'Both KeystoreFiles & Recovery Phrase'
+
+/* Dashboard */
+
+export const years = [
+  'JAN',
+  'FEB',
+  'MAR',
+  'APR',
+  'MAY',
+  'JUN',
+  'JUL',
+  'AUG',
+  'SEPT',
+  'OCT',
+  'NOV',
+  'DEC',
+]

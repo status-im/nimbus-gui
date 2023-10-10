@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 import StandardGauge from '../../../../components/Charts/StandardGauge'
 import BorderBox from '../../../../components/General/BorderBox'
-import { formatNumberForGauge } from '../../../../utilities'
+import { formatNumbersWithComa } from '../../../../utilities'
 
 type KeyGenerationSyncCardProps = {
   synced: number
@@ -56,7 +56,7 @@ const KeyGenerationSyncCard = ({ synced, total, title, color }: KeyGenerationSyn
             {title}
           </Text>
           <Text size={15} weight={'semibold'}>
-            {formatNumberForGauge(synced)} / {formatNumberForGauge(total)}
+            {formatNumbersWithComa(synced)} / {formatNumbersWithComa(total)}
           </Text>
         </YStack>
         <ClearIcon
