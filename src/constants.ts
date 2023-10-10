@@ -3,9 +3,9 @@ export const apiKey = '1730eff0-9d50-4382-a3fe-89f0d34a2070'
 const INFURA_KEY = 'f25e905e25a545dcaad2c939530b91db'
 const rpcUrl = `https://mainnet.infura.io/v3/${INFURA_KEY}`
 export const wcV2InitOptions = {
-  projectId: 'abc123...',
+  projectId: '4f6c353926c22973029147b9d85c4485',
   requiredChains: [1, 56],
-  dappUrl: 'http://YourAwesomeDapp.com',
+  dappUrl: 'http://localhost:5173/',
 }
 export const ethereumRopsten = {
   id: '0x3',
