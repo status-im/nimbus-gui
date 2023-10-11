@@ -34,7 +34,7 @@ const LineChart = ({ years, userGains }: LineChartProps) => {
     },
   }
 
-  return <Line options={data.options} data={data} style={{ width: 'max-content' }} />
+  return <Line options={data.options} data={data}   />
 }
 
 export default LineChart
