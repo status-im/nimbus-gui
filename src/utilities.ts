@@ -38,3 +38,15 @@ export const getFormattedWalletAddress = (address: string) => {
   // 0xb9dasdfc35 -> 0xb9d...c35
   return `${address.slice(0, 5)}...${address.slice(-3)}`
 }
+
+export const formatToFixed4 = (value: number) => {
+  const str = value.toString()
+  const decimalPart = str.split('.')[1]
+  const decimalLength = decimalPart ? decimalPart.length : 0
+
+  if (decimalLength > 4) {
+    return value.toFixed(4)
+  }
+
+  return str
+}
