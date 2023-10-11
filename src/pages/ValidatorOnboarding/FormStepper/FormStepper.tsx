@@ -1,6 +1,4 @@
 import { Stepper, Step } from 'react-form-stepper'
-
-import './FormStepper.css'
 import { useDispatch } from 'react-redux'
 
 import { setActiveStep } from '../../../redux/ValidatorOnboarding/slice'
@@ -22,11 +20,13 @@ type FormStepperProps = {
 
 const FormStepper = ({ activeStep }: FormStepperProps) => {
   const dispatch = useDispatch()
+
   const changeStepOnClickHandler = (index: number) => {
     if (activeStep > index) {
       dispatch(setActiveStep(index))
     }
   }
+
   return (
     <Stepper
       activeStep={activeStep}
