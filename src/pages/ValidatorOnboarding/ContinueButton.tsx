@@ -104,7 +104,7 @@ const ContinueButton = () => {
     } else if (activeStep === 4) {
       handleStep4()
     } else {
-      if (activeStep < 5) {
+      if (activeStep < 6) {
         dispatch(setActiveStep(activeStep + 1))
       } else {
         navigate('/')
@@ -140,7 +140,7 @@ const ContinueButton = () => {
         />
       )}
       <Button onPress={continueHandler} size={40} disabled={isDisabled}>
-        {activeStep < 5 ? 'Continue' : 'Continue to Dashboard'}
+        {activeStep < 6 ? 'Continue' : 'Continue to Dashboard'}
       </Button>
     </XStack>
   )
