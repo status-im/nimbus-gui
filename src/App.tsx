@@ -16,30 +16,14 @@ import PairDevice from './pages/PairDevice/PairDevice'
 import PinnedNotification from './components/General/PinnedNottification'
 import CreateLocalNodePage from './pages/CreateLocalNodePage/CreateLocalNodePage'
 import ValidatorOnboarding from './pages/ValidatorOnboarding/ValidatorOnboarding'
+import { ethereumRopsten, wcV2InitOptions, apiKey } from './constants'
 import Dashboard from './pages/Dashboard/Dashboard'
-import './App.css'
 import ConnectExistingInstance from './pages/ConnectExistingInstance/ConnectExistingInstance'
 import './App.css'
-
-const apiKey = '1730eff0-9d50-4382-a3fe-89f0d34a2070'
-const INFURA_KEY = 'f25e905e25a545dcaad2c939530b91db'
-const rpcUrl = `https://mainnet.infura.io/v3/${INFURA_KEY}`
-
-const wcV2InitOptions = {
-  projectId: 'abc123...',
-  requiredChains: [1, 56],
-  dappUrl: 'http://YourAwesomeDapp.com',
-}
 
 const injected = injectedModule()
 const walletConnect = walletConnectModule(wcV2InitOptions)
 
-const ethereumRopsten = {
-  id: '0x3',
-  token: 'rETH',
-  label: 'Ethereum Ropsten',
-  rpcUrl,
-}
 const chains = [ethereumRopsten]
 const wallets = [injected, walletConnect]
 const web3Onboard = init({

@@ -1,10 +1,10 @@
 import { Avatar, Text } from '@status-im/components'
 import { Stack, XStack, YStack } from 'tamagui'
-
-import { getFormattedWalletAddress } from '../../../utilities'
 import { useConnectWallet } from '@web3-onboard/react'
 import { useEffect, useState } from 'react'
 import { ethers } from 'ethers'
+
+import { formatToFixed4, getFormattedWalletAddress } from '../../../utilities'
 
 const ConnectedWallet = () => {
   const [{ wallet }] = useConnectWallet()
@@ -60,7 +60,7 @@ const ConnectedWallet = () => {
           Balance
         </Text>
         <Text size={27} weight={'semibold'}>
-          {balance} ETH
+          {formatToFixed4(balance)} ETH
         </Text>
       </YStack>
     </XStack>

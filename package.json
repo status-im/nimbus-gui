@@ -36,7 +36,7 @@
     "@web3-onboard/injected-wallets": "^2.10.6",
     "@web3-onboard/ledger": "^2.5.2",
     "@web3-onboard/react": "^2.8.13",
-    "@web3-onboard/walletconnect": "^2.4.6",
+    "@web3-onboard/walletconnect": "^2.4.7",
     "chart.js": "^4.4.0",
     "emoji-picker-react": "^4.4.11",
     "ethers": "^6.7.1",
