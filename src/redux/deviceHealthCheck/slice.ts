@@ -6,18 +6,16 @@ interface DeviceHealthState {
   cpuLoad: number[]
   memory: number[]
   maxMemory: number
-  uploadRate: number[]
-  downloadRate: number[]
+  latency: number[]
 }
 
 const initialState: DeviceHealthState = {
   storage: 44,
   maxStorage: 100,
-  cpuLoad: [12, 123, 4, 90],
-  memory: [25, 31, 5, 14, 20, 81],
+  cpuLoad: [25, 31, 5, 14, 20, 81, 50, 34, 12, 123, 4, 90, 56, 35, 90],
+  memory: [15, 31, 5, 14, 20, 81, 50, 34, 12, 123, 4, 90, 56, 35, 90],
   maxMemory: 120,
-  uploadRate: [1, 4, 25, 65],
-  downloadRate: [20, 3, 50, 30],
+  latency: [55, 31, 5, 14, 20, 81, 50, 34, 12, 50, 4, 90, 56, 35, 59],
 }
 
 const deviceHealthSlice = createSlice({
@@ -41,12 +39,8 @@ const deviceHealthSlice = createSlice({
       state.memory = action.payload.memory
       state.maxMemory = action.payload.maxMemory
     },
-    setNetworkHealth: (
-      state: DeviceHealthState,
-      action: PayloadAction<{ uploadRate: number[]; downloadRate: number[] }>,
-    ) => {
-      state.uploadRate = action.payload.uploadRate
-      state.downloadRate = action.payload.downloadRate
+    setNetworkHealth: (state: DeviceHealthState, action: PayloadAction<{ latency: number[] }>) => {
+      state.latency = action.payload.latency
     },
   },
 })

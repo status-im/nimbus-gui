@@ -10,12 +10,10 @@ import ConfirmRecoveryPhrase from './ConfirmRecoveryPhrase/ConfirmRecoveryPhrase
 import { BOTH_KEY_AND_RECOVERY, KEYSTORE_FILES, RECOVERY_PHRASE } from '../../../constants'
 import { RootState } from '../../../redux/store'
 
-type KeyGenerationProps = {
-  isConfirmPhraseStage: boolean
-}
-
-const KeyGeneration = ({ isConfirmPhraseStage }: KeyGenerationProps) => {
-  const { recoveryMechanism } = useSelector((state: RootState) => state.keyGeneration)
+const KeyGeneration = () => {
+  const { recoveryMechanism, isConfirmPhraseStage } = useSelector(
+    (state: RootState) => state.keyGeneration,
+  )
 
   const isKeystoreFiles =
     recoveryMechanism === KEYSTORE_FILES || recoveryMechanism === BOTH_KEY_AND_RECOVERY

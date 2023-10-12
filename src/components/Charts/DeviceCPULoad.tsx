@@ -3,6 +3,7 @@ import IconText from '../General/IconText'
 import { Separator, XStack, YStack } from 'tamagui'
 import { Shadow, Text } from '@status-im/components'
 import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
+import { useState } from 'react'
 
 type DataPoint = {
   x: number
@@ -18,21 +19,24 @@ type ChartData = {
 type DeviceCPULoadProps = {
   load: number[]
 }
-const DeviceCPULoad: React.FC<DeviceCPULoadProps> = ({ load }) => {
+const DeviceCPULoad = ({ load }: DeviceCPULoadProps) => {
+  const [isHovered, setIsHovered] = useState(false)
+
+  const dataObj = load.map((yValue, index: number) => ({
+    x: index + 1,
+    y: yValue,
+  }))
+  const currentLoad = dataObj.length > 0 ? dataObj[dataObj.length - 1].y : 0
+
+  const message = currentLoad < 80 ? 'Good' : 'Poor'
+
   const chartData: ChartData[] = [
     {
       id: 'cpu',
-      color: '#8DC6BC',
-      data: load.map((yValue, index: number) => ({
-        x: index + 1,
-        y: yValue,
-      })),
+      color: message === 'Good' ? '#8DC6BC' : '#e95460',
+      data: dataObj,
     },
   ]
-  const currentLoad =
-    chartData[0].data.length > 0 ? chartData[0].data[chartData[0].data.length - 1].y : 0
-
-  const message = currentLoad < 80 ? 'Good' : 'Poor'
 
   return (
     <Shadow
@@ -41,9 +45,11 @@ const DeviceCPULoad: React.FC<DeviceCPULoadProps> = ({ load }) => {
         width: '50%',
         minHeight: '135px',
         borderRadius: '16px',
-        border: message === 'Poor' ? '1px solid  #D92344' : 'none',
-        backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
+        border: message === 'Poor' ? '1px solid #D92344' : '1px solid #E0E0E0',
+        backgroundColor: isHovered ? '#f8f6ff' : message === 'Poor' ? '#fefafa' : '#fff',
       }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <YStack>
         <XStack
@@ -54,7 +60,7 @@ const DeviceCPULoad: React.FC<DeviceCPULoadProps> = ({ load }) => {
           }}
         >
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
-            <StandartLineChart data={chartData} />
+            <StandartLineChart data={chartData} isInteractive={false} />
           </div>
           <YStack space={'$3'}>
             <Text size={15} weight={'semibold'}>

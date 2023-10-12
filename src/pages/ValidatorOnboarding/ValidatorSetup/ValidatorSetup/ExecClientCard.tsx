@@ -3,7 +3,7 @@ import { Text } from '@status-im/components'
 import { useDispatch, useSelector } from 'react-redux'
 
 import Icon from '../../../../components/General/Icon'
-import { selectClient } from '../../../../redux/ValidatorOnboarding/ValidatorSetup/slice'
+import { selectClient } from '../../../../redux/ValidatorOnboarding/ClientSetup/slice'
 import { RootState } from '../../../../redux/store'
 
 type ExecClientCardProps = {

@@ -2,6 +2,7 @@ import { YStack } from 'tamagui'
 
 import { useSelector } from 'react-redux'
 
+import { RootState } from '../../redux/store'
 import FormStepper from './FormStepper/FormStepper'
 import Titles from '../../components/General/Titles'
 import Overview from './Overview/Overview'
@@ -14,15 +15,18 @@ import Advisories from './Advisories/Advisories'
 import ValidatorSetup from './ValidatorSetup/ValidatorSetup/ValidatorSetup'
 import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstalling/ValidatorInstall'
 import ContinueButton from './ContinueButton'
-import { RootState } from '../../redux/store'
+
 import ActivationValidatorSetup from './ValidatorSetup/ValidatorActivation/ActivationValidatorSetup'
+import './layoutGradient.css'
+
+import Deposit from './Deposit/Deposit'
+
 import './layoutGradient.css'
 
 const ValidatorOnboarding = () => {
   const { activeStep, subStepValidatorSetup } = useSelector(
     (state: RootState) => state.validatorOnboarding,
   )
-  const { isConfirmPhraseStage } = useSelector((state: RootState) => state.keyGeneration)
 
   return (
     <div className="gradient-wrapper">
@@ -44,15 +48,16 @@ const ValidatorOnboarding = () => {
         <ValidatorBoxWrapper>
           {activeStep === 0 && <Overview />}
           {activeStep === 1 && <Advisories />}
-          {activeStep === 2 && <ClientSetup />}
 
-          {activeStep === 3 && subStepValidatorSetup === 0 && <ValidatorSetup />}
-          {activeStep === 3 && subStepValidatorSetup === 1 && <ValidatorSetupInstall />}
-          {activeStep === 3 && subStepValidatorSetup === 2 && <ConsensusSelection />}
-          {activeStep === 3 && subStepValidatorSetup === 3 && <ActivationValidatorSetup />}
+          {activeStep === 2 && subStepValidatorSetup === 0 && <ValidatorSetup />}
+          {activeStep === 2 && subStepValidatorSetup === 1 && <ValidatorSetupInstall />}
+          {activeStep === 2 && subStepValidatorSetup === 2 && <ConsensusSelection />}
+          {activeStep === 2 && subStepValidatorSetup === 3 && <ActivationValidatorSetup />}
+          {activeStep === 3 && <ClientSetup />}
 
-          {activeStep === 4 && <KeyGeneration isConfirmPhraseStage={isConfirmPhraseStage} />}
-          {activeStep === 5 && (
+          {activeStep === 4 && <KeyGeneration />}
+          {activeStep === 5 && <Deposit />}
+          {activeStep === 6 && (
             <Activation
               validatorsValue="4"
               executionSyncStatus1={{

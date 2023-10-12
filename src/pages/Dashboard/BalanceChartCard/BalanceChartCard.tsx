@@ -57,39 +57,44 @@ const BalanceChartCard = () => {
               </Text>
             </XStack>
           </YStack>
+          {isCalendarVisible && (
+            <Calendar
+              style={{
+                backgroundColor: '#fff',
+                position: 'absolute',
+                zIndex: 9999,
+                top: 30,
+                left: 100,
+              }}
+              mode="range"
+              selected={dateRange}
+              onSelect={handleRangeSelect}
+            />
+          )}
           <XStack
             onClick={() => setIsCalendarVisible(prev => !prev)}
             style={{
               border: '2px solid #09101C14',
               height: 'fit-content',
-              padding: '3px',
+              padding: '5px',
               borderRadius: '10px',
               cursor: 'pointer',
             }}
+            space={'$2'}
           >
             <Text size={13} weight={'semibold'}>
-              {dateRange?.from ? dateRange.from.toLocaleDateString() + '  ->' : 'Start Date -> '}{' '}
+              {dateRange?.from ? dateRange.from.toLocaleDateString() : `Start Date`}
             </Text>
             <Text size={13} weight={'semibold'}>
-              {dateRange?.to ? dateRange.to.toLocaleDateString() : ' End Date'}
+              {'->'}
+            </Text>
+            <Text size={13} weight={'semibold'}>
+              {dateRange?.to ? dateRange.to.toLocaleDateString() : 'End Date'}
             </Text>
             <Icon src="/icons/edit.svg" />
           </XStack>
         </XStack>
-        {isCalendarVisible && (
-          <Calendar
-            style={{
-              backgroundColor: 'white',
-              position: 'absolute',
-              zIndex: 1000,
-              top: '100%',
-              right: '0',
-            }}
-            mode="range"
-            selected={dateRange}
-            onSelect={handleRangeSelect}
-          />
-        )}
+
         <Stack>
           <LineChart years={filteredYears} userGains={filteredUserGains} />
         </Stack>

@@ -21,7 +21,7 @@ const LandingPage = () => {
           <XStack pt={'70px'}>
             <NimbusLogo />
           </XStack>
-          <YStack style={{ width: '100%', margin: '30vh 0 4vh' }}>
+          <YStack style={{ width: '100%', margin: '30vh 0 4vh' }} space={'16px'}>
             <Text size={27} weight={'semibold'}>
               Light and performant clients, for all Ethereum validators.
             </Text>

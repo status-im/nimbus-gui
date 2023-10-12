@@ -10,6 +10,7 @@ const steps = [
   { label: 'Client Setup', subtitle: 'Execution & Consensus' },
   { label: 'Validator Setup', subtitle: 'Validators & Withdrawal' },
   { label: 'Key Generation', subtitle: 'Secure your Keypairs' },
+  { label: 'Deposit', subtitle: 'Stake your ETH' },
   { label: 'Activation', subtitle: 'Complete Setup' },
 ]
 
@@ -20,6 +21,12 @@ type FormStepperProps = {
 const FormStepper = ({ activeStep }: FormStepperProps) => {
   const dispatch = useDispatch()
 
+  const changeStepOnClickHandler = (index: number) => {
+    if (activeStep > index) {
+      dispatch(setActiveStep(index))
+    }
+  }
+
   return (
     <Stepper
       activeStep={activeStep}
@@ -28,11 +35,10 @@ const FormStepper = ({ activeStep }: FormStepperProps) => {
       connectorStyleConfig={customConnectorStyle}
       style={{
         fontSize: '14px',
-        zIndex: 999,
+        zIndex: 1,
         width: '100%',
         padding: 0,
         marginBottom: '3rem',
-        fontFamily: 'Inter',
       }}
     >
       {steps.map((step, index) => (
@@ -40,7 +46,7 @@ const FormStepper = ({ activeStep }: FormStepperProps) => {
           key={index}
           label={step.label}
           className="custom-step"
-          onClick={() => dispatch(setActiveStep(index))}
+          onClick={() => changeStepOnClickHandler(index)}
           completed={activeStep > index - 1}
           data-subtitle={step.subtitle}
           data-step={step.label}

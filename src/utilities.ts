@@ -36,3 +36,15 @@ export const getMonthIndicesFromRange = (range: DateRange) => {
 
   return [range.from.getMonth(), range.to.getMonth()]
 }
+
+export const getFormattedValidatorAddress = (address: string) => {
+  // zQ3asdf9d4Gs0 -> zQ3...9d4Gs0
+  const start = address.slice(0, 3)
+  const end = address.slice(-6)
+  return `${start}...${end}`
+}
+
+export const getFormattedWalletAddress = (address: string) => {
+  // 0xb9dasdfc35 -> 0xb9d...c35
+  return `${address.slice(0, 5)}...${address.slice(-3)}`
+}

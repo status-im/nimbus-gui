@@ -17,7 +17,7 @@ import MemoryCard from './MemoryCard/MemoryCard'
 
 const Dashboard = () => {
   return (
-    <YStack minHeight={'100vh'} maxWidth={'100vw'}>
+    <YStack maxHeight={'100vh'} maxWidth={'100vw'}>
       <XStack justifyContent={'space-between'}>
         <LeftSidebar />
 
@@ -25,7 +25,7 @@ const Dashboard = () => {
           space={'$4'}
           alignItems="start"
           px="24px"
-          style={{ flexGrow: '1', marginTop: '16px' }}
+          style={{ flexGrow: '1', marginTop: '16px', overflowY: 'scroll' }}
         >
           <TitleLogo />
           <XStack space={'$4'} justifyContent={'space-between'} width={'100%'}>

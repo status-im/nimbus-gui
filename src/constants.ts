@@ -16,6 +16,15 @@ export const KEYSTORE_FILES = 'KeystoreFiles'
 export const RECOVERY_PHRASE = 'Recovery Phrase'
 export const BOTH_KEY_AND_RECOVERY = 'Both KeystoreFiles & Recovery Phrase'
 
+export const ETH_PER_VALIDATOR = 32
+
+// for now, this will be constant values
+export const CURRENCIES = {
+  USD: 1583.42,
+  EUR: 1323.61,
+}
+export const DEPOSIT_SUBTITLE = 'Connect you Wallet to stake required ETH for new validators'
+export const CLIENT_SETUP_SUBTITLE = 'How many Validators would you like to run?'
 /* Dashboard */
 
 export const years = [
