@@ -16,7 +16,7 @@ const ValidatorSetup = () => {
         <Text size={27} weight={'semibold'}>
           Validator Setup
         </Text>
-        <PairedDeviceCard isVisibleState={true} />
+        <PairedDeviceCard />
       </XStack>
 
       <YStack>

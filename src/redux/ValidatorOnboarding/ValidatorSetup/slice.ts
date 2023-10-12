@@ -1,23 +1,22 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-interface ExecClientState {
-  selectedClient: string
+type ValidatorSetupState = {
+  isValidatorSet: boolean
+}
+const initialState: ValidatorSetupState = {
+  isValidatorSet: false,
 }
 
-const initialState: ExecClientState = {
-  selectedClient: 'Erigon',
-}
-
-const execClientSlice = createSlice({
-  name: 'execClient',
+const validatorSetup = createSlice({
+  name: 'validatorSetup',
   initialState,
   reducers: {
-    selectClient: (state: ExecClientState, action: PayloadAction<string>) => {
-      state.selectedClient = action.payload
+    setIsValidatorSet: (state: ValidatorSetupState, action: PayloadAction<boolean>) => {
+      state.isValidatorSet = action.payload
     },
   },
 })
 
-export const { selectClient } = execClientSlice.actions
+export const { setIsValidatorSet } = validatorSetup.actions
 
-export default execClientSlice.reducer
+export default validatorSetup.reducer

@@ -1,9 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
+import { KEYSTORE_FILES } from '../../../constants'
+
 type KeyGenerationState = {
-  words: string[]
+  mnemonic: string[]
   isCopyPastedPhrase: boolean
   validWords: boolean[]
+  generatedMnemonic: string[]
+  isConfirmPhraseStage: boolean
+  recoveryMechanism: string
 }
 
 type wordProps = {
@@ -12,9 +17,12 @@ type wordProps = {
 }
 
 const initialState: KeyGenerationState = {
-  words: Array(24).fill(''),
+  mnemonic: Array(24).fill(''),
   isCopyPastedPhrase: false,
   validWords: Array(24).fill(true),
+  generatedMnemonic: Array(24).fill(''),
+  isConfirmPhraseStage: false,
+  recoveryMechanism: KEYSTORE_FILES,
 }
 
 const keyGenerationSlice = createSlice({
@@ -22,12 +30,9 @@ const keyGenerationSlice = createSlice({
   initialState,
   reducers: {
     setWord: (state, action: PayloadAction<wordProps>) => {
-      const newWords = [...state.words]
-      newWords[action.payload.index] = action.payload.word
-      return { ...state, words: newWords }
-    },
-    setMnemonic: (state, action: PayloadAction<string[]>) => {
-      state.words = action.payload
+      const newMnemonic = [...state.mnemonic]
+      newMnemonic[action.payload.index] = action.payload.word
+      state.mnemonic = newMnemonic
     },
     setIsCopyPastedPhrase: (state, action: PayloadAction<boolean>) => {
       state.isCopyPastedPhrase = action.payload
@@ -35,10 +40,25 @@ const keyGenerationSlice = createSlice({
     setValidWords: (state, action: PayloadAction<boolean[]>) => {
       state.validWords = action.payload
     },
+    setGeneratedMnemonic: (state, action: PayloadAction<string[]>) => {
+      state.generatedMnemonic = action.payload
+    },
+    setIsConfirmPhraseStage: (state, action: PayloadAction<boolean>) => {
+      state.isConfirmPhraseStage = action.payload
+    },
+    setRecoveryMechanism: (state, action: PayloadAction<string>) => {
+      state.recoveryMechanism = action.payload
+    },
   },
 })
 
-export const { setWord, setMnemonic, setIsCopyPastedPhrase, setValidWords } =
-  keyGenerationSlice.actions
+export const {
+  setWord,
+  setIsCopyPastedPhrase,
+  setValidWords,
+  setGeneratedMnemonic,
+  setIsConfirmPhraseStage,
+  setRecoveryMechanism,
+} = keyGenerationSlice.actions
 
 export default keyGenerationSlice.reducer

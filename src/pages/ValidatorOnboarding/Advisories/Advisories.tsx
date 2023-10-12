@@ -1,17 +1,33 @@
 import { Text } from '@status-im/components'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Stack, XStack, YStack } from 'tamagui'
 
 import AdvisoriesContent from './AdvisoriesContent'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../../redux/store'
 
 type AdvisoryTopicsType = {
   [key: string]: string[]
 }
 
 const Advisories = () => {
-  const [selectedTitle, setSelectedTitle] = useState(Object.keys(advisoryTopics)[3])
+  const { subStepAdvisories } = useSelector((state: RootState) => state.advisories)
 
-  const isSameTitle = (title: string) => selectedTitle === title
+  const unicodeNumbers = ['➀', '➁', '➂', '➃', '➄', '➅']
+  const advisoriesIcons = unicodeNumbers.map((number, index) =>
+    index <= subStepAdvisories ? '✓' : number,
+  )
+
+  const [selectedTitle, setSelectedTitle] = useState(Object.keys(advisoryTopics)[0])
+  useEffect(() => {
+    setSelectedTitle(Object.keys(advisoryTopics)[subStepAdvisories])
+  }, [subStepAdvisories])
+
+  const isCurrent = (currentTitle: string): boolean => {
+    const topics = Object.keys(advisoryTopics)
+    const index = topics.indexOf(currentTitle)
+    return index <= subStepAdvisories ? true : false
+  }
 
   return (
     <XStack
@@ -34,15 +50,15 @@ const Advisories = () => {
           >
             <Text
               size={19}
-              weight={isSameTitle(title) && 'semibold'}
-              color={isSameTitle(title) ? 'blue' : ''}
+              weight={isCurrent(title) && 'semibold'}
+              color={isCurrent(title) ? 'blue' : ''}
             >
-              {unicodeNumbers[index]}
+              {advisoriesIcons[index]}
             </Text>
             <Text
               size={19}
-              weight={isSameTitle(title) && 'semibold'}
-              color={isSameTitle(title) ? 'blue' : ''}
+              weight={isCurrent(title) ? 'semibold' : ''}
+              color={isCurrent(title) ? 'blue' : ''}
             >
               {title}
             </Text>
@@ -55,8 +71,6 @@ const Advisories = () => {
 }
 
 export default Advisories
-
-const unicodeNumbers = ['➀', '➁', '➂', '➃', '➄', '➅']
 
 export const advisoryTopics: AdvisoryTopicsType = {
   'Proof of Stake': [

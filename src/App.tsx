@@ -18,6 +18,7 @@ import CreateLocalNodePage from './pages/CreateLocalNodePage/CreateLocalNodePage
 import ValidatorOnboarding from './pages/ValidatorOnboarding/ValidatorOnboarding'
 import { ethereumRopsten, wcV2InitOptions, apiKey } from './constants'
 import './App.css'
+import ConnectExistingInstance from './pages/ConnectExistingInstance/ConnectExistingInstance'
 
 const injected = injectedModule()
 const walletConnect = walletConnectModule(wcV2InitOptions)
@@ -56,8 +57,13 @@ const router = createBrowserRouter([
     path: '/pair-device',
     element: <PairDevice />,
   },
+  {
+    path: '/pair-existing-instance',
+    element: <ConnectExistingInstance />,
+  },
   { path: '/create-local-node', element: <CreateLocalNodePage /> },
   { path: '/validator-onboarding', element: <ValidatorOnboarding /> },
+  { path: '/dashboard', element: <Dashboard /> },
 ])
 
 function App() {

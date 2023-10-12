@@ -17,5 +17,8 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: {},
+  args: {
+    advisoriesIcons: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+    subStepAdvisories: 0,
+  },
 }

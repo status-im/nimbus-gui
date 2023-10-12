@@ -1,11 +1,8 @@
 import { Stepper, Step } from 'react-form-stepper'
+import { useDispatch } from 'react-redux'
 
+import { setActiveStep } from '../../../redux/ValidatorOnboarding/slice'
 import './FormStepper.css'
-
-type FormStepperProps = {
-  activeStep: number
-  changeActiveStep: (step: number) => void
-}
 
 const steps = [
   { label: 'Overview', subtitle: 'Get Started' },
@@ -17,7 +14,19 @@ const steps = [
   { label: 'Activation', subtitle: 'Complete Setup' },
 ]
 
-const FormStepper = ({ activeStep, changeActiveStep }: FormStepperProps) => {
+type FormStepperProps = {
+  activeStep: number
+}
+
+const FormStepper = ({ activeStep }: FormStepperProps) => {
+  const dispatch = useDispatch()
+
+  const changeStepOnClickHandler = (index: number) => {
+    if (activeStep > index) {
+      dispatch(setActiveStep(index))
+    }
+  }
+
   return (
     <Stepper
       activeStep={activeStep}
@@ -30,7 +39,6 @@ const FormStepper = ({ activeStep, changeActiveStep }: FormStepperProps) => {
         width: '100%',
         padding: 0,
         marginBottom: '3rem',
-        fontFamily: 'Inter',
       }}
     >
       {steps.map((step, index) => (
@@ -38,7 +46,7 @@ const FormStepper = ({ activeStep, changeActiveStep }: FormStepperProps) => {
           key={index}
           label={step.label}
           className="custom-step"
-          onClick={() => changeActiveStep(index)}
+          onClick={() => changeStepOnClickHandler(index)}
           completed={activeStep > index - 1}
           data-subtitle={step.subtitle}
           data-step={step.label}
