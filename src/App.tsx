@@ -20,7 +20,7 @@ import { ethereumRopsten, wcV2InitOptions, apiKey } from './constants'
 import Dashboard from './pages/Dashboard/Dashboard'
 import ConnectExistingInstance from './pages/ConnectExistingInstance/ConnectExistingInstance'
 import './App.css'
-
+ 
 const injected = injectedModule()
 const walletConnect = walletConnectModule(wcV2InitOptions)
 
