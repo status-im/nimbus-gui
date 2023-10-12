@@ -83,10 +83,10 @@ const BalanceChartCard = () => {
             space={'$2'}
           >
             <Text size={13} weight={'semibold'}>
-              {dateRange?.from ? dateRange.from.toLocaleDateString()     : `Start Date`}
+              {dateRange?.from ? dateRange.from.toLocaleDateString() : `Start Date`}
             </Text>
             <Text size={13} weight={'semibold'}>
-            {'->'}
+              {'->'}
             </Text>
             <Text size={13} weight={'semibold'}>
               {dateRange?.to ? dateRange.to.toLocaleDateString() : 'End Date'}
@@ -99,7 +99,7 @@ const BalanceChartCard = () => {
           <LineChart years={filteredYears} userGains={filteredUserGains} />
         </Stack>
       </YStack>
-    </DashboardCardWrapper >
+    </DashboardCardWrapper>
   )
 }
 

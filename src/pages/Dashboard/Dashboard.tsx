@@ -62,8 +62,8 @@ const Dashboard = () => {
         </YStack>
 
         <RightSidebar />
-      </XStack >
-    </YStack >
+      </XStack>
+    </YStack>
   )
 }
 
