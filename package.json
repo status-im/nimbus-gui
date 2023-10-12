@@ -10,7 +10,9 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test-storybook": "test-storybook"
+    "test-storybook": "test-storybook",
+    "format:check": "yarn prettier --check src",
+    "format": "yarn prettier --write src"
   },
   "resolutions": {
     "@tamagui/web": "1.36.4",
@@ -28,16 +30,19 @@
     "@tamagui/react-17-patch": "1.36.4",
     "@tamagui/vite-plugin": "1.36.4",
     "@types/react": "18",
+    "@types/react-chartjs-2": "^2.5.7",
     "@types/react-dom": "18",
     "@web3-onboard/core": "^2.21.2",
     "@web3-onboard/injected-wallets": "^2.10.6",
     "@web3-onboard/ledger": "^2.5.2",
     "@web3-onboard/react": "^2.8.13",
     "@web3-onboard/walletconnect": "^2.4.7",
+    "chart.js": "^4.4.0",
     "emoji-picker-react": "^4.4.11",
     "ethers": "^6.7.1",
     "expo-modules-core": "^1.5.9",
     "react": "18",
+    "react-chartjs-2": "^5.2.0",
     "react-color": "^2.19.3",
     "react-confetti": "^6.1.0",
     "react-dom": "18",
@@ -47,8 +52,10 @@
     "react-redux": "^8.1.2",
     "react-router-dom": "^6.14.2",
     "react-syntax-highlighter": "^15.5.0",
+    "recharts": "^2.8.0",
     "tamagui": "1.36.4",
-    "web-bip39": "^0.0.3"
+    "web-bip39": "^0.0.3",
+    "web3-validator": "^2.0.2"
   },
   "devDependencies": {
     "@fsouza/prettierd": "^0.24.2",

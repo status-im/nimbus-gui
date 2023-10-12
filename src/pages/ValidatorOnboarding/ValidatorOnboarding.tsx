@@ -1,13 +1,7 @@
 import { YStack } from 'tamagui'
-import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import wordlist from 'web-bip39/wordlists/english'
 
-import {
-  setIsCopyPastedPhrase,
-  setValidWords,
-} from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
+import { useSelector } from 'react-redux'
+
 import { RootState } from '../../redux/store'
 import FormStepper from './FormStepper/FormStepper'
 import Titles from '../../components/General/Titles'
@@ -21,66 +15,18 @@ import Advisories from './Advisories/Advisories'
 import ValidatorSetup from './ValidatorSetup/ValidatorSetup/ValidatorSetup'
 import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstalling/ValidatorInstall'
 import ContinueButton from './ContinueButton'
+
 import ActivationValidatorSetup from './ValidatorSetup/ValidatorActivation/ActivationValidatorSetup'
+import './layoutGradient.css'
+
 import Deposit from './Deposit/Deposit'
-import { setIsTransactionConfirmation } from '../../redux/ValidatorOnboarding/Deposit/slice'
+
 import './layoutGradient.css'
 
 const ValidatorOnboarding = () => {
-  const [activeStep, setActiveStep] = useState(0)
-  const [isConfirmPhraseStage, setIsConfirmPhraseStage] = useState(false)
-  const [subStepValidatorSetup, setSubStepValidatorSetup] = useState(0)
-  const { isCopyPastedPhrase, words } = useSelector((state: RootState) => state.keyGeneration)
-  const { isWalletConnected } = useSelector((state: RootState) => state.deposit)
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
-
-  const changeActiveStep = (step: number) => {
-    setActiveStep(step)
-    removeCopyPastePhraseInfoBox()
-    removeConfirmPhraseStage()
-  }
-
-  const continueHandler = () => {
-    if (activeStep === 4 && isConfirmPhraseStage === false) {
-      return setIsConfirmPhraseStage(true)
-    } else if (activeStep === 4 && isConfirmPhraseStage === true) {
-      const newValidWords = words.map(w => wordlist.includes(w))
-      dispatch(setValidWords(newValidWords))
-
-      if (newValidWords.every(w => w === true)) {
-        setActiveStep(activeStep + 1)
-      } else {
-        return
-      }
-    } else if (activeStep === 3 && subStepValidatorSetup < 3) {
-      setSubStepValidatorSetup(subStepValidatorSetup + 1)
-    } else if (isWalletConnected && activeStep === 5) {
-      dispatch(setIsTransactionConfirmation(true))
-    } else if (activeStep < 6) {
-      setActiveStep(activeStep + 1)
-      if (activeStep === 3 && subStepValidatorSetup === 2) {
-        setSubStepValidatorSetup(0)
-      }
-    } else {
-      navigate('/')
-    }
-
-    removeCopyPastePhraseInfoBox()
-    removeConfirmPhraseStage()
-  }
-
-  const removeCopyPastePhraseInfoBox = () => {
-    if (isCopyPastedPhrase) {
-      dispatch(setIsCopyPastedPhrase(false))
-    }
-  }
-
-  const removeConfirmPhraseStage = () => {
-    if (isConfirmPhraseStage) {
-      setIsConfirmPhraseStage(false)
-    }
-  }
+  const { activeStep, subStepValidatorSetup } = useSelector(
+    (state: RootState) => state.validatorOnboarding,
+  )
 
   return (
     <div className="gradient-wrapper">
@@ -98,18 +44,18 @@ const ValidatorOnboarding = () => {
           titleSize={19}
           subtitle="Earn Rewards for securing the Ethereum Network"
         />
-        <FormStepper activeStep={activeStep} changeActiveStep={changeActiveStep} />
+        <FormStepper activeStep={activeStep} />
         <ValidatorBoxWrapper>
           {activeStep === 0 && <Overview />}
           {activeStep === 1 && <Advisories />}
-          {activeStep === 2 && <ClientSetup />}
 
-          {activeStep === 3 && subStepValidatorSetup === 0 && <ValidatorSetup />}
-          {activeStep === 3 && subStepValidatorSetup === 1 && <ValidatorSetupInstall />}
-          {activeStep === 3 && subStepValidatorSetup === 2 && <ConsensusSelection />}
-          {activeStep === 3 && subStepValidatorSetup === 3 && <ActivationValidatorSetup />}
+          {activeStep === 2 && subStepValidatorSetup === 0 && <ValidatorSetup />}
+          {activeStep === 2 && subStepValidatorSetup === 1 && <ValidatorSetupInstall />}
+          {activeStep === 2 && subStepValidatorSetup === 2 && <ConsensusSelection />}
+          {activeStep === 2 && subStepValidatorSetup === 3 && <ActivationValidatorSetup />}
+          {activeStep === 3 && <ClientSetup />}
 
-          {activeStep === 4 && <KeyGeneration isConfirmPhraseStage={isConfirmPhraseStage} />}
+          {activeStep === 4 && <KeyGeneration />}
           {activeStep === 5 && <Deposit />}
           {activeStep === 6 && (
             <Activation
@@ -134,12 +80,7 @@ const ValidatorOnboarding = () => {
             />
           )}
         </ValidatorBoxWrapper>
-        <ContinueButton
-          activeStep={activeStep}
-          continueHandler={continueHandler}
-          isConfirmPhraseStage={isConfirmPhraseStage}
-          subStepValidatorSetup={subStepValidatorSetup}
-        />
+        <ContinueButton />
       </YStack>
     </div>
   )

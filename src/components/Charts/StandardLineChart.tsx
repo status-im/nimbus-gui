@@ -13,8 +13,9 @@ interface ChartData {
 
 interface StandartLineChartProps {
   data: ChartData[]
+  isInteractive?: boolean
 }
-const StandartLineChart = ({ data }: StandartLineChartProps) => {
+const StandartLineChart = ({ data, isInteractive }: StandartLineChartProps) => {
   const maxMemory = data[0].maxValue || 'auto'
   const colors = data.map(dataset => dataset.color)
 
@@ -42,6 +43,7 @@ const StandartLineChart = ({ data }: StandartLineChartProps) => {
       useMesh={true}
       legends={[]}
       colors={colors}
+      isInteractive={isInteractive}
     />
   )
 }

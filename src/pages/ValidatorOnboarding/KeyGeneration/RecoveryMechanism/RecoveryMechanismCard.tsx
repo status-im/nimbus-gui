@@ -1,16 +1,20 @@
 import { Text } from '@status-im/components'
+import { useDispatch } from 'react-redux'
+
+import { setRecoveryMechanism } from '../../../../redux/ValidatorOnboarding/KeyGeneration/slice'
 
 type RecoveryMechanismProps = {
   value: string
   recoveryMechanism: string
-  handleRecMechanismChange: (value: string) => void
 }
 
-const RecoveryMechanismCard = ({
-  value,
-  recoveryMechanism,
-  handleRecMechanismChange,
-}: RecoveryMechanismProps) => {
+const RecoveryMechanismCard = ({ value, recoveryMechanism }: RecoveryMechanismProps) => {
+  const dispatch = useDispatch()
+
+  const handleRecMechanismChange = () => {
+    dispatch(setRecoveryMechanism(value))
+  }
+
   return (
     <div
       style={{
@@ -22,7 +26,7 @@ const RecoveryMechanismCard = ({
         width: '100%',
         height: '140px',
       }}
-      onClick={() => handleRecMechanismChange(value)}
+      onClick={handleRecMechanismChange}
     >
       <Text size={15} weight={'semibold'}>
         {value}

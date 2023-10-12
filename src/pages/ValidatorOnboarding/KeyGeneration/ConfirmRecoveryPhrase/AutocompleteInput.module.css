@@ -31,7 +31,7 @@
   width: 100%;
   font-size: 16px;
   color: rgb(13, 22, 37);
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .input-wrapper {
@@ -42,9 +42,9 @@
   position: absolute;
   left: 15px;
   transform: translateY(-50%);
-  pointer-events: none;  
+  pointer-events: none;
   z-index: 2;
-  color: #0D162566;
+  color: #0d162566;
   top: 48%;
 }
 

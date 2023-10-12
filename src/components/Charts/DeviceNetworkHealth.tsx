@@ -3,6 +3,7 @@ import IconText from '../General/IconText'
 import { Separator, XStack, YStack } from 'tamagui'
 import { Shadow as ShadowBox, Text } from '@status-im/components'
 import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
+import { useState } from 'react'
 
 type DataPoint = {
   x: number
@@ -14,34 +15,35 @@ type ChartData = {
   color: string
   data: DataPoint[]
 }
-
 type DeviceNetworkHealthProps = {
-  uploadRate: number[]
-  downloadRate: number[]
+  latency: number[]
 }
-const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthProps) => {
-  const chartData: ChartData[] = [
-    {
-      id: 'uploadRate',
-      color: '#8DC6BC',
-      data: uploadRate.map((yValue, index: number) => ({
-        x: index + 1,
-        y: yValue,
-      })),
-    },
-    {
-      id: 'downloadRate',
-      color: '#D92344',
-      data: downloadRate.map((yValue, index: number) => ({
-        x: index + 1,
-        y: yValue,
-      })),
-    },
-  ]
-  const currentLoad =
-    chartData[0].data.length > 0 ? chartData[0].data[chartData[0].data.length - 1].y : 0
 
-  const message = currentLoad > 60 ? 'Good' : 'Poor'
+const DeviceNetworkHealth = ({ latency }: DeviceNetworkHealthProps) => {
+  const [isHovered, setIsHovered] = useState(false)
+
+  const THRESHOLD = 60
+  const GOOD_COLOR = '#8DC6BC'
+  const POOR_COLOR_LATENCY = '#D92344'
+
+  const processLatency = (latency: number[], id: string) => {
+    const dataObj = latency.map((yValue, index: number) => ({ x: index + 1, y: yValue }))
+    const currentLatency = dataObj.length > 0 ? dataObj[dataObj.length - 1].y : 0
+    const message = currentLatency < THRESHOLD ? 'Good' : 'Poor'
+    const color = message === 'Good' ? GOOD_COLOR : POOR_COLOR_LATENCY
+
+    return {
+      id,
+      color,
+      data: dataObj,
+      currentLatency,
+      message,
+    }
+  }
+
+  const processedLatency = processLatency(latency, 'latency')
+
+  const chartData: ChartData[] = [processedLatency]
 
   return (
     <ShadowBox
@@ -50,9 +52,15 @@ const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthPr
         width: '50%',
         minHeight: '135px',
         borderRadius: '16px',
-        border: message === 'Poor' ? '1px solid  #D92344' : 'none',
-        backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
+        border: processedLatency.message === 'Poor' ? '1px solid #D92344' : '1px solid #E0E0E0',
+        backgroundColor: isHovered
+          ? '#f8f6ff'
+          : processedLatency.message === 'Poor'
+          ? '#fefafa'
+          : '#fff',
       }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <YStack>
         <XStack
@@ -63,28 +71,34 @@ const DeviceNetworkHealth = ({ uploadRate, downloadRate }: DeviceNetworkHealthPr
           }}
         >
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
-            <StandartLineChart data={chartData} />
+            <StandartLineChart data={chartData} isInteractive={false} />
           </div>
           <YStack space={'$3'}>
             <Text size={15} weight={'semibold'}>
               Network
             </Text>
             <Text size={27} weight={'semibold'}>
-              {currentLoad} GB
+              {processedLatency.currentLatency} ms
             </Text>
           </YStack>
         </XStack>
         <Separator borderColor={'#e3e3e3'} />
         <XStack space={'$4'} style={{ padding: '0.65rem 1rem' }}>
           <IconText
-            icon={message === 'Good' ? <CheckCircleIcon size={16} /> : <IncorrectIcon size={16} />}
+            icon={
+              processedLatency.message === 'Good' ? (
+                <CheckCircleIcon size={16} />
+              ) : (
+                <IncorrectIcon size={16} />
+              )
+            }
             weight={'semibold'}
           >
-            {message}
+            {processedLatency.message}
           </IconText>
-          {message === 'Poor' && (
+          {processedLatency.message === 'Poor' && (
             <Text size={13} color={'#E95460'} weight={'semibold'}>
-              {((currentLoad / 60) * 100).toFixed(0)}% Utilization
+              {`High Latency: ${processedLatency.currentLatency}ms`}
             </Text>
           )}
         </XStack>

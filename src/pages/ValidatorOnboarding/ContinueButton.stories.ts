@@ -17,19 +17,5 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: {
-    continueHandler: () => {},
-    activeStep: 0,
-    isConfirmPhraseStage: false,
-    subStepValidatorSetup: 0,
-  },
-}
-
-export const Disabled: Story = {
-  args: {
-    continueHandler: () => {},
-    activeStep: 0,
-    isConfirmPhraseStage: true,
-    subStepValidatorSetup: 0,
-  },
+  args: {},
 }

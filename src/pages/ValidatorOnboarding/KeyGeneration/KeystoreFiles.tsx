@@ -6,26 +6,49 @@ import { useState } from 'react'
 const KeystoreFiles = () => {
   const [encryptedPassword, setEncryptedPassword] = useState('')
   const [confirmEncryptedPassword, setConfirmEncryptedPassword] = useState('')
+  const [encryptedPasswordError, setEncryptedPasswordError] = useState(false)
+  const [confirmEncryptedPasswordError, setConfirmEncryptedPasswordError] = useState(false)
+  const [displayEncryptedPassword, setDisplayEncryptedPassword] = useState('')
+  const [displayConfirmEncryptedPassword, setDisplayConfirmEncryptedPassword] = useState('')
 
-  const generateKeystoreFilesHandler = () => {}
+  const generateKeystoreFilesHandler = () => {
+    if (
+      encryptedPassword !== confirmEncryptedPassword ||
+      encryptedPassword === '' ||
+      confirmEncryptedPassword === ''
+    ) {
+      setEncryptedPasswordError(true)
+      return setConfirmEncryptedPasswordError(true)
+    }
 
-  const changeEncryptedPasswordHandler = (value: string) => {
-    setEncryptedPassword(value)
+    setEncryptedPasswordError(false)
+    setConfirmEncryptedPasswordError(false)
   }
 
-  const changeConfirmEncryptedPasswordHandler = (value: string) => {
-    setConfirmEncryptedPassword(value)
+  const changeEncryptedPasswordHandler = (e: any) => {
+    const password = e.target.value
+    setEncryptedPassword(password)
+    setDisplayEncryptedPassword(getHidedPassword(password.length))
   }
 
-  const clearEncryptedPasswordHandler = () => {
-    setEncryptedPassword('')
+  const changeConfirmEncryptedPasswordHandler = (e: any) => {
+    const password = e.target.value
+    setConfirmEncryptedPassword(password)
+    setDisplayConfirmEncryptedPassword(getHidedPassword(password.length))
   }
 
-  const clearConfirmEncryptedPasswordHandler = () => {
-    setConfirmEncryptedPassword('')
+  const downloadKeyFilesHandler = () => {
+    const element = document.createElement('a')
+    const file = new Blob([''], { type: 'text/plain' })
+    element.href = URL.createObjectURL(file)
+    element.download = 'keystore_files.txt'
+    document.body.appendChild(element)
+    element.click()
   }
 
-  const downloadKeyFilesHandler = () => {}
+  const getHidedPassword = (passwordLength: number) => {
+    return '*'.repeat(passwordLength)
+  }
 
   return (
     <YStack space={'$4'}>
@@ -42,11 +65,12 @@ const KeystoreFiles = () => {
                   size={16}
                   color="#A1ABBD"
                   style={{ cursor: 'pointer' }}
-                  onClick={clearEncryptedPasswordHandler}
+                  onClick={() => setEncryptedPassword('')}
                 />
               }
-              value={encryptedPassword}
-              onChangeText={changeEncryptedPasswordHandler}
+              error={encryptedPasswordError}
+              value={displayEncryptedPassword}
+              onChange={changeEncryptedPasswordHandler}
             />
           </YStack>
           <YStack space={'$2'}>
@@ -60,11 +84,12 @@ const KeystoreFiles = () => {
                   size={16}
                   color="#A1ABBD"
                   style={{ cursor: 'pointer' }}
-                  onClick={clearConfirmEncryptedPasswordHandler}
+                  onClick={() => setConfirmEncryptedPassword('')}
                 />
               }
-              value={confirmEncryptedPassword}
-              onChangeText={changeConfirmEncryptedPasswordHandler}
+              error={confirmEncryptedPasswordError}
+              value={displayConfirmEncryptedPassword}
+              onChange={changeConfirmEncryptedPasswordHandler}
             />
           </YStack>
         </YStack>

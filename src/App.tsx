@@ -17,6 +17,8 @@ import PinnedNotification from './components/General/PinnedNottification'
 import CreateLocalNodePage from './pages/CreateLocalNodePage/CreateLocalNodePage'
 import ValidatorOnboarding from './pages/ValidatorOnboarding/ValidatorOnboarding'
 import { ethereumRopsten, wcV2InitOptions, apiKey } from './constants'
+import Dashboard from './pages/Dashboard/Dashboard'
+import ConnectExistingInstance from './pages/ConnectExistingInstance/ConnectExistingInstance'
 import './App.css'
 
 const injected = injectedModule()
@@ -56,8 +58,13 @@ const router = createBrowserRouter([
     path: '/pair-device',
     element: <PairDevice />,
   },
+  {
+    path: '/pair-existing-instance',
+    element: <ConnectExistingInstance />,
+  },
   { path: '/create-local-node', element: <CreateLocalNodePage /> },
   { path: '/validator-onboarding', element: <ValidatorOnboarding /> },
+  { path: '/dashboard', element: <Dashboard /> },
 ])
 
 function App() {

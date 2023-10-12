@@ -39,3 +39,19 @@ export const CURRENCIES = {
 }
 export const DEPOSIT_SUBTITLE = 'Connect you Wallet to stake required ETH for new validators'
 export const CLIENT_SETUP_SUBTITLE = 'How many Validators would you like to run?'
+/* Dashboard */
+
+export const years = [
+  'JAN',
+  'FEB',
+  'MAR',
+  'APR',
+  'MAY',
+  'JUN',
+  'JUL',
+  'AUG',
+  'SEPT',
+  'OCT',
+  'NOV',
+  'DEC',
+]

@@ -55,6 +55,8 @@ jobs:
             ${{ runner.os }}-yarn-v3
       - name: Build
         run: yarn build
+      - name: Check formatting
+        run: yarn format:check
       - name: Pull Vercel configuration
         run: yarn vercel pull --yes --token ${{ secrets.vercel_token }}
       - name: Build Vercel bundle

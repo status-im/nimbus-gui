@@ -1,30 +1,30 @@
 .breadcrumb-bar-nav {
-    width: 100%;
-    flex: 1 1 100%;
-    padding: 1rem 2rem;
-    margin: 0.5rem;
+  width: 100%;
+  flex: 1 1 100%;
+  padding: 1rem 2rem;
+  margin: 0.5rem;
 }
 .breadcrumb-bar-ul {
-    display: flex;
+  display: flex;
 }
 .breadcrumb-bar-li {
-    color: #647084;
-    font-weight: 500;
-    position: relative;
+  color: #647084;
+  font-weight: 500;
+  position: relative;
 }
-.breadcrumb-bar-li:last-child { 
-    color: #09101C;
+.breadcrumb-bar-li:last-child {
+  color: #09101c;
 }
 .breadcrumb-bar-li::after {
-    display: inline-block;
-    content: url("./icons/chevron.svg");
-    color: #09101C;
-    position: absolute;
-    top: 2px;
-    left: 100%;
-    transform: translateX(-50%);
+  display: inline-block;
+  content: url('./icons/chevron.svg');
+  color: #09101c;
+  position: absolute;
+  top: 2px;
+  left: 100%;
+  transform: translateX(-50%);
 }
 
 .breadcrumb-bar-li:last-child::after {
-    display: none;
+  display: none;
 }

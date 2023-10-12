@@ -1,13 +1,20 @@
 import IconText from '../General/IconText'
-import { Separator, XStack, YStack } from 'tamagui'
+import { Separator, Stack, XStack, YStack } from 'tamagui'
 import StandardGauge from './StandardGauge'
 import { Shadow, Text } from '@status-im/components'
 import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
+import { useState } from 'react'
+
 interface DeviceStorageHealthProps {
   storage: number
   maxStorage: number
 }
-const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxStorage }) => {
+const GOOD_COLOR = '#8DC6BC'
+const POOR_COLOR = '#E95460'
+
+const DeviceStorageHealth = ({ storage, maxStorage }: DeviceStorageHealthProps) => {
+  const [isHovered, setIsHovered] = useState(false)
+
   const message = storage < maxStorage ? 'Good' : 'Poor'
   const free = maxStorage - storage
   const utilization = (storage / (maxStorage || 1)) * 100
@@ -18,7 +25,7 @@ const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxS
         id: 'storage',
         label: 'Used',
         value: storage,
-        color: '#E95460',
+        color: message === 'Good' ? GOOD_COLOR : POOR_COLOR,
       },
       {
         id: 'storage',
@@ -28,7 +35,6 @@ const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxS
       },
     ]
   }
-
   return (
     <Shadow
       variant="$2"
@@ -36,9 +42,11 @@ const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxS
         width: '50%',
         minHeight: '135px',
         borderRadius: '16px',
-        border: message === 'Poor' ? '1px solid  #D92344' : 'none',
-        backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
+        border: message === 'Poor' ? '1px solid #D92344' : '1px solid #E0E0E0',
+        backgroundColor: isHovered ? '#f8f6ff' : message === 'Poor' ? '#fefafa' : '#fff',
       }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <YStack>
         <XStack
@@ -48,7 +56,7 @@ const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxS
             position: 'relative',
           }}
         >
-          <div
+          <Stack
             style={{
               position: 'absolute',
               right: '33px',
@@ -56,8 +64,8 @@ const DeviceStorageHealth: React.FC<DeviceStorageHealthProps> = ({ storage, maxS
               height: '4.75rem',
             }}
           >
-            <StandardGauge data={data(free)} />
-          </div>
+            <StandardGauge data={data(free)} isInteractive={false} />
+          </Stack>
           <YStack space={'$3'}>
             <Text size={15} weight={'semibold'}>
               Storage
