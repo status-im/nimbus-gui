@@ -17,18 +17,18 @@ import MemoryCard from './MemoryCard/MemoryCard'
 
 const Dashboard = () => {
   return (
-    <XStack justifyContent={'space-between'}  >
+    <XStack justifyContent={'space-between'} style={{ width: '80%' }}>
       <LeftSidebar />
 
       <YStack
         space={'$4'}
         alignItems="start"
         px="24px"
-        style={{ flexGrow: '1', marginTop: '16px' }}
+        style={{ flexGrow: '1', marginTop: '16px', width: '100%' }}
       >
         <TitleLogo />
-        <XStack space={'$4'} justifyContent={'space-between'} >
-          <XStack space={'$4'}  >
+        <XStack space={'$4'} justifyContent={'space-between'} flexWrap="wrap">
+          <XStack space={'$4'}>
             <SyncStatusCard />
             <AddCardsContainer />
           </XStack>
@@ -36,20 +36,20 @@ const Dashboard = () => {
         </XStack>
         <BasicInfoCards />
 
-        <XStack space="$3"  >
-          <YStack space={'$4'}  >
-            <XStack justifyContent="space-between">
+        <XStack space="$3" flexWrap="wrap">
+          <YStack space={'$4'}>
+            <XStack justifyContent="space-between" flexWrap="wrap">
               <ConsensusUptimeCard />
               <ExecutionUptime />
             </XStack>
             <DeviceUptime />
           </YStack>
-          <YStack space={'$4'}  >
-            <XStack space="$4"  >
+          <YStack space={'$4'}>
+            <XStack space="$4" flexWrap="wrap">
               <StorageCard maxStorage={100} storage={82} />
               <CPUCard load={[12, 31, 3, 2, 24, 98]} />
             </XStack>
-            <XStack space="$4"  >
+            <XStack space="$4" flexWrap="wrap">
               <MemoryCard currentMemory={[21, 33, 3, 42, 35]} maxMemory={50} />
               <NetworkCard
                 downloadRate={[12, 31, 22, 12, 23, 23, 90]}
@@ -62,8 +62,7 @@ const Dashboard = () => {
 
       <RightSidebar />
     </XStack>
-
   )
 }
 
-export default Dashboard
+export default Dashboard;
