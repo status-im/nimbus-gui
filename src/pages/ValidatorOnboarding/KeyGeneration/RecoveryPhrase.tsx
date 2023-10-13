@@ -1,6 +1,6 @@
 import { Stack, YStack } from 'tamagui'
 import { Button, InformationBox, Text } from '@status-im/components'
-import { CloseCircleIcon, CopyIcon } from '@status-im/icons'
+import { CloseCircleIcon, CopyIcon, CheckIcon } from '@status-im/icons'
 import { useEffect, useState } from 'react'
 import { generateMnemonic } from 'web-bip39'
 import wordlist from 'web-bip39/wordlists/english'
@@ -15,6 +15,7 @@ type RecoveryPhraseProps = {
 
 const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
   const [isReveal, setIsReveal] = useState(false)
+  const [isCopied, setIsCopied] = useState(false)
   const { generatedMnemonic } = useSelector((state: RootState) => state.keyGeneration)
   const dispatch = useDispatch()
 
@@ -32,12 +33,10 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
   }
 
   const copyRecoveryPhraseHandler = () => {
-    if (isKeystoreFiles) {
-      return
-    }
-
     const text = generatedMnemonic.join(' ')
     navigator.clipboard.writeText(text)
+
+    setIsCopied(true)
   }
 
   return (
