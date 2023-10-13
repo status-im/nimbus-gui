@@ -1,4 +1,4 @@
-import { Stack, XStack, YStack } from 'tamagui'
+import { Stack, YStack } from 'tamagui'
 import { Button, InformationBox, Text } from '@status-im/components'
 import { CloseCircleIcon, CopyIcon } from '@status-im/icons'
 import { useEffect, useState } from 'react'
@@ -71,6 +71,7 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
             </Text>
           ))}
         </Stack>
+        <CopyIcon size={20} />
       </YStack>
       <Stack style={{ width: 'fit-content', marginBottom: '12px' }}>
         <Button onPress={revealHandler}>
