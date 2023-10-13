@@ -70,7 +70,7 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
             </Text>
           ))}
         </Stack>
-        <CopyIcon size={20} />
+        {isCopied ? <CheckIcon size={20} /> : <CopyIcon size={20} />}
       </YStack>
       <Stack style={{ width: 'fit-content', marginBottom: '12px' }}>
         <Button onPress={revealHandler}>
