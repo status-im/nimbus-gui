@@ -14,8 +14,10 @@ const RightSidebar = () => {
     <YStack
       space={'$4'}
       minHeight={'100vh'}
+      minWidth={'12vw'}
       background={'#FFF'}
       style={{ padding: '8px', border: '1px solid #F0F2F5' }}
+      position="fixed-end"
     >
       <XStack alignItems="center">
         <Avatar type="user" size={32} name="Etherium Mainnet" />
