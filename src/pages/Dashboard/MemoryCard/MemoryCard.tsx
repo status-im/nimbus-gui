@@ -41,11 +41,9 @@ const MemoryCard = ({ currentMemory, maxMemory }: MemoryCardProps) => {
   const message = currentLoad < maxMemory ? 'Good' : 'Poor'
 
   return (
-    <DashboardCardWrapper padding="0" width="48%">
+    <DashboardCardWrapper padding="0" width="260px" height='156px'>
       <YStack
         style={{
-          width: '100%',
-          minHeight: '156px',
           borderRadius: '16px',
           border: message === 'Poor' ? '1px solid  #D92344' : 'none',
           backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
@@ -55,7 +53,7 @@ const MemoryCard = ({ currentMemory, maxMemory }: MemoryCardProps) => {
           justifyContent="space-between"
           style={{
             padding: '8px 16px',
-            position: 'relative',
+            
             flexGrow: '1',
           }}
         >

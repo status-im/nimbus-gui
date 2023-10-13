@@ -35,14 +35,13 @@ const StorageCard = ({ storage, maxStorage }: StorageCardProps) => {
   }
 
   return (
-    <DashboardCardWrapper padding="0" width="48%">
+    <DashboardCardWrapper padding="0" width="260px" height={'156px'}>
       <YStack
         style={{
-          minWidth: '260px',
-          minHeight: '156px',
           borderRadius: '16px',
           border: message === 'Poor' ? '1px solid  #D92344' : 'none',
           backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
+          flexGrow: '1',
         }}
       >
         <XStack

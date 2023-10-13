@@ -9,7 +9,7 @@ const BasicInfoCards = () => {
         display: 'grid',
         gridTemplateColumns: 'repeat(5, 1fr)',
         gap: '1vw',
-        width: '100%',
+
       }}
     >
       <BasicInfoCard title="Active Validators" value="6" />

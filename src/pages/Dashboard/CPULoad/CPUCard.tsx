@@ -39,14 +39,13 @@ const CPUCard = ({ load }: CPUCardProps) => {
   const message = currentLoad < 80 ? 'Good' : 'Poor'
 
   return (
-    <DashboardCardWrapper padding="0" width="48%">
+    <DashboardCardWrapper padding="0" height='156px' width='260px'>
       <YStack
         style={{
-          width: '100%',
-          minHeight: '156px',
           borderRadius: '16px',
           border: message === 'Poor' ? '1px solid  #D92344' : 'none',
           backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
+          flexGrow: '1',
         }}
       >
         <XStack
