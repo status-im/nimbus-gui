@@ -48,7 +48,7 @@ const NetworkCard = ({ uploadRate, downloadRate }: NetworkCardProps) => {
   const message = currentLoad > 60 ? 'Good' : 'Poor'
 
   return (
-    <DashboardCardWrapper padding="0" width="260px" height='156px'>
+    <DashboardCardWrapper padding="0" width="260px" height="156px">
       <YStack
         style={{
           borderRadius: '16px',

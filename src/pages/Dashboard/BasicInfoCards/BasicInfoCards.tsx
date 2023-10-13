@@ -9,7 +9,7 @@ const BasicInfoCards = () => {
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        gap: '1vw'
+        gap: '1vw',
       }}
     >
       <BasicInfoCard title="Active Validators" value="6" />
@@ -21,4 +21,4 @@ const BasicInfoCards = () => {
   )
 }
 
-export default BasicInfoCards;
+export default BasicInfoCards
