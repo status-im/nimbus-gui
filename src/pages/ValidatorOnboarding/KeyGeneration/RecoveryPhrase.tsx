@@ -1,10 +1,10 @@
-import { Stack, YStack } from 'tamagui'
+import { Stack, XStack, YStack } from 'tamagui'
 import { Button, InformationBox, Text } from '@status-im/components'
 import { CloseCircleIcon, CopyIcon, CheckIcon } from '@status-im/icons'
 import { useEffect, useState } from 'react'
 import { generateMnemonic } from 'web-bip39'
-import wordlist from 'web-bip39/wordlists/english'
 import { useDispatch, useSelector } from 'react-redux'
+import wordlist from 'web-bip39/wordlists/english'
 
 import { RootState } from '../../../redux/store'
 import { setGeneratedMnemonic } from '../../../redux/ValidatorOnboarding/KeyGeneration/slice'
@@ -65,9 +65,16 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
           }}
         >
           {generatedMnemonic.map((word, index) => (
-            <Text key={index} size={19} weight={'semibold'}>
-              {index + 1}. {word}
-            </Text>
+            <XStack style={{ width: '100%' }}>
+              <Stack style={{ width: '25%' }}>
+                <Text key={index} size={19} weight={'semibold'} color="#0d162566">
+                  {index + 1}.
+                </Text>
+              </Stack>
+              <Text key={index} size={19} weight={'semibold'}>
+                {word}
+              </Text>
+            </XStack>
           ))}
         </Stack>
         {isCopied ? <CheckIcon size={20} /> : <CopyIcon size={20} />}
