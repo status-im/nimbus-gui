@@ -65,7 +65,7 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
           >
             {generatedMnemonic.map((word, index) => (
               <Text key={index} size={19} weight={'semibold'}>
-                {word}
+                {index + 1}. {word}
               </Text>
             ))}
           </XStack>
