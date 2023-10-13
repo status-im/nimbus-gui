@@ -51,25 +51,22 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
           width: '100%',
         }}
       >
-        <YStack
-          space={'$2'}
-          style={{ filter: `blur(${isReveal ? '0px' : '4px'})`, cursor: 'pointer' }}
+        <XStack
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(6, 1fr)',
+            gap: '5px 0px',
+            filter: `blur(${isReveal ? '0px' : '4px'})`,
+            cursor: 'pointer',
+          }}
           onClick={copyRecoveryPhraseHandler}
         >
-          <XStack
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(6, 1fr)',
-              gap: '5px 0px',
-            }}
-          >
-            {generatedMnemonic.map((word, index) => (
-              <Text key={index} size={19} weight={'semibold'}>
-                {index + 1}. {word}
-              </Text>
-            ))}
-          </XStack>
-        </YStack>
+          {generatedMnemonic.map((word, index) => (
+            <Text key={index} size={19} weight={'semibold'}>
+              {index + 1}. {word}
+            </Text>
+          ))}
+        </XStack>
       </Stack>
       <Stack style={{ width: 'fit-content', marginBottom: '12px' }}>
         <Button onPress={revealHandler}>
