@@ -1,10 +1,10 @@
 import { Stack, XStack, YStack } from 'tamagui'
 import { Button, InformationBox, Text } from '@status-im/components'
-import { CloseCircleIcon } from '@status-im/icons'
+import { CloseCircleIcon, CopyIcon, CheckIcon } from '@status-im/icons'
 import { useEffect, useState } from 'react'
 import { generateMnemonic } from 'web-bip39'
-import wordlist from 'web-bip39/wordlists/english'
 import { useDispatch, useSelector } from 'react-redux'
+import wordlist from 'web-bip39/wordlists/english'
 
 import { RootState } from '../../../redux/store'
 import { setGeneratedMnemonic } from '../../../redux/ValidatorOnboarding/KeyGeneration/slice'
@@ -15,6 +15,7 @@ type RecoveryPhraseProps = {
 
 const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
   const [isReveal, setIsReveal] = useState(false)
+  const [isCopied, setIsCopied] = useState(false)
   const { generatedMnemonic } = useSelector((state: RootState) => state.keyGeneration)
   const dispatch = useDispatch()
 
@@ -32,45 +33,52 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
   }
 
   const copyRecoveryPhraseHandler = () => {
-    if (isKeystoreFiles) {
-      return
-    }
-
     const text = generatedMnemonic.join(' ')
     navigator.clipboard.writeText(text)
+
+    setIsCopied(true)
   }
 
   return (
     <YStack space={'$4'} style={{ width: '100%', marginTop: isKeystoreFiles ? '20px' : '0px' }}>
-      <Stack
+      <YStack
         style={{
           border: `1px solid #2A4AF566`,
           borderRadius: '16px',
-          padding: '28px 18px',
           backgroundColor: '#f4f6fe',
           width: '100%',
+          alignItems: 'end',
+          cursor: 'pointer',
+          paddingBottom: '8px',
+          paddingRight: '18px',
         }}
+        onClick={copyRecoveryPhraseHandler}
       >
-        <YStack
-          space={'$2'}
-          style={{ filter: `blur(${isReveal ? '0px' : '4px'})`, cursor: 'pointer' }}
-          onClick={copyRecoveryPhraseHandler}
+        <Stack
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(6, 1fr)',
+            gap: '5px 3px',
+            width: '100%',
+            filter: `blur(${isReveal ? '0px' : '4px'})`,
+            padding: '28px 0px 0px 18px',
+          }}
         >
-          <XStack
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(6, 1fr)',
-              gap: '5px 0px',
-            }}
-          >
-            {generatedMnemonic.map((word, index) => (
+          {generatedMnemonic.map((word, index) => (
+            <XStack style={{ width: '100%' }}>
+              <Stack style={{ width: '25%' }}>
+                <Text key={index} size={19} weight={'semibold'} color="#0d162566">
+                  {index + 1}.
+                </Text>
+              </Stack>
               <Text key={index} size={19} weight={'semibold'}>
                 {word}
               </Text>
-            ))}
-          </XStack>
-        </YStack>
-      </Stack>
+            </XStack>
+          ))}
+        </Stack>
+        {isCopied ? <CheckIcon size={20} /> : <CopyIcon size={20} />}
+      </YStack>
       <Stack style={{ width: 'fit-content', marginBottom: '12px' }}>
         <Button onPress={revealHandler}>
           {isReveal ? 'Hide Recovery Phrase' : 'Reveal Recovery Phrase'}
