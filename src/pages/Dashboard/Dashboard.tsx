@@ -17,8 +17,7 @@ import MemoryCard from './MemoryCard/MemoryCard'
 
 const Dashboard = () => {
   return (
-    <YStack maxHeight={'100vh'} maxWidth={'100vw'}>
-      <XStack justifyContent={'space-between'}>
+      <XStack justifyContent={'space-between'}  >
         <LeftSidebar />
 
         <YStack
@@ -63,7 +62,7 @@ const Dashboard = () => {
 
         <RightSidebar />
       </XStack>
-    </YStack>
+    
   )
 }
 
