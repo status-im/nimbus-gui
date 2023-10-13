@@ -6,10 +6,10 @@ const BasicInfoCards = () => {
   return (
     <Stack
       style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(5, 1fr)',
-        gap: '1vw',
-
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        gap: '1vw'
       }}
     >
       <BasicInfoCard title="Active Validators" value="6" />
@@ -21,4 +21,4 @@ const BasicInfoCards = () => {
   )
 }
 
-export default BasicInfoCards
+export default BasicInfoCards;
