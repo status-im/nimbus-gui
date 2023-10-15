@@ -50,6 +50,16 @@ const KeystoreFiles = () => {
     return '*'.repeat(passwordLength)
   }
 
+  const clearEncryptedPasswordHandler = () => {
+    setEncryptedPassword('')
+    setDisplayEncryptedPassword('')
+  }
+
+  const clearConfirmEncryptedPasswordHandler = () => {
+    setConfirmEncryptedPassword('')
+    setDisplayConfirmEncryptedPassword('')
+  }
+
   return (
     <YStack space={'$4'}>
       <XStack space={'$2'} style={{ justifyContent: 'space-between', width: '100%' }}>
@@ -65,7 +75,7 @@ const KeystoreFiles = () => {
                   size={16}
                   color="#A1ABBD"
                   style={{ cursor: 'pointer' }}
-                  onClick={() => setEncryptedPassword('')}
+                  onClick={clearEncryptedPasswordHandler}
                 />
               }
               error={encryptedPasswordError}
@@ -84,7 +94,7 @@ const KeystoreFiles = () => {
                   size={16}
                   color="#A1ABBD"
                   style={{ cursor: 'pointer' }}
-                  onClick={() => setConfirmEncryptedPassword('')}
+                  onClick={clearConfirmEncryptedPasswordHandler}
                 />
               }
               error={confirmEncryptedPasswordError}
