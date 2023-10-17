@@ -13,7 +13,7 @@ import {
 import LeftSidebarIconButton from './LeftSidebarIconButton'
 
 const meta = {
-  title: 'Dashboard/LeftSidebarIconButton',
+  title: 'General/LeftSidebarIconButton',
   component: LeftSidebarIconButton,
   parameters: {
     layout: 'centered',

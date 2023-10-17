@@ -1,6 +1,6 @@
 import { XStack } from 'tamagui'
 
-import LeftSidebar from './LeftSidebar/LeftSidebar'
+import LeftSidebar from '../../components/General/LeftSidebar/LeftSidebar'
 import DashboardContent from './DashboardContent'
 import RightSidebar from './RightSideBar/RightSidebar'
 
