@@ -9,8 +9,9 @@ import {
   SettingsIcon,
 } from '@status-im/icons'
 import { YStack } from 'tamagui'
-import IconButtonWithDot from './IconButtonWithDot'
 import { useSelector } from 'react-redux'
+
+import IconButtonWithDot from './IconButtonWithDot'
 
 const LeftSidebar = () => {
   const buttons = useSelector((state: any) => state.leftSidebar.buttons)
@@ -37,6 +38,7 @@ const LeftSidebar = () => {
         return null
     }
   }
+
   return (
     <YStack
       space={'$4'}

@@ -1,6 +1,7 @@
 import { IconButton } from '@status-im/components'
 import { useDispatch } from 'react-redux'
 import { Stack } from 'tamagui'
+
 import { toggleButtonSelection } from '../../redux/Sidebars/slice'
 
 type IconButtonWithDotProps = {
@@ -21,9 +22,8 @@ const IconButtonWithDot = ({
   id,
 }: IconButtonWithDotProps) => {
   const dispatch = useDispatch()
-  const onClickHandler = (id: string) => {
-    if (!disabled) dispatch(toggleButtonSelection(id))
-  }
+
+  const onClickHandler = () => (disabled ? null : dispatch(toggleButtonSelection(id)))
 
   return (
     <Stack style={{ position: 'relative', display: 'inline-block' }}>
@@ -32,7 +32,7 @@ const IconButtonWithDot = ({
         variant={variant}
         selected={selected}
         disabled={disabled}
-        onPress={() => onClickHandler(id)}
+        onPress={onClickHandler}
       />
       {isDotOn && (
         <Stack
