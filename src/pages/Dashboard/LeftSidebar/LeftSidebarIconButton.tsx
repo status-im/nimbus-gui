@@ -2,7 +2,7 @@ import { IconButton } from '@status-im/components'
 import { useDispatch } from 'react-redux'
 import { Stack } from 'tamagui'
 
-import { toggleButtonSelection } from '../../../redux/Sidebars/slice'
+import { toggleButtonSelection } from '../../../redux/LeftSidebar/slice'
 
 type IconButtonWithDotProps = {
   iconEl: any

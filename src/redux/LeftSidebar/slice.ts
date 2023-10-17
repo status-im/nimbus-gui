@@ -35,7 +35,9 @@ const leftSidebarSlice = createSlice({
     },
     toggleDot: (state, action: PayloadAction<string>) => {
       const button = state.buttons.find(button => button.id === action.payload)
-      if (button) button.isDotOn = !button.isDotOn
+      if (button) {
+        button.isDotOn = !button.isDotOn
+      }
     },
   },
 })
