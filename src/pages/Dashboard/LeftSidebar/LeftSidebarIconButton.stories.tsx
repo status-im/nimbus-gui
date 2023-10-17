@@ -27,18 +27,6 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     iconEl: <DashboardIcon size={20} />,
-    variant: 'ghost',
-    isDotOn: false,
-    selected: false,
-    disabled: false,
-    id: 'dashboard',
-  },
-}
-
-export const Outlined: Story = {
-  args: {
-    iconEl: <DashboardIcon size={20} />,
-    variant: 'outline',
     isDotOn: false,
     selected: false,
     disabled: false,
@@ -49,7 +37,6 @@ export const Outlined: Story = {
 export const WithDot: Story = {
   args: {
     iconEl: <DashboardIcon size={20} />,
-    variant: 'outline',
     isDotOn: true,
     selected: false,
     disabled: false,
@@ -60,7 +47,6 @@ export const WithDot: Story = {
 export const Selected: Story = {
   args: {
     iconEl: <DashboardIcon size={20} />,
-    variant: 'ghost',
     isDotOn: false,
     selected: true,
     disabled: false,
@@ -71,7 +57,6 @@ export const Selected: Story = {
 export const Disabled: Story = {
   args: {
     iconEl: <DashboardIcon size={20} />,
-    variant: 'ghost',
     isDotOn: false,
     selected: false,
     disabled: true,
@@ -82,7 +67,6 @@ export const Disabled: Story = {
 export const Dashboard: Story = {
   args: {
     iconEl: <DashboardIcon size={20} />,
-    variant: 'ghost',
     isDotOn: false,
     selected: true,
     disabled: false,
@@ -93,7 +77,6 @@ export const Dashboard: Story = {
 export const Speed: Story = {
   args: {
     iconEl: <SpeedIcon size={20} />,
-    variant: 'ghost',
     isDotOn: false,
     selected: false,
     disabled: false,
@@ -104,7 +87,6 @@ export const Speed: Story = {
 export const Chart: Story = {
   args: {
     iconEl: <ChartIcon size={20} />,
-    variant: 'ghost',
     isDotOn: false,
     selected: false,
     disabled: true,
@@ -115,7 +97,6 @@ export const Chart: Story = {
 export const Heart: Story = {
   args: {
     iconEl: <HeartIcon size={20} />,
-    variant: 'ghost',
     isDotOn: false,
     selected: false,
     disabled: false,
@@ -126,7 +107,6 @@ export const Heart: Story = {
 export const CodeBlock: Story = {
   args: {
     iconEl: <CodeBlockIcon size={20} />,
-    variant: 'ghost',
     isDotOn: false,
     selected: false,
     disabled: false,
@@ -137,7 +117,6 @@ export const CodeBlock: Story = {
 export const Communities: Story = {
   args: {
     iconEl: <CommunitiesIcon size={20} />,
-    variant: 'ghost',
     isDotOn: false,
     selected: false,
     disabled: false,
@@ -148,7 +127,6 @@ export const Communities: Story = {
 export const ActivityCenter: Story = {
   args: {
     iconEl: <ActivityCenterIcon size={20} />,
-    variant: 'ghost',
     isDotOn: true,
     selected: false,
     disabled: false,
@@ -159,7 +137,6 @@ export const ActivityCenter: Story = {
 export const Settings: Story = {
   args: {
     iconEl: <SettingsIcon size={20} />,
-    variant: 'ghost',
     isDotOn: false,
     selected: false,
     disabled: false,

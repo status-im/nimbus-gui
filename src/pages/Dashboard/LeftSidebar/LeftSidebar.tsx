@@ -55,7 +55,6 @@ const LeftSidebar = () => {
         <LeftSidebarIconButton
           key={button.id}
           iconEl={renderIcon(button.id)}
-          variant={button.isDisabled ? 'outline' : 'ghost'}
           isDotOn={button.isDotOn}
           selected={button.isSelected}
           disabled={button.isDisabled}

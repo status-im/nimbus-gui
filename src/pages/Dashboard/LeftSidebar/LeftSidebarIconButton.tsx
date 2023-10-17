@@ -6,7 +6,6 @@ import { toggleButtonSelection } from '../../../redux/Sidebars/slice'
 
 type IconButtonWithDotProps = {
   iconEl: any
-  variant: 'ghost' | 'outline'
   isDotOn: boolean
   selected?: boolean
   disabled?: boolean
@@ -15,7 +14,6 @@ type IconButtonWithDotProps = {
 
 const LeftSidebarIconButton = ({
   iconEl,
-  variant,
   isDotOn,
   selected,
   disabled,
@@ -29,7 +27,7 @@ const LeftSidebarIconButton = ({
     <Stack style={{ position: 'relative', display: 'inline-block' }}>
       <IconButton
         icon={iconEl}
-        variant={variant}
+        variant={disabled ? 'outline' : 'ghost'}
         selected={selected}
         disabled={disabled}
         onPress={onClickHandler}
