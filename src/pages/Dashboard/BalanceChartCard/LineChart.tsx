@@ -7,6 +7,7 @@ import {
   Filler,
 } from 'chart.js'
 import { Line } from 'react-chartjs-2'
+import { Stack } from 'tamagui'
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Filler)
 
@@ -29,12 +30,19 @@ const LineChart = ({ years, userGains }: LineChartProps) => {
         pointRadius: 0,
       },
     ],
-    options: {
-      responsive: true,
-    },
+  }
+  const options = {
+
+    responsive: true,
+    maintainAspectRatio: false,
   }
 
-  return <Line options={data.options} data={data} />
+  return (
+    <Stack minWidth={'536px'} minHeight={'300px'}>
+      <Line data={data} options={options} />
+    </Stack>
+  )
+
 }
 
 export default LineChart
