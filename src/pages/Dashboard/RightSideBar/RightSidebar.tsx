@@ -12,13 +12,15 @@ const RightSidebar = () => {
 
   return (
     <YStack
-      width={'250px'}
+      width={'320px'}
       space={'$4'}
-      maxHeight={'100vh'}
       backgroundColor={'#FFF'}
-      style={{ padding: '8px', border: '1px solid #F0F2F5' }}
-     
-
+      style={{
+        padding: '8px',
+        border: '1px solid #F0F2F5',
+        height: '100vh',
+        overflowY: 'auto'
+      }}
     >
       <XStack alignItems="center">
         <Avatar type="user" size={32} name="Etherium Mainnet" />
@@ -80,9 +82,7 @@ const RightSidebar = () => {
           <ValidatorsList />
         </Tabs.Content>
       </Tabs>
-
       <AlertsList />
-
       <LogsList />
     </YStack>
   )
