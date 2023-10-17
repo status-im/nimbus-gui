@@ -6,6 +6,7 @@ type DashboardCardWrapperProps = {
   width?: string
   height?: string
   minWidth?: string
+  maxWidth?: string
 }
 
 const DashboardCardWrapper = ({
@@ -14,6 +15,7 @@ const DashboardCardWrapper = ({
   width,
   height = 'auto',
   minWidth = '0',
+  maxWidth,
 }: DashboardCardWrapperProps) => {
   return (
     <Shadow
@@ -26,6 +28,7 @@ const DashboardCardWrapper = ({
         padding,
         backgroundColor: '$background',
         minWidth: minWidth,
+        maxWidth: maxWidth,
       }}
     >
       {children}
