@@ -1,7 +1,7 @@
 import { Avatar, Tabs, Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
 
-import AddCard from '../../../components/General/AddCards/AddCard'
+import AddCard from '../AddCards/AddCard'
 import ValidatorsList from './ValidatorsList'
 import AlertsList from './AlertsList'
 import LogsList from './LogsList'

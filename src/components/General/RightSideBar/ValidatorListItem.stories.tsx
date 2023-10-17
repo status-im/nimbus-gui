@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import ValidatorListItem from './ValidatorListItem'
 
 const meta = {
-  title: 'Dashboard/ValidatorListItem',
+  title: 'General/ValidatorListItem',
   component: ValidatorListItem,
   parameters: {
     layout: 'centered',
