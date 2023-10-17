@@ -14,7 +14,7 @@ const ConsensusUptimeCard = () => {
         width: '48%',
       }}
     >
-      <YStack space={'$3'} width={'100%'} minHeight={'156px'} padding={'$3'}>
+      <YStack space={'$3'}   minHeight={'156px'} padding={'$3'}>
         <YStack>
           <Text size={15} weight={'semibold'}>
             Consensus Uptime
