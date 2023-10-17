@@ -12,8 +12,8 @@ const DashboardCardWrapper = ({
   children,
   padding = '12px 16px',
   width,
-  height,
-  minWidth,
+  height = 'auto',
+  minWidth = '0',
 }: DashboardCardWrapperProps) => {
   return (
     <Shadow
@@ -32,5 +32,4 @@ const DashboardCardWrapper = ({
     </Shadow>
   )
 }
-
 export default DashboardCardWrapper
