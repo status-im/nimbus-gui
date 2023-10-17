@@ -1,5 +1,5 @@
 import { XStack, YStack } from 'tamagui'
-import { InfoIcon } from '@status-im/icons'
+import { InfoBadgeIcon } from '@status-im/icons'
 import { Avatar, Text } from '@status-im/components'
 
 const PairedDeviceCard = () => {
@@ -14,7 +14,12 @@ const PairedDeviceCard = () => {
       alignItems={'center'}
     >
       <XStack space={'$3'} alignItems={'center'}>
-        <Avatar backgroundColor="pink" size={32} type="user" name="RP" />
+        <Avatar
+          backgroundColor="pink"
+          type="icon"
+          size={32}
+          icon={<img src={'/icons/pepper.svg'} alt="pepper" />}
+        />
         <YStack>
           <Text size={13} color="#647084">
             Paired Device
@@ -24,7 +29,7 @@ const PairedDeviceCard = () => {
           </Text>
         </YStack>
       </XStack>
-      <InfoIcon size={20} color="#A1ABBD" cursor={'pointer'} />
+      <InfoBadgeIcon size={20} color="#A1ABBD" cursor={'pointer'} />
     </XStack>
   )
 }

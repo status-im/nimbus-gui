@@ -1,7 +1,6 @@
 import { Stack, XStack, YStack } from 'tamagui'
-import { ClearIcon } from '@status-im/icons'
+import { InfoBadgeIcon } from '@status-im/icons'
 import { Text } from '@status-im/components'
-import { useState } from 'react'
 
 import StandardGauge from '../../../../components/Charts/StandardGauge'
 import BorderBox from '../../../../components/General/BorderBox'
@@ -15,16 +14,6 @@ type KeyGenerationSyncCardProps = {
 }
 
 const KeyGenerationSyncCard = ({ synced, total, title, color }: KeyGenerationSyncCardProps) => {
-  const [isOpen, setIsOpen] = useState(true)
-
-  const closeCardHanlder = () => {
-    setIsOpen(false)
-  }
-
-  if (isOpen === false) {
-    return null
-  }
-
   return (
     <BorderBox style={{ borderRadius: '10.1px', borderWidth: '0.5px' }}>
       <XStack space={'$2'} alignItems="center">
@@ -59,12 +48,7 @@ const KeyGenerationSyncCard = ({ synced, total, title, color }: KeyGenerationSyn
             {formatNumbersWithComa(synced)} / {formatNumbersWithComa(total)}
           </Text>
         </YStack>
-        <ClearIcon
-          size={20}
-          color="#A1ABBD"
-          onClick={closeCardHanlder}
-          style={{ cursor: 'pointer' }}
-        />
+        <InfoBadgeIcon size={20} color="#A1ABBD" style={{ cursor: 'pointer' }} />
       </XStack>
     </BorderBox>
   )
