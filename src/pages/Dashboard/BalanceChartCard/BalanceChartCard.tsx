@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Stack, XStack, YStack } from 'tamagui'
+import { XStack, YStack } from 'tamagui'
 import { Calendar } from '@status-im/components'
 import { Text } from '@status-im/components'
 import { DateRange } from 'react-day-picker'

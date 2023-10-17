@@ -28,7 +28,7 @@ const DashboardContent = () => (
         minWidth="500px"
     >
         <TitleLogo />
-        <XStack space="$4" justifyContent="space-between" flexWrap="wrap">
+        <XStack space="$4" flexWrap="wrap">
             <XStack space="$4" flexWrap="wrap">
                 <SyncStatusCard />
                 <AddCardsContainer />
