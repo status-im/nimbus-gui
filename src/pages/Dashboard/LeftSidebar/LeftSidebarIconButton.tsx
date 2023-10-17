@@ -13,7 +13,7 @@ type IconButtonWithDotProps = {
   id: string
 }
 
-const IconButtonWithDot = ({
+const LeftSidebarIconButton = ({
   iconEl,
   variant,
   isDotOn,
@@ -52,4 +52,4 @@ const IconButtonWithDot = ({
   )
 }
 
-export default IconButtonWithDot
+export default LeftSidebarIconButton

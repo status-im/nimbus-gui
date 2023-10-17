@@ -11,7 +11,7 @@ import {
 import { YStack } from 'tamagui'
 import { useSelector } from 'react-redux'
 
-import IconButtonWithDot from './IconButtonWithDot'
+import LeftSidebarIconButton from './LeftSidebarIconButton'
 
 const LeftSidebar = () => {
   const buttons = useSelector((state: any) => state.leftSidebar.buttons)
@@ -52,7 +52,7 @@ const LeftSidebar = () => {
       }}
     >
       {buttons.map((button: any) => (
-        <IconButtonWithDot
+        <LeftSidebarIconButton
           key={button.id}
           iconEl={renderIcon(button.id)}
           variant={button.isDisabled ? 'outline' : 'ghost'}
