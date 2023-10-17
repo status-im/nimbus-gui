@@ -15,7 +15,7 @@ const ExecutionUptime = () => {
       }}
     >
       <YStack space={'$3'} width={'100%'} minHeight={'156px'} padding={'$3'}>
-        <YStack >
+        <YStack>
           <Text size={15} weight={'semibold'}>
             Execution Uptime
           </Text>

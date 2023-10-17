@@ -32,17 +32,15 @@ const LineChart = ({ years, userGains }: LineChartProps) => {
     ],
   }
   const options = {
-
     responsive: true,
     maintainAspectRatio: false,
   }
 
   return (
-    <Stack >
+    <Stack>
       <Line data={data} options={options} />
     </Stack>
   )
-
 }
 
 export default LineChart

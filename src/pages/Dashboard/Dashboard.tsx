@@ -10,6 +10,6 @@ const Dashboard = () => (
     <DashboardContent />
     <RightSidebar />
   </XStack>
-);
+)
 
 export default Dashboard

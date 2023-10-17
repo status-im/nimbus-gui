@@ -95,9 +95,7 @@ const BalanceChartCard = () => {
           </XStack>
         </XStack>
 
-
         <LineChart years={filteredYears} userGains={filteredUserGains} />
-
       </YStack>
     </DashboardCardWrapper>
   )

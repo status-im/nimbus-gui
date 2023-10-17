@@ -19,7 +19,7 @@ const RightSidebar = () => {
         padding: '8px',
         border: '1px solid #F0F2F5',
         height: '100vh',
-        overflowY: 'auto'
+        overflowY: 'auto',
       }}
     >
       <XStack alignItems="center">
