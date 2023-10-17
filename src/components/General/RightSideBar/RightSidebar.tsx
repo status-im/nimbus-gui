@@ -1,11 +1,12 @@
 import { Avatar, Tabs, Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
+import { useSelector } from 'react-redux'
 
 import AddCard from '../AddCards/AddCard'
 import ValidatorsList from './ValidatorsList'
 import AlertsList from './AlertsList'
 import LogsList from './LogsList'
-import { useSelector } from 'react-redux'
+import { getFormattedWalletAddress } from '../../../utilities'
 
 const RightSidebar = () => {
   const countOfValidators = useSelector((state: any) => state.rightSidebar.countOfValidators)
@@ -26,12 +27,11 @@ const RightSidebar = () => {
         <Avatar type="user" size={32} name="Etherium Mainnet" />
         <YStack pl="8px">
           <Text size={15} weight={'semibold'}>
-            Etherium Mainnet
+            Ethereum Mainnet
           </Text>
-          <Text size={13}>0xb9d...c35</Text>
+          <Text size={13}>{getFormattedWalletAddress('0xb9dc35')}</Text>
         </YStack>
       </XStack>
-
       <XStack alignItems="center" justifyContent="space-between">
         <YStack
           backgroundColor={'#2A4AF5'}
