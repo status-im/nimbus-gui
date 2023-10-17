@@ -5,10 +5,10 @@ import DashboardCardWrapper from '../../../pages/Dashboard/DashboardCardWrapper'
 
 const AddCardsContainer = () => {
   return (
-    <DashboardCardWrapper padding="0" width="50%">
+    <DashboardCardWrapper padding="0">
       <YStack>
-        <AddCard padding={'0 7vw'} />
-        <AddCard padding={'0 7vw'} />
+        <AddCard padding={'56px'} />
+        <AddCard padding={'56px'} />
       </YStack>
     </DashboardCardWrapper>
   )
