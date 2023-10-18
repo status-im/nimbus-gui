@@ -38,7 +38,7 @@ const AlertsList = () => {
         <Text size={15} weight={'semibold'}>
           Alerts
         </Text>
-        <ChevronRightIcon size={20} style={{ marginRight: '8px' }} />
+        <ChevronRightIcon size={20} style={{ marginRight: '8px', cursor: 'pointer' }} />
       </XStack>
       {alerts.map(alert => (
         <InformationBox
