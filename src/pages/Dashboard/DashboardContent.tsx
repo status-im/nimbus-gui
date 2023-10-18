@@ -1,4 +1,4 @@
-import { XStack, YStack } from 'tamagui'
+import { Stack, XStack, YStack } from 'tamagui'
 
 import BasicInfoCards from './BasicInfoCards/BasicInfoCards'
 import AddCardsContainer from '../../components/General/AddCards/AddCardsContainer'
@@ -41,7 +41,7 @@ const DashboardContent = () => {
     >
       <TitleLogo />
 
-      <div
+      <Stack
         style={{
           display: 'grid',
           gridTemplateColumns: windowWidth < 1300 ? '0.5fr' : '25fr 25fr 90fr',
@@ -52,7 +52,7 @@ const DashboardContent = () => {
         <AddCardsContainer />
 
         <BalanceChartCard />
-      </div>
+      </Stack>
 
       <BasicInfoCards />
 
