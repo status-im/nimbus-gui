@@ -1,6 +1,5 @@
 import { Avatar, Tabs, Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
-import { useSelector } from 'react-redux'
 
 import AddCard from '../AddCards/AddCard'
 import ValidatorsList from './ValidatorsList'
@@ -9,10 +8,9 @@ import LogsList from './LogsList'
 import DiamondCard from './DiamondCard'
 import { getFormattedWalletAddress } from '../../../utilities'
 import styles from './RightSidebar.module.css'
+import ValidatorsCount from './ValidatorsCount'
 
 const RightSidebar = () => {
-  const countOfValidators = useSelector((state: any) => state.rightSidebar.countOfValidators)
-
   return (
     <YStack
       width={'320px'}
@@ -39,14 +37,7 @@ const RightSidebar = () => {
         <DiamondCard />
         <AddCard style={{ padding: '0 2vw' }} />
       </XStack>
-      <XStack justifyContent={'space-between'} width={'85%'}>
-        <Text size={19} weight={'semibold'}>
-          Validators
-        </Text>
-        <Text size={19} weight={'semibold'}>
-          {countOfValidators}
-        </Text>
-      </XStack>
+      <ValidatorsCount />
       <Tabs defaultValue="active">
         <Tabs.List size={32}>
           <Tabs.Trigger type="default" value="active">
