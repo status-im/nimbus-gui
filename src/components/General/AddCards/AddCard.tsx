@@ -2,21 +2,21 @@ import { Stack } from 'tamagui'
 import { AddIcon } from '@status-im/icons'
 
 type AddCardProps = {
-  padding: string
+  style?: React.CSSProperties
 }
 
-const AddCard = ({ padding }: AddCardProps) => {
+const AddCard = ({ style }: AddCardProps) => {
   return (
     <Stack
       style={{
         border: '2px dashed #DCE0E5',
         borderRadius: '16px',
         cursor: 'pointer',
-        minHeight: '150px',
-        padding: padding,
+        height: '100%',
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
+        ...style,
       }}
     >
       <AddIcon
