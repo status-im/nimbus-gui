@@ -37,7 +37,7 @@ const LineChart = ({ years, userGains }: LineChartProps) => {
   }
 
   return (
-    <Stack>
+    <Stack width={'100%'} height={'75%'} > 
       <Line data={data} options={options} />
     </Stack>
   )
