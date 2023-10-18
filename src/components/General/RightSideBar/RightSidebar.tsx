@@ -60,7 +60,7 @@ const RightSidebar = () => {
             </Text>
           </XStack>
         </YStack>
-        <AddCard padding={'0 2vw'} />
+        <AddCard style={{ padding: '0 2vw' }} />
       </XStack>
       <XStack justifyContent={'space-between'} width={'85%'}>
         <Text size={19} weight={'semibold'}>
