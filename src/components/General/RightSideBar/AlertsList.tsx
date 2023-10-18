@@ -9,7 +9,7 @@ type Alert = {
 }
 
 const AlertsList = () => {
-  const [_, setAlerts] = useState([] as Alert[])
+  const [alerts, setAlerts] = useState([] as Alert[])
 
   useEffect(() => {
     setAlerts([
@@ -38,24 +38,14 @@ const AlertsList = () => {
           <ChevronRightIcon size={20} />
         </div>
       </XStack>
-      <InformationBox
-        message="Network: Participation rate below 66%"
-        icon={<CloseCircleIcon size={20} />}
-        variant="default"
-        onClosePress={() => alert('dismissed')}
-      />
-      <InformationBox
-        message="Node: 32 Peers Connected"
-        icon={<CloseCircleIcon size={20} />}
-        variant="information"
-        onClosePress={() => alert('dismissed')}
-      />
-      <InformationBox
-        message="Node / Validator: Process Down"
-        icon={<CloseCircleIcon size={20} />}
-        variant="error"
-        onClosePress={() => alert('dismissed')}
-      />
+      {alerts.map(alert => (
+        <InformationBox
+          key={alert.message}
+          message={alert.message}
+          icon={<CloseCircleIcon size={20} />}
+          variant={alert.variant}
+        />
+      ))}
     </YStack>
   )
 }
