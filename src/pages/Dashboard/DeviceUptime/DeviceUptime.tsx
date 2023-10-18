@@ -6,6 +6,7 @@ import { useState } from 'react'
 import UptimeChart from '../UptimeChart/UptimeChart'
 import Icon from '../../../components/General/Icon'
 import { getMonthIndicesFromRange } from '../../../utilities'
+import DashboardCardWrapper from '../DashboardCardWrapper'
 
 const DeviceUptime = () => {
   const [isCalendarVisible, setIsCalendarVisible] = useState(false)
@@ -27,13 +28,9 @@ const DeviceUptime = () => {
   }
 
   return (
-    <Shadow
-      variant="$2"
-      style={{
-        borderRadius: '16px',
-      }}
+    <DashboardCardWrapper     
     >
-      <YStack space={'$3'} width={'100%'} minHeight={'156px'} padding={'$3'}>
+      <YStack space={'$3'}   >
         <XStack justifyContent={'space-between'}>
           <YStack>
             <Text size={15} weight={'semibold'}>
@@ -104,7 +101,7 @@ const DeviceUptime = () => {
           </Stack>
         </XStack>
       </YStack>
-    </Shadow>
+    </DashboardCardWrapper>
   )
 }
 

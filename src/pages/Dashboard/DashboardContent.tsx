@@ -31,6 +31,7 @@ const DashboardContent = () => (
     <div style={{
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
+      gap: '16px' // You can adjust this value as per your needs
     }}>
       <YStack space="$4">
         <SyncStatusCard />
