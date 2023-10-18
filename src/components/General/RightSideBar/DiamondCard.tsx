@@ -1,5 +1,5 @@
 import { Text } from '@status-im/components'
-import { XStack, YStack } from 'tamagui'
+import { Stack, XStack, YStack } from 'tamagui'
 
 const DiamondCard = () => {
   return (
@@ -12,9 +12,11 @@ const DiamondCard = () => {
         height: 'max-fit',
       }}
     >
-      <Text size={15} weight={'semibold'} color={'#FFF'}>
-        💎 Diamond Hands
-      </Text>
+      <Stack style={{ marginBottom: '8px' }}>
+        <Text size={15} weight={'semibold'} color={'#FFF'}>
+          💎 Diamond Hands
+        </Text>
+      </Stack>
       <Text size={27} weight={'semibold'} color={'#FFF'}>
         $0.00
       </Text>
