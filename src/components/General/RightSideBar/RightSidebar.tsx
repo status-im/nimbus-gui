@@ -6,8 +6,9 @@ import AddCard from '../AddCards/AddCard'
 import ValidatorsList from './ValidatorsList'
 import AlertsList from './AlertsList'
 import LogsList from './LogsList'
-import { getFormattedWalletAddress } from '../../../utilities'
 import DiamondCard from './DiamondCard'
+import { getFormattedWalletAddress } from '../../../utilities'
+import styles from './RightSidebar.module.css'
 
 const RightSidebar = () => {
   const countOfValidators = useSelector((state: any) => state.rightSidebar.countOfValidators)
@@ -17,6 +18,7 @@ const RightSidebar = () => {
       width={'320px'}
       space={'$4'}
       backgroundColor={'#FFF'}
+      className={styles['transparent-scrollbar']}
       style={{
         padding: '8px',
         border: '1px solid #F0F2F5',

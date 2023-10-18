@@ -1,0 +1,16 @@
+.transparent-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.transparent-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.1); 
+  border-radius: 10px;
+}
+
+.transparent-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,0.2);
+}
+
+.transparent-scrollbar::-webkit-scrollbar-corner { 
+  background: transparent;
+}
