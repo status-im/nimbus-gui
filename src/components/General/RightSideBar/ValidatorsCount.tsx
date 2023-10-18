@@ -9,10 +9,10 @@ const ValidatorsCount = () => {
 
   return (
     <XStack justifyContent={'space-between'} width={'85%'}>
-      <Text size={19} weight={'semibold'}>
+      <Text size={15} weight={'semibold'}>
         Validators
       </Text>
-      <Text size={19} weight={'semibold'}>
+      <Text size={15} weight={'semibold'}>
         {countOfValidators}
       </Text>
     </XStack>
