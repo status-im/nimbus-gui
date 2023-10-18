@@ -30,22 +30,18 @@ const DashboardContent = () => (
 
     <div style={{
       display: 'grid',
-      gridTemplateColumns: '1fr 1fr 4fr',
-      gap: '16px', //   adjust this  ,
-      flexWrap: 'wrap',
+      gridTemplateColumns: '1fr 1fr',
     }}>
-
-     
+      <YStack space="$4">
         <SyncStatusCard />
         <AddCardsContainer />
-       
+      </YStack>
       <BalanceChartCard />
     </div>
 
-
     <BasicInfoCards />
 
-    <XStack space="$3" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+    <XStack space="$3" >
       <YStack space="$4">
         <XStack justifyContent="space-between">
           <ConsensusUptimeCard />
@@ -54,7 +50,7 @@ const DashboardContent = () => (
         <DeviceUptime />
       </YStack>
 
-      <YStack space="$4">
+      <YStack space="$4" flexWrap="wrap">
         <XStack space="$4">
           <StorageCard maxStorage={100} storage={82} />
           <CPUCard load={[12, 31, 3, 2, 24, 98]} />
@@ -68,8 +64,8 @@ const DashboardContent = () => (
         </XStack>
       </YStack>
     </XStack>
-
   </YStack>
 )
 
 export default DashboardContent
+
