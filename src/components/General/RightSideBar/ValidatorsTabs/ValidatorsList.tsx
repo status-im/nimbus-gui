@@ -1,9 +1,10 @@
 import { Stack, YStack } from 'tamagui'
-import ValidatorListItem from './ValidatorListItem'
-import InputSearch from './SearchInput'
 import { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { setCountOfValidators } from '../../../redux/RightSidebar/slice'
+
+import ValidatorListItem from './ValidatorListItem'
+import { setCountOfValidators } from '../../../../redux/RightSidebar/slice'
+import InputSearch from '../SearchInput'
 
 const ValidatorsList = () => {
   const dispatch = useDispatch()

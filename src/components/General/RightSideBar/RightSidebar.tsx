@@ -6,7 +6,7 @@ import AlertsList from './AlertsList'
 import LogsList from './LogsList'
 import DiamondCard from './DiamondCard'
 import ValidatorsCount from './ValidatorsCount'
-import ValidatorsTabs from './ValidatorsTabs'
+import ValidatorsTabs from './ValidatorsTabs/ValidatorsTabs'
 import { getFormattedWalletAddress } from '../../../utilities'
 import styles from './RightSidebar.module.css'
 
