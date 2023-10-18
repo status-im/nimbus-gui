@@ -28,8 +28,7 @@ const DeviceUptime = () => {
   }
 
   return (
-    <DashboardCardWrapper     
-    >
+    <DashboardCardWrapper maxHeight='350px'>
       <YStack space={'$3'}   >
         <XStack justifyContent={'space-between'}>
           <YStack>
