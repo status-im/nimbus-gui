@@ -34,25 +34,16 @@ const LogsList = () => {
         <Text size={15} weight={'semibold'}>
           Logs
         </Text>
-        <div style={{ marginRight: '8px' }}>
-          <ChevronRightIcon size={20} />
-        </div>
+        <ChevronRightIcon size={20} style={{ marginRight: '8px' }} />
       </XStack>
-      <InformationBox
-        message="Critical Logs: 0.01 / M"
-        icon={<CloseCircleIcon size={20} />}
-        variant="default"
-      />
-      <InformationBox
-        message="Warning Logs: 0.01 / M"
-        icon={<CloseCircleIcon size={20} />}
-        variant="default"
-      />
-      <InformationBox
-        message="Error Logs: 0.01 / M"
-        icon={<CloseCircleIcon size={20} />}
-        variant="default"
-      />
+      {logs.map(log => (
+        <InformationBox
+          key={log.message}
+          message={log.message}
+          icon={<CloseCircleIcon size={20} />}
+          variant={log.variant}
+        />
+      ))}
     </YStack>
   )
 }
