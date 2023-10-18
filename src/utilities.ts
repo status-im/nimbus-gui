@@ -60,11 +60,9 @@ export const formatToFixed4 = (value: string) => {
 }
 
 export const getHeightPercentages = (amountOfElements: number) => {
-  let percentages
+  let percentages = 100
 
-  if (amountOfElements === 1) {
-    percentages = 100
-  } else {
+  if (amountOfElements > 1) {
     percentages = 100 / amountOfElements
   }
 
