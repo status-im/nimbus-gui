@@ -28,6 +28,10 @@ const AlertsList = () => {
     ])
   }, [])
 
+  const onCloseAlert = (alert: Alert) => {
+    setAlerts(alerts.filter(a => a.message !== alert.message && a.variant !== alert.variant))
+  }
+
   return (
     <YStack space={'$2'}>
       <XStack justifyContent="space-between">
@@ -44,6 +48,7 @@ const AlertsList = () => {
           message={alert.message}
           icon={<CloseCircleIcon size={20} />}
           variant={alert.variant}
+          onClosePress={() => onCloseAlert(alert)}
         />
       ))}
     </YStack>
