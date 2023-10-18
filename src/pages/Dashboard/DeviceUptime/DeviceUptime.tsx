@@ -1,4 +1,4 @@
-import { Calendar, Shadow, Text } from '@status-im/components'
+import { Calendar, Text } from '@status-im/components'
 import { Stack, XStack, YStack } from 'tamagui'
 import { DateRange } from 'react-day-picker'
 import { useState } from 'react'
