@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 
 import ValidatorListItem from './ValidatorListItem'
 import { setCountOfValidators } from '../../../../redux/RightSidebar/slice'
-import InputSearch from '../SearchInput'
+import InputSearch from './SearchInput'
 
 const ValidatorsList = () => {
   const dispatch = useDispatch()
