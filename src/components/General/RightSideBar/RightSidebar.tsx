@@ -6,15 +6,15 @@ import ValidatorsList from './ValidatorsList'
 import AlertsList from './AlertsList'
 import LogsList from './LogsList'
 import DiamondCard from './DiamondCard'
+import ValidatorsCount from './ValidatorsCount'
 import { getFormattedWalletAddress } from '../../../utilities'
 import styles from './RightSidebar.module.css'
-import ValidatorsCount from './ValidatorsCount'
 
 const RightSidebar = () => {
   return (
     <YStack
       width={'320px'}
-      space={'$4'}
+      space={'$3'}
       backgroundColor={'#FFF'}
       className={styles['transparent-scrollbar']}
       style={{
@@ -25,7 +25,7 @@ const RightSidebar = () => {
       }}
     >
       <XStack alignItems="center">
-        <Avatar type="user" size={32} name="Etherium Mainnet" />
+        <Avatar type="user" size={32} name="Ethereum Mainnet" />
         <YStack pl="8px">
           <Text size={15} weight={'semibold'}>
             Ethereum Mainnet
