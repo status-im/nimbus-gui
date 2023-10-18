@@ -14,7 +14,7 @@ const ExecutionUptime = () => {
         minWidth: '260px',
       }}
     >
-      <YStack space={'$3'}   minHeight={'156px'} padding={'$3'}>
+      <YStack space={'$3'} minHeight={'156px'} padding={'$3'}>
         <YStack>
           <Text size={15} weight={'semibold'}>
             Execution Uptime

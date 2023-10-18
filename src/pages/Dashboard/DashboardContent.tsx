@@ -14,18 +14,18 @@ import SyncStatusCard from './SyncStatusCards/SyncStatusCards'
 import MemoryCard from './MemoryCard/MemoryCard'
 import { useEffect, useState } from 'react'
 const DashboardContent = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   useEffect(() => {
     const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
+      setWindowWidth(window.innerWidth)
+    }
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize)
     return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
   return (
     <YStack
       space="$4"
@@ -41,12 +41,13 @@ const DashboardContent = () => {
     >
       <TitleLogo />
 
-      <div style={{
-            display: 'grid',
-            gridTemplateColumns: windowWidth < 1300 ? '0.5fr' : '25fr 25fr 90fr',
-            gap: '16px'
-        }}>
-
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: windowWidth < 1300 ? '0.5fr' : '25fr 25fr 90fr',
+          gap: '16px',
+        }}
+      >
         <SyncStatusCard />
         <AddCardsContainer />
 
@@ -55,7 +56,7 @@ const DashboardContent = () => {
 
       <BasicInfoCards />
 
-      <XStack space="$3" flexWrap='wrap' >
+      <XStack space="$3" flexWrap="wrap">
         <YStack space="$4">
           <XStack justifyContent="space-between">
             <ConsensusUptimeCard />
@@ -83,4 +84,3 @@ const DashboardContent = () => {
 }
 
 export default DashboardContent
-

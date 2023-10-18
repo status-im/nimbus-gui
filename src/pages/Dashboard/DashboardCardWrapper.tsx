@@ -31,7 +31,7 @@ const DashboardCardWrapper = ({
         backgroundColor: '$background',
         minWidth: minWidth,
         maxWidth: maxWidth,
-        maxHeight: maxHeight
+        maxHeight: maxHeight,
       }}
     >
       {children}
