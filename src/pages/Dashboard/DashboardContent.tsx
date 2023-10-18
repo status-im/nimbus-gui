@@ -12,7 +12,6 @@ import StorageCard from './StorageCard/StorageCard'
 import NetworkCard from './NetworkCard/NetworkCard'
 import SyncStatusCard from './SyncStatusCards/SyncStatusCards'
 import MemoryCard from './MemoryCard/MemoryCard'
-
 const DashboardContent = () => (
   <YStack
     space="$4"
@@ -28,23 +27,34 @@ const DashboardContent = () => (
     minWidth="500px"
   >
     <TitleLogo />
-    <XStack space="$4" flexWrap="wrap">
-      <XStack space="$4" flexWrap="wrap">
+
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr 4fr',
+      gap: '16px', //   adjust this  ,
+      flexWrap: 'wrap',
+    }}>
+
+     
         <SyncStatusCard />
         <AddCardsContainer />
-      </XStack>
+       
       <BalanceChartCard />
-    </XStack>
+    </div>
+
+
     <BasicInfoCards />
-    <XStack space="$3" flexWrap="wrap">
-      <YStack space={'$4'} flexWrap="wrap">
-        <XStack justifyContent="space-between" flexWrap="wrap">
+
+    <XStack space="$3" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+      <YStack space="$4">
+        <XStack justifyContent="space-between">
           <ConsensusUptimeCard />
           <ExecutionUptime />
         </XStack>
         <DeviceUptime />
       </YStack>
-      <YStack space={'$4'} flexWrap="wrap">
+
+      <YStack space="$4">
         <XStack space="$4">
           <StorageCard maxStorage={100} storage={82} />
           <CPUCard load={[12, 31, 3, 2, 24, 98]} />
@@ -58,6 +68,8 @@ const DashboardContent = () => (
         </XStack>
       </YStack>
     </XStack>
+
   </YStack>
 )
+
 export default DashboardContent

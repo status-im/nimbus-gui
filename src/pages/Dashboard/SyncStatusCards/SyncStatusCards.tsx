@@ -7,7 +7,7 @@ import ConsensusCard from './ConsensusClientCard'
 
 const SyncStatusCard = () => {
   return (
-    <DashboardCardWrapper padding="0">
+    <DashboardCardWrapper padding="0" minWidth='250px'>
       <YStack space={'$2'}>
         <Stack style={{ paddingTop: '12px', paddingLeft: '16px' }}>
           <Text size={15} weight={'semibold'}>
