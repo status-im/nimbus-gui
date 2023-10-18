@@ -30,7 +30,7 @@ const LogsList = () => {
 
   return (
     <YStack space={'$2'}>
-      <XStack justifyContent="space-between">
+      <XStack justifyContent="space-between" style={{ marginBottom: '3px' }}>
         <Text size={15} weight={'semibold'}>
           Logs
         </Text>

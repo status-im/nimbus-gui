@@ -8,7 +8,7 @@ const ValidatorsCount = () => {
   const countOfValidators = useSelector((state: RootState) => state.rightSidebar.countOfValidators)
 
   return (
-    <XStack justifyContent={'space-between'} width={'85%'}>
+    <XStack justifyContent={'space-between'} width={'82%'}>
       <Text size={15} weight={'semibold'}>
         Validators
       </Text>
