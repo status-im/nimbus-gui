@@ -1,12 +1,12 @@
-import { Avatar, Tabs, Text } from '@status-im/components'
+import { Avatar, Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
 
 import AddCard from '../AddCards/AddCard'
-import ValidatorsList from './ValidatorsList'
 import AlertsList from './AlertsList'
 import LogsList from './LogsList'
 import DiamondCard from './DiamondCard'
 import ValidatorsCount from './ValidatorsCount'
+import ValidatorsTabs from './ValidatorsTabs'
 import { getFormattedWalletAddress } from '../../../utilities'
 import styles from './RightSidebar.module.css'
 
@@ -38,28 +38,7 @@ const RightSidebar = () => {
         <AddCard style={{ padding: '0 2vw' }} />
       </XStack>
       <ValidatorsCount />
-      <Tabs defaultValue="active">
-        <Tabs.List size={32}>
-          <Tabs.Trigger type="default" value="active">
-            Active
-          </Tabs.Trigger>
-          <Tabs.Trigger type="default" value="pending">
-            Pending
-          </Tabs.Trigger>
-          <Tabs.Trigger type="default" value="inactive">
-            Inactive
-          </Tabs.Trigger>
-        </Tabs.List>
-        <Tabs.Content value="active">
-          <ValidatorsList />
-        </Tabs.Content>
-        <Tabs.Content value="pending">
-          <ValidatorsList />
-        </Tabs.Content>
-        <Tabs.Content value="inactive">
-          <ValidatorsList />
-        </Tabs.Content>
-      </Tabs>
+      <ValidatorsTabs />
       <AlertsList />
       <LogsList />
     </YStack>
