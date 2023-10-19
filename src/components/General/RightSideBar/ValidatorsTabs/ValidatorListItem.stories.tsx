@@ -16,9 +16,46 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    validatorAddress: '37880sfsef38fsb',
-    name: 'Validator 1',
+    validatorAddress: 'zQ3asdf9d4Gs0',
+    name: '1',
+  },
+}
+
+export const WithAvatarChip: Story = {
+  args: {
+    validatorAddress: 'zQ3asdf9d4Gs0',
+    name: '1',
     isAvatarChipIncluded: true,
+  },
+}
+
+export const Verified: Story = {
+  args: {
+    validatorAddress: 'zQ3asdf9d4Gs0',
+    name: '1',
     isVerified: true,
+  },
+}
+
+export const BothIncluded: Story = {
+  args: {
+    validatorAddress: 'zQ3asdf9d4Gs0',
+    name: '1',
+    isVerified: true,
+    isAvatarChipIncluded: true,
+  },
+}
+
+export const WithDifferentName: Story = {
+  args: {
+    validatorAddress: 'zQ3asdf9d4Gs0',
+    name: '2',
+  },
+}
+
+export const WithDifferentValidatorAddress: Story = {
+  args: {
+    validatorAddress: 'aW4asdf8t3Hs2',
+    name: '1',
   },
 }
