@@ -62,19 +62,19 @@ const DashboardContent = () => {
           gap: '16px',
         }}
       >
-        <YStack  >
+        <YStack>
           <XStack justifyContent="space-between">
             <ConsensusUptimeCard />
             <ExecutionUptime />
           </XStack>
           <DeviceUptime />
         </YStack>
-        <YStack   >
-          <XStack space="$4" flexWrap='wrap'>
+        <YStack justifyContent="space-between">
+          <XStack flexWrap="wrap"  >
             <StorageCard maxStorage={100} storage={82} />
             <CPUCard load={[12, 31, 3, 2, 24, 98]} />
           </XStack>
-          <XStack space="$4" flexWrap='wrap'>
+          <XStack flexWrap="wrap" >
             <MemoryCard currentMemory={[21, 33, 3, 42, 35]} maxMemory={50} />
             <NetworkCard
               downloadRate={[12, 31, 22, 12, 23, 23, 90]}
