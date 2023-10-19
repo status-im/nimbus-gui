@@ -1,4 +1,5 @@
 import { Stack, XStack, YStack } from 'tamagui'
+import { useEffect, useState } from 'react'
 
 import BasicInfoCards from './BasicInfoCards/BasicInfoCards'
 import AddCardsContainer from '../../components/General/AddCards/AddCardsContainer'
@@ -12,7 +13,7 @@ import StorageCard from './StorageCard/StorageCard'
 import NetworkCard from './NetworkCard/NetworkCard'
 import SyncStatusCard from './SyncStatusCards/SyncStatusCards'
 import MemoryCard from './MemoryCard/MemoryCard'
-import { useEffect, useState } from 'react'
+
 const DashboardContent = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
@@ -26,21 +27,21 @@ const DashboardContent = () => {
       window.removeEventListener('resize', handleResize)
     }
   }, [])
+
   return (
     <YStack
       space="$4"
       alignItems="start"
       px="24px"
+      minWidth="500px"
+      width="50vh"
       style={{
         flexGrow: '1',
         marginTop: '16px',
         overflowY: 'auto',
       }}
-      minWidth="500px"
-      width="50vh"
     >
       <TitleLogo />
-
       <Stack
         style={{
           display: 'grid',
@@ -50,12 +51,9 @@ const DashboardContent = () => {
       >
         <SyncStatusCard />
         <AddCardsContainer />
-
         <BalanceChartCard />
       </Stack>
-
       <BasicInfoCards />
-
       <XStack space="$3" flexWrap="wrap">
         <YStack space="$4">
           <XStack justifyContent="space-between">
@@ -64,7 +62,6 @@ const DashboardContent = () => {
           </XStack>
           <DeviceUptime />
         </YStack>
-
         <YStack space="$4" flexWrap="wrap">
           <XStack space="$4">
             <StorageCard maxStorage={100} storage={82} />

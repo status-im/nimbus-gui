@@ -8,8 +8,8 @@ import DashboardCardWrapper from '../DashboardCardWrapper'
 import LineChart from './LineChart'
 import Icon from '../../../components/General/Icon'
 import { years } from '../../../constants'
-import './calendar.css'
 import { getMonthIndicesFromRange } from '../../../utilities'
+import './calendar.css'
 
 const userGains = [
   10000, 15000, 17500, 20000, 19000, 23222, 25000, 20000, 20000, 21000, 22300, 21000,

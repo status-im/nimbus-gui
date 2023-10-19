@@ -3,10 +3,10 @@ import { Stack, XStack, YStack } from 'tamagui'
 import { DateRange } from 'react-day-picker'
 import { useState } from 'react'
 
-import UptimeChart from '../UptimeChart/UptimeChart'
 import Icon from '../../../components/General/Icon'
-import { getMonthIndicesFromRange } from '../../../utilities'
+import UptimeChart from '../UptimeChart/UptimeChart'
 import DashboardCardWrapper from '../DashboardCardWrapper'
+import { getMonthIndicesFromRange } from '../../../utilities'
 
 const DeviceUptime = () => {
   const [isCalendarVisible, setIsCalendarVisible] = useState(false)
