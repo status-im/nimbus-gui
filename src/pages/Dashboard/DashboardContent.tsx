@@ -55,15 +55,21 @@ const DashboardContent = () => {
         <BalanceChartCard />
       </Stack>
       <BasicInfoCards />
-      <XStack space="$3" flexWrap="wrap">
-        <YStack space="$4">
+      <Stack
+        style={{
+          display: 'grid',
+          gridTemplateColumns: windowWidth < 1300 ? '1fr' : '1.5fr 1fr',
+          gap: '16px',
+        }}
+      >
+        <YStack  >
           <XStack justifyContent="space-between">
             <ConsensusUptimeCard />
             <ExecutionUptime />
           </XStack>
           <DeviceUptime />
         </YStack>
-        <YStack space="$4" flexWrap="wrap">
+        <YStack   >
           <XStack space="$4">
             <StorageCard maxStorage={100} storage={82} />
             <CPUCard load={[12, 31, 3, 2, 24, 98]} />
@@ -76,7 +82,7 @@ const DashboardContent = () => {
             />
           </XStack>
         </YStack>
-      </XStack>
+      </Stack>
     </YStack>
   )
 }
