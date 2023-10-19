@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { XStack, YStack } from 'tamagui'
 import { Avatar, Checkbox, Text } from '@status-im/components'
 import { VerifiedIcon, ContactIcon } from '@status-im/icons'
+import { getFormattedValidatorAddress } from '../../../../utilities'
 
 type ValidatorListItemProps = {
   name: string
@@ -62,7 +63,7 @@ const ValidatorListItem = ({
             {isVerified && <VerifiedIcon size={20} />}
             {isAvatarChipIncluded && <ContactIcon size={20} />}
           </Text>
-          <Text size={13}>{avatarKey}</Text>
+          <Text size={13}>{getFormattedValidatorAddress(avatarKey)}</Text>
         </YStack>
       </XStack>
       {isSelected && <Checkbox id="" variant="outline" size={20} selected={isSelected} />}
