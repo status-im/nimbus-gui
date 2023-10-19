@@ -70,11 +70,11 @@ const DashboardContent = () => {
           <DeviceUptime />
         </YStack>
         <YStack justifyContent="space-between">
-          <XStack flexWrap="wrap"  >
+          <XStack flexWrap="wrap">
             <StorageCard maxStorage={100} storage={82} />
             <CPUCard load={[12, 31, 3, 2, 24, 98]} />
           </XStack>
-          <XStack flexWrap="wrap" >
+          <XStack flexWrap="wrap">
             <MemoryCard currentMemory={[21, 33, 3, 42, 35]} maxMemory={50} />
             <NetworkCard
               downloadRate={[12, 31, 22, 12, 23, 23, 90]}
