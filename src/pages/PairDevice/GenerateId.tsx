@@ -1,7 +1,7 @@
 import { Button, Input, Text as StatusText } from '@status-im/components'
 import { CompleteIdIcon, CopyIcon } from '@status-im/icons'
 import { Text } from '@tamagui/web'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Separator, XStack, YStack } from 'tamagui'
 import { v4 as uuidv4 } from 'uuid'
@@ -12,6 +12,10 @@ type GenerateIdProps = {
 
 const GenerateId = ({ isAwaitingPairing }: GenerateIdProps) => {
   const [generatedId, setGeneratedId] = useState('')
+
+  useEffect(() => {
+    generateIdHandler()
+  }, [])
 
   const generateIdHandler = () => {
     setGeneratedId(uuidv4())
