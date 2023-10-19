@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { XStack, YStack } from 'tamagui'
 import { Avatar, Checkbox, Text } from '@status-im/components'
 import { VerifiedIcon, ContactIcon } from '@status-im/icons'
+
 import { getFormattedValidatorAddress } from '../../../../utilities'
 
 type ValidatorListItemProps = {
@@ -19,14 +20,14 @@ const ValidatorListItem = ({
   isAvatarChipIncluded,
   isVerified,
 }: ValidatorListItemProps) => {
-  const [hovered, setHovered] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
   const [isSelected, setIsSelected] = useState(selected)
 
-  const handleMouseEnter = () => setHovered(true)
-  const handleMouseLeave = () => setHovered(false)
+  const handleMouseEnter = () => setIsHovered(true)
+  const handleMouseLeave = () => setIsHovered(false)
   const handleClick = () => setIsSelected(!isSelected)
 
-  const backgroundColor = isSelected || hovered ? 'rgba(42, 74, 245, 0.05)' : 'transparent'
+  const backgroundColor = isSelected || isHovered ? 'rgba(42, 74, 245, 0.05)' : 'transparent'
 
   return (
     <XStack
@@ -38,7 +39,7 @@ const ValidatorListItem = ({
       style={{
         padding: '6px 8px',
         borderRadius: '12px',
-        backgroundColor: backgroundColor,
+        backgroundColor,
       }}
       width="90%"
     >
@@ -58,7 +59,7 @@ const ValidatorListItem = ({
           ]}
         />
         <YStack pl="8px">
-          <XStack space={'$2'} alignItems="center">
+          <XStack space={'$1'} alignItems="center">
             <Text size={13} weight={'semibold'}>
               {name}
             </Text>
