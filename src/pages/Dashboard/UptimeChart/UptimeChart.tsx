@@ -181,13 +181,13 @@ type UptimeChartProps = {
   withLabels: boolean
 }
 
+const keys = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
+
 const updateMonthlyValues = (data: any, monthlyActivity: any) => {
   if (!Array.isArray(monthlyActivity) || monthlyActivity.length !== 12) {
     console.error('monthlyActivity should be an array with 12 values')
     return
   }
-
-  const keys = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
 
   for (let i = 0; i < data.length; i++) {
     const month = data[i]
@@ -201,6 +201,7 @@ const updateMonthlyValues = (data: any, monthlyActivity: any) => {
       }
     }
   }
+  
   return data
 }
 
@@ -209,7 +210,6 @@ const UptimeChart = ({ monthlyActivity, startMonth, endMonth, withLabels }: Upti
   console.log(updatedData)
   const filteredData = data.slice(startMonth, endMonth + 1)
 
-  filteredData
   return (
     <ResponsiveContainer>
       <BarChart data={filteredData} style={{ backgroundColor: '#F0F2F5' }}>

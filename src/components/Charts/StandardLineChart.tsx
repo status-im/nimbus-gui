@@ -16,6 +16,7 @@ interface StandardLineChartProps {
   data: ChartData[]
   isInteractive?: boolean
 }
+
 const StandardLineChart = ({ data, isInteractive }: StandardLineChartProps) => {
   const maxMemory = data[0].maxValue || 'auto'
   const colors = data.map(dataset => dataset.color)
@@ -48,4 +49,5 @@ const StandardLineChart = ({ data, isInteractive }: StandardLineChartProps) => {
     />
   )
 }
+
 export default StandardLineChart
