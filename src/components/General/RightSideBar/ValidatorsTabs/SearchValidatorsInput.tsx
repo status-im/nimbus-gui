@@ -2,15 +2,15 @@ import { Input } from '@status-im/components'
 import { SearchIcon } from '@status-im/icons'
 
 type InputSearchProps = {
-  value: string
+  searchValue: string
   changeSearchValue: (value: string) => void
 }
 
-const InputSearch = ({ value, changeSearchValue }: InputSearchProps) => {
+const SearchValidatorsInput = ({ searchValue, changeSearchValue }: InputSearchProps) => {
   return (
     <Input
       placeholder="Search Validators"
-      value={value}
+      value={searchValue}
       onChangeText={changeSearchValue}
       icon={<SearchIcon size={20} />}
       onClear={() => changeSearchValue('')}
@@ -19,4 +19,4 @@ const InputSearch = ({ value, changeSearchValue }: InputSearchProps) => {
   )
 }
 
-export default InputSearch
+export default SearchValidatorsInput

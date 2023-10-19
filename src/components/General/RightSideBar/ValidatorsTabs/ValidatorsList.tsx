@@ -5,7 +5,7 @@ import { Text } from '@status-im/components'
 
 import { setCountOfValidators } from '../../../../redux/RightSidebar/slice'
 import ValidatorListItem from './ValidatorListItem'
-import InputSearch from './SearchInput'
+import SearchValidatorsInput from './SearchValidatorsInput'
 
 type Validator = {
   name: string
@@ -48,7 +48,7 @@ const ValidatorsList = () => {
 
   return (
     <YStack>
-      <InputSearch value={searchValue} changeSearchValue={changeSearchValue} />
+      <SearchValidatorsInput searchValue={searchValue} changeSearchValue={changeSearchValue} />
       <YStack space={'$1'} mt={'16px'}>
         {filteredValidators.map(validator => (
           <ValidatorListItem {...validator} />
