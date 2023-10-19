@@ -2,14 +2,23 @@ import { Stack, YStack } from 'tamagui'
 import { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
-import ValidatorListItem from './ValidatorListItem'
 import { setCountOfValidators } from '../../../../redux/RightSidebar/slice'
+import ValidatorListItem from './ValidatorListItem'
 import InputSearch from './SearchInput'
 
-const ValidatorsList = () => {
-  const dispatch = useDispatch()
+type Validator = {
+  name: string
+  validatorAddress: string
+  isAvatarChipIncluded?: boolean
+  isVerified?: boolean
+  selected?: boolean
+}
 
+const ValidatorsList = () => {
   const [searchValue, setSearchValue] = useState('')
+  const dispatch = useDispatch()
+  const [filteredValidators, setFilteredValidators] = useState([] as Validator[])
+
   const validators = [
     {
       name: 'Validator 1',
@@ -23,7 +32,6 @@ const ValidatorsList = () => {
     { name: 'Validator 4', validatorAddress: 'zQ3asdf9d4Gs0' },
     { name: 'Validator 5', validatorAddress: 'zQ3asdf9d4Gs0', isVerified: true },
   ]
-  const [filteredValidators, setFilteredValidators] = useState(validators)
 
   useEffect(() => {
     if (searchValue) {
