@@ -10,18 +10,17 @@ type ValidatorListItemProps = {
   validatorAddress: string
   isAvatarChipIncluded?: boolean
   isVerified?: boolean
-  selected?: boolean
+  isSelected?: boolean
 }
 
 const ValidatorListItem = ({
   name,
   validatorAddress,
-  selected,
   isAvatarChipIncluded,
   isVerified,
 }: ValidatorListItemProps) => {
   const [isHovered, setIsHovered] = useState(false)
-  const [isSelected, setIsSelected] = useState(selected)
+  const [isSelected, setIsSelected] = useState(false)
 
   const handleMouseEnter = () => setIsHovered(true)
   const handleMouseLeave = () => setIsHovered(false)
@@ -61,7 +60,7 @@ const ValidatorListItem = ({
         <YStack pl="8px">
           <XStack space={'$1'} alignItems="center">
             <Text size={13} weight={'semibold'}>
-              {name}
+              Validator {name}
             </Text>
             {isVerified && <VerifiedIcon size={20} />}
             {isAvatarChipIncluded && <ContactIcon size={20} />}
@@ -69,7 +68,7 @@ const ValidatorListItem = ({
           <Text size={13}>{getFormattedValidatorAddress(validatorAddress)}</Text>
         </YStack>
       </XStack>
-      {isSelected && <Checkbox id="" variant="outline" size={20} selected={isSelected} />}
+      {isSelected && <Checkbox id={name} variant="outline" size={20} selected={isSelected} />}
     </XStack>
   )
 }

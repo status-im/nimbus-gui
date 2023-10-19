@@ -1,18 +1,17 @@
 import { YStack } from 'tamagui'
 import { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
+import { Text } from '@status-im/components'
 
 import { setCountOfValidators } from '../../../../redux/RightSidebar/slice'
 import ValidatorListItem from './ValidatorListItem'
 import InputSearch from './SearchInput'
-import { Text } from '@status-im/components'
 
 type Validator = {
   name: string
   validatorAddress: string
   isAvatarChipIncluded?: boolean
   isVerified?: boolean
-  selected?: boolean
 }
 
 const ValidatorsList = () => {
@@ -26,7 +25,6 @@ const ValidatorsList = () => {
       {
         name: '1',
         validatorAddress: 'zQ3asdf9d4Gs0',
-        selected: true,
         isAvatarChipIncluded: true,
         isVerified: true,
       },

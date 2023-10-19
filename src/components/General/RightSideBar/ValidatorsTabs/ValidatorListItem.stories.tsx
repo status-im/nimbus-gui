@@ -18,7 +18,6 @@ export const Default: Story = {
   args: {
     validatorAddress: '37880sfsef38fsb',
     name: 'Validator 1',
-    selected: true,
     isAvatarChipIncluded: true,
     isVerified: true,
   },
