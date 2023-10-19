@@ -3,24 +3,20 @@ import { SearchIcon } from '@status-im/icons'
 
 type InputSearchProps = {
   value: string
-  setValue: (value: string) => void
+  changeSearchValue: (value: string) => void
 }
-const InputSearch = ({ value, setValue }: InputSearchProps) => {
+
+const InputSearch = ({ value, changeSearchValue }: InputSearchProps) => {
   return (
-    <>
-      <Input
-        placeholder="Search Validators"
-        value={value}
-        onChangeText={setValue}
-        icon={<SearchIcon size={20} />}
-        onClear={() => setValue('')}
-        size={40}
-        // button={{
-        //     label: 'Confirm',
-        //     onPress: () => alert('Confirmed!'),
-        // }}
-      />
-    </>
+    <Input
+      placeholder="Search Validators"
+      value={value}
+      onChangeText={changeSearchValue}
+      icon={<SearchIcon size={20} />}
+      onClear={() => changeSearchValue('')}
+      size={40}
+    />
   )
 }
+
 export default InputSearch

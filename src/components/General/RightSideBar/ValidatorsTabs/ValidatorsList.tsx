@@ -47,10 +47,13 @@ const ValidatorsList = () => {
     dispatch(setCountOfValidators(filteredCount))
   }, [searchValue, validators])
 
+  const changeSearchValue = (value: string) => {
+    setSearchValue(value)
+  }
 
   return (
     <YStack>
-      <InputSearch value={searchValue} setValue={setSearchValue} />
+      <InputSearch value={searchValue} changeSearchValue={changeSearchValue} />
       <YStack space={'$1'} mt={'16px'}>
         {filteredValidators.map(validator => (
           <ValidatorListItem {...validator} />
