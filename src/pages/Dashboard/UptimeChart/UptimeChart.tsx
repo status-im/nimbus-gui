@@ -201,7 +201,7 @@ const updateMonthlyValues = (data: any, monthlyActivity: any) => {
       }
     }
   }
-  
+
   return data
 }
 
