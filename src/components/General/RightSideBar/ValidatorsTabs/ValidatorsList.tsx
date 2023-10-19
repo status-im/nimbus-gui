@@ -25,13 +25,10 @@ const ValidatorsList = () => {
       {
         name: '1',
         validatorAddress: 'zQ3asdf9d4Gs0',
-        isAvatarChipIncluded: true,
-        isVerified: true,
       },
-      { name: '2', validatorAddress: 'zQ3asdf9d4Gs0', isVerified: true },
-      { name: '3', validatorAddress: 'zQ3asdf9d4Gs0', isAvatarChipIncluded: true },
-      { name: '4', validatorAddress: 'zQ3asdf9d4Gs0' },
-      { name: '5', validatorAddress: 'zQ3asdf9d4Gs0', isVerified: true },
+      { name: '2', validatorAddress: 'zQ3asdf9d4Gs0' },
+      { name: '3', validatorAddress: 'zQ3asdf9d4Gs0', isVerified: true },
+      { name: '4', validatorAddress: 'zQ3asdf9d4Gs0', isAvatarChipIncluded: true },
     ])
   }, [])
 
