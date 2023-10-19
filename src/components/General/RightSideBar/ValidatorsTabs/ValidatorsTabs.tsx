@@ -2,23 +2,30 @@ import { Tabs } from '@status-im/components'
 import { Stack } from 'tamagui'
 
 import ValidatorsList from './ValidatorsList'
-
-const VALIDATOR_TABS = [
-  {
-    label: 'Active',
-    value: 'active',
-  },
-  {
-    label: 'Pending',
-    value: 'pending',
-  },
-  {
-    label: 'Inactive',
-    value: 'inactive',
-  },
-]
+import { useMemo } from 'react'
 
 const ValidatorsTabs = () => {
+  const VALIDATOR_TABS = useMemo(
+    () => [
+      {
+        label: 'Active',
+        value: 'active',
+        children: <ValidatorsList />,
+      },
+      {
+        label: 'Pending',
+        value: 'pending',
+        children: <ValidatorsList />,
+      },
+      {
+        label: 'Inactive',
+        value: 'inactive',
+        children: <ValidatorsList />,
+      },
+    ],
+    [],
+  )
+
   return (
     <Tabs defaultValue="active">
       <Stack style={{ cursor: 'pointer', width: 'fit-content' }}>
@@ -30,15 +37,11 @@ const ValidatorsTabs = () => {
           ))}
         </Tabs.List>
       </Stack>
-      <Tabs.Content value="active" style={{ marginTop: '8px' }}>
-        <ValidatorsList />
-      </Tabs.Content>
-      <Tabs.Content value="pending">
-        <ValidatorsList />
-      </Tabs.Content>
-      <Tabs.Content value="inactive">
-        <ValidatorsList />
-      </Tabs.Content>
+      {VALIDATOR_TABS.map(tab => (
+        <Tabs.Content value={tab.value} style={{ marginTop: '8px' }}>
+          {tab.children}
+        </Tabs.Content>
+      ))}
     </Tabs>
   )
 }
