@@ -39,8 +39,9 @@ const ValidatorListItem = ({
         padding: '6px 8px',
         borderRadius: '12px',
         backgroundColor,
+        cursor: 'pointer',
       }}
-      width="90%"
+      width="92%"
     >
       <XStack alignItems="center">
         <Avatar
@@ -49,12 +50,10 @@ const ValidatorListItem = ({
           name={name}
           backgroundColor="$red-50"
           colorHash={[
-            [3, 30],
-            [2, 10],
-            [4, 0],
-            [5, 28],
-            [4, 13],
-            [4, 15],
+            [2, 9],
+            [4, 8],
+            [5, 13],
+            [11, 20],
           ]}
         />
         <YStack pl="8px">
