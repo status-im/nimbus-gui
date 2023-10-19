@@ -58,11 +58,13 @@ const ValidatorListItem = ({
           ]}
         />
         <YStack pl="8px">
-          <Text size={13} weight={'semibold'}>
-            {name}
+          <XStack space={'$2'} alignItems="center">
+            <Text size={13} weight={'semibold'}>
+              {name}
+            </Text>
             {isVerified && <VerifiedIcon size={20} />}
             {isAvatarChipIncluded && <ContactIcon size={20} />}
-          </Text>
+          </XStack>
           <Text size={13}>{getFormattedValidatorAddress(validatorAddress)}</Text>
         </YStack>
       </XStack>
