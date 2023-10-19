@@ -13,15 +13,15 @@ const ValidatorsList = () => {
   const validators = [
     {
       name: 'Validator 1',
-      avatarKey: 'zQ3asdf9d4Gs0',
+      validatorAddress: 'zQ3asdf9d4Gs0',
       selected: true,
       isAvatarChipIncluded: true,
       isVerified: true,
     },
-    { name: 'Validator 2', avatarKey: 'zQ3asdf9d4Gs0', isVerified: true },
-    { name: 'Validator 3', avatarKey: 'zQ3asdf9d4Gs0', isAvatarChipIncluded: true },
-    { name: 'Validator 4', avatarKey: 'zQ3asdf9d4Gs0' },
-    { name: 'Validator 5', avatarKey: 'zQ3asdf9d4Gs0', isVerified: true },
+    { name: 'Validator 2', validatorAddress: 'zQ3asdf9d4Gs0', isVerified: true },
+    { name: 'Validator 3', validatorAddress: 'zQ3asdf9d4Gs0', isAvatarChipIncluded: true },
+    { name: 'Validator 4', validatorAddress: 'zQ3asdf9d4Gs0' },
+    { name: 'Validator 5', validatorAddress: 'zQ3asdf9d4Gs0', isVerified: true },
   ]
   const [filteredValidators, setFilteredValidators] = useState(validators)
 

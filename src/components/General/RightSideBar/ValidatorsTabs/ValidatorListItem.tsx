@@ -6,7 +6,7 @@ import { getFormattedValidatorAddress } from '../../../../utilities'
 
 type ValidatorListItemProps = {
   name: string
-  avatarKey: string
+  validatorAddress: string
   isAvatarChipIncluded?: boolean
   isVerified?: boolean
   selected?: boolean
@@ -14,7 +14,7 @@ type ValidatorListItemProps = {
 
 const ValidatorListItem = ({
   name,
-  avatarKey,
+  validatorAddress,
   selected,
   isAvatarChipIncluded,
   isVerified,
@@ -63,7 +63,7 @@ const ValidatorListItem = ({
             {isVerified && <VerifiedIcon size={20} />}
             {isAvatarChipIncluded && <ContactIcon size={20} />}
           </Text>
-          <Text size={13}>{getFormattedValidatorAddress(avatarKey)}</Text>
+          <Text size={13}>{getFormattedValidatorAddress(validatorAddress)}</Text>
         </YStack>
       </XStack>
       {isSelected && <Checkbox id="" variant="outline" size={20} selected={isSelected} />}

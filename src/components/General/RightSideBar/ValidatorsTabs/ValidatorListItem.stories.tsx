@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    avatarKey: '37880sfsef38fsb',
+    validatorAddress: '37880sfsef38fsb',
     name: 'Validator 1',
     selected: true,
     isAvatarChipIncluded: true,
