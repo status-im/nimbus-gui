@@ -45,7 +45,8 @@ const ValidatorsList = () => {
 
     const filteredCount = filtered.length
     dispatch(setCountOfValidators(filteredCount))
-  }, [searchValue])
+  }, [searchValue, validators])
+
 
   return (
     <YStack>
