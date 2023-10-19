@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { setCountOfValidators } from '../../../../redux/RightSidebar/slice'
 import ValidatorListItem from './ValidatorListItem'
 import InputSearch from './SearchInput'
+import { Text } from '@status-im/components'
 
 type Validator = {
   name: string
@@ -53,6 +54,11 @@ const ValidatorsList = () => {
         {filteredValidators.map(validator => (
           <ValidatorListItem {...validator} />
         ))}
+        {filteredValidators.length === 0 && (
+          <Text size={13} weight={'semibold'}>
+            No validators found
+          </Text>
+        )}
       </YStack>
     </YStack>
   )
