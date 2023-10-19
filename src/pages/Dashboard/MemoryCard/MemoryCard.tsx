@@ -2,7 +2,7 @@ import { Separator, Stack, XStack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
 
-import StandartLineChart from '../../../components/Charts/StandardLineChart'
+import StandardLineChart from '../../../components/Charts/StandardLineChart'
 import IconText from '../../../components/General/IconText'
 import DashboardCardWrapper from '../DashboardCardWrapper'
 
@@ -58,7 +58,7 @@ const MemoryCard = ({ currentMemory, maxMemory }: MemoryCardProps) => {
           }}
         >
           <Stack style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
-            <StandartLineChart data={chartData} />
+            <StandardLineChart data={chartData} />
           </Stack>
           <YStack space={'$3'} justifyContent="space-between">
             <Text size={15} weight={'semibold'}>

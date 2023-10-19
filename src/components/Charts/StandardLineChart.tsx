@@ -1,4 +1,5 @@
 import { ResponsiveLine } from '@nivo/line'
+
 interface DataPoint {
   x: number
   y: number
@@ -11,11 +12,11 @@ interface ChartData {
   maxValue?: number
 }
 
-interface StandartLineChartProps {
+interface StandardLineChartProps {
   data: ChartData[]
   isInteractive?: boolean
 }
-const StandartLineChart = ({ data, isInteractive }: StandartLineChartProps) => {
+const StandardLineChart = ({ data, isInteractive }: StandardLineChartProps) => {
   const maxMemory = data[0].maxValue || 'auto'
   const colors = data.map(dataset => dataset.color)
 
@@ -47,4 +48,4 @@ const StandartLineChart = ({ data, isInteractive }: StandartLineChartProps) => {
     />
   )
 }
-export default StandartLineChart
+export default StandardLineChart

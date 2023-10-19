@@ -2,7 +2,7 @@ import { Separator, Stack, XStack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 import { IncorrectIcon } from '@status-im/icons'
 
-import StandartLineChart from '../../../components/Charts/StandardLineChart'
+import StandardLineChart from '../../../components/Charts/StandardLineChart'
 import IconText from '../../../components/General/IconText'
 import Icon from '../../../components/General/Icon'
 import DashboardCardWrapper from '../DashboardCardWrapper'
@@ -65,7 +65,7 @@ const CPUCard = ({ load }: CPUCardProps) => {
             </Text>
           </YStack>
           <Stack style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
-            <StandartLineChart data={chartData} />
+            <StandardLineChart data={chartData} />
           </Stack>
         </XStack>
         <Separator borderColor={'#e3e3e3'} style={{ marginTop: 'auto' }} />
