@@ -8,7 +8,6 @@ import DiamondCard from './DiamondCard'
 import ValidatorsCount from './ValidatorsCount'
 import ValidatorsTabs from './ValidatorsTabs/ValidatorsTabs'
 import { getFormattedWalletAddress } from '../../../utilities'
-import styles from './RightSidebar.module.css'
 
 const RightSidebar = () => {
   return (
@@ -16,7 +15,7 @@ const RightSidebar = () => {
       width={'320px'}
       space={'$3'}
       backgroundColor={'#FFF'}
-      className={styles['transparent-scrollbar']}
+      className={'transparent-scrollbar'}
       style={{
         padding: '8px',
         border: '1px solid #F0F2F5',

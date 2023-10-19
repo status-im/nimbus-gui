@@ -40,6 +40,7 @@ const DashboardContent = () => {
         marginTop: '16px',
         overflowY: 'auto',
       }}
+      className={'transparent-scrollbar'}
     >
       <TitleLogo />
       <Stack
