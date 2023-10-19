@@ -26,8 +26,6 @@ const ValidatorListItem = ({
   const handleMouseLeave = () => setIsHovered(false)
   const handleClick = () => setIsSelected(!isSelected)
 
-  const backgroundColor = isSelected || isHovered ? 'rgba(42, 74, 245, 0.05)' : 'transparent'
-
   return (
     <XStack
       onMouseEnter={handleMouseEnter}
@@ -38,7 +36,7 @@ const ValidatorListItem = ({
       style={{
         padding: '6px 8px',
         borderRadius: '12px',
-        backgroundColor,
+        backgroundColor: (isSelected || isHovered) && 'rgba(42, 74, 245, 0.05)',
         cursor: 'pointer',
       }}
       width="92%"

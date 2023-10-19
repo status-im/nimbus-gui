@@ -1,5 +1,5 @@
+import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
-
 import SearchInput from './SearchInput'
 
 const meta = {
@@ -14,6 +14,12 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  args: { value: 'Search value' },
+export const Default: Story = (args: { value: string }) => {
+  const [searchValue, setSearchValue] = useState(args.value)
+
+  return <SearchInput value={searchValue} changeSearchValue={setSearchValue} />
+}
+
+Default.args = {
+  value: '',
 }
