@@ -10,8 +10,8 @@ const AddCardsContainer = () => {
   return (
     <DashboardCardWrapper padding="0" minWidth="150px">
       <YStack height={'100%'}>
-        {Array.from({ length: cards }).map(() => (
-          <AddCard style={{ padding: '56px', height: getHeightPercentages(cards) }} />
+        {Array.from({ length: cards }).map((_, index) => (
+          <AddCard key={index} style={{ padding: '56px', height: getHeightPercentages(cards) }} />
         ))}
       </YStack>
     </DashboardCardWrapper>
