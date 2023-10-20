@@ -51,7 +51,7 @@ const ValidatorsList = () => {
       <SearchValidatorsInput searchValue={searchValue} changeSearchValue={changeSearchValue} />
       <YStack space={'$1'} mt={'16px'}>
         {filteredValidators.map(validator => (
-          <ValidatorListItem {...validator} />
+          <ValidatorListItem key={validator.name} {...validator} />
         ))}
         {filteredValidators.length === 0 && (
           <Text size={13} weight={'semibold'}>
