@@ -9,8 +9,8 @@ const ConsensusUptimeCard = () => {
   const monthlyActivity = [3, 0, 5, 4, 6, 7, 8, 9, 10, 1, 2, 3]
 
   return (
-    <DashboardCardWrapper minWidth="260px" maxWidth='320px'>
-      <YStack space={'$3'} minHeight={'156px'} padding={'$3'}>
+    <DashboardCardWrapper minWidth="300px" maxWidth='400px'>
+      <YStack space={'$3'}>
         <YStack>
           <Text size={15} weight={'semibold'}>
             Consensus Uptime
