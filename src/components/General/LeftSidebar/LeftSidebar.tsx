@@ -41,7 +41,7 @@ const LeftSidebar = () => {
 
   return (
     <YStack
-      space={'$4'}
+      space={'$3'}
       minHeight={'100vh'}
       background={'#FFF'}
       style={{
