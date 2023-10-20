@@ -12,13 +12,17 @@ type AdvisoryTopicsType = {
 
 const Advisories = () => {
   const { subStepAdvisories } = useSelector((state: RootState) => state.advisories)
+  const [selectedTitle, setSelectedTitle] = useState(Object.keys(advisoryTopics)[0])
 
   const unicodeNumbers = ['➀', '➁', '➂', '➃', '➄', '➅']
-  const advisoriesIcons = unicodeNumbers.map((number, index) =>
-    index <= subStepAdvisories ? '✓' : number,
-  )
+  const advisoriesIcons = unicodeNumbers.map((number, index) => {
+    if (selectedTitle === Object.keys(advisoryTopics)[index]) {
+      return '✓'
+    } else {
+      return index <= subStepAdvisories ? '✓' : number
+    }
+  })
 
-  const [selectedTitle, setSelectedTitle] = useState(Object.keys(advisoryTopics)[0])
   useEffect(() => {
     setSelectedTitle(Object.keys(advisoryTopics)[subStepAdvisories])
   }, [subStepAdvisories])
@@ -58,7 +62,7 @@ const Advisories = () => {
             <Text
               size={19}
               weight={isCurrent(title) ? 'semibold' : ''}
-              color={isCurrent(title) ? 'blue' : ''}
+              color={title === selectedTitle ? 'blue' : isCurrent(title) ? 'blue' : ''}
             >
               {title}
             </Text>
