@@ -17,13 +17,13 @@ const ConsensusCard = ({ value, total }: ConsensusCardProps) => {
   const style: CSSProperties = {}
   const data = [
     {
-      id: 'storage',
+      id: 'storage-used',
       label: 'Used',
       value: value,
       color: '#ff6161',
     },
     {
-      id: 'storage',
+      id: 'storage-free',
       label: 'Free',
       value: total,
       color: '#E7EAEE',

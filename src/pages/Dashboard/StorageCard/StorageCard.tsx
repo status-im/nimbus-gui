@@ -20,13 +20,13 @@ const StorageCard = ({ storage, maxStorage }: StorageCardProps) => {
   const data = (free: number) => {
     return [
       {
-        id: 'storage',
+        id: 'storage-used',
         label: 'Used',
         value: storage,
         color: '#E95460',
       },
       {
-        id: 'storage',
+        id: 'storage-free',
         label: 'Free',
         value: free,
         color: '#E7EAEE',
