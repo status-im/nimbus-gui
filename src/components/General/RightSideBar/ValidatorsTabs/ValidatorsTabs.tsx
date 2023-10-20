@@ -31,14 +31,14 @@ const ValidatorsTabs = () => {
       <Stack style={{ cursor: 'pointer', width: 'fit-content' }}>
         <Tabs.List size={32}>
           {VALIDATOR_TABS.map(tab => (
-            <Tabs.Trigger type="default" value={tab.value}>
+            <Tabs.Trigger key={tab.value} type="default" value={tab.value}>
               {tab.label}
             </Tabs.Trigger>
           ))}
         </Tabs.List>
       </Stack>
       {VALIDATOR_TABS.map(tab => (
-        <Tabs.Content value={tab.value} style={{ marginTop: '8px' }}>
+        <Tabs.Content key={tab.value} value={tab.value} style={{ marginTop: '8px' }}>
           {tab.children}
         </Tabs.Content>
       ))}

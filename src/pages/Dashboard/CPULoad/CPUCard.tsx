@@ -33,6 +33,7 @@ const CPUCard = ({ load }: CPUCardProps) => {
       })),
     },
   ]
+
   const currentLoad =
     chartData[0].data.length > 0 ? chartData[0].data[chartData[0].data.length - 1].y : 0
 
