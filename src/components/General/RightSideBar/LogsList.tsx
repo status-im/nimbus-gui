@@ -38,7 +38,7 @@ const LogsList = () => {
       </XStack>
       {logs.map(log => (
         <InformationBox
-          key={log.message}
+          key={log.message + log.variant}
           message={log.message}
           icon={<CloseCircleIcon size={20} />}
           variant={log.variant}

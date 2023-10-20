@@ -42,7 +42,7 @@ const AlertsList = () => {
       </XStack>
       {alerts.map(alert => (
         <InformationBox
-          key={alert.message}
+          key={alert.message + alert.variant}
           message={alert.message}
           icon={<CloseCircleIcon size={20} />}
           variant={alert.variant}
