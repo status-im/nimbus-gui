@@ -8,7 +8,7 @@ import DashboardCardWrapper from '../DashboardCardWrapper'
 const ExecutionUptime = () => {
   const monthlyActivity = [3, 0, 5, 4, 6, 7, 0, 9, 10, 1, 2, 3]
   return (
-    <DashboardCardWrapper minWidth="260px" maxWidth='320px'>
+    <DashboardCardWrapper minWidth="300px" maxWidth='380px'>
       <YStack space={'$3'} minHeight={'156px'} padding={'$3'}>
         <YStack>
           <Text size={15} weight={'semibold'}>
