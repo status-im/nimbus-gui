@@ -223,7 +223,7 @@ const UptimeChart = ({ monthlyActivity, startMonth, endMonth, withLabels }: Upti
         <Bar dataKey="eight" barSize={10} fill="#E95460" />
         <Bar dataKey="nine" barSize={10} fill="#E95460" />
         <Bar dataKey="ten" barSize={10} fill="#E95460" />
-        {withLabels && <XAxis dataKey="name" fontSize={'10px'} tickMargin={10} />}
+        {withLabels && <XAxis dataKey="name" fontSize={'10px'} tickMargin={10} height={24} />}
       </BarChart>
     </ResponsiveContainer>
   )
