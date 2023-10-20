@@ -3,18 +3,13 @@ import { Stack, XStack, YStack } from 'tamagui'
 
 import UptimeChart from '../UptimeChart/UptimeChart'
 import Icon from '../../../components/General/Icon'
+import DashboardCardWrapper from '../DashboardCardWrapper'
 
 const ConsensusUptimeCard = () => {
   const monthlyActivity = [3, 0, 5, 4, 6, 7, 8, 9, 10, 1, 2, 3]
 
   return (
-    <Shadow
-      variant="$2"
-      style={{
-        borderRadius: '16px',
-        width: '48%',
-      }}
-    >
+    <DashboardCardWrapper minWidth="260px" maxWidth='320px'>
       <YStack space={'$3'} minHeight={'156px'} padding={'$3'}>
         <YStack>
           <Text size={15} weight={'semibold'}>
@@ -49,7 +44,7 @@ const ConsensusUptimeCard = () => {
           </Stack>
         </XStack>
       </YStack>
-    </Shadow>
+    </DashboardCardWrapper>
   )
 }
 export default ConsensusUptimeCard
