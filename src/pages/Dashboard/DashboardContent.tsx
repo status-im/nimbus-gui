@@ -63,7 +63,7 @@ const DashboardContent = () => {
         }}
       >
         <YStack>
-          <XStack justifyContent="space-between">
+          <XStack justifyContent="space-between" flexWrap="wrap">
             <ConsensusUptimeCard />
             <ExecutionUptime />
           </XStack>
