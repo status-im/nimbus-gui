@@ -1,4 +1,4 @@
-import {  Text } from '@status-im/components'
+import { Text } from '@status-im/components'
 import { Stack, XStack, YStack } from 'tamagui'
 
 import UptimeChart from '../UptimeChart/UptimeChart'
