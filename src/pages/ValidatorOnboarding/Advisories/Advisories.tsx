@@ -3,25 +3,23 @@ import { useState, useEffect } from 'react'
 import { Stack, XStack, YStack } from 'tamagui'
 
 import AdvisoriesContent from './AdvisoriesContent'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../../redux/store'
+import { setSubStepAdvisories } from '../../../redux/ValidatorOnboarding/Advisories/slice'
 
 type AdvisoryTopicsType = {
   [key: string]: string[]
 }
 
 const Advisories = () => {
+  const dispatch = useDispatch();
   const { subStepAdvisories } = useSelector((state: RootState) => state.advisories)
   const [selectedTitle, setSelectedTitle] = useState(Object.keys(advisoryTopics)[0])
 
   const unicodeNumbers = ['➀', '➁', '➂', '➃', '➄', '➅']
-  const advisoriesIcons = unicodeNumbers.map((number, index) => {
-    if (selectedTitle === Object.keys(advisoryTopics)[index]) {
-      return '✓'
-    } else {
-      return index <= subStepAdvisories ? '✓' : number
-    }
-  })
+  const advisoriesIcons = unicodeNumbers.map((number, index) =>
+    index <= subStepAdvisories ? '✓' : number,
+  )
 
   useEffect(() => {
     setSelectedTitle(Object.keys(advisoryTopics)[subStepAdvisories])
@@ -31,6 +29,12 @@ const Advisories = () => {
     const topics = Object.keys(advisoryTopics)
     const index = topics.indexOf(currentTitle)
     return index <= subStepAdvisories ? true : false
+  }
+  
+  const getIndexTitle = (title: string): number => {
+    const topics = Object.keys(advisoryTopics)
+    const index = topics.indexOf(title)
+    return index
   }
 
   return (
@@ -48,7 +52,7 @@ const Advisories = () => {
         {Object.keys(advisoryTopics).map((title, index) => (
           <XStack
             key={title}
-            onPress={() => setSelectedTitle(title)}
+            onPress={() => dispatch(setSubStepAdvisories(getIndexTitle(title)))}
             style={{ cursor: 'pointer', alignItems: 'center' }}
             space={'$2'}
           >
@@ -62,7 +66,7 @@ const Advisories = () => {
             <Text
               size={19}
               weight={isCurrent(title) ? 'semibold' : ''}
-              color={title === selectedTitle ? 'blue' : isCurrent(title) ? 'blue' : ''}
+              color={isCurrent(title) ? 'blue' : ''}
             >
               {title}
             </Text>
