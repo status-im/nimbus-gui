@@ -12,7 +12,7 @@ type AdvisoryTopicsType = {
 }
 
 const Advisories = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const { subStepAdvisories } = useSelector((state: RootState) => state.advisories)
   const [selectedTitle, setSelectedTitle] = useState(Object.keys(advisoryTopics)[0])
 
@@ -30,7 +30,7 @@ const Advisories = () => {
     const index = topics.indexOf(currentTitle)
     return index <= subStepAdvisories ? true : false
   }
-  
+
   const getIndexTitle = (title: string): number => {
     const topics = Object.keys(advisoryTopics)
     const index = topics.indexOf(title)
