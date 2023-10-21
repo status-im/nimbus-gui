@@ -62,7 +62,7 @@ const DashboardContent = () => {
           gap: '16px',
         }}
       >
-        <YStack
+        <Stack
           style={{
             display: 'grid',
             gridTemplateColumns: windowWidth < 1300 ? '1fr' : '1fr 1fr',
@@ -71,14 +71,12 @@ const DashboardContent = () => {
             marginTop: windowWidth < 1300 ? '50px' : 0,
           }}
         >
-          <XStack style={{ gridColumn: '1 / span 2' }}>
-            <ConsensusUptimeCard />
-            <ExecutionUptime />
-          </XStack>
+          <ConsensusUptimeCard />
+          <ExecutionUptime />
           <Stack style={{ gridColumn: '1 / span 2' }}>
             <DeviceUptime />
           </Stack>
-        </YStack>
+        </Stack>
 
         <Stack
           style={{
