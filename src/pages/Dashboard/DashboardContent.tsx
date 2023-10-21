@@ -96,7 +96,7 @@ const DashboardContent = () => {
           {/* </YStack> */}
         </Stack>
       </Stack>
-    </YStack >
+    </YStack>
   )
 }
 
