@@ -62,28 +62,43 @@ const DashboardContent = () => {
           gap: '16px',
         }}
       >
-        <YStack space={'4$'}>
-          <XStack flexWrap="wrap" space={'$4'}>
+        <YStack
+          style={{
+            display: 'grid',
+            gridTemplateColumns: windowWidth < 1300 ? '1fr' : '1fr 1fr',
+            gridAutoFlow: 'row',
+            gap: '16px',
+            marginTop: windowWidth < 1300 ? '50px' : 0,
+          }}
+        >
+          <XStack style={{ gridColumn: '1 / span 2' }}>
             <ConsensusUptimeCard />
             <ExecutionUptime />
           </XStack>
-          <DeviceUptime />
+          <Stack style={{ gridColumn: '1 / span 2' }}>
+            <DeviceUptime />
+          </Stack>
         </YStack>
-        <YStack space={'$4'}>
-          <XStack flexWrap="wrap" space={'$4'}>
-            <StorageCard maxStorage={100} storage={82} />
-            <CPUCard load={[12, 31, 3, 2, 24, 98]} />
-          </XStack>
-          <XStack flexWrap="wrap" space={'$4'}>
-            <MemoryCard currentMemory={[21, 33, 3, 42, 35]} maxMemory={50} />
-            <NetworkCard
-              downloadRate={[12, 31, 22, 12, 23, 23, 90]}
-              uploadRate={[31, 22, 32, 132, 32, 45, 65]}
-            />
-          </XStack>
-        </YStack>
+
+        <Stack
+          style={{
+            display: 'grid',
+            gridTemplateColumns: windowWidth < 1300 ? '1fr' : '1fr 1fr',
+            gap: '16px',
+            marginTop: windowWidth < 1300 ? '50px' : 0,
+          }}
+        >
+          <StorageCard maxStorage={100} storage={82} />
+          <CPUCard load={[12, 31, 3, 2, 24, 98]} />
+          <MemoryCard currentMemory={[21, 33, 3, 42, 35]} maxMemory={50} />
+          <NetworkCard
+            downloadRate={[12, 31, 22, 12, 23, 23, 90]}
+            uploadRate={[31, 22, 32, 132, 32, 45, 65]}
+          />
+          {/* </YStack> */}
+        </Stack>
       </Stack>
-    </YStack>
+    </YStack >
   )
 }
 
