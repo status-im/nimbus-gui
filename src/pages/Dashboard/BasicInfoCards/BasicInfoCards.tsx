@@ -10,6 +10,7 @@ const BasicInfoCards = () => {
         flexDirection: 'row',
         flexWrap: 'wrap',
         gap: '1vw',
+        width: '100%',
       }}
     >
       <BasicInfoCard title="Active Validators" value="6" />
