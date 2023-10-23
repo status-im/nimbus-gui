@@ -1,16 +1,13 @@
 import { XStack, Stack, YStack } from 'tamagui'
 import { InformationBox, Text } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
-import { useState } from 'react'
 import { useSelector } from 'react-redux'
 
-import SyntaxHighlighterBox from './SyntaxHighlighter'
 import { RootState } from '../../../../redux/store'
-import { LINUX, MAC, WINDOWS } from '../../../../constants'
-import OSCard from './OSCard'
+import SyntaxHighlighterBox from './SyntaxHighlighter'
+import OSCards from './OSCards'
 
 const ValidatorSetupInstall = () => {
-  const [selectedOs, setSelectedOs] = useState(MAC)
   const selectedClient = useSelector((state: RootState) => state.execClient.selectedClient)
 
   return (
@@ -56,26 +53,7 @@ const ValidatorSetupInstall = () => {
                 releases can be found here. Instructions for updating existing Geth installations
                 are also provided in each section.
               </Text>
-              <XStack justifyContent={'space-between'} my={'15px'}>
-                <OSCard
-                  icon="/icons/apple-logo.svg"
-                  name="MacOS"
-                  isSelected={selectedOs === MAC}
-                  onClick={() => setSelectedOs(MAC)}
-                />
-                <OSCard
-                  icon="/icons/linux-logo.svg"
-                  name={LINUX}
-                  isSelected={selectedOs === LINUX}
-                  onClick={() => setSelectedOs(LINUX)}
-                />
-                <OSCard
-                  icon="/icons/windows-logo.svg"
-                  name={WINDOWS}
-                  isSelected={selectedOs === WINDOWS}
-                  onClick={() => setSelectedOs(WINDOWS)}
-                />
-              </XStack>
+              <OSCards />
               <YStack space={'$2'}>
                 <Text size={19}>Package Managers</Text>
                 <Text size={15} weight={'semibold'}>
