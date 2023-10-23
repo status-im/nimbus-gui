@@ -7,9 +7,10 @@ import { useSelector } from 'react-redux'
 import OsCard from './OsCard'
 import SyntaxHighlighterBox from './SyntaxHighlighter'
 import { RootState } from '../../../../redux/store'
+import { LINUX, WINDOWS } from '../../../../constants'
 
 const ValidatorSetupInstall = () => {
-  const [selectedOs, setSelectedOs] = useState('Mac')
+  const [selectedOs, setSelectedOs] = useState('MAC')
   const selectedClient = useSelector((state: RootState) => state.execClient.selectedClient)
 
   return (
@@ -59,20 +60,20 @@ const ValidatorSetupInstall = () => {
                 <OsCard
                   icon="/icons/apple-logo.svg"
                   name="MacOS"
-                  isSelected={selectedOs === 'Mac'}
-                  onClick={() => setSelectedOs('Mac')}
+                  isSelected={selectedOs === 'MAC'}
+                  onClick={() => setSelectedOs('MAC')}
                 />
                 <OsCard
                   icon="/icons/linux-logo.svg"
-                  name="Linux"
-                  isSelected={selectedOs === 'Linux'}
-                  onClick={() => setSelectedOs('Linux')}
+                  name={LINUX}
+                  isSelected={selectedOs === LINUX}
+                  onClick={() => setSelectedOs(LINUX)}
                 />
                 <OsCard
                   icon="/icons/windows-logo.svg"
-                  name="Windows"
-                  isSelected={selectedOs === 'Windows'}
-                  onClick={() => setSelectedOs('Windows')}
+                  name={WINDOWS}
+                  isSelected={selectedOs === WINDOWS}
+                  onClick={() => setSelectedOs(WINDOWS)}
                 />
               </XStack>
               <YStack space={'$2'}>
