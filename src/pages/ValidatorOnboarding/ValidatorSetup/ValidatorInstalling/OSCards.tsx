@@ -22,6 +22,10 @@ const cards = [
 const OSCards = () => {
   const [selectedOs, setSelectedOs] = useState(MAC)
 
+  const handleOsCardClick = (os: string) => {
+    setSelectedOs(os)
+  }
+
   return (
     <XStack justifyContent={'space-between'} my={'15px'}>
       {cards.map(card => (
@@ -30,7 +34,7 @@ const OSCards = () => {
           icon={card.icon}
           name={card.name}
           isSelected={selectedOs === card.name}
-          onClick={() => setSelectedOs(card.name)}
+          onClick={() => handleOsCardClick(card.name)}
         />
       ))}
     </XStack>
