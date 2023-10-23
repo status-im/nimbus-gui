@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import OSCard from './OSCard'
+import { MAC } from '../../../../constants'
 
 const meta = {
   title: 'ValidatorOnboarding/OSCard',
