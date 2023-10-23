@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     icon: '/icons/apple-logo.svg',
-    name: 'MAC',
+    name: MAC,
     isSelected: true,
   },
 }

@@ -6,11 +6,11 @@ import { useSelector } from 'react-redux'
 
 import SyntaxHighlighterBox from './SyntaxHighlighter'
 import { RootState } from '../../../../redux/store'
-import { LINUX, WINDOWS } from '../../../../constants'
+import { LINUX, MAC, WINDOWS } from '../../../../constants'
 import OSCard from './OSCard'
 
 const ValidatorSetupInstall = () => {
-  const [selectedOs, setSelectedOs] = useState('MAC')
+  const [selectedOs, setSelectedOs] = useState(MAC)
   const selectedClient = useSelector((state: RootState) => state.execClient.selectedClient)
 
   return (
@@ -60,8 +60,8 @@ const ValidatorSetupInstall = () => {
                 <OSCard
                   icon="/icons/apple-logo.svg"
                   name="MacOS"
-                  isSelected={selectedOs === 'MAC'}
-                  onClick={() => setSelectedOs('MAC')}
+                  isSelected={selectedOs === MAC}
+                  onClick={() => setSelectedOs(MAC)}
                 />
                 <OSCard
                   icon="/icons/linux-logo.svg"

@@ -2,18 +2,18 @@ import { XStack } from 'tamagui'
 import { useState } from 'react'
 
 import OSCard from './OSCard'
-import { LINUX, WINDOWS } from '../../../../constants'
+import { LINUX, MAC, WINDOWS } from '../../../../constants'
 
 const OSCards = () => {
-  const [selectedOs, setSelectedOs] = useState('MAC')
+  const [selectedOs, setSelectedOs] = useState(MAC)
 
   return (
     <XStack justifyContent={'space-between'} my={'15px'}>
       <OSCard
         icon="/icons/apple-logo.svg"
         name="MacOS"
-        isSelected={selectedOs === 'MAC'}
-        onClick={() => setSelectedOs('MAC')}
+        isSelected={selectedOs === MAC}
+        onClick={() => setSelectedOs(MAC)}
       />
       <OSCard
         icon="/icons/linux-logo.svg"
