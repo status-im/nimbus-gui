@@ -19,21 +19,18 @@ const ValidatorSetupInstall = () => {
           Validator Setup
         </Text>
       </XStack>
-
       <YStack>
         <Stack style={{ marginBottom: '4px' }}>
           <YStack space={'$3'}>
             <Text size={15} weight={'semibold'}>
               {selectedClient}
             </Text>
-
             <Text size={15} color="#647084">
               Geth is written in Go, fully open source and licensed under the GNU LGPL v3. Geth is
               one of the three original implementations of the Ethereum protocol.
             </Text>
             <InformationBox
-              message="Currently Geth is used by > 66% of the network.
-              Client diversity is extremely important for the network health of Ethereum: A bug in a client with a share of over 33% can cause Ethereum to go offline. If the client has a supermajority (>66%), a bug could cause the chain to incorrectly split, potentially leading to slashing.Learn how Nimbus is helping client diversity →"
+              message="Currently Geth is used by > 66% of the network. Client diversity is extremely important for the network health of Ethereum: A bug in a client with a share of over 33% can cause Ethereum to go offline. If the client has a supermajority (>66%), a bug could cause the chain to incorrectly split, potentially leading to slashing. Learn how Nimbus is helping client diversity →"
               variant="error"
               icon={<CloseCircleIcon size={20} color="$red" />}
             />
@@ -58,7 +55,6 @@ const ValidatorSetupInstall = () => {
                 releases can be found here. Instructions for updating existing Geth installations
                 are also provided in each section.
               </Text>
-
               <XStack justifyContent={'space-between'} my={'15px'}>
                 <OsCard
                   icon="/icons/apple-logo.svg"
@@ -80,7 +76,7 @@ const ValidatorSetupInstall = () => {
                 />
               </XStack>
               <YStack space={'$2'}>
-                <Text size={19}> Package Managers</Text>
+                <Text size={19}>Package Managers</Text>
                 <Text size={15} weight={'semibold'}>
                   MacOS via Homebrew
                 </Text>
