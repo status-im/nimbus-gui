@@ -3,14 +3,14 @@ import { Text } from '@status-im/components'
 
 import Icon from '../../../../components/General/Icon'
 
-type OsCardProps = {
+type OSCardProps = {
   name: string
   icon: string
   onClick?: () => void
   isSelected?: boolean
 }
 
-const OsCard = ({ name, icon, onClick, isSelected }: OsCardProps) => {
+const OSCard = ({ name, icon, onClick, isSelected }: OSCardProps) => {
   return (
     <YStack
       style={{
@@ -34,4 +34,4 @@ const OsCard = ({ name, icon, onClick, isSelected }: OsCardProps) => {
   )
 }
 
-export default OsCard
+export default OSCard

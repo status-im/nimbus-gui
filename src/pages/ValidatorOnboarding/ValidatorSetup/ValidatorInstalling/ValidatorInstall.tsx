@@ -4,10 +4,10 @@ import { CloseCircleIcon } from '@status-im/icons'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 
-import OsCard from './OsCard'
 import SyntaxHighlighterBox from './SyntaxHighlighter'
 import { RootState } from '../../../../redux/store'
 import { LINUX, WINDOWS } from '../../../../constants'
+import OSCard from './OSCard'
 
 const ValidatorSetupInstall = () => {
   const [selectedOs, setSelectedOs] = useState('MAC')
@@ -57,19 +57,19 @@ const ValidatorSetupInstall = () => {
                 are also provided in each section.
               </Text>
               <XStack justifyContent={'space-between'} my={'15px'}>
-                <OsCard
+                <OSCard
                   icon="/icons/apple-logo.svg"
                   name="MacOS"
                   isSelected={selectedOs === 'MAC'}
                   onClick={() => setSelectedOs('MAC')}
                 />
-                <OsCard
+                <OSCard
                   icon="/icons/linux-logo.svg"
                   name={LINUX}
                   isSelected={selectedOs === LINUX}
                   onClick={() => setSelectedOs(LINUX)}
                 />
-                <OsCard
+                <OSCard
                   icon="/icons/windows-logo.svg"
                   name={WINDOWS}
                   isSelected={selectedOs === WINDOWS}

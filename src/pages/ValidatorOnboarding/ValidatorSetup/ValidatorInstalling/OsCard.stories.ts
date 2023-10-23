@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import OsCard from './OsCard'
+import OSCard from './OSCard'
 
 const meta = {
-  title: 'ValidatorOnboarding/OsCard',
-  component: OsCard,
+  title: 'ValidatorOnboarding/OSCard',
+  component: OSCard,
   tags: ['autodocs'],
-} satisfies Meta<typeof OsCard>
+} satisfies Meta<typeof OSCard>
 
 export default meta
 type Story = StoryObj<typeof meta>
