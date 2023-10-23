@@ -19,6 +19,7 @@ const OsCard = ({ name, icon, onClick, isSelected }: OsCardProps) => {
         borderRadius: '16px',
         padding: '12px 16px',
         width: '32%',
+        cursor: 'pointer',
       }}
       space={'$8'}
       onPress={onClick}
