@@ -28,7 +28,7 @@ const OsCard = ({ name, icon, onClick, isSelected }: OsCardProps) => {
           {name}
         </Text>
       </Stack>
-      <Icon src={icon} width={100} height={100} />
+      <Icon src={icon} width={42} height={52} />
     </YStack>
   )
 }
