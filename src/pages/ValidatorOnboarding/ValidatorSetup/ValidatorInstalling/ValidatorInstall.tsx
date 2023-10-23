@@ -36,13 +36,13 @@ const ValidatorSetupInstall = () => {
             />
             <YStack
               style={{
-                border: '1px solid #00000026',
+                border: '2px solid #1B273D0D',
                 borderRadius: '16px',
                 padding: '19px 16px',
               }}
               space={'$3'}
             >
-              <Text size={19}> Installing {selectedClient}</Text>
+              <Text size={19}>Installing {selectedClient}</Text>
               <Text size={15} color="#647084" weight={'regular'}>
                 There are several ways to install Geth, including via a package manager, downloading
                 a pre-built bundle, running as a docker container or building from downloaded source
