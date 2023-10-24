@@ -4,10 +4,10 @@ import { useSelector } from 'react-redux'
 import { useState } from 'react'
 
 import { RootState } from '../../../../redux/store'
-import SyntaxHighlighterBox from './SyntaxHighlighter'
-import OSCards from './OSCards'
 import { DOCUMENTATIONS } from './documentations'
 import { MAC } from '../../../../constants'
+import OSCards from './OSCards'
+import CurrentPlatformOSContent from './CurrentPlatformOSContent'
 
 const ValidatorSetupInstall = () => {
   const [selectedOS, setSelectedOS] = useState(MAC)
@@ -37,24 +37,7 @@ const ValidatorSetupInstall = () => {
           {DOCUMENTATIONS[selectedClient].general}
         </Text>
         <OSCards selectedOS={selectedOS} handleOSCardClick={handleOSCardClick} />
-        <YStack space={'$2'}>
-          <Text size={19}>Package Managers</Text>
-          <Text size={15} weight={'semibold'}>
-            MacOS via Homebrew
-          </Text>
-          <Text size={15} color="#647084">
-            The easiest way to install go-ethereum is to use the Geth Homebrew tap. The first step
-            is to check that Homebrew is installed. The following command should return a version
-            number.
-          </Text>
-          <SyntaxHighlighterBox rows={['brew -v']} />
-          <Text size={15} color="#647084">
-            If a version number is returned, then Homebrew is installed. If not, Homebrew can be
-            installed by following the instructions here. With Homebrew installed, the following
-            commands add the Geth tap and install Geth:
-          </Text>
-          <SyntaxHighlighterBox rows={['brew tap ethereum/ethereum', 'brew install ethereum']} />
-        </YStack>
+        <CurrentPlatformOSContent selectedOS={selectedOS} />
       </YStack>
     </YStack>
   )
