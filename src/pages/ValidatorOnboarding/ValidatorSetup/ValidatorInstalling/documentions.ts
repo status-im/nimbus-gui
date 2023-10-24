@@ -7,6 +7,7 @@ type DocumentationItem =
 
 type ExecClientData = {
   icon: string
+  general: string
   documentation: Record<string, DocumentationItem[]>
 }
 
@@ -15,6 +16,7 @@ type Documentation = Record<string, ExecClientData>
 export const DOCUMENTATIONS: Documentation = {
   Nethermind: {
     icon: '/icons/nethermind-circle.png',
+    general: 'General text for all platforms',
     documentation: {
       [MAC]: [{ type: 'text', content: 'Text for mac' }],
       [WINDOWS]: [{ type: 'text', content: 'Text for windows' }],
@@ -23,6 +25,7 @@ export const DOCUMENTATIONS: Documentation = {
   },
   Besu: {
     icon: '/icons/hyperledger-besu-circle.png',
+    general: 'General text for all platforms',
     documentation: {
       [MAC]: [{ type: 'text', content: 'Text for mac' }],
       [WINDOWS]: [{ type: 'text', content: 'Text for windows' }],
@@ -31,6 +34,7 @@ export const DOCUMENTATIONS: Documentation = {
   },
   Geth: {
     icon: '/icons/gethereum-mascot-circle.png',
+    general: 'General text for all platforms',
     documentation: {
       [MAC]: [{ type: 'text', content: 'Text for mac' }],
       [WINDOWS]: [{ type: 'text', content: 'Text for windows' }],
@@ -39,6 +43,7 @@ export const DOCUMENTATIONS: Documentation = {
   },
   Erigon: {
     icon: '/icons/erigon-circle.png',
+    general: 'General text for all platforms',
     documentation: {
       [MAC]: [{ type: 'text', content: 'Text for mac' }],
       [WINDOWS]: [{ type: 'text', content: 'Text for windows' }],
@@ -47,6 +52,7 @@ export const DOCUMENTATIONS: Documentation = {
   },
   Nimbus: {
     icon: '/icons/NimbusDisabled.svg',
+    general: 'General text for all platforms',
     documentation: {
       [MAC]: [{ type: 'text', content: 'Text for mac' }],
       [WINDOWS]: [{ type: 'text', content: 'Text for windows' }],
