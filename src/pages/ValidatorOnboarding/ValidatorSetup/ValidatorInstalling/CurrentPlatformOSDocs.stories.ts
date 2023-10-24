@@ -1,31 +1,28 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import CurrentPlatformOSDocs from './CurrentPlatformOSDocs'
-import { LINUX, MAC, WINDOWS } from '../../../../constants'
+import { MAC } from '../../../../constants'
+import { DOCUMENTATIONS } from './documentations'
 
 const meta = {
   title: 'ValidatorOnboarding/CurrentPlatformOSDocs',
   component: CurrentPlatformOSDocs,
   tags: ['autodocs'],
+  decorators: [withRouter()],
 } satisfies Meta<typeof CurrentPlatformOSDocs>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const MacOs: Story = {
+export const GethGeneral: Story = {
   args: {
-    selectedOS: MAC,
+    content: DOCUMENTATIONS['Geth'].general,
   },
 }
 
-export const Windows: Story = {
+export const GethMacOS: Story = {
   args: {
-    selectedOS: WINDOWS,
-  },
-}
-
-export const Linux: Story = {
-  args: {
-    selectedOS: LINUX,
+    content: DOCUMENTATIONS['Geth'].documentation[MAC],
   },
 }
