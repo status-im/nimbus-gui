@@ -93,7 +93,6 @@ const DashboardContent = () => {
             downloadRate={[12, 31, 22, 12, 23, 23, 90]}
             uploadRate={[31, 22, 32, 132, 32, 45, 65]}
           />
-
         </Stack>
       </Stack>
     </YStack>
