@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../../../redux/store'
 import SyntaxHighlighterBox from './SyntaxHighlighter'
 import OSCards from './OSCards'
-import { DOCUMENTATIONS } from './documentions'
+import { DOCUMENTATIONS } from './documentations'
 
 const ValidatorSetupInstall = () => {
   const selectedClient = useSelector((state: RootState) => state.execClient.selectedClient)
