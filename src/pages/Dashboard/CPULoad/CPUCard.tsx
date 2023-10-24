@@ -40,7 +40,7 @@ const CPUCard = ({ load }: CPUCardProps) => {
   const message = currentLoad < 80 ? 'Good' : 'Poor'
 
   return (
-    <DashboardCardWrapper padding="0" height="156px" minWidth="290px">
+    <DashboardCardWrapper padding="0" height="156px" minWidth="220px">
       <YStack
         style={{
           borderRadius: '16px',
