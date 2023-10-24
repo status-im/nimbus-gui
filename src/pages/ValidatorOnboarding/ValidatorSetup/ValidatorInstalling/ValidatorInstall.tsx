@@ -33,11 +33,9 @@ const ValidatorSetupInstall = () => {
         space={'$2'}
       >
         <Text size={19}>Installing {selectedClient}</Text>
-        <Text size={15} color="#647084" weight={'regular'}>
-          {DOCUMENTATIONS[selectedClient].general}
-        </Text>
+        <CurrentPlatformOSDocs content={DOCUMENTATIONS[selectedClient].general} />
         <OSCards selectedOS={selectedOS} handleOSCardClick={handleOSCardClick} />
-        <CurrentPlatformOSDocs selectedOS={selectedOS} />
+        <CurrentPlatformOSDocs content={DOCUMENTATIONS[selectedClient].documentation[selectedOS]} />
       </YStack>
     </YStack>
   )

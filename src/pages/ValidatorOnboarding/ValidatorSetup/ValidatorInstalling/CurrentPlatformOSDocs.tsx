@@ -1,28 +1,24 @@
-import { useSelector } from 'react-redux'
-import { DOCUMENTATIONS } from './documentations'
 import { YStack } from 'tamagui'
 import { Link } from 'react-router-dom'
 import { Text } from '@status-im/components'
 
-import { RootState } from '../../../../redux/store'
 import SyntaxHighlighterBox from './SyntaxHighlighter'
+import { DocumentationItem } from './documentations'
 
 type CurrentPlatformOSDocsProps = {
-  selectedOS: string
+  content: DocumentationItem[]
 }
 
-const CurrentPlatformOSDocs = ({ selectedOS }: CurrentPlatformOSDocsProps) => {
-  const selectedClient = useSelector((state: RootState) => state.execClient.selectedClient)
-
+const CurrentPlatformOSDocs = ({ content }: CurrentPlatformOSDocsProps) => {
   return (
     <YStack space={'$2'}>
-      {DOCUMENTATIONS[selectedClient].documentation[selectedOS].map((item, index) => {
+      {content.map((item, index) => {
         switch (item.type) {
           case 'code':
             return <SyntaxHighlighterBox key={index} rows={item.content} />
           case 'link':
             return (
-              <Link key={index} to={item.to}>
+              <Link key={index} to={item.to} target="_blank">
                 {item.content}
               </Link>
             )
