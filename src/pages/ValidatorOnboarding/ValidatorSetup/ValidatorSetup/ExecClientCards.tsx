@@ -2,7 +2,14 @@ import { Stack, XStack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 
 import ExecClientCard from './ExecClientCard'
-import { EXEC_CLIENTS_ICONS } from '../../../../constants'
+
+export const EXEC_CLIENTS_ICONS: Record<string, string> = {
+  Nethermind: '/icons/nethermind-circle.png',
+  Besu: '/icons/hyperledger-besu-circle.png',
+  Geth: '/icons/gethereum-mascot-circle.png',
+  Erigon: '/icons/erigon-circle.png',
+  Nimbus: '/icons/NimbusDisabled.svg',
+}
 
 const ExecClientCards = () => {
   return (

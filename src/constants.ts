@@ -36,43 +36,6 @@ export const MAC = 'MacOS'
 export const WINDOWS = 'Windows'
 export const LINUX = 'Linux'
 
-export const EXEC_CLIENTS_ICONS: Record<string, string> = {
-  Nethermind: '/icons/nethermind-circle.png',
-  Besu: '/icons/hyperledger-besu-circle.png',
-  Geth: '/icons/gethereum-mascot-circle.png',
-  Erigon: '/icons/erigon-circle.png',
-  Nimbus: '/icons/NimbusDisabled.svg',
-}
-
-type DocumentationItem =
-  | { type: 'code'; content: string }
-  | { type: 'link'; content: string }
-  | { type: 'text'; content: string }
-
-export const DOCUMENTATION: Record<string, Record<string, DocumentationItem[]>> = {
-  Nethermind: {
-    [MAC]: [{ type: 'text', content: 'Text for mac' }],
-    [WINDOWS]: [{ type: 'text', content: 'Text for windows' }],
-    [LINUX]: [{ type: 'text', content: 'Text for linux' }],
-  },
-  Besu: {
-    [MAC]: [{ type: 'text', content: 'Text for mac' }],
-    [WINDOWS]: [{ type: 'text', content: 'Text for windows' }],
-    [LINUX]: [{ type: 'text', content: 'Text for linux' }],
-  },
-  Geth: {
-    [MAC]: [{ type: 'text', content: 'Text for mac' }],
-    [WINDOWS]: [{ type: 'text', content: 'Text for windows' }],
-    [LINUX]: [{ type: 'text', content: 'Text for linux' }],
-  },
-  Erigon: {
-    [MAC]: [{ type: 'text', content: 'Text for mac' }],
-    [WINDOWS]: [{ type: 'text', content: 'Text for windows' }],
-    [LINUX]: [{ type: 'text', content: 'Text for linux' }],
-  },
-  Nimbus: {},
-}
-
 // for now, this will be constant values
 export const CURRENCIES = {
   USD: 1583.42,
