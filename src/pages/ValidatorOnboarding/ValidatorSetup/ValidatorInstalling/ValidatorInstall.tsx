@@ -7,7 +7,7 @@ import { RootState } from '../../../../redux/store'
 import { DOCUMENTATIONS } from './documentations'
 import { MAC } from '../../../../constants'
 import OSCards from './OSCards'
-import CurrentPlatformOSContent from './CurrentPlatformOSContent'
+import CurrentPlatformOSDocs from './CurrentPlatformOSDocs'
 
 const ValidatorSetupInstall = () => {
   const [selectedOS, setSelectedOS] = useState(MAC)
@@ -37,7 +37,7 @@ const ValidatorSetupInstall = () => {
           {DOCUMENTATIONS[selectedClient].general}
         </Text>
         <OSCards selectedOS={selectedOS} handleOSCardClick={handleOSCardClick} />
-        <CurrentPlatformOSContent selectedOS={selectedOS} />
+        <CurrentPlatformOSDocs selectedOS={selectedOS} />
       </YStack>
     </YStack>
   )

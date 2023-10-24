@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import CurrentPlatformOSContent from './CurrentPlatformOSContent'
+import CurrentPlatformOSDocs from './CurrentPlatformOSDocs'
 import { LINUX, MAC, WINDOWS } from '../../../../constants'
 
 const meta = {
-  title: 'ValidatorOnboarding/CurrentPlatformOSContent',
-  component: CurrentPlatformOSContent,
+  title: 'ValidatorOnboarding/CurrentPlatformOSDocs',
+  component: CurrentPlatformOSDocs,
   tags: ['autodocs'],
-} satisfies Meta<typeof CurrentPlatformOSContent>
+} satisfies Meta<typeof CurrentPlatformOSDocs>
 
 export default meta
 type Story = StoryObj<typeof meta>

@@ -7,11 +7,11 @@ import { Text } from '@status-im/components'
 import { RootState } from '../../../../redux/store'
 import SyntaxHighlighterBox from './SyntaxHighlighter'
 
-type CurrentPlatformOSContentProps = {
+type CurrentPlatformOSDocsProps = {
   selectedOS: string
 }
 
-const CurrentPlatformOSContent = ({ selectedOS }: CurrentPlatformOSContentProps) => {
+const CurrentPlatformOSDocs = ({ selectedOS }: CurrentPlatformOSDocsProps) => {
   const selectedClient = useSelector((state: RootState) => state.execClient.selectedClient)
 
   return (
@@ -40,4 +40,4 @@ const CurrentPlatformOSContent = ({ selectedOS }: CurrentPlatformOSContentProps)
   )
 }
 
-export default CurrentPlatformOSContent
+export default CurrentPlatformOSDocs
