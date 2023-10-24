@@ -22,7 +22,7 @@ export const DOCUMENTATION: Documentation = {
     },
   },
   Besu: {
-    icon: 'hyperledger-besu-circle.png',
+    icon: '/icons/hyperledger-besu-circle.png',
     documentation: {
       [MAC]: [{ type: 'text', content: 'Text for mac' }],
       [WINDOWS]: [{ type: 'text', content: 'Text for windows' }],
@@ -30,7 +30,7 @@ export const DOCUMENTATION: Documentation = {
     },
   },
   Geth: {
-    icon: '/gethereum-mascot-circle.png',
+    icon: '/icons/gethereum-mascot-circle.png',
     documentation: {
       [MAC]: [{ type: 'text', content: 'Text for mac' }],
       [WINDOWS]: [{ type: 'text', content: 'Text for windows' }],
