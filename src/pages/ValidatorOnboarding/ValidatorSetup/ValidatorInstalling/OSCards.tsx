@@ -1,5 +1,4 @@
 import { XStack } from 'tamagui'
-import { useState } from 'react'
 
 import OSCard from './OSCard'
 import { LINUX, MAC, WINDOWS } from '../../../../constants'
@@ -19,13 +18,12 @@ const cards = [
   },
 ]
 
-const OSCards = () => {
-  const [selectedOs, setSelectedOs] = useState(MAC)
+type OSCardsProps = {
+  selectedOs: string
+  handleOsCardClick: (os: string) => void
+}
 
-  const handleOsCardClick = (os: string) => {
-    setSelectedOs(os)
-  }
-
+const OSCards = ({ selectedOs, handleOsCardClick }: OSCardsProps) => {
   return (
     <XStack justifyContent={'space-between'} my={'15px'}>
       {cards.map(card => (

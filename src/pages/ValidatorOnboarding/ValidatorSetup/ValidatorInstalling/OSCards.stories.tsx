@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import OSCards from './OSCards'
+import { MAC } from '../../../../constants'
 
 const meta = {
   title: 'ValidatorOnboarding/OSCards',
@@ -15,5 +16,8 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: {},
+  args: {
+    selectedOs: MAC,
+    handleOsCardClick: () => {},
+  },
 }
