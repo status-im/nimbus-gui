@@ -81,7 +81,7 @@ const DashboardContent = () => {
         <Stack
           style={{
             display: 'grid',
-            gridTemplateColumns: windowWidth < 1300 ? '1fr' : '1fr 1fr',
+            gridTemplateColumns: windowWidth < 1750 ? '1fr' : '1fr 1fr',
             gap: '16px',
             marginTop: windowWidth < 1300 ? '50px' : 0,
           }}
@@ -93,7 +93,7 @@ const DashboardContent = () => {
             downloadRate={[12, 31, 22, 12, 23, 23, 90]}
             uploadRate={[31, 22, 32, 132, 32, 45, 65]}
           />
-          {/* </YStack> */}
+           
         </Stack>
       </Stack>
     </YStack>
