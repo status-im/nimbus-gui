@@ -2,7 +2,7 @@ import { Stack, XStack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 
 import ExecClientCard from './ExecClientCard'
-import { DOCUMENTATIONS } from '../ValidatorInstalling/documentions'
+import { DOCUMENTATIONS } from '../ValidatorInstalling/documentations'
 
 const ExecClientCards = () => {
   return (
