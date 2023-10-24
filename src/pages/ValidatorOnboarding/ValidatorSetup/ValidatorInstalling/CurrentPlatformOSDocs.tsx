@@ -19,7 +19,7 @@ const CurrentPlatformOSDocs = ({ selectedOS }: CurrentPlatformOSDocsProps) => {
       {DOCUMENTATIONS[selectedClient].documentation[selectedOS].map((item, index) => {
         switch (item.type) {
           case 'code':
-            return <SyntaxHighlighterBox key={index} rows={[item.content]} />
+            return <SyntaxHighlighterBox key={index} rows={item.content} />
           case 'link':
             return (
               <Link key={index} to={item.to}>

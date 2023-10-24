@@ -1,7 +1,7 @@
 import { LINUX, MAC, WINDOWS } from '../../../../constants'
 
 type DocumentationItem =
-  | { type: 'code'; content: string }
+  | { type: 'code'; content: Array<string> }
   | { type: 'link'; content: string; to: string }
   | { type: 'text'; content: string }
 
