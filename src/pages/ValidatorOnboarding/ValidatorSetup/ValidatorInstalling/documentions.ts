@@ -5,26 +5,52 @@ type DocumentationItem =
   | { type: 'link'; content: string }
   | { type: 'text'; content: string }
 
-export const DOCUMENTATION: Record<string, Record<string, DocumentationItem[]>> = {
+type ClientData = {
+  icon: string
+  documentation: Record<string, DocumentationItem[]>
+}
+
+type Documentation = Record<string, ClientData>
+
+export const DOCUMENTATION: Documentation = {
   Nethermind: {
-    [MAC]: [{ type: 'text', content: 'Text for mac' }],
-    [WINDOWS]: [{ type: 'text', content: 'Text for windows' }],
-    [LINUX]: [{ type: 'text', content: 'Text for linux' }],
+    icon: '/icons/nethermind-circle.png',
+    documentation: {
+      [MAC]: [{ type: 'text', content: 'Text for mac' }],
+      [WINDOWS]: [{ type: 'text', content: 'Text for windows' }],
+      [LINUX]: [{ type: 'text', content: 'Text for linux' }],
+    },
   },
   Besu: {
-    [MAC]: [{ type: 'text', content: 'Text for mac' }],
-    [WINDOWS]: [{ type: 'text', content: 'Text for windows' }],
-    [LINUX]: [{ type: 'text', content: 'Text for linux' }],
+    icon: 'hyperledger-besu-circle.png',
+    documentation: {
+      [MAC]: [{ type: 'text', content: 'Text for mac' }],
+      [WINDOWS]: [{ type: 'text', content: 'Text for windows' }],
+      [LINUX]: [{ type: 'text', content: 'Text for linux' }],
+    },
   },
   Geth: {
-    [MAC]: [{ type: 'text', content: 'Text for mac' }],
-    [WINDOWS]: [{ type: 'text', content: 'Text for windows' }],
-    [LINUX]: [{ type: 'text', content: 'Text for linux' }],
+    icon: '/gethereum-mascot-circle.png',
+    documentation: {
+      [MAC]: [{ type: 'text', content: 'Text for mac' }],
+      [WINDOWS]: [{ type: 'text', content: 'Text for windows' }],
+      [LINUX]: [{ type: 'text', content: 'Text for linux' }],
+    },
   },
   Erigon: {
-    [MAC]: [{ type: 'text', content: 'Text for mac' }],
-    [WINDOWS]: [{ type: 'text', content: 'Text for windows' }],
-    [LINUX]: [{ type: 'text', content: 'Text for linux' }],
+    icon: '/icons/erigon-circle.png',
+    documentation: {
+      [MAC]: [{ type: 'text', content: 'Text for mac' }],
+      [WINDOWS]: [{ type: 'text', content: 'Text for windows' }],
+      [LINUX]: [{ type: 'text', content: 'Text for linux' }],
+    },
   },
-  Nimbus: {},
+  Nimbus: {
+    icon: '/icons/NimbusDisabled.svg',
+    documentation: {
+      [MAC]: [{ type: 'text', content: 'Text for mac' }],
+      [WINDOWS]: [{ type: 'text', content: 'Text for windows' }],
+      [LINUX]: [{ type: 'text', content: 'Text for linux' }],
+    },
+  },
 }
