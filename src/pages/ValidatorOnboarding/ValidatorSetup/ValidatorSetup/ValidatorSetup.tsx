@@ -1,9 +1,9 @@
-import { XStack, Stack, Text as TextTam, YStack } from 'tamagui'
+import { XStack, Stack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 
 import PairedDeviceCard from '../ConsensusClient/PairedDeviceCard'
-import ExecClientCard from './ExecClientCard'
 import LinkWithArrow from '../../../../components/General/LinkWithArrow'
+import ExecClientCards from './ExecClientCards'
 
 const ValidatorSetup = () => {
   return (
@@ -18,7 +18,6 @@ const ValidatorSetup = () => {
         </Text>
         <PairedDeviceCard />
       </XStack>
-
       <YStack>
         <Stack style={{ marginBottom: '4px' }}>
           <Text size={13} color="#647084" weight={'semibold'}>
@@ -33,17 +32,7 @@ const ValidatorSetup = () => {
           again.
         </Text>
       </YStack>
-
-      <TextTam fontSize={27} style={{ marginTop: '15px', marginLeft: 0, marginBottom: '15px' }}>
-        Select Execution client
-      </TextTam>
-      <XStack justifyContent={'space-between'}>
-        <ExecClientCard name={'Nethermind'} icon={'/icons/nethermind-circle.png'} />
-        <ExecClientCard name={'Besu'} icon={'/icons/hyperledger-besu-circle.png'} />
-        <ExecClientCard name={'Geth'} icon={'/icons/gethereum-mascot-circle.png'} />
-        <ExecClientCard name={'Erigon'} icon={'/icons/erigon-circle.png'} />
-        <ExecClientCard name={'Nimbus'} icon={'/icons/NimbusDisabled.svg'} isComingSoon={true} />
-      </XStack>
+      <ExecClientCards />
       <LinkWithArrow
         to="/"
         text="View Execution client comparison chart"
