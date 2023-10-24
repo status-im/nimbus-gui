@@ -36,6 +36,14 @@ export const MAC = 'MacOS'
 export const WINDOWS = 'Windows'
 export const LINUX = 'Linux'
 
+export const EXEC_CLIENTS_ICONS: Record<string, string> = {
+  Nethermind: '/icons/nethermind-circle.png',
+  Besu: '/icons/hyperledger-besu-circle.png',
+  Geth: '/icons/gethereum-mascot-circle.png',
+  Erigon: '/icons/erigon-circle.png',
+  Nimbus: '/icons/NimbusDisabled.svg',
+}
+
 type DocumentationItem =
   | { type: 'code'; content: string }
   | { type: 'link'; content: string }
