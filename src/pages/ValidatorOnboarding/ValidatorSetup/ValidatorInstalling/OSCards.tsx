@@ -20,10 +20,10 @@ const cards = [
 
 type OSCardsProps = {
   selectedOS: string
-  handleOsCardClick: (os: string) => void
+  handleOSCardClick: (os: string) => void
 }
 
-const OSCards = ({ selectedOS, handleOsCardClick }: OSCardsProps) => {
+const OSCards = ({ selectedOS, handleOSCardClick }: OSCardsProps) => {
   return (
     <XStack justifyContent={'space-between'} my={'15px'}>
       {cards.map(card => (
@@ -32,7 +32,7 @@ const OSCards = ({ selectedOS, handleOsCardClick }: OSCardsProps) => {
           icon={card.icon}
           name={card.name}
           isSelected={selectedOS === card.name}
-          onClick={() => handleOsCardClick(card.name)}
+          onClick={() => handleOSCardClick(card.name)}
         />
       ))}
     </XStack>
