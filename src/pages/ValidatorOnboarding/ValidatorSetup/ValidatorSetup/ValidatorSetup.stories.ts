@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { withRouter } from 'storybook-addon-react-router-v6'
+
 import ValidatorSetup from './ValidatorSetup'
 
 const meta = {
