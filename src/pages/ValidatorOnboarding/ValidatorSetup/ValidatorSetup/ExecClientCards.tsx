@@ -2,7 +2,7 @@ import { Stack, XStack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 
 import ExecClientCard from './ExecClientCard'
-import { DOCUMENTATION } from '../ValidatorInstalling/documentions'
+import { DOCUMENTATIONS } from '../ValidatorInstalling/documentions'
 
 const ExecClientCards = () => {
   return (
@@ -11,7 +11,7 @@ const ExecClientCards = () => {
         <Text size={27}>Select Execution client</Text>
       </Stack>
       <XStack justifyContent={'space-between'}>
-        {Object.entries(DOCUMENTATION).map(([name, { icon }], index) => (
+        {Object.entries(DOCUMENTATIONS).map(([name, { icon }], index) => (
           <ExecClientCard key={index} name={name} icon={icon} />
         ))}
       </XStack>

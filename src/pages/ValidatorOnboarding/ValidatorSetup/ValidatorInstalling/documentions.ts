@@ -5,14 +5,14 @@ type DocumentationItem =
   | { type: 'link'; content: string }
   | { type: 'text'; content: string }
 
-type ClientData = {
+type ExecClientData = {
   icon: string
   documentation: Record<string, DocumentationItem[]>
 }
 
-type Documentation = Record<string, ClientData>
+type Documentation = Record<string, ExecClientData>
 
-export const DOCUMENTATION: Documentation = {
+export const DOCUMENTATIONS: Documentation = {
   Nethermind: {
     icon: '/icons/nethermind-circle.png',
     documentation: {
