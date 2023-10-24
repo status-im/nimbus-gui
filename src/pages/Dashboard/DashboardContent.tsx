@@ -69,12 +69,11 @@ const DashboardContent = () => {
             gridTemplateColumns: windowWidth < 1300 ? '1fr' : '1fr 1fr',
             gridAutoFlow: 'row',
             gap: '16px',
-
           }}
         >
           <ConsensusUptimeCard />
           <ExecutionUptime />
-          <Stack style={{ gridColumn: '1 / span 2', marginTop: windowWidth < 1300 ? '50px' : 0, }}>
+          <Stack style={{ gridColumn: '1 / span 2', marginTop: windowWidth < 1300 ? '50px' : 0 }}>
             <DeviceUptime />
           </Stack>
         </Stack>
