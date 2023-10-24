@@ -10,11 +10,11 @@ import { DOCUMENTATIONS } from './documentations'
 import { MAC } from '../../../../constants'
 
 const ValidatorSetupInstall = () => {
-  const [selectedOs, setSelectedOs] = useState(MAC)
+  const [selectedOS, setSelectedOS] = useState(MAC)
   const selectedClient = useSelector((state: RootState) => state.execClient.selectedClient)
 
   const handleOsCardClick = (os: string) => {
-    setSelectedOs(os)
+    setSelectedOS(os)
   }
 
   return (
@@ -36,7 +36,7 @@ const ValidatorSetupInstall = () => {
         <Text size={15} color="#647084" weight={'regular'}>
           {DOCUMENTATIONS[selectedClient].general}
         </Text>
-        <OSCards selectedOs={selectedOs} handleOsCardClick={handleOsCardClick} />
+        <OSCards selectedOS={selectedOS} handleOsCardClick={handleOsCardClick} />
         <YStack space={'$2'}>
           <Text size={19}>Package Managers</Text>
           <Text size={15} weight={'semibold'}>
