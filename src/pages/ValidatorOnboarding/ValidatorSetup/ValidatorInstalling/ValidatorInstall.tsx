@@ -2,12 +2,12 @@ import { YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
+import Markdown from 'react-markdown'
 
 import { RootState } from '../../../../redux/store'
 import { DOCUMENTATIONS } from './documentations'
 import { MAC } from '../../../../constants'
 import OSCards from './OSCards'
-import CurrentPlatformOSDocs from './CurrentPlatformOSDocs'
 
 const ValidatorSetupInstall = () => {
   const [selectedOS, setSelectedOS] = useState(MAC)
@@ -33,9 +33,9 @@ const ValidatorSetupInstall = () => {
         space={'$2'}
       >
         <Text size={19}>Installing {selectedClient}</Text>
-        <CurrentPlatformOSDocs content={DOCUMENTATIONS[selectedClient].general} />
+        <Markdown>{DOCUMENTATIONS[selectedClient].general}</Markdown>
         <OSCards selectedOS={selectedOS} handleOSCardClick={handleOSCardClick} />
-        <CurrentPlatformOSDocs content={DOCUMENTATIONS[selectedClient].documentation[selectedOS]} />
+        <Markdown children={DOCUMENTATIONS[selectedClient].documentation[selectedOS]} />
       </YStack>
     </YStack>
   )
