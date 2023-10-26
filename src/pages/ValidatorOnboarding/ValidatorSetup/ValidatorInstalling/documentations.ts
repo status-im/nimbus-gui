@@ -12,11 +12,14 @@ export const DOCUMENTATIONS: Documentation = {
   Nethermind: {
     icon: '/icons/nethermind-circle.png',
     general:
-      'Ethereum’s long awaited shift from Proof of Work (POW) to Proof of Stake (POS) known as The Merge happened on September 15, 2022 and came with fundamental changes to the network. The most notable change is the addition of the Beacon chain (Consensus layer) which replaced Proof of Work mining. It is coordinating and pseudorandomly selecting block producers from the pool of stakers / validators in a way that makes it extremely difficult for validators to coordinate attacks on the network. The Merge changed how operators run nodes on the Ethereum blockchain. A node now needs two clients that work together as a pair. In addition to the Execution Layer client (e.g. Nethermind) you need a Consensus Layer client that connects to the Beacon chain and runs the POS algorithm. This guide will show you everything you need to know to operate an Ethereum node. It will show how to connect to the Goerli, Sepolia and Chiado test networks as well. An easy way to run both CL and EL clients is by using Sedge. Sedge is a setup tool for PoS network/chain validators and nodes. Currently, Sedge supports multiple Linux distributions and MacOS.',
+      'Ethereum’s long awaited shift from Proof of Work (POW) to Proof of Stake (POS) known as The Merge happened on September 15, 2022 and came with fundamental changes to the network. The most notable change is the addition of the Beacon chain (Consensus layer) which replaced Proof of Work mining. It is coordinating and pseudorandomly selecting block producers from the pool of stakers / validators in a way that makes it extremely difficult for validators to coordinate attacks on the network.\n\nThe Merge changed how operators run nodes on the Ethereum blockchain. A node now needs two clients that work together as a pair. In addition to the Execution Layer client (e.g. Nethermind) you need a Consensus Layer client that connects to the Beacon chain and runs the POS algorithm.',
     documentation: {
-      [MAC]: 'Text for mac',
-      [WINDOWS]: 'Text for windows',
-      [LINUX]: 'Text for linux',
+      [MAC]:
+        '### macOS\n\nRun the following commands to add the Nethermind repository to your local Homebrew and install:\n\n```\nbrew tap nethermindeth/nethermind\nbrew install nethermind\n```',
+      [WINDOWS]:
+        '### Windows\n\nOn Windows, all you have to do is install and unzip the packages. There are two sources that you can download from:\n\n- nethermind-downloads\n- [releases - NethermindEth/nethermind](https://github.com/NethermindEth/nethermind/releases)',
+      [LINUX]:
+        '### Ubuntu\n\nRun the following commands to enable our launchpad repository and then install Nethermind:\n\n```\nsudo add-apt-repository ppa:nethermindeth/nethermind\nsudo apt install nethermind\n```',
     },
   },
   Besu: {
