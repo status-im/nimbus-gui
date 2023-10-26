@@ -36,10 +36,14 @@ const ConsensusUptimeCard = () => {
             }}
           >
             <UptimeChart
-              monthlyActivity={monthlyActivity}
+              // monthlyActivity={monthlyActivity}
+              // startMonth={0}
+              // endMonth={1}
+              // withLabels={false}
               startMonth={0}
-              endMonth={1}
-              withLabels={false}
+              endMonth={3}
+              monthlyActivity={[10, 1, 3, 4, 5, 1, 7, 1, 6, 3, 1, 9]}
+              withLabels={true}
             />
           </Stack>
         </XStack>
