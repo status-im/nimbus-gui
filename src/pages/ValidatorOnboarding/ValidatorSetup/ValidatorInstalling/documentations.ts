@@ -17,7 +17,7 @@ export const DOCUMENTATIONS: Documentation = {
       [MAC]:
         '### macOS\n\nRun the following commands to add the Nethermind repository to your local Homebrew and install:\n\n```\nbrew tap nethermindeth/nethermind\nbrew install nethermind\n```',
       [WINDOWS]:
-        '### Windows\n\nOn Windows, all you have to do is install and unzip the packages. There are two sources that you can download from:\n\n- nethermind-downloads\n- [releases - NethermindEth/nethermind](https://github.com/NethermindEth/nethermind/releases)',
+        '### Windows\n\nOn Windows, all you have to do is install and unzip the packages. There are two sources that you can download from:\n\n- [Nethermind - Downloads](https://downloads.nethermind.io/)\n- [Releases - NethermindEth/nethermind](https://github.com/NethermindEth/nethermind/releases)',
       [LINUX]:
         '### Ubuntu\n\nRun the following commands to enable our launchpad repository and then install Nethermind:\n\n```\nsudo add-apt-repository ppa:nethermindeth/nethermind\nsudo apt install nethermind\n```',
     },
