@@ -1,7 +1,12 @@
 import ReactMarkdown from 'react-markdown'
+import MarkdownLink from './MarkdownLink'
 
-const Markdown = ({ children }) => {
-  return <ReactMarkdown children={children} components={{ a: Linkk }} />
+type MarkdownProps = {
+  children: string
+}
+
+const Markdown = ({ children }: MarkdownProps) => {
+  return <ReactMarkdown children={children} components={{ a: MarkdownLink }} />
 }
 
 export default Markdown

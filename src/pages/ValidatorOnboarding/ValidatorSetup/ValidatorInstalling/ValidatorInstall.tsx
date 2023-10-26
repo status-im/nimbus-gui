@@ -2,13 +2,12 @@ import { YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
-import Markdown from 'react-markdown'
-import { Link } from 'react-router-dom'
 
 import { RootState } from '../../../../redux/store'
 import { DOCUMENTATIONS } from './documentations'
 import { MAC } from '../../../../constants'
 import OSCards from './OSCards'
+import Markdown from '../../../../components/General/Markdown/Markdown'
 
 const ValidatorSetupInstall = () => {
   const [selectedOS, setSelectedOS] = useState(MAC)
@@ -34,19 +33,11 @@ const ValidatorSetupInstall = () => {
         space={'$2'}
       >
         <Text size={19}>Installing {selectedClient}</Text>
-        <Markdown components={{ a: Linkk }}>{DOCUMENTATIONS[selectedClient].general}</Markdown>
+        <Markdown children={DOCUMENTATIONS[selectedClient].general} />
         <OSCards selectedOS={selectedOS} handleOSCardClick={handleOSCardClick} />
         <Markdown children={DOCUMENTATIONS[selectedClient].documentation[selectedOS]} />
       </YStack>
     </YStack>
-  )
-}
-
-const Linkk = (props: any) => {
-  return (
-    <Link to={props.href} target="_blank">
-      {props.children}
-    </Link>
   )
 }
 
