@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import Markdown from './Markdown'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 const meta = {
   title: 'General/Markdown',
@@ -9,6 +10,7 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  decorators: [withRouter()]
 } satisfies Meta<typeof Markdown>
 
 export default meta
