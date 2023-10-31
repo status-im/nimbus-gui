@@ -13,6 +13,7 @@ import StorageCard from './StorageCard/StorageCard'
 import NetworkCard from './NetworkCard/NetworkCard'
 import SyncStatusCard from './SyncStatusCards/SyncStatusCards'
 import MemoryCard from './MemoryCard/MemoryCard'
+import { XStack } from 'tamagui'
 
 const DashboardContent = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
@@ -43,20 +44,27 @@ const DashboardContent = () => {
       className={'transparent-scrollbar'}
     >
       <TitleLogo />
-      <Stack
-        style={{
-          display: 'grid',
-          gridTemplateColumns: windowWidth < 1300 ? '0.5fr' : '25fr 25fr 90fr',
-
-          gap: '16px',
-        }}
-      >
+      <Stack style={{
+        display: 'grid',
+        gridTemplateColumns: windowWidth < 1375 ? '1fr 1fr' : '1fr 1fr 2fr',
+        gap: '8px',
+        gridAutoFlow: 'row',
+      }}>
         <SyncStatusCard />
         <AddCardsContainer />
-        <BalanceChartCard />
+        {windowWidth < 1375 ? (
+          <Stack style={{ gridColumn: '1 / span 2' }} width={'101%'}>
+            <BalanceChartCard />
+          </Stack>
+        ) :
+          <Stack width={'101%'}>
+            <BalanceChartCard />
+          </Stack>
+        }
       </Stack>
       <BasicInfoCards />
-      <Stack
+      {/* SECOND ROW ENDS HERE! */}
+      {/* <Stack
         style={{
           display: 'grid',
           gridTemplateColumns: windowWidth < 1300 ? '1fr' : '1.5fr 1fr',
@@ -84,6 +92,7 @@ const DashboardContent = () => {
             gridTemplateColumns: windowWidth < 1750 ? '1fr' : '1fr 1fr',
             gap: '16px',
             marginTop: windowWidth < 1300 ? '50px' : 0,
+            maxHeight: '200px',
           }}
         >
           <StorageCard maxStorage={100} storage={82} />
@@ -94,8 +103,9 @@ const DashboardContent = () => {
             uploadRate={[31, 22, 32, 132, 32, 45, 65]}
           />
         </Stack>
-      </Stack>
-    </YStack>
+      </Stack> */}
+
+    </YStack >
   )
 }
 
