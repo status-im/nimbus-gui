@@ -44,7 +44,7 @@ const DashboardContent = () => {
       className={'transparent-scrollbar'}
     >
       <TitleLogo />
-      {/* <Stack style={{
+      <Stack style={{
         display: 'grid',
         gridTemplateColumns: windowWidth < 1375 ? '1fr 1fr' : '1fr 1fr 2fr',
         gap: '8px',
@@ -61,26 +61,40 @@ const DashboardContent = () => {
             <BalanceChartCard />
           </Stack>
         }
-      </Stack> */}
+      </Stack>
       <BasicInfoCards />
       {/* SECOND ROW ENDS HERE! */}
+      <Stack
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          gap: '1vw',
+          width: '101%',
+        }}
+      >
 
-      <Stack>
 
         <ConsensusUptimeCard />
         <ExecutionUptime />
 
+
         <DeviceUptime />
+
+        <StorageCard maxStorage={100} storage={82} />
+        <CPUCard load={[12, 31, 3, 2, 24, 98]} />
+
+
+
+        <MemoryCard currentMemory={[21, 33, 3, 42, 35]} maxMemory={50} />
+
+        <NetworkCard
+          downloadRate={[12, 31, 22, 12, 23, 23, 90]}
+          uploadRate={[31, 22, 32, 132, 32, 45, 65]}
+        />
+
       </Stack>
 
-
-      <StorageCard maxStorage={100} storage={82} />
-      <CPUCard load={[12, 31, 3, 2, 24, 98]} />
-      <MemoryCard currentMemory={[21, 33, 3, 42, 35]} maxMemory={50} />
-      <NetworkCard
-        downloadRate={[12, 31, 22, 12, 23, 23, 90]}
-        uploadRate={[31, 22, 32, 132, 32, 45, 65]}
-      />
 
 
     </YStack >
