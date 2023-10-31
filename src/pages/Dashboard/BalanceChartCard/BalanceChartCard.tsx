@@ -37,7 +37,7 @@ const BalanceChartCard = () => {
   }
 
   return (
-    <DashboardCardWrapper minWidth={'536px'} maxHeight="300px">
+    <DashboardCardWrapper minWidth={'536px'}   >
       <YStack space={'$4'}>
         <XStack justifyContent={'space-between'}>
           <YStack>
