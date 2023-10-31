@@ -6,9 +6,10 @@ import { setRecoveryMechanism } from '../../../../redux/ValidatorOnboarding/KeyG
 type RecoveryMechanismProps = {
   value: string
   recoveryMechanism: string
+  icon: string
 }
 
-const RecoveryMechanismCard = ({ value, recoveryMechanism }: RecoveryMechanismProps) => {
+const RecoveryMechanismCard = ({ value, recoveryMechanism, icon }: RecoveryMechanismProps) => {
   const dispatch = useDispatch()
 
   const handleRecMechanismChange = () => {
@@ -31,6 +32,7 @@ const RecoveryMechanismCard = ({ value, recoveryMechanism }: RecoveryMechanismPr
       <Text size={15} weight={'semibold'}>
         {value}
       </Text>
+      <img src={`/icons/${icon}`} alt="logo" />
     </div>
   )
 }
