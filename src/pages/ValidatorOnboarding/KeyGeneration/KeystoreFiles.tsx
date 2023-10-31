@@ -115,8 +115,25 @@ const KeystoreFiles = () => {
           onClick={downloadKeyFilesHandler}
         >
           <Text size={15} weight={'semibold'}>
-            Download Key Files
+            Download Keystore Backups
           </Text>
+          <XStack
+            style={{
+              justifyContent: 'space-between',
+              width: '100%',
+              alignItems: 'center',
+              marginTop: '8px',
+            }}
+          >
+            <Text size={13} color="#647084">
+              Your keystore files are loaded automatically, please secure your keystore backups for
+              recovery.
+            </Text>
+            <img
+              src={'/icons/download-keystore-backups-icon.svg'}
+              alt="download-keystore-backups"
+            />
+          </XStack>
         </YStack>
       </XStack>
       <Stack style={{ width: 'fit-content' }}>
