@@ -4,7 +4,7 @@ import ValidatorSetupInstall from './ValidatorInstall'
 import { withRouter } from 'storybook-addon-react-router-v6'
 
 const meta = {
-  title: 'ValidatorOnboarding/ValidatorSetupInstall',
+  title: 'ValidatorOnboarding/ValidatorInstall',
   component: ValidatorSetupInstall,
   parameters: {
     layout: 'centered',
