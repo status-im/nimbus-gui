@@ -8,7 +8,7 @@ import DashboardCardWrapper from '../DashboardCardWrapper'
 const ExecutionUptime = () => {
   const monthlyActivity = [3, 0, 5, 4, 6, 7, 0, 9, 10, 1, 2, 3]
   return (
-    <DashboardCardWrapper  >
+    <DashboardCardWrapper maxWidth='40%' >
       <YStack space={'$3'} minHeight={'156px'} padding={'$3'}>
         <YStack>
           <Text size={15} weight={'semibold'}>
@@ -35,10 +35,10 @@ const ExecutionUptime = () => {
             }}
           >
             <UptimeChart
-              monthlyActivity={monthlyActivity}
-              startMonth={0}
-              endMonth={8}
-              withLabels={false}
+            startMonth={0}
+            endMonth={3}
+            monthlyActivity={[10, 1, 3, 4, 5, 1, 7, 1, 6, 3, 1, 9]}
+            withLabels={true}
             />
           </Stack>
         </XStack>
