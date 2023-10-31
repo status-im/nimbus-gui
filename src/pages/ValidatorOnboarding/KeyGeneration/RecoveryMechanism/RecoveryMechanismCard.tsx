@@ -33,7 +33,7 @@ const RecoveryMechanismCard = ({ value, recoveryMechanism, icon }: RecoveryMecha
         {value}
       </Text>
       {icon && (
-        <div style={{ display: 'flex', justifyContent: 'end', marginTop: '8px' }}>
+        <div style={{ display: 'flex', justifyContent: 'end', marginTop: '16px' }}>
           <img src={`/icons/${icon}`} alt="logo" />
         </div>
       )}
