@@ -32,9 +32,11 @@ const RecoveryMechanismCard = ({ value, recoveryMechanism, icon }: RecoveryMecha
       <Text size={15} weight={'semibold'}>
         {value}
       </Text>
-      <div style={{ display: 'flex', justifyContent: 'end', marginTop: '8px' }}>
-        <img src={`/icons/${icon}`} alt="logo" />
-      </div>
+      {icon && (
+        <div style={{ display: 'flex', justifyContent: 'end', marginTop: '8px' }}>
+          <img src={`/icons/${icon}`} alt="logo" />
+        </div>
+      )}
     </div>
   )
 }
