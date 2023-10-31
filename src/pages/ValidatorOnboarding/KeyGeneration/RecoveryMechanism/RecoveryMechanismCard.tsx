@@ -25,14 +25,16 @@ const RecoveryMechanismCard = ({ value, recoveryMechanism, icon }: RecoveryMecha
         cursor: 'pointer',
         backgroundColor: recoveryMechanism === value ? '#f4f6fe' : '#fff',
         width: '100%',
-        height: '140px',
+        height: '120px',
       }}
       onClick={handleRecMechanismChange}
     >
       <Text size={15} weight={'semibold'}>
         {value}
       </Text>
-      <img src={`/icons/${icon}`} alt="logo" />
+      <div style={{ display: 'flex', justifyContent: 'end', marginTop: '8px' }}>
+        <img src={`/icons/${icon}`} alt="logo" />
+      </div>
     </div>
   )
 }
