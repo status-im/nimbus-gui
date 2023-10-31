@@ -44,7 +44,7 @@ const DashboardContent = () => {
       className={'transparent-scrollbar'}
     >
       <TitleLogo />
-      <Stack style={{
+      {/* <Stack style={{
         display: 'grid',
         gridTemplateColumns: windowWidth < 1375 ? '1fr 1fr' : '1fr 1fr 2fr',
         gap: '8px',
@@ -61,49 +61,27 @@ const DashboardContent = () => {
             <BalanceChartCard />
           </Stack>
         }
-      </Stack>
+      </Stack> */}
       <BasicInfoCards />
       {/* SECOND ROW ENDS HERE! */}
-      {/* <Stack
-        style={{
-          display: 'grid',
-          gridTemplateColumns: windowWidth < 1300 ? '1fr' : '1.5fr 1fr',
-          gap: '16px',
-        }}
-      >
-        <Stack
-          style={{
-            display: 'grid',
-            gridTemplateColumns: windowWidth < 1300 ? '1fr' : '1fr 1fr',
-            gridAutoFlow: 'row',
-            gap: '16px',
-          }}
-        >
-          <ConsensusUptimeCard />
-          <ExecutionUptime />
-          <Stack style={{ gridColumn: '1 / span 2', marginTop: windowWidth < 1300 ? '50px' : 0 }}>
-            <DeviceUptime />
-          </Stack>
-        </Stack>
 
-        <Stack
-          style={{
-            display: 'grid',
-            gridTemplateColumns: windowWidth < 1750 ? '1fr' : '1fr 1fr',
-            gap: '16px',
-            marginTop: windowWidth < 1300 ? '50px' : 0,
-            maxHeight: '200px',
-          }}
-        >
-          <StorageCard maxStorage={100} storage={82} />
-          <CPUCard load={[12, 31, 3, 2, 24, 98]} />
-          <MemoryCard currentMemory={[21, 33, 3, 42, 35]} maxMemory={50} />
-          <NetworkCard
-            downloadRate={[12, 31, 22, 12, 23, 23, 90]}
-            uploadRate={[31, 22, 32, 132, 32, 45, 65]}
-          />
-        </Stack>
-      </Stack> */}
+      <Stack>
+
+        <ConsensusUptimeCard />
+        <ExecutionUptime />
+
+        <DeviceUptime />
+      </Stack>
+
+
+      <StorageCard maxStorage={100} storage={82} />
+      <CPUCard load={[12, 31, 3, 2, 24, 98]} />
+      <MemoryCard currentMemory={[21, 33, 3, 42, 35]} maxMemory={50} />
+      <NetworkCard
+        downloadRate={[12, 31, 22, 12, 23, 23, 90]}
+        uploadRate={[31, 22, 32, 132, 32, 45, 65]}
+      />
+
 
     </YStack >
   )
