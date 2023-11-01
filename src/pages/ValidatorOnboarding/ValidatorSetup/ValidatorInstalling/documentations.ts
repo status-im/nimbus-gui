@@ -61,7 +61,8 @@ export const DOCUMENTATIONS: Documentation = {
   },
   Nimbus: {
     icon: '/icons/nimbus-disabled.svg',
-    general: '',
+    general:
+      "## Beacon node\nThis page takes you through the steps of getting a standard installation of the Nimbus beacon node running.\n\nThe quickstart setup involves running two nodes: an [execution client](https://nimbus.guide/eth1.html) and a beacon node. Both are needed to run a full Ethereum setup.\n\nTo become a validator, you first need to set up a beacon node. The beacon node connects to the beacon chain network, syncs historical data, and provides [API's](https://nimbus.guide/rest-api.html) to monitor and interact with the beacon chain. Running a beacon node is a [worthwhile endeavor](https://vitalik.ca/general/2021/05/23/scaling.html#its-crucial-for-blockchain-decentralization-for-regular-users-to-be-able-to-run-a-node) even if you are not planning on validating yourself!\n\nThe guide assumes [Ubuntu Linux](https://ubuntu.com/download/server) is being used, and therefore some familiarity with [the Linux command line](https://ubuntu.com/tutorials/command-line-for-beginners#1-overview) is needed.\n\n**Tip**\n\nYou can practice running the node safely on the [Holesky testnet](https://nimbus.guide/holesky.html). Throughout, we'll provide instructions for both Holesky and Mainnet.",
     documentation: {
       [MAC]: 'Text for mac',
       [WINDOWS]: 'Text for windows',
