@@ -32,7 +32,9 @@ const ValidatorSetupInstall = () => {
         }}
         space={'$2'}
       >
-        <Text size={19}>Installing {selectedClient}</Text>
+        <Text size={19} weight={'semibold'}>
+          Installing {selectedClient}
+        </Text>
         <Markdown children={DOCUMENTATIONS[selectedClient].general} />
         <OSCards selectedOS={selectedOS} handleOSCardClick={handleOSCardClick} />
         <Markdown children={DOCUMENTATIONS[selectedClient].documentation[selectedOS]} />
