@@ -42,7 +42,7 @@ const MemoryCard = ({ currentMemory, maxMemory }: MemoryCardProps) => {
   const message = currentLoad < maxMemory ? 'Good' : 'Poor'
 
   return (
-    <DashboardCardWrapper padding="0" height="156px" minWidth="200px"  >
+    <DashboardCardWrapper padding="0" height="156px" minWidth="200px">
       <YStack
         style={{
           borderRadius: '16px',
