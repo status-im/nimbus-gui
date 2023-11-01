@@ -68,17 +68,23 @@ const DashboardContent = () => {
       {/* SECOND ROW ENDS HERE! */}
       <Stack
         style={{
-          display: 'flex',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          gap: '1vw',
+          display: 'grid',
+          gridTemplateColumns: windowWidth < 1375 ? '1fr 1fr' : '3fr 1fr 1fr 1fr',
+          gap: '8px',
+
           width: '101%',
         }}
       >
-        <ConsensusUptimeCard />
-        <ExecutionUptime />
+        <YStack>
 
-        <DeviceUptime />
+          <XStack>
+
+            <ConsensusUptimeCard />
+            <ExecutionUptime />
+          </XStack>
+
+          <DeviceUptime />
+        </YStack>
 
         <StorageCard maxStorage={100} storage={82} />
         <CPUCard load={[12, 31, 3, 2, 24, 98]} />
@@ -93,5 +99,71 @@ const DashboardContent = () => {
     </YStack>
   )
 }
+const DashboardContentLayout = (windowWidth: number) => {
+  return (<Stack
+    style={{
+      display: 'grid',
+      gridTemplateColumns: windowWidth < 1375 ? '1fr 1fr' : '3fr 1fr 1fr 1fr',
+      gap: '8px',
 
+      width: '101%',
+    }}
+  >
+    <YStack>
+
+      <XStack>
+
+        <ConsensusUptimeCard />
+        <ExecutionUptime />
+      </XStack>
+
+      <DeviceUptime />
+    </YStack>
+
+    <StorageCard maxStorage={100} storage={82} />
+    <CPUCard load={[12, 31, 3, 2, 24, 98]} />
+
+    <MemoryCard currentMemory={[21, 33, 3, 42, 35]} maxMemory={50} />
+
+    <NetworkCard
+      downloadRate={[12, 31, 22, 12, 23, 23, 90]}
+      uploadRate={[31, 22, 32, 132, 32, 45, 65]}
+    />
+  </Stack>)
+}
+
+const DashboardContentLayoutPhone = (windowWidth: number) => {
+  return (
+    <Stack
+      style={{
+        display: 'grid',
+        gridTemplateColumns: windowWidth < 1375 ? '1fr 1fr' : '3fr 1fr 1fr 1fr',
+        gap: '8px',
+
+        width: '101%',
+      }}
+    >
+      <YStack>
+
+        <XStack>
+
+          <ConsensusUptimeCard />
+          <ExecutionUptime />
+        </XStack>
+
+        <DeviceUptime />
+      </YStack>
+
+      <StorageCard maxStorage={100} storage={82} />
+      <CPUCard load={[12, 31, 3, 2, 24, 98]} />
+
+      <MemoryCard currentMemory={[21, 33, 3, 42, 35]} maxMemory={50} />
+
+      <NetworkCard
+        downloadRate={[12, 31, 22, 12, 23, 23, 90]}
+        uploadRate={[31, 22, 32, 132, 32, 45, 65]}
+      />
+    </Stack>
+  )
+}
 export default DashboardContent
