@@ -1,7 +1,15 @@
-import { YStack } from 'tamagui'
+import { XStack } from 'tamagui'
+
+import RightSidebar from '../Dashboard/RightSideBar/RightSidebar'
+import LeftSidebar from '../Dashboard/LeftSidebar'
 
 const ValidatorManagement = () => {
-  return <YStack></YStack>
+  return (
+    <XStack style={{ height: '100vh' }}>
+      <LeftSidebar />
+      <RightSidebar />
+    </XStack>
+  )
 }
 
 export default ValidatorManagement
