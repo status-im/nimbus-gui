@@ -20,6 +20,7 @@ import { ethereumRopsten, wcV2InitOptions, apiKey } from './constants'
 import Dashboard from './pages/Dashboard/Dashboard'
 import ConnectExistingInstance from './pages/ConnectExistingInstance/ConnectExistingInstance'
 import './App.css'
+import ValidatorManagement from './pages/ValidatorManagement/ValidatorManagement'
 
 const injected = injectedModule()
 const walletConnect = walletConnectModule(wcV2InitOptions)
@@ -65,6 +66,7 @@ const router = createBrowserRouter([
   { path: '/create-local-node', element: <CreateLocalNodePage /> },
   { path: '/validator-onboarding', element: <ValidatorOnboarding /> },
   { path: '/dashboard', element: <Dashboard /> },
+  { path: '/validator-management', element: <ValidatorManagement /> },
 ])
 
 function App() {
