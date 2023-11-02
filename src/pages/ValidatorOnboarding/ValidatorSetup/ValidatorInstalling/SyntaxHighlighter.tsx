@@ -12,6 +12,8 @@ const customStyle = {
     backgroundColor: 'white',
   },
   backgroundColor: 'white',
+  border: '2px solid #1B273D0D',
+  borderRadius: '8px',
 }
 
 const SyntaxHighlighterBox = ({ rows }: SyntaxHighlighterBoxProps) => {
@@ -19,7 +21,9 @@ const SyntaxHighlighterBox = ({ rows }: SyntaxHighlighterBoxProps) => {
     <SyntaxHighlighter
       language="bash"
       showLineNumbers={true}
-      lineNumberStyle={{ backgroundColor: '#E7EAEE' }}
+      lineNumberStyle={{
+        backgroundColor: '#E7EAEE',
+      }}
       lineNumberContainerStyle={{ color: 'black' }}
       customStyle={customStyle}
     >

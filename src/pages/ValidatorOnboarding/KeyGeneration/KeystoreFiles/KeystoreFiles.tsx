@@ -3,6 +3,8 @@ import { Button, InformationBox, Input, Text } from '@status-im/components'
 import { ClearIcon, CloseCircleIcon } from '@status-im/icons'
 import { useState } from 'react'
 
+import KeystoreBackupsCard from './KeystoreBackupsCard'
+
 const KeystoreFiles = () => {
   const [encryptedPassword, setEncryptedPassword] = useState('')
   const [confirmEncryptedPassword, setConfirmEncryptedPassword] = useState('')
@@ -35,15 +37,6 @@ const KeystoreFiles = () => {
     const password = e.target.value
     setConfirmEncryptedPassword(password)
     setDisplayConfirmEncryptedPassword(getHidedPassword(password.length))
-  }
-
-  const downloadKeyFilesHandler = () => {
-    const element = document.createElement('a')
-    const file = new Blob([''], { type: 'text/plain' })
-    element.href = URL.createObjectURL(file)
-    element.download = 'keystore_files.txt'
-    document.body.appendChild(element)
-    element.click()
   }
 
   const getHidedPassword = (passwordLength: number) => {
@@ -103,21 +96,7 @@ const KeystoreFiles = () => {
             />
           </YStack>
         </YStack>
-        <YStack
-          style={{
-            border: '1px solid #DCE0E5',
-            borderRadius: '16px',
-            padding: '12px 16px',
-            width: '32%',
-            marginTop: '3.4%',
-            cursor: 'pointer',
-          }}
-          onClick={downloadKeyFilesHandler}
-        >
-          <Text size={15} weight={'semibold'}>
-            Download Key Files
-          </Text>
-        </YStack>
+        <KeystoreBackupsCard />
       </XStack>
       <Stack style={{ width: 'fit-content' }}>
         <Button onPress={generateKeystoreFilesHandler}>Generate Key files</Button>

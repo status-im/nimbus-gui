@@ -1,21 +1,24 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { withRouter } from 'storybook-addon-react-router-v6'
 
-import SyntaxHighlighter from './SyntaxHighlighter'
+import MarkdownLink from './MarkdownLink'
 
 const meta = {
-  title: 'ValidatorOnboarding/SyntaxHighlighter',
-  component: SyntaxHighlighter,
+  title: 'General/MarkdownLink',
+  component: MarkdownLink,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
   decorators: [withRouter()],
-} satisfies Meta<typeof SyntaxHighlighter>
+} satisfies Meta<typeof MarkdownLink>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: { rows: ['yarn', 'yarn build', 'yarn dev', 'house'] },
+  args: {
+    href: '/',
+    children: 'MarkdownLink',
+  },
 }

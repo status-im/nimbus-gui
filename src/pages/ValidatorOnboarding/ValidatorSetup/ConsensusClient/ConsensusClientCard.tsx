@@ -17,6 +17,7 @@ const ConsensusClientCard = ({ name, icon }: ConsensusClientCardProps) => {
         borderRadius: '16px',
         padding: '12px 16px',
         width: '29%',
+        cursor: 'pointer',
       }}
       space={'$8'}
     >

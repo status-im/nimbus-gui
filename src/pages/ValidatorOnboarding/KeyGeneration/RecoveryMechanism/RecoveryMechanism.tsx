@@ -8,7 +8,11 @@ type RecoveryMechanismProps = {
   recoveryMechanism: string
 }
 
-const cards = [RECOVERY_PHRASE, KEYSTORE_FILES, BOTH_KEY_AND_RECOVERY]
+const cards = {
+  [RECOVERY_PHRASE]: 'recovery-phrase-icon.svg',
+  [KEYSTORE_FILES]: 'keystore-files-icon.svg',
+  [BOTH_KEY_AND_RECOVERY]: 'both-recovery-keystore-icon.svg',
+}
 
 const RecoveryMechanism = ({ recoveryMechanism }: RecoveryMechanismProps) => {
   return (
@@ -17,8 +21,13 @@ const RecoveryMechanism = ({ recoveryMechanism }: RecoveryMechanismProps) => {
         Select Recovery Mechanism
       </Text>
       <XStack space={'$4'} style={{ justifyContent: 'space-between', marginTop: '40px' }}>
-        {cards.map(value => (
-          <RecoveryMechanismCard key={value} value={value} recoveryMechanism={recoveryMechanism} />
+        {Object.entries(cards).map(([value, icon]) => (
+          <RecoveryMechanismCard
+            key={value}
+            value={value}
+            recoveryMechanism={recoveryMechanism}
+            icon={icon}
+          />
         ))}
       </XStack>
     </YStack>

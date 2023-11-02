@@ -3,14 +3,14 @@ import { Text } from '@status-im/components'
 
 import Icon from '../../../../components/General/Icon'
 
-type OsCardProps = {
+type OSCardProps = {
   name: string
   icon: string
   onClick?: () => void
   isSelected?: boolean
 }
 
-const OsCard = ({ name, icon, onClick, isSelected }: OsCardProps) => {
+const OSCard = ({ name, icon, onClick, isSelected }: OSCardProps) => {
   return (
     <YStack
       style={{
@@ -19,6 +19,7 @@ const OsCard = ({ name, icon, onClick, isSelected }: OsCardProps) => {
         borderRadius: '16px',
         padding: '12px 16px',
         width: '32%',
+        cursor: 'pointer',
       }}
       space={'$8'}
       onPress={onClick}
@@ -28,9 +29,9 @@ const OsCard = ({ name, icon, onClick, isSelected }: OsCardProps) => {
           {name}
         </Text>
       </Stack>
-      <Icon src={icon} width={100} height={100} />
+      <Icon src={icon} width={42} height={52} />
     </YStack>
   )
 }
 
-export default OsCard
+export default OSCard
