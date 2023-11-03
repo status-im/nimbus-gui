@@ -20,19 +20,12 @@ const Dashboard = () => {
   }, [])
 
   return (
-    <XStack style={{ height: '100vh' }} >
-       {windowWidth>900&&
-      (
-      <LeftSidebar />
-      )}
-       
-      <DashboardContent windowWidth={windowWidth} />
-      {windowWidth>900&&
-      (
+    <XStack style={{ height: '100vh' }}>
+      {windowWidth > 900 && <LeftSidebar />}
 
-      <RightSidebar />
-      )}
-    </XStack >
+      <DashboardContent windowWidth={windowWidth} />
+      {windowWidth > 900 && <RightSidebar />}
+    </XStack>
   )
 }
 

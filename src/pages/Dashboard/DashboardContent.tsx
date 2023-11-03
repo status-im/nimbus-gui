@@ -15,9 +15,8 @@ import SyncStatusCard from './SyncStatusCards/SyncStatusCards'
 import MemoryCard from './MemoryCard/MemoryCard'
 import { XStack } from 'tamagui'
 type DashboardContentProps = {
-  windowWidth: number;
-
-};
+  windowWidth: number
+}
 const DashboardContent = ({ windowWidth }: DashboardContentProps) => {
   return (
     <YStack
@@ -57,9 +56,7 @@ const DashboardContent = ({ windowWidth }: DashboardContentProps) => {
       <BasicInfoCards />
 
       {windowWidth < 1400 ? (
-
         DashboardContentLayout(windowWidth)
-
       ) : (
         <Stack
           style={{
@@ -103,7 +100,7 @@ const DashboardContent = ({ windowWidth }: DashboardContentProps) => {
 }
 const DashboardContentLayout = (windowWidth: number) => {
   return (
-    <Stack width={'100%'} >
+    <Stack width={'100%'}>
       <YStack>
         <Stack
           style={{
@@ -117,11 +114,13 @@ const DashboardContentLayout = (windowWidth: number) => {
         </Stack>
         <DeviceUptime />
       </YStack>
-      <Stack style={{
-        display: 'grid',
-        gridTemplateColumns: windowWidth < 1240 ? '1fr 1fr' : '1fr 1fr 1fr 1fr',
-        gap: '8px',
-      }}>
+      <Stack
+        style={{
+          display: 'grid',
+          gridTemplateColumns: windowWidth < 1240 ? '1fr 1fr' : '1fr 1fr 1fr 1fr',
+          gap: '8px',
+        }}
+      >
         <StorageCard maxStorage={100} storage={82} />
         <CPUCard load={[12, 31, 3, 2, 24, 98]} />
         <MemoryCard currentMemory={[21, 33, 3, 42, 35]} maxMemory={50} />
@@ -133,7 +132,5 @@ const DashboardContentLayout = (windowWidth: number) => {
     </Stack>
   )
 }
-
-
 
 export default DashboardContent
