@@ -1,8 +1,8 @@
 import { XStack } from 'tamagui'
 
-import RightSidebar from '../Dashboard/RightSideBar/RightSidebar'
-import LeftSidebar from '../Dashboard/LeftSidebar'
 import ValidatorManagementContent from './ValidatorManagementContent'
+import LeftSidebar from '../../components/General/LeftSidebar/LeftSidebar'
+import RightSidebar from '../../components/General/RightSideBar/RightSidebar'
 
 const ValidatorManagement = () => {
   return (
