@@ -1,7 +1,7 @@
+import { Text } from '@status-im/components'
 import { OptionsIcon } from '@status-im/icons'
 
 import './ManagementTable.css'
-import { Text } from '@status-im/components'
 
 const validators = [
   {
@@ -53,28 +53,44 @@ const ManagementTable = () => {
         <tr>
           <th></th>
           <th>
-            <Text size={15}>Balance</Text>
+            <Text size={15} color={'#647084'}>
+              Balance
+            </Text>
           </th>
           <th>
-            <Text size={15}>Income</Text>
+            <Text size={15} color={'#647084'}>
+              Income
+            </Text>
           </th>
           <th>
-            <Text size={15}>Proposals</Text>
+            <Text size={15} color={'#647084'}>
+              Proposals
+            </Text>
           </th>
           <th>
-            <Text size={15}>Attestations</Text>
+            <Text size={15} color={'#647084'}>
+              Attestations
+            </Text>
           </th>
           <th>
-            <Text size={15}>Effectiveness</Text>
+            <Text size={15} color={'#647084'}>
+              Effectiveness
+            </Text>
           </th>
           <th>
-            <Text size={15}>Deposits</Text>
+            <Text size={15} color={'#647084'}>
+              Deposits
+            </Text>
           </th>
           <th>
-            <Text size={15}>Rank</Text>
+            <Text size={15} color={'#647084'}>
+              Rank
+            </Text>
           </th>
           <th>
-            <Text size={15}>Status</Text>
+            <Text size={15} color={'#647084'}>
+              Status
+            </Text>
           </th>
           <th></th>
         </tr>
@@ -84,31 +100,47 @@ const ManagementTable = () => {
           <tr key={index}>
             <td></td>
             <td>
-              <Text size={15}>{validator.balance}</Text>
+              <Text size={15} color={'#647084'} weight={'semibold'}>
+                {validator.balance}
+              </Text>
             </td>
             <td>
-              <Text size={15}>{validator.income}</Text>
+              <Text size={15} color={'#647084'} weight={'semibold'}>
+                {validator.income}
+              </Text>
             </td>
             <td>
-              <Text size={15}>{validator.proposals}</Text>
+              <Text size={15} color={'#647084'}>
+                {validator.proposals}
+              </Text>
             </td>
             <td>
-              <Text size={15}>{validator.attestations}</Text>
+              <Text size={15} color={'#647084'}>
+                {validator.attestations}
+              </Text>
             </td>
             <td>
-              <Text size={15}>{validator.effectiveness}</Text>
+              <Text size={15} color={'#647084'}>
+                {validator.effectiveness}
+              </Text>
             </td>
             <td>
-              <Text size={15}>{validator.deposits}</Text>
+              <Text size={15} color={'#647084'}>
+                {validator.deposits}
+              </Text>
             </td>
             <td>
-              <Text size={15}>{validator.rank}</Text>
+              <Text size={15} color={'#647084'}>
+                {validator.rank}
+              </Text>
             </td>
             <td>
-              <Text size={15}>{validator.status}</Text>
+              <Text size={15} color={'#2F80ED'} weight={'semibold'}>
+                {validator.status}
+              </Text>
             </td>
             <td>
-              <OptionsIcon size={20} style={{ cursor: 'pointer' }} />
+              <OptionsIcon size={20} color="#647084" style={{ cursor: 'pointer' }} />
             </td>
           </tr>
         ))}
