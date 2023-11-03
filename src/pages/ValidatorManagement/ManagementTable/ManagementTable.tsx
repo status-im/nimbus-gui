@@ -1,3 +1,5 @@
+import { OptionsIcon } from '@status-im/icons'
+
 import './ManagementTable.css'
 
 const validators = [
@@ -57,6 +59,7 @@ const ManagementTable = () => {
           <th>Deposits</th>
           <th>Rank</th>
           <th>Status</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -71,6 +74,9 @@ const ManagementTable = () => {
             <td>{validator.deposits}</td>
             <td>{validator.rank}</td>
             <td>{validator.status}</td>
+            <td>
+              <OptionsIcon size={20} style={{ cursor: 'pointer' }} />
+            </td>
           </tr>
         ))}
       </tbody>
