@@ -1,4 +1,4 @@
-import { Text } from '@status-im/components'
+import { Checkbox, Text } from '@status-im/components'
 import { OptionsIcon } from '@status-im/icons'
 
 import './ManagementTable.css'
@@ -51,6 +51,9 @@ const ManagementTable = () => {
     <table>
       <thead>
         <tr>
+          <th>
+            <Checkbox id="table" variant="outline" />
+          </th>
           <th></th>
           <th>
             <Text size={15} color={'#647084'}>
@@ -98,6 +101,9 @@ const ManagementTable = () => {
       <tbody>
         {validators.map((validator, index) => (
           <tr key={index}>
+            <td>
+              <Checkbox id={index.toString()} variant="outline" />
+            </td>
             <td></td>
             <td>
               <Text size={15} color={'#647084'} weight={'semibold'}>
