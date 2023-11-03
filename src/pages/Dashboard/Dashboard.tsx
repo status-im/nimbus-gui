@@ -21,8 +21,7 @@ const Dashboard = () => {
 
   return (
     <XStack style={{ height: '100vh' }}>
-      {windowWidth > 900 && <LeftSidebar />}
-
+       <LeftSidebar /> 
       <DashboardContent windowWidth={windowWidth} />
       {windowWidth > 900 && <RightSidebar />}
     </XStack>
