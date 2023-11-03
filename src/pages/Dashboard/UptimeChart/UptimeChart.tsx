@@ -184,11 +184,6 @@ type UptimeChartProps = {
 const keys = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
 
 const updateMonthlyValues = (data: any, monthlyActivity: any) => {
-  if (!Array.isArray(monthlyActivity) || monthlyActivity.length !== 12) {
-    console.error('monthlyActivity should be an array with 12 values')
-    return
-  }
-
   for (let i = 0; i < data.length; i++) {
     const month = data[i]
     const activity = monthlyActivity[i]
