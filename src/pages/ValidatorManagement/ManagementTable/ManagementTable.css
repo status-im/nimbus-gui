@@ -1,15 +1,20 @@
 table {
   width: 100%;
-  border-collapse: collapse;
+  border-spacing: 0;
   margin: 20px 0;
   font-size: 14px;
+  border: 1px solid #e7eaee;
+  border-radius: 16px;
+}
+
+th {
+  border-bottom: 1px solid #e7eaee;
 }
 
 th,
 td {
   padding: 12px 20px;
-  border: 1px solid #e6e6e6;
-  text-align: left;
+  text-align: center;
 }
 
 th {
