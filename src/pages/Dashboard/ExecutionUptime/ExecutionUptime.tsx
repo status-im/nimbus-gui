@@ -6,10 +6,10 @@ import UptimeChart from '../UptimeChart/UptimeChart'
 import DashboardCardWrapper from '../DashboardCardWrapper'
 
 const ExecutionUptime = () => {
-  const monthlyActivity = [3, 0, 5, 4, 6, 7, 0, 9, 10, 1, 2, 3]
+ 
   return (
-    <DashboardCardWrapper>
-      <YStack space={'$3'} minHeight={'156px'} padding={'$3'}>
+    <DashboardCardWrapper minWidth="100px" maxWidth="1fr" >
+      <YStack space={'$3'}  >
         <YStack>
           <Text size={15} weight={'semibold'}>
             Execution Uptime
