@@ -1,6 +1,6 @@
 import { YStack } from 'tamagui'
 
-import ManagementTable from './ManagementTable'
+import ManagementTable from './ManagementTable/ManagementTable'
 
 const ValidatorManagementContent = () => {
   return (
