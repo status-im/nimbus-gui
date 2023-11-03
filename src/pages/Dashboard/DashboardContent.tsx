@@ -1,6 +1,4 @@
 import { Stack, YStack } from 'tamagui'
-import { useEffect, useState } from 'react'
-
 import BasicInfoCards from './BasicInfoCards/BasicInfoCards'
 import AddCardsContainer from '../../components/General/AddCards/AddCardsContainer'
 import BalanceChartCard from './BalanceChartCard/BalanceChartCard'
