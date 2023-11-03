@@ -207,7 +207,6 @@ const updateMonthlyValues = (data: any, monthlyActivity: any) => {
 
 const UptimeChart = ({ monthlyActivity, startMonth, endMonth, withLabels }: UptimeChartProps) => {
   const updatedData = updateMonthlyValues(data, monthlyActivity)
-  console.log(updatedData)
   const filteredData = data.slice(startMonth, endMonth + 1)
 
   return (
