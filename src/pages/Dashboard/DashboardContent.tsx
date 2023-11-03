@@ -14,21 +14,11 @@ import NetworkCard from './NetworkCard/NetworkCard'
 import SyncStatusCard from './SyncStatusCards/SyncStatusCards'
 import MemoryCard from './MemoryCard/MemoryCard'
 import { XStack } from 'tamagui'
+type DashboardContentProps = {
+  windowWidth: number;
 
-const DashboardContent = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth)
-    }
-
-    window.addEventListener('resize', handleResize)
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
-
+};
+const DashboardContent = ({ windowWidth }: DashboardContentProps) => {
   return (
     <YStack
       space="$4"
@@ -66,12 +56,10 @@ const DashboardContent = () => {
       </Stack>
       <BasicInfoCards />
 
-      {windowWidth < 1375 ? (
-        windowWidth < 850 ? (
-          DashboardContentLayoutPhone()
-        ) : (
-          DashboardContentLayout()
-        )
+      {windowWidth < 1400 ? (
+
+        DashboardContentLayout(windowWidth)
+
       ) : (
         <Stack
           style={{
@@ -113,7 +101,7 @@ const DashboardContent = () => {
     </YStack>
   )
 }
-const DashboardContentLayout = () => {
+const DashboardContentLayout = (windowWidth: number) => {
   return (
     <Stack width={'100%'} >
       <YStack>
@@ -131,7 +119,7 @@ const DashboardContentLayout = () => {
       </YStack>
       <Stack style={{
         display: 'grid',
-        gridTemplateColumns: '1fr 1fr 1fr 1fr',
+        gridTemplateColumns: windowWidth < 1240 ? '1fr 1fr' : '1fr 1fr 1fr 1fr',
         gap: '8px',
       }}>
         <StorageCard maxStorage={100} storage={82} />
@@ -146,32 +134,6 @@ const DashboardContentLayout = () => {
   )
 }
 
-const DashboardContentLayoutPhone = () => {
-  return (
-    <Stack
-      style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gap: '8px',
 
-        width: '101%',
-      }}
-    >
-      <ConsensusUptimeCard />
-      <ExecutionUptime />
 
-      <DeviceUptime />
-
-      <StorageCard maxStorage={100} storage={82} />
-      <CPUCard load={[12, 31, 3, 2, 24, 98]} />
-
-      <MemoryCard currentMemory={[21, 33, 3, 42, 35]} maxMemory={50} />
-
-      <NetworkCard
-        downloadRate={[12, 31, 22, 12, 23, 23, 90]}
-        uploadRate={[31, 22, 32, 132, 32, 45, 65]}
-      />
-    </Stack>
-  )
-}
 export default DashboardContent
