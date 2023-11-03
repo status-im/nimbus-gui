@@ -54,7 +54,11 @@ const ManagementTable = () => {
           <th>
             <Checkbox id="table" variant="outline" />
           </th>
-          <th></th>
+          <th>
+            <Text size={15} color={'#647084'}>
+              {validators.length} Validators
+            </Text>
+          </th>
           <th>
             <Text size={15} color={'#647084'}>
               Balance
