@@ -68,9 +68,9 @@ const DashboardContent = () => {
 
       {windowWidth < 1375 ? (
         windowWidth < 850 ? (
-          DashboardContentLayoutPhone(windowWidth)
+          DashboardContentLayoutPhone()
         ) : (
-          DashboardContentLayout(windowWidth)
+          DashboardContentLayout()
         )
       ) : (
         <Stack
@@ -91,7 +91,7 @@ const DashboardContent = () => {
             >
               <ConsensusUptimeCard />
               <ExecutionUptime />
-            </Stack>xx
+            </Stack>
             <DeviceUptime />
           </YStack>
           <YStack space={'$4'}>
@@ -113,45 +113,60 @@ const DashboardContent = () => {
     </YStack>
   )
 }
-const DashboardContentLayout = (windowWidth: number) => {
+const DashboardContentLayout = () => {
+
+  return (
+
+
+    <Stack
+      style={{
+        display: 'grid',
+        gridTemplateColumns: '1fr',
+        gap: '8px',
+        width: '100%',
+      }}
+    >
+
+      <YStack>
+        <Stack
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: '8px',
+          }}
+        >
+          <ConsensusUptimeCard />
+          <ExecutionUptime />
+        </Stack>
+        <DeviceUptime />
+      </YStack>
+
+
+      <Stack style={{
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr 1fr 1fr',
+        gap: '8px',
+      }}>
+
+        <StorageCard maxStorage={100} storage={82} />
+        <CPUCard load={[12, 31, 3, 2, 24, 98]} />
+        <MemoryCard currentMemory={[21, 33, 3, 42, 35]} maxMemory={50} />
+        <NetworkCard
+          downloadRate={[12, 31, 22, 12, 23, 23, 90]}
+          uploadRate={[31, 22, 32, 132, 32, 45, 65]}
+        />
+      </Stack>
+    </Stack>
+
+  )
+}
+
+const DashboardContentLayoutPhone = () => {
   return (
     <Stack
       style={{
         display: 'grid',
         gridTemplateColumns: '1fr 1fr',
-        gap: '8px',
-
-        width: '101%',
-      }}
-    >
-      <YStack>
-        <XStack>
-          <ConsensusUptimeCard />
-          <ExecutionUptime />
-        </XStack>
-
-        <DeviceUptime />
-      </YStack>
-
-      <StorageCard maxStorage={100} storage={82} />
-      <CPUCard load={[12, 31, 3, 2, 24, 98]} />
-
-      <MemoryCard currentMemory={[21, 33, 3, 42, 35]} maxMemory={50} />
-
-      <NetworkCard
-        downloadRate={[12, 31, 22, 12, 23, 23, 90]}
-        uploadRate={[31, 22, 32, 132, 32, 45, 65]}
-      />
-    </Stack>
-  )
-}
-
-const DashboardContentLayoutPhone = (windowWidth: number) => {
-  return (
-    <Stack
-      style={{
-        display: 'grid',
-        gridTemplateColumns: windowWidth < 1375 ? '1fr 1fr' : '3fr 1fr 1fr 1fr',
         gap: '8px',
 
         width: '101%',
