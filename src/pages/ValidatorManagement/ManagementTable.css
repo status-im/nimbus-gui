@@ -1,0 +1,17 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 14px;
+}
+
+th,
+td {
+  padding: 12px 20px;
+  border: 1px solid #e6e6e6;
+  text-align: left;
+}
+
+th {
+  font-weight: 600;
+}
