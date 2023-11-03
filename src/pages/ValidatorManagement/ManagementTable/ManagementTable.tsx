@@ -1,6 +1,7 @@
 import { OptionsIcon } from '@status-im/icons'
 
 import './ManagementTable.css'
+import { Text } from '@status-im/components'
 
 const validators = [
   {
@@ -51,14 +52,30 @@ const ManagementTable = () => {
       <thead>
         <tr>
           <th></th>
-          <th>Balance</th>
-          <th>Income</th>
-          <th>Proposals</th>
-          <th>Attestations</th>
-          <th>Effectiveness</th>
-          <th>Deposits</th>
-          <th>Rank</th>
-          <th>Status</th>
+          <th>
+            <Text size={15}>Balance</Text>
+          </th>
+          <th>
+            <Text size={15}>Income</Text>
+          </th>
+          <th>
+            <Text size={15}>Proposals</Text>
+          </th>
+          <th>
+            <Text size={15}>Attestations</Text>
+          </th>
+          <th>
+            <Text size={15}>Effectiveness</Text>
+          </th>
+          <th>
+            <Text size={15}>Deposits</Text>
+          </th>
+          <th>
+            <Text size={15}>Rank</Text>
+          </th>
+          <th>
+            <Text size={15}>Status</Text>
+          </th>
           <th></th>
         </tr>
       </thead>
@@ -66,14 +83,30 @@ const ManagementTable = () => {
         {validators.map((validator, index) => (
           <tr key={index}>
             <td></td>
-            <td>{validator.balance}</td>
-            <td>{validator.income}</td>
-            <td>{validator.proposals}</td>
-            <td>{validator.attestations}</td>
-            <td>{validator.effectiveness}</td>
-            <td>{validator.deposits}</td>
-            <td>{validator.rank}</td>
-            <td>{validator.status}</td>
+            <td>
+              <Text size={15}>{validator.balance}</Text>
+            </td>
+            <td>
+              <Text size={15}>{validator.income}</Text>
+            </td>
+            <td>
+              <Text size={15}>{validator.proposals}</Text>
+            </td>
+            <td>
+              <Text size={15}>{validator.attestations}</Text>
+            </td>
+            <td>
+              <Text size={15}>{validator.effectiveness}</Text>
+            </td>
+            <td>
+              <Text size={15}>{validator.deposits}</Text>
+            </td>
+            <td>
+              <Text size={15}>{validator.rank}</Text>
+            </td>
+            <td>
+              <Text size={15}>{validator.status}</Text>
+            </td>
             <td>
               <OptionsIcon size={20} style={{ cursor: 'pointer' }} />
             </td>
