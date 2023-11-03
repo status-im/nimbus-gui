@@ -1,8 +1,49 @@
 import './ManagementTable.css'
 
-const ManagementTable = () => {
-  const validators = []
+const validators = [
+  {
+    balance: 100,
+    income: 100,
+    proposals: 100,
+    attestations: 100,
+    effectiveness: 100,
+    deposits: 100,
+    rank: 100,
+    status: 'Active',
+  },
+  {
+    balance: 100,
+    income: 100,
+    proposals: 100,
+    attestations: 100,
+    effectiveness: 100,
+    deposits: 100,
+    rank: 100,
+    status: 'Active',
+  },
+  {
+    balance: 100,
+    income: 100,
+    proposals: 100,
+    attestations: 100,
+    effectiveness: 100,
+    deposits: 100,
+    rank: 100,
+    status: 'Active',
+  },
+  {
+    balance: 100,
+    income: 100,
+    proposals: 100,
+    attestations: 100,
+    effectiveness: 100,
+    deposits: 100,
+    rank: 100,
+    status: 'Active',
+  },
+]
 
+const ManagementTable = () => {
   return (
     <table>
       <thead>
