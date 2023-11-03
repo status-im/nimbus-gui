@@ -6,10 +6,9 @@ import Icon from '../../../components/General/Icon'
 import DashboardCardWrapper from '../DashboardCardWrapper'
 
 const ConsensusUptimeCard = () => {
-  
   return (
-    <DashboardCardWrapper  minWidth="50px" maxWidth="1fr"  >
-      <YStack space={'$3'}  >
+    <DashboardCardWrapper minWidth="50px" maxWidth="1fr">
+      <YStack space={'$3'}>
         <YStack>
           <Text size={15} weight={'semibold'}>
             Consensus Uptime

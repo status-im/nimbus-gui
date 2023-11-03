@@ -65,7 +65,7 @@ const DashboardContent = () => {
         )}
       </Stack>
       <BasicInfoCards />
-      
+
       {windowWidth < 1375 ? (
         windowWidth < 850 ? (
           DashboardContentLayoutPhone(windowWidth)
@@ -82,15 +82,16 @@ const DashboardContent = () => {
           }}
         >
           <YStack>
-            <Stack style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-            }}>
+            <Stack
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr',
+                gap: '8px',
+              }}
+            >
               <ConsensusUptimeCard />
               <ExecutionUptime />
-            </Stack>
-           
-
+            </Stack>xx
             <DeviceUptime />
           </YStack>
           <YStack space={'$4'}>
