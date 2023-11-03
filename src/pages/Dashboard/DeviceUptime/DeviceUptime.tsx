@@ -1,10 +1,11 @@
-import { Calendar, Shadow, Text } from '@status-im/components'
+import { Calendar, Text } from '@status-im/components'
 import { Stack, XStack, YStack } from 'tamagui'
 import { DateRange } from 'react-day-picker'
 import { useState } from 'react'
 
-import UptimeChart from '../UptimeChart/UptimeChart'
 import Icon from '../../../components/General/Icon'
+import UptimeChart from '../UptimeChart/UptimeChart'
+import DashboardCardWrapper from '../DashboardCardWrapper'
 import { getMonthIndicesFromRange } from '../../../utilities'
 
 const DeviceUptime = () => {
@@ -27,13 +28,8 @@ const DeviceUptime = () => {
   }
 
   return (
-    <Shadow
-      variant="$2"
-      style={{
-        borderRadius: '16px',
-      }}
-    >
-      <YStack space={'$3'} width={'100%'} minHeight={'156px'} padding={'$3'}>
+    <DashboardCardWrapper minWidth="100px">
+      <YStack space={'$3'}>
         <XStack justifyContent={'space-between'}>
           <YStack>
             <Text size={15} weight={'semibold'}>
@@ -104,7 +100,7 @@ const DeviceUptime = () => {
           </Stack>
         </XStack>
       </YStack>
-    </Shadow>
+    </DashboardCardWrapper>
   )
 }
 

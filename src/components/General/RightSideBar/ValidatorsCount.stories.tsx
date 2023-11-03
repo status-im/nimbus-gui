@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import RightSidebar from './RightSidebar'
+import ValidatorsCount from './ValidatorsCount'
 
 const meta = {
-  title: 'Dashboard/RightSidebar',
-  component: RightSidebar,
+  title: 'General/ValidatorsCount',
+  component: ValidatorsCount,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof RightSidebar>
+} satisfies Meta<typeof ValidatorsCount>
 
 export default meta
 type Story = StoryObj<typeof meta>

@@ -1,20 +1,14 @@
-import { Shadow, Text } from '@status-im/components'
+import { Text } from '@status-im/components'
 import { Stack, XStack, YStack } from 'tamagui'
 
 import Icon from '../../../components/General/Icon'
 import UptimeChart from '../UptimeChart/UptimeChart'
+import DashboardCardWrapper from '../DashboardCardWrapper'
 
 const ExecutionUptime = () => {
-  const monthlyActivity = [3, 0, 5, 4, 6, 7, 0, 9, 10, 1, 2, 3]
   return (
-    <Shadow
-      variant="$2"
-      style={{
-        borderRadius: '16px',
-        width: '48%',
-      }}
-    >
-      <YStack space={'$3'} width={'100%'} minHeight={'156px'} padding={'$3'}>
+    <DashboardCardWrapper minWidth="100px" maxWidth="1fr">
+      <YStack space={'$3'}>
         <YStack>
           <Text size={15} weight={'semibold'}>
             Execution Uptime
@@ -40,15 +34,15 @@ const ExecutionUptime = () => {
             }}
           >
             <UptimeChart
-              monthlyActivity={monthlyActivity}
               startMonth={0}
-              endMonth={8}
-              withLabels={false}
+              endMonth={3}
+              monthlyActivity={[10, 1, 3, 4, 5, 1, 7, 1, 6, 3, 1, 9]}
+              withLabels={true}
             />
           </Stack>
         </XStack>
       </YStack>
-    </Shadow>
+    </DashboardCardWrapper>
   )
 }
 export default ExecutionUptime

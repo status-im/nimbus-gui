@@ -6,8 +6,9 @@ const BasicInfoCards = () => {
   return (
     <Stack
       style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(5, 1fr)',
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
         gap: '1vw',
         width: '100%',
       }}

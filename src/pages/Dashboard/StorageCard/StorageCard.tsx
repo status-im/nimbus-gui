@@ -20,13 +20,13 @@ const StorageCard = ({ storage, maxStorage }: StorageCardProps) => {
   const data = (free: number) => {
     return [
       {
-        id: 'storage',
+        id: 'storage-used',
         label: 'Used',
         value: storage,
         color: '#E95460',
       },
       {
-        id: 'storage',
+        id: 'storage-free',
         label: 'Free',
         value: free,
         color: '#E7EAEE',
@@ -35,14 +35,13 @@ const StorageCard = ({ storage, maxStorage }: StorageCardProps) => {
   }
 
   return (
-    <DashboardCardWrapper padding="0" width="48%">
+    <DashboardCardWrapper padding="0" height="156px" minWidth="200px">
       <YStack
         style={{
-          width: '100%',
-          minHeight: '156px',
           borderRadius: '16px',
           border: message === 'Poor' ? '1px solid  #D92344' : 'none',
           backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
+          flexGrow: '1',
         }}
       >
         <XStack

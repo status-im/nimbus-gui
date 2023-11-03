@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Stack, XStack, YStack } from 'tamagui'
+import { XStack, YStack } from 'tamagui'
 import { Calendar } from '@status-im/components'
 import { Text } from '@status-im/components'
 import { DateRange } from 'react-day-picker'
@@ -8,8 +8,8 @@ import DashboardCardWrapper from '../DashboardCardWrapper'
 import LineChart from './LineChart'
 import Icon from '../../../components/General/Icon'
 import { years } from '../../../constants'
-import './calendar.css'
 import { getMonthIndicesFromRange } from '../../../utilities'
+import './calendar.css'
 
 const userGains = [
   10000, 15000, 17500, 20000, 19000, 23222, 25000, 20000, 20000, 21000, 22300, 21000,
@@ -37,8 +37,8 @@ const BalanceChartCard = () => {
   }
 
   return (
-    <DashboardCardWrapper width="50%">
-      <YStack space={'$4'} style={{ width: '100%' }}>
+    <DashboardCardWrapper minWidth={'536px'}>
+      <YStack space={'$4'}>
         <XStack justifyContent={'space-between'}>
           <YStack>
             <Text size={15} weight={'semibold'}>
@@ -95,9 +95,7 @@ const BalanceChartCard = () => {
           </XStack>
         </XStack>
 
-        <Stack>
-          <LineChart years={filteredYears} userGains={filteredUserGains} />
-        </Stack>
+        <LineChart years={filteredYears} userGains={filteredUserGains} />
       </YStack>
     </DashboardCardWrapper>
   )

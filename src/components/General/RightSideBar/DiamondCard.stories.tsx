@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import ValidatorsList from './ValidatorsList'
+import DiamondCard from './DiamondCard'
 
 const meta = {
-  title: 'Dashboard/ValidatorsList',
-  component: ValidatorsList,
+  title: 'General/DiamondCard',
+  component: DiamondCard,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof ValidatorsList>
+} satisfies Meta<typeof DiamondCard>
 
 export default meta
 type Story = StoryObj<typeof meta>

@@ -22,19 +22,20 @@ const DeviceStorageHealth = ({ storage, maxStorage }: DeviceStorageHealthProps) 
   const data = (free: number) => {
     return [
       {
-        id: 'storage',
+        id: 'storage-used',
         label: 'Used',
         value: storage,
         color: message === 'Good' ? GOOD_COLOR : POOR_COLOR,
       },
       {
-        id: 'storage',
+        id: 'storage-free',
         label: 'Free',
         value: free,
         color: '#E7EAEE',
       },
     ]
   }
+
   return (
     <Shadow
       variant="$2"

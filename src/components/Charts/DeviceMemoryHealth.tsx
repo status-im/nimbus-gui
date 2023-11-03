@@ -1,4 +1,4 @@
-import StandartLineChart from './StandardLineChart'
+import StandardLineChart from './StandardLineChart'
 
 import IconText from '../General/IconText'
 import { Separator, XStack, YStack } from 'tamagui'
@@ -64,7 +64,7 @@ const DeviceMemoryHealth = ({ currentMemory, maxMemory }: DeviceMemoryHealthProp
           }}
         >
           <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
-            <StandartLineChart data={chartData} isInteractive={false} />
+            <StandardLineChart data={chartData} isInteractive={false} />
           </div>
           <YStack space={'$3'}>
             <Text size={15} weight={'semibold'}>

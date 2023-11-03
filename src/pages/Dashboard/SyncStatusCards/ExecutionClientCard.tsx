@@ -1,11 +1,9 @@
 import { Separator, Stack, XStack, YStack } from 'tamagui'
 import { Shadow, Text } from '@status-im/components'
 import { SwapIcon } from '@status-im/icons'
-import { CSSProperties } from 'react'
 
 import { formatNumbersWithComa } from '../../../utilities'
 import IconText from '../../../components/General/IconText'
-
 import StandardGauge from '../../../components/Charts/StandardGauge'
 
 type ExecutionClientCardProps = {
@@ -16,22 +14,21 @@ type ExecutionClientCardProps = {
 const ExecutionClientCard = ({ value, total }: ExecutionClientCardProps) => {
   const data = [
     {
-      id: 'storage',
+      id: 'storage-used',
       label: 'Used',
       value,
       color: '#7140FD',
     },
     {
-      id: 'storage',
+      id: 'storage-free',
       label: 'Free',
       value: total,
       color: '#E7EAEE',
     },
   ]
-  const style: CSSProperties = {}
 
   return (
-    <Shadow variant="$1" style={style}>
+    <Shadow variant="$1">
       <YStack>
         <Stack style={{ minHeight: '90px', padding: '12px 16px' }}>
           <Text size={15} weight={'semibold'} color="#647084">
