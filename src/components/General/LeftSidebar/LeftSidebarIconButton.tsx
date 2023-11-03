@@ -1,38 +1,36 @@
 import { IconButton } from '@status-im/components'
 import { useDispatch } from 'react-redux'
 import { Stack } from 'tamagui'
-import { toggleButtonSelection } from '../../redux/Sidebars/slice'
+
+import { toggleButtonSelection } from '../../../redux/LeftSidebar/slice'
 
 type IconButtonWithDotProps = {
   iconEl: any
-  variant: 'ghost' | 'outline'
   isDotOn: boolean
-  selected?: boolean
-  disabled?: boolean
+  isSelected: boolean
+  isDisabled?: boolean
   id: string
 }
 
-const IconButtonWithDot = ({
+const LeftSidebarIconButton = ({
   iconEl,
-  variant,
   isDotOn,
-  selected,
-  disabled,
+  isSelected,
+  isDisabled,
   id,
 }: IconButtonWithDotProps) => {
   const dispatch = useDispatch()
-  const onClickHandler = (id: string) => {
-    if (!disabled) dispatch(toggleButtonSelection(id))
-  }
+
+  const onClickHandler = () => (isDisabled ? null : dispatch(toggleButtonSelection(id)))
 
   return (
     <Stack style={{ position: 'relative', display: 'inline-block' }}>
       <IconButton
         icon={iconEl}
-        variant={variant}
-        selected={selected}
-        disabled={disabled}
-        onPress={() => onClickHandler(id)}
+        variant={isDisabled ? 'outline' : 'ghost'}
+        selected={isSelected}
+        disabled={isDisabled}
+        onPress={onClickHandler}
       />
       {isDotOn && (
         <Stack
@@ -52,4 +50,4 @@ const IconButtonWithDot = ({
   )
 }
 
-export default IconButtonWithDot
+export default LeftSidebarIconButton

@@ -112,7 +112,7 @@ const ContinueButton = () => {
       if (activeStep < 6) {
         dispatch(setActiveStep(activeStep + 1))
       } else {
-        navigate('/')
+        navigate('/dashboard')
       }
     }
   }

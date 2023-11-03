@@ -2,7 +2,7 @@ import { Separator, Stack, XStack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 import { CheckCircleIcon, IncorrectIcon } from '@status-im/icons'
 
-import StandartLineChart from '../../../components/Charts/StandardLineChart'
+import StandardLineChart from '../../../components/Charts/StandardLineChart'
 import IconText from '../../../components/General/IconText'
 import DashboardCardWrapper from '../DashboardCardWrapper'
 
@@ -35,17 +35,16 @@ const MemoryCard = ({ currentMemory, maxMemory }: MemoryCardProps) => {
       maxValue: maxMemory,
     },
   ]
+
   const currentLoad =
     chartData[0].data.length > 0 ? chartData[0].data[chartData[0].data.length - 1].y : 0
 
   const message = currentLoad < maxMemory ? 'Good' : 'Poor'
 
   return (
-    <DashboardCardWrapper padding="0" width="48%">
+    <DashboardCardWrapper padding="0" height="156px" minWidth="200px">
       <YStack
         style={{
-          width: '100%',
-          minHeight: '156px',
           borderRadius: '16px',
           border: message === 'Poor' ? '1px solid  #D92344' : 'none',
           backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
@@ -55,12 +54,14 @@ const MemoryCard = ({ currentMemory, maxMemory }: MemoryCardProps) => {
           justifyContent="space-between"
           style={{
             padding: '8px 16px',
-            position: 'relative',
+
             flexGrow: '1',
           }}
         >
-          <Stack style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
-            <StandartLineChart data={chartData} />
+          <Stack
+            style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, padding: '4px' }}
+          >
+            <StandardLineChart data={chartData} />
           </Stack>
           <YStack space={'$3'} justifyContent="space-between">
             <Text size={15} weight={'semibold'}>

@@ -9,8 +9,9 @@ import {
   SettingsIcon,
 } from '@status-im/icons'
 import { YStack } from 'tamagui'
-import IconButtonWithDot from './IconButtonWithDot'
 import { useSelector } from 'react-redux'
+
+import LeftSidebarIconButton from './LeftSidebarIconButton'
 
 const LeftSidebar = () => {
   const buttons = useSelector((state: any) => state.leftSidebar.buttons)
@@ -37,9 +38,10 @@ const LeftSidebar = () => {
         return null
     }
   }
+
   return (
     <YStack
-      space={'$4'}
+      space={'$3'}
       minHeight={'100vh'}
       background={'#FFF'}
       style={{
@@ -50,13 +52,12 @@ const LeftSidebar = () => {
       }}
     >
       {buttons.map((button: any) => (
-        <IconButtonWithDot
+        <LeftSidebarIconButton
           key={button.id}
           iconEl={renderIcon(button.id)}
-          variant={button.isDisabled ? 'outline' : 'ghost'}
           isDotOn={button.isDotOn}
-          selected={button.isSelected}
-          disabled={button.isDisabled}
+          isSelected={button.isSelected}
+          isDisabled={button.isDisabled}
           id={button.id}
         />
       ))}

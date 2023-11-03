@@ -181,14 +181,9 @@ type UptimeChartProps = {
   withLabels: boolean
 }
 
+const keys = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
+
 const updateMonthlyValues = (data: any, monthlyActivity: any) => {
-  if (!Array.isArray(monthlyActivity) || monthlyActivity.length !== 12) {
-    console.error('monthlyActivity should be an array with 12 values')
-    return
-  }
-
-  const keys = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
-
   for (let i = 0; i < data.length; i++) {
     const month = data[i]
     const activity = monthlyActivity[i]
@@ -201,18 +196,16 @@ const updateMonthlyValues = (data: any, monthlyActivity: any) => {
       }
     }
   }
+
   return data
 }
 
-const UptimeChart = ({ monthlyActivity, startMonth, endMonth, withLabels }: UptimeChartProps) => {
+const UptimeChart = ({ monthlyActivity, withLabels }: UptimeChartProps) => {
   const updatedData = updateMonthlyValues(data, monthlyActivity)
-  console.log(updatedData)
-  const filteredData = data.slice(startMonth, endMonth + 1)
 
-  filteredData
   return (
     <ResponsiveContainer>
-      <BarChart data={filteredData} style={{ backgroundColor: '#F0F2F5' }}>
+      <BarChart data={updatedData} style={{ backgroundColor: '#F0F2F5' }}>
         <Bar dataKey="one" barSize={withLabels ? 10 : 1} fill="#E95460" />
         <Bar dataKey="two" barSize={10} fill="#E95460" />
         <Bar dataKey="three" barSize={10} fill="#E95460" />
@@ -223,7 +216,7 @@ const UptimeChart = ({ monthlyActivity, startMonth, endMonth, withLabels }: Upti
         <Bar dataKey="eight" barSize={10} fill="#E95460" />
         <Bar dataKey="nine" barSize={10} fill="#E95460" />
         <Bar dataKey="ten" barSize={10} fill="#E95460" />
-        {withLabels && <XAxis dataKey="name" fontSize={'10px'} tickMargin={10} />}
+        {withLabels && <XAxis dataKey="name" fontSize={'10px'} tickMargin={10} height={24} />}
       </BarChart>
     </ResponsiveContainer>
   )

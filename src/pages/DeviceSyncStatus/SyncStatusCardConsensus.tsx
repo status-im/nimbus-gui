@@ -17,13 +17,13 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
 
   const data = [
     {
-      id: 'storage',
+      id: 'storage-used',
       label: 'Used',
       value: synced,
       color: '#ff6161',
     },
     {
-      id: 'storage',
+      id: 'storage-keys',
       label: 'Free',
       value: total - synced || 1,
       color: '#E7EAEE',

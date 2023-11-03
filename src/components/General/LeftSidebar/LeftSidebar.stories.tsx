@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import LeftSidebar from './LeftSidebar'
 
 const meta = {
-  title: 'Dashboard/LeftSidebar',
+  title: 'General/LeftSidebar',
   component: LeftSidebar,
   parameters: {
     layout: 'centered',
