@@ -114,19 +114,8 @@ const DashboardContent = () => {
   )
 }
 const DashboardContentLayout = () => {
-
   return (
-
-
-    <Stack
-      style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr',
-        gap: '8px',
-        width: '100%',
-      }}
-    >
-
+    <Stack width={'100%'} >
       <YStack>
         <Stack
           style={{
@@ -140,14 +129,11 @@ const DashboardContentLayout = () => {
         </Stack>
         <DeviceUptime />
       </YStack>
-
-
       <Stack style={{
         display: 'grid',
         gridTemplateColumns: '1fr 1fr 1fr 1fr',
         gap: '8px',
       }}>
-
         <StorageCard maxStorage={100} storage={82} />
         <CPUCard load={[12, 31, 3, 2, 24, 98]} />
         <MemoryCard currentMemory={[21, 33, 3, 42, 35]} maxMemory={50} />
@@ -157,7 +143,6 @@ const DashboardContentLayout = () => {
         />
       </Stack>
     </Stack>
-
   )
 }
 
