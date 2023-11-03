@@ -205,13 +205,12 @@ const updateMonthlyValues = (data: any, monthlyActivity: any) => {
   return data
 }
 
-const UptimeChart = ({ monthlyActivity, startMonth, endMonth, withLabels }: UptimeChartProps) => {
+const UptimeChart = ({ monthlyActivity, withLabels }: UptimeChartProps) => {
   const updatedData = updateMonthlyValues(data, monthlyActivity)
-  const filteredData = data.slice(startMonth, endMonth + 1)
 
   return (
     <ResponsiveContainer>
-      <BarChart data={filteredData} style={{ backgroundColor: '#F0F2F5' }}>
+      <BarChart data={updatedData} style={{ backgroundColor: '#F0F2F5' }}>
         <Bar dataKey="one" barSize={withLabels ? 10 : 1} fill="#E95460" />
         <Bar dataKey="two" barSize={10} fill="#E95460" />
         <Bar dataKey="three" barSize={10} fill="#E95460" />
