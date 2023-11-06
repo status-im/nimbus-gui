@@ -1,3 +1,4 @@
+import { Text } from '@status-im/components'
 import { YStack } from 'tamagui'
 
 import ManagementTable from './ManagementTable/ManagementTable'
@@ -16,6 +17,9 @@ const ValidatorManagementContent = () => {
       }}
     >
       <ManagementTable />
+      <Text size={27} weight={'semibold'}>
+        Validators
+      </Text>
     </YStack>
   )
 }

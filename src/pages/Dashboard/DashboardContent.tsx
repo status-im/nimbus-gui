@@ -1,4 +1,5 @@
-import { Stack, YStack } from 'tamagui'
+import { Stack, YStack, XStack } from 'tamagui'
+
 import BasicInfoCards from './BasicInfoCards/BasicInfoCards'
 import AddCardsContainer from '../../components/General/AddCards/AddCardsContainer'
 import BalanceChartCard from './BalanceChartCard/BalanceChartCard'
@@ -6,15 +7,16 @@ import CPUCard from './CPULoad/CPUCard'
 import ConsensusUptimeCard from './ConsensusUptime/ConsensusUptimeCard'
 import ExecutionUptime from './ExecutionUptime/ExecutionUptime'
 import DeviceUptime from './DeviceUptime/DeviceUptime'
-import TitleLogo from './TitleLogo'
+import TitleLogo from '../../components/General/TitleLogo'
 import StorageCard from './StorageCard/StorageCard'
 import NetworkCard from './NetworkCard/NetworkCard'
 import SyncStatusCard from './SyncStatusCards/SyncStatusCards'
 import MemoryCard from './MemoryCard/MemoryCard'
-import { XStack } from 'tamagui'
+
 type DashboardContentProps = {
   windowWidth: number
 }
+
 const DashboardContent = ({ windowWidth }: DashboardContentProps) => {
   return (
     <YStack
@@ -30,7 +32,7 @@ const DashboardContent = ({ windowWidth }: DashboardContentProps) => {
       }}
       className={'transparent-scrollbar'}
     >
-      <TitleLogo />
+      <TitleLogo subtitle="Node Management Dashboard" />
       <Stack
         style={{
           display: 'grid',
