@@ -5,6 +5,8 @@ import './ManagementTable.css'
 
 const validators = [
   {
+    number: 1,
+    address: 'zQ3asdf9d4Gs0',
     balance: 100,
     income: 100,
     proposals: 100,
@@ -15,6 +17,8 @@ const validators = [
     status: 'Active',
   },
   {
+    number: 1,
+    address: 'zQ3asdf9d4Gs0',
     balance: 100,
     income: 100,
     proposals: 100,
@@ -25,6 +29,8 @@ const validators = [
     status: 'Active',
   },
   {
+    number: 1,
+    address: 'zQ3asdf9d4Gs0',
     balance: 100,
     income: 100,
     proposals: 100,
@@ -35,6 +41,8 @@ const validators = [
     status: 'Active',
   },
   {
+    number: 1,
+    address: 'zQ3asdf9d4Gs0',
     balance: 100,
     income: 100,
     proposals: 100,
