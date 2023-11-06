@@ -1,6 +1,7 @@
 import { Checkbox, Text } from '@status-im/components'
 import { OptionsIcon } from '@status-im/icons'
 
+import ValidatorProfile from '../../../components/General/ValidatorProfile'
 import './ManagementTable.css'
 
 const validators = [
@@ -116,7 +117,9 @@ const ManagementTable = () => {
             <td>
               <Checkbox id={index.toString()} variant="outline" />
             </td>
-            <td></td>
+            <td>
+              <ValidatorProfile number={validator.number} address={validator.address} />
+            </td>
             <td>
               <Text size={15} color={'#647084'} weight={'semibold'}>
                 {validator.balance}
