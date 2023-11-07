@@ -11,6 +11,26 @@ const ManagementTabs = () => {
         label: 'Active',
         value: 'active',
       },
+      {
+        label: 'Pending',
+        value: 'pending',
+      },
+      {
+        label: 'Inactive',
+        value: 'inactive',
+      },
+      {
+        label: 'Exited',
+        value: 'exited',
+      },
+      {
+        label: 'Withdraw',
+        value: 'withdraw',
+      },
+      {
+        label: 'All',
+        value: 'all',
+      },
     ],
     [],
   )
