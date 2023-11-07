@@ -1,8 +1,8 @@
 import { Text } from '@status-im/components'
 import { YStack } from 'tamagui'
 
-import ManagementTable from './ManagementTable/ManagementTable'
 import TitleLogo from '../../components/General/TitleLogo'
+import ManagementTabs from './ManagementTabs'
 
 const ValidatorManagementContent = () => {
   return (
@@ -18,9 +18,9 @@ const ValidatorManagementContent = () => {
       }}
     >
       <TitleLogo subtitle="Validator Management" />
-      <ManagementTable />
       <Text size={27} weight={'semibold'}>
         Validators
+        <ManagementTabs />
       </Text>
     </YStack>
   )
