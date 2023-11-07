@@ -1,54 +1,94 @@
 
- 
+
 import { FixedSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
-import { Button } from "tamagui";
+import { Stack } from 'tamagui';
+import {   XStack } from "tamagui";
+const exampleData =
+  [
+    {
+      "option": "--config-file",
+      "description": "Loads the configuration from a TOML file."
+    },
+    {
+      "option": "--log-level",
+      "description": "Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO]."
+    },
+    {
+      "option": "--config-file",
+      "description": "Loads the configuration from a TOML file."
+    },
+    {
+      "option": "--log-level",
+      "description": "Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO]."
+    },
+    {
+      "option": "--config-file",
+      "description": "Loads the configuration from a TOML file."
+    },
+    {
+      "option": "--log-level",
+      "description": "Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO]."
+    },
+    {
+      "option": "--config-file",
+      "description": "Loads the configuration from a TOML file."
+    },
+    {
+      "option": "--log-level",
+      "description": "Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO]."
+    },
+ 
+  ]
+  const loadMoreItems = (startIndex, stopIndex) => {
+    // Fetch more items from an API or other data source...
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve();
+      }, 1000);
+    });
+  };
+type DataType = {
+  option: string
+  description: string
+}
+function Row({ data, index }: { data: DataType, index: number }) {
+ 
+  const { option, description } = data;
 
-// This is just a sample row renderer. Adjust according to your data.
-function Row(props: any) {
-  const { index, style } = props;
   return (
-    <div style={style}>
-      <Button>{`Row ${index}`}</Button>
-    </div>
+    <XStack style={{ fontFamily: 'monospace', }}>
+      <Stack style={{ alignContent: 'flex-start', padding: '0 12px 0 12px ', marginRight: '20px', backgroundColor: '#f5f6f8' }}>
+        {index}
+      </Stack>
+      <Stack style={{ alignContent: 'flex-start', marginRight: '20px', minWidth: '110px', }}>
+        {option}
+      </Stack>
+      <Stack style={{}}>
+        {description}
+      </Stack>
+    </XStack>
   );
 }
 
 function LogsTerminal() {
-  // Sample itemCount & loadMoreItems for demonstration purposes.
-  const itemCount = 1000;
-  const loadMoreItems = (startIndex: number, stopIndex: number) => {
-    console.log("Loading more items from:", startIndex, "to", stopIndex);
-    return new Promise((resolve) => setTimeout(resolve, 1000));
-  };
-
-  const isItemLoaded = (index: number) => {
-    // Add your logic here to check if the item is already loaded or not.
-    return false;
-  };
-
+ 
   return (
-    <div style={{ height: '400px', width: '100%' }}>
-      <InfiniteLoader
-        isItemLoaded={isItemLoaded}
-        itemCount={itemCount}
-        loadMoreItems={loadMoreItems}
+    <Stack>
+
+      <List
+        height={350}
+        itemCount={exampleData.length}
+        itemSize={35}
       >
-        {({ onItemsRendered, ref }) => (
-          <List
-            height={400}
-            itemCount={itemCount}
-            itemSize={35}
-            onItemsRendered={onItemsRendered}
-            ref={ref}
-            width={'100%'}
-          >
-            {Row}
-          </List>
+        {({ index }: any) => (
+          <Row data={exampleData[index]} index={index} />
         )}
-      </InfiniteLoader>
-    </div>
+      </List>
+
+    </Stack>
   );
 }
+
 
 export default LogsTerminal;
