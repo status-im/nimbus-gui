@@ -571,7 +571,34 @@ function Row({ data, index }: { data: DataType | undefined, index: number }) {
 }
 
 function LogsTerminal() {
- 
+  const [data, setData] = useState<DataType[]>([]);
+
+
+  useEffect(() => {
+    setData(exampleData.concat(Array.from({ length: 500 - exampleData.length }).map(_ => undefined)));
+  }, []);
+
+  const isItemLoaded = (index: number) => index < data.length && data[index] !== undefined;
+
+  const loadMoreItems = (startIndex: number, stopIndex: number) => {
+    return new Promise<void>((resolve) => {
+
+      setTimeout(() => {
+        setData(prevData => {
+          const newData = [...prevData];
+          for (let i = startIndex; i <= stopIndex; i++) {
+            if (!newData[i]) {
+
+              newData[i] = { option: `Option ${i}`, description: `Description for ${i}` };
+            }
+          }
+          return newData;
+        });
+        resolve();
+      }, 1000);
+    });
+  };
+
   return (
     <Stack>
 
