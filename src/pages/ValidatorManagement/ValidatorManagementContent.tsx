@@ -3,6 +3,7 @@ import { YStack } from 'tamagui'
 
 import TitleLogo from '../../components/General/TitleLogo'
 import ManagementTabs from './ManagementTabs'
+import AddCardsContainer from '../../components/General/AddCards/AddCardsContainer'
 
 const ValidatorManagementContent = () => {
   return (
@@ -18,6 +19,7 @@ const ValidatorManagementContent = () => {
       }}
     >
       <TitleLogo subtitle="Validator Management" />
+      <AddCardsContainer />
       <Text size={27} weight={'semibold'}>
         Validators
         <ManagementTabs />
