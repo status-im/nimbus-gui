@@ -35,12 +35,10 @@ const Row: React.FC<RowProps> = ({ data, index }) => {
       </Stack>
     </XStack>
   );
-}
+};
 
-function LogsTerminal() {
-  const [data, setData] = useState<DataType[]>([]);
-
-
+const LogsTerminal: React.FC = () => {
+  const [data, setData] = useState<(DataType | undefined)[]>([]);
   useEffect(() => {
     const exampleData: DataType[] =
       [
@@ -578,19 +576,19 @@ function LogsTerminal() {
         },
 
       ]
+    const initialData = [...exampleData, ...Array(500 - exampleData.length).fill(undefined)];
+    setData(initialData);
   }, []);
 
-  const isItemLoaded = (index: number) => index < data.length && data[index] !== undefined;
+  const isItemLoaded = (index: number): boolean => index < data.length && data[index] !== undefined;
 
-  const loadMoreItems = (startIndex: number, stopIndex: number) => {
+  const loadMoreItems = (startIndex: number, stopIndex: number): Promise<void> => {
     return new Promise<void>((resolve) => {
-
       setTimeout(() => {
-        setData(prevData => {
+        setData((prevData) => {
           const newData = [...prevData];
           for (let i = startIndex; i <= stopIndex; i++) {
             if (!newData[i]) {
-
               newData[i] = { option: `Option ${i}`, description: `Description for ${i}` };
             }
           }
