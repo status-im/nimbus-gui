@@ -600,8 +600,8 @@ const LogsTerminal: React.FC = () => {
   };
 
   return (
-    <Stack style={{ borderRadius: '25%' }}>
-      <InfiniteLoader isItemLoaded={isItemLoaded} itemCount={data.length} loadMoreItems={loadMoreItems}>
+    <Stack >
+      <InfiniteLoader isItemLoaded={isItemLoaded} itemCount={data.length} loadMoreItems={loadMoreItems} >
         {({ onItemsRendered, ref }: any) => (
           <List
             height={650}
@@ -611,6 +611,7 @@ const LogsTerminal: React.FC = () => {
             itemData={data}
             onItemsRendered={onItemsRendered}
             ref={ref}
+            style={{borderRadius:'25px', overflow:'hidden'}}
           >
             {({ index, style }) => (
               <div style={style}>
