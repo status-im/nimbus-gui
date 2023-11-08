@@ -1,9 +1,10 @@
 
 
+import { useEffect, useState } from 'react';
 import { FixedSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
-import { Stack } from 'tamagui';
-import {   XStack } from "tamagui";
+
+import { Stack, XStack } from 'tamagui';
 const exampleData =
   [
     {
@@ -555,17 +556,17 @@ function Row({ data, index }: { data: DataType | undefined, index: number }) {
 
   const { option, description } = data;
   return (
-    <XStack style={{ fontFamily: 'monospace', }}>
-      <Stack style={{ alignContent: 'flex-start', padding: '0 12px 0 12px ', marginRight: '20px', backgroundColor: '#f5f6f8' }}>
+    <XStack style={{ fontFamily: 'monospace' }}>
+      <Stack style={{ alignContent: 'flex-start', padding: '0 12px 0 12px ', marginRight: '20px', backgroundColor: '#f5f6f8', color: '#A1ABBD' }}>
         {index}
       </Stack>
       <Stack style={{ alignContent: 'flex-start', marginRight: '20px', minWidth: '110px', }}>
         {option}
       </Stack>
-      <Stack style={{}}>
+      <Stack >
         {description}
       </Stack>
-    </XStack>
+    </XStack >
   );
 }
 
