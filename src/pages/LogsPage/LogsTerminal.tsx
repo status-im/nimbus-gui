@@ -600,21 +600,33 @@ function LogsTerminal() {
   };
 
   return (
-    <Stack>
+    <Stack style={{ borderRadius: '25%' }}>
 
-      <List
-        height={350}
-        itemCount={exampleData.length}
-        itemSize={35}
+      <InfiniteLoader
+        isItemLoaded={isItemLoaded}
+        itemCount={data.length}
+        loadMoreItems={loadMoreItems}
       >
-        {({ index }: any) => (
-          <Row data={exampleData[index]} index={index} />
+        {({ onItemsRendered, ref }) => (
+          <List
+            height={650}
+            width={1100}
+            itemCount={data.length}
+            itemSize={20}
+            itemData={data}
+            onItemsRendered={onItemsRendered}
+            ref={ref}
+          >
+            {({ index, style }) => (
+              <div style={style}>
+                <Row data={data[index]} index={index} />
+              </div>
+            )}
+          </List>
         )}
-      </List>
-
+      </InfiniteLoader>
     </Stack>
   );
 }
-
 
 export default LogsTerminal;
