@@ -611,7 +611,7 @@ const LogsTerminal: React.FC = () => {
             itemData={data}
             onItemsRendered={onItemsRendered}
             ref={ref}
-            style={{borderRadius:'25px', overflow:'hidden'}}
+            style={{borderRadius:'25px', overflow:'hidden', border: '1px solid #E7EAEE'}}
           >
             {({ index, style }) => (
               <div style={style}>
