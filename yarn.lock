@@ -8815,6 +8815,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-window@npm:^1.8.8":
+  version: 1.8.8
+  resolution: "@types/react-window@npm:1.8.8"
+  dependencies:
+    "@types/react": "*"
+  checksum: 253c9d6e0c942f34633edbddcbc369324403c42458ff004457c5bd5972961d8433a909c0cc1a89c918063d5eb85ecbdd774142af2555fae61f4ceb3ba9884b5a
+  languageName: node
+  linkType: hard
+
 "@types/react@npm:*, @types/react@npm:18, @types/react@npm:>=16":
   version: 18.2.21
   resolution: "@types/react@npm:18.2.21"
@@ -18555,6 +18564,7 @@ __metadata:
     "@types/react-color": ^3.0.6
     "@types/react-dom": 18
     "@types/react-syntax-highlighter": ^15.5.7
+    "@types/react-window": ^1.8.8
     "@types/uuid": ^9.0.2
     "@typescript-eslint/eslint-plugin": ^6.0.0
     "@typescript-eslint/parser": ^6.0.0
