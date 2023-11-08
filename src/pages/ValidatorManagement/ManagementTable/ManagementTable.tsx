@@ -69,7 +69,16 @@ const ManagementTable = () => {
     <YStack>
       <XStack justifyContent="space-between">
         <SearchManagement searchValue={searchValue} changeSearchValue={changeSearchValue} />
-        <SortIcon size={20} />
+        <SortIcon
+          size={20}
+          color="#647084"
+          style={{
+            border: '1px solid #DCE0E5',
+            borderRadius: '10px',
+            padding: '6px',
+            cursor: 'pointer',
+          }}
+        />
       </XStack>
       <table>
         <thead>
