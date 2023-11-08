@@ -24,7 +24,10 @@ const Row: React.FC<RowProps> = ({ data, index }) => {
   const { option, description } = data;
   return (
     <XStack style={{ fontFamily: 'monospace' }}>
-      <Stack style={{ alignContent: 'flex-start', padding: '0 12px', marginRight: '20px', backgroundColor: '#f5f6f8', color: '#A1ABBD' }}>
+      <Stack style={{
+        alignContent: 'flex-start', justifyContent: 'center', justifyContent: 'center',
+        alignItems: 'center', padding: '0 12px', marginRight: '20px', width: '30px', backgroundColor: '#f5f6f8', color: '#A1ABBD'
+      }}>
         {index}
       </Stack>
       <Stack style={{ alignContent: 'flex-start', marginRight: '20px', minWidth: '110px' }}>
@@ -611,7 +614,7 @@ const LogsTerminal: React.FC = () => {
             itemData={data}
             onItemsRendered={onItemsRendered}
             ref={ref}
-            style={{borderRadius:'25px', overflow:'hidden', border: '1px solid #E7EAEE'}}
+            style={{ borderRadius: '25px', overflow: 'hidden', border: '1px solid #E7EAEE' }}
           >
             {({ index, style }) => (
               <div style={style}>
