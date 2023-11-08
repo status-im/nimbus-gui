@@ -1,3 +1,4 @@
+import { Text } from '@status-im/components'
 import { useEffect, useState } from 'react'
 import { FixedSizeList as List } from 'react-window'
 import InfiniteLoader from 'react-window-infinite-loader'
@@ -16,7 +17,7 @@ interface RowProps {
 
 const Row: React.FC<RowProps> = ({ data, index }) => {
   if (!data) {
-    return <div>Loading...</div>
+    return <Text size={19} >Loading...</Text>
   }
 
   const { option, description } = data
@@ -25,7 +26,6 @@ const Row: React.FC<RowProps> = ({ data, index }) => {
       <Stack
         style={{
           alignContent: 'flex-start',
-          justifyContent: 'center',
           justifyContent: 'center',
           alignItems: 'center',
           padding: '0 12px',
@@ -716,9 +716,9 @@ const LogsTerminal: React.FC = () => {
             style={{ borderRadius: '25px', overflow: 'hidden', border: '1px solid #E7EAEE' }}
           >
             {({ index, style }) => (
-              <div style={style}>
+              <Stack style={style}>
                 <Row data={data[index]} index={index} />
-              </div>
+              </Stack>
             )}
           </List>
         )}
