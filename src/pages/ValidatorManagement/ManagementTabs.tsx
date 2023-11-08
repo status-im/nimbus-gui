@@ -37,7 +37,7 @@ const ManagementTabs = () => {
 
   return (
     <Tabs defaultValue="active">
-      <Stack style={{ cursor: 'pointer', width: 'fit-content' }}>
+      <Stack style={{ cursor: 'pointer', width: 'fit-content', margin: '16px 0' }}>
         <Tabs.List size={32}>
           {VALIDATOR_TABS.map(tab => (
             <Tabs.Trigger key={tab.value} type="default" value={tab.value}>
