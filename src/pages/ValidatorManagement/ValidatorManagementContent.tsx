@@ -17,6 +17,7 @@ const ValidatorManagementContent = () => {
         flexGrow: '1',
         overflowY: 'auto',
       }}
+      className="transparent-scrollbar"
     >
       <TitleLogo subtitle="Validator Management" />
       <AddCardsContainer />
