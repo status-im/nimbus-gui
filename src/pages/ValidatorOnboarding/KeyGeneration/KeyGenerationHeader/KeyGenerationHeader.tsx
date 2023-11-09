@@ -1,6 +1,6 @@
 import { XStack } from 'tamagui'
 
-import KeyGenerationSyncCard from './KeyGenerationSyncCard'
+import SyncStatusCard from '../../../../components/General/SyncStatusCard'
 import KeyGenerationTitle from '../KeyGenerationTitle'
 
 const KeyGenerationHeader = () => {
@@ -8,13 +8,13 @@ const KeyGenerationHeader = () => {
     <XStack style={{ width: '100%', justifyContent: 'space-between' }}>
       <KeyGenerationTitle />
       <XStack space={'$2'}>
-        <KeyGenerationSyncCard
+        <SyncStatusCard
           synced={123.524}
           total={172.503}
           title="Execution Sync Status"
           color="#2a4af5"
         />
-        <KeyGenerationSyncCard
+        <SyncStatusCard
           synced={123.524}
           total={172.503}
           title="Consensus Sync Status"
