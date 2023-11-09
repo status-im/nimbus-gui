@@ -10,7 +10,7 @@ import DeviceUptime from './DeviceUptime/DeviceUptime'
 import TitleLogo from '../../components/General/TitleLogo'
 import StorageCard from './StorageCard/StorageCard'
 import NetworkCard from './NetworkCard/NetworkCard'
-import SyncStatusCard from './SyncStatusCards/SyncStatusCards'
+import SyncStatusCards from './SyncStatusCards/SyncStatusCards'
 import MemoryCard from './MemoryCard/MemoryCard'
 
 type DashboardContentProps = {
@@ -41,7 +41,7 @@ const DashboardContent = ({ windowWidth }: DashboardContentProps) => {
           gridAutoFlow: 'row',
         }}
       >
-        <SyncStatusCard />
+        <SyncStatusCards />
         <AddCardsContainer />
         {windowWidth < 1375 ? (
           <Stack style={{ gridColumn: '1 / span 2' }} width={'101%'}>
