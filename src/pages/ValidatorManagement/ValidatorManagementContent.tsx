@@ -1,9 +1,9 @@
 import { Text } from '@status-im/components'
 import { YStack } from 'tamagui'
 
-import TitleLogo from '../../components/General/TitleLogo'
 import ManagementTabs from './ManagementTabs'
 import AddCardsContainer from '../../components/General/AddCards/AddCardsContainer'
+import ManagementHeader from './ManagementHeader'
 
 const ValidatorManagementContent = () => {
   return (
@@ -19,7 +19,7 @@ const ValidatorManagementContent = () => {
       }}
       className="transparent-scrollbar"
     >
-      <TitleLogo subtitle="Validator Management" />
+      <ManagementHeader />
       <AddCardsContainer />
       <Text size={27} weight={'semibold'}>
         Validators
