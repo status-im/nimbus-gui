@@ -2,7 +2,7 @@ import { Text } from '@status-im/components'
 import { useEffect, useState } from 'react'
 import { FixedSizeList as List } from 'react-window'
 import InfiniteLoader from 'react-window-infinite-loader'
-
+import './scroller.css'
 import { Stack, XStack } from 'tamagui'
 
 type DataType = {
@@ -17,7 +17,7 @@ interface RowProps {
 
 const Row: React.FC<RowProps> = ({ data, index }) => {
   if (!data) {
-    return <Text size={19} >Loading...</Text>
+    return <Text size={19}>Loading...</Text>
   }
 
   const { option, description } = data
@@ -706,6 +706,7 @@ const LogsTerminal: React.FC = () => {
       >
         {({ onItemsRendered, ref }: any) => (
           <List
+            className="custom-scroll"
             height={650}
             width={1100}
             itemCount={data.length}
@@ -713,7 +714,10 @@ const LogsTerminal: React.FC = () => {
             itemData={data}
             onItemsRendered={onItemsRendered}
             ref={ref}
-            style={{ borderRadius: '25px', overflow: 'hidden', border: '1px solid #E7EAEE' }}
+            style={{
+              borderRadius: '25px',
+              border: '1px solid #E7EAEE',
+            }}
           >
             {({ index, style }) => (
               <Stack style={style}>
