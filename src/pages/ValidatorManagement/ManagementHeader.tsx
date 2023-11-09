@@ -5,7 +5,7 @@ import SyncStatusCard from '../../components/General/SyncStatusCard'
 
 const ManagementHeader = () => {
   return (
-    <XStack style={{ width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
+    <XStack style={{ width: '100%', justifyContent: 'space-between', alignItems: 'center', marginTop: '16px' }}>
       <TitleLogo subtitle="Validator Management" />
       <XStack space={'$2'}>
         <SyncStatusCard
