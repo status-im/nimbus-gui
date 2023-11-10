@@ -1,7 +1,7 @@
 import { Checkbox, Text } from '@status-im/components'
 import { OptionsIcon, SortIcon } from '@status-im/icons'
 import { useState } from 'react'
-import { YStack, XStack } from 'tamagui'
+import { YStack, XStack, Stack } from 'tamagui'
 
 import ValidatorProfile from '../../../components/General/ValidatorProfile'
 import SearchManagement from './SearchManagement'
@@ -69,16 +69,28 @@ const ManagementTable = () => {
     <YStack>
       <XStack justifyContent="space-between">
         <SearchManagement searchValue={searchValue} changeSearchValue={changeSearchValue} />
-        <SortIcon
-          size={20}
-          color="#647084"
-          style={{
-            border: '1px solid #DCE0E5',
-            borderRadius: '10px',
-            padding: '6px',
-            cursor: 'pointer',
-          }}
-        />
+        <Stack style={{ position: 'relative', display: 'inline-block' }}>
+          <SortIcon
+            size={20}
+            color="#647084"
+            style={{
+              border: '1px solid #DCE0E5',
+              borderRadius: '10px',
+              padding: '6px',
+              cursor: 'pointer',
+            }}
+          />
+          <Stack style={{
+            position: 'absolute',
+            right: -2,
+            top: -1.5,
+            width: '9px',
+            height: '9px',
+            borderRadius: '50%',
+            backgroundColor: '#1992D7',
+            border: '1.5px solid #fff',
+          }} />
+        </Stack>
       </XStack>
       <table>
         <thead>
