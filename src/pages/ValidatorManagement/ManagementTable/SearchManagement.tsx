@@ -8,14 +8,16 @@ type SearchManagementProps = {
 
 const SearchManagement = ({ searchValue, changeSearchValue }: SearchManagementProps) => {
   return (
-    <Input
-      placeholder="Filter Validators"
-      value={searchValue}
-      onChangeText={changeSearchValue}
-      icon={<SearchIcon size={20} />}
-      onClear={() => changeSearchValue('')}
-      size={40}
-    />
+    <div style={{width: '100%'}} >
+      <Input
+        placeholder="Filter Validators"
+        value={searchValue}
+        onChangeText={changeSearchValue}
+        icon={<SearchIcon size={20} />}
+        onClear={() => changeSearchValue('')}
+        size={40}
+      />
+    </div>
   )
 }
 

@@ -67,16 +67,16 @@ const ManagementTable = () => {
 
   return (
     <YStack>
-      <XStack justifyContent="space-between">
+      <XStack space={'$3'} justifyContent="space-between" alignItems="center">
         <SearchManagement searchValue={searchValue} changeSearchValue={changeSearchValue} />
-        <Stack style={{ position: 'relative', display: 'inline-block' }}>
+        <Stack style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
           <SortIcon
             size={20}
             color="#647084"
             style={{
               border: '1px solid #DCE0E5',
               borderRadius: '10px',
-              padding: '6px',
+              padding: '8px',
               cursor: 'pointer',
             }}
           />
