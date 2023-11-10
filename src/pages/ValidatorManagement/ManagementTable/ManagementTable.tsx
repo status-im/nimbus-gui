@@ -80,16 +80,18 @@ const ManagementTable = () => {
               cursor: 'pointer',
             }}
           />
-          <Stack style={{
-            position: 'absolute',
-            right: -2,
-            top: -1.5,
-            width: '9px',
-            height: '9px',
-            borderRadius: '50%',
-            backgroundColor: '#1992D7',
-            border: '1.5px solid #fff',
-          }} />
+          <Stack
+            style={{
+              position: 'absolute',
+              right: -2,
+              top: -1.5,
+              width: '9px',
+              height: '9px',
+              borderRadius: '50%',
+              backgroundColor: '#1992D7',
+              border: '1.5px solid #fff',
+            }}
+          />
         </Stack>
       </XStack>
       <table>
