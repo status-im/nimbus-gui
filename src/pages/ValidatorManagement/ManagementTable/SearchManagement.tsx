@@ -8,7 +8,7 @@ type SearchManagementProps = {
 
 const SearchManagement = ({ searchValue, changeSearchValue }: SearchManagementProps) => {
   return (
-    <div style={{width: '100%'}} >
+    <div style={{ width: '100%' }}>
       <Input
         placeholder="Filter Validators"
         value={searchValue}
