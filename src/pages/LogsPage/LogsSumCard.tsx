@@ -1,10 +1,11 @@
 import { Text } from '@status-im/components'
-import { Separator,  XStack, YStack } from 'tamagui'
+import { Separator, XStack, YStack } from 'tamagui'
 import IconText from '../../components/General/IconText'
 import Icon from '../../components/General/Icon'
 import DashboardCardWrapper from '../Dashboard/DashboardCardWrapper'
 
 const LogsSumCard = () => {
+const LogsSumCard = ({ type, count, countActive, countInactive }: LogsSumCardProps) => {
   return (
     <DashboardCardWrapper>
       <YStack
@@ -13,7 +14,7 @@ const LogsSumCard = () => {
           border: 'none',
           backgroundColor: '#fff',
           flexGrow: '1',
-          minWidth: '320px',
+          minWidth: '280px',
         }}
       >
         <XStack
@@ -26,8 +27,8 @@ const LogsSumCard = () => {
         >
           <YStack space={'$3'} width={'100%'}>
             <XStack justifyContent="space-between" width={'100%'}>
-              <Text size={27} weight={'semibold'} >
-                Critical
+              <Text size={27} weight={'semibold'}>
+                {type}
               </Text>
               <Text size={15} weight={'semibold'}>
                 {'>'}
@@ -35,7 +36,7 @@ const LogsSumCard = () => {
             </XStack>
             <XStack justifyContent="space-between" width={'100%'}>
               <Text size={27} weight={'semibold'}>
-                16
+                {count}
               </Text>
               <Text size={19} weight={'semibold'} color="#84888E">
                 Per Minute
@@ -44,9 +45,12 @@ const LogsSumCard = () => {
           </YStack>
         </XStack>
         <Separator borderColor={'#e3e3e3'} style={{ marginTop: 'auto' }} />
-        <XStack space={'$4'} style={{ padding: '10px 16px' }}>
+        <XStack space={'$2'} style={{ padding: '10px 16px' }}>
           <IconText icon={<Icon src="icons/active.svg" width={16} />} weight={'semibold'}>
-            {'Good'}
+            {countActive + ' Active'}
+          </IconText>
+          <IconText icon={<Icon src="icons/inactive.svg" width={16} />} weight={'semibold'}>
+            {countInactive + ' Inactive'}
           </IconText>
         </XStack>
       </YStack>
