@@ -1,9 +1,10 @@
 import { Text } from '@status-im/components'
-import { YStack } from 'tamagui'
+import { XStack, YStack } from 'tamagui'
 
 import ManagementTabs from './ManagementTabs'
 import AddCardsContainer from '../../components/General/AddCards/AddCardsContainer'
 import ManagementHeader from './ManagementHeader'
+import ManagementCard from './ManagementCard'
 
 const ValidatorManagementContent = () => {
   return (
@@ -20,7 +21,11 @@ const ValidatorManagementContent = () => {
       className="transparent-scrollbar"
     >
       <ManagementHeader />
-      <AddCardsContainer />
+      <XStack justifyContent={'space-between'} width={'100%'}>
+        <ManagementCard />
+        <ManagementCard />
+        <AddCardsContainer />
+      </XStack>
       <Text size={27} weight={'semibold'}>
         Validators
         <ManagementTabs />
