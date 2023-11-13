@@ -1,6 +1,6 @@
 import { Checkbox, DropdownMenu, Text } from '@status-im/components'
 import { OptionsIcon, SortIcon } from '@status-im/icons'
-import { useEffect, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { YStack, XStack, Stack } from 'tamagui'
 
 import ValidatorProfile from '../../../components/General/ValidatorProfile'
@@ -63,19 +63,16 @@ type ManagementTableProps = {
 }
 
 const ManagementTable = ({ tab }: ManagementTableProps) => {
-  const [currentValidators, setCurrentValidators] = useState(validators)
   const [searchValue, setSearchValue] = useState('')
 
-  useEffect(() => {
-    setCurrentValidators(
-      validators
-        .filter(validator => validator.status === tab)
-        .filter(
-          validator =>
-            validator.number.toString().includes(searchValue) ||
-            validator.address.includes(searchValue),
-        ),
-    )
+  const filteredValidators = useMemo(() => {
+    return validators
+      .filter(validator => validator.status === tab)
+      .filter(
+        validator =>
+          validator.number.toString().includes(searchValue) ||
+          validator.address.includes(searchValue),
+      )
   }, [tab, searchValue])
 
   const changeSearchValue = (value: string) => {
@@ -172,7 +169,7 @@ const ManagementTable = ({ tab }: ManagementTableProps) => {
           </tr>
         </thead>
         <tbody>
-          {currentValidators.map((validator, index) => (
+          {filteredValidators.map((validator, index) => (
             <tr key={index}>
               <td>
                 <Checkbox id={index.toString()} variant="outline" />
