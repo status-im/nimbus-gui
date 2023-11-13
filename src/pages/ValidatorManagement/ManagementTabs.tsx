@@ -8,28 +8,22 @@ const ManagementTabs = () => {
   const VALIDATOR_TABS = useMemo(
     () => [
       {
-        label: 'Active',
-        value: 'active',
+        value: 'Active',
       },
       {
-        label: 'Pending',
-        value: 'pending',
+        value: 'Pending',
       },
       {
-        label: 'Inactive',
-        value: 'inactive',
+        value: 'Inactive',
       },
       {
-        label: 'Exited',
-        value: 'exited',
+        value: 'Exited',
       },
       {
-        label: 'Withdraw',
-        value: 'withdraw',
+        value: 'Withdraw',
       },
       {
-        label: 'All',
-        value: 'all',
+        value: 'All',
       },
     ],
     [],
@@ -41,7 +35,7 @@ const ManagementTabs = () => {
         <Tabs.List size={32}>
           {VALIDATOR_TABS.map(tab => (
             <Tabs.Trigger key={tab.value} type="default" value={tab.value}>
-              {tab.label}
+              {tab.value}
             </Tabs.Trigger>
           ))}
         </Tabs.List>
