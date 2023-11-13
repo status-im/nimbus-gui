@@ -4,7 +4,12 @@ import IconText from '../../components/General/IconText'
 import Icon from '../../components/General/Icon'
 import DashboardCardWrapper from '../Dashboard/DashboardCardWrapper'
 
-const LogsSumCard = () => {
+type LogsSumCardProps = {
+  type: string
+  count: number
+  countActive?: number
+  countInactive?: number
+}
 const LogsSumCard = ({ type, count, countActive, countInactive }: LogsSumCardProps) => {
   return (
     <DashboardCardWrapper>
