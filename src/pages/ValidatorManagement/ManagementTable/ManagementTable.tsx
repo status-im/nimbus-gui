@@ -161,6 +161,11 @@ const ManagementTable = ({ tab }: ManagementTableProps) => {
         <tbody>
           {validators
             .filter(validator => validator.status === tab)
+            .filter(
+              validator =>
+                validator.address.includes(searchValue) ||
+                validator.number.toString().includes(searchValue),
+            )
             .map((validator, index) => (
               <tr key={index}>
                 <td>
