@@ -1,6 +1,6 @@
 import { Checkbox, DropdownMenu, Text } from '@status-im/components'
 import { OptionsIcon, SortIcon } from '@status-im/icons'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { YStack, XStack, Stack } from 'tamagui'
 
 import ValidatorProfile from '../../../components/General/ValidatorProfile'
@@ -63,7 +63,20 @@ type ManagementTableProps = {
 }
 
 const ManagementTable = ({ tab }: ManagementTableProps) => {
+  const [currentValidators, setCurrentValidators] = useState(validators)
   const [searchValue, setSearchValue] = useState('')
+
+  useEffect(() => {
+    setCurrentValidators(
+      validators
+        .filter(validator => validator.status === tab)
+        .filter(
+          validator =>
+            validator.number.toString().includes(searchValue) ||
+            validator.address.includes(searchValue),
+        ),
+    )
+  }, [tab, searchValue])
 
   const changeSearchValue = (value: string) => {
     setSearchValue(value)
@@ -159,66 +172,59 @@ const ManagementTable = ({ tab }: ManagementTableProps) => {
           </tr>
         </thead>
         <tbody>
-          {validators
-            .filter(validator => validator.status === tab)
-            .filter(
-              validator =>
-                validator.address.includes(searchValue) ||
-                validator.number.toString().includes(searchValue),
-            )
-            .map((validator, index) => (
-              <tr key={index}>
-                <td>
-                  <Checkbox id={index.toString()} variant="outline" />
-                </td>
-                <td>
-                  <ValidatorProfile number={validator.number} address={validator.address} />
-                </td>
-                <td>
-                  <Text size={15} color={'#647084'} weight={'semibold'}>
-                    {validator.balance}
-                  </Text>
-                </td>
-                <td>
-                  <Text size={15} color={'#647084'} weight={'semibold'}>
-                    {validator.income}
-                  </Text>
-                </td>
-                <td>
-                  <Text size={15} color={'#647084'}>
-                    {validator.proposals}
-                  </Text>
-                </td>
-                <td>
-                  <Text size={15} color={'#647084'}>
-                    {validator.attestations}
-                  </Text>
-                </td>
-                <td>
-                  <Text size={15} color={'#647084'}>
-                    {validator.effectiveness}
-                  </Text>
-                </td>
-                <td>
-                  <Text size={15} color={'#647084'}>
-                    {validator.deposits}
-                  </Text>
-                </td>
-                <td>
-                  <Text size={15} color={'#647084'}>
-                    {validator.rank}
-                  </Text>
-                </td>
-                <td>
-                  <Text size={15} color={'#2F80ED'} weight={'semibold'}>
-                    {validator.status}
-                  </Text>
-                </td>
-                <td>
-                  <OptionsIcon size={20} color="#647084" style={{ cursor: 'pointer' }} />
-                </td>
-              </tr>
-            ))}
+          {currentValidators.map((validator, index) => (
+            <tr key={index}>
+              <td>
+                <Checkbox id={index.toString()} variant="outline" />
+              </td>
+              <td>
+                <ValidatorProfile number={validator.number} address={validator.address} />
+              </td>
+              <td>
+                <Text size={15} color={'#647084'} weight={'semibold'}>
+                  {validator.balance}
+                </Text>
+              </td>
+              <td>
+                <Text size={15} color={'#647084'} weight={'semibold'}>
+                  {validator.income}
+                </Text>
+              </td>
+              <td>
+                <Text size={15} color={'#647084'}>
+                  {validator.proposals}
+                </Text>
+              </td>
+              <td>
+                <Text size={15} color={'#647084'}>
+                  {validator.attestations}
+                </Text>
+              </td>
+              <td>
+                <Text size={15} color={'#647084'}>
+                  {validator.effectiveness}
+                </Text>
+              </td>
+              <td>
+                <Text size={15} color={'#647084'}>
+                  {validator.deposits}
+                </Text>
+              </td>
+              <td>
+                <Text size={15} color={'#647084'}>
+                  {validator.rank}
+                </Text>
+              </td>
+              <td>
+                <Text size={15} color={'#2F80ED'} weight={'semibold'}>
+                  {validator.status}
+                </Text>
+              </td>
+              <td>
+                <OptionsIcon size={20} color="#647084" style={{ cursor: 'pointer' }} />
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </YStack>
