@@ -30,7 +30,7 @@ const ManagementTabs = () => {
   )
 
   return (
-    <Tabs defaultValue="active">
+    <Tabs defaultValue={VALIDATOR_TABS[0].value}>
       <Stack style={{ cursor: 'pointer', width: 'fit-content', margin: '16px 0' }}>
         <Tabs.List size={32}>
           {VALIDATOR_TABS.map(tab => (
