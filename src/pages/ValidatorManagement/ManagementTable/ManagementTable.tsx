@@ -222,6 +222,15 @@ const ManagementTable = ({ tab }: ManagementTableProps) => {
               </td>
             </tr>
           ))}
+          {filteredValidators.length === 0 && (
+            <tr>
+              <td colSpan={11}>
+                <Text size={15} color={'#647084'} weight={'semibold'}>
+                  No validators
+                </Text>
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     </YStack>
