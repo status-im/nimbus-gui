@@ -1,7 +1,5 @@
 # Nimbus GUI
 
-## Introduction
-
 The goal of this project is to develop a management and monitoring GUI for the [Nimbus Ethereum client](https://nimbus.team).
 
 Right now, Nimbus is managed as a typical system service. It offers executables that can be launched from the command-line. It produces log output as the primary way to communicate information to the user and it's typically monitored through [Prometheus and Grafana](https://nimbus.guide/metrics-pretty-pictures.html). The user can interact with Nimbus through a standardized [REST](https://ethereum.github.io/beacon-APIs/) [APIs](https://ethereum.github.io/keymanager-APIs/) with some Nimbus-specific extensions.
