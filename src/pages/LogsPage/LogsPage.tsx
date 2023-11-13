@@ -5,6 +5,7 @@ import LeftSidebar from '../../components/General/LeftSidebar/LeftSidebar'
 import RightSidebar from '../../components/General/RightSideBar/RightSidebar'
 import LogsTerminal from './LogsTerminal'
 import LogsSumCard from './LogsSumCard'
+import SupportCard from './SupportCard'
 
 const LogsPage = () => {
   return (
@@ -26,11 +27,11 @@ const LogsPage = () => {
         <TitleLogo />
         <Stack style={{ width: '100%', alignItems: 'center' }}>
           <LogsTerminal />
-          <XStack space="$8">
-            <LogsSumCard />
-            <LogsSumCard />
-            <LogsSumCard />
-            <LogsSumCard />
+          <XStack space="$4">
+            <LogsSumCard type={'Critical'} count={16} countActive={2} countInactive={3} />
+            <LogsSumCard type={'Warning'} count={9} countActive={2} countInactive={7} />
+            <LogsSumCard type={'Critical'} count={6} countActive={2} countInactive={0} />
+            <SupportCard />
           </XStack>
         </Stack>
       </YStack>
