@@ -24,7 +24,7 @@ const ValidatorManagementContent = () => {
       <XStack justifyContent={'space-between'} width={'100%'}>
         <ManagementCard />
         <ManagementCard />
-        <AddCardsContainer />
+        <AddCardsContainer cardsAmount={2} />
       </XStack>
       <Text size={27} weight={'semibold'}>
         Validators

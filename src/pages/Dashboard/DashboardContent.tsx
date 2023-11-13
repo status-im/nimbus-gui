@@ -42,7 +42,7 @@ const DashboardContent = ({ windowWidth }: DashboardContentProps) => {
         }}
       >
         <SyncStatusCards />
-        <AddCardsContainer />
+        <AddCardsContainer cardsAmount={2} />
         {windowWidth < 1375 ? (
           <Stack style={{ gridColumn: '1 / span 2' }} width={'101%'}>
             <BalanceChartCard />
