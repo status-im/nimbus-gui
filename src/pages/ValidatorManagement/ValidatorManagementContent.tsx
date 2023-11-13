@@ -21,7 +21,7 @@ const ValidatorManagementContent = () => {
       className="transparent-scrollbar"
     >
       <ManagementHeader />
-      <XStack justifyContent={'space-between'} width={'100%'}>
+      <XStack space={'$4'} justifyContent={'space-between'} width={'100%'}>
         <ManagementCard />
         <ManagementCard />
         <AddCardsContainer cardsAmount={2} />
