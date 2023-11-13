@@ -42,7 +42,7 @@ const ManagementTabs = () => {
       </Stack>
       {VALIDATOR_TABS.map(tab => (
         <Tabs.Content key={tab.value} value={tab.value} style={{ marginTop: '8px' }}>
-          <ManagementTable />
+          <ManagementTable tab={tab.value} />
         </Tabs.Content>
       ))}
     </Tabs>

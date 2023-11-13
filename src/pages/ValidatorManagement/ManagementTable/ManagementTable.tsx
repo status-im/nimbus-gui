@@ -58,7 +58,11 @@ const validators = [
   },
 ]
 
-const ManagementTable = () => {
+type ManagementTableProps = {
+  tab: string
+}
+
+const ManagementTable = ({ tab }: ManagementTableProps) => {
   const [searchValue, setSearchValue] = useState('')
 
   const changeSearchValue = (value: string) => {
@@ -155,59 +159,61 @@ const ManagementTable = () => {
           </tr>
         </thead>
         <tbody>
-          {validators.map((validator, index) => (
-            <tr key={index}>
-              <td>
-                <Checkbox id={index.toString()} variant="outline" />
-              </td>
-              <td>
-                <ValidatorProfile number={validator.number} address={validator.address} />
-              </td>
-              <td>
-                <Text size={15} color={'#647084'} weight={'semibold'}>
-                  {validator.balance}
-                </Text>
-              </td>
-              <td>
-                <Text size={15} color={'#647084'} weight={'semibold'}>
-                  {validator.income}
-                </Text>
-              </td>
-              <td>
-                <Text size={15} color={'#647084'}>
-                  {validator.proposals}
-                </Text>
-              </td>
-              <td>
-                <Text size={15} color={'#647084'}>
-                  {validator.attestations}
-                </Text>
-              </td>
-              <td>
-                <Text size={15} color={'#647084'}>
-                  {validator.effectiveness}
-                </Text>
-              </td>
-              <td>
-                <Text size={15} color={'#647084'}>
-                  {validator.deposits}
-                </Text>
-              </td>
-              <td>
-                <Text size={15} color={'#647084'}>
-                  {validator.rank}
-                </Text>
-              </td>
-              <td>
-                <Text size={15} color={'#2F80ED'} weight={'semibold'}>
-                  {validator.status}
-                </Text>
-              </td>
-              <td>
-                <OptionsIcon size={20} color="#647084" style={{ cursor: 'pointer' }} />
-              </td>
-            </tr>
-          ))}
+          {validators
+            .filter(validator => validator.status === tab)
+            .map((validator, index) => (
+              <tr key={index}>
+                <td>
+                  <Checkbox id={index.toString()} variant="outline" />
+                </td>
+                <td>
+                  <ValidatorProfile number={validator.number} address={validator.address} />
+                </td>
+                <td>
+                  <Text size={15} color={'#647084'} weight={'semibold'}>
+                    {validator.balance}
+                  </Text>
+                </td>
+                <td>
+                  <Text size={15} color={'#647084'} weight={'semibold'}>
+                    {validator.income}
+                  </Text>
+                </td>
+                <td>
+                  <Text size={15} color={'#647084'}>
+                    {validator.proposals}
+                  </Text>
+                </td>
+                <td>
+                  <Text size={15} color={'#647084'}>
+                    {validator.attestations}
+                  </Text>
+                </td>
+                <td>
+                  <Text size={15} color={'#647084'}>
+                    {validator.effectiveness}
+                  </Text>
+                </td>
+                <td>
+                  <Text size={15} color={'#647084'}>
+                    {validator.deposits}
+                  </Text>
+                </td>
+                <td>
+                  <Text size={15} color={'#647084'}>
+                    {validator.rank}
+                  </Text>
+                </td>
+                <td>
+                  <Text size={15} color={'#2F80ED'} weight={'semibold'}>
+                    {validator.status}
+                  </Text>
+                </td>
+                <td>
+                  <OptionsIcon size={20} color="#647084" style={{ cursor: 'pointer' }} />
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </YStack>
