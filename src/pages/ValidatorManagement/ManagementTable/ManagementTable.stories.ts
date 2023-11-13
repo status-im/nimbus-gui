@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import ManagementTable from './ManagementTable'
+import { VALIDATOR_TABS } from '../../../constants'
 
 const meta = {
   title: 'ValidatorManagement/ManagementTable',
@@ -16,6 +17,6 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    tab: 'Active'
+    tab: VALIDATOR_TABS[0],
   },
 }
