@@ -63,7 +63,7 @@ const LogsTerminal = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      addNewLog()
+     // addNewLog()
     }, 2000)
 
     return () => clearInterval(interval)
