@@ -1,9 +1,11 @@
 import { Text } from '@status-im/components'
-import { useEffect, useState } from 'react'
-import { FixedSizeList as List } from 'react-window'
+
+import { FixedSizeList, FixedSizeList as List } from 'react-window'
 import InfiniteLoader from 'react-window-infinite-loader'
 import './scroller.css'
 import { Stack, XStack } from 'tamagui'
+import { exampleData } from './exampleData'
+import { useEffect, useRef, useState } from 'react'
 
 type DataType = {
   option: string
@@ -15,7 +17,7 @@ interface RowProps {
   index: number
 }
 
-const Row: React.FC<RowProps> = ({ data, index }) => {
+const Row = ({ data, index }: RowProps) => {
   if (!data) {
     return <Text size={19}>Loading...</Text>
   }
@@ -37,675 +39,99 @@ const Row: React.FC<RowProps> = ({ data, index }) => {
       >
         {index}
       </Stack>
-      <Stack style={{ alignContent: 'flex-start', marginRight: '20px', minWidth: '110px' }}>
+      <Stack>{new Date(Date.now()).toLocaleDateString()}</Stack>
+      <Stack
+        style={{
+          alignContent: 'flex-start',
+          marginRight: '20px',
+          marginLeft: '20px',
+          minWidth: '110px',
+        }}
+      >
         {option}
       </Stack>
       <Stack>{description}</Stack>
     </XStack>
   )
 }
+const LogsTerminal = () => {
+  const [data, setData] = useState<DataType[]>([])
+  const [isScrolling, setIsScrolling] = useState(false)
+  const [loadedIndexes, setLoadedIndexes] = useState<{ [key: number]: boolean }>({})
+  const listRef = useRef<FixedSizeList | null>(null)
+  const [shouldAutoScroll, setShouldAutoScroll] = useState(true)
 
-const LogsTerminal: React.FC = () => {
-  const [data, setData] = useState<(DataType | undefined)[]>([])
   useEffect(() => {
-    const exampleData: DataType[] = [
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
+    const interval = setInterval(() => {
+      addNewLog()
+    }, 2000)
 
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
+    return () => clearInterval(interval)
+  }, [isScrolling])
 
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
+  useEffect(() => {
+    if (listRef.current && shouldAutoScroll) {
+      setTimeout(() => {
+        if (listRef.current) listRef.current.scrollToItem(data.length - 1, 'end')
+      }, 500)
+    }
+  }, [data, shouldAutoScroll])
 
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--config-file',
-        description: 'Loads the configuration from a TOML file.',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-      {
-        option: '--log-level',
-        description:
-          'Sets the log level for process and topics (e.g., DEBUG; TRACE:discv5,libp2p; REQUIRED:none; DISABLED:none) [INFO].',
-      },
-    ]
-    const initialData = [...exampleData, ...Array(500 - exampleData.length).fill(undefined)]
-    setData(initialData)
-  }, [])
-
-  const isItemLoaded = (index: number): boolean => index < data.length && data[index] !== undefined
-
-  const loadMoreItems = (startIndex: number, stopIndex: number): Promise<void> => {
+  const loadMoreItems = async (startIndex: number, stopIndex: number) => {
     return new Promise<void>(resolve => {
       setTimeout(() => {
-        setData(prevData => {
-          const newData = [...prevData]
-          for (let i = startIndex; i <= stopIndex; i++) {
-            if (!newData[i]) {
-              newData[i] = { option: `Option ${i}`, description: `Description for ${i}` }
-            }
-          }
-          return newData
-        })
+        const newData = exampleData.slice(startIndex, stopIndex + 1)
+        setData((prevData: DataType[]) => [...prevData, ...newData])
+
+        for (let i = startIndex; i <= stopIndex; i++) {
+          setLoadedIndexes((prev: { [key: number]: boolean }) => ({ ...prev, [i]: true }))
+        }
         resolve()
-      }, 1000)
+      }, 5000)
     })
+  }
+
+  const isItemLoaded = (index: number) => !!loadedIndexes[index]
+
+  const addNewLog = () => {
+    if (!isScrolling) {
+      const newLog: DataType = {
+        option: `--new-option-${data.length + 1}`,
+        description: `New log entry ${data.length + 1} ${Math.random()}`,
+      }
+
+      const newIndex = data.length
+      setData(prevData => [...prevData, newLog])
+      setLoadedIndexes(prev => ({ ...prev, [newIndex]: true }))
+    }
+  }
+
+  const handleScroll = ({ scrollTop, scrollHeight, clientHeight }: any) => {
+    if (scrollTop < scrollHeight - clientHeight) {
+      setIsScrolling(true)
+      setShouldAutoScroll(false)
+    } else {
+      setIsScrolling(false)
+
+      if (!shouldAutoScroll && scrollTop === scrollHeight - clientHeight) {
+        setShouldAutoScroll(true)
+      }
+    }
   }
 
   return (
     <Stack>
       <InfiniteLoader
-        isItemLoaded={isItemLoaded}
         itemCount={data.length}
+        isItemLoaded={isItemLoaded}
         loadMoreItems={loadMoreItems}
       >
-        {({ onItemsRendered, ref }: any) => (
+        {({ onItemsRendered, ref }) => (
           <List
+            ref={(list: FixedSizeList | null) => {
+              listRef.current = list
+              ref(list)
+            }}
             className="custom-scroll"
             height={650}
             width={1100}
@@ -713,7 +139,7 @@ const LogsTerminal: React.FC = () => {
             itemSize={20}
             itemData={data}
             onItemsRendered={onItemsRendered}
-            ref={ref}
+            onScroll={handleScroll}
             style={{
               borderRadius: '25px',
               border: '1px solid #E7EAEE',
