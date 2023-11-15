@@ -70,17 +70,24 @@ const testValidatorStatus = (validatorStatus: string, tabStatus: string) => {
   return false
 }
 
+const testNumberAndAddress = (
+  validatorNumber: number,
+  validatorAddress: string,
+  searchValue: string,
+) => {
+  if (validatorNumber.toString().includes(searchValue) || validatorAddress.includes(searchValue)) {
+    return true
+  }
+  return false
+}
+
 const ManagementTable = ({ tab }: ManagementTableProps) => {
   const [searchValue, setSearchValue] = useState('')
 
   const filteredValidators = useMemo(() => {
     return validators
       .filter(validator => testValidatorStatus(validator.status, tab))
-      .filter(
-        validator =>
-          validator.number.toString().includes(searchValue) ||
-          validator.address.includes(searchValue),
-      )
+      .filter(validator => testNumberAndAddress(validator.number, validator.address, searchValue))
   }, [tab, searchValue])
 
   const changeSearchValue = (value: string) => {
