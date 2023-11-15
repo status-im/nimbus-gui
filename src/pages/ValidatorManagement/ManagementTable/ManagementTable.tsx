@@ -10,6 +10,8 @@ import './ManagementTable.css'
 
 type ManagementTableProps = {
   tab: string
+  searchValue: string
+  changeSearchValue: (value: string) => void
 }
 
 type Validator = {
@@ -41,9 +43,8 @@ const isValidNumberOrAddress = (
   return false
 }
 
-const ManagementTable = ({ tab }: ManagementTableProps) => {
+const ManagementTable = ({ tab, searchValue, changeSearchValue }: ManagementTableProps) => {
   const [validators, setValidators] = useState<Validator[]>([])
-  const [searchValue, setSearchValue] = useState('')
 
   useEffect(() => {
     setValidators(VALIDATORS_DATA)
@@ -54,10 +55,6 @@ const ManagementTable = ({ tab }: ManagementTableProps) => {
       .filter(validator => isValidStatus(validator.status, tab))
       .filter(validator => isValidNumberOrAddress(validator.number, validator.address, searchValue))
   }, [validators, tab, searchValue])
-
-  const changeSearchValue = (value: string) => {
-    setSearchValue(value)
-  }
 
   return (
     <YStack>
