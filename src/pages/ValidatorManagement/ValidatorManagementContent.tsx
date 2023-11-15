@@ -28,8 +28,8 @@ const ValidatorManagementContent = () => {
       </XStack>
       <Text size={27} weight={'semibold'}>
         Validators
-        <ManagementTabs />
       </Text>
+      <ManagementTabs />
     </YStack>
   )
 }
