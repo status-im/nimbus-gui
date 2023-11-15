@@ -17,11 +17,9 @@ type Validator = {
   address: string
   balance: number
   income: number
-  proposals: number
-  attestations: number
+  proposals: string
+  attestations: string
   effectiveness: number
-  deposits: number
-  rank: number
   status: string
 }
 
@@ -134,16 +132,6 @@ const ManagementTable = ({ tab }: ManagementTableProps) => {
             </th>
             <th>
               <Text size={15} color={'#647084'}>
-                Deposits
-              </Text>
-            </th>
-            <th>
-              <Text size={15} color={'#647084'}>
-                Rank
-              </Text>
-            </th>
-            <th>
-              <Text size={15} color={'#647084'}>
                 Status
               </Text>
             </th>
@@ -181,17 +169,7 @@ const ManagementTable = ({ tab }: ManagementTableProps) => {
               </td>
               <td>
                 <Text size={15} color={'#647084'}>
-                  {validator.effectiveness}
-                </Text>
-              </td>
-              <td>
-                <Text size={15} color={'#647084'}>
-                  {validator.deposits}
-                </Text>
-              </td>
-              <td>
-                <Text size={15} color={'#647084'}>
-                  {validator.rank}
+                  {validator.effectiveness}%
                 </Text>
               </td>
               <td>
