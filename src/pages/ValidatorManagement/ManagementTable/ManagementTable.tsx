@@ -1,14 +1,14 @@
 import { Checkbox, DropdownMenu, Text } from '@status-im/components'
 import { OptionsIcon, SortIcon } from '@status-im/icons'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { YStack, XStack, Stack } from 'tamagui'
 
 import ValidatorProfile from '../../../components/General/ValidatorProfile'
 import SearchManagement from './SearchManagement'
-import './ManagementTable.css'
 import { VALIDATOR_TABS } from '../../../constants'
+import './ManagementTable.css'
 
-const validators = [
+const validatorsData = [
   {
     number: 1,
     address: 'zQ3asdf9d4Gs0',
@@ -63,6 +63,19 @@ type ManagementTableProps = {
   tab: string
 }
 
+type Validator = {
+  number: number
+  address: string
+  balance: number
+  income: number
+  proposals: number
+  attestations: number
+  effectiveness: number
+  deposits: number
+  rank: number
+  status: string
+}
+
 const isValidStatus = (validatorStatus: string, tabStatus: string) => {
   if (validatorStatus === tabStatus || tabStatus === VALIDATOR_TABS[VALIDATOR_TABS.length - 1]) {
     return true
@@ -82,13 +95,18 @@ const isValidNumberOrAddress = (
 }
 
 const ManagementTable = ({ tab }: ManagementTableProps) => {
+  const [validators, setValidators] = useState<Validator[]>([])
   const [searchValue, setSearchValue] = useState('')
+
+  useEffect(() => {
+    setValidators(validatorsData)
+  }, [])
 
   const filteredValidators = useMemo(() => {
     return validators
       .filter(validator => isValidStatus(validator.status, tab))
       .filter(validator => isValidNumberOrAddress(validator.number, validator.address, searchValue))
-  }, [tab, searchValue])
+  }, [validators, tab, searchValue])
 
   const changeSearchValue = (value: string) => {
     setSearchValue(value)
