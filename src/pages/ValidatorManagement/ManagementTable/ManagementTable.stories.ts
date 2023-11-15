@@ -18,5 +18,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     tab: VALIDATOR_TABS[0],
+    searchValue: '',
+    changeSearchValue: () => {},
   },
 }
