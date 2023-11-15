@@ -122,7 +122,7 @@ const ManagementTable = ({ tab }: ManagementTableProps) => {
             </th>
             <th>
               <Text size={15} color={'#647084'}>
-                {validators.length} Validators
+                {filteredValidators.length} Validators
               </Text>
             </th>
             <th>
