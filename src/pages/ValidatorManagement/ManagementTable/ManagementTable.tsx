@@ -6,6 +6,7 @@ import { YStack, XStack, Stack } from 'tamagui'
 import ValidatorProfile from '../../../components/General/ValidatorProfile'
 import SearchManagement from './SearchManagement'
 import './ManagementTable.css'
+import { VALIDATOR_TABS } from '../../../constants'
 
 const validators = [
   {
@@ -62,12 +63,19 @@ type ManagementTableProps = {
   tab: string
 }
 
+const testValidatorStatus = (validatorStatus: string, tabStatus: string) => {
+  if (validatorStatus === tabStatus || tabStatus === VALIDATOR_TABS[VALIDATOR_TABS.length - 1]) {
+    return true
+  }
+  return false
+}
+
 const ManagementTable = ({ tab }: ManagementTableProps) => {
   const [searchValue, setSearchValue] = useState('')
 
   const filteredValidators = useMemo(() => {
     return validators
-      .filter(validator => validator.status === tab)
+      .filter(validator => testValidatorStatus(validator.status, tab))
       .filter(
         validator =>
           validator.number.toString().includes(searchValue) ||
