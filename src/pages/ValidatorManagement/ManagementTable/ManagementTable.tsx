@@ -5,59 +5,8 @@ import { YStack, XStack, Stack } from 'tamagui'
 
 import ValidatorProfile from '../../../components/General/ValidatorProfile'
 import SearchManagement from './SearchManagement'
-import { VALIDATOR_TABS } from '../../../constants'
+import { VALIDATORS_DATA, VALIDATOR_TABS } from '../../../constants'
 import './ManagementTable.css'
-
-const validatorsData = [
-  {
-    number: 1,
-    address: 'zQ3asdf9d4Gs0',
-    balance: 100,
-    income: 100,
-    proposals: 100,
-    attestations: 100,
-    effectiveness: 100,
-    deposits: 100,
-    rank: 100,
-    status: 'Active',
-  },
-  {
-    number: 1,
-    address: 'zQ3asdf9d4Gs0',
-    balance: 100,
-    income: 100,
-    proposals: 100,
-    attestations: 100,
-    effectiveness: 100,
-    deposits: 100,
-    rank: 100,
-    status: 'Active',
-  },
-  {
-    number: 1,
-    address: 'zQ3asdf9d4Gs0',
-    balance: 100,
-    income: 100,
-    proposals: 100,
-    attestations: 100,
-    effectiveness: 100,
-    deposits: 100,
-    rank: 100,
-    status: 'Active',
-  },
-  {
-    number: 1,
-    address: 'zQ3asdf9d4Gs0',
-    balance: 100,
-    income: 100,
-    proposals: 100,
-    attestations: 100,
-    effectiveness: 100,
-    deposits: 100,
-    rank: 100,
-    status: 'Active',
-  },
-]
 
 type ManagementTableProps = {
   tab: string
@@ -99,7 +48,7 @@ const ManagementTable = ({ tab }: ManagementTableProps) => {
   const [searchValue, setSearchValue] = useState('')
 
   useEffect(() => {
-    setValidators(validatorsData)
+    setValidators(VALIDATORS_DATA)
   }, [])
 
   const filteredValidators = useMemo(() => {
