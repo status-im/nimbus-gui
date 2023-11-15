@@ -63,14 +63,14 @@ type ManagementTableProps = {
   tab: string
 }
 
-const testValidatorStatus = (validatorStatus: string, tabStatus: string) => {
+const isValidStatus = (validatorStatus: string, tabStatus: string) => {
   if (validatorStatus === tabStatus || tabStatus === VALIDATOR_TABS[VALIDATOR_TABS.length - 1]) {
     return true
   }
   return false
 }
 
-const testNumberAndAddress = (
+const isValidNumberOrAddress = (
   validatorNumber: number,
   validatorAddress: string,
   searchValue: string,
@@ -86,8 +86,8 @@ const ManagementTable = ({ tab }: ManagementTableProps) => {
 
   const filteredValidators = useMemo(() => {
     return validators
-      .filter(validator => testValidatorStatus(validator.status, tab))
-      .filter(validator => testNumberAndAddress(validator.number, validator.address, searchValue))
+      .filter(validator => isValidStatus(validator.status, tab))
+      .filter(validator => isValidNumberOrAddress(validator.number, validator.address, searchValue))
   }, [tab, searchValue])
 
   const changeSearchValue = (value: string) => {
