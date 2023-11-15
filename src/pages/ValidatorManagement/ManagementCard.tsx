@@ -5,7 +5,7 @@ const ManagementCard = () => {
   return (
     <YStack
       space={'$3'}
-      style={{ border: '1px solid #F0F2F5', borderRadius: '16px', width: '297px', maxWidth: '33%' }}
+      style={{ border: '1px solid #F0F2F5', borderRadius: '16px', width: '33%' }}
     >
       <Stack style={{ padding: '12px 16px' }}>
         <Text size={15} weight={'semibold'}>
