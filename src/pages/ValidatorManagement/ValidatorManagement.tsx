@@ -3,6 +3,7 @@ import { XStack } from 'tamagui'
 import ValidatorManagementContent from './ValidatorManagementContent'
 import LeftSidebar from '../../components/General/LeftSidebar/LeftSidebar'
 import RightSidebar from '../../components/General/RightSideBar/RightSidebar'
+import './ValidatorManagement.css'
 
 const ValidatorManagement = () => {
   return (

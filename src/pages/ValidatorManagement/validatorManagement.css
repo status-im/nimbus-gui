@@ -1,0 +1,63 @@
+/* Hide Effectiveness */
+@media (max-width: 1300px) {
+  th:nth-child(7),
+  td:nth-child(7) {
+    display: none;
+  }
+}
+
+/* Hide the Attestations */
+@media (max-width: 1200px) {
+  th:nth-child(6),
+  td:nth-child(6) {
+    display: none;
+  }
+}
+
+/* Hide the Proposals */
+@media (max-width: 1100px) {
+  th:nth-child(5),
+  td:nth-child(5) {
+    display: none;
+  }
+}
+
+/* Hide and show Proposals */
+@media (max-width: 900px) and (min-width: 800px) {
+  th:nth-child(5),
+  td:nth-child(5) {
+    display: table-cell;
+  }
+}
+
+/* Hide the Income */
+@media (max-width: 1000px) {
+  th:nth-child(4),
+  td:nth-child(4) {
+    display: none;
+  }
+}
+
+/* Hide and show Income */
+@media (max-width: 900px) and (min-width: 700px) {
+  th:nth-child(4),
+  td:nth-child(4) {
+    display: table-cell;
+  }
+}
+
+/* Hide Status */
+@media (max-width: 560px) {
+  th:nth-child(8),
+  td:nth-child(8) {
+    display: none;
+  }
+}
+
+/* Hide Balance */
+@media (max-width: 400px) {
+  th:nth-child(3),
+  td:nth-child(3) {
+    display: none;
+  }
+}
