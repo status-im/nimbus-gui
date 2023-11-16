@@ -9,7 +9,9 @@ const ValidatorManagement = () => {
     <XStack style={{ height: '100vh' }}>
       <LeftSidebar />
       <ValidatorManagementContent />
-      <RightSidebar />
+      <div className="right-sidebar-wrapper">
+        <RightSidebar />
+      </div>
     </XStack>
   )
 }
