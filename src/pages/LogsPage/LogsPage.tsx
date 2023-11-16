@@ -39,13 +39,23 @@ const LogsPage = () => {
       >
         <TitleLogo />
         <Stack style={{ width: '100%', alignItems: 'center' }}>
-          <LogsTerminal windowWidth={windowWidth}/>
-          <XStack space="$4">
+          <LogsTerminal windowWidth={windowWidth} />
+          <Stack
+            space="$4"
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+              gap: '1vw',
+              width: '100%',
+            }}
+            width={'90%'}
+          >
             <LogsSumCard type={'Critical'} count={16} countActive={2} countInactive={3} />
             <LogsSumCard type={'Warning'} count={9} countActive={2} countInactive={7} />
             <LogsSumCard type={'Critical'} count={6} countActive={2} countInactive={0} />
             <SupportCard />
-          </XStack>
+          </Stack>
         </Stack>
       </YStack>
       <RightSidebar />

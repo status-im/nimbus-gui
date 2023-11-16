@@ -12,7 +12,7 @@ type LogsSumCardProps = {
 }
 const LogsSumCard = ({ type, count, countActive, countInactive }: LogsSumCardProps) => {
   return (
-    <DashboardCardWrapper>
+    <DashboardCardWrapper maxWidth='260px'>
       <YStack
         style={{
           borderRadius: '16px',
