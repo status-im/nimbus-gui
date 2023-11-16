@@ -6,8 +6,21 @@ import RightSidebar from '../../components/General/RightSideBar/RightSidebar'
 import LogsTerminal from './LogsTerminal'
 import LogsSumCard from './LogsSumCard'
 import SupportCard from './SupportCard'
+import { useEffect, useState } from 'react'
 
 const LogsPage = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(+window.innerWidth)
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
   return (
     <XStack style={{ height: '100vh' }}>
       <LeftSidebar />
@@ -26,7 +39,7 @@ const LogsPage = () => {
       >
         <TitleLogo />
         <Stack style={{ width: '100%', alignItems: 'center' }}>
-          <LogsTerminal />
+          <LogsTerminal windowWidth={windowWidth}/>
           <XStack space="$4">
             <LogsSumCard type={'Critical'} count={16} countActive={2} countInactive={3} />
             <LogsSumCard type={'Warning'} count={9} countActive={2} countInactive={7} />
