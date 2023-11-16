@@ -1,4 +1,4 @@
-import { Text } from '@status-im/components'
+import { Button, Text } from '@status-im/components'
 
 import { FixedSizeList, FixedSizeList as List } from 'react-window'
 import InfiniteLoader from 'react-window-infinite-loader'
@@ -6,55 +6,17 @@ import './scroller.css'
 import { Stack, XStack } from 'tamagui'
 import { exampleData } from './exampleData'
 import { useEffect, useRef, useState } from 'react'
+import TerminalRow from './TerminalRow'
 
 type DataType = {
   option: string
   description: string
 }
 
-interface RowProps {
-  data: DataType | undefined
-  index: number
+type LogsTerminalProps = {
+  windowWidth: number
 }
-
-const Row = ({ data, index }: RowProps) => {
-  if (!data) {
-    return <Text size={19}>Loading...</Text>
-  }
-
-  const { option, description } = data
-  return (
-    <XStack style={{ fontFamily: 'monospace' }}>
-      <Stack
-        style={{
-          alignContent: 'flex-start',
-          justifyContent: 'center',
-          alignItems: 'center',
-          padding: '0 12px',
-          marginRight: '20px',
-          width: '30px',
-          backgroundColor: '#f5f6f8',
-          color: '#A1ABBD',
-        }}
-      >
-        {index}
-      </Stack>
-      <Stack>{new Date(Date.now()).toLocaleDateString()}</Stack>
-      <Stack
-        style={{
-          alignContent: 'flex-start',
-          marginRight: '20px',
-          marginLeft: '20px',
-          minWidth: '110px',
-        }}
-      >
-        {option}
-      </Stack>
-      <Stack>{description}</Stack>
-    </XStack>
-  )
-}
-const LogsTerminal = () => {
+const LogsTerminal = ({ windowWidth }: LogsTerminalProps) => {
   const [data, setData] = useState<DataType[]>([])
   const [isScrolling, setIsScrolling] = useState(false)
   const [loadedIndexes, setLoadedIndexes] = useState<{ [key: number]: boolean }>({})
@@ -63,8 +25,8 @@ const LogsTerminal = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-     // addNewLog()
-    }, 2000)
+      // addNewLog()
+    }, 3000)
 
     return () => clearInterval(interval)
   }, [isScrolling])
@@ -90,7 +52,6 @@ const LogsTerminal = () => {
       }, 5000)
     })
   }
-
   const isItemLoaded = (index: number) => !!loadedIndexes[index]
 
   const addNewLog = () => {
@@ -120,7 +81,12 @@ const LogsTerminal = () => {
   }
 
   return (
-    <Stack>
+    <Stack
+      style={{
+        display: 'grid',
+        gridTemplateColumns: '1fr',
+      }}
+    >
       <InfiniteLoader
         itemCount={data.length}
         isItemLoaded={isItemLoaded}
@@ -131,12 +97,13 @@ const LogsTerminal = () => {
             ref={(list: FixedSizeList | null) => {
               listRef.current = list
               ref(list)
+              console.log(list)
             }}
             className="custom-scroll"
             height={650}
-            width={1100}
+            width={windowWidth - 500}
             itemCount={data.length}
-            itemSize={20}
+            itemSize={150}
             itemData={data}
             onItemsRendered={onItemsRendered}
             onScroll={handleScroll}
@@ -147,12 +114,15 @@ const LogsTerminal = () => {
           >
             {({ index, style }) => (
               <Stack style={style}>
-                <Row data={data[index]} index={index} />
+                <TerminalRow data={data[index]} index={index} />
               </Stack>
             )}
           </List>
         )}
       </InfiniteLoader>
+      <Button fullWidth onPress={() => addNewLog()}>
+        Press to add log
+      </Button>
     </Stack>
   )
 }
