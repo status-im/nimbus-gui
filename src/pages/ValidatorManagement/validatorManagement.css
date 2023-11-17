@@ -1,3 +1,21 @@
+@media (max-width: 1130px) {
+  .sync-status-card-container-first {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) and (min-width: 810px) {
+  .sync-status-card-container-first {
+    display: block;
+  }
+}
+
+@media (max-width: 590px) {
+  .sync-status-card-container-second {
+    display: none;
+  }
+}
+
 /* Hide Effectiveness */
 @media (max-width: 1300px) {
   th:nth-child(7),
