@@ -15,18 +15,22 @@ const ManagementHeader = () => {
     >
       <TitleLogo subtitle="Validator Management" />
       <XStack space={'$2'}>
-        <SyncStatusCard
-          synced={123.524}
-          total={172.503}
-          title="Execution Sync Status"
-          color="#2a4af5"
-        />
-        <SyncStatusCard
-          synced={123.524}
-          total={172.503}
-          title="Consensus Sync Status"
-          color="#ff6161"
-        />
+        <div className="sync-status-card-container-first">
+          <SyncStatusCard
+            synced={123.524}
+            total={172.503}
+            title="Execution Sync Status"
+            color="#2a4af5"
+          />
+        </div>
+        <div className="sync-status-card-container-second">
+          <SyncStatusCard
+            synced={123.524}
+            total={172.503}
+            title="Consensus Sync Status"
+            color="#ff6161"
+          />
+        </div>
       </XStack>
     </XStack>
   )
