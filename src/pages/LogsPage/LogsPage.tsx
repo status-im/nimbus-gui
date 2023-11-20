@@ -43,36 +43,7 @@ const LogsPage = () => {
       >
         <XStack justifyContent="space-between" width={'100%'}>
           <TitleLogo />
-          <XStack space={'$4'}>
-            <Input variant="retractable" color={'black'} icon={<SearchIcon size={16} />}></Input>
-            <Stack>
-              <DropdownMenu>
-                <Button variant="outline" icon={<DropdownIcon size={16} />}>
-                  {dropdownMenuItem}
-                </Button>
-                <DropdownMenu.Content>
-                  <DropdownMenu.Item
-                    label="Validator"
-                    onSelect={() => setDropdownMenuItem('Validator')}
-                  />
-                  <DropdownMenu.Item
-                    label="Critical"
-                    onSelect={() => setDropdownMenuItem('Critical')}
-                  />
-                  <DropdownMenu.Item
-                    label="Warnings"
-                    onSelect={() => setDropdownMenuItem('Warnings')}
-                  />
-                </DropdownMenu.Content>
-              </DropdownMenu>
-            </Stack>
-            <Button
-              variant="outline"
-              icon={<SwitchComponent timestamps={timestamps} setTimestamps={setTimestamps} />}
-            >
-              Timestamps
-            </Button>
-          </XStack>
+          
         </XStack>
         <Stack style={{ width: '100%', alignItems: 'center' }}>
           <LogsTerminal windowWidth={windowWidth} />
