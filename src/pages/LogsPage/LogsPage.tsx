@@ -7,10 +7,11 @@ import LogsTerminal from './LogsTerminal'
 import LogsSumCard from './LogsSumCard'
 import SupportCard from './SupportCard'
 import { useEffect, useState } from 'react'
-import { Button, IconButton, Input, Text } from '@status-im/components'
+import { Button, Input } from '@status-im/components'
 import { SearchIcon, DropdownIcon } from '@status-im/icons'
 import SwitchComponent from './SwitchComponent'
 const LogsPage = () => {
+  const [timestamps, setTimestamps] = useState(false)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   useEffect(() => {
@@ -43,9 +44,16 @@ const LogsPage = () => {
           <TitleLogo />
           <XStack space={'$4'}>
             <Input variant="retractable" color={'black'} icon={<SearchIcon size={16} />}></Input>
-            
-            <Button variant="outline"  icon={<DropdownIcon size={16} />}>Validator</Button>
-            <Button variant="outline" icon={<SwitchComponent  />}>Timestamps</Button>
+
+            <Button variant="outline" icon={<DropdownIcon size={16} />}>
+              Validator
+            </Button>
+            <Button
+              variant="outline"
+              icon={<SwitchComponent timestamps={timestamps} setTimestamps={setTimestamps} />}
+            >
+              Timestamps
+            </Button>
           </XStack>
         </XStack>
         <Stack style={{ width: '100%', alignItems: 'center' }}>
