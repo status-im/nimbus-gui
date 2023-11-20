@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { useState } from 'react'
 
 import ManagementTable from './ManagementTable'
 import { VALIDATOR_TABS_MANAGEMENT } from '../../../constants'
-import { useState } from 'react'
 
 const meta = {
   title: 'ValidatorManagement/ManagementTable',

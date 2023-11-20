@@ -46,7 +46,7 @@ const ManagementTableHeader = ({ validatorsAmount }: ManagementTableHeaderProps)
             Status
           </Text>
         </th>
-        <th></th>
+        <th />
       </tr>
     </thead>
   )
