@@ -3,10 +3,11 @@ import { OptionsIcon } from '@status-im/icons'
 import { useEffect, useMemo, useState } from 'react'
 import { YStack, XStack } from 'tamagui'
 
+import { VALIDATORS_DATA, VALIDATOR_TABS_MANAGEMENT } from '../../../constants'
 import ValidatorProfile from '../../../components/General/ValidatorProfile'
 import SearchManagement from './SearchManagement'
 import DropdownFilter from './DropdownFilter'
-import { VALIDATORS_DATA, VALIDATOR_TABS_MANAGEMENT } from '../../../constants'
+import ManagementTableHeader from './ManagementTableHeader'
 import './ManagementTable.css'
 
 type ManagementTableProps = {
@@ -67,49 +68,7 @@ const ManagementTable = ({ tab, searchValue, changeSearchValue }: ManagementTabl
         <DropdownFilter />
       </XStack>
       <table>
-        <thead>
-          <tr>
-            <th>
-              <Checkbox id="table" variant="outline" />
-            </th>
-            <th>
-              <Text size={15} color={'#647084'}>
-                {filteredValidators.length} Validators
-              </Text>
-            </th>
-            <th>
-              <Text size={15} color={'#647084'}>
-                Balance
-              </Text>
-            </th>
-            <th>
-              <Text size={15} color={'#647084'}>
-                Income
-              </Text>
-            </th>
-            <th>
-              <Text size={15} color={'#647084'}>
-                Proposals
-              </Text>
-            </th>
-            <th>
-              <Text size={15} color={'#647084'}>
-                Attestations
-              </Text>
-            </th>
-            <th>
-              <Text size={15} color={'#647084'}>
-                Effectiveness
-              </Text>
-            </th>
-            <th>
-              <Text size={15} color={'#647084'}>
-                Status
-              </Text>
-            </th>
-            <th></th>
-          </tr>
-        </thead>
+        <ManagementTableHeader validatorsAmount={filteredValidators.length} />
         <tbody>
           {filteredValidators.map((validator, index) => (
             <tr key={index}>
