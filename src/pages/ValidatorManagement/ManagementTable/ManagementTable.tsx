@@ -1,10 +1,11 @@
-import { Checkbox, DropdownMenu, Text } from '@status-im/components'
-import { OptionsIcon, SortIcon } from '@status-im/icons'
+import { Checkbox, Text } from '@status-im/components'
+import { OptionsIcon } from '@status-im/icons'
 import { useEffect, useMemo, useState } from 'react'
-import { YStack, XStack, Stack } from 'tamagui'
+import { YStack, XStack } from 'tamagui'
 
 import ValidatorProfile from '../../../components/General/ValidatorProfile'
 import SearchManagement from './SearchManagement'
+import DropdownFilter from './DropdownFilter'
 import { VALIDATORS_DATA, VALIDATOR_TABS_MANAGEMENT } from '../../../constants'
 import './ManagementTable.css'
 
@@ -63,36 +64,7 @@ const ManagementTable = ({ tab, searchValue, changeSearchValue }: ManagementTabl
     <YStack>
       <XStack space={'$3'} justifyContent="space-between" alignItems="center">
         <SearchManagement searchValue={searchValue} changeSearchValue={changeSearchValue} />
-        <DropdownMenu>
-          <Stack style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
-            <SortIcon
-              size={20}
-              color="#647084"
-              style={{
-                border: '1px solid #DCE0E5',
-                borderRadius: '10px',
-                padding: '8px',
-                cursor: 'pointer',
-              }}
-            />
-            <Stack
-              style={{
-                position: 'absolute',
-                right: -2,
-                top: -1.5,
-                width: '9px',
-                height: '9px',
-                borderRadius: '50%',
-                backgroundColor: '#1992D7',
-                border: '1.5px solid #fff',
-              }}
-            />
-          </Stack>
-          <DropdownMenu.Content sideOffset={5} position="absolute" zIndex={999}>
-            <DropdownMenu.Item key={'name'} label={'name'} onSelect={() => {}} />
-            <DropdownMenu.Item key={'address'} label={'address'} onSelect={() => {}} />
-          </DropdownMenu.Content>
-        </DropdownMenu>
+        <DropdownFilter />
       </XStack>
       <table>
         <thead>
