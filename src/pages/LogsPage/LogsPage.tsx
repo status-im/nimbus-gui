@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react'
 import { Button, DropdownMenu, Input } from '@status-im/components'
 import { SearchIcon, DropdownIcon } from '@status-im/icons'
 import SwitchComponent from './SwitchComponent'
+import HeaderBtns from './HeaderBtns'
 
 const LogsPage = () => {
   const [timestamps, setTimestamps] = useState(false)
@@ -43,7 +44,12 @@ const LogsPage = () => {
       >
         <XStack justifyContent="space-between" width={'100%'}>
           <TitleLogo />
-          
+          <HeaderBtns
+            dropdownMenuItem={dropdownMenuItem}
+            setDropdownMenuItem={setDropdownMenuItem}
+            setTimestamps={setTimestamps}
+            timestamps={timestamps}
+          />
         </XStack>
         <Stack style={{ width: '100%', alignItems: 'center' }}>
           <LogsTerminal windowWidth={windowWidth} />
