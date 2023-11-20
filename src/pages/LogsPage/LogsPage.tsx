@@ -7,13 +7,14 @@ import LogsTerminal from './LogsTerminal'
 import LogsSumCard from './LogsSumCard'
 import SupportCard from './SupportCard'
 import { useEffect, useState } from 'react'
-import { Button, Input } from '@status-im/components'
+import { Button, DropdownMenu, Input } from '@status-im/components'
 import { SearchIcon, DropdownIcon } from '@status-im/icons'
 import SwitchComponent from './SwitchComponent'
+
 const LogsPage = () => {
   const [timestamps, setTimestamps] = useState(false)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-
+  const [dropdownMenuItem, setDropdownMenuItem] = useState('Validator')
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(+window.innerWidth)
@@ -44,10 +45,27 @@ const LogsPage = () => {
           <TitleLogo />
           <XStack space={'$4'}>
             <Input variant="retractable" color={'black'} icon={<SearchIcon size={16} />}></Input>
-
-            <Button variant="outline" icon={<DropdownIcon size={16} />}>
-              Validator
-            </Button>
+            <Stack>
+              <DropdownMenu>
+                <Button variant="outline" icon={<DropdownIcon size={16} />}>
+                  {dropdownMenuItem}
+                </Button>
+                <DropdownMenu.Content>
+                  <DropdownMenu.Item
+                    label="Validator"
+                    onSelect={() => setDropdownMenuItem('Validator')}
+                  />
+                  <DropdownMenu.Item
+                    label="Critical"
+                    onSelect={() => setDropdownMenuItem('Critical')}
+                  />
+                  <DropdownMenu.Item
+                    label="Warnings"
+                    onSelect={() => setDropdownMenuItem('Warnings')}
+                  />
+                </DropdownMenu.Content>
+              </DropdownMenu>
+            </Stack>
             <Button
               variant="outline"
               icon={<SwitchComponent timestamps={timestamps} setTimestamps={setTimestamps} />}
