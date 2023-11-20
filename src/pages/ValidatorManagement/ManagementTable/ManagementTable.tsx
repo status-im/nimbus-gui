@@ -26,7 +26,10 @@ type Validator = {
 }
 
 const isValidStatus = (validatorStatus: string, tabStatus: string) => {
-  if (validatorStatus === tabStatus || tabStatus === VALIDATOR_TABS_MANAGEMENT[VALIDATOR_TABS_MANAGEMENT.length - 1]) {
+  if (
+    validatorStatus === tabStatus ||
+    tabStatus === VALIDATOR_TABS_MANAGEMENT[VALIDATOR_TABS_MANAGEMENT.length - 1]
+  ) {
     return true
   }
   return false
