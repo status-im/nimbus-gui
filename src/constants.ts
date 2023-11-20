@@ -59,9 +59,17 @@ export const years = [
   'NOV',
   'DEC',
 ]
+export const VALIDATOR_TABS_RIGHT_SIDEBAR = ['Active', 'Pending', 'Inactive']
 
 // Validator Management
-export const VALIDATOR_TABS_MANAGEMENT = ['Active', 'Pending', 'Inactive', 'Exited', 'Withdraw', 'All']
+export const VALIDATOR_TABS_MANAGEMENT = [
+  'Active',
+  'Pending',
+  'Inactive',
+  'Exited',
+  'Withdraw',
+  'All',
+]
 
 export const VALIDATORS_DATA = [
   {
