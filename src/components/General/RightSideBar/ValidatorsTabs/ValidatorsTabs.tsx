@@ -6,7 +6,7 @@ import { VALIDATOR_TABS_RIGHT_SIDEBAR } from '../../../../constants'
 
 const ValidatorsTabs = () => {
   return (
-    <Tabs defaultValue="active">
+    <Tabs defaultValue={VALIDATOR_TABS_RIGHT_SIDEBAR[0]}>
       <Stack style={{ cursor: 'pointer', width: 'fit-content' }}>
         <Tabs.List size={32}>
           {VALIDATOR_TABS_RIGHT_SIDEBAR.map(tab => (
