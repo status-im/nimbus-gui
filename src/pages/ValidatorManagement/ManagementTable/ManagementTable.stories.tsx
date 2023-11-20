@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import ManagementTable from './ManagementTable'
-import { VALIDATOR_TABS } from '../../../constants'
+import { VALIDATOR_TABS_MANAGEMENT } from '../../../constants'
 import { useState } from 'react'
 
 const meta = {
@@ -25,7 +25,7 @@ export const Default: Story = () => {
 
   return (
     <ManagementTable
-      tab={VALIDATOR_TABS[0]}
+      tab={VALIDATOR_TABS_MANAGEMENT[0]}
       searchValue={searchValue}
       changeSearchValue={changeSearchValue}
     />
@@ -33,7 +33,7 @@ export const Default: Story = () => {
 }
 
 Default.args = {
-  tab: VALIDATOR_TABS[0],
+  tab: VALIDATOR_TABS_MANAGEMENT[0],
   searchValue: '',
   changeSearchValue: () => {},
 }

@@ -5,7 +5,7 @@ import { YStack, XStack, Stack } from 'tamagui'
 
 import ValidatorProfile from '../../../components/General/ValidatorProfile'
 import SearchManagement from './SearchManagement'
-import { VALIDATORS_DATA, VALIDATOR_TABS } from '../../../constants'
+import { VALIDATORS_DATA, VALIDATOR_TABS_MANAGEMENT } from '../../../constants'
 import './ManagementTable.css'
 
 type ManagementTableProps = {
@@ -26,7 +26,7 @@ type Validator = {
 }
 
 const isValidStatus = (validatorStatus: string, tabStatus: string) => {
-  if (validatorStatus === tabStatus || tabStatus === VALIDATOR_TABS[VALIDATOR_TABS.length - 1]) {
+  if (validatorStatus === tabStatus || tabStatus === VALIDATOR_TABS_MANAGEMENT[VALIDATOR_TABS_MANAGEMENT.length - 1]) {
     return true
   }
   return false
