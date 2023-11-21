@@ -2,14 +2,25 @@ import { Checkbox, Text } from '@status-im/components'
 
 type ManagementTableHeaderProps = {
   validatorsAmount: number
+  isAllSelected: boolean
+  handleSelectAll: () => void
 }
 
-const ManagementTableHeader = ({ validatorsAmount }: ManagementTableHeaderProps) => {
+const ManagementTableHeader = ({
+  validatorsAmount,
+  isAllSelected,
+  handleSelectAll,
+}: ManagementTableHeaderProps) => {
   return (
     <thead>
       <tr>
         <th>
-          <Checkbox id="table" variant="outline" />
+          <Checkbox
+            id="table"
+            variant="outline"
+            selected={isAllSelected}
+            onCheckedChange={handleSelectAll}
+          />
         </th>
         <th>
           <Text size={15} color={'#647084'}>

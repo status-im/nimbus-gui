@@ -17,5 +17,15 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     validatorsAmount: 4,
+    isAllSelected: false,
+    handleSelectAll: () => {},
+  },
+}
+
+export const AllSelectedHeader: Story = {
+  args: {
+    validatorsAmount: 4,
+    isAllSelected: true,
+    handleSelectAll: () => {},
   },
 }
