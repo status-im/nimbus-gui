@@ -15,17 +15,19 @@ type DataType = {
 
 type LogsTerminalProps = {
   windowWidth: number
+  dropdownMenuItem: string
+  timestamps: boolean
 }
-const LogsTerminal = ({ windowWidth }: LogsTerminalProps) => {
+const LogsTerminal = ({ windowWidth, dropdownMenuItem, timestamps }: LogsTerminalProps) => {
   const [data, setData] = useState<DataType[]>([])
   const [isScrolling, setIsScrolling] = useState(false)
   const [loadedIndexes, setLoadedIndexes] = useState<{ [key: number]: boolean }>({})
-  const listRef = useRef<FixedSizeList | null>(null)
+  const listRef = useRef<List | null>(null)
   const [shouldAutoScroll, setShouldAutoScroll] = useState(true)
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // addNewLog()
+      addNewLog()
     }, 3000)
 
     return () => clearInterval(interval)
@@ -33,6 +35,7 @@ const LogsTerminal = ({ windowWidth }: LogsTerminalProps) => {
 
   useEffect(() => {
     if (listRef.current && shouldAutoScroll) {
+      console.log(listRef.current)
       setTimeout(() => {
         if (listRef.current) listRef.current.scrollToItem(data.length - 1, 'end')
       }, 500)
