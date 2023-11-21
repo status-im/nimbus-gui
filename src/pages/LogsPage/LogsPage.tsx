@@ -52,7 +52,7 @@ const LogsPage = () => {
           />
         </XStack>
         <Stack style={{ width: '100%', alignItems: 'center' }}>
-          <LogsTerminal windowWidth={windowWidth} />
+          <LogsTerminal windowWidth={windowWidth} dropdownMenuItem={dropdownMenuItem} timestamps={timestamps} />
           <Stack
             space="$4"
             style={{
