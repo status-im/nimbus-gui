@@ -48,6 +48,7 @@ const isValidNumberOrAddress = (
 
 const ManagementTable = ({ tab, searchValue, changeSearchValue }: ManagementTableProps) => {
   const [validators, setValidators] = useState<Validator[]>([])
+  const [isAllSelected, setIsAllSelected] = useState(false)
 
   useEffect(() => {
     setValidators(VALIDATORS_DATA)
@@ -59,6 +60,10 @@ const ManagementTable = ({ tab, searchValue, changeSearchValue }: ManagementTabl
       .filter(validator => isValidNumberOrAddress(validator.number, validator.address, searchValue))
   }, [validators, tab, searchValue])
 
+  const handleSelectAll = () => {
+    setIsAllSelected(state => !state)
+  }
+
   return (
     <YStack>
       <XStack space={'$3'} justifyContent="space-between" alignItems="center">
@@ -66,8 +71,15 @@ const ManagementTable = ({ tab, searchValue, changeSearchValue }: ManagementTabl
         <DropdownFilter />
       </XStack>
       <table>
-        <ManagementTableHeader validatorsAmount={filteredValidators.length} />
-        <ManagementTableBody filteredValidators={filteredValidators} />
+        <ManagementTableHeader
+          validatorsAmount={filteredValidators.length}
+          isAllSelected={isAllSelected}
+          handleSelectAll={handleSelectAll}
+        />
+        <ManagementTableBody
+          filteredValidators={filteredValidators}
+          isAllSelected={isAllSelected}
+        />
       </table>
     </YStack>
   )
