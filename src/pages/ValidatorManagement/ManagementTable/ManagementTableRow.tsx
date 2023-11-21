@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Checkbox, Text } from '@status-im/components'
 import { OptionsIcon } from '@status-im/icons'
 
@@ -6,13 +7,29 @@ import { Validator } from './ManagementTable'
 
 type ManagementTableRowProps = {
   validator: Validator
+  isAllSelected: boolean
 }
 
-const ManagementTableRow = ({ validator }: ManagementTableRowProps) => {
+const ManagementTableRow = ({ validator, isAllSelected }: ManagementTableRowProps) => {
+  const [isSelected, setIsSelected] = useState(false)
+
+  useEffect(() => {
+    setIsSelected(isAllSelected)
+  }, [isAllSelected])
+
+  const handleChangeIsSelected = () => {
+    setIsSelected(state => !state)
+  }
+
   return (
     <tr>
       <td>
-        <Checkbox id={validator.address} variant="outline" />
+        <Checkbox
+          id={validator.address}
+          variant="outline"
+          selected={isSelected}
+          onCheckedChange={handleChangeIsSelected}
+        />
       </td>
       <td>
         <ValidatorProfile number={validator.number} address={validator.address} />
