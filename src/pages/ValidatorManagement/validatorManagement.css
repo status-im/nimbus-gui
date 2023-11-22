@@ -16,6 +16,13 @@
   }
 }
 
+@media (max-width: 800px) {
+  .tabs {
+    overflow-x: auto;
+    overflow-y: none;
+  }
+}
+
 /* Hide Effectiveness */
 @media (max-width: 1300px) {
   th:nth-child(7),
