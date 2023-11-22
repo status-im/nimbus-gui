@@ -15,15 +15,17 @@ const ManagementTabs = () => {
   return (
     <div style={{ width: '100%' }}>
       <Tabs defaultValue={VALIDATOR_TABS_MANAGEMENT[0]}>
-        <Stack style={{ cursor: 'pointer', width: 'fit-content', margin: '16px 0' }}>
-          <Tabs.List size={32}>
-            {VALIDATOR_TABS_MANAGEMENT.map(tab => (
-              <Tabs.Trigger key={tab} type="default" value={tab}>
-                {tab}
-              </Tabs.Trigger>
-            ))}
-          </Tabs.List>
-        </Stack>
+        <div className="tabs transparent-scrollbar">
+          <Stack style={{ cursor: 'pointer', width: 'fit-content', margin: '8px 0' }}>
+            <Tabs.List size={32}>
+              {VALIDATOR_TABS_MANAGEMENT.map(tab => (
+                <Tabs.Trigger key={tab} type="default" value={tab}>
+                  {tab}
+                </Tabs.Trigger>
+              ))}
+            </Tabs.List>
+          </Stack>
+        </div>
         {VALIDATOR_TABS_MANAGEMENT.map(tab => (
           <Tabs.Content key={tab} value={tab} style={{ marginTop: '8px' }}>
             <ManagementTable
