@@ -54,6 +54,10 @@ const ManagementTable = ({ tab, searchValue, changeSearchValue }: ManagementTabl
     setValidators(VALIDATORS_DATA)
   }, [])
 
+  useEffect(() => {
+    setIsAllSelected(false)
+  }, [validators, tab, searchValue])
+
   const filteredValidators = useMemo(() => {
     return validators
       .filter(validator => isValidStatus(validator.status, tab))
