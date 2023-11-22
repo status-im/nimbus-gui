@@ -15,7 +15,7 @@ const AddCardsContainer = ({ cardsAmount }: AddCardsContainerProps) => {
         {Array.from({ length: cardsAmount }).map((_, index) => (
           <AddCard
             key={index}
-            style={{ padding: '56px', height: getHeightPercentages(cardsAmount) }}
+            style={{ padding: '40px', height: getHeightPercentages(cardsAmount) }}
           />
         ))}
       </YStack>
