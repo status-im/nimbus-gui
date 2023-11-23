@@ -23,6 +23,12 @@
   }
 }
 
+@media (max-width: 600px) {
+  .cards {
+    flex-direction: column;
+  }
+}
+
 /* Hide Effectiveness */
 @media (max-width: 1300px) {
   th:nth-child(7),
