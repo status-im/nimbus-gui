@@ -1,6 +1,6 @@
 import { Button, Text } from '@status-im/components'
 
-import { FixedSizeList, FixedSizeList as List } from 'react-window'
+import { VariableSizeList as List } from 'react-window'
 import InfiniteLoader from 'react-window-infinite-loader'
 import './scroller.css'
 import { Stack, XStack } from 'tamagui'
@@ -23,24 +23,24 @@ const LogsTerminal = ({ windowWidth, dropdownMenuItem, timestamps }: LogsTermina
   const [isScrolling, setIsScrolling] = useState(false)
   const [loadedIndexes, setLoadedIndexes] = useState<{ [key: number]: boolean }>({})
   const listRef = useRef<List | null>(null)
+
   const [shouldAutoScroll, setShouldAutoScroll] = useState(true)
 
   useEffect(() => {
     const interval = setInterval(() => {
-      addNewLog()
+      //addNewLog()
     }, 3000)
 
     return () => clearInterval(interval)
   }, [isScrolling])
 
   useEffect(() => {
-    if (listRef.current && shouldAutoScroll) {
-      console.log(listRef.current)
+    if (shouldAutoScroll) {
       setTimeout(() => {
-        if (listRef.current) listRef.current.scrollToItem(data.length - 1, 'end')
+        listRef.current?.scrollToItem(data.length - 1, 'end')
       }, 500)
     }
-  }, [data, shouldAutoScroll])
+  }, [data.length, shouldAutoScroll])
 
   const loadMoreItems = async (startIndex: number, stopIndex: number) => {
     return new Promise<void>(resolve => {
@@ -67,22 +67,36 @@ const LogsTerminal = ({ windowWidth, dropdownMenuItem, timestamps }: LogsTermina
       const newIndex = data.length
       setData(prevData => [...prevData, newLog])
       setLoadedIndexes(prev => ({ ...prev, [newIndex]: true }))
-    }
-  }
-
-  const handleScroll = ({ scrollTop, scrollHeight, clientHeight }: any) => {
-    if (scrollTop < scrollHeight - clientHeight) {
-      setIsScrolling(true)
-      setShouldAutoScroll(false)
-    } else {
-      setIsScrolling(false)
-
-      if (!shouldAutoScroll && scrollTop === scrollHeight - clientHeight) {
-        setShouldAutoScroll(true)
+      if (shouldAutoScroll) {
+        listRef.current?.scrollToItem(data.length, 'end')
       }
     }
   }
 
+  const handleScroll = ({ scrollTop, scrollHeight, clientHeight }: any) => {
+    const isAtBottom = scrollTop + clientHeight >= scrollHeight
+
+    if (isAtBottom) {
+      setShouldAutoScroll(true)
+    } else {
+      setShouldAutoScroll(false)
+    }
+  }
+  function itemSize(index: number) {
+    const oneLineCountChars = 165
+    const descriptionLength = data[index].description.length
+    const value1 = 76
+    const value2 = 120
+    const value3 = 250
+
+    if (descriptionLength <= oneLineCountChars) {
+      return value1
+    } else if (descriptionLength <= oneLineCountChars * 2) {
+      return value2
+    } else {
+      return value3
+    }
+  }
   return (
     <Stack
       style={{
@@ -97,7 +111,7 @@ const LogsTerminal = ({ windowWidth, dropdownMenuItem, timestamps }: LogsTermina
       >
         {({ onItemsRendered, ref }) => (
           <List
-            ref={(list: FixedSizeList | null) => {
+            ref={(list: List | null) => {
               listRef.current = list
               ref(list)
               console.log(list)
@@ -106,8 +120,8 @@ const LogsTerminal = ({ windowWidth, dropdownMenuItem, timestamps }: LogsTermina
             height={650}
             width={windowWidth - 500}
             itemCount={data.length}
-            itemSize={150}
             itemData={data}
+            itemSize={itemSize}
             onItemsRendered={onItemsRendered}
             onScroll={handleScroll}
             style={{
@@ -117,7 +131,7 @@ const LogsTerminal = ({ windowWidth, dropdownMenuItem, timestamps }: LogsTermina
           >
             {({ index, style }) => (
               <Stack style={style}>
-                <TerminalRow data={data[index]} index={index} />
+                <TerminalRow data={data[index]} index={index}   />
               </Stack>
             )}
           </List>
