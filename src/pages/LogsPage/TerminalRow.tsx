@@ -1,7 +1,7 @@
 import { Text } from '@status-im/components'
 import { Stack, XStack } from 'tamagui'
-import faker from 'faker';
-
+import { faker } from '@faker-js/faker'
+ 
 type DataType = {
   option: string
   description: string
@@ -22,13 +22,10 @@ const TerminalRow = ({ data, index }: RowProps) => {
     return <Text size={19}>Loading...</Text>
   }
 
+  const randomName = faker.person.firstName()
+
   const { option, description } = data
- 
-   
-    const name: string = faker.name.findName();  
-    const email: string = faker.internet.email();  
-     
-  
+
   return (
     <XStack style={{ fontFamily: 'monospace' }}>
       <Stack
@@ -58,7 +55,7 @@ const TerminalRow = ({ data, index }: RowProps) => {
           height: '100%',
         }}
       >
-        {option} {randomName}{' '}
+        {option} {description} -- {randomName}{' '}
         {cutSentenceToRandomWords(`
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
         nobis, numquam non rerum illo eligendi quaerat neque mollitia temporibus quam placeat
