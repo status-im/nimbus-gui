@@ -16,7 +16,7 @@ const ManagementTabs = () => {
     <div style={{ width: '100%' }}>
       <Tabs defaultValue={VALIDATOR_TABS_MANAGEMENT[0]}>
         <div className="tabs transparent-scrollbar">
-          <Stack style={{ cursor: 'pointer', width: 'fit-content', margin: '8px 0' }}>
+          <Stack maxWidth={'120px'} style={{ cursor: 'pointer', margin: '8px 0' }}>
             <Tabs.List size={32}>
               {VALIDATOR_TABS_MANAGEMENT.map(tab => (
                 <Tabs.Trigger key={tab} type="default" value={tab}>
