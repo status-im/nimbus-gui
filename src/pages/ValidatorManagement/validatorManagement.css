@@ -16,7 +16,7 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
   .tabs {
     overflow-x: auto;
     overflow-y: none;
