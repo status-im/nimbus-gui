@@ -86,7 +86,7 @@
 }
 
 /* Hide Balance */
-@media (max-width: 400px) {
+@media (max-width: 475px) {
   th:nth-child(3),
   td:nth-child(3) {
     display: none;
