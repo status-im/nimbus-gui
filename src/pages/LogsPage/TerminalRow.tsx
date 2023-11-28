@@ -1,7 +1,7 @@
 import { Text } from '@status-im/components'
 import { Stack, XStack } from 'tamagui'
 import { faker } from '@faker-js/faker'
- 
+
 type DataType = {
   option: string
   description: string

@@ -33,11 +33,10 @@ const SupportCard = () => {
                 {'>'}
               </Text>
             </XStack>
-            <XStack >
+            <XStack>
               <Text size={27} weight={'semibold'}>
                 Nimbus
               </Text>
-              
             </XStack>
           </YStack>
         </XStack>

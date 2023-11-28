@@ -1,9 +1,9 @@
 .custom-scroll {
-    overflow: auto !important;
-    scrollbar-width: none;  
-    -ms-overflow-style: none;  
-  }
-  
-  .custom-scroll::-webkit-scrollbar {
-    display: none;  
-  }
+  overflow: auto !important;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  display: none;
+}
