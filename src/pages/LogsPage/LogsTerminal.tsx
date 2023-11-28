@@ -1,10 +1,9 @@
-import { Button, Text } from '@status-im/components'
+import { Button } from '@status-im/components'
 
 import { VariableSizeList as List } from 'react-window'
 import InfiniteLoader from 'react-window-infinite-loader'
 import './scroller.css'
-import { Stack, XStack } from 'tamagui'
-import { exampleData } from './exampleData'
+import { Stack } from 'tamagui'
 import { useEffect, useRef, useState } from 'react'
 import TerminalRow from './TerminalRow'
 
@@ -31,7 +30,7 @@ const fetchMoreData = () => {
   })
 }
 
-const LogsTerminal = ({ windowWidth, dropdownMenuItem, timestamps }: LogsTerminalProps) => {
+const LogsTerminal = ({ windowWidth, timestamps }: LogsTerminalProps) => {
   const [data, setData] = useState<DataType[]>([])
   const [isScrolling, setIsScrolling] = useState(false)
   const [loadedIndexes, setLoadedIndexes] = useState<{ [key: number]: boolean }>({})
@@ -135,7 +134,7 @@ const LogsTerminal = ({ windowWidth, dropdownMenuItem, timestamps }: LogsTermina
           >
             {({ index, style }) => (
               <Stack style={style}>
-                <TerminalRow data={data[index]} index={index} />
+                <TerminalRow data={data[index]} index={index} timestamps={timestamps} />
               </Stack>
             )}
           </List>

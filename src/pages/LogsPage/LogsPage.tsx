@@ -1,4 +1,4 @@
-import { Stack, Switch, XStack, YStack } from 'tamagui'
+import { Stack, XStack, YStack } from 'tamagui'
 import TitleLogo from '../Dashboard/TitleLogo'
 
 import LeftSidebar from '../../components/General/LeftSidebar/LeftSidebar'
@@ -7,9 +7,6 @@ import LogsTerminal from './LogsTerminal'
 import LogsSumCard from './LogsSumCard'
 import SupportCard from './SupportCard'
 import { useEffect, useState } from 'react'
-import { Button, DropdownMenu, Input } from '@status-im/components'
-import { SearchIcon, DropdownIcon } from '@status-im/icons'
-import SwitchComponent from './SwitchComponent'
 import HeaderBtns from './HeaderBtns'
 
 const LogsPage = () => {
