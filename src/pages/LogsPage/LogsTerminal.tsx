@@ -32,19 +32,12 @@ const fetchMoreData = () => {
 
 const LogsTerminal = ({ windowWidth, timestamps }: LogsTerminalProps) => {
   const [data, setData] = useState<DataType[]>([])
-  const [isScrolling, setIsScrolling] = useState(false)
   const [loadedIndexes, setLoadedIndexes] = useState<{ [key: number]: boolean }>({})
   const listRef = useRef<List | null>(null)
 
   const [shouldAutoScroll, setShouldAutoScroll] = useState(true)
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      //addNewLog()
-    }, 3000)
-
-    return () => clearInterval(interval)
-  }, [isScrolling])
+   
 
   useEffect(() => {
     if (shouldAutoScroll) {
@@ -62,18 +55,16 @@ const LogsTerminal = ({ windowWidth, timestamps }: LogsTerminalProps) => {
   const isItemLoaded = (index: number) => !!loadedIndexes[index]
 
   const addNewLog = () => {
-    if (!isScrolling) {
-      const newLog: DataType = {
-        option: `--new-option-${data.length + 1}`,
-        description: `New log entry ${data.length + 1} ${Math.random()}`,
-      }
+    const newLog: DataType = {
+      option: `--new-option-${data.length + 1}`,
+      description: `New log entry ${data.length + 1} ${Math.random()}`,
+    }
 
-      const newIndex = data.length
-      setData(prevData => [...prevData, newLog])
-      setLoadedIndexes(prev => ({ ...prev, [newIndex]: true }))
-      if (shouldAutoScroll) {
-        listRef.current?.scrollToItem(data.length, 'end')
-      }
+    const newIndex = data.length
+    setData(prevData => [...prevData, newLog])
+    setLoadedIndexes(prev => ({ ...prev, [newIndex]: true }))
+    if (shouldAutoScroll) {
+      listRef.current?.scrollToItem(data.length, 'end')
     }
   }
 
