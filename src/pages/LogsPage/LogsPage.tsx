@@ -10,9 +10,16 @@ import { useEffect, useState } from 'react'
 import HeaderBtns from './HeaderBtns'
 
 const LogsPage = () => {
+  const [highLightSearched, setHighLightSearched] = useState(false)
+  const [searchInput, setSearchInput] = useState('');
   const [timestamps, setTimestamps] = useState(false)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const [dropdownMenuItem, setDropdownMenuItem] = useState('Validator')
+
+  const triggerSearch = (isTriggered: boolean) => {
+    setHighLightSearched(isTriggered)
+  }
+
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(+window.innerWidth)
@@ -46,6 +53,11 @@ const LogsPage = () => {
             setDropdownMenuItem={setDropdownMenuItem}
             setTimestamps={setTimestamps}
             timestamps={timestamps}
+            searchInput={searchInput}
+            setSearchInput={setSearchInput}
+            triggerSearch={triggerSearch}
+           
+
           />
         </XStack>
         <Stack style={{ width: '100%', alignItems: 'center' }}>
@@ -53,6 +65,9 @@ const LogsPage = () => {
             windowWidth={windowWidth}
             dropdownMenuItem={dropdownMenuItem}
             timestamps={timestamps}
+            searchInput={searchInput}
+            setSearchInput={setSearchInput}
+            highLightSearched={highLightSearched}
           />
           <Stack
             space="$4"

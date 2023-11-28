@@ -16,6 +16,9 @@ type LogsTerminalProps = {
   windowWidth: number
   dropdownMenuItem: string
   timestamps: boolean
+  searchInput: string
+  setSearchInput: (searchInput: string) => void
+  highLightSearched: boolean
 }
 
 const fetchMoreData = () => {
@@ -30,14 +33,18 @@ const fetchMoreData = () => {
   })
 }
 
-const LogsTerminal = ({ windowWidth, timestamps }: LogsTerminalProps) => {
+const LogsTerminal = ({
+  windowWidth,
+  timestamps,
+  searchInput,
+  setSearchInput,
+  highLightSearched,
+}: LogsTerminalProps) => {
   const [data, setData] = useState<DataType[]>([])
   const [loadedIndexes, setLoadedIndexes] = useState<{ [key: number]: boolean }>({})
   const listRef = useRef<List | null>(null)
 
   const [shouldAutoScroll, setShouldAutoScroll] = useState(true)
-
-   
 
   useEffect(() => {
     if (shouldAutoScroll) {
@@ -123,11 +130,22 @@ const LogsTerminal = ({ windowWidth, timestamps }: LogsTerminalProps) => {
               border: '1px solid #E7EAEE',
             }}
           >
-            {({ index, style }) => (
-              <Stack style={style}>
-                <TerminalRow data={data[index]} index={index} timestamps={timestamps} />
-              </Stack>
-            )}
+            {({ index, style }) => {
+              const highlight =
+                searchInput && data[index].description.split(' ').includes(searchInput)
+                // now we only check for the existing text at the moment 
+                // I have to move this statemant in the terminalRow component
+              return (
+                <Stack style={style}>
+                  <TerminalRow
+                    data={data[index]}
+                    index={index}
+                    timestamps={timestamps}
+                    highlight={highlight}
+                  />
+                </Stack>
+              )
+            }}
           </List>
         )}
       </InfiniteLoader>
