@@ -9,6 +9,9 @@ type HeaderBtnsProps = {
   dropdownMenuItem: string
   timestamps: boolean
   setTimestamps: (timestamps: boolean) => void
+  searchInput: string
+  setSearchInput: (searchInput: string) => void
+  triggerSearch: (isTriggered: boolean) => void
 }
 
 const HeaderBtns = ({
@@ -16,10 +19,20 @@ const HeaderBtns = ({
   dropdownMenuItem,
   timestamps,
   setTimestamps,
+  searchInput,
+  setSearchInput,
+  triggerSearch,
 }: HeaderBtnsProps) => {
   return (
     <XStack space={'$4'}>
-      <Input variant="retractable" color={'black'} icon={<SearchIcon size={16} />}></Input>
+      <Input
+        variant="retractable"
+        color={'black'}
+        icon={<SearchIcon size={16} />}
+        onChange={e => setSearchInput(e.target.value)}
+        value={searchInput}
+        onBlur={() => triggerSearch(true)}
+      ></Input>
       <Stack>
         <DropdownMenu>
           <Button variant="outline" icon={<DropdownIcon size={16} />}>

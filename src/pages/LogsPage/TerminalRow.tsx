@@ -10,6 +10,7 @@ interface RowProps {
   data: DataType | undefined
   index: number
   timestamps: boolean
+  highlight: boolean
 }
 function cutSentenceToRandomWords(sentence: string) {
   const randomLength = Math.floor(Math.random() * 100) + 1
@@ -18,7 +19,7 @@ function cutSentenceToRandomWords(sentence: string) {
   return slicedWords.join(' ')
 }
 
-const TerminalRow = ({ data, index, timestamps }: RowProps) => {
+const TerminalRow = ({ data, index, timestamps, highlight }: RowProps) => {
   if (!data) {
     return <Text size={19}>Loading...</Text>
   }
@@ -36,7 +37,7 @@ const TerminalRow = ({ data, index, timestamps }: RowProps) => {
           alignItems: 'center',
           marginRight: '20px',
           width: '30px',
-          backgroundColor: '#f5f6f8',
+          backgroundColor: highlight ? 'yellow' : '#f5f6f8',
           color: '#A1ABBD',
         }}
       >
@@ -56,6 +57,7 @@ const TerminalRow = ({ data, index, timestamps }: RowProps) => {
           wordWrap: 'break-word',
           maxWidth: '89%',
           height: '100%',
+          backgroundColor: highlight ? 'yellow' : '#f5f6f8',
         }}
       >
         {option} {description} -- {randomName}{' '}
