@@ -9,6 +9,7 @@ type DataType = {
 interface RowProps {
   data: DataType | undefined
   index: number
+  timestamp: boolean
 }
 function cutSentenceToRandomWords(sentence: string) {
   const randomLength = Math.floor(Math.random() * 100) + 1
@@ -17,7 +18,7 @@ function cutSentenceToRandomWords(sentence: string) {
   return slicedWords.join(' ')
 }
 
-const TerminalRow = ({ data, index }: RowProps) => {
+const TerminalRow = ({ data, index, timestamp }: RowProps) => {
   if (!data) {
     return <Text size={19}>Loading...</Text>
   }
@@ -41,10 +42,12 @@ const TerminalRow = ({ data, index }: RowProps) => {
       >
         {index}
       </Stack>
-      <Stack>
-        {new Date(Date.now()).getHours()}:{new Date(Date.now()).getMinutes()}:
-        {new Date(Date.now()).getSeconds()}
-      </Stack>
+      {timestamp && (
+        <Stack>
+          {new Date(Date.now()).getHours()}:{new Date(Date.now()).getMinutes()}:
+          {new Date(Date.now()).getSeconds()}
+        </Stack>
+      )}
       <Stack
         style={{
           alignContent: 'flex-start',
