@@ -18,6 +18,19 @@ type LogsTerminalProps = {
   dropdownMenuItem: string
   timestamps: boolean
 }
+
+const fetchMoreData = () => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      const newData = []
+      for (let i = 0; i < 10; i++) {
+        newData.push({ option: `Option ${i}`, description: `Description ${i}` })
+      }
+      resolve(newData)
+    }, 500)
+  })
+}
+
 const LogsTerminal = ({ windowWidth, dropdownMenuItem, timestamps }: LogsTerminalProps) => {
   const [data, setData] = useState<DataType[]>([])
   const [isScrolling, setIsScrolling] = useState(false)
@@ -42,17 +55,9 @@ const LogsTerminal = ({ windowWidth, dropdownMenuItem, timestamps }: LogsTermina
     }
   }, [data.length, shouldAutoScroll])
 
-  const loadMoreItems = async (startIndex: number, stopIndex: number) => {
-    return new Promise<void>(resolve => {
-      setTimeout(() => {
-        const newData = exampleData.slice(startIndex, stopIndex + 1)
-        setData((prevData: DataType[]) => [...prevData, ...newData])
-
-        for (let i = startIndex; i <= stopIndex; i++) {
-          setLoadedIndexes((prev: { [key: number]: boolean }) => ({ ...prev, [i]: true }))
-        }
-        resolve()
-      }, 5000)
+  const loadMoreItems = () => {
+    fetchMoreData().then(newItems => {
+      setData(prevData => [...prevData, ...newItems])
     })
   }
   const isItemLoaded = (index: number) => !!loadedIndexes[index]
@@ -105,16 +110,15 @@ const LogsTerminal = ({ windowWidth, dropdownMenuItem, timestamps }: LogsTermina
       }}
     >
       <InfiniteLoader
-        itemCount={data.length}
+        itemCount={data.length + 1}
         isItemLoaded={isItemLoaded}
         loadMoreItems={loadMoreItems}
       >
         {({ onItemsRendered, ref }) => (
           <List
             ref={(list: List | null) => {
-              listRef.current = list
               ref(list)
-              console.log(list)
+              listRef.current = list
             }}
             className="custom-scroll"
             height={650}
@@ -131,7 +135,7 @@ const LogsTerminal = ({ windowWidth, dropdownMenuItem, timestamps }: LogsTermina
           >
             {({ index, style }) => (
               <Stack style={style}>
-                <TerminalRow data={data[index]} index={index}   />
+                <TerminalRow data={data[index]} index={index} />
               </Stack>
             )}
           </List>
