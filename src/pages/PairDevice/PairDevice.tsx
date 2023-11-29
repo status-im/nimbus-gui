@@ -1,5 +1,5 @@
 import { NodeIcon } from '@status-im/icons'
-import { Separator, XStack, YStack } from 'tamagui'
+import { Separator, Stack, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
 import { Button, Text } from '@status-im/components'
 
@@ -23,12 +23,7 @@ const PairDevice = () => {
 
   return (
     <PageWrapperShadow rightImageSrc="./background-images/day-night-bg.png" rightImageLogo={true}>
-      <YStack
-        space={'$3'}
-        style={{
-          maxWidth: '100%',
-        }}
-      >
+      <YStack space={'$3'}>
         <Header selectedTag="pair" />
         <Titles
           title="Connect to existing Nimbus Instance"
@@ -43,21 +38,23 @@ const PairDevice = () => {
           />
         )}
         <Separator borderColor={'#e3e3e3'} />
-        <Text size={19} weight={'semibold'} color="#09101C">
-          Advanced Settings
-        </Text>
-        <XStack space={'$4'}>
-          <Button icon={<Icon src="/icons/connection-blue.svg" width={20} />} variant="outline">
-            Connect via IP
-          </Button>
-        </XStack>
+        <YStack space={'$1'}>
+          <Text size={19} weight={'semibold'} color="#09101C">
+            Advanced Settings
+          </Text>
+          <XStack>
+            <Button icon={<Icon src="/icons/connection-blue.svg" width={20} />} variant="outline">
+              Connect via IP
+            </Button>
+          </XStack>
+        </YStack>
         {isPaired && <CreateAvatar />}
         <Separator borderColor={'#e3e3e3'} />
-        <XStack>
+        <div>
           <Button icon={<NodeIcon size={20} />} disabled={!isPaired}>
             Continue
           </Button>
-        </XStack>
+        </div>
       </YStack>
     </PageWrapperShadow>
   )
