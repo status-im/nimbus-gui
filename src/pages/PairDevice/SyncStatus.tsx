@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react'
 import { XStack, YStack } from 'tamagui'
 import { Button, IconButton, InformationBox, Text } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
+import { RefreshIcon } from '@status-im/icons'
+import { useNavigate } from 'react-router'
 
 import Icon from '../../components/General/Icon'
 import ConnectionIcon from '/icons/connection.svg'
 import { convertSecondsToTimerFormat } from '../../utilities'
-import { RefreshIcon } from '@status-im/icons'
-import { useNavigate } from 'react-router'
 
 type SyncStatusProps = {
   isPairing: boolean

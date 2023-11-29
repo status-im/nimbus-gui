@@ -1,3 +1,4 @@
+import { NodeIcon } from '@status-im/icons'
 import { Separator, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
 import { Button, Text } from '@status-im/components'
@@ -8,7 +9,6 @@ import Titles from '../../components/General/Titles'
 import PairedSuccessfully from './PairedSuccessfully'
 import CreateAvatar from '../../components/General/CreateAvatar/CreateAvatar'
 import GenerateId from './GenerateId'
-import { NodeIcon } from '@status-im/icons'
 import Header from '../../components/General/Header'
 import Icon from '../../components/General/Icon'
 
