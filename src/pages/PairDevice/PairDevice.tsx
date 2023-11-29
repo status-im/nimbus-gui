@@ -30,7 +30,10 @@ const PairDevice = () => {
         }}
       >
         <Header selectedTag="pair" />
-        <Titles title="Pair Device" subtitle="Pair your device to the Nimbus Node Manager" />
+        <Titles
+          title="Connect to existing Nimbus Instance"
+          subtitle="Pair your existing device to the Nimbus Node Manager"
+        />
         {isPaired ? <PairedSuccessfully /> : <GenerateId isAwaitingPairing={isAwaitingPairing} />}
         {!isPaired && (
           <SyncStatus
