@@ -59,7 +59,7 @@ const SyncStatus = ({
         </Text>
         {isPairing && (
           <Text
-            size={isAwaitingPairing ? 15 : 11}
+            size={13}
             color={isAwaitingPairing ? '#EB5757' : '#647084'}
             weight={isAwaitingPairing && 'semibold'}
           >
