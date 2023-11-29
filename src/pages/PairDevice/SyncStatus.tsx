@@ -33,7 +33,7 @@ const SyncStatus = ({
 
     if (isPairing) {
       timer = setInterval(() => {
-        setElapsedTime(prevTime => prevTime + 65)
+        setElapsedTime(prevTime => prevTime + 1)
         if (elapsedTime >= 180) {
           changeSetIsAwaitingPairing(true)
         }
