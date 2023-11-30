@@ -37,17 +37,24 @@ const PairDevice = () => {
             changeSetIsAwaitingPairing={changeSetIsAwaitingPairing}
           />
         )}
-        <Separator borderColor={'#e3e3e3'} />
-        <YStack space={'$1'}>
-          <Text size={19} weight={'semibold'} color="#09101C">
-            Advanced Settings
-          </Text>
-          <XStack>
-            <Button icon={<Icon src="/icons/connection-blue.svg" width={20} />} variant="outline">
-              Connect via IP
-            </Button>
-          </XStack>
-        </YStack>
+        {isPaired === false && (
+          <>
+            <Separator borderColor={'#e3e3e3'} />
+            <YStack space={'$1'}>
+              <Text size={19} weight={'semibold'} color="#09101C">
+                Advanced Settings
+              </Text>
+              <XStack>
+                <Button
+                  icon={<Icon src="/icons/connection-blue.svg" width={20} />}
+                  variant="outline"
+                >
+                  Connect via IP
+                </Button>
+              </XStack>
+            </YStack>
+          </>
+        )}
         {isPaired && <CreateAvatar />}
         <Separator borderColor={'#e3e3e3'} />
         <div>
