@@ -29,7 +29,7 @@ const PageWrapperShadow = ({
         </div>
       </section>
 
-      <section className="layout-right">
+      <section className="layout-right page-wrapper-shadow">
         <div className="image-container">
           <img
             src={rightImageSrc}

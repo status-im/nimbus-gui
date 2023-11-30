@@ -83,3 +83,9 @@
 .image-container .nimbus-logomark svg {
   height: 73px;
 }
+
+@media (max-width: 900px) {
+  .page-wrapper-shadow {
+    display: none;
+  }
+}
