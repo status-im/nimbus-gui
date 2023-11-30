@@ -57,7 +57,7 @@ const TerminalRow = ({ data, index, timestamps, highlight }: RowProps) => {
           wordWrap: 'break-word',
           maxWidth: '89%',
           height: '100%',
-          backgroundColor: highlight ? 'yellow' : '#f5f6f8',
+          backgroundColor: highlight ? 'yellow' : ' ',
         }}
       >
         {option} {description} -- {randomName}{' '}
