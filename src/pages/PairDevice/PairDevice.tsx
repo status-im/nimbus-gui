@@ -1,5 +1,5 @@
 import { NodeIcon } from '@status-im/icons'
-import { Separator, Stack, XStack, YStack } from 'tamagui'
+import { Separator, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
 import { Button, Text } from '@status-im/components'
 
