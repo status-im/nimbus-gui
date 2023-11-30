@@ -30,7 +30,7 @@ const PairDevice = () => {
           subtitle="Pair your existing device to the Nimbus Node Manager"
         />
         {isPaired ? <PairedSuccessfully /> : <GenerateId isAwaitingPairing={isAwaitingPairing} />}
-        {!isPaired && (
+        {isPaired === false && (
           <SyncStatus
             isPairing={isPairing}
             isAwaitingPairing={isAwaitingPairing}
