@@ -84,10 +84,11 @@
   height: 73px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .layout-left {
     flex: 0 0 100%;
     max-width: 100%;
+    order: 1;
   }
 
   .container {
@@ -101,6 +102,8 @@
   }
 
   .layout-right {
-    display: none;
+    flex: 0 0 100%;
+    max-width: 100%;
+    order: 0;
   }
 }
