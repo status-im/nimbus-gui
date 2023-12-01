@@ -85,12 +85,6 @@
 }
 
 @media (max-width: 900px) {
-  .page-wrapper-shadow {
-    display: none;
-  }
-}
-
-@media (max-width: 1000px) {
   .layout-left {
     flex: 0 0 100%;
     max-width: 100%;
