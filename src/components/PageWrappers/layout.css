@@ -89,3 +89,24 @@
     display: none;
   }
 }
+
+@media (max-width: 1000px) {
+  .layout-left {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .container {
+    justify-content: start;
+    padding: 20px;
+  }
+
+  .container-inner {
+    max-width: 100%;
+    flex: 1 0 100%;
+  }
+
+  .layout-right {
+    display: none;
+  }
+}
