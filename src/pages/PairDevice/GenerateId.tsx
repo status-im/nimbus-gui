@@ -31,6 +31,7 @@ const GenerateId = ({ isAwaitingPairing }: GenerateIdProps) => {
     <YStack space={'$2'}>
       <div
         style={{ display: 'flex', justifyContent: 'space-between' }}
+        className={styles['regenerate-id-container']}
       >
         <StatusText size={19} weight={'semibold'}>
           Pair with Command line
