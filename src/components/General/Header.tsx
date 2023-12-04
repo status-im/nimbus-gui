@@ -14,6 +14,7 @@ const Header = ({ selectedTag }: HeaderProps) => {
         paddingBottom: '25px',
         marginTop: '4.4rem',
       }}
+      className="header-container"
     >
       <NimbusLogo />
       <TagContainer selectedTag={selectedTag} />
