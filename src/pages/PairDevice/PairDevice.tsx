@@ -38,7 +38,7 @@ const PairDevice = () => {
           />
         )}
         {isPaired === false && (
-          <>
+          <YStack space={'$3'}>
             <Separator borderColor={'#e3e3e3'} />
             <YStack space={'$1'}>
               <Text size={19} weight={'semibold'} color="#09101C">
@@ -53,7 +53,7 @@ const PairDevice = () => {
                 </Button>
               </XStack>
             </YStack>
-          </>
+          </YStack>
         )}
         {isPaired && <CreateAvatar />}
         <Separator borderColor={'#e3e3e3'} />
