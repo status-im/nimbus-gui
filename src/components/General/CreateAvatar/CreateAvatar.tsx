@@ -37,7 +37,7 @@ const CreateAvatar = () => {
       </XStack>
       <XStack justifyContent={'space-between'}>
         <YStack>
-          <Text size={13} weight="regular" color={'#647084'}>
+          <Text size={13} weight="semibold" color={'#647084'}>
             Device Avatar
           </Text>
           <XStack my={10} alignItems={'end'}>
@@ -65,7 +65,7 @@ const CreateAvatar = () => {
           </XStack>
         </YStack>
         <YStack flexWrap="wrap" width="80%">
-          <Text size={13} weight="regular" color={'#647084'}>
+          <Text size={13} weight="semibold" color={'#647084'}>
             Highlight Color
           </Text>
           <ColorPicker setChosenColor={setChosenColor} />
