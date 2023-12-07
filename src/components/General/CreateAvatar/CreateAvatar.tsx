@@ -35,7 +35,7 @@ const CreateAvatar = () => {
       <XStack>
         <LabelInputField labelText="Device Name" placeholderText="Stake and chips" />
       </XStack>
-      <XStack justifyContent={'space-between'}>
+      <XStack space={'$3'} justifyContent={'space-between'}>
         <YStack>
           <Text size={13} weight="semibold" color={'#647084'}>
             Device Avatar
@@ -64,7 +64,7 @@ const CreateAvatar = () => {
             </div>
           </XStack>
         </YStack>
-        <YStack flexWrap="wrap" width="80%">
+        <YStack flexWrap="wrap" width="73%">
           <Text size={13} weight="semibold" color={'#647084'}>
             Highlight Color
           </Text>
