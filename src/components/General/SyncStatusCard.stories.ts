@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import KeyGenerationSyncCard from './KeyGenerationSyncCard'
+import SyncStatusCard from './SyncStatusCard'
 
 const meta = {
-  title: 'ValidatorOnboarding/KeyGenerationSyncCard',
-  component: KeyGenerationSyncCard,
+  title: 'General/SyncStatusCard',
+  component: SyncStatusCard,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof KeyGenerationSyncCard>
+} satisfies Meta<typeof SyncStatusCard>
 
 export default meta
 type Story = StoryObj<typeof meta>

@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import TitleLogo from './TitleLogo'
+import ManagementCard from './ManagementCard'
 
 const meta = {
-  title: 'Dashboard/TitleLogo',
-  component: TitleLogo,
+  title: 'ValidatorManagement/ManagementCard',
+  component: ManagementCard,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof TitleLogo>
+} satisfies Meta<typeof ManagementCard>
 
 export default meta
 type Story = StoryObj<typeof meta>

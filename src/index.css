@@ -62,7 +62,6 @@
 body {
   margin: 0;
   display: flex;
-  min-width: 320px;
   min-height: 100vh;
 }
 h1,
@@ -103,11 +102,13 @@ ul li {
 }
 .transparent-scrollbar::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 .transparent-scrollbar::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  height: 8px;
 }
 
 .transparent-scrollbar::-webkit-scrollbar-thumb:hover {
@@ -128,5 +129,11 @@ ul li {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media (max-width: 900px) {
+  .right-sidebar-wrapper {
+    display: none;
   }
 }

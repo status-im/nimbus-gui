@@ -5,7 +5,7 @@ import DashboardCardWrapper from '../DashboardCardWrapper'
 import ExecutionClientCard from './ExecutionClientCard'
 import ConsensusCard from './ConsensusClientCard'
 
-const SyncStatusCard = () => {
+const SyncStatusCards = () => {
   return (
     <DashboardCardWrapper padding="0" minWidth="50px">
       <YStack space={'$2'}>
@@ -24,4 +24,4 @@ const SyncStatusCard = () => {
   )
 }
 
-export default SyncStatusCard
+export default SyncStatusCards
