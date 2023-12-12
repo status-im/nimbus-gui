@@ -85,25 +85,80 @@
 }
 
 @media (max-width: 1000px) {
+  .layout {
+    height: auto;
+  }
+
   .layout-left {
     flex: 0 0 100%;
     max-width: 100%;
     order: 1;
+    padding: 0;
   }
 
   .container {
     justify-content: start;
-    padding: 20px;
+    padding: 0;
   }
 
   .container-inner {
     max-width: 100%;
     flex: 1 0 100%;
+    padding: 0;
   }
 
   .layout-right {
     flex: 0 0 100%;
     max-width: 100%;
     order: 0;
+    padding: 0;
+    margin-top: -10%;
+    margin-bottom: -70%;
+  }
+
+  .image-container {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .image-container .background-img {
+    width: 100%;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10%);
+    clip-path: inset(10% 0 70% 0);
+    height: auto;
+  }
+
+  .image-container .nimbus-logomark {
+    display: none;
+  }
+
+  .content,
+  .breadcrumbBar,
+  .other-elements {
+    margin: 0;
+    padding: 0;
+  }
+
+  .breadcrumbBar,
+  .some-other-element {
+    margin: 0;
+    padding: 0;
+  }
+
+  .image-container {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+  }
+
+  .image-container .background-img {
+    clip-path: polygon(0 10%, 100% 10%, 100% 30%, 0 30%);
   }
 }
