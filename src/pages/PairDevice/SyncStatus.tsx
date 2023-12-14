@@ -45,7 +45,7 @@ const SyncStatus = ({
 
   return (
     <YStack>
-      <XStack style={{ justifyContent: 'space-between' }}>
+      <XStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
         <Text size={11} color="#647084" weight="medium">
           Device Sync Status
         </Text>
