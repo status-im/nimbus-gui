@@ -137,8 +137,8 @@ ul li {
     flex-direction: column;
     gap: 12px;
   }
-}  
-    
+}
+
 @media (max-width: 900px) {
   .right-sidebar-wrapper {
     display: none;
