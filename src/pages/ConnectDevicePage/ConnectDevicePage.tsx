@@ -7,7 +7,7 @@ import Titles from '../../components/General/Titles'
 import LabelInputField from '../../components/General/LabelInputField'
 import Header from '../../components/General/Header'
 import { NodeIcon } from '@status-im/icons'
- 
+
 const ConnectDevicePage = () => {
   const [autoConnectChecked, setAutoConnectChecked] = useState(false)
   const [portChecked, setPortChecked] = useState(false)
@@ -36,7 +36,7 @@ const ConnectDevicePage = () => {
     width: windowWidth <= breakpoint ? '100%' : '40%',
     marginBottom: windowWidth <= breakpoint ? '1rem' : '0',
   }
-  
+
   return (
     <PageWrapperShadow
       breadcrumbBar={<BreadcrumbBar breadcrumbList={['Nodes', 'Nimbus', 'Connect Device']} />}
