@@ -11,7 +11,7 @@ import styles from './LandingPage.module.css'
 const LandingPage = () => {
   const navigate = useNavigate()
 
-  const getStartedHanlder = () => {
+  const onGetStartedHandler = () => {
     navigate('/pair-device')
   }
 
@@ -32,7 +32,7 @@ const LandingPage = () => {
             </Text>
           </YStack>
           <XStack>
-            <StatusButton icon={<NodeIcon size={20} />} onPress={getStartedHanlder}>
+            <StatusButton icon={<NodeIcon size={20} />} onPress={onGetStartedHandler}>
               Get Started
             </StatusButton>
           </XStack>
