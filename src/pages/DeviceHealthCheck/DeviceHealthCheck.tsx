@@ -11,9 +11,28 @@ import DeviceNetworkHealth from '../../components/Charts/DeviceNetworkHealth'
 import { CloseCircleIcon } from '@status-im/icons'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
+import { useEffect, useState } from 'react'
 
 const DeviceHealthCheck = () => {
   const deviceHealthState = useSelector((state: RootState) => state.deviceHealth)
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth)
+    }
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+  const breakpoint = 768
+
+  const responsiveStyle = {
+    flexWrap: windowWidth <= breakpoint ? 'wrap' : 'nowrap',
+    flexDirection: windowWidth <= breakpoint ? 'column' : 'row',
+    alignItems: 'flex-start',
+    width: windowWidth <= breakpoint ? '200%' : '100%',
+  }
 
   return (
     <PageWrapperShadow rightImageSrc="./background-images/eye-background.png" imgHeight="100%">
@@ -33,14 +52,14 @@ const DeviceHealthCheck = () => {
           subtitle="Configure your device to start Staking on Nimbus"
           isAdvancedSettings={true}
         />
-        <XStack space={'$4'} width={'100%'}>
+        <XStack space={'$4'} style={responsiveStyle}>
           <DeviceStorageHealth
             storage={deviceHealthState.storage}
             maxStorage={deviceHealthState.maxMemory}
           />
           <DeviceCPULoad load={deviceHealthState.cpuLoad} />
         </XStack>
-        <XStack space={'$4'} width={'100%'}>
+        <XStack space={'$4'} style={responsiveStyle}>
           <DeviceMemory
             currentMemory={deviceHealthState.memory}
             maxMemory={deviceHealthState.maxMemory}
