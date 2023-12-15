@@ -21,10 +21,8 @@ const DeviceHealthCheck = () => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth)
     }
-
     window.addEventListener('resize', handleResize)
 
-    // Cleanup listener on component unmount
     return () => window.removeEventListener('resize', handleResize)
   }, [])
   const breakpoint = 768
