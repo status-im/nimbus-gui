@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import BreadcrumbBar from '../../components/General/BreadcrumbBar/BreadcrumbBar'
 import { Button as StatusButton, Text, Avatar, Checkbox } from '@status-im/components'
-import { Label, Separator, Stack, XStack, YStack } from 'tamagui'
+import { Article, Label, Separator, Stack, XStack, YStack } from 'tamagui'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import Titles from '../../components/General/Titles'
 import LabelInputField from '../../components/General/LabelInputField'
@@ -46,7 +46,7 @@ const ConnectDevicePage = () => {
       <YStack space={'$3'}>
         <Header selectedTag="connect" />
 
-        <article className="content">
+        <Article className="content">
           <Titles
             title="Connect Device"
             subtitle="Configure your device to connect to the Nimbus Node Manager"
@@ -113,7 +113,7 @@ const ConnectDevicePage = () => {
             <Separator alignSelf="stretch" borderColor={'#F0F2F5'} />
           </YStack>
           <StatusButton icon={<NodeIcon size={20} />}>Connect Device</StatusButton>
-        </article>
+        </Article>
       </YStack>
     </PageWrapperShadow>
   )
