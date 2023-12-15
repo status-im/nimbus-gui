@@ -1,17 +1,42 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import BreadcrumbBar from '../../components/General/BreadcrumbBar/BreadcrumbBar'
 import { Button as StatusButton, Text, Avatar, Checkbox } from '@status-im/components'
-import { Label, Separator, XStack, YStack } from 'tamagui'
+import { Label, Separator, Stack, XStack, YStack } from 'tamagui'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import Titles from '../../components/General/Titles'
 import LabelInputField from '../../components/General/LabelInputField'
 import Header from '../../components/General/Header'
 import { NodeIcon } from '@status-im/icons'
-
+ 
 const ConnectDevicePage = () => {
   const [autoConnectChecked, setAutoConnectChecked] = useState(false)
   const [portChecked, setPortChecked] = useState(false)
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth)
+    }
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  const breakpoint = 768
+
+  const responsiveXStackStyle = {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flexDirection: windowWidth <= breakpoint ? 'column' : 'row',
+    flexWrap: windowWidth <= breakpoint ? 'wrap' : 'nowrap',
+  }
+
+  const responsiveInputStyle = {
+    width: windowWidth <= breakpoint ? '100%' : '40%',
+    marginBottom: windowWidth <= breakpoint ? '1rem' : '0',
+  }
+  
   return (
     <PageWrapperShadow
       breadcrumbBar={<BreadcrumbBar breadcrumbList={['Nodes', 'Nimbus', 'Connect Device']} />}
@@ -27,25 +52,17 @@ const ConnectDevicePage = () => {
             subtitle="Configure your device to connect to the Nimbus Node Manager"
           />
           <YStack my={16}>
-            <XStack
-              width={'100%'}
-              alignItems="center"
-              justifyContent="space-between"
-              // media query
-              $lg={{
-                flexDirection: 'column',
-                flexWrap: 'nowrap',
-              }}
-            >
-              <XStack width={'40%'}>
+            <XStack style={responsiveXStackStyle}>
+              <Stack style={responsiveInputStyle}>
                 <LabelInputField labelText="Beacon Address" placeholderText="something" />
-              </XStack>
-              <XStack width={'25%'}>
+              </Stack>
+              <Stack style={responsiveInputStyle}>
                 <LabelInputField labelText="Beacon Node Port" placeholderText="5052" />
-              </XStack>
-              <XStack width={'25%'}>
+              </Stack>
+              <Stack style={responsiveInputStyle}>
                 <LabelInputField labelText="Client Validator Port" placeholderText="5052" />
-              </XStack>
+              </Stack>
+
               <YStack width={20}>
                 <Checkbox
                   id="port-checkbox"
