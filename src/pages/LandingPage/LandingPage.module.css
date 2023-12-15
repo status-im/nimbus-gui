@@ -1,0 +1,13 @@
+.landing-page {
+  height: 100%;
+}
+
+.landing-texts {
+  margin: 30vh 0 4vh;
+}
+
+@media (max-width: 1000px) {
+  .landing-texts {
+    margin-top: 20vh;
+  }
+}

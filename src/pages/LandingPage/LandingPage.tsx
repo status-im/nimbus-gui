@@ -1,27 +1,28 @@
-import './LandingPage.css'
+import { useNavigate } from 'react-router'
 import { XStack, YStack } from 'tamagui'
-import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
-import NimbusLogo from '../../components/Logos/NimbusLogo'
 import { NodeIcon } from '@status-im/icons'
 import { Button as StatusButton, Text } from '@status-im/components'
+
+import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import QuickStartBar from '../../components/General/QuickStartBar/QuickStartBar'
-import { useNavigate } from 'react-router'
+import NimbusLogo from '../../components/Logos/NimbusLogo'
+import styles from './LandingPage.module.css'
 
 const LandingPage = () => {
   const navigate = useNavigate()
 
-  const getStartedHanlder = () => {
+  const onGetStartedHandler = () => {
     navigate('/pair-device')
   }
 
   return (
     <>
       <PageWrapperShadow rightImageSrc="./background-images/landing-page-bg.png" imgHeight="150%">
-        <YStack className="landing-page">
+        <YStack className={styles['landing-page']}>
           <XStack pt={'70px'}>
             <NimbusLogo />
           </XStack>
-          <YStack style={{ width: '100%', margin: '30vh 0 4vh' }} space={'16px'}>
+          <YStack className={styles['landing-texts']} space={'16px'}>
             <Text size={27} weight={'semibold'}>
               Light and performant clients, for all Ethereum validators.
             </Text>
@@ -30,9 +31,8 @@ const LandingPage = () => {
               you wish to run in a completely trustless and decentralized manner.
             </Text>
           </YStack>
-
           <XStack>
-            <StatusButton icon={<NodeIcon size={20} />} onPress={getStartedHanlder}>
+            <StatusButton icon={<NodeIcon size={20} />} onPress={onGetStartedHandler}>
               Get Started
             </StatusButton>
           </XStack>
