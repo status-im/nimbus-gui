@@ -1,7 +1,11 @@
 import { Avatar, Text } from '@status-im/components'
 import { Stack, XStack, YStack } from 'tamagui'
 
-const TitleLogo = () => {
+type TitleLogoProps = {
+  subtitle?: string
+}
+
+const TitleLogo = ({ subtitle }: TitleLogoProps) => {
   return (
     <XStack space={'$2'}>
       <Stack style={{ marginTop: '3px' }}>
@@ -18,7 +22,7 @@ const TitleLogo = () => {
           Nimbus
         </Text>
         <Text size={19} color="#647084">
-          Node Management Dashboard
+          {subtitle}
         </Text>
       </YStack>
     </XStack>

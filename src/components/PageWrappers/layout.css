@@ -26,7 +26,6 @@
   flex-wrap: wrap;
   justify-content: end;
   height: 100%;
-  /* padding: 70px 0 0; */
 }
 .container-inner {
   max-width: 70%;
@@ -82,4 +81,86 @@
 }
 .image-container .nimbus-logomark svg {
   height: 73px;
+}
+
+@media (max-width: 1000px) {
+  .layout {
+    height: auto;
+  }
+
+  .layout-left {
+    flex: 0 0 100%;
+    max-width: 100%;
+    order: 1;
+  }
+
+  .container {
+    justify-content: start;
+    padding: 20px;
+  }
+
+  .container-inner {
+    max-width: 100%;
+    flex: 1 0 100%;
+  }
+
+  .layout-right {
+    flex: 0 0 100%;
+    max-width: 100%;
+    order: 0;
+    margin-top: -10%;
+    margin-bottom: -72%;
+  }
+
+  .image-container {
+    margin: 0;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .image-container .background-img {
+    width: 100%;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-5%);
+    clip-path: inset(0 0 85% 0);
+    height: auto;
+  }
+
+  .image-container .nimbus-logomark {
+    display: none;
+  }
+
+  .content,
+  .breadcrumbBar,
+  .other-elements {
+    margin: 0;
+    padding: 0;
+  }
+
+  .breadcrumbBar,
+  .some-other-element {
+    margin: 0;
+    padding: 0;
+  }
+
+  .image-container {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+  }
+
+  .image-container .background-img {
+    clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
+  }
+
+  .image-container::after {
+    width: 100%;
+    right: 0;
+    left: 0;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 62%, rgba(255, 255, 255, 0));
+  }
 }

@@ -1,13 +1,10 @@
 import { useEffect, useState } from 'react'
 import { XStack, YStack } from 'tamagui'
-import { Button, IconButton, InformationBox, Text } from '@status-im/components'
+import { IconButton, InformationBox, Text } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
-
-import Icon from '../../components/General/Icon'
-import ConnectionIcon from '/icons/connection.svg'
-import { convertSecondsToTimerFormat } from '../../utilities'
 import { RefreshIcon } from '@status-im/icons'
-import { useNavigate } from 'react-router'
+
+import { convertSecondsToTimerFormat } from '../../utilities'
 
 type SyncStatusProps = {
   isPairing: boolean
@@ -21,7 +18,6 @@ const SyncStatus = ({
   changeSetIsAwaitingPairing,
 }: SyncStatusProps) => {
   const [elapsedTime, setElapsedTime] = useState(0)
-  const navigate = useNavigate()
 
   const resetTimer = () => {
     setElapsedTime(0)
@@ -33,7 +29,7 @@ const SyncStatus = ({
 
     if (isPairing) {
       timer = setInterval(() => {
-        setElapsedTime(prevTime => prevTime + 65)
+        setElapsedTime(prevTime => prevTime + 1000)
         if (elapsedTime >= 180) {
           changeSetIsAwaitingPairing(true)
         }
@@ -47,19 +43,15 @@ const SyncStatus = ({
 
   const timer = convertSecondsToTimerFormat(elapsedTime)
 
-  const connectViaIpHandler = () => {
-    navigate('/connect-device')
-  }
-
   return (
-    <YStack space={'$2'}>
-      <XStack style={{ justifyContent: 'space-between' }}>
+    <YStack>
+      <XStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
         <Text size={11} color="#647084" weight="medium">
           Device Sync Status
         </Text>
         {isPairing && (
           <Text
-            size={isAwaitingPairing ? 15 : 11}
+            size={13}
             color={isAwaitingPairing ? '#EB5757' : '#647084'}
             weight={isAwaitingPairing && 'semibold'}
           >
@@ -88,13 +80,6 @@ const SyncStatus = ({
           variant="error"
           icon={<CloseCircleIcon size={20} />}
         />
-      )}
-      {isAwaitingPairing && (
-        <XStack>
-          <Button icon={<Icon src={ConnectionIcon} />} size={40} onPress={connectViaIpHandler}>
-            Connect via IP
-          </Button>
-        </XStack>
       )}
     </YStack>
   )

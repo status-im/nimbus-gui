@@ -1,8 +1,8 @@
-import './QuickStartBar.css'
+import styles from './QuickStartBar.module.css'
 
 const QuickStartBar = () => {
   return (
-    <nav className="quick-start-bar">
+    <nav className={styles['quick-start-bar']}>
       <span>
         <svg
           xmlns="http://www.w3.org/2000/svg"

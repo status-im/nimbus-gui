@@ -16,12 +16,12 @@ import PairDevice from './pages/PairDevice/PairDevice'
 import PinnedNotification from './components/General/PinnedNottification'
 import CreateLocalNodePage from './pages/CreateLocalNodePage/CreateLocalNodePage'
 import ValidatorOnboarding from './pages/ValidatorOnboarding/ValidatorOnboarding'
-import { ethereumRopsten, wcV2InitOptions, apiKey } from './constants'
 import Dashboard from './pages/Dashboard/Dashboard'
 import ConnectExistingInstance from './pages/ConnectExistingInstance/ConnectExistingInstance'
-import './App.css'
 import ValidatorManagement from './pages/ValidatorManagement/ValidatorManagement'
 import LogsPage from './pages/LogsPage/LogsPage'
+import { ethereumRopsten, wcV2InitOptions, apiKey } from './constants'
+import './App.css'
 
 const injected = injectedModule()
 const walletConnect = walletConnectModule(wcV2InitOptions)

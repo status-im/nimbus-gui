@@ -1,23 +1,25 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { withRouter } from 'storybook-addon-react-router-v6'
 
-import SyncStatus from './SyncStatus'
+import TitleLogo from './TitleLogo'
 
 const meta = {
-  title: 'Pair Device/SyncStatus',
-  component: SyncStatus,
+  title: 'General/TitleLogo',
+  component: TitleLogo,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  decorators: [withRouter],
-} satisfies Meta<typeof SyncStatus>
+} satisfies Meta<typeof TitleLogo>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    isPairing: true,
+    subtitle: 'Node Management Dashboard',
   },
+}
+
+export const WithoutSubtitle: Story = {
+  args: {},
 }

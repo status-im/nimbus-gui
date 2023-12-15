@@ -31,13 +31,13 @@ const CreateAvatar = () => {
   }, [emojiRef])
 
   return (
-    <YStack my={16}>
-      <XStack space>
+    <YStack>
+      <XStack>
         <LabelInputField labelText="Device Name" placeholderText="Stake and chips" />
       </XStack>
-      <XStack my={10} justifyContent={'space-between'}>
-        <YStack mr={60}>
-          <Text size={13} weight="regular" color={'#647084'}>
+      <XStack space={'$3'} justifyContent={'space-between'}>
+        <YStack>
+          <Text size={13} weight="semibold" color={'#647084'}>
             Device Avatar
           </Text>
           <XStack my={10} alignItems={'end'}>
@@ -64,8 +64,8 @@ const CreateAvatar = () => {
             </div>
           </XStack>
         </YStack>
-        <YStack flexWrap="wrap" width="80%">
-          <Text size={13} weight="regular" color={'#647084'}>
+        <YStack flexWrap="wrap" width="73%">
+          <Text size={13} weight="semibold" color={'#647084'}>
             Highlight Color
           </Text>
           <ColorPicker setChosenColor={setChosenColor} />

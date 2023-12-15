@@ -45,7 +45,6 @@ export const DEPOSIT_SUBTITLE = 'Connect you Wallet to stake required ETH for ne
 export const CLIENT_SETUP_SUBTITLE = 'How many Validators would you like to run?'
 
 // Dashboard
-
 export const years = [
   'JAN',
   'FEB',
@@ -59,4 +58,58 @@ export const years = [
   'OCT',
   'NOV',
   'DEC',
+]
+export const VALIDATOR_TABS_RIGHT_SIDEBAR = ['Active', 'Pending', 'Inactive']
+
+// Validator Management
+export const VALIDATOR_TABS_MANAGEMENT = [
+  'Active',
+  'Pending',
+  'Inactive',
+  'Exited',
+  'Withdraw',
+  'All',
+]
+
+export const VALIDATORS_DATA = [
+  {
+    number: 1,
+    address: 'zQ3asdf9d4Gs0',
+    balance: 32.0786,
+    income: 0.0786,
+    proposals: '1/102',
+    attestations: '1/102',
+    effectiveness: 98,
+    status: 'Active',
+  },
+  {
+    number: 1,
+    address: 'zQ3asdf9d4Gs0',
+    balance: 32.0786,
+    income: 0.0786,
+    proposals: '1/102',
+    attestations: '1/102',
+    effectiveness: 98,
+    status: 'Active',
+  },
+  {
+    number: 1,
+    address: 'zQ3asdf9d4Gs0',
+    balance: 32.0786,
+    income: 0.0786,
+    proposals: '1/102',
+    attestations: '1/102',
+    effectiveness: 98,
+    status: 'Active',
+  },
+  {
+    number: 1,
+    address: 'zQ3asdf9d4Gs0',
+    balance: 32.0786,
+    income: 0.0786,
+    proposals: '1/102',
+    attestations: '1/102',
+    effectiveness: 98,
+    status: 'Active',
+  },
 ]

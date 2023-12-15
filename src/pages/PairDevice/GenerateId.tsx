@@ -3,8 +3,10 @@ import { CompleteIdIcon, CopyIcon } from '@status-im/icons'
 import { Text } from '@tamagui/web'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Separator, XStack, YStack } from 'tamagui'
+import { Separator, YStack } from 'tamagui'
 import { v4 as uuidv4 } from 'uuid'
+
+import styles from './pairDevice.module.css'
 
 type GenerateIdProps = {
   isAwaitingPairing: boolean
@@ -27,7 +29,10 @@ const GenerateId = ({ isAwaitingPairing }: GenerateIdProps) => {
 
   return (
     <YStack space={'$2'}>
-      <XStack style={{ justifyContent: 'space-between' }}>
+      <div
+        style={{ display: 'flex', justifyContent: 'space-between' }}
+        className={styles['regenerate-id-container']}
+      >
         <StatusText size={19} weight={'semibold'}>
           Pair with Command line
         </StatusText>
@@ -39,7 +44,7 @@ const GenerateId = ({ isAwaitingPairing }: GenerateIdProps) => {
         >
           Regenerate ID
         </Button>
-      </XStack>
+      </div>
       <YStack space={'$2'}>
         <StatusText size={15} color={'#647084'}>
           Generated Pairing ID Input

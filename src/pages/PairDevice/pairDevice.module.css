@@ -1,0 +1,6 @@
+@media screen and (max-width: 440px) {
+  .regenerate-id-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

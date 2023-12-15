@@ -2,18 +2,18 @@ import { Stack, XStack, YStack } from 'tamagui'
 import { InfoBadgeIcon } from '@status-im/icons'
 import { Text } from '@status-im/components'
 
-import StandardGauge from '../../../../components/Charts/StandardGauge'
-import BorderBox from '../../../../components/General/BorderBox'
-import { formatNumbersWithComa } from '../../../../utilities'
+import StandardGauge from '../Charts/StandardGauge'
+import BorderBox from './BorderBox'
+import { formatNumbersWithComa } from '../../utilities'
 
-type KeyGenerationSyncCardProps = {
+type SyncStatusCardProps = {
   synced: number
   total: number
   title: string
   color: string
 }
 
-const KeyGenerationSyncCard = ({ synced, total, title, color }: KeyGenerationSyncCardProps) => {
+const SyncStatusCard = ({ synced, total, title, color }: SyncStatusCardProps) => {
   return (
     <BorderBox style={{ borderRadius: '10.1px', borderWidth: '0.5px' }}>
       <XStack space={'$2'} alignItems="center">
@@ -54,4 +54,4 @@ const KeyGenerationSyncCard = ({ synced, total, title, color }: KeyGenerationSyn
   )
 }
 
-export default KeyGenerationSyncCard
+export default SyncStatusCard
