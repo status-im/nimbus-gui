@@ -26,3 +26,15 @@
   color: #0d1625;
   font-size: 13px;
 }
+
+@media (max-width: 1000px) {
+  .quick-start-bar {
+    top: 0;
+    width: max-content;
+    margin: 0 20px;
+  }
+
+  .quick-start-bar ul li {
+    font-size: 11px;
+  }
+}
