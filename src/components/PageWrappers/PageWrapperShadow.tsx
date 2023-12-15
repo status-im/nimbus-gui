@@ -1,7 +1,8 @@
 import { ReactNode } from 'react'
-import './layout.css'
-import NimbusLogoMark from '../Logos/NimbusLogoMark'
 import { useTheme } from 'tamagui'
+
+import NimbusLogoMark from '../Logos/NimbusLogoMark'
+import './layout.css'
 
 type PageWrapperShadowProps = {
   breadcrumbBar?: ReactNode
@@ -28,7 +29,6 @@ const PageWrapperShadow = ({
           <div className="container-inner">{children}</div>
         </div>
       </section>
-
       <section className="layout-right">
         <div className="image-container">
           <img

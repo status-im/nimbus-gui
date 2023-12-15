@@ -132,6 +132,13 @@ ul li {
   }
 }
 
+@media screen and (max-width: 440px) {
+  .header-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
 @media (max-width: 900px) {
   .right-sidebar-wrapper {
     display: none;
