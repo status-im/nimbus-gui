@@ -1,5 +1,4 @@
 import { Stack, XStack, YStack } from 'tamagui'
-import TitleLogo from '../Dashboard/TitleLogo'
 
 import LeftSidebar from '../../components/General/LeftSidebar/LeftSidebar'
 import RightSidebar from '../../components/General/RightSideBar/RightSidebar'
@@ -8,10 +7,11 @@ import LogsSumCard from './LogsSumCard'
 import SupportCard from './SupportCard'
 import { useEffect, useState } from 'react'
 import HeaderBtns from './HeaderBtns'
+import TitleLogo from '../../components/General/TitleLogo'
 
 const LogsPage = () => {
   const [highLightSearched, setHighLightSearched] = useState(false)
-  const [searchInput, setSearchInput] = useState('');
+  const [searchInput, setSearchInput] = useState('')
   const [timestamps, setTimestamps] = useState(false)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const [dropdownMenuItem, setDropdownMenuItem] = useState('Validator')
@@ -56,8 +56,6 @@ const LogsPage = () => {
             searchInput={searchInput}
             setSearchInput={setSearchInput}
             triggerSearch={triggerSearch}
-           
-
           />
         </XStack>
         <Stack style={{ width: '100%', alignItems: 'center' }}>
