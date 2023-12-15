@@ -30,7 +30,7 @@
 @media (max-width: 1000px) {
   .quick-start-bar {
     top: 0;
-    width: max-content;
+    width: 85%;
     margin: 0 20px;
   }
 
