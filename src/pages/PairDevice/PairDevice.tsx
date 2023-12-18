@@ -16,6 +16,7 @@ import Icon from '../../components/General/Icon'
 const PairDevice = () => {
   const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
   const navigate = useNavigate()
+  const [isConnectingViaIp, setIsConnectingViaIp] = useState(false)
   const isPaired = false
   const isPairing = false
 
