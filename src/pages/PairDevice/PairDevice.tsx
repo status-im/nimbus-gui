@@ -2,7 +2,6 @@ import { NodeIcon } from '@status-im/icons'
 import { Separator, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
 import { Button, Text } from '@status-im/components'
-import { useNavigate } from 'react-router-dom'
 
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import SyncStatus from './SyncStatus'
@@ -15,7 +14,6 @@ import Icon from '../../components/General/Icon'
 
 const PairDevice = () => {
   const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
-  const navigate = useNavigate()
   const [isConnectingViaIp, setIsConnectingViaIp] = useState(false)
   const isPaired = false
   const isPairing = false
@@ -25,7 +23,7 @@ const PairDevice = () => {
   }
 
   const connectViaIpHandler = () => {
-    navigate('/connect-device')
+    setIsConnectingViaIp(true)
   }
 
   return (
