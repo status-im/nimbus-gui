@@ -1,4 +1,4 @@
-import { NodeIcon, CompleteIdIcon } from '@status-im/icons'
+import { NodeIcon, CompleteIdIcon, ConnectionIcon } from '@status-im/icons'
 import { Separator, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
 import { Button, Text } from '@status-im/components'
@@ -10,7 +10,6 @@ import PairedSuccessfully from './PairedSuccessfully'
 import CreateAvatar from '../../components/General/CreateAvatar/CreateAvatar'
 import GenerateId from './GenerateId'
 import Header from '../../components/General/Header'
-import Icon from '../../components/General/Icon'
 
 const PairDevice = () => {
   const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
@@ -52,7 +51,7 @@ const PairDevice = () => {
               <XStack>
                 {isConnectingViaIp ? (
                   <Button
-                    icon={<CompleteIdIcon size={20} color="#2A4AF5" />}
+                    icon={<CompleteIdIcon size={20} />}
                     variant="outline"
                     onPress={connectAndPairHandler}
                   >
@@ -60,7 +59,7 @@ const PairDevice = () => {
                   </Button>
                 ) : (
                   <Button
-                    icon={<Icon src="/icons/connection-blue.svg" width={20} />}
+                    icon={<ConnectionIcon size={20} />}
                     variant="outline"
                     onPress={connectAndPairHandler}
                   >
