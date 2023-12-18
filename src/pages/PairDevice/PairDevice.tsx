@@ -22,8 +22,8 @@ const PairDevice = () => {
     setIsAwaitingPairing(result)
   }
 
-  const connectViaIpHandler = () => {
-    setIsConnectingViaIp(true)
+  const connectAndPairHandler = () => {
+    setIsConnectingViaIp(state => !state)
   }
 
   return (
@@ -51,14 +51,18 @@ const PairDevice = () => {
               </Text>
               <XStack>
                 {isConnectingViaIp ? (
-                  <Button icon={<CompleteIdIcon size={20} color="#2A4AF5" />} variant="outline">
+                  <Button
+                    icon={<CompleteIdIcon size={20} color="#2A4AF5" />}
+                    variant="outline"
+                    onPress={connectAndPairHandler}
+                  >
                     Pair with ID
                   </Button>
                 ) : (
                   <Button
                     icon={<Icon src="/icons/connection-blue.svg" width={20} />}
                     variant="outline"
-                    onPress={connectViaIpHandler}
+                    onPress={connectAndPairHandler}
                   >
                     Connect via IP
                   </Button>
