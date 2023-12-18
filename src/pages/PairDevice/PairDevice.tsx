@@ -49,23 +49,15 @@ const PairDevice = () => {
                 Advanced Settings
               </Text>
               <XStack>
-                {isConnectingViaIp ? (
-                  <Button
-                    icon={<CompleteIdIcon size={20} />}
-                    variant="outline"
-                    onPress={connectAndPairHandler}
-                  >
-                    Pair with ID
-                  </Button>
-                ) : (
-                  <Button
-                    icon={<ConnectionIcon size={20} />}
-                    variant="outline"
-                    onPress={connectAndPairHandler}
-                  >
-                    Connect via IP
-                  </Button>
-                )}
+                <Button
+                  icon={
+                    isConnectingViaIp ? <CompleteIdIcon size={20} /> : <ConnectionIcon size={20} />
+                  }
+                  variant="outline"
+                  onPress={connectAndPairHandler}
+                >
+                  {isConnectingViaIp ? 'Pair with ID' : 'Connect via IP'}
+                </Button>
               </XStack>
             </YStack>
           </YStack>
