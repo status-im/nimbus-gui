@@ -57,6 +57,9 @@ const PairDevice = () => {
                 >
                   Connect via IP
                 </Button>
+                  <Button icon={<CompleteIdIcon size={20} color="#2A4AF5" />} variant="outline">
+                    Pair with ID
+                  </Button>
               </XStack>
             </YStack>
           </YStack>
