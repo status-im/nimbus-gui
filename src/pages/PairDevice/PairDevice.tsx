@@ -1,4 +1,4 @@
-import { NodeIcon } from '@status-im/icons'
+import { NodeIcon, CompleteIdIcon } from '@status-im/icons'
 import { Separator, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
 import { Button, Text } from '@status-im/components'
@@ -50,16 +50,19 @@ const PairDevice = () => {
                 Advanced Settings
               </Text>
               <XStack>
-                <Button
-                  icon={<Icon src="/icons/connection-blue.svg" width={20} />}
-                  variant="outline"
-                  onPress={connectViaIpHandler}
-                >
-                  Connect via IP
-                </Button>
+                {isConnectingViaIp ? (
                   <Button icon={<CompleteIdIcon size={20} color="#2A4AF5" />} variant="outline">
                     Pair with ID
                   </Button>
+                ) : (
+                  <Button
+                    icon={<Icon src="/icons/connection-blue.svg" width={20} />}
+                    variant="outline"
+                    onPress={connectViaIpHandler}
+                  >
+                    Connect via IP
+                  </Button>
+                )}
               </XStack>
             </YStack>
           </YStack>
