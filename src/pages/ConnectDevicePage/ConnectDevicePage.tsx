@@ -21,19 +21,23 @@ const ConnectDevicePage = () => {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  const breakpoint = 768
+  const breakpoint = 268
 
   const responsiveXStackStyle = {
-    width: '100%',
+    space: '$4',
     alignItems: 'center',
-    justifyContent: 'space-between',
     flexDirection: windowWidth <= breakpoint ? 'column' : 'row',
-    flexWrap: windowWidth <= breakpoint ? 'wrap' : 'nowrap',
+    width: '55%',
   }
-
+  const checkboxStackStyle = {
+    marginTop: '20px',
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
   const responsiveInputStyle = {
-    width: windowWidth <= breakpoint ? '100%' : '40%',
-    marginBottom: windowWidth <= breakpoint ? '1rem' : '0',
+    marginBottom: windowWidth <= breakpoint ? '0.5rem' : '0',
+    width: '100%',
   }
 
   return (
@@ -50,19 +54,27 @@ const ConnectDevicePage = () => {
             title="Connect Device"
             subtitle="Configure your device to connect to the Nimbus Node Manager"
           />
-          <YStack my={16}>
-            <XStack style={responsiveXStackStyle}>
+          <YStack my={16} width={'50%'}>
+            <XStack style={responsiveXStackStyle} space={'$3'}>
               <Stack style={responsiveInputStyle}>
-                <LabelInputField labelText="Beacon Address" placeholderText="something" />
+                <LabelInputField
+                  labelText="Beacon Address"
+                  placeholderText="something"
+                  width="100%"
+                />
               </Stack>
               <Stack style={responsiveInputStyle}>
-                <LabelInputField labelText="Beacon Node Port" placeholderText="5052" />
+                <LabelInputField labelText="Beacon Node Port" placeholderText="5052" width="100%" />
               </Stack>
               <Stack style={responsiveInputStyle}>
-                <LabelInputField labelText="Client Validator Port" placeholderText="5052" />
+                <LabelInputField
+                  labelText="Client Validator Port"
+                  placeholderText="5052"
+                  width="100%"
+                />
               </Stack>
 
-              <YStack width={20}>
+              <YStack width={20} style={checkboxStackStyle}>
                 <Checkbox
                   id="port-checkbox"
                   variant="outline"
@@ -71,8 +83,12 @@ const ConnectDevicePage = () => {
                 />
               </YStack>
             </XStack>
-            <XStack width={'100%'} alignItems="center">
-              <LabelInputField labelText="API Token" placeholderText="****_*****_*****" />
+            <XStack alignItems="center" width="100%">
+              <LabelInputField
+                labelText="API Token"
+                placeholderText="****_*****_*****"
+                width="180%"
+              />
             </XStack>
           </YStack>
           <YStack my={16}>
@@ -83,9 +99,21 @@ const ConnectDevicePage = () => {
               <XStack my={10}>
                 <Avatar type="user" size={80} name="Device Avatar" />
               </XStack>
-              <XStack space>
-                <LabelInputField labelText="Device Name" placeholderText="Stake and chips" />
-                <LabelInputField labelText="Device Color" placeholderText="#011892" />
+              <XStack space style={{ justifyContent: 'space-between' }}>
+                <Stack width={'50%'}>
+                  <LabelInputField
+                    labelText="Device Name"
+                    placeholderText="Stake and chips"
+                    width="100%"
+                  />
+                </Stack>
+                <Stack width={'50%'}>
+                  <LabelInputField
+                    labelText="Device Color"
+                    placeholderText="#011892"
+                    width="100%"
+                  />
+                </Stack>
               </XStack>
             </YStack>
           </YStack>
