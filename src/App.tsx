@@ -17,7 +17,6 @@ import PinnedNotification from './components/General/PinnedNottification'
 import CreateLocalNodePage from './pages/CreateLocalNodePage/CreateLocalNodePage'
 import ValidatorOnboarding from './pages/ValidatorOnboarding/ValidatorOnboarding'
 import Dashboard from './pages/Dashboard/Dashboard'
-import ConnectExistingInstance from './pages/ConnectExistingInstance/ConnectExistingInstance'
 import ValidatorManagement from './pages/ValidatorManagement/ValidatorManagement'
 import { ethereumRopsten, wcV2InitOptions, apiKey } from './constants'
 import './App.css'
@@ -58,10 +57,6 @@ const router = createBrowserRouter([
   {
     path: '/pair-device',
     element: <PairDevice />,
-  },
-  {
-    path: '/pair-existing-instance',
-    element: <ConnectExistingInstance />,
   },
   { path: '/create-local-node', element: <CreateLocalNodePage /> },
   { path: '/validator-onboarding', element: <ValidatorOnboarding /> },
