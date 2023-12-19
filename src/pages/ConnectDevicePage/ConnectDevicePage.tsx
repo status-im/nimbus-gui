@@ -7,6 +7,7 @@ import Titles from '../../components/General/Titles'
 import LabelInputField from '../../components/General/LabelInputField'
 import Header from '../../components/General/Header'
 import { NodeIcon } from '@status-im/icons'
+import CreateAvatar from '../../components/General/CreateAvatar/CreateAvatar'
 
 const ConnectDevicePage = () => {
   const [autoConnectChecked, setAutoConnectChecked] = useState(false)
@@ -92,30 +93,7 @@ const ConnectDevicePage = () => {
             </XStack>
           </YStack>
           <YStack my={16}>
-            <YStack>
-              <Text size={13} weight="regular" color={'#647084'}>
-                Device Avatar
-              </Text>
-              <XStack my={10}>
-                <Avatar type="user" size={80} name="Device Avatar" />
-              </XStack>
-              <XStack space style={{ justifyContent: 'space-between' }}>
-                <Stack width={'50%'}>
-                  <LabelInputField
-                    labelText="Device Name"
-                    placeholderText="Stake and chips"
-                    width="100%"
-                  />
-                </Stack>
-                <Stack width={'50%'}>
-                  <LabelInputField
-                    labelText="Device Color"
-                    placeholderText="#011892"
-                    width="100%"
-                  />
-                </Stack>
-              </XStack>
-            </YStack>
+            <CreateAvatar></CreateAvatar>
           </YStack>
           <Separator alignSelf="stretch" borderColor={'#F0F2F5'} />
           <YStack my={16}>
