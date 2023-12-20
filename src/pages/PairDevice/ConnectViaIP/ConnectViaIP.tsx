@@ -42,7 +42,7 @@ const ConnectViaIP = () => {
       )}
       <Separator borderColor={'#e3e3e3'} />
       <YStack space={'$2'}>
-        <Text size={11} color={'#647084'}>
+        <Text size={13} color={'#647084'} weight={'semibold'}>
           API Token
         </Text>
         <Input

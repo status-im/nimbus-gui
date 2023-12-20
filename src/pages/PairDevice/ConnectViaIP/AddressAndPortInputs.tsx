@@ -38,7 +38,7 @@ const AddressAndPortInputs = ({ addressType, portType, isAdvanced }: AddressAndP
             <Text size={13} color={'#647084'} weight={'semibold'}>
               Protocol
             </Text>
-            <Text size={11} color={'#647084'} weight={'regular'}>
+            <Text size={11} color={'#647084'}>
               (HTTP/HTTPS)
             </Text>
           </YStack>
@@ -60,7 +60,7 @@ const AddressAndPortInputs = ({ addressType, portType, isAdvanced }: AddressAndP
           </Switch>
         </YStack>
         <YStack space={'$2'}>
-          <Text size={11} color={'#647084'} weight={'regular'}>
+          <Text size={13} color={'#647084'} weight={'semibold'}>
             {addressType || 'Node'} Address
           </Text>
           <Input placeholder={''} value={address} onChangeText={onAddressChangeHandler} />
@@ -69,7 +69,7 @@ const AddressAndPortInputs = ({ addressType, portType, isAdvanced }: AddressAndP
           <></>
         ) : (
           <YStack space={'$2'}>
-            <Text size={11} color={'#647084'} weight={'regular'}>
+            <Text size={13} color={'#647084'} weight={'semibold'}>
               {portType} Port
             </Text>
             <Input value={port} onChangeText={onPortChangeHandler} />
