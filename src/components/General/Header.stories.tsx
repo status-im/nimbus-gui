@@ -16,12 +16,12 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    selectedTag: 'pair',
+    selectedTag: 'Pair',
   },
 }
 
 export const CreateTag: Story = {
   args: {
-    selectedTag: 'create',
+    selectedTag: 'Create',
   },
 }

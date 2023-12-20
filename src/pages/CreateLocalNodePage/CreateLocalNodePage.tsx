@@ -13,7 +13,7 @@ const CreateLocalNodePage = () => {
   return (
     <PageWrapperShadow rightImageSrc="./background-images/day-night-bg.png" rightImageLogo={true}>
       <YStack space={'$3'}>
-        <Header selectedTag="create" />
+        <Header selectedTag="Create" />
         <article className="content">
           <Titles
             title="Create Local Node"

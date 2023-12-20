@@ -1,8 +1,8 @@
 import NimbusLogo from '../Logos/NimbusLogo'
-import TagContainer from './TagContainer'
+import TagContainer, { SelectedTag } from './TagContainer'
 
 type HeaderProps = {
-  selectedTag: 'pair' | 'create'
+  selectedTag: SelectedTag
 }
 
 const Header = ({ selectedTag }: HeaderProps) => {

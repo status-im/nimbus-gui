@@ -3,8 +3,10 @@ import { XStack } from 'tamagui'
 import { AddSmallIcon, SwapIcon } from '@status-im/icons'
 import { useNavigate } from 'react-router'
 
+export type SelectedTag = 'Pair' | 'Create'
+
 type TagContainerProps = {
-  selectedTag: 'pair' | 'create'
+  selectedTag: SelectedTag
 }
 
 const TAGS = [
@@ -32,7 +34,7 @@ const TagContainer = ({ selectedTag }: TagContainerProps) => {
       {TAGS.map(tag => (
         <Tag
           key={tag.label}
-          selected={selectedTag === tag.label.toLowerCase()}
+          selected={selectedTag === tag.label}
           icon={tag.icon}
           label={tag.label}
           size={32}
