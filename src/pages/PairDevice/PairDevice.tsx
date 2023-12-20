@@ -10,6 +10,7 @@ import PairedSuccessfully from './PairedSuccessfully'
 import CreateAvatar from '../../components/General/CreateAvatar/CreateAvatar'
 import GenerateId from './GenerateId'
 import Header from '../../components/General/Header'
+import ConnectExistingInstance from '../ConnectExistingInstance/ConnectExistingInstance'
 
 const PairDevice = () => {
   const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
@@ -33,13 +34,23 @@ const PairDevice = () => {
           title="Connect to existing Nimbus Instance"
           subtitle="Pair your existing device to the Nimbus Node Manager"
         />
-        {isPaired ? <PairedSuccessfully /> : <GenerateId isAwaitingPairing={isAwaitingPairing} />}
-        {isPaired === false && (
-          <SyncStatus
-            isPairing={isPairing}
-            isAwaitingPairing={isAwaitingPairing}
-            changeSetIsAwaitingPairing={changeSetIsAwaitingPairing}
-          />
+        {isConnectingViaIp ? (
+          <ConnectExistingInstance />
+        ) : (
+          <>
+            {isPaired ? (
+              <PairedSuccessfully />
+            ) : (
+              <GenerateId isAwaitingPairing={isAwaitingPairing} />
+            )}
+            {isPaired === false && (
+              <SyncStatus
+                isPairing={isPairing}
+                isAwaitingPairing={isAwaitingPairing}
+                changeSetIsAwaitingPairing={changeSetIsAwaitingPairing}
+              />
+            )}
+          </>
         )}
         {isPaired === false && (
           <YStack space={'$3'}>
