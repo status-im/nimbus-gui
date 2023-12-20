@@ -14,6 +14,22 @@ const AddressAndPortInputs = ({ addressType, portType, isAdvanced }: AddressAndP
   const [port, setPort] = useState('')
   const [isChecked, setIsChecked] = useState(false)
 
+  const onSwitchChangeHandler = () => {
+    setIsSwitchOn(state => !state)
+  }
+
+  const onAddressChangeHandler = (value: string) => {
+    setAddress(value)
+  }
+
+  const onPortChangeHandler = (value: string) => {
+    setPort(value)
+  }
+
+  const onCheckboxChangeHandler = () => {
+    setIsChecked(state => !state)
+  }
+
   return (
     <YStack>
       <XStack justifyContent={'space-between'}>
@@ -30,7 +46,7 @@ const AddressAndPortInputs = ({ addressType, portType, isAdvanced }: AddressAndP
             size="$1"
             style={isSwitchOn ? { backgroundColor: '#2A4AF5' } : { backgroundColor: 'grey' }}
             checked={isSwitchOn}
-            onCheckedChange={() => setIsSwitchOn(prev => !prev)}
+            onCheckedChange={onSwitchChangeHandler}
           >
             <Switch.Thumb
               style={{
@@ -47,7 +63,7 @@ const AddressAndPortInputs = ({ addressType, portType, isAdvanced }: AddressAndP
           <Text size={11} color={'#647084'} weight={'regular'}>
             {addressType || 'Node'} Address
           </Text>
-          <Input placeholder={''} value={address} onChangeText={e => setAddress(e)} />
+          <Input placeholder={''} value={address} onChangeText={onAddressChangeHandler} />
         </YStack>
         {isAdvanced === false ? (
           <></>
@@ -56,7 +72,7 @@ const AddressAndPortInputs = ({ addressType, portType, isAdvanced }: AddressAndP
             <Text size={11} color={'#647084'} weight={'regular'}>
               {portType} Port
             </Text>
-            <Input value={port} onChangeText={e => setPort(e)} />
+            <Input value={port} onChangeText={onPortChangeHandler} />
           </YStack>
         )}
         <Stack
@@ -69,7 +85,7 @@ const AddressAndPortInputs = ({ addressType, portType, isAdvanced }: AddressAndP
             id="AddressAndPortInputs"
             variant="outline"
             selected={isChecked}
-            onCheckedChange={() => setIsChecked(prev => !prev)}
+            onCheckedChange={onCheckboxChangeHandler}
             size={20}
           />
         </Stack>
