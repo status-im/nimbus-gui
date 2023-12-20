@@ -1,12 +1,13 @@
+import { NodeIcon } from '@status-im/icons'
 import { useEffect, useState } from 'react'
-import BreadcrumbBar from '../../components/General/BreadcrumbBar/BreadcrumbBar'
-import { Button as StatusButton, Text, Avatar, Checkbox } from '@status-im/components'
+import { Button as StatusButton, Text, Checkbox } from '@status-im/components'
 import { Article, Label, Separator, Stack, XStack, YStack } from 'tamagui'
+
+import BreadcrumbBar from '../../components/General/BreadcrumbBar/BreadcrumbBar'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import Titles from '../../components/General/Titles'
 import LabelInputField from '../../components/General/LabelInputField'
 import Header from '../../components/General/Header'
-import { NodeIcon } from '@status-im/icons'
 import CreateAvatar from '../../components/General/CreateAvatar/CreateAvatar'
 
 const ConnectDevicePage = () => {
@@ -117,7 +118,9 @@ const ConnectDevicePage = () => {
             </XStack>
             <Separator alignSelf="stretch" borderColor={'#F0F2F5'} />
           </YStack>
-          <StatusButton icon={<NodeIcon size={20} />}>Connect Device</StatusButton>
+          <div>
+            <StatusButton icon={<NodeIcon size={20} />}>Connect Device</StatusButton>
+          </div>
         </Article>
       </YStack>
     </PageWrapperShadow>
