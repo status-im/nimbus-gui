@@ -4,7 +4,7 @@ import { AddSmallIcon, SwapIcon } from '@status-im/icons'
 import { useNavigate } from 'react-router'
 
 type TagContainerProps = {
-  selectedTag: 'pair' | 'create' | 'connect'
+  selectedTag: 'pair' | 'create'
 }
 
 const TAGS = [

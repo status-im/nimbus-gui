@@ -43,8 +43,7 @@ const ConnectDevicePage = () => {
       rightImageLogo={true}
     >
       <YStack space={'$3'}>
-        <Header selectedTag="connect" />
-
+        <Header selectedTag="pair" />
         <Article className="content">
           <Titles
             title="Connect Device"

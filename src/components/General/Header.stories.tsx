@@ -25,9 +25,3 @@ export const CreateTag: Story = {
     selectedTag: 'create',
   },
 }
-
-export const ConnectTag: Story = {
-  args: {
-    selectedTag: 'connect',
-  },
-}
