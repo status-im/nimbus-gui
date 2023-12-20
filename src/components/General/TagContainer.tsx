@@ -3,8 +3,6 @@ import { XStack } from 'tamagui'
 import { AddSmallIcon, SwapIcon } from '@status-im/icons'
 import { useNavigate } from 'react-router'
 
-import './TagContainer.css'
-
 type TagContainerProps = {
   selectedTag: 'pair' | 'create' | 'connect'
 }
