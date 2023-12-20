@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import BeaconAddress from './BeaconAddress'
-import { withRouter } from 'storybook-addon-react-router-v6'
 
 const meta = {
   title: 'Connect-Device/BeaconAddress',
