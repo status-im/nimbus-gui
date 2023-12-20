@@ -10,7 +10,7 @@ import PairedSuccessfully from './PairedSuccessfully'
 import CreateAvatar from '../../components/General/CreateAvatar/CreateAvatar'
 import GenerateId from './GenerateId'
 import Header from '../../components/General/Header'
-import ConnectExistingInstance from './ConnectExistingInstance'
+import ConnectViaIP from './ConnectViaIP'
 
 const PairDevice = () => {
   const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
@@ -35,7 +35,7 @@ const PairDevice = () => {
           subtitle="Pair your existing device to the Nimbus Node Manager"
         />
         {isConnectingViaIp ? (
-          <ConnectExistingInstance />
+          <ConnectViaIP />
         ) : (
           <>
             {isPaired ? (

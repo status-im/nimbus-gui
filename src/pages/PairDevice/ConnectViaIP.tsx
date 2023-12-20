@@ -6,7 +6,7 @@ import { SettingsIcon, ClearIcon } from '@status-im/icons'
 import ClientAddressRow from './ClientAddressRow'
 import BeaconAddress from './BeaconAddress'
 
-const ConnectExistingInstance = () => {
+const ConnectViaIP = () => {
   const [encryptedPassword, setEncryptedPassword] = useState('')
 
   const changeEncryptedPasswordHandler = (value: string) => {
@@ -48,4 +48,4 @@ const ConnectExistingInstance = () => {
   )
 }
 
-export default ConnectExistingInstance
+export default ConnectViaIP
