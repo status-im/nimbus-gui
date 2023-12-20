@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { Button, Input, Text } from '@status-im/components'
 import { SettingsIcon, ClearIcon } from '@status-im/icons'
 
-import ClientAddressRow from './ClientAddressRow'
 import BeaconAddress from './BeaconAddress'
 
 const ConnectViaIP = () => {
@@ -23,8 +22,8 @@ const ConnectViaIP = () => {
           Advanced
         </Button>
       </XStack>
-      <ClientAddressRow />
-      <BeaconAddress />
+      <BeaconAddress addressType="Validator Client" portType="VC" />
+      <BeaconAddress addressType="Beacon" portType="Beacon" />
       <Separator borderColor={'#e3e3e3'} />
       <YStack space={'$2'}>
         <Text size={11} color={'#647084'}>
