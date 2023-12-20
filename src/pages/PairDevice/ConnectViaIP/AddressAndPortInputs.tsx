@@ -9,10 +9,10 @@ type AddressAndPortInputsProps = {
 }
 
 const AddressAndPortInputs = ({ addressType, portType, isAdvanced }: AddressAndPortInputsProps) => {
-  const [isSwitchOn, setIsSwitchOn] = useState(false)
-  const [address, setAddress] = useState('')
-  const [port, setPort] = useState('')
-  const [isChecked, setIsChecked] = useState(false)
+  const [isSwitchOn, setIsSwitchOn] = useState(true)
+  const [address, setAddress] = useState('http://124.0.0.1')
+  const [port, setPort] = useState('5052')
+  const [isChecked, setIsChecked] = useState(true)
 
   const onSwitchChangeHandler = () => {
     setIsSwitchOn(state => !state)
