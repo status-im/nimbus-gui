@@ -74,7 +74,6 @@ const AddressAndPortInputs = ({ addressType, portType, isAdvanced }: AddressAndP
           />
         </Stack>
       </XStack>
-      <XStack></XStack>
     </YStack>
   )
 }
