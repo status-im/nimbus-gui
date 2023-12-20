@@ -23,6 +23,10 @@ const AddressAndPortInputs = ({ addressType, portType, isAdvanced }: AddressAndP
   }
 
   const onPortChangeHandler = (value: string) => {
+    if (isNaN(Number(value))) {
+      return
+    }
+
     setPort(value)
   }
 
