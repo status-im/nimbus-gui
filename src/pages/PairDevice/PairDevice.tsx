@@ -10,7 +10,7 @@ import PairedSuccessfully from './PairedSuccessfully'
 import CreateAvatar from '../../components/General/CreateAvatar/CreateAvatar'
 import GenerateId from './GenerateId'
 import Header from '../../components/General/Header'
-import ConnectViaIP from './ConnectViaIP'
+import ConnectViaIP from './ConnectViaIP/ConnectViaIP'
 
 const PairDevice = () => {
   const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
