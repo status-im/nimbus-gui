@@ -16,6 +16,16 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Page: Story = {
-  args: {},
+export const VC: Story = {
+  args: {
+    addressType: 'Validator Client',
+    portType: 'VC',
+  },
+}
+
+export const Beacon: Story = {
+  args: {
+    addressType: 'Beacon',
+    portType: 'Beacon',
+  },
 }
