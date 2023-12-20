@@ -26,6 +26,12 @@ const PairDevice = () => {
     setIsConnectingViaIp(state => !state)
   }
 
+  const continueHandler = () => {
+    if (isConnectingViaIp) {
+    } else {
+    }
+  }
+
   return (
     <PageWrapperShadow rightImageSrc="./background-images/day-night-bg.png" rightImageLogo={true}>
       <YStack space={'$3'}>
@@ -76,7 +82,7 @@ const PairDevice = () => {
         {isPaired && <CreateAvatar />}
         <Separator borderColor={'#e3e3e3'} />
         <div>
-          <Button icon={<NodeIcon size={20} />} disabled={!isPaired}>
+          <Button icon={<NodeIcon size={20} />} disabled={!isPaired} onPress={continueHandler}>
             {isConnectingViaIp ? 'Connect Device' : 'Continue'}
           </Button>
         </div>
