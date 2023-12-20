@@ -61,7 +61,7 @@ const AddressAndPortInputs = ({ addressType, portType, isAdvanced }: AddressAndP
         </YStack>
         <YStack space={'$2'}>
           <Text size={13} color={'#647084'} weight={'semibold'}>
-            {addressType || 'Node'} Address
+            {addressType} Address
           </Text>
           <Input placeholder={''} value={address} onChangeText={onAddressChangeHandler} />
         </YStack>
