@@ -9,33 +9,38 @@ type TagContainerProps = {
   selectedTag: 'pair' | 'create' | 'connect'
 }
 
+const TAGS = [
+  {
+    label: 'Pair',
+    icon: SwapIcon,
+    path: '/pair-device',
+  },
+  {
+    label: 'Create',
+    icon: AddSmallIcon,
+    path: '/create-local-node',
+  },
+]
+
 const TagContainer = ({ selectedTag }: TagContainerProps) => {
   const navigate = useNavigate()
 
-  const onPressPair = () => {
-    navigate('/pair-device')
-  }
-
-  const onPressCreate = () => {
-    navigate('/create-local-node')
+  const onPressTag = (path: string) => {
+    navigate(path)
   }
 
   return (
     <XStack space={'$2'} alignItems="center" className="tag-container">
-      <Tag
-        selected={selectedTag === 'pair'}
-        icon={SwapIcon}
-        label="Pair"
-        size={32}
-        onPress={onPressPair}
-      />
-      <Tag
-        selected={selectedTag === 'create'}
-        icon={AddSmallIcon}
-        label="Create"
-        size={32}
-        onPress={onPressCreate}
-      />
+      {TAGS.map(tag => (
+        <Tag
+          key={tag.label}
+          selected={selectedTag === tag.label.toLowerCase()}
+          icon={tag.icon}
+          label={tag.label}
+          size={32}
+          onPress={() => onPressTag(tag.path)}
+        />
+      ))}
     </XStack>
   )
 }
