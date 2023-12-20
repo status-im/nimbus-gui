@@ -2,12 +2,12 @@ import { Checkbox, Input, Text } from '@status-im/components'
 import { useState } from 'react'
 import { Stack, Switch, XStack, YStack } from 'tamagui'
 
-type BeaconAddressProps = {
+type AddressAndPortInputsProps = {
   addressType: string
   portType: string
 }
 
-const BeaconAddress = ({ addressType, portType }: BeaconAddressProps) => {
+const AddressAndPortInputs = ({ addressType, portType }: AddressAndPortInputsProps) => {
   const [isSwitchOn, setIsSwitchOn] = useState(false)
   const [address, setAddress] = useState('')
   const [port, setPort] = useState('')
@@ -76,4 +76,4 @@ const BeaconAddress = ({ addressType, portType }: BeaconAddressProps) => {
   )
 }
 
-export default BeaconAddress
+export default AddressAndPortInputs
