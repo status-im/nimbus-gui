@@ -9,13 +9,13 @@ type AddressAndPortInputsProps = {
 }
 
 const AddressAndPortInputs = ({ addressType, portType, isAdvanced }: AddressAndPortInputsProps) => {
-  const [isSwitchOn, setIsSwitchOn] = useState(true)
+  const [isProtocolSwitchOn, setIsProtocolSwitchOn] = useState(true)
   const [address, setAddress] = useState('http://124.0.0.1')
   const [port, setPort] = useState('5052')
   const [isChecked, setIsChecked] = useState(true)
 
-  const onSwitchChangeHandler = () => {
-    setIsSwitchOn(state => !state)
+  const onProtocolSwitchChangeHandler = () => {
+    setIsProtocolSwitchOn(state => !state)
   }
 
   const onAddressChangeHandler = (value: string) => {
@@ -48,9 +48,11 @@ const AddressAndPortInputs = ({ addressType, portType, isAdvanced }: AddressAndP
           </YStack>
           <Switch
             size="$1"
-            style={isSwitchOn ? { backgroundColor: '#2A4AF5' } : { backgroundColor: 'grey' }}
-            checked={isSwitchOn}
-            onCheckedChange={onSwitchChangeHandler}
+            style={
+              isProtocolSwitchOn ? { backgroundColor: '#2A4AF5' } : { backgroundColor: 'grey' }
+            }
+            checked={isProtocolSwitchOn}
+            onCheckedChange={onProtocolSwitchChangeHandler}
           >
             <Switch.Thumb
               style={{
