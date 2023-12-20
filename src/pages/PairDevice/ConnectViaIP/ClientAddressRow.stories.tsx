@@ -4,7 +4,7 @@ import { withRouter } from 'storybook-addon-react-router-v6'
 import ClientAddressRow from './ClientAddressRow'
 
 const meta = {
-  title: 'Connect-Device/ClientAddressRow',
+  title: 'Pair Device/ClientAddressRow',
   component: ClientAddressRow,
   parameters: {
     layout: 'centered',

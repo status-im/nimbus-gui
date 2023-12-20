@@ -4,7 +4,7 @@ import { withRouter } from 'storybook-addon-react-router-v6'
 import BeaconAddress from './BeaconAddress'
 
 const meta = {
-  title: 'Connect-Device/BeaconAddress',
+  title: 'Pair Device/BeaconAddress',
   component: BeaconAddress,
   parameters: {
     layout: 'centered',

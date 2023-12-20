@@ -4,7 +4,7 @@ import { withRouter } from 'storybook-addon-react-router-v6'
 import ConnectViaIP from './ConnectViaIP'
 
 const meta = {
-  title: 'Connect-Device/ConnectViaIP',
+  title: 'Pair Device/ConnectViaIP',
   component: ConnectViaIP,
   parameters: {
     layout: 'centered',
