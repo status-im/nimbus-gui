@@ -7,9 +7,14 @@ import AddressPortInputs from './AddressAndPortInputs'
 
 const ConnectViaIP = () => {
   const [encryptedPassword, setEncryptedPassword] = useState('')
+  const [isAdvanced, setIsAdvanced] = useState(false)
 
   const changeEncryptedPasswordHandler = (value: string) => {
     setEncryptedPassword(value)
+  }
+
+  const onAdvancedClickHandler = () => {
+    setIsAdvanced(state => !state)
   }
 
   return (
@@ -18,7 +23,12 @@ const ConnectViaIP = () => {
         <Text size={19} weight={'semibold'} color="#09101C">
           Connect via IP
         </Text>
-        <Button variant="grey" size={24} icon={<SettingsIcon size={20} />}>
+        <Button
+          variant="grey"
+          size={32}
+          icon={<SettingsIcon size={20} />}
+          onPress={onAdvancedClickHandler}
+        >
           Advanced
         </Button>
       </XStack>
