@@ -77,7 +77,7 @@ const PairDevice = () => {
         <Separator borderColor={'#e3e3e3'} />
         <div>
           <Button icon={<NodeIcon size={20} />} disabled={!isPaired}>
-            Continue
+            {isConnectingViaIp ? 'Connect Device' : 'Continue'}
           </Button>
         </div>
       </YStack>
