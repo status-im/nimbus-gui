@@ -24,7 +24,7 @@ const ConnectViaIP = () => {
           Connect via IP
         </Text>
         <Button
-          variant="grey"
+          variant={isAdvanced ? 'darkGrey' : 'grey'}
           size={32}
           icon={<SettingsIcon size={20} />}
           onPress={onAdvancedClickHandler}
