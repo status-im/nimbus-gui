@@ -1,8 +1,9 @@
 import { Tag } from '@status-im/components'
 import { XStack } from 'tamagui'
-import './TagContainer.css'
 import { AddSmallIcon, SwapIcon } from '@status-im/icons'
 import { useNavigate } from 'react-router'
+
+import './TagContainer.css'
 
 type TagContainerProps = {
   selectedTag: 'pair' | 'create' | 'connect'
