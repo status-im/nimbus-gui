@@ -5,9 +5,10 @@ import { Stack, Switch, XStack, YStack } from 'tamagui'
 type AddressAndPortInputsProps = {
   addressType: string
   portType: string
+  isAdvanced?: boolean
 }
 
-const AddressAndPortInputs = ({ addressType, portType }: AddressAndPortInputsProps) => {
+const AddressAndPortInputs = ({ addressType, portType, isAdvanced }: AddressAndPortInputsProps) => {
   const [isSwitchOn, setIsSwitchOn] = useState(false)
   const [address, setAddress] = useState('')
   const [port, setPort] = useState('')
@@ -25,7 +26,6 @@ const AddressAndPortInputs = ({ addressType, portType }: AddressAndPortInputsPro
               (HTTP/HTTPS)
             </Text>
           </YStack>
-
           <Switch
             size="$1"
             style={isSwitchOn ? { backgroundColor: '#2A4AF5' } : { backgroundColor: 'grey' }}
@@ -45,17 +45,20 @@ const AddressAndPortInputs = ({ addressType, portType }: AddressAndPortInputsPro
         </YStack>
         <YStack space={'$2'}>
           <Text size={11} color={'#647084'} weight={'regular'}>
-            {addressType} Address
+            {addressType || 'Node'} Address
           </Text>
           <Input placeholder={''} value={address} onChangeText={e => setAddress(e)} />
         </YStack>
-
-        <YStack space={'$2'}>
-          <Text size={11} color={'#647084'} weight={'regular'}>
-            {portType} Port
-          </Text>
-          <Input value={port} onChangeText={e => setPort(e)} />
-        </YStack>
+        {isAdvanced === false ? (
+          <></>
+        ) : (
+          <YStack space={'$2'}>
+            <Text size={11} color={'#647084'} weight={'regular'}>
+              {portType} Port
+            </Text>
+            <Input value={port} onChangeText={e => setPort(e)} />
+          </YStack>
+        )}
         <Stack
           style={{ alignItems: 'center', justifyContent: 'center' }}
           height={'100%'}
@@ -63,7 +66,7 @@ const AddressAndPortInputs = ({ addressType, portType }: AddressAndPortInputsPro
           width={'fit-content'}
         >
           <Checkbox
-            id="checkforaddress"
+            id="AddressAndPortInputs"
             variant="outline"
             selected={isChecked}
             onCheckedChange={() => setIsChecked(prev => !prev)}

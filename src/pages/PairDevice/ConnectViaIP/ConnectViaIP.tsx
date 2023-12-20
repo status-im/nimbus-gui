@@ -38,7 +38,7 @@ const ConnectViaIP = () => {
           <AddressPortInputs addressType="Validator Client" portType="VC" />
         </>
       ) : (
-        <AddressPortInputs addressType="Node Address" portType="VC" />
+        <AddressPortInputs addressType="Node Address" portType="VC" isAdvanced={isAdvanced} />
       )}
       <Separator borderColor={'#e3e3e3'} />
       <YStack space={'$2'}>
