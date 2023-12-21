@@ -27,11 +27,7 @@ const PairDevice = () => {
     setIsConnectingViaIp(state => !state)
   }
 
-  const continueHandler = () => {
-    if (isConnectingViaIp) {
-    } else {
-    }
-  }
+  const continueHandler = () => {}
 
   return (
     <PageWrapperShadow rightImageSrc="./background-images/day-night-bg.png" rightImageLogo={true}>
@@ -43,23 +39,42 @@ const PairDevice = () => {
         />
         {isConnectingViaIp ? (
           <ConnectViaIP />
+        ) : isPaired ? (
+          <PairedSuccessfully />
         ) : (
           <>
-            {isPaired ? (
-              <PairedSuccessfully />
-            ) : (
-              <GenerateId isAwaitingPairing={isAwaitingPairing} />
-            )}
-            {isPaired === false && (
-              <SyncStatus
-                isPairing={isPairing}
-                isAwaitingPairing={isAwaitingPairing}
-                changeSetIsAwaitingPairing={changeSetIsAwaitingPairing}
-              />
-            )}
+            <GenerateId isAwaitingPairing={isAwaitingPairing} />
+            <SyncStatus
+              isPairing={isPairing}
+              isAwaitingPairing={isAwaitingPairing}
+              changeSetIsAwaitingPairing={changeSetIsAwaitingPairing}
+            />
           </>
         )}
-        {isPaired === false && (
+        {isPaired ? (
+          <>
+            <YStack space={'$3'}>
+              <Separator alignSelf="stretch" borderColor={'#F0F2F5'} marginTop={3} />
+              <Text size={19} weight="semibold">
+                General Settings
+              </Text>
+              <XStack space={'$4'} alignItems={'center'}>
+                <Checkbox
+                  id="auto-connect"
+                  selected={isAutoConnectChecked}
+                  onCheckedChange={e => setIsAutoConnectChecked(e)}
+                  variant="outline"
+                />
+                <Label htmlFor="auto-connect">
+                  <Text size={15} weight="regular">
+                    Auto Connect Paired Device
+                  </Text>
+                </Label>
+              </XStack>
+            </YStack>
+            <CreateAvatar />
+          </>
+        ) : (
           <YStack space={'$3'}>
             <Separator borderColor={'#e3e3e3'} />
             <YStack space={'$1'}>
@@ -80,28 +95,6 @@ const PairDevice = () => {
             </YStack>
           </YStack>
         )}
-        {isPaired && (
-          <YStack space={'$3'}>
-            <Separator alignSelf="stretch" borderColor={'#F0F2F5'} marginTop={3} />
-            <Text size={19} weight="semibold">
-              General Settings
-            </Text>
-            <XStack space={'$4'} alignItems={'center'}>
-              <Checkbox
-                id="auto-connect"
-                selected={isAutoConnectChecked}
-                onCheckedChange={e => setIsAutoConnectChecked(e)}
-                variant="outline"
-              />
-              <Label htmlFor="auto-connect">
-                <Text size={15} weight="regular">
-                  Auto Connect Paired Device
-                </Text>
-              </Label>
-            </XStack>
-          </YStack>
-        )}
-        {isPaired && <CreateAvatar />}
         <Separator borderColor={'#e3e3e3'} />
         <div>
           <Button icon={<NodeIcon size={20} />} disabled={!isPaired} onPress={continueHandler}>
