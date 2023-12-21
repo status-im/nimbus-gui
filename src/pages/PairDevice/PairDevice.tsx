@@ -1,7 +1,7 @@
 import { NodeIcon, CompleteIdIcon, ConnectionIcon } from '@status-im/icons'
-import { Separator, XStack, YStack } from 'tamagui'
+import { Label, Separator, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
-import { Button, Text } from '@status-im/components'
+import { Button, Checkbox, Text } from '@status-im/components'
 
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import SyncStatus from './SyncStatus'
@@ -15,6 +15,7 @@ import ConnectViaIP from './ConnectViaIP/ConnectViaIP'
 const PairDevice = () => {
   const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
   const [isConnectingViaIp, setIsConnectingViaIp] = useState(false)
+  const [isAutoConnectChecked, setIsAutoConnectChecked] = useState(false)
   const isPaired = false
   const isPairing = false
 
@@ -77,6 +78,27 @@ const PairDevice = () => {
                 </Button>
               </XStack>
             </YStack>
+          </YStack>
+        )}
+        {isPaired && (
+          <YStack space={'$3'}>
+            <Separator alignSelf="stretch" borderColor={'#F0F2F5'} marginTop={3} />
+            <Text size={19} weight="semibold">
+              General Settings
+            </Text>
+            <XStack space={'$4'} alignItems={'center'}>
+              <Checkbox
+                id="auto-connect"
+                selected={isAutoConnectChecked}
+                onCheckedChange={e => setIsAutoConnectChecked(e)}
+                variant="outline"
+              />
+              <Label htmlFor="auto-connect">
+                <Text size={15} weight="regular">
+                  Auto Connect Paired Device
+                </Text>
+              </Label>
+            </XStack>
           </YStack>
         )}
         {isPaired && <CreateAvatar />}

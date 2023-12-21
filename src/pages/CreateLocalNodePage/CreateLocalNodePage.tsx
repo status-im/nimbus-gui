@@ -19,9 +19,7 @@ const CreateLocalNodePage = () => {
             title="Create Local Node"
             subtitle="Configure your device to start Staking on Nimbus"
           />
-
           <CreateAvatar />
-
           <YStack my={16}>
             <Text size={19} weight="semibold">
               Settings
