@@ -30,8 +30,7 @@
 @media (max-width: 1000px) {
   .quick-start-bar {
     top: 12%;
-    width: 85%;
-    margin: 0 20px;
+    min-width: min-content;
   }
 
   .quick-start-bar ul li {
