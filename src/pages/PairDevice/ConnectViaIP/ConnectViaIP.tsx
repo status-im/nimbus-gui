@@ -8,6 +8,11 @@ import AddressPortInputs from './AddressAndPortInputs'
 const ConnectViaIP = () => {
   const [encryptedPassword, setEncryptedPassword] = useState('')
   const [isAdvanced, setIsAdvanced] = useState(false)
+  const [beaconPort, setBeaconPort] = useState('5052')
+  const [vcPort, setVcPort] = useState('9000')
+  const [nodeAddress, setNodeAddress] = useState('http://')
+  const [beaconAddress, setBeaconAddress] = useState('http://')
+  const [vcAddress, setVcAddress] = useState('http://')
 
   const changeEncryptedPasswordHandler = (value: string) => {
     setEncryptedPassword(value)
