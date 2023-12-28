@@ -67,20 +67,24 @@ const AddressAndPortInputs = ({ addressType, portType, isAdvanced }: AddressAndP
         </YStack>
         <YStack space={'$2'}>
           <Text size={13} color={'#647084'} weight={'semibold'}>
-            {addressType} Address
-          </Text>
-          <Input placeholder={''} value={address} onChangeText={onAddressChangeHandler} />
-        </YStack>
-        {isAdvanced === false ? (
-          <></>
-        ) : (
-          <YStack space={'$2'}>
+        <div style={{ display: 'flex' }}>
+          <YStack space={'$2'} style={{ width: '60%' }}>
             <Text size={13} color={'#647084'} weight={'semibold'}>
-              {portType} Port
+              {addressType} Address
             </Text>
-            <Input value={port} onChangeText={onPortChangeHandler} />
+            <Input value={address} onChangeText={onAddressChangeHandler} />
           </YStack>
-        )}
+          {isAdvanced === false ? (
+            <></>
+          ) : (
+            <YStack space={'$2'} style={{ width: '40%' }}>
+              <Text size={13} color={'#647084'} weight={'semibold'}>
+                {portType} Port
+              </Text>
+              <Input value={port} onChangeText={onPortChangeHandler} />
+            </YStack>
+          )}
+        </div>
         <Stack
           style={{ alignItems: 'center', justifyContent: 'center' }}
           height={'100%'}
