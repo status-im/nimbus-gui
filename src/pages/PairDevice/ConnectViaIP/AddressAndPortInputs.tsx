@@ -65,8 +65,6 @@ const AddressAndPortInputs = ({ addressType, portType, isAdvanced }: AddressAndP
             />
           </Switch>
         </YStack>
-        <YStack space={'$2'}>
-          <Text size={13} color={'#647084'} weight={'semibold'}>
         <div style={{ display: 'flex' }}>
           <YStack space={'$2'} style={{ width: '60%' }}>
             <Text size={13} color={'#647084'} weight={'semibold'}>
