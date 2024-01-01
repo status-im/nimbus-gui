@@ -36,3 +36,7 @@ dist-ssr
 
 # vercel
 /.vercel
+
+# Nix & Direnv
+.direnv
+result
