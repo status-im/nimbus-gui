@@ -51,8 +51,8 @@ const AddressAndPortInputs = ({ isAdvanced }: AddressAndPortInputsProps) => {
         >
           <Switch.Thumb
             style={{
-              right: 7,
-              bottom: 3,
+              right: 7.6,
+              bottom: 2.4,
               backgroundColor: '#fff',
               height: '16px',
               width: '16px',
