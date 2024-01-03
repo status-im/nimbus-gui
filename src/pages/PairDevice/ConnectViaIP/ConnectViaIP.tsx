@@ -37,7 +37,18 @@ const ConnectViaIP = () => {
           Advanced
         </Button>
       </XStack>
-      <AddressPortInputs isAdvanced={isAdvanced} />
+      {isAdvanced ? (
+        <YStack space={'$3'}>
+          <AddressPortInputs
+            addressType={'Validator Client'}
+            portType={'VC'}
+            isAdvanced={isAdvanced}
+          />
+          <AddressPortInputs addressType={'Beacon'} portType={'Beacon'} isAdvanced={isAdvanced} />
+        </YStack>
+      ) : (
+        <AddressPortInputs addressType={'Node'} portType={''} isAdvanced={isAdvanced} />
+      )}
       <Separator borderColor={'#e3e3e3'} />
       <YStack space={'$2'}>
         <Text size={13} color={'#647084'} weight={'semibold'}>
