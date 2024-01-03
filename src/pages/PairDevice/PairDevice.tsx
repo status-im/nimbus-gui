@@ -97,7 +97,11 @@ const PairDevice = () => {
         )}
         <Separator borderColor={'#e3e3e3'} />
         <div>
-          <Button icon={<NodeIcon size={20} />} disabled={!isPaired} onPress={continueHandler}>
+          <Button
+            icon={<NodeIcon size={20} />}
+            disabled={isConnectingViaIp ? false : !isPaired}
+            onPress={continueHandler}
+          >
             {isConnectingViaIp ? 'Connect Device' : 'Continue'}
           </Button>
         </div>
