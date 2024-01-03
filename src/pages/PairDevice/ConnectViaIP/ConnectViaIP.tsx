@@ -10,9 +10,9 @@ const ConnectViaIP = () => {
   const [isAdvanced, setIsAdvanced] = useState(false)
   const [beaconPort, setBeaconPort] = useState('5052')
   const [vcPort, setVcPort] = useState('9000')
-  const [nodeAddress, setNodeAddress] = useState('http://')
-  const [beaconAddress, setBeaconAddress] = useState('http://')
-  const [vcAddress, setVcAddress] = useState('http://')
+  const [nodeAddress, setNodeAddress] = useState('http://124.0.0.1')
+  const [beaconAddress, setBeaconAddress] = useState('http://124.0.0.1')
+  const [vcAddress, setVcAddress] = useState('http://124.0.0.1')
 
   const changeEncryptedPasswordHandler = (value: string) => {
     setEncryptedPassword(value)
@@ -37,14 +37,7 @@ const ConnectViaIP = () => {
           Advanced
         </Button>
       </XStack>
-      {isAdvanced ? (
-        <>
-          <AddressPortInputs addressType="Beacon" portType="Beacon" />
-          <AddressPortInputs addressType="Validator Client" portType="VC" />
-        </>
-      ) : (
-        <AddressPortInputs addressType="Node" portType="VC" isAdvanced={isAdvanced} />
-      )}
+      <AddressPortInputs isAdvanced={isAdvanced} />
       <Separator borderColor={'#e3e3e3'} />
       <YStack space={'$2'}>
         <Text size={13} color={'#647084'} weight={'semibold'}>
