@@ -78,21 +78,17 @@ const AddressAndPortInputs = ({ isAdvanced }: AddressAndPortInputsProps) => {
         </Text>
         <Input value={port} onChangeText={onPortChangeHandler} />
       </YStack>
-      <Stack
-        style={{ alignItems: 'center', justifyContent: 'center' }}
-        // height={'100%'}
-        marginTop={'25px'}
-        flexBasis={0}
-        flexGrow={0.5}
-      >
-        <Checkbox
-          id="AddressAndPortInputs"
-          variant="outline"
-          selected={isChecked}
-          onCheckedChange={onCheckboxChangeHandler}
-          size={20}
-        />
-      </Stack>
+      <div style={{ display: 'flex', alignItems: 'end', height: '100%' }}>
+        <Stack height={'46%'} flexBasis={0} flexGrow={0.5}>
+          <Checkbox
+            id="AddressAndPortInputs"
+            variant="outline"
+            selected={isChecked}
+            onCheckedChange={onCheckboxChangeHandler}
+            size={20}
+          />
+        </Stack>
+      </div>
     </XStack>
   )
 }
