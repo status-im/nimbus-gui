@@ -3,12 +3,10 @@ import { useState } from 'react'
 import { Stack, Switch, XStack, YStack } from 'tamagui'
 
 type AddressAndPortInputsProps = {
-  addressType: string
-  portType: string
-  isAdvanced?: boolean
+  isAdvanced: boolean
 }
 
-const AddressAndPortInputs = ({ addressType, portType, isAdvanced }: AddressAndPortInputsProps) => {
+const AddressAndPortInputs = ({ isAdvanced }: AddressAndPortInputsProps) => {
   const [isProtocolSwitchOn, setIsProtocolSwitchOn] = useState(true)
   const [address, setAddress] = useState('http://124.0.0.1')
   const [port, setPort] = useState('5052')
@@ -35,70 +33,67 @@ const AddressAndPortInputs = ({ addressType, portType, isAdvanced }: AddressAndP
   }
 
   return (
-    <YStack>
-      <XStack justifyContent={'space-between'}>
-        <YStack space={'$2'}>
-          <YStack>
-            <Text size={13} color={'#647084'} weight={'semibold'}>
-              Protocol
-            </Text>
-            <Text size={11} color={'#647084'}>
-              (HTTP/HTTPS)
-            </Text>
-          </YStack>
-          <Switch
-            size="$1"
-            style={
-              isProtocolSwitchOn ? { backgroundColor: '#2A4AF5' } : { backgroundColor: 'grey' }
-            }
-            checked={isProtocolSwitchOn}
-            onCheckedChange={onProtocolSwitchChangeHandler}
-          >
-            <Switch.Thumb
-              style={{
-                right: 7,
-                bottom: 3,
-                backgroundColor: '#fff',
-                height: '16px',
-                width: '16px',
-              }}
-            />
-          </Switch>
+    <XStack space={'$3'}>
+      <YStack space={'$2'} flexBasis={0} flexGrow={2}>
+        <YStack>
+          <Text size={13} color={'#647084'} weight={'semibold'}>
+            Protocol
+          </Text>
+          <Text size={11} color={'#647084'}>
+            (HTTP/HTTPS)
+          </Text>
         </YStack>
-        <div style={{ display: 'flex' }}>
-          <YStack space={'$2'} style={{ width: '60%' }}>
-            <Text size={13} color={'#647084'} weight={'semibold'}>
-              {addressType} Address
-            </Text>
-            <Input value={address} onChangeText={onAddressChangeHandler} />
-          </YStack>
-          {isAdvanced === false ? (
-            <></>
-          ) : (
-            <YStack space={'$2'} style={{ width: '40%' }}>
-              <Text size={13} color={'#647084'} weight={'semibold'}>
-                {portType} Port
-              </Text>
-              <Input value={port} onChangeText={onPortChangeHandler} />
-            </YStack>
-          )}
-        </div>
-        <Stack
-          style={{ alignItems: 'center', justifyContent: 'center' }}
-          height={'100%'}
-          marginTop={'10px'}
-          width={'fit-content'}
+        <Switch
+          size="$1"
+          style={isProtocolSwitchOn ? { backgroundColor: '#2A4AF5' } : { backgroundColor: 'grey' }}
+          checked={isProtocolSwitchOn}
+          onCheckedChange={onProtocolSwitchChangeHandler}
         >
-          <Checkbox
-            id="AddressAndPortInputs"
-            variant="outline"
-            selected={isChecked}
-            onCheckedChange={onCheckboxChangeHandler}
-            size={20}
+          <Switch.Thumb
+            style={{
+              right: 7,
+              bottom: 3,
+              backgroundColor: '#fff',
+              height: '16px',
+              width: '16px',
+            }}
           />
-        </Stack>
-      </XStack>
-    </YStack>
+        </Switch>
+      </YStack>
+      <YStack space={'$2'} flexBasis={0} flexGrow={4}>
+        <Text size={13} color={'#647084'} weight={'semibold'}>
+          Node Address
+        </Text>
+        <Input value={address} onChangeText={onAddressChangeHandler} />
+      </YStack>
+      <YStack space={'$2'} flexBasis={0} flexGrow={2}>
+        <Text size={13} color={'#647084'} weight={'semibold'}>
+          VC Port
+        </Text>
+        <Input value={port} onChangeText={onPortChangeHandler} />
+      </YStack>
+      <YStack space={'$2'} flexBasis={0} flexGrow={2}>
+        <Text size={13} color={'#647084'} weight={'semibold'}>
+          Beacon Port
+        </Text>
+        <Input value={port} onChangeText={onPortChangeHandler} />
+      </YStack>
+      <Stack
+        style={{ alignItems: 'center', justifyContent: 'center' }}
+        // height={'100%'}
+        marginTop={'25px'}
+        flexBasis={0}
+        flexGrow={0.5}
+      >
+        <Checkbox
+          id="AddressAndPortInputs"
+          variant="outline"
+          selected={isChecked}
+          onCheckedChange={onCheckboxChangeHandler}
+          size={20}
+        />
+      </Stack>
+    </XStack>
   )
 }
 
