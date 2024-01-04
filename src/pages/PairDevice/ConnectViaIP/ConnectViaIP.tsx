@@ -6,16 +6,11 @@ import { SettingsIcon, ClearIcon } from '@status-im/icons'
 import AddressPortInputs from './AddressAndPortInputs'
 
 const ConnectViaIP = () => {
-  const [encryptedPassword, setEncryptedPassword] = useState('')
+  const [apiToken, setApiToken] = useState('')
   const [isAdvanced, setIsAdvanced] = useState(false)
-  const [beaconPort, setBeaconPort] = useState('5052')
-  const [vcPort, setVcPort] = useState('9000')
-  const [nodeAddress, setNodeAddress] = useState('http://124.0.0.1')
-  const [beaconAddress, setBeaconAddress] = useState('http://124.0.0.1')
-  const [vcAddress, setVcAddress] = useState('http://124.0.0.1')
 
-  const changeEncryptedPasswordHandler = (value: string) => {
-    setEncryptedPassword(value)
+  const changeApiToken = (value: string) => {
+    setApiToken(value)
   }
 
   const onAdvancedClickHandler = () => {
@@ -60,12 +55,12 @@ const ConnectViaIP = () => {
             <ClearIcon
               size={16}
               color="#A1ABBD"
-              onClick={() => setEncryptedPassword('')}
+              onClick={() => changeApiToken('')}
               style={{ cursor: 'pointer' }}
             />
           }
-          value={encryptedPassword}
-          onChangeText={changeEncryptedPasswordHandler}
+          value={apiToken}
+          onChangeText={changeApiToken}
         />
       </YStack>
     </YStack>
