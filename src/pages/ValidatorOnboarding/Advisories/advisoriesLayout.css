@@ -6,10 +6,9 @@
   display: grid;
 }
 
- 
 @media screen and (max-width: 1000px) {
-    .advisories-container {
-        flex-wrap: wrap;
-        margin: 30;
-    }
+  .advisories-container {
+    flex-wrap: wrap;
+    margin: 30;
   }
+}
