@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Stack, Switch, XStack, YStack } from 'tamagui'
 
 import { RootState } from '../../../redux/store'
+import PortInput from './PortInput'
 
 type InputsRowProps = {
   addressType: string
-  portType?: string
+  portType: string
   isAdvanced?: boolean
   address: string
-  port?: string
+  port: string
   isSwitchOn?: boolean
   isChecked?: boolean
 }
@@ -38,14 +39,6 @@ const InputsRow = ({
 
   const onCheckboxChange = (value: boolean) => {
     dispatch({ type: 'pairDevice/setIsChecked', payload: { value, checkType: addressType } })
-  }
-
-  const onPortChange = (value: string, portType: string) => {
-    if (isNaN(Number(value))) {
-      return
-    }
-
-    dispatch({ type: 'pairDevice/setPort', payload: { value, portType } })
   }
 
   const onAddressChange = (value: string) => {
@@ -87,29 +80,11 @@ const InputsRow = ({
         <Input value={address} onChangeText={onAddressChange} />
       </YStack>
       {isAdvanced ? (
-        <YStack space={'$2'} flexBasis={0} flexGrow={3}>
-          <Text size={13} color={'#647084'} weight={'semibold'}>
-            {portType} Port
-          </Text>
-          <Input
-            value={port}
-            onChangeText={value => onPortChange(value, portType ? portType : '')}
-          />
-        </YStack>
+        <PortInput port={port} portType={portType} />
       ) : (
         <XStack space={'$3'} flexGrow={4} flexBasis={0}>
-          <YStack space={'$2'} flexBasis={0} flexGrow={2}>
-            <Text size={13} color={'#647084'} weight={'semibold'}>
-              VC Port
-            </Text>
-            <Input value={vcPort} onChangeText={value => onPortChange(value, 'VC')} />
-          </YStack>
-          <YStack space={'$2'} flexBasis={0} flexGrow={2}>
-            <Text size={13} color={'#647084'} weight={'semibold'}>
-              Beacon Port
-            </Text>
-            <Input value={beaconPort} onChangeText={value => onPortChange(value, 'Beacon')} />
-          </YStack>
+          <PortInput port={vcPort} portType={'VC'} />
+          <PortInput port={beaconPort} portType={'Beacon'} />
         </XStack>
       )}
       <div style={{ display: 'flex', alignItems: 'end', height: '100%' }}>
