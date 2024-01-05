@@ -1,5 +1,6 @@
 import { Input as StatusInput, Text } from '@status-im/components'
 import { Label } from 'tamagui'
+
 import './LabelInputField.css'
 
 type LabelInputProps = {
