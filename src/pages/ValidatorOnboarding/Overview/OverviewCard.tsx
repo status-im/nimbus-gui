@@ -5,18 +5,10 @@ type OverviewCardProps = {
   text: string
   value: string
 }
-
+import './overviewLayout.css'
 const OverviewCard = ({ text, value }: OverviewCardProps) => {
   return (
-    <YStack
-      style={{
-        borderRadius: '16px',
-        border: '1px solid rgba(0, 0, 0, 0.15)',
-        width: '44%',
-        padding: '12px 16px',
-        backgroundColor: '#FFF',
-      }}
-    >
+    <YStack className="overview-card">
       <Text size={15} weight={'semibold'}>
         {text}
       </Text>
