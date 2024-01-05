@@ -2,12 +2,13 @@ import { useState } from 'react'
 import { Button as StatusButton, Text, Checkbox } from '@status-im/components'
 import { NodeIcon } from '@status-im/icons'
 import { Label, Separator, XStack, YStack } from 'tamagui'
+
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import Header from '../../components/General/Header'
 import Titles from '../../components/General/Titles'
 import CreateAvatar from '../../components/General/CreateAvatar/CreateAvatar'
 
-const CreateLocalNodePage = () => {
+const CreateLocalNode = () => {
   const [autoConnectChecked, setAutoConnectChecked] = useState(false)
 
   return (
@@ -46,4 +47,4 @@ const CreateLocalNodePage = () => {
   )
 }
 
-export default CreateLocalNodePage
+export default CreateLocalNode

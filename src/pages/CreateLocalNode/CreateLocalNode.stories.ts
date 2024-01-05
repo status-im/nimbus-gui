@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import CreateLocalNodePage from './CreateLocalNodePage'
+import CreateLocalNode from './CreateLocalNode'
 import { withRouter } from 'storybook-addon-react-router-v6'
 
 const meta = {
   title: 'Pages/CreateLocalNode',
-  component: CreateLocalNodePage,
+  component: CreateLocalNode,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
   decorators: [withRouter],
-} satisfies Meta<typeof CreateLocalNodePage>
+} satisfies Meta<typeof CreateLocalNode>
 
 export default meta
 type Story = StoryObj<typeof meta>

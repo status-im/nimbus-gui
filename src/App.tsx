@@ -13,7 +13,7 @@ import { RootState } from './redux/store'
 import DeviceSyncStatus from './pages/DeviceSyncStatus/DeviceSyncStatus'
 import PairDevice from './pages/PairDevice/PairDevice'
 import PinnedNotification from './components/General/PinnedNottification'
-import CreateLocalNodePage from './pages/CreateLocalNodePage/CreateLocalNodePage'
+import CreateLocalNode from './pages/CreateLocalNode/CreateLocalNode'
 import ValidatorOnboarding from './pages/ValidatorOnboarding/ValidatorOnboarding'
 import Dashboard from './pages/Dashboard/Dashboard'
 import ValidatorManagement from './pages/ValidatorManagement/ValidatorManagement'
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
     path: '/pair-device',
     element: <PairDevice />,
   },
-  { path: '/create-local-node', element: <CreateLocalNodePage /> },
+  { path: '/create-local-node', element: <CreateLocalNode /> },
   { path: '/validator-onboarding', element: <ValidatorOnboarding /> },
   { path: '/dashboard', element: <Dashboard /> },
   { path: '/validator-management', element: <ValidatorManagement /> },
