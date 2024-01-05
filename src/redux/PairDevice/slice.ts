@@ -6,6 +6,12 @@ type PairDeviceStateType = {
   nodeAddress: string
   beaconAddress: string
   vcAddress: string
+  isNodeSwitchOn: boolean
+  isBeaconSwitchOn: boolean
+  isVcSwitchOn: boolean
+  isNodeChecked: boolean
+  isBeaconChecked: boolean
+  isVcChecked: boolean
 }
 
 const initialState: PairDeviceStateType = {
@@ -14,6 +20,12 @@ const initialState: PairDeviceStateType = {
   nodeAddress: 'http://124.0.0.1',
   beaconAddress: 'http://124.0.0.1',
   vcAddress: 'http://124.0.0.1',
+  isNodeSwitchOn: false,
+  isBeaconSwitchOn: false,
+  isVcSwitchOn: false,
+  isNodeChecked: false,
+  isBeaconChecked: false,
+  isVcChecked: false,
 }
 
 const pairDeviceSlice = createSlice({
@@ -34,6 +46,24 @@ const pairDeviceSlice = createSlice({
         state.vcAddress = action.payload.value
       } else {
         state.nodeAddress = action.payload.value
+      }
+    },
+    setIsSwitchOn: (state, action) => {
+      if (action.payload.switchType === 'Beacon') {
+        state.isBeaconSwitchOn = action.payload.value
+      } else if (action.payload.switchType === 'Validator Client') {
+        state.isVcSwitchOn = action.payload.value
+      } else {
+        state.isNodeSwitchOn = action.payload.value
+      }
+    },
+    setIsChecked: (state, action) => {
+      if (action.payload.checkType === 'Beacon') {
+        state.isBeaconChecked = action.payload.value
+      } else if (action.payload.checkType === 'Validator Client') {
+        state.isVcChecked = action.payload.value
+      } else {
+        state.isNodeChecked = action.payload.value
       }
     },
   },
