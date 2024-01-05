@@ -23,7 +23,8 @@
 .container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: end;
+  justify-content: start;
+  margin-left: 50px;
 }
 .container-inner {
   max-width: 70%;

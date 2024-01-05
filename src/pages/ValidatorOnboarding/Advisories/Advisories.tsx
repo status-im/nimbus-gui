@@ -73,6 +73,7 @@ const Advisories = () => {
           </XStack>
         ))}
       </YStack>
+
       <AdvisoriesContent title={selectedTitle} content={advisoryTopics[selectedTitle]} />
     </XStack>
   )
