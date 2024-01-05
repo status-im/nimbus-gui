@@ -36,9 +36,10 @@ const FormStepper = ({ activeStep }: FormStepperProps) => {
       style={{
         fontSize: '14px',
         zIndex: 1,
-        width: '100%',
+        width: '1200px',
         padding: 0,
         marginBottom: '3rem',
+        overflow: 'hidden',
       }}
     >
       {steps.map((step, index) => (
