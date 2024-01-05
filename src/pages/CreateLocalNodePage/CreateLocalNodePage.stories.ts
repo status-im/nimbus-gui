@@ -4,7 +4,7 @@ import CreateLocalNodePage from './CreateLocalNodePage'
 import { withRouter } from 'storybook-addon-react-router-v6'
 
 const meta = {
-  title: 'Connect-Device/CreateLocalNodePage',
+  title: 'Pages/CreateLocalNode',
   component: CreateLocalNodePage,
   parameters: {
     layout: 'centered',
