@@ -20,12 +20,12 @@ const initialState: PairDeviceStateType = {
   nodeAddress: 'http://124.0.0.1',
   beaconAddress: 'http://124.0.0.1',
   vcAddress: 'http://124.0.0.1',
-  isNodeSwitchOn: false,
-  isBeaconSwitchOn: false,
-  isVcSwitchOn: false,
-  isNodeChecked: false,
-  isBeaconChecked: false,
-  isVcChecked: false,
+  isNodeSwitchOn: true,
+  isBeaconSwitchOn: true,
+  isVcSwitchOn: true,
+  isNodeChecked: true,
+  isBeaconChecked: true,
+  isVcChecked: true,
 }
 
 const pairDeviceSlice = createSlice({

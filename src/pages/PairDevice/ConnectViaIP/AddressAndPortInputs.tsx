@@ -1,5 +1,4 @@
 import { Checkbox, Input, Text } from '@status-im/components'
-import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Stack, Switch, XStack, YStack } from 'tamagui'
 
@@ -11,6 +10,8 @@ type AddressAndPortInputsProps = {
   isAdvanced?: boolean
   address: string
   port?: string
+  isSwitchOn?: boolean
+  isChecked?: boolean
 }
 
 const AddressAndPortInputs = ({
@@ -19,18 +20,24 @@ const AddressAndPortInputs = ({
   portType,
   address,
   port,
+  isSwitchOn,
+  isChecked,
 }: AddressAndPortInputsProps) => {
-  const [isProtocolSwitchOn, setIsProtocolSwitchOn] = useState(true)
-  const [isChecked, setIsChecked] = useState(true)
-  const { beaconPort, vcPort } = useSelector((state: RootState) => state.pairDevice)
+  const { beaconPort, vcPort, isNodeChecked, isNodeSwitchOn } = useSelector(
+    (state: RootState) => state.pairDevice,
+  )
   const dispatch = useDispatch()
+  const isSwitchOnResult = isAdvanced ? isSwitchOn : isNodeSwitchOn
+  const switchStyle = isSwitchOnResult
+    ? { backgroundColor: '#2A4AF5' }
+    : { backgroundColor: 'grey' }
 
-  const onProtocolSwitchChangeHandler = () => {
-    setIsProtocolSwitchOn(state => !state)
+  const onSwitchChange = (value: boolean) => {
+    dispatch({ type: 'pairDevice/setIsSwitchOn', payload: { value, switchType: addressType } })
   }
 
-  const onCheckboxChangeHandler = () => {
-    setIsChecked(state => !state)
+  const onCheckboxChange = (value: boolean) => {
+    dispatch({ type: 'pairDevice/setIsChecked', payload: { value, checkType: addressType } })
   }
 
   const onPortChange = (value: string, portType: string) => {
@@ -58,9 +65,9 @@ const AddressAndPortInputs = ({
         </YStack>
         <Switch
           size="$1"
-          style={isProtocolSwitchOn ? { backgroundColor: '#2A4AF5' } : { backgroundColor: 'grey' }}
-          checked={isProtocolSwitchOn}
-          onCheckedChange={onProtocolSwitchChangeHandler}
+          style={switchStyle}
+          checked={isSwitchOnResult}
+          onCheckedChange={onSwitchChange}
         >
           <Switch.Thumb
             style={{
@@ -110,8 +117,8 @@ const AddressAndPortInputs = ({
           <Checkbox
             id="AddressAndPortInputs"
             variant="outline"
-            selected={isChecked}
-            onCheckedChange={onCheckboxChangeHandler}
+            selected={isAdvanced ? isChecked : isNodeChecked}
+            onCheckedChange={onCheckboxChange}
             size={20}
           />
         </Stack>
