@@ -1,6 +1,6 @@
 import { Shadow } from '@status-im/components'
 import { ReactNode } from 'react'
- 
+
 type ValidatorBoxWrapperProps = {
   children: ReactNode
 }
