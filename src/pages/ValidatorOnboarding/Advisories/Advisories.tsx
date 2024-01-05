@@ -6,11 +6,10 @@ import AdvisoriesContent from './AdvisoriesContent'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../../redux/store'
 import { setSubStepAdvisories } from '../../../redux/ValidatorOnboarding/Advisories/slice'
-
+import './advisoriesLayout.css'
 type AdvisoryTopicsType = {
   [key: string]: string[]
 }
-
 const Advisories = () => {
   const dispatch = useDispatch()
   const { subStepAdvisories } = useSelector((state: RootState) => state.advisories)
@@ -38,12 +37,8 @@ const Advisories = () => {
   }
 
   return (
-    <XStack
-      style={{ padding: '30px 33px', justifyContent: 'space-between' }}
-      minHeight={'65vh'}
-      width={'100%'}
-    >
-      <YStack space={'$2'}>
+    <XStack className="advisories-container">
+      <YStack space={'$2'} marginBottom={'30px'}>
         <Stack marginBottom="$6">
           <Text size={27} weight={'semibold'}>
             Advisories
