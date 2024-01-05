@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { withRouter } from 'storybook-addon-react-router-v6'
 
-import AddressAndPortInputs from './AddressAndPortInputs'
+import InputsRow from './InputsRow'
 
 const meta = {
-  title: 'Pair Device/AddressAndPortInputs',
-  component: AddressAndPortInputs,
+  title: 'Pair Device/InputsRow',
+  component: InputsRow,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
   decorators: [withRouter],
-} satisfies Meta<typeof AddressAndPortInputs>
+} satisfies Meta<typeof InputsRow>
 
 export default meta
 type Story = StoryObj<typeof meta>

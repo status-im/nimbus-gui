@@ -4,7 +4,7 @@ import { Stack, Switch, XStack, YStack } from 'tamagui'
 
 import { RootState } from '../../../redux/store'
 
-type AddressAndPortInputsProps = {
+type InputsRowProps = {
   addressType: string
   portType?: string
   isAdvanced?: boolean
@@ -14,7 +14,7 @@ type AddressAndPortInputsProps = {
   isChecked?: boolean
 }
 
-const AddressAndPortInputs = ({
+const InputsRow = ({
   isAdvanced,
   addressType,
   portType,
@@ -22,7 +22,7 @@ const AddressAndPortInputs = ({
   port,
   isSwitchOn,
   isChecked,
-}: AddressAndPortInputsProps) => {
+}: InputsRowProps) => {
   const { beaconPort, vcPort, isNodeChecked, isNodeSwitchOn } = useSelector(
     (state: RootState) => state.pairDevice,
   )
@@ -127,4 +127,4 @@ const AddressAndPortInputs = ({
   )
 }
 
-export default AddressAndPortInputs
+export default InputsRow

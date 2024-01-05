@@ -4,7 +4,7 @@ import { Button, Input, Text } from '@status-im/components'
 import { SettingsIcon, ClearIcon } from '@status-im/icons'
 import { useSelector } from 'react-redux'
 
-import AddressPortInputs from './AddressAndPortInputs'
+import InputsRow from './InputsRow'
 import { RootState } from '../../../redux/store'
 
 const ConnectViaIP = () => {
@@ -47,7 +47,7 @@ const ConnectViaIP = () => {
       </XStack>
       {isAdvanced ? (
         <YStack space={'$3'}>
-          <AddressPortInputs
+          <InputsRow
             addressType={'Validator Client'}
             portType={'VC'}
             address={vcAddress}
@@ -56,7 +56,7 @@ const ConnectViaIP = () => {
             isSwitchOn={isVcSwitchOn}
             isChecked={isVcChecked}
           />
-          <AddressPortInputs
+          <InputsRow
             addressType={'Beacon'}
             portType={'Beacon'}
             address={beaconAddress}
@@ -67,7 +67,7 @@ const ConnectViaIP = () => {
           />
         </YStack>
       ) : (
-        <AddressPortInputs addressType={'Node'} address={nodeAddress} />
+        <InputsRow addressType={'Node'} address={nodeAddress} />
       )}
       <Separator borderColor={'#e3e3e3'} />
       <YStack space={'$2'}>
