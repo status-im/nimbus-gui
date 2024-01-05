@@ -12,8 +12,8 @@ const Overview = () => {
         imgHeight="250%"
         rightImageSrc="./background-images/sync-status-background.png"
       >
-        <YStack>
-          <YStack space={'$5'}>
+        <YStack >
+          <YStack space={'$5'} width="150%">
             <Text size={27} weight={'semibold'}>
               Overview
             </Text>
@@ -37,7 +37,7 @@ const Overview = () => {
               style={{ marginBottom: '1%', fontSize: '13px' }}
             />
           </YStack>
-          <XStack space={'$3'}  className='overview-cards'>
+          <XStack space={'$3'} className="overview-cards">
             <OverviewCard text={'Current APR'} value={'4.40%'} />
             <OverviewCard text={'Total ETH Staked'} value={'9,451,123'} />
             <OverviewCard text={'Estimated Activation Time'} value={'32 Days'} />
