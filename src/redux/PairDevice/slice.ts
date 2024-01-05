@@ -20,21 +20,24 @@ const pairDeviceSlice = createSlice({
   name: 'pairDevice',
   initialState,
   reducers: {
-    setAddress: (
-      state,
-      action: PayloadAction<{ nodeAddress: string; beaconAddress: string; vcAddress: string }>,
-    ) => {
-      state.nodeAddress = action.payload.nodeAddress
-      state.beaconAddress = action.payload.beaconAddress
-      state.vcAddress = action.payload.vcAddress
+    setBeaconPort: (state, action: PayloadAction<string>) => {
+      state.beaconPort = action.payload
     },
-    setPort: (state, action: PayloadAction<{ beaconPort: string; vcPort: string }>) => {
-      state.beaconPort = action.payload.beaconPort
-      state.vcPort = action.payload.vcPort
+    setVcPort: (state, action: PayloadAction<string>) => {
+      state.vcPort = action.payload
+    },
+    setBeaconAddress: (state, action: PayloadAction<string>) => {
+      state.beaconAddress = action.payload
+    },
+    setVcAddress: (state, action: PayloadAction<string>) => {
+      state.vcAddress = action.payload
+    },
+    setNodeAddress: (state, action: PayloadAction<string>) => {
+      state.nodeAddress = action.payload
     },
   },
 })
 
-export const { setAddress, setPort } = pairDeviceSlice.actions
+export const {} = pairDeviceSlice.actions
 
 export default pairDeviceSlice.reducer
