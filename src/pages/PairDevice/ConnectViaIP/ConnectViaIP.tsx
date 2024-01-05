@@ -10,9 +10,17 @@ import { RootState } from '../../../redux/store'
 const ConnectViaIP = () => {
   const [apiToken, setApiToken] = useState('')
   const [isAdvanced, setIsAdvanced] = useState(false)
-  const { beaconPort, vcPort, nodeAddress, beaconAddress, vcAddress } = useSelector(
-    (state: RootState) => state.pairDevice,
-  )
+  const {
+    beaconPort,
+    vcPort,
+    nodeAddress,
+    beaconAddress,
+    vcAddress,
+    isBeaconSwitchOn,
+    isVcSwitchOn,
+    isBeaconChecked,
+    isVcChecked,
+  } = useSelector((state: RootState) => state.pairDevice)
 
   const changeApiToken = (value: string) => {
     setApiToken(value)
@@ -45,6 +53,8 @@ const ConnectViaIP = () => {
             address={vcAddress}
             port={vcPort}
             isAdvanced={isAdvanced}
+            isSwitchOn={isVcSwitchOn}
+            isChecked={isVcChecked}
           />
           <AddressPortInputs
             addressType={'Beacon'}
@@ -52,6 +62,8 @@ const ConnectViaIP = () => {
             address={beaconAddress}
             port={beaconPort}
             isAdvanced={isAdvanced}
+            isSwitchOn={isBeaconSwitchOn}
+            isChecked={isBeaconChecked}
           />
         </YStack>
       ) : (
