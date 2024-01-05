@@ -38,21 +38,11 @@ const AddressAndPortInputs = ({
       return
     }
 
-    if (portType === 'Beacon') {
-      dispatch({ type: 'pairDevice/setBeaconPort', payload: value })
-    } else {
-      dispatch({ type: 'pairDevice/setVcPort', payload: value })
-    }
+    dispatch({ type: 'pairDevice/setPort', payload: { value, portType } })
   }
 
   const onAddressChange = (value: string) => {
-    if (addressType === 'Beacon') {
-      dispatch({ type: 'pairDevice/setBeaconAddress', payload: value })
-    } else if (addressType === 'Validator Client') {
-      dispatch({ type: 'pairDevice/setVcAddress', payload: value })
-    } else {
-      dispatch({ type: 'pairDevice/setNodeAddress', payload: value })
-    }
+    dispatch({ type: 'pairDevice/setAddress', payload: { value, addressType } })
   }
 
   return (

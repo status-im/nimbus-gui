@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
 type PairDeviceStateType = {
   beaconPort: string
@@ -20,20 +20,21 @@ const pairDeviceSlice = createSlice({
   name: 'pairDevice',
   initialState,
   reducers: {
-    setBeaconPort: (state, action: PayloadAction<string>) => {
-      state.beaconPort = action.payload
+    setPort: (state, action) => {
+      if (action.payload.portType === 'Beacon') {
+        state.beaconPort = action.payload.value
+      } else {
+        state.vcPort = action.payload.value
+      }
     },
-    setVcPort: (state, action: PayloadAction<string>) => {
-      state.vcPort = action.payload
-    },
-    setBeaconAddress: (state, action: PayloadAction<string>) => {
-      state.beaconAddress = action.payload
-    },
-    setVcAddress: (state, action: PayloadAction<string>) => {
-      state.vcAddress = action.payload
-    },
-    setNodeAddress: (state, action: PayloadAction<string>) => {
-      state.nodeAddress = action.payload
+    setAddress: (state, action) => {
+      if (action.payload.addressType === 'Beacon') {
+        state.beaconAddress = action.payload.value
+      } else if (action.payload.addressType === 'Validator Client') {
+        state.vcAddress = action.payload.value
+      } else {
+        state.nodeAddress = action.payload.value
+      }
     },
   },
 })
