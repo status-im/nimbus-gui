@@ -1,37 +1,58 @@
 import { Checkbox, Input, Text } from '@status-im/components'
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Stack, Switch, XStack, YStack } from 'tamagui'
+
+import { RootState } from '../../../redux/store'
 
 type AddressAndPortInputsProps = {
   addressType: string
-  portType: string
-  isAdvanced: boolean
+  portType?: string
+  isAdvanced?: boolean
+  address: string
+  port?: string
 }
 
-const AddressAndPortInputs = ({ isAdvanced, addressType, portType }: AddressAndPortInputsProps) => {
+const AddressAndPortInputs = ({
+  isAdvanced,
+  addressType,
+  portType,
+  address,
+  port,
+}: AddressAndPortInputsProps) => {
   const [isProtocolSwitchOn, setIsProtocolSwitchOn] = useState(true)
-  const [address, setAddress] = useState('http://124.0.0.1')
-  const [port, setPort] = useState('5052')
   const [isChecked, setIsChecked] = useState(true)
+  const { beaconPort, vcPort } = useSelector((state: RootState) => state.pairDevice)
+  const dispatch = useDispatch()
 
   const onProtocolSwitchChangeHandler = () => {
     setIsProtocolSwitchOn(state => !state)
   }
 
-  const onAddressChangeHandler = (value: string) => {
-    setAddress(value)
+  const onCheckboxChangeHandler = () => {
+    setIsChecked(state => !state)
   }
 
-  const onPortChangeHandler = (value: string) => {
+  const onPortChange = (value: string, portType: string) => {
     if (isNaN(Number(value))) {
       return
     }
 
-    setPort(value)
+    if (portType === 'Beacon') {
+      dispatch({ type: 'pairDevice/setBeaconPort', payload: value })
+    } else {
+      dispatch({ type: 'pairDevice/setVcPort', payload: value })
+    }
   }
 
-  const onCheckboxChangeHandler = () => {
-    setIsChecked(state => !state)
+  const onAddressChange = (value: string) => {
+    if (addressType === 'Beacon') {
+      dispatch({ type: 'pairDevice/setBeaconAddress', payload: value })
+    } else if (addressType === 'Validator Client') {
+      dispatch({ type: 'pairDevice/setVcAddress', payload: value })
+    } else {
+      dispatch({ type: 'pairDevice/setNodeAddress', payload: value })
+    }
   }
 
   return (
@@ -66,28 +87,31 @@ const AddressAndPortInputs = ({ isAdvanced, addressType, portType }: AddressAndP
         <Text size={13} color={'#647084'} weight={'semibold'}>
           {addressType} Address
         </Text>
-        <Input value={address} onChangeText={onAddressChangeHandler} />
+        <Input value={address} onChangeText={onAddressChange} />
       </YStack>
       {isAdvanced ? (
         <YStack space={'$2'} flexBasis={0} flexGrow={3}>
           <Text size={13} color={'#647084'} weight={'semibold'}>
             {portType} Port
           </Text>
-          <Input value={port} onChangeText={onPortChangeHandler} />
+          <Input
+            value={port}
+            onChangeText={value => onPortChange(value, portType ? portType : '')}
+          />
         </YStack>
       ) : (
         <XStack space={'$3'} flexGrow={4} flexBasis={0}>
           <YStack space={'$2'} flexBasis={0} flexGrow={2}>
             <Text size={13} color={'#647084'} weight={'semibold'}>
-              {portType} Port
+              VC Port
             </Text>
-            <Input value={port} onChangeText={onPortChangeHandler} />
+            <Input value={vcPort} onChangeText={value => onPortChange(value, 'VC')} />
           </YStack>
           <YStack space={'$2'} flexBasis={0} flexGrow={2}>
             <Text size={13} color={'#647084'} weight={'semibold'}>
-              {portType} Port
+              Beacon Port
             </Text>
-            <Input value={port} onChangeText={onPortChangeHandler} />
+            <Input value={beaconPort} onChangeText={value => onPortChange(value, 'Beacon')} />
           </YStack>
         </XStack>
       )}
