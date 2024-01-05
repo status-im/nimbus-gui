@@ -1,6 +1,6 @@
 .layout {
   background-color: #fff;
-  
+
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -24,7 +24,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: end;
-  
 }
 .container-inner {
   max-width: 70%;
@@ -97,8 +96,6 @@
     justify-content: start;
     padding: 20px;
   }
-
-   
 
   .layout-right {
     flex: 0 0 100%;
