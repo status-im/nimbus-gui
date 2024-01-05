@@ -2,12 +2,17 @@ import { Separator, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
 import { Button, Input, Text } from '@status-im/components'
 import { SettingsIcon, ClearIcon } from '@status-im/icons'
+import { useSelector } from 'react-redux'
 
 import AddressPortInputs from './AddressAndPortInputs'
+import { RootState } from '../../../redux/store'
 
 const ConnectViaIP = () => {
   const [apiToken, setApiToken] = useState('')
   const [isAdvanced, setIsAdvanced] = useState(false)
+  const { beaconPort, vcPort, nodeAddress, beaconAddress, vcAddress } = useSelector(
+    (state: RootState) => state.pairDevice,
+  )
 
   const changeApiToken = (value: string) => {
     setApiToken(value)
@@ -37,12 +42,20 @@ const ConnectViaIP = () => {
           <AddressPortInputs
             addressType={'Validator Client'}
             portType={'VC'}
+            address={vcAddress}
+            port={vcPort}
             isAdvanced={isAdvanced}
           />
-          <AddressPortInputs addressType={'Beacon'} portType={'Beacon'} isAdvanced={isAdvanced} />
+          <AddressPortInputs
+            addressType={'Beacon'}
+            portType={'Beacon'}
+            address={beaconAddress}
+            port={beaconPort}
+            isAdvanced={isAdvanced}
+          />
         </YStack>
       ) : (
-        <AddressPortInputs addressType={'Node'} portType={''} isAdvanced={isAdvanced} />
+        <AddressPortInputs addressType={'Node'} address={nodeAddress} />
       )}
       <Separator borderColor={'#e3e3e3'} />
       <YStack space={'$2'}>
