@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+import { BEACON, BEACON_PORT, DEFAULT_ADDRESS, VALIDATOR_CLIENT, VC_PORT } from '../../constants'
+
 type PairDeviceStateType = {
   beaconPort: string
   vcPort: string
@@ -15,11 +17,11 @@ type PairDeviceStateType = {
 }
 
 const initialState: PairDeviceStateType = {
-  beaconPort: '5052',
-  vcPort: '9000',
-  nodeAddress: 'http://124.0.0.1',
-  beaconAddress: 'http://124.0.0.1',
-  vcAddress: 'http://124.0.0.1',
+  beaconPort: BEACON_PORT,
+  vcPort: VC_PORT,
+  nodeAddress: DEFAULT_ADDRESS,
+  beaconAddress: DEFAULT_ADDRESS,
+  vcAddress: DEFAULT_ADDRESS,
   isNodeSwitchOn: true,
   isBeaconSwitchOn: true,
   isVcSwitchOn: true,
@@ -33,34 +35,34 @@ const pairDeviceSlice = createSlice({
   initialState,
   reducers: {
     setPort: (state, action) => {
-      if (action.payload.portType === 'Beacon') {
+      if (action.payload.portType === BEACON) {
         state.beaconPort = action.payload.value
       } else {
         state.vcPort = action.payload.value
       }
     },
     setAddress: (state, action) => {
-      if (action.payload.addressType === 'Beacon') {
+      if (action.payload.addressType === BEACON) {
         state.beaconAddress = action.payload.value
-      } else if (action.payload.addressType === 'Validator Client') {
+      } else if (action.payload.addressType === VALIDATOR_CLIENT) {
         state.vcAddress = action.payload.value
       } else {
         state.nodeAddress = action.payload.value
       }
     },
     setIsSwitchOn: (state, action) => {
-      if (action.payload.switchType === 'Beacon') {
+      if (action.payload.switchType === BEACON) {
         state.isBeaconSwitchOn = action.payload.value
-      } else if (action.payload.switchType === 'Validator Client') {
+      } else if (action.payload.switchType === VALIDATOR_CLIENT) {
         state.isVcSwitchOn = action.payload.value
       } else {
         state.isNodeSwitchOn = action.payload.value
       }
     },
     setIsChecked: (state, action) => {
-      if (action.payload.checkType === 'Beacon') {
+      if (action.payload.checkType === BEACON) {
         state.isBeaconChecked = action.payload.value
-      } else if (action.payload.checkType === 'Validator Client') {
+      } else if (action.payload.checkType === VALIDATOR_CLIENT) {
         state.isVcChecked = action.payload.value
       } else {
         state.isNodeChecked = action.payload.value
