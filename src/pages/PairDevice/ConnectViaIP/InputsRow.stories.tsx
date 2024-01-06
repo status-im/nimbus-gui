@@ -2,6 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { withRouter } from 'storybook-addon-react-router-v6'
 
 import InputsRow from './InputsRow'
+import {
+  BEACON,
+  BEACON_PORT,
+  DEFAULT_ADDRESS,
+  NODE,
+  VALIDATOR_CLIENT,
+  VC,
+  VC_PORT,
+} from '../../../constants'
 
 const meta = {
   title: 'Pair Device/InputsRow',
@@ -18,19 +27,19 @@ type Story = StoryObj<typeof meta>
 
 export const Node: Story = {
   args: {
-    addressType: 'Node',
-    address: 'http://124.0.0.1',
+    addressType: NODE,
+    address: DEFAULT_ADDRESS,
     port: '',
     portType: '',
   },
 }
 
-export const VC: Story = {
+export const ValidatorClient: Story = {
   args: {
-    addressType: 'Validator Client',
-    portType: 'VC',
-    address: 'http://124.0.0.1',
-    port: '9000',
+    addressType: VALIDATOR_CLIENT,
+    portType: VC,
+    address: DEFAULT_ADDRESS,
+    port: VC_PORT,
     isAdvanced: true,
     isSwitchOn: true,
     isChecked: true,
@@ -39,10 +48,10 @@ export const VC: Story = {
 
 export const Beacon: Story = {
   args: {
-    addressType: 'Beacon',
-    portType: 'Beacon',
-    address: 'http://124.0.0.1',
-    port: '5052',
+    addressType: BEACON,
+    portType: BEACON,
+    address: DEFAULT_ADDRESS,
+    port: BEACON_PORT,
     isAdvanced: true,
     isSwitchOn: true,
     isChecked: true,

@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { withRouter } from 'storybook-addon-react-router-v6'
 
 import PortInput from './PortInput'
+import { BEACON, BEACON_PORT, VC, VC_PORT } from '../../../constants'
 
 const meta = {
   title: 'Pair Device/PortInput',
@@ -16,16 +17,16 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const VC: Story = {
+export const ValidatorClient: Story = {
   args: {
-    port: '9000',
-    portType: 'VC',
+    port: VC_PORT,
+    portType: VC,
   },
 }
 
 export const Beacon: Story = {
   args: {
-    port: '5052',
-    portType: 'Beacon',
+    port: BEACON_PORT,
+    portType: BEACON,
   },
 }
