@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 
 import InputsRow from './InputsRow'
 import { RootState } from '../../../redux/store'
+import { BEACON, NODE, VALIDATOR_CLIENT, VC } from '../../../constants'
 
 const ConnectViaIP = () => {
   const [apiToken, setApiToken] = useState('')
@@ -48,8 +49,8 @@ const ConnectViaIP = () => {
       {isAdvanced ? (
         <YStack space={'$3'}>
           <InputsRow
-            addressType={'Validator Client'}
-            portType={'VC'}
+            addressType={VALIDATOR_CLIENT}
+            portType={VC}
             address={vcAddress}
             port={vcPort}
             isAdvanced={isAdvanced}
@@ -57,8 +58,8 @@ const ConnectViaIP = () => {
             isChecked={isVcChecked}
           />
           <InputsRow
-            addressType={'Beacon'}
-            portType={'Beacon'}
+            addressType={BEACON}
+            portType={BEACON}
             address={beaconAddress}
             port={beaconPort}
             isAdvanced={isAdvanced}
@@ -67,7 +68,7 @@ const ConnectViaIP = () => {
           />
         </YStack>
       ) : (
-        <InputsRow addressType={'Node'} address={nodeAddress} port={''} portType={''} />
+        <InputsRow addressType={NODE} address={nodeAddress} port={''} portType={''} />
       )}
       <Separator borderColor={'#e3e3e3'} />
       <YStack space={'$2'}>

@@ -4,6 +4,7 @@ import { Stack, Switch, XStack, YStack } from 'tamagui'
 
 import { RootState } from '../../../redux/store'
 import PortInput from './PortInput'
+import { BEACON, VC } from '../../../constants'
 
 type InputsRowProps = {
   addressType: string
@@ -83,8 +84,8 @@ const InputsRow = ({
         <PortInput port={port} portType={portType} />
       ) : (
         <XStack space={'$3'} flexGrow={4} flexBasis={0}>
-          <PortInput port={vcPort} portType={'VC'} />
-          <PortInput port={beaconPort} portType={'Beacon'} />
+          <PortInput port={vcPort} portType={VC} />
+          <PortInput port={beaconPort} portType={BEACON} />
         </XStack>
       )}
       <div style={{ display: 'flex', alignItems: 'end', height: '100%' }}>
