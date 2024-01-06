@@ -113,3 +113,9 @@ export const VALIDATORS_DATA = [
     status: 'Active',
   },
 ]
+
+// Pair Device
+export const VC = 'VC'
+export const VALIDATOR_CLIENT = 'Validator Client'
+export const BEACON = 'Beacon'
+export const NODE = 'Node'
