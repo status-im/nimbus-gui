@@ -9,15 +9,13 @@ import { useSelector } from 'react-redux'
 import config from '../tamagui.config'
 import LandingPage from './pages/LandingPage/LandingPage'
 import DeviceHealthCheck from './pages/DeviceHealthCheck/DeviceHealthCheck'
-import ConnectDevicePage from './pages/ConnectDevicePage/ConnectDevicePage'
 import { RootState } from './redux/store'
 import DeviceSyncStatus from './pages/DeviceSyncStatus/DeviceSyncStatus'
 import PairDevice from './pages/PairDevice/PairDevice'
 import PinnedNotification from './components/General/PinnedNottification'
-import CreateLocalNodePage from './pages/CreateLocalNodePage/CreateLocalNodePage'
+import CreateLocalNode from './pages/CreateLocalNode/CreateLocalNode'
 import ValidatorOnboarding from './pages/ValidatorOnboarding/ValidatorOnboarding'
 import Dashboard from './pages/Dashboard/Dashboard'
-import ConnectExistingInstance from './pages/ConnectExistingInstance/ConnectExistingInstance'
 import ValidatorManagement from './pages/ValidatorManagement/ValidatorManagement'
 import { ethereumRopsten, wcV2InitOptions, apiKey } from './constants'
 import './App.css'
@@ -48,10 +46,6 @@ const router = createBrowserRouter([
     element: <DeviceHealthCheck />,
   },
   {
-    path: '/connect-device',
-    element: <ConnectDevicePage />,
-  },
-  {
     path: '/device-sync-status',
     element: <DeviceSyncStatus />,
   },
@@ -59,11 +53,7 @@ const router = createBrowserRouter([
     path: '/pair-device',
     element: <PairDevice />,
   },
-  {
-    path: '/pair-existing-instance',
-    element: <ConnectExistingInstance />,
-  },
-  { path: '/create-local-node', element: <CreateLocalNodePage /> },
+  { path: '/create-local-node', element: <CreateLocalNode /> },
   { path: '/validator-onboarding', element: <ValidatorOnboarding /> },
   { path: '/dashboard', element: <Dashboard /> },
   { path: '/validator-management', element: <ValidatorManagement /> },
