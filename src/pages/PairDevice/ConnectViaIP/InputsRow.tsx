@@ -1,6 +1,6 @@
 import { Checkbox, Input, Text } from '@status-im/components'
 import { useDispatch, useSelector } from 'react-redux'
-import { Stack, Switch, XStack, YStack } from 'tamagui'
+import { Stack, Switch, YStack } from 'tamagui'
 
 import { RootState } from '../../../redux/store'
 import PortInput from './PortInput'
@@ -47,7 +47,7 @@ const InputsRow = ({
   }
 
   return (
-    <XStack space={'$3'}>
+    <div style={{ display: 'flex', gap: '8px' }}>
       <YStack space={'$2'} flexBasis={0} flexGrow={2}>
         <YStack>
           <Text size={13} color={'#647084'} weight={'semibold'}>
@@ -94,7 +94,7 @@ const InputsRow = ({
           />
         </Stack>
       </div>
-    </XStack>
+    </div>
   )
 }
 
