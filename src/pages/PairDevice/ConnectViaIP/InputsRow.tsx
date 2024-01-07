@@ -5,6 +5,7 @@ import { Stack, Switch, YStack } from 'tamagui'
 import { RootState } from '../../../redux/store'
 import PortInput from './PortInput'
 import { BEACON, VC } from '../../../constants'
+import styles from './InputsRow.module.css'
 
 type InputsRowProps = {
   addressType: string
@@ -47,7 +48,7 @@ const InputsRow = ({
   }
 
   return (
-    <div style={{ display: 'flex', gap: '8px' }}>
+    <div className={styles['main-container']}>
       <YStack space={'$2'} flexBasis={0} flexGrow={2}>
         <YStack>
           <Text size={13} color={'#647084'} weight={'semibold'}>
@@ -83,7 +84,7 @@ const InputsRow = ({
       {isAdvanced === true && <PortInput port={port} portType={portType} />}
       {isAdvanced === false && <PortInput port={vcPort} portType={VC} />}
       {isAdvanced === false && <PortInput port={beaconPort} portType={BEACON} />}
-      <div style={{ display: 'flex', alignItems: 'end', height: '100%' }}>
+      <div style={{ display: 'flex', alignItems: 'end' }}>
         <Stack height={'46%'} flexBasis={0} flexGrow={0.5}>
           <Checkbox
             id="AddressAndPortInputs"
