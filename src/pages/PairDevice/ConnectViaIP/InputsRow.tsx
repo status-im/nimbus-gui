@@ -80,14 +80,9 @@ const InputsRow = ({
         </Text>
         <Input value={address} onChangeText={onAddressChange} />
       </YStack>
-      {isAdvanced ? (
-        <PortInput port={port} portType={portType} />
-      ) : (
-        <XStack space={'$3'} flexGrow={4} flexBasis={0}>
-          <PortInput port={vcPort} portType={VC} />
-          <PortInput port={beaconPort} portType={BEACON} />
-        </XStack>
-      )}
+      {isAdvanced === true && <PortInput port={port} portType={portType} />}
+      {isAdvanced === false && <PortInput port={vcPort} portType={VC} />}
+      {isAdvanced === false && <PortInput port={beaconPort} portType={BEACON} />}
       <div style={{ display: 'flex', alignItems: 'end', height: '100%' }}>
         <Stack height={'46%'} flexBasis={0} flexGrow={0.5}>
           <Checkbox
