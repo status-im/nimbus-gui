@@ -68,7 +68,13 @@ const ConnectViaIP = () => {
           />
         </YStack>
       ) : (
-        <InputsRow addressType={NODE} address={nodeAddress} port={''} portType={''} />
+        <InputsRow
+          addressType={NODE}
+          address={nodeAddress}
+          port={''}
+          portType={''}
+          isAdvanced={isAdvanced}
+        />
       )}
       <Separator borderColor={'#e3e3e3'} />
       <YStack space={'$2'}>
