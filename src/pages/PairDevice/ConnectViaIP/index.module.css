@@ -15,6 +15,11 @@
   .row-container > *:last-child {
     margin-bottom: 0;
   }
+
+  .rows-container {
+    display: flex;
+    gap: 10px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -28,5 +33,10 @@
 
   .row-container > *:last-child {
     margin-bottom: 0;
+  }
+
+  .rows-container {
+    display: flex;
+    gap: 10px;
   }
 }

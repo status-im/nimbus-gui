@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 import InputsRow from './InputsRow'
 import { RootState } from '../../../redux/store'
 import { BEACON, NODE, VALIDATOR_CLIENT, VC } from '../../../constants'
+import styles from './index.module.css'
 
 const ConnectViaIP = () => {
   const [apiToken, setApiToken] = useState('')
@@ -47,7 +48,7 @@ const ConnectViaIP = () => {
         </Button>
       </XStack>
       {isAdvanced ? (
-        <YStack space={'$3'}>
+        <YStack space={'$3'} className={styles['rows-container']}>
           <InputsRow
             addressType={VALIDATOR_CLIENT}
             portType={VC}
