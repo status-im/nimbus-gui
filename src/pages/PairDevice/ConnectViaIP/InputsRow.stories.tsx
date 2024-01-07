@@ -31,6 +31,7 @@ export const Node: Story = {
     address: DEFAULT_ADDRESS,
     port: '',
     portType: '',
+    isAdvanced: false,
   },
 }
 

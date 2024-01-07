@@ -9,7 +9,7 @@ import { BEACON, VC } from '../../../constants'
 type InputsRowProps = {
   addressType: string
   portType: string
-  isAdvanced?: boolean
+  isAdvanced: boolean
   address: string
   port: string
   isSwitchOn?: boolean
