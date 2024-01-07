@@ -1,32 +1,32 @@
-.main-container {
+.row-container {
   display: flex;
   gap: 8px;
 }
 
 @media (max-width: 1150px) and (min-width: 1000px) {
-  .main-container {
+  .row-container {
     display: block;
   }
 
-  .main-container > * {
+  .row-container > * {
     margin-bottom: 8px;
   }
 
-  .main-container > *:last-child {
+  .row-container > *:last-child {
     margin-bottom: 0;
   }
 }
 
 @media (max-width: 500px) {
-  .main-container {
+  .row-container {
     display: block;
   }
 
-  .main-container > * {
+  .row-container > * {
     margin-bottom: 8px;
   }
 
-  .main-container > *:last-child {
+  .row-container > *:last-child {
     margin-bottom: 0;
   }
 }

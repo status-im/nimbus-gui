@@ -5,7 +5,7 @@ import { Stack, Switch, YStack } from 'tamagui'
 import { RootState } from '../../../redux/store'
 import PortInput from './PortInput'
 import { BEACON, VC } from '../../../constants'
-import styles from './InputsRow.module.css'
+import styles from './index.module.css'
 
 type InputsRowProps = {
   addressType: string
@@ -48,7 +48,7 @@ const InputsRow = ({
   }
 
   return (
-    <div className={styles['main-container']}>
+    <div className={styles['row-container']}>
       <YStack space={'$2'} flexBasis={0} flexGrow={2}>
         <YStack>
           <Text size={13} color={'#647084'} weight={'semibold'}>
