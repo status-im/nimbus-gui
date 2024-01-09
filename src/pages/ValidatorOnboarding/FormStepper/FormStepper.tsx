@@ -16,32 +16,29 @@ const steps = [
 
 type FormStepperProps = {
   activeStep: number
+  windowWidth: number
 }
 
-const FormStepper = ({ activeStep }: FormStepperProps) => {
+const FormStepper = ({ activeStep, windowWidth }: FormStepperProps) => {
   const isStepVisible = (index: number) => {
-    if (activeStep === 0) {
-      // Show the first three steps if the active step is the first one
-      return index <= 2;
-    } else if (activeStep === steps.length - 1) {
-      // Show the last three steps if the active step is the last one
-      return index >= steps.length - 3;
+    if (windowWidth < 650) {
+      const start = Math.max(0, activeStep - 1)
+      const end = Math.min(steps.length - 1, activeStep + 1)
+      return index >= start && index <= end
     } else {
-      // Otherwise, show the previous, current, and next steps
-      return index === activeStep || index === activeStep - 1 || index === activeStep + 1;
+      return true
     }
   }
-  
-   
+
   const dispatch = useDispatch()
-  
+
   const changeStepOnClickHandler = (index: number) => {
     if (activeStep > index) {
       dispatch(setActiveStep(index))
     }
   }
-  
-  const visibleSteps = steps.filter((_, index) => isStepVisible(index));
+
+  const visibleSteps = steps.filter((_, index) => isStepVisible(index))
   return (
     <Stepper
       activeStep={activeStep}
@@ -51,14 +48,14 @@ const FormStepper = ({ activeStep }: FormStepperProps) => {
       style={{
         fontSize: '14px',
         zIndex: 1,
-        width: '1200px',
+        width: '100%',
         padding: 0,
         marginBottom: '3rem',
         overflow: 'hidden',
       }}
     >
-      {visibleSteps.map((step) => {
-        const originalIndex = steps.indexOf(step);
+      {visibleSteps.map(step => {
+        const originalIndex = steps.indexOf(step)
         return (
           <Step
             key={originalIndex}
@@ -69,7 +66,7 @@ const FormStepper = ({ activeStep }: FormStepperProps) => {
             data-subtitle={step.subtitle}
             data-step={step.label}
           />
-        );
+        )
       })}
     </Stepper>
   )

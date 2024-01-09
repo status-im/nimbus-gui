@@ -22,8 +22,18 @@ import './layoutGradient.css'
 import Deposit from './Deposit/Deposit'
 
 import './layoutGradient.css'
+import { useEffect, useState } from 'react'
 
 const ValidatorOnboarding = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth)
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
   const { activeStep, subStepValidatorSetup } = useSelector(
     (state: RootState) => state.validatorOnboarding,
   )
@@ -44,7 +54,7 @@ const ValidatorOnboarding = () => {
           titleSize={19}
           subtitle="Earn Rewards for securing the Ethereum Network"
         />
-        <FormStepper activeStep={activeStep} />
+        <FormStepper activeStep={activeStep} windowWidth={windowWidth} />
         <ValidatorBoxWrapper>
           {activeStep === 0 && <Overview />}
           {activeStep === 1 && <Advisories />}
