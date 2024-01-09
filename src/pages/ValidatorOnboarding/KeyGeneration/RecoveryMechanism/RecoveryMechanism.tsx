@@ -1,8 +1,9 @@
 import { Text } from '@status-im/components'
-import { XStack, YStack } from 'tamagui'
+import { YStack } from 'tamagui'
 
 import RecoveryMechanismCard from './RecoveryMechanismCard'
 import { BOTH_KEY_AND_RECOVERY, KEYSTORE_FILES, RECOVERY_PHRASE } from '../../../../constants'
+import styles from '../index.module.css'
 
 type RecoveryMechanismProps = {
   recoveryMechanism: string
@@ -20,7 +21,7 @@ const RecoveryMechanism = ({ recoveryMechanism }: RecoveryMechanismProps) => {
       <Text size={19} weight={'semibold'}>
         Select Recovery Mechanism
       </Text>
-      <XStack space={'$4'} style={{ justifyContent: 'space-between', marginTop: '40px' }}>
+      <div className={styles['recovery-mechanism-container']}>
         {Object.entries(cards).map(([value, icon]) => (
           <RecoveryMechanismCard
             key={value}
@@ -29,7 +30,7 @@ const RecoveryMechanism = ({ recoveryMechanism }: RecoveryMechanismProps) => {
             icon={icon}
           />
         ))}
-      </XStack>
+      </div>
     </YStack>
   )
 }
