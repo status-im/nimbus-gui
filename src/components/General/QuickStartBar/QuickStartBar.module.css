@@ -6,7 +6,7 @@
   backdrop-filter: blur(15px);
   display: flex;
   align-items: center;
-  width: 66%;
+  width: 64%;
   margin: 0 auto;
   padding: 12px 1rem;
   position: relative;
@@ -29,9 +29,8 @@
 
 @media (max-width: 1000px) {
   .quick-start-bar {
-    top: 0;
+    top: 12%;
     width: 85%;
-    margin: 0 20px;
   }
 
   .quick-start-bar ul li {
