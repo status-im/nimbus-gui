@@ -19,14 +19,29 @@ type FormStepperProps = {
 }
 
 const FormStepper = ({ activeStep }: FormStepperProps) => {
+  const isStepVisible = (index: number) => {
+    if (activeStep === 0) {
+      // Show the first three steps if the active step is the first one
+      return index <= 2;
+    } else if (activeStep === steps.length - 1) {
+      // Show the last three steps if the active step is the last one
+      return index >= steps.length - 3;
+    } else {
+      // Otherwise, show the previous, current, and next steps
+      return index === activeStep || index === activeStep - 1 || index === activeStep + 1;
+    }
+  }
+  
+   
   const dispatch = useDispatch()
-
+  
   const changeStepOnClickHandler = (index: number) => {
     if (activeStep > index) {
       dispatch(setActiveStep(index))
     }
   }
-
+  
+  const visibleSteps = steps.filter((_, index) => isStepVisible(index));
   return (
     <Stepper
       activeStep={activeStep}
@@ -42,17 +57,20 @@ const FormStepper = ({ activeStep }: FormStepperProps) => {
         overflow: 'hidden',
       }}
     >
-      {steps.map((step, index) => (
-        <Step
-          key={index}
-          label={step.label}
-          className="custom-step"
-          onClick={() => changeStepOnClickHandler(index)}
-          completed={activeStep > index - 1}
-          data-subtitle={step.subtitle}
-          data-step={step.label}
-        />
-      ))}
+      {visibleSteps.map((step) => {
+        const originalIndex = steps.indexOf(step);
+        return (
+          <Step
+            key={originalIndex}
+            label={step.label}
+            className="custom-step"
+            onClick={() => changeStepOnClickHandler(originalIndex)}
+            completed={activeStep > originalIndex - 1}
+            data-subtitle={step.subtitle}
+            data-step={step.label}
+          />
+        );
+      })}
     </Stepper>
   )
 }
