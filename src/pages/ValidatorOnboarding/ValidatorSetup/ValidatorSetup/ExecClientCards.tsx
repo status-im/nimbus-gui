@@ -13,9 +13,8 @@ const ExecClientCards = () => {
       <Stack
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
           gap: '8px',
-          justifyContent: 'space-between',
         }}
       >
         {Object.entries(DOCUMENTATIONS).map(([name, { icon }], index) => (

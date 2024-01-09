@@ -11,10 +11,10 @@ const Icon = ({ src, width = '16px', height = '16px' }: IconProps) => {
     <Image
       src={src}
       source={{ uri: src }}
-      width={'70%'}
-      height={100}
+      width={'50%'}
+      height={90}
       style={{ backgroundColor: 'transparent' }}
-      minWidth={'110px'}
+      minWidth={'90px'}
     />
   )
 }

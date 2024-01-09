@@ -60,7 +60,7 @@ const FormStepper = ({ activeStep, windowWidth }: FormStepperProps) => {
         return (
           <Step
             key={originalIndex}
-            label={`${originalIndex + 1}. ${step.label}`}
+            label={`${step.label}`}
             className="custom-step"
             onClick={() => changeStepOnClickHandler(originalIndex)}
             completed={activeStep > originalIndex - 1}

@@ -28,8 +28,8 @@ const ExecClientCard = ({ name, icon, isComingSoon }: ExecClientCardProps) => {
           : '1px solid #DCE0E5',
         borderRadius: '16px',
         padding: '12px 16px',
-        width: '19%',
         cursor: 'pointer',
+        width: '100%',
         minWidth: '150px',
       }}
       space={'$8'}
@@ -50,7 +50,7 @@ const ExecClientCard = ({ name, icon, isComingSoon }: ExecClientCardProps) => {
               alignItems: 'center',
               padding: '3px 6px',
               borderRadius: '67px',
-              width: 'fit-content',
+              
             }}
           >
             <Text size={11} color="#fff">
