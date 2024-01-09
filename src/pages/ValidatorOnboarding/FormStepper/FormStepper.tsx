@@ -21,7 +21,7 @@ type FormStepperProps = {
 
 const FormStepper = ({ activeStep, windowWidth }: FormStepperProps) => {
   const isStepVisible = (index: number) => {
-    if (windowWidth < 650) {
+    if (windowWidth < 740) {
       const start = Math.max(0, activeStep - 1)
       const end = Math.min(steps.length - 1, activeStep + 1)
       return index >= start && index <= end
