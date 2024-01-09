@@ -30,6 +30,7 @@ const ExecClientCard = ({ name, icon, isComingSoon }: ExecClientCardProps) => {
         padding: '12px 16px',
         width: '19%',
         cursor: 'pointer',
+        minWidth: '150px',
       }}
       space={'$8'}
       onClick={() => {
@@ -58,7 +59,7 @@ const ExecClientCard = ({ name, icon, isComingSoon }: ExecClientCardProps) => {
           </XStack>
         )}
       </Stack>
-      <Icon src={icon} width={100} height={100} />
+      <Icon src={icon} width={'100%'} height={'full'} />
     </YStack>
   )
 }

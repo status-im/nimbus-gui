@@ -15,7 +15,7 @@ const Overview = () => {
       >
         <YStack>
           <YStack space={'$5'} width="150%">
-            <Text size={27} weight={'semibold'}>
+            <Text size={27} weight={'semibold'} marginTop={'2rem'}>
               Overview
             </Text>
             <Text size={19}>
