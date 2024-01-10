@@ -24,3 +24,9 @@
     min-width: 40%;
   }
 }
+
+@media (max-width: 740px) {
+  .header {
+    margin-bottom: 16px;
+  }
+}
