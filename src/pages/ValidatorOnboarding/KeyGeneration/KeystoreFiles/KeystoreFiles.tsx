@@ -1,4 +1,4 @@
-import { Stack, XStack, YStack } from 'tamagui'
+import { Stack, XStack, YStack, useMedia } from 'tamagui'
 import { Button, InformationBox, Input, Text } from '@status-im/components'
 import { ClearIcon, CloseCircleIcon } from '@status-im/icons'
 import { useState } from 'react'
@@ -12,6 +12,9 @@ const KeystoreFiles = () => {
   const [confirmEncryptedPasswordError, setConfirmEncryptedPasswordError] = useState(false)
   const [displayEncryptedPassword, setDisplayEncryptedPassword] = useState('')
   const [displayConfirmEncryptedPassword, setDisplayConfirmEncryptedPassword] = useState('')
+  const media = useMedia()
+
+  const StackComponent = media.sm ? YStack : XStack
 
   const generateKeystoreFilesHandler = () => {
     if (
@@ -55,7 +58,10 @@ const KeystoreFiles = () => {
 
   return (
     <YStack space={'$4'}>
-      <XStack space={'$2'} style={{ justifyContent: 'space-between', width: '100%' }}>
+      <StackComponent
+        space={'$2'}
+        style={{ justifyContent: 'space-between', width: '100%' }}
+      >
         <YStack space={'$4'} style={{ width: '66%' }}>
           <YStack space={'$4'}>
             <Text size={15} color={'#647084'}>
@@ -97,7 +103,7 @@ const KeystoreFiles = () => {
           </YStack>
         </YStack>
         <KeystoreBackupsCard />
-      </XStack>
+      </StackComponent>
       <Stack style={{ width: 'fit-content' }}>
         <Button onPress={generateKeystoreFilesHandler}>Generate Key files</Button>
       </Stack>
