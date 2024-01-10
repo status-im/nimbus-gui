@@ -11,6 +11,14 @@
   width: 30%;
 }
 
+.header {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 @media (max-width: 630px) {
   .recovery-mechanism-container > div {
     min-width: 40%;
