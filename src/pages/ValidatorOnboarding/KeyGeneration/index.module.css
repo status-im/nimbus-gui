@@ -6,3 +6,13 @@
   margin-top: 40px;
 }
 
+.recovery-mechanism-container > div {
+  flex: 1;
+  width: 30%;
+}
+
+@media (max-width: 630px) {
+  .recovery-mechanism-container > div {
+    min-width: 40%;
+  }
+}
