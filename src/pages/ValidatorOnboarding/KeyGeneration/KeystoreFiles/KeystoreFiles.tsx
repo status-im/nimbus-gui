@@ -58,11 +58,8 @@ const KeystoreFiles = () => {
 
   return (
     <YStack space={'$4'}>
-      <StackComponent
-        space={'$2'}
-        style={{ justifyContent: 'space-between', width: '100%' }}
-      >
-        <YStack space={'$4'} style={{ width: '66%' }}>
+      <StackComponent space={'$2'} style={{ justifyContent: 'space-between', width: '100%' }}>
+        <YStack space={'$4'} style={{ width: media.sm ? '100%' : '66%' }}>
           <YStack space={'$4'}>
             <Text size={15} color={'#647084'}>
               Encryption Password
@@ -102,7 +99,9 @@ const KeystoreFiles = () => {
             />
           </YStack>
         </YStack>
-        <KeystoreBackupsCard />
+        <div style={{ width: media.sm ? '100%' : '32%', paddingTop: media.sm ? 0 : '1.2%' }}>
+          <KeystoreBackupsCard />
+        </div>
       </StackComponent>
       <Stack style={{ width: 'fit-content' }}>
         <Button onPress={generateKeystoreFilesHandler}>Generate Key files</Button>

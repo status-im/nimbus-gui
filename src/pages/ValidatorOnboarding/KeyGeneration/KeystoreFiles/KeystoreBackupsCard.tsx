@@ -17,7 +17,6 @@ const KeystoreBackupsCard = () => {
         border: '1px solid #DCE0E5',
         borderRadius: '16px',
         padding: '12px 16px',
-        width: '32%',
         marginTop: '3.4%',
         cursor: 'pointer',
       }}
