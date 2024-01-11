@@ -99,7 +99,7 @@ const KeystoreFiles = () => {
             />
           </YStack>
         </YStack>
-        <div style={{ width: media.sm ? '100%' : '32%', paddingTop: media.sm ? 0 : '3.8%' }}>
+        <div style={{ width: media.sm ? '100%' : '32%', paddingTop: '3.8%' }}>
           <KeystoreBackupsCard />
         </div>
       </StackComponent>
