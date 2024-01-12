@@ -19,6 +19,14 @@
   gap: 8px;
 }
 
+.recovery-phrase {
+  display: grid;
+  gap: 5px 3px;
+  width: 100%;
+  padding: 28px 0px 0px 18px;
+  grid-template-columns: repeat(6, 1fr);
+}
+
 @media (max-width: 630px) {
   .recovery-mechanism-container > div {
     min-width: 40%;

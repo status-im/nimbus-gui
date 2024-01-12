@@ -8,6 +8,7 @@ import wordlist from 'web-bip39/wordlists/english'
 
 import { RootState } from '../../../redux/store'
 import { setGeneratedMnemonic } from '../../../redux/ValidatorOnboarding/KeyGeneration/slice'
+import styles from './index.module.css'
 
 type RecoveryPhraseProps = {
   isKeystoreFiles: boolean
@@ -54,15 +55,11 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
         }}
         onClick={copyRecoveryPhraseHandler}
       >
-        <Stack
+        <div
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(6, 1fr)',
-            gap: '5px 3px',
-            width: '100%',
             filter: `blur(${isReveal ? '0px' : '4px'})`,
-            padding: '28px 0px 0px 18px',
           }}
+          className={styles['recovery-phrase']}
         >
           {generatedMnemonic.map((word, index) => (
             <XStack style={{ width: '100%' }}>
@@ -76,7 +73,7 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
               </Text>
             </XStack>
           ))}
-        </Stack>
+        </div>
         {isCopied ? <CheckIcon size={20} /> : <CopyIcon size={20} />}
       </YStack>
       <Stack style={{ width: 'fit-content', marginBottom: '12px' }}>
