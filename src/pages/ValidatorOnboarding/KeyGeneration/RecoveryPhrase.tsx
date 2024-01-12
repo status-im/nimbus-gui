@@ -66,7 +66,7 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
             <XStack style={{ width: '100%' }}>
               <Stack>
                 <Text key={index} size={19} weight={'semibold'} color="#0d162566">
-                  {index + 1}.
+                  {index + 1}.&nbsp;
                 </Text>
               </Stack>
               <Text key={index} size={19} weight={'semibold'}>
