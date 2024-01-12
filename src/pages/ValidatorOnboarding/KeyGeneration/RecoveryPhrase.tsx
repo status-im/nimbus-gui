@@ -17,6 +17,7 @@ type RecoveryPhraseProps = {
 const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
   const [isReveal, setIsReveal] = useState(false)
   const [isCopied, setIsCopied] = useState(false)
+  const [isTimeoutActive, setIsTimeoutActive] = useState(false)
   const { generatedMnemonic } = useSelector((state: RootState) => state.keyGeneration)
   const dispatch = useDispatch()
 
@@ -41,7 +42,15 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
     const text = generatedMnemonic.join(' ')
     navigator.clipboard.writeText(text)
 
-    setIsCopied(true)
+    if (!isTimeoutActive) {
+      setIsCopied(true)
+      setIsTimeoutActive(true)
+
+      setTimeout(() => {
+        setIsCopied(false)
+        setIsTimeoutActive(false)
+      }, 3000)
+    }
   }
 
   return (
