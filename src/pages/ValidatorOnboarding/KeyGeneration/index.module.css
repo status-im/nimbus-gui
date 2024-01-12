@@ -27,6 +27,14 @@
   grid-template-columns: repeat(6, 1fr);
 }
 
+.confirm-recovery-phrase {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px 40px;
+  width: 72%;
+  margin-bottom: 10px;
+}
+
 @media (max-width: 630px) {
   .recovery-mechanism-container > div {
     min-width: 40%;
