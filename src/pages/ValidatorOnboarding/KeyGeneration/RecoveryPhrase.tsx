@@ -52,6 +52,7 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
           cursor: 'pointer',
           paddingBottom: '8px',
           paddingRight: '18px',
+          paddingLeft: '18px',
         }}
         onClick={copyRecoveryPhraseHandler}
       >
@@ -63,7 +64,7 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
         >
           {generatedMnemonic.map((word, index) => (
             <XStack style={{ width: '100%' }}>
-              <Stack style={{ width: '25%' }}>
+              <Stack>
                 <Text key={index} size={19} weight={'semibold'} color="#0d162566">
                   {index + 1}.
                 </Text>
