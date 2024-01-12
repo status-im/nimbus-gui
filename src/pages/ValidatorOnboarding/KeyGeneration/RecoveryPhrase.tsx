@@ -24,6 +24,10 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
     getMnemonic()
   }, [])
 
+  useEffect(() => {
+    setIsCopied(false)
+  }, [generatedMnemonic])
+
   const getMnemonic = async () => {
     const mnemonic = await generateMnemonic(wordlist, 256)
     dispatch(setGeneratedMnemonic(mnemonic.split(' ')))
