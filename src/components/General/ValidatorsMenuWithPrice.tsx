@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { Input, Text } from '@status-im/components'
 import { AddIcon } from '@status-im/icons'
-import { Stack, XStack, YStack } from 'tamagui'
+import { Stack, XStack, YStack, useMedia } from 'tamagui'
 
 import { CURRENCIES, ETH_PER_VALIDATOR } from '../../constants'
 import CurrencyDropdown from './CurrencyDropdown'
+import ResponsiveStack from './ResponsiveStack'
 
 type ValidatorsMenuWithPriceProps = {
   validatorCount: number
@@ -20,6 +21,7 @@ const ValidatorsMenuWithPrice = ({
   label,
 }: ValidatorsMenuWithPriceProps) => {
   const [currency, setCurrency] = useState(Object.keys(CURRENCIES)[0] as CurrencyType)
+  const media = useMedia()
 
   const changeCurrency = (currency: CurrencyType) => {
     if (CURRENCIES[currency]) {
@@ -31,7 +33,11 @@ const ValidatorsMenuWithPrice = ({
   const totalPrice = totalETH * CURRENCIES[currency as keyof typeof CURRENCIES]
 
   return (
-    <XStack justifyContent={'space-between'} width={'80%'}>
+    <ResponsiveStack
+      isVerticalAligned={media.sm}
+      style={{ justifyContent: 'space-between', width: media.md ? '100%' : '80%' }}
+      space={'$3'}
+    >
       <Stack space={'$2'}>
         <Text size={15} weight="regular" color={'#647084'}>
           {label}
@@ -68,7 +74,7 @@ const ValidatorsMenuWithPrice = ({
           {totalPrice.toFixed(2)} {currency}
         </Text>
       </YStack>
-    </XStack>
+    </ResponsiveStack>
   )
 }
 
