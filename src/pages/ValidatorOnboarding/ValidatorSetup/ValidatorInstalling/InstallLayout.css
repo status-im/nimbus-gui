@@ -1,0 +1,25 @@
+.osCardsContainer {
+  /* Container styles */
+}
+
+.osCard {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  padding: 12px 16px;
+  min-width: 200px;
+  cursor: 'pointer';
+  width: 32%; /* Adjust for normal screens */
+}
+
+.osCard.selected {
+  background-color: #2a4af50d;
+  border: 1px solid #2a4af566;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 800px) {
+  .osCard {
+    width: 100%; /* Full width on small screens */
+    margin: 8px 0;
+  }
+}

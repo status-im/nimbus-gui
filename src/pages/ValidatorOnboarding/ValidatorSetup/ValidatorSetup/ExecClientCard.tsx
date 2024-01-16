@@ -59,7 +59,7 @@ const ExecClientCard = ({ name, icon, isComingSoon }: ExecClientCardProps) => {
           </XStack>
         )}
       </Stack>
-      <Icon src={icon} width={'100%'} height={'full'} />
+      <Icon src={icon} width={100} height={100} />
     </YStack>
   )
 }

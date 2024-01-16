@@ -33,12 +33,13 @@ const ConsensusSelection = () => {
 
   return (
     <YStack style={{ width: '100%', padding: '32px' }} minHeight={'65vh'}>
-      <XStack justifyContent={'space-between'} alignItems={'center'} mb={'30px'}>
+      <XStack justifyContent={'space-between'} alignItems={'center'} mb={'30px'} flexWrap="wrap">
         <Text size={27} weight={'semibold'}>
           Validator Setup
         </Text>
-        <XStack space={'$2'}>
+        <XStack space={'$2'} flexWrap="wrap">
           <PairedDeviceCard />
+
           <ConsensusGaugeCard
             color="blue"
             synced={134879}
@@ -67,9 +68,9 @@ const ConsensusSelection = () => {
         Install Consensus client
       </TextTam>
 
-      <XStack space={'$8'}>
+      <XStack space={'$8'} flexWrap="wrap">
         <ConsensusClientCard name={clients[0].name} icon={clients[0].icon} />
-        <YStack width={'67%'} space={'$4'}>
+        <YStack width={'67%'} maxWidth="550px" space={'$4'}>
           <Text size={19}>The resource efficient Ethereum Clients.</Text>
           <Text size={15}>
             {selectedClient} is a client implementation for both execution and consensus layers that

@@ -1,4 +1,4 @@
-import { YStack } from 'tamagui'
+import { Stack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
@@ -8,7 +8,7 @@ import { DOCUMENTATIONS } from './documentations'
 import { MAC } from '../../../../constants'
 import OSCards from './OSCards'
 import Markdown from '../../../../components/General/Markdown/Markdown'
-
+import './InstallLayout.css'
 const ValidatorSetupInstall = () => {
   const [selectedOS, setSelectedOS] = useState(MAC)
   const selectedClient = useSelector((state: RootState) => state.execClient.selectedClient)
@@ -18,7 +18,7 @@ const ValidatorSetupInstall = () => {
   }
 
   return (
-    <YStack style={{ width: '100%', padding: '26px 32px' }}>
+    <YStack style={{ padding: '26px 32px', width:'fit-content' }}>
       <Text size={27} weight={'semibold'}>
         Validator Setup
       </Text>
@@ -35,9 +35,11 @@ const ValidatorSetupInstall = () => {
         <Text size={19} weight={'semibold'}>
           Installing {selectedClient}
         </Text>
-        <Markdown children={DOCUMENTATIONS[selectedClient].general} />
-        <OSCards selectedOS={selectedOS} handleOSCardClick={handleOSCardClick} />
-        <Markdown children={DOCUMENTATIONS[selectedClient].documentation[selectedOS]} />
+        <Stack flexWrap="wrap">
+          <Markdown children={DOCUMENTATIONS[selectedClient].general} />
+          <OSCards selectedOS={selectedOS} handleOSCardClick={handleOSCardClick} />
+          <Markdown children={DOCUMENTATIONS[selectedClient].documentation[selectedOS]} />
+        </Stack>
       </YStack>
     </YStack>
   )
