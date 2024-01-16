@@ -55,25 +55,27 @@ const ValidatorsMenuWithPrice = ({
           onChangeText={changeValidatorCountHandler}
         />
       </Stack>
-      <YStack space={'$2'}>
-        <Text size={15} weight={'semibold'}>
-          ETH
-        </Text>
-        <Text size={27} weight={'semibold'}>
-          {totalETH}
-        </Text>
-      </YStack>
-      <YStack space={'$2'}>
-        <XStack style={{ justifyContent: 'space-between', width: '115%' }}>
+      <XStack style={{ justifyContent: 'space-between' }}>
+        <YStack space={'$2'}>
           <Text size={15} weight={'semibold'}>
-            {currency}
+            ETH
           </Text>
-          <CurrencyDropdown changeCurrency={changeCurrency} />
-        </XStack>
-        <Text size={27} weight={'semibold'}>
-          {totalPrice.toFixed(2)} {currency}
-        </Text>
-      </YStack>
+          <Text size={27} weight={'semibold'}>
+            {totalETH}
+          </Text>
+        </YStack>
+        <YStack space={'$2'}>
+          <XStack style={{ justifyContent: 'space-between', width: '115%' }}>
+            <Text size={15} weight={'semibold'}>
+              {currency}
+            </Text>
+            <CurrencyDropdown changeCurrency={changeCurrency} />
+          </XStack>
+          <Text size={27} weight={'semibold'}>
+            {totalPrice.toFixed(2)} {currency}
+          </Text>
+        </YStack>
+      </XStack>
     </ResponsiveStack>
   )
 }
