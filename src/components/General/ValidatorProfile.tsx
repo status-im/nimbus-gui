@@ -10,6 +10,10 @@ type ValidatorProfileProps = {
 }
 
 const ValidatorProfile = ({ number, address }: ValidatorProfileProps) => {
+  const onCopyAddress = () => {
+    navigator.clipboard.writeText(address)
+  }
+
   return (
     <XStack space={'$2'}>
       <Avatar
@@ -27,7 +31,12 @@ const ValidatorProfile = ({ number, address }: ValidatorProfileProps) => {
           <Text size={13} color="#647084">
             {getFormattedValidatorAddress(address)}
           </Text>
-          <CopyIcon size={16} color="#647084" style={{ cursor: 'pointer' }} />
+          <CopyIcon
+            size={16}
+            color="#647084"
+            style={{ cursor: 'pointer' }}
+            onClick={onCopyAddress}
+          />
         </XStack>
       </YStack>
     </XStack>
