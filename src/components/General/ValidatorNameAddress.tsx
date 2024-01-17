@@ -15,7 +15,7 @@ const ValidatorNameAddress = ({ number, address }: ValidatorNameAddressProps) =>
   }
 
   return (
-    <YStack>
+    <YStack alignItems={'start'}>
       <Text size={15} weight={'semibold'}>
         Validator {number}
       </Text>
