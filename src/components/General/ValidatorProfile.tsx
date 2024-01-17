@@ -2,6 +2,7 @@ import { Avatar, Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
 
 import { getFormattedValidatorAddress } from '../../utilities'
+import { CopyIcon } from '@status-im/icons'
 
 type ValidatorProfileProps = {
   number: number
@@ -22,9 +23,12 @@ const ValidatorProfile = ({ number, address }: ValidatorProfileProps) => {
         <Text size={15} weight={'semibold'}>
           Validator {number}
         </Text>
-        <Text size={13} color="#647084">
-          {getFormattedValidatorAddress(address)}
-        </Text>
+        <XStack space={'$1'} style={{ alignItems: 'center' }}>
+          <Text size={13} color="#647084">
+            {getFormattedValidatorAddress(address)}
+          </Text>
+          <CopyIcon size={16} color="#647084" style={{ cursor: 'pointer' }} />
+        </XStack>
       </YStack>
     </XStack>
   )
