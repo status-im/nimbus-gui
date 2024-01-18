@@ -158,3 +158,12 @@ export const advisoryTopics: AdvisoryTopicsType = {
     'Be wary of phishing scams, malicious software, and too-good-to-be-true offers.',
   ],
 }
+
+// Pair Device
+export const VC = 'VC'
+export const VALIDATOR_CLIENT = 'Validator Client'
+export const BEACON = 'Beacon'
+export const NODE = 'Node'
+export const VC_PORT = '9000'
+export const BEACON_PORT = '5052'
+export const DEFAULT_ADDRESS = 'http://124.0.0.1'

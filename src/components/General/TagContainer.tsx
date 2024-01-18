@@ -1,53 +1,46 @@
 import { Tag } from '@status-im/components'
 import { XStack } from 'tamagui'
-import './TagContainer.css'
-import { ConnectionIcon, AddSmallIcon, SwapIcon } from '@status-im/icons'
+import { AddSmallIcon, SwapIcon } from '@status-im/icons'
 import { useNavigate } from 'react-router'
 
+export type SelectedTag = 'Pair' | 'Create'
+
 type TagContainerProps = {
-  selectedTag: 'pair' | 'create' | 'connect'
+  selectedTag: SelectedTag
 }
+
+const TAGS = [
+  {
+    label: 'Pair',
+    icon: SwapIcon,
+    path: '/pair-device',
+  },
+  {
+    label: 'Create',
+    icon: AddSmallIcon,
+    path: '/create-local-node',
+  },
+]
 
 const TagContainer = ({ selectedTag }: TagContainerProps) => {
   const navigate = useNavigate()
 
-  const onPressConnect = () => {
-    navigate('/connect-device')
-  }
-
-  const onPressPair = () => {
-    navigate('/pair-device')
-  }
-
-  const onPressCreate = () => {
-    navigate('/create-local-node')
+  const onPressTag = (path: string) => {
+    navigate(path)
   }
 
   return (
     <XStack space={'$2'} alignItems="center" className="tag-container">
-      {selectedTag === 'connect' ? (
+      {TAGS.map(tag => (
         <Tag
-          selected={selectedTag === 'connect'}
-          icon={ConnectionIcon}
-          label="Connect"
+          key={tag.label}
+          selected={selectedTag === tag.label}
+          icon={tag.icon}
+          label={tag.label}
           size={32}
-          onPress={onPressConnect}
+          onPress={() => onPressTag(tag.path)}
         />
-      ) : null}
-      <Tag
-        selected={selectedTag === 'pair'}
-        icon={SwapIcon}
-        label="Pair"
-        size={32}
-        onPress={onPressPair}
-      />
-      <Tag
-        selected={selectedTag === 'create'}
-        icon={AddSmallIcon}
-        label="Create"
-        size={32}
-        onPress={onPressCreate}
-      />
+      ))}
     </XStack>
   )
 }
