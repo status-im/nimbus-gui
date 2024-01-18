@@ -1,5 +1,4 @@
 import { YStack } from 'tamagui'
-
 import { useSelector } from 'react-redux'
 
 import { RootState } from '../../redux/store'
@@ -15,25 +14,11 @@ import Advisories from './Advisories/Advisories'
 import ValidatorSetup from './ValidatorSetup/ValidatorSetup/ValidatorSetup'
 import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstalling/ValidatorInstall'
 import ContinueButton from './ContinueButton'
-
 import ActivationValidatorSetup from './ValidatorSetup/ValidatorActivation/ActivationValidatorSetup'
-import './layoutGradient.css'
-
 import Deposit from './Deposit/Deposit'
-
 import './layoutGradient.css'
-import { useEffect, useState } from 'react'
 
 const ValidatorOnboarding = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth)
-    }
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
   const { activeStep, subStepValidatorSetup } = useSelector(
     (state: RootState) => state.validatorOnboarding,
   )
