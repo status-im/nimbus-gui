@@ -14,23 +14,21 @@ const FormStepper = ({ activeStep }: FormStepperProps) => {
   const dispatch = useDispatch()
   const windowSize = useWindowSize()
 
+  const getIsStepVisible = (index: number, startNumber: number, endNumber: number) => {
+    const start = Math.min(startNumber, activeStep - 1)
+    const end = Math.max(FORM_STEPS.length - endNumber, activeStep + 1)
+    return index >= start && index <= end
+  }
+
   const isStepVisible = (index: number) => {
     if (windowSize.width < 774) {
-      const start = Math.min(3, activeStep - 1)
-      const end = Math.max(FORM_STEPS.length - 5, activeStep + 1)
-      return index >= start && index <= end
+      return getIsStepVisible(index, 3, 5)
     } else if (windowSize.width < 963) {
-      const start = Math.min(2, activeStep - 1)
-      const end = Math.max(FORM_STEPS.length - 4, activeStep + 1)
-      return index >= start && index <= end
+      return getIsStepVisible(index, 2, 4)
     } else if (windowSize.width < 1152) {
-      const start = Math.min(1, activeStep - 1)
-      const end = Math.max(FORM_STEPS.length - 3, activeStep + 1)
-      return index >= start && index <= end
+      return getIsStepVisible(index, 1, 3)
     } else if (windowSize.width < 1300) {
-      const start = Math.min(0, activeStep - 1)
-      const end = Math.max(FORM_STEPS.length - 2, activeStep + 1)
-      return index >= start && index <= end
+      return getIsStepVisible(index, 0, 2)
     } else {
       return true
     }
