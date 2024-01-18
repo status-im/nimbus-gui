@@ -64,12 +64,7 @@ const ContinueButton = () => {
   ])
 
   const handleStep1 = () => {
-    if (subStepAdvisories < 5) {
-      dispatch(setSubStepAdvisories(subStepAdvisories + 1))
-    } else {
-      dispatch(setSubStepAdvisories(0))
-      dispatch(setActiveStep(activeStep + 1))
-    }
+    dispatch(setActiveStep(activeStep + 1))
   }
 
   const handleStep2 = () => {
