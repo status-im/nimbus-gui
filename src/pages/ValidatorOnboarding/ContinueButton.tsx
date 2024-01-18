@@ -124,7 +124,7 @@ const ContinueButton = () => {
         justifyContent: isActivationValScreen ? 'space-between' : 'end',
         alignItems: 'center',
         zIndex: 1000,
-        marginTop: '10px',
+        marginTop: '21px',
       }}
     >
       {isCopyPastedPhrase && (
