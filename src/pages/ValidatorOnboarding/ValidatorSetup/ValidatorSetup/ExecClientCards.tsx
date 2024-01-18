@@ -1,4 +1,4 @@
-import { Stack, XStack, YStack } from 'tamagui'
+import { Stack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 
 import ExecClientCard from './ExecClientCard'
