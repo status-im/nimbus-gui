@@ -54,7 +54,7 @@ const ValidatorOnboarding = () => {
           titleSize={19}
           subtitle="Earn Rewards for securing the Ethereum Network"
         />
-        <FormStepper activeStep={activeStep} windowWidth={windowWidth} />
+        <FormStepper activeStep={activeStep} />
         <ValidatorBoxWrapper>
           {activeStep === 0 && <Overview />}
           {activeStep === 1 && <Advisories />}

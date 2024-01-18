@@ -7,19 +7,19 @@ import './FormStepper.css'
 
 type FormStepperProps = {
   activeStep: number
-  windowWidth: number
 }
 
-const FormStepper = ({ activeStep, windowWidth }: FormStepperProps) => {
+const FormStepper = ({ activeStep }: FormStepperProps) => {
   const dispatch = useDispatch()
+
   const isStepVisible = (index: number) => {
-    if (windowWidth < 740) {
-      const start = Math.max(0, activeStep - 1)
-      const end = Math.min(FORM_STEPS.length - 1, activeStep + 1)
-      return index >= start && index <= end
-    } else {
-      return true
-    }
+    // if (windowWidth < 1025) {
+    //   const start = activeStep - 1
+    //   const end = Math.min(FORM_STEPS.length - 1, activeStep + 1)
+    //   return index >= start && index <= end
+    // } else {
+    return true
+    // }
   }
 
   const changeStepOnClickHandler = (index: number) => {
