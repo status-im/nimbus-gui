@@ -30,7 +30,7 @@ const ValidatorNameAddress = ({
         {isVerified && <VerifiedIcon size={20} />}
         {isAvatarChipIncluded && <ContactIcon size={20} />}
       </XStack>
-      <XStack space={'$1'} style={{ alignItems: 'center' }}>
+      <XStack space={'$1'} alignItems="center">
         <Text size={13} color="#647084">
           {getFormattedValidatorAddress(address)}
         </Text>

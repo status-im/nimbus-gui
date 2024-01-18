@@ -40,7 +40,7 @@ const ValidatorListItem = ({
       }}
       width="92%"
     >
-      <XStack alignItems="center">
+      <XStack alignItems="center" space={'$2'}>
         <Avatar
           type="user"
           size={32}
