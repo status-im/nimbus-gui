@@ -10,30 +10,46 @@ import './advisoriesLayout.css'
 import { advisoryTopics } from '../../../constants'
 
 const Advisories = () => {
-  const dispatch = useDispatch()
-  const { subStepAdvisories } = useSelector((state: RootState) => state.advisories)
-  const [selectedTitle, setSelectedTitle] = useState(Object.keys(advisoryTopics)[0])
+  const dispatch = useDispatch();
+  const { subStepAdvisories } = useSelector((state: RootState) => state.advisories);
+  const [completedSteps, setCompletedSteps] = useState<number[]>([]);
+  const [selectedTitle, setSelectedTitle] = useState<string>(Object.keys(advisoryTopics)[0]);
 
-  const unicodeNumbers = ['➀', '➁', '➂', '➃', '➄', '➅']
+  const unicodeNumbers = ['➀', '➁', '➂', '➃', '➄', '➅'];
+
+  const isCompleted = (index: number): boolean => completedSteps.includes(index);
+
   const advisoriesIcons = unicodeNumbers.map((number, index) =>
-    index <= subStepAdvisories ? '✓' : number,
-  )
+    isCompleted(index) ? '✓' : number,
+  );
 
   useEffect(() => {
-    setSelectedTitle(Object.keys(advisoryTopics)[subStepAdvisories])
-  }, [subStepAdvisories])
+    setSelectedTitle(Object.keys(advisoryTopics)[subStepAdvisories]);
+    // Add the current step to the completed steps if not already there
+    setCompletedSteps((prevSteps) => {
+      if (!prevSteps.includes(subStepAdvisories)) {
+        return [...prevSteps, subStepAdvisories];
+      }
+      return prevSteps;
+    });
+  }, [subStepAdvisories]);
+
+  const handleStepClick = (title: string): void => {
+    const index = getIndexTitle(title);
+    dispatch(setSubStepAdvisories(index));
+  };
 
   const isCurrent = (currentTitle: string): boolean => {
-    const topics = Object.keys(advisoryTopics)
-    const index = topics.indexOf(currentTitle)
-    return index <= subStepAdvisories ? true : false
-  }
+    const topics = Object.keys(advisoryTopics);
+    const index = topics.indexOf(currentTitle);
+    return index === subStepAdvisories;
+  };
 
   const getIndexTitle = (title: string): number => {
-    const topics = Object.keys(advisoryTopics)
-    const index = topics.indexOf(title)
-    return index
-  }
+    const topics = Object.keys(advisoryTopics);
+    const index = topics.indexOf(title);
+    return index;
+  };
 
   return (
     <XStack className="advisories-container">
@@ -46,21 +62,21 @@ const Advisories = () => {
         {Object.keys(advisoryTopics).map((title, index) => (
           <XStack
             key={title}
-            onPress={() => dispatch(setSubStepAdvisories(getIndexTitle(title)))}
+            onPress={() => handleStepClick(title)}
             style={{ cursor: 'pointer', alignItems: 'center' }}
             space={'$2'}
           >
             <Text
               size={19}
-              weight={isCurrent(title) && 'semibold'}
-              color={isCurrent(title) ? 'blue' : ''}
+              weight={isCompleted(index) || isCurrent(title) ? 'semibold' : 'normal'}
+              color={isCompleted(index) || isCurrent(title) ? 'blue' : 'default'}
             >
               {advisoriesIcons[index]}
             </Text>
             <Text
               size={19}
-              weight={isCurrent(title) ? 'semibold' : ''}
-              color={isCurrent(title) ? 'blue' : ''}
+              weight={isCompleted(index) || isCurrent(title) ? 'semibold' : 'normal'}
+              color={isCompleted(index) || isCurrent(title) ? 'blue' : 'default'}
             >
               {title}
             </Text>
@@ -73,5 +89,4 @@ const Advisories = () => {
   )
 }
 
-export default Advisories
-
+export default Advisories;
