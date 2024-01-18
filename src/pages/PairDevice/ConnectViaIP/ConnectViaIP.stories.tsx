@@ -1,21 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
-import ConnectExistingInstance from './ConnectExistingInstance'
 import { withRouter } from 'storybook-addon-react-router-v6'
 
+import ConnectViaIP from './ConnectViaIP'
+
 const meta = {
-  title: 'Connect-Device/ConnectExistingInstance',
-  component: ConnectExistingInstance,
+  title: 'Pair Device/ConnectViaIP',
+  component: ConnectViaIP,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
   decorators: [withRouter],
-} satisfies Meta<typeof ConnectExistingInstance>
+} satisfies Meta<typeof ConnectViaIP>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Page: Story = {
+export const Default: Story = {
   args: {},
 }

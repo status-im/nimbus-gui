@@ -1,8 +1,7 @@
-import { NodeIcon } from '@status-im/icons'
-import { Separator, XStack, YStack } from 'tamagui'
+import { NodeIcon, CompleteIdIcon, ConnectionIcon } from '@status-im/icons'
+import { Label, Separator, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
-import { Button, Text } from '@status-im/components'
-import { useNavigate } from 'react-router-dom'
+import { Button, Checkbox, Text } from '@status-im/components'
 
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import SyncStatus from './SyncStatus'
@@ -11,11 +10,12 @@ import PairedSuccessfully from './PairedSuccessfully'
 import CreateAvatar from '../../components/General/CreateAvatar/CreateAvatar'
 import GenerateId from './GenerateId'
 import Header from '../../components/General/Header'
-import Icon from '../../components/General/Icon'
+import ConnectViaIP from './ConnectViaIP/ConnectViaIP'
 
 const PairDevice = () => {
   const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
-  const navigate = useNavigate()
+  const [isConnectingViaIp, setIsConnectingViaIp] = useState(false)
+  const [isAutoConnectChecked, setIsAutoConnectChecked] = useState(false)
   const isPaired = false
   const isPairing = false
 
@@ -23,27 +23,58 @@ const PairDevice = () => {
     setIsAwaitingPairing(result)
   }
 
-  const connectViaIpHandler = () => {
-    navigate('/connect-device')
+  const connectAndPairHandler = () => {
+    setIsConnectingViaIp(state => !state)
   }
+
+  const continueHandler = () => {}
 
   return (
     <PageWrapperShadow rightImageSrc="./background-images/day-night-bg.png" rightImageLogo={true}>
       <YStack space={'$3'}>
-        <Header selectedTag="pair" />
+        <Header selectedTag="Pair" />
         <Titles
           title="Connect to existing Nimbus Instance"
           subtitle="Pair your existing device to the Nimbus Node Manager"
         />
-        {isPaired ? <PairedSuccessfully /> : <GenerateId isAwaitingPairing={isAwaitingPairing} />}
-        {isPaired === false && (
-          <SyncStatus
-            isPairing={isPairing}
-            isAwaitingPairing={isAwaitingPairing}
-            changeSetIsAwaitingPairing={changeSetIsAwaitingPairing}
-          />
+        {isConnectingViaIp ? (
+          <ConnectViaIP />
+        ) : isPaired ? (
+          <PairedSuccessfully />
+        ) : (
+          <>
+            <GenerateId isAwaitingPairing={isAwaitingPairing} />
+            <SyncStatus
+              isPairing={isPairing}
+              isAwaitingPairing={isAwaitingPairing}
+              changeSetIsAwaitingPairing={changeSetIsAwaitingPairing}
+            />
+          </>
         )}
-        {isPaired === false && (
+        {isPaired ? (
+          <>
+            <YStack space={'$3'}>
+              <Separator alignSelf="stretch" borderColor={'#F0F2F5'} marginTop={3} />
+              <Text size={19} weight="semibold">
+                General Settings
+              </Text>
+              <XStack space={'$4'} alignItems={'center'}>
+                <Checkbox
+                  id="auto-connect"
+                  selected={isAutoConnectChecked}
+                  onCheckedChange={e => setIsAutoConnectChecked(e)}
+                  variant="outline"
+                />
+                <Label htmlFor="auto-connect">
+                  <Text size={15} weight="regular">
+                    Auto Connect Paired Device
+                  </Text>
+                </Label>
+              </XStack>
+            </YStack>
+            <CreateAvatar />
+          </>
+        ) : (
           <YStack space={'$3'}>
             <Separator borderColor={'#e3e3e3'} />
             <YStack space={'$1'}>
@@ -52,21 +83,26 @@ const PairDevice = () => {
               </Text>
               <XStack>
                 <Button
-                  icon={<Icon src="/icons/connection-blue.svg" width={20} />}
+                  icon={
+                    isConnectingViaIp ? <CompleteIdIcon size={20} /> : <ConnectionIcon size={20} />
+                  }
                   variant="outline"
-                  onPress={connectViaIpHandler}
+                  onPress={connectAndPairHandler}
                 >
-                  Connect via IP
+                  {isConnectingViaIp ? 'Pair with ID' : 'Connect via IP'}
                 </Button>
               </XStack>
             </YStack>
           </YStack>
         )}
-        {isPaired && <CreateAvatar />}
         <Separator borderColor={'#e3e3e3'} />
         <div>
-          <Button icon={<NodeIcon size={20} />} disabled={!isPaired}>
-            Continue
+          <Button
+            icon={<NodeIcon size={20} />}
+            disabled={isConnectingViaIp ? false : !isPaired}
+            onPress={continueHandler}
+          >
+            {isConnectingViaIp ? 'Connect Device' : 'Continue'}
           </Button>
         </div>
       </YStack>

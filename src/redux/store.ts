@@ -11,6 +11,7 @@ import rightSidebarReducer from './RightSidebar/slice'
 import validatorOnboardingReducer from './ValidatorOnboarding/slice'
 import advisoriesReducer from './ValidatorOnboarding/Advisories/slice'
 import validatorSetupReducer from './ValidatorOnboarding/ValidatorSetup/slice'
+import pairDeviceReducer from './PairDevice/slice'
 
 const store = configureStore({
   reducer: {
@@ -25,6 +26,7 @@ const store = configureStore({
     validatorOnboarding: validatorOnboardingReducer,
     advisories: advisoriesReducer,
     validatorSetup: validatorSetupReducer,
+    pairDevice: pairDeviceReducer,
   },
 })
 

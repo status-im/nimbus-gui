@@ -1,28 +1,28 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
-import Header from './Header'
 import { withRouter } from 'storybook-addon-react-router-v6'
 
+import TagContainer from './TagContainer'
+
 const meta = {
-  title: 'General/Header',
-  component: Header,
+  title: 'General/TagContainer',
+  component: TagContainer,
   parameters: {
     layout: 'centered',
   },
   decorators: [withRouter],
   tags: ['autodocs'],
-} satisfies Meta<typeof Header>
+} satisfies Meta<typeof TagContainer>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
+export const Pair: Story = {
   args: {
     selectedTag: 'Pair',
   },
 }
 
-export const CreateTag: Story = {
+export const Create: Story = {
   args: {
     selectedTag: 'Create',
   },
