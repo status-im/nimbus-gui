@@ -31,6 +31,15 @@ export const KEYSTORE_FILES = 'KeystoreFiles'
 export const RECOVERY_PHRASE = 'Recovery Phrase'
 export const BOTH_KEY_AND_RECOVERY = 'Both KeystoreFiles & Recovery Phrase'
 export const ETH_PER_VALIDATOR = 32
+export const FORM_STEPS = [
+  { label: 'Overview', subtitle: 'Get Started' },
+  { label: 'Advisories', subtitle: 'Understand your Duties' },
+  { label: 'Client Setup', subtitle: 'Execution & Consensus' },
+  { label: 'Validator Setup', subtitle: 'Validators & Withdrawal' },
+  { label: 'Key Generation', subtitle: 'Secure your Keypairs' },
+  { label: 'Deposit', subtitle: 'Stake your ETH' },
+  { label: 'Activation', subtitle: 'Complete Setup' },
+]
 
 export const MAC = 'MacOS'
 export const WINDOWS = 'Windows'

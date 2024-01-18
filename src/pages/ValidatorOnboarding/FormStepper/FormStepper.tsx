@@ -2,17 +2,8 @@ import { Stepper, Step } from 'react-form-stepper'
 import { useDispatch } from 'react-redux'
 
 import { setActiveStep } from '../../../redux/ValidatorOnboarding/slice'
+import { FORM_STEPS } from '../../../constants'
 import './FormStepper.css'
-
-const steps = [
-  { label: 'Overview', subtitle: 'Get Started' },
-  { label: 'Advisories', subtitle: 'Understand your Duties' },
-  { label: 'Client Setup', subtitle: 'Execution & Consensus' },
-  { label: 'Validator Setup', subtitle: 'Validators & Withdrawal' },
-  { label: 'Key Generation', subtitle: 'Secure your Keypairs' },
-  { label: 'Deposit', subtitle: 'Stake your ETH' },
-  { label: 'Activation', subtitle: 'Complete Setup' },
-]
 
 type FormStepperProps = {
   activeStep: number
@@ -24,7 +15,7 @@ const FormStepper = ({ activeStep, windowWidth }: FormStepperProps) => {
   const isStepVisible = (index: number) => {
     if (windowWidth < 740) {
       const start = Math.max(0, activeStep - 1)
-      const end = Math.min(steps.length - 1, activeStep + 1)
+      const end = Math.min(FORM_STEPS.length - 1, activeStep + 1)
       return index >= start && index <= end
     } else {
       return true
@@ -37,7 +28,7 @@ const FormStepper = ({ activeStep, windowWidth }: FormStepperProps) => {
     }
   }
 
-  const visibleSteps = steps.filter((_, index) => isStepVisible(index))
+  const visibleSteps = FORM_STEPS.filter((_, index) => isStepVisible(index))
 
   return (
     <Stepper
@@ -55,7 +46,7 @@ const FormStepper = ({ activeStep, windowWidth }: FormStepperProps) => {
       }}
     >
       {visibleSteps.map(step => {
-        const originalIndex = steps.indexOf(step)
+        const originalIndex = FORM_STEPS.indexOf(step)
         return (
           <Step
             key={originalIndex}
