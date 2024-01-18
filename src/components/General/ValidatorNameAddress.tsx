@@ -2,7 +2,7 @@ import { Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
 import { CopyIcon, VerifiedIcon, ContactIcon } from '@status-im/icons'
 
-import { getFormattedValidatorAddress } from '../../utilities'
+import { copyFunction, getFormattedValidatorAddress } from '../../utilities'
 
 type ValidatorNameAddressProps = {
   name: string
@@ -18,7 +18,7 @@ const ValidatorNameAddress = ({
   isAvatarChipIncluded,
 }: ValidatorNameAddressProps) => {
   const onCopyAddress = () => {
-    navigator.clipboard.writeText(address)
+    copyFunction(address)
   }
 
   return (

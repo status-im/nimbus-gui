@@ -9,6 +9,7 @@ import wordlist from 'web-bip39/wordlists/english'
 import { RootState } from '../../../redux/store'
 import { setGeneratedMnemonic } from '../../../redux/ValidatorOnboarding/KeyGeneration/slice'
 import styles from './index.module.css'
+import { copyFunction } from '../../../utilities'
 
 type RecoveryPhraseProps = {
   isKeystoreFiles: boolean
@@ -39,8 +40,7 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
   }
 
   const copyRecoveryPhraseHandler = () => {
-    const text = generatedMnemonic.join(' ')
-    navigator.clipboard.writeText(text)
+    copyFunction(generatedMnemonic.join(' '))
 
     if (!isTimeoutActive) {
       setIsCopied(true)

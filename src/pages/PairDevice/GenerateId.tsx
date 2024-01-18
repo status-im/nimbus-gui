@@ -7,6 +7,7 @@ import { Separator, YStack } from 'tamagui'
 import { v4 as uuidv4 } from 'uuid'
 
 import styles from './pairDevice.module.css'
+import { copyFunction } from '../../utilities'
 
 type GenerateIdProps = {
   isAwaitingPairing: boolean
@@ -24,7 +25,7 @@ const GenerateId = ({ isAwaitingPairing }: GenerateIdProps) => {
   }
 
   const copyGeneratedIdHandler = () => {
-    navigator.clipboard.writeText(generatedId)
+    copyFunction(generatedId)
   }
 
   return (
