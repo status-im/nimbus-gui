@@ -1,24 +1,35 @@
 import { Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
+import { CopyIcon, VerifiedIcon, ContactIcon } from '@status-im/icons'
 
 import { getFormattedValidatorAddress } from '../../utilities'
-import { CopyIcon } from '@status-im/icons'
 
 type ValidatorNameAddressProps = {
-  number: number
+  name: string
   address: string
+  isVerified?: boolean
+  isAvatarChipIncluded?: boolean
 }
 
-const ValidatorNameAddress = ({ number, address }: ValidatorNameAddressProps) => {
+const ValidatorNameAddress = ({
+  name,
+  address,
+  isVerified,
+  isAvatarChipIncluded,
+}: ValidatorNameAddressProps) => {
   const onCopyAddress = () => {
     navigator.clipboard.writeText(address)
   }
 
   return (
     <YStack alignItems={'start'}>
-      <Text size={15} weight={'semibold'}>
-        Validator {number}
-      </Text>
+      <XStack space={'$1'} alignItems="center">
+        <Text size={13} weight={'semibold'}>
+          Validator {name}
+        </Text>
+        {isVerified && <VerifiedIcon size={20} />}
+        {isAvatarChipIncluded && <ContactIcon size={20} />}
+      </XStack>
       <XStack space={'$1'} style={{ alignItems: 'center' }}>
         <Text size={13} color="#647084">
           {getFormattedValidatorAddress(address)}
