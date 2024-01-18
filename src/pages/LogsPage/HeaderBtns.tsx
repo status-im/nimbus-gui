@@ -29,7 +29,7 @@ const HeaderBtns = ({
         variant="retractable"
         color={'black'}
         icon={<SearchIcon size={16} />}
-        onChange={e => setSearchInput(e.target.value)}
+        onChange={e => setSearchInput(e.target.valueOf().toString())}
         value={searchInput}
         onBlur={() => triggerSearch(true)}
       ></Input>
