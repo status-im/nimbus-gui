@@ -37,8 +37,7 @@ const LogsTerminal = ({
   windowWidth,
   timestamps,
   searchInput,
-  setSearchInput,
-  highLightSearched,
+ 
 }: LogsTerminalProps) => {
   const [data, setData] = useState<DataType[]>([])
   const [loadedIndexes, setLoadedIndexes] = useState<{ [key: number]: boolean }>({})
@@ -133,8 +132,8 @@ const LogsTerminal = ({
             {({ index, style }) => {
               const highlight =
                 searchInput && data[index].description.split(' ').includes(searchInput)
-                // now we only check for the existing text at the moment 
-                // I have to move this statemant in the terminalRow component
+              // now we only check for the existing text at the moment
+              // I have to move this statemant in the terminalRow component
               return (
                 <Stack style={style}>
                   <TerminalRow
