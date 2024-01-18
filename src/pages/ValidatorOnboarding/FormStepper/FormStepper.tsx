@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 
 import { setActiveStep } from '../../../redux/ValidatorOnboarding/slice'
 import { FORM_STEPS } from '../../../constants'
+import { useWindowSize } from '../../../hooks/useWindowSize'
 import './FormStepper.css'
 
 type FormStepperProps = {
@@ -11,15 +12,26 @@ type FormStepperProps = {
 
 const FormStepper = ({ activeStep }: FormStepperProps) => {
   const dispatch = useDispatch()
+  const windowSize = useWindowSize()
+
+  const getIsStepVisible = (index: number, startNumber: number, endNumber: number) => {
+    const start = Math.min(startNumber, activeStep - 1)
+    const end = Math.max(FORM_STEPS.length - endNumber, activeStep + 1)
+    return index >= start && index <= end
+  }
 
   const isStepVisible = (index: number) => {
-    // if (windowWidth < 1025) {
-    //   const start = activeStep - 1
-    //   const end = Math.min(FORM_STEPS.length - 1, activeStep + 1)
-    //   return index >= start && index <= end
-    // } else {
-    return true
-    // }
+    if (windowSize.width < 774) {
+      return getIsStepVisible(index, 3, 5)
+    } else if (windowSize.width < 963) {
+      return getIsStepVisible(index, 2, 4)
+    } else if (windowSize.width < 1152) {
+      return getIsStepVisible(index, 1, 3)
+    } else if (windowSize.width < 1300) {
+      return getIsStepVisible(index, 0, 2)
+    } else {
+      return true
+    }
   }
 
   const changeStepOnClickHandler = (index: number) => {

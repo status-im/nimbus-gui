@@ -17,19 +17,20 @@ import ContinueButton from './ContinueButton'
 import ActivationValidatorSetup from './ValidatorSetup/ValidatorActivation/ActivationValidatorSetup'
 import Deposit from './Deposit/Deposit'
 import './layoutGradient.css'
+import { useWindowSize } from '../../hooks/useWindowSize'
 
 const ValidatorOnboarding = () => {
   const { activeStep, subStepValidatorSetup } = useSelector(
     (state: RootState) => state.validatorOnboarding,
   )
+  const windowSize = useWindowSize()
 
   return (
     <div className="gradient-wrapper">
       <YStack
         style={{
           width: '100%',
-          maxWidth: '1100px',
-          margin: '4rem auto 2rem',
+          padding: windowSize.width < 900 ? '5% 2% 3% 2%' : '3% 10% 1% 10%',
           justifyContent: 'start',
           alignItems: 'start',
         }}
