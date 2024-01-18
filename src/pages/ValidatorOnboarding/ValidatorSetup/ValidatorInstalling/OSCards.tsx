@@ -16,7 +16,12 @@ type OSCardsProps = {
 
 const OSCards = ({ selectedOS, handleOSCardClick }: OSCardsProps) => {
   return (
-    <XStack className="osCardsContainer" justifyContent={'space-between'} my={'15px'} flexWrap="wrap">
+    <XStack
+      className="osCardsContainer"
+      justifyContent={'space-between'}
+      my={'15px'}
+      flexWrap="wrap"
+    >
       {cards.map(card => (
         <OSCard
           key={card.name}

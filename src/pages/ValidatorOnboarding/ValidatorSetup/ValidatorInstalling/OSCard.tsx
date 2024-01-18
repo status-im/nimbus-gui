@@ -11,10 +11,7 @@ type OSCardProps = {
 
 const OSCard = ({ name, icon, onClick, isSelected }: OSCardProps) => {
   return (
-    <YStack
-      className={`osCard ${isSelected ? 'selected' : ''}`}
-      onPress={onClick}
-    >
+    <YStack className={`osCard ${isSelected ? 'selected' : ''}`} onPress={onClick}>
       <Text size={19} weight={'semibold'}>
         {name}
       </Text>

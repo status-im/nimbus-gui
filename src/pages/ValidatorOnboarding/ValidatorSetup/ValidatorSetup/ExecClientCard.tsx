@@ -50,7 +50,6 @@ const ExecClientCard = ({ name, icon, isComingSoon }: ExecClientCardProps) => {
               alignItems: 'center',
               padding: '3px 6px',
               borderRadius: '67px',
-              
             }}
           >
             <Text size={11} color="#fff">
