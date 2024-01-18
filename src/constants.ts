@@ -73,7 +73,7 @@ export const VALIDATOR_TABS_MANAGEMENT = [
 
 export const VALIDATORS_DATA = [
   {
-    number: 1,
+    name: '1',
     address: 'zQ3asdf9d4Gs0',
     balance: 32.0786,
     income: 0.0786,
@@ -83,7 +83,7 @@ export const VALIDATORS_DATA = [
     status: 'Active',
   },
   {
-    number: 1,
+    name: '1',
     address: 'zQ3asdf9d4Gs0',
     balance: 32.0786,
     income: 0.0786,
@@ -93,7 +93,7 @@ export const VALIDATORS_DATA = [
     status: 'Active',
   },
   {
-    number: 1,
+    name: '1',
     address: 'zQ3asdf9d4Gs0',
     balance: 32.0786,
     income: 0.0786,
@@ -103,7 +103,7 @@ export const VALIDATORS_DATA = [
     status: 'Active',
   },
   {
-    number: 1,
+    name: '1',
     address: 'zQ3asdf9d4Gs0',
     balance: 32.0786,
     income: 0.0786,
