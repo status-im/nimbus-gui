@@ -68,7 +68,7 @@ const ConsensusSelection = () => {
         Install Consensus client
       </TextTam>
 
-      <XStack space={'$8'} flexWrap="wrap">
+    <XStack space={'$8'} flexWrap="wrap">
         <ConsensusClientCard name={clients[0].name} icon={clients[0].icon} />
         <YStack width={'67%'} maxWidth="550px" space={'$4'}>
           <Text size={19}>The resource efficient Ethereum Clients.</Text>
