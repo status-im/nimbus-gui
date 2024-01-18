@@ -2,14 +2,11 @@ import { Stack, XStack, YStack } from 'tamagui'
 import { Button, InformationBox, Text } from '@status-im/components'
 import { CloseCircleIcon, CopyIcon, CheckIcon } from '@status-im/icons'
 import { useEffect, useState } from 'react'
-import { generateMnemonic } from 'web-bip39'
-import { useDispatch, useSelector } from 'react-redux'
-import wordlist from 'web-bip39/wordlists/english'
+import { useSelector } from 'react-redux'
 
 import { RootState } from '../../../redux/store'
-import { setGeneratedMnemonic } from '../../../redux/ValidatorOnboarding/KeyGeneration/slice'
-import styles from './index.module.css'
 import { copyFunction } from '../../../utilities'
+import styles from './index.module.css'
 
 type RecoveryPhraseProps = {
   isKeystoreFiles: boolean
@@ -20,20 +17,10 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
   const [isCopied, setIsCopied] = useState(false)
   const [isTimeoutActive, setIsTimeoutActive] = useState(false)
   const { generatedMnemonic } = useSelector((state: RootState) => state.keyGeneration)
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    getMnemonic()
-  }, [])
 
   useEffect(() => {
     setIsCopied(false)
   }, [generatedMnemonic])
-
-  const getMnemonic = async () => {
-    const mnemonic = await generateMnemonic(wordlist, 256)
-    dispatch(setGeneratedMnemonic(mnemonic.split(' ')))
-  }
 
   const revealHandler = () => {
     setIsReveal(state => !state)
