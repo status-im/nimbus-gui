@@ -30,7 +30,7 @@ const ValidatorOnboarding = () => {
       <YStack
         style={{
           width: '100%',
-          padding: windowSize.width < 900 ? '5% 2% 3% 2%' : '3% 10% 1% 10%',
+          padding: windowSize.width < 1000 ? '5% 2% 3% 2%' : '3% 13% 1% 13%',
           justifyContent: 'start',
           alignItems: 'start',
         }}
