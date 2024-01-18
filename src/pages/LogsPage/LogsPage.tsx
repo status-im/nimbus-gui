@@ -46,7 +46,7 @@ const LogsPage = () => {
         }}
         className={'transparent-scrollbar'}
       >
-        <XStack justifyContent="space-between" width={'100%'}>
+        <XStack justifyContent="space-between" width={'100%'} flexWrap="wrap  ">
           <TitleLogo />
           <HeaderBtns
             dropdownMenuItem={dropdownMenuItem}
@@ -58,7 +58,7 @@ const LogsPage = () => {
             triggerSearch={triggerSearch}
           />
         </XStack>
-        <Stack style={{ width: '100%', alignItems: 'center' }}>
+        <Stack style={{ width: '100%', alignItems: 'center', flexWrap: 'wrap' }}>
           <LogsTerminal
             windowWidth={windowWidth}
             dropdownMenuItem={dropdownMenuItem}
