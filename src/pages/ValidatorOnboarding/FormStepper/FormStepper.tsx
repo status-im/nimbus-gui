@@ -20,6 +20,7 @@ type FormStepperProps = {
 }
 
 const FormStepper = ({ activeStep, windowWidth }: FormStepperProps) => {
+  const dispatch = useDispatch()
   const isStepVisible = (index: number) => {
     if (windowWidth < 740) {
       const start = Math.max(0, activeStep - 1)
@@ -30,8 +31,6 @@ const FormStepper = ({ activeStep, windowWidth }: FormStepperProps) => {
     }
   }
 
-  const dispatch = useDispatch()
-
   const changeStepOnClickHandler = (index: number) => {
     if (activeStep > index) {
       dispatch(setActiveStep(index))
@@ -39,6 +38,7 @@ const FormStepper = ({ activeStep, windowWidth }: FormStepperProps) => {
   }
 
   const visibleSteps = steps.filter((_, index) => isStepVisible(index))
+
   return (
     <Stepper
       activeStep={activeStep}
@@ -52,7 +52,6 @@ const FormStepper = ({ activeStep, windowWidth }: FormStepperProps) => {
         height: 'fit-content',
         padding: 0,
         marginBottom: '3rem',
-        overflow: 'hidden',
       }}
     >
       {visibleSteps.map(step => {
