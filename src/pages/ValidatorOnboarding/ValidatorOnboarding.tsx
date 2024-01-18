@@ -16,8 +16,8 @@ import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstalling/Validato
 import ContinueButton from './ContinueButton'
 import ActivationValidatorSetup from './ValidatorSetup/ValidatorActivation/ActivationValidatorSetup'
 import Deposit from './Deposit/Deposit'
-import './layoutGradient.css'
 import { useWindowSize } from '../../hooks/useWindowSize'
+import './layoutGradient.css'
 
 const ValidatorOnboarding = () => {
   const { activeStep, subStepValidatorSetup } = useSelector(

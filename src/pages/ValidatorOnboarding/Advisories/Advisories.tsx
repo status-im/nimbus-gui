@@ -6,14 +6,14 @@ import AdvisoriesContent from './AdvisoriesContent'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../../redux/store'
 import { setSubStepAdvisories } from '../../../redux/ValidatorOnboarding/Advisories/slice'
+import { ADVISORY_TOPICS } from '../../../constants'
 import './advisoriesLayout.css'
-import { advisoryTopics } from '../../../constants'
 
 const Advisories = () => {
   const dispatch = useDispatch()
   const { subStepAdvisories } = useSelector((state: RootState) => state.advisories)
   const [completedSteps, setCompletedSteps] = useState<number[]>([])
-  const [selectedTitle, setSelectedTitle] = useState<string>(Object.keys(advisoryTopics)[0])
+  const [selectedTitle, setSelectedTitle] = useState<string>(Object.keys(ADVISORY_TOPICS)[0])
 
   const unicodeNumbers = ['➀', '➁', '➂', '➃', '➄', '➅']
 
@@ -22,7 +22,7 @@ const Advisories = () => {
   const advisoriesIcons = unicodeNumbers.map((number, index) => (isCompleted(index) ? '✓' : number))
 
   useEffect(() => {
-    setSelectedTitle(Object.keys(advisoryTopics)[subStepAdvisories])
+    setSelectedTitle(Object.keys(ADVISORY_TOPICS)[subStepAdvisories])
 
     setCompletedSteps(prevSteps => {
       if (!prevSteps.includes(subStepAdvisories)) {
@@ -38,13 +38,13 @@ const Advisories = () => {
   }
 
   const isCurrent = (currentTitle: string): boolean => {
-    const topics = Object.keys(advisoryTopics)
+    const topics = Object.keys(ADVISORY_TOPICS)
     const index = topics.indexOf(currentTitle)
     return index === subStepAdvisories
   }
 
   const getIndexTitle = (title: string): number => {
-    const topics = Object.keys(advisoryTopics)
+    const topics = Object.keys(ADVISORY_TOPICS)
     const index = topics.indexOf(title)
     return index
   }
@@ -57,7 +57,7 @@ const Advisories = () => {
             Advisories
           </Text>
         </Stack>
-        {Object.keys(advisoryTopics).map((title, index) => (
+        {Object.keys(ADVISORY_TOPICS).map((title, index) => (
           <XStack
             key={title}
             onPress={() => handleStepClick(title)}
@@ -82,7 +82,7 @@ const Advisories = () => {
         ))}
       </YStack>
 
-      <AdvisoriesContent title={selectedTitle} content={advisoryTopics[selectedTitle]} />
+      <AdvisoriesContent title={selectedTitle} content={ADVISORY_TOPICS[selectedTitle]} />
     </XStack>
   )
 }
