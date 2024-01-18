@@ -77,7 +77,7 @@ const stepStyle = {
   completedTextColor: '#ffffff',
   inactiveTextColor: '#000000',
   size: '20px',
-  circleFontSize: '10px',
+  circleFontSize: '0px',
   labelFontSize: '14px',
   borderRadius: '50%',
   fontWeight: 700,
