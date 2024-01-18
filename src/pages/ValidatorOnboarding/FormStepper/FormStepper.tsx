@@ -40,8 +40,6 @@ const FormStepper = ({ activeStep }: FormStepperProps) => {
     }
   }
 
-  const visibleSteps = FORM_STEPS.filter((_, index) => isStepVisible(index))
-
   return (
     <Stepper
       activeStep={activeStep}
@@ -57,7 +55,7 @@ const FormStepper = ({ activeStep }: FormStepperProps) => {
         marginBottom: '3rem',
       }}
     >
-      {visibleSteps.map(step => {
+      {FORM_STEPS.filter((_, index) => isStepVisible(index)).map(step => {
         const originalIndex = FORM_STEPS.indexOf(step)
         return (
           <Step
