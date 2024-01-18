@@ -28,7 +28,7 @@ const RightSidebar = () => {
         overflowY: 'auto',
       }}
     >
-      <XStack alignItems="center">
+      <XStack alignItems="center" space={'$2'}>
         <Avatar type="user" size={32} name="Ethereum Mainnet" />
         <YStack>
           <Text size={15} weight={'semibold'}>
