@@ -1,5 +1,6 @@
 import { Avatar, Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
+import { CopyIcon } from '@status-im/icons'
 
 import AddCard from '../AddCards/AddCard'
 import AlertsList from './AlertsList'
@@ -7,9 +8,13 @@ import LogsList from './LogsList'
 import DiamondCard from './DiamondCard'
 import ValidatorsCount from './ValidatorsCount'
 import ValidatorsTabs from './ValidatorsTabs/ValidatorsTabs'
-import { getFormattedWalletAddress } from '../../../utilities'
+import { copyFunction, getFormattedWalletAddress } from '../../../utilities'
 
 const RightSidebar = () => {
+  const onCopyWalletAddress = () => {
+    copyFunction('0xb9dc35')
+  }
+
   return (
     <YStack
       width={'320px'}
@@ -25,11 +30,19 @@ const RightSidebar = () => {
     >
       <XStack alignItems="center">
         <Avatar type="user" size={32} name="Ethereum Mainnet" />
-        <YStack pl="8px">
+        <YStack>
           <Text size={15} weight={'semibold'}>
             Ethereum Mainnet
           </Text>
-          <Text size={13}>{getFormattedWalletAddress('0xb9dc35')}</Text>
+          <XStack space={'$1'} alignItems="center">
+            <Text size={13}>{getFormattedWalletAddress('0xb9dc35')}</Text>
+            <CopyIcon
+              size={16}
+              color="#647084"
+              style={{ cursor: 'pointer' }}
+              onClick={onCopyWalletAddress}
+            />
+          </XStack>
         </YStack>
       </XStack>
       <XStack space={'$2'} alignItems="center" justifyContent="space-between">
