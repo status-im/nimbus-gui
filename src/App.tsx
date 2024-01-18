@@ -17,6 +17,7 @@ import CreateLocalNode from './pages/CreateLocalNode/CreateLocalNode'
 import ValidatorOnboarding from './pages/ValidatorOnboarding/ValidatorOnboarding'
 import Dashboard from './pages/Dashboard/Dashboard'
 import ValidatorManagement from './pages/ValidatorManagement/ValidatorManagement'
+import LogsPage from './pages/LogsPage/LogsPage'
 import { ethereumRopsten, wcV2InitOptions, apiKey } from './constants'
 import './App.css'
 
@@ -56,6 +57,7 @@ const router = createBrowserRouter([
   { path: '/create-local-node', element: <CreateLocalNode /> },
   { path: '/validator-onboarding', element: <ValidatorOnboarding /> },
   { path: '/dashboard', element: <Dashboard /> },
+  { path: '/logs', element: <LogsPage /> },
   { path: '/validator-management', element: <ValidatorManagement /> },
 ])
 
