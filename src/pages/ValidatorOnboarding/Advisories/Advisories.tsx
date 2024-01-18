@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../../redux/store'
 import { setSubStepAdvisories } from '../../../redux/ValidatorOnboarding/Advisories/slice'
 import './advisoriesLayout.css'
+import { advisoryTopics } from '../../../constants'
 
 const Advisories = () => {
   const dispatch = useDispatch()
