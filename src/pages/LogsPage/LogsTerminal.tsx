@@ -21,10 +21,10 @@ type LogsTerminalProps = {
   highLightSearched: boolean
 }
 
-const fetchMoreData = () => {
+const fetchMoreData = (): Promise<DataType[]> => {
   return new Promise(resolve => {
     setTimeout(() => {
-      const newData = []
+      const newData: DataType[] = []
       for (let i = 0; i < 10; i++) {
         newData.push({ option: `Option ${i}`, description: `Description ${i}` })
       }
@@ -32,6 +32,7 @@ const fetchMoreData = () => {
     }, 500)
   })
 }
+
 
 const LogsTerminal = ({
   windowWidth,
