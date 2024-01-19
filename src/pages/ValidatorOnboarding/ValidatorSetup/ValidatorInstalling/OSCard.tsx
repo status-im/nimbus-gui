@@ -1,17 +1,14 @@
-import { Stack, YStack } from 'tamagui'
+import { Stack } from 'tamagui'
 import { Text } from '@status-im/components'
 import Icon from '../../../../components/General/Icon'
-import './InstallLayout.css'
 
 type OSCardProps = {
   name: string
   icon: string
-  onClick?: () => void
-  isSelected?: boolean
 }
-const OSCard = ({ name, icon, onClick, isSelected }: OSCardProps) => {
+const OSCard = ({ name, icon }: OSCardProps) => {
   return (
-    <Stack className={`osCard ${isSelected ? 'selected' : ''}`} onPress={onClick}>
+    <Stack>
       <Text size={19} weight={'semibold'}>
         {name}
       </Text>

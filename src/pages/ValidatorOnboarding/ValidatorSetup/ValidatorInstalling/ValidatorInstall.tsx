@@ -8,7 +8,7 @@ import { DOCUMENTATIONS } from './documentations'
 import { MAC } from '../../../../constants'
 import OSCards from './OSCards'
 import Markdown from '../../../../components/General/Markdown/Markdown'
-import './InstallLayout.css'
+
 const ValidatorSetupInstall = () => {
   const [selectedOS, setSelectedOS] = useState(MAC)
   const selectedClient = useSelector((state: RootState) => state.execClient.selectedClient)
@@ -18,7 +18,7 @@ const ValidatorSetupInstall = () => {
   }
 
   return (
-    <YStack style={{ padding: '26px 32px', width: 'fit-content' }}>
+    <YStack style={{ padding: '26px 32px' }}>
       <Text size={27} weight={'semibold'}>
         Validator Setup
       </Text>
