@@ -1,27 +1,23 @@
-import { XStack } from 'tamagui'
-import OSCard from './OSCard'
-import { LINUX, MAC, WINDOWS } from '../../../../constants'
+import { Stack, XStack } from 'tamagui';
+import OSCard from './OSCard';
+import { LINUX, MAC, WINDOWS } from '../../../../constants';
 
-import './InstallLayout.css'
+import './InstallLayout.css';
+
 const cards = [
   { name: MAC, icon: '/icons/apple-logo.svg' },
   { name: LINUX, icon: '/icons/linux-logo.svg' },
   { name: WINDOWS, icon: '/icons/windows-logo.svg' },
-]
+];
 
 type OSCardsProps = {
-  selectedOS: string
-  handleOSCardClick: (os: string) => void
-}
+  selectedOS: string;
+  handleOSCardClick: (os: string) => void;
+};
 
 const OSCards = ({ selectedOS, handleOSCardClick }: OSCardsProps) => {
   return (
-    <XStack
-      className="osCardsContainer"
-      justifyContent={'space-between'}
-      my={'15px'}
-      flexWrap="wrap"
-    >
+    <Stack className="osCardsContainer" my={'15px'}  >
       {cards.map(card => (
         <OSCard
           key={card.name}
@@ -31,8 +27,8 @@ const OSCards = ({ selectedOS, handleOSCardClick }: OSCardsProps) => {
           onClick={() => handleOSCardClick(card.name)}
         />
       ))}
-    </XStack>
-  )
-}
+    </Stack>
+  );
+};
 
-export default OSCards
+export default OSCards;
