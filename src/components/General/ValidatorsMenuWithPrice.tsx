@@ -65,7 +65,7 @@ const ValidatorsMenuWithPrice = ({
           </Text>
         </YStack>
         <YStack space={'$2'}>
-          <XStack style={{ justifyContent: 'space-between', width: '115%' }}>
+          <XStack style={{ justifyContent: 'space-between' }}>
             <Text size={15} weight={'semibold'}>
               {currency}
             </Text>
