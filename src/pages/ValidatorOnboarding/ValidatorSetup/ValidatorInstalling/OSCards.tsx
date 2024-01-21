@@ -1,4 +1,3 @@
-import { Stack } from 'tamagui'
 import OSCard from './OSCard'
 import { LINUX, MAC, WINDOWS } from '../../../../constants'
 import styles from './InstallLayout.module.css'
