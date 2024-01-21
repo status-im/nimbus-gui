@@ -35,8 +35,7 @@ const ValidatorsMenuWithPrice = ({
   return (
     <ResponsiveStack
       isVerticalAligned={media.sm}
-      style={{ justifyContent: 'space-between', width: media.md ? '100%' : '80%' }}
-      space={'$3'}
+      style={{ justifyContent: 'space-between', width: media.lg ? '100%' : '80%' }}
     >
       <Stack space={'$2'}>
         <Text size={15} weight="regular" color={'#647084'}>
@@ -55,7 +54,7 @@ const ValidatorsMenuWithPrice = ({
           onChangeText={changeValidatorCountHandler}
         />
       </Stack>
-      <XStack style={{ justifyContent: 'space-between' }}>
+      <XStack space={'$10'} style={{ justifyContent: 'space-between' }}>
         <YStack space={'$2'}>
           <Text size={15} weight={'semibold'}>
             ETH
