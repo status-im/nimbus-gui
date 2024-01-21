@@ -8,7 +8,7 @@ type OSCardProps = {
 }
 const OSCard = ({ name, icon }: OSCardProps) => {
   return (
-    <Stack>
+    <Stack >
       <Text size={19} weight={'semibold'}>
         {name}
       </Text>

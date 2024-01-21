@@ -18,7 +18,7 @@ const ValidatorSetupInstall = () => {
   }
 
   return (
-    <YStack style={{ padding: '26px 32px' }}>
+    <YStack style={{ padding: '26px 32px', width:'fit-content'}} >
       <Text size={27} weight={'semibold'}>
         Validator Setup
       </Text>
@@ -35,7 +35,7 @@ const ValidatorSetupInstall = () => {
         <Text size={19} weight={'semibold'}>
           Installing {selectedClient}
         </Text>
-        <Stack flexWrap="wrap">
+        <Stack>
           <Markdown children={DOCUMENTATIONS[selectedClient].general} />
           <OSCards selectedOS={selectedOS} handleOSCardClick={handleOSCardClick} />
           <Markdown children={DOCUMENTATIONS[selectedClient].documentation[selectedOS]} />
