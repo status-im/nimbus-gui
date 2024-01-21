@@ -1,6 +1,7 @@
 import { Stack } from 'tamagui'
 import OSCard from './OSCard'
 import { LINUX, MAC, WINDOWS } from '../../../../constants'
+import styles from './InstallLayout.module.css'
 
 const cards = [
   { name: MAC, icon: '/icons/apple-logo.svg' },
@@ -12,7 +13,6 @@ type OSCardsProps = {
   selectedOS: string
   handleOSCardClick: (os: string) => void
 }
-import styles from './InstallLayout.module.css'
 const OSCards = ({ selectedOS, handleOSCardClick }: OSCardsProps) => {
   return (
     <Stack className={styles.osCardsContainer}>
