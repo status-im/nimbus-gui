@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "homepage": "https://nimbus-gui.github.io/nimbus-gui",
+  "workspaces": [
+    "libs/*"
+  ],
   "scripts": {
     "dev": "NODE_ENV=development vite",
     "build": "tsc -p . && vite build",
