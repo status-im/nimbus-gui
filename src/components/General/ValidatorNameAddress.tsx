@@ -46,7 +46,7 @@ const ValidatorNameAddress = ({
           {getFormattedValidatorAddress(address)}
         </Text>
         {isCopied ? (
-          <CheckIcon size={16} />
+          <CheckIcon size={16} color="#647084" />
         ) : (
           <CopyIcon
             size={16}
