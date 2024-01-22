@@ -66,7 +66,7 @@ const Advisories = () => {
               space={'$2'}
             >
               <Text
-                size={19}
+                size={27}
                 weight={isCompleted(index) || isCurrent(title) ? 'semibold' : 'normal'}
                 color={isCompleted(index) || isCurrent(title) ? 'blue' : 'default'}
               >
