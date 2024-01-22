@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../../redux/store'
 import { setSubStepAdvisories } from '../../../redux/ValidatorOnboarding/Advisories/slice'
 import { ADVISORY_TOPICS } from '../../../constants'
-import './advisoriesLayout.css'
+import styles from './advisoriesLayout.module.css'
 
 const Advisories = () => {
   const dispatch = useDispatch()
@@ -50,40 +50,42 @@ const Advisories = () => {
   }
 
   return (
-    <XStack className="advisories-container">
+    <div className={styles['advisories-container']}>
       <YStack space={'$2'} marginBottom={'30px'}>
         <Stack marginBottom="$6">
           <Text size={27} weight={'semibold'}>
             Advisories
           </Text>
         </Stack>
-        {Object.keys(ADVISORY_TOPICS).map((title, index) => (
-          <XStack
-            key={title}
-            onPress={() => handleStepClick(title)}
-            style={{ cursor: 'pointer', alignItems: 'center' }}
-            space={'$2'}
-          >
-            <Text
-              size={19}
-              weight={isCompleted(index) || isCurrent(title) ? 'semibold' : 'normal'}
-              color={isCompleted(index) || isCurrent(title) ? 'blue' : 'default'}
+        <div className={styles['advisories-nav']}>
+          {Object.keys(ADVISORY_TOPICS).map((title, index) => (
+            <XStack
+              key={title}
+              onPress={() => handleStepClick(title)}
+              style={{ cursor: 'pointer', alignItems: 'center' }}
+              space={'$2'}
             >
-              {advisoriesIcons[index]}
-            </Text>
-            <Text
-              size={19}
-              weight={isCompleted(index) || isCurrent(title) ? 'semibold' : 'normal'}
-              color={isCompleted(index) || isCurrent(title) ? 'blue' : 'default'}
-            >
-              {title}
-            </Text>
-          </XStack>
-        ))}
+              <Text
+                size={19}
+                weight={isCompleted(index) || isCurrent(title) ? 'semibold' : 'normal'}
+                color={isCompleted(index) || isCurrent(title) ? 'blue' : 'default'}
+              >
+                {advisoriesIcons[index]}
+              </Text>
+              <Text
+                size={19}
+                weight={isCompleted(index) || isCurrent(title) ? 'semibold' : 'normal'}
+                color={isCompleted(index) || isCurrent(title) ? 'blue' : 'default'}
+              >
+                {title}
+              </Text>
+            </XStack>
+          ))}
+        </div>
       </YStack>
 
       <AdvisoriesContent title={selectedTitle} content={ADVISORY_TOPICS[selectedTitle]} />
-    </XStack>
+    </div>
   )
 }
 
