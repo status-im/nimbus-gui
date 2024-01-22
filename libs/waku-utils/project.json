@@ -1,0 +1,30 @@
+{
+  "name": "waku-utils",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/waku-utils/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/waku-utils",
+        "main": "libs/waku-utils/src/index.ts",
+        "tsConfig": "libs/waku-utils/tsconfig.lib.json",
+        "assets": ["libs/waku-utils/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "../../coverage/libs/waku-utils"
+      }
+    }
+  },
+  "tags": []
+}

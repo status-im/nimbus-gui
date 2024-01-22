@@ -19,7 +19,10 @@
     "lib": ["es2020", "ES2022.Error"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "waku-utils": ["libs/waku-utils/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
