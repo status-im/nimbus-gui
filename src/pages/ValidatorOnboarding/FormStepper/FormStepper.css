@@ -59,3 +59,9 @@ span[class*='Connector-'] {
   color: #a2a9b0;
   width: max-content;
 }
+
+@media (max-width: 410px) {
+  .custom-step::after {
+    font-size: 10px;
+  }
+}
