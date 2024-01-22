@@ -1,10 +1,11 @@
-.overview-cards {
+.overviewCards {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  
 }
-.overview-card {
+.overviewCard {
   border-radius: 16px;
   border: 1px solid rgba(0, 0, 0, 0.15);
   width: 44%;
@@ -14,12 +15,12 @@
 }
 
 @media screen and (max-width: 1000px) {
-  .overview-cards {
+  .overviewCards {
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
   }
-  .overview-card {
+  .overviewCard {
     width: 160%;
     margin-bottom: 16px;
   }

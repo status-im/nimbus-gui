@@ -4,7 +4,7 @@ import { Text } from '@status-im/components'
 import OverviewCard from './OverviewCard'
 import LinkWithArrow from '../../../components/General/LinkWithArrow'
 import OverviewWrapper from './OverviewWrapper'
-import './overviewLayout.css'
+import styles from './overviewLayout.module.css'
 
 const Overview = () => {
   return (
@@ -12,7 +12,7 @@ const Overview = () => {
       imgHeight="250%"
       rightImageSrc="./background-images/sync-status-background.png"
     >
-      <YStack>
+      <YStack marginLeft="10%">
         <YStack space={'$5'} width="150%" marginTop={'2rem'}>
           <Text size={27} weight={'semibold'}>
             Overview
@@ -37,12 +37,12 @@ const Overview = () => {
             style={{ marginBottom: '1%', fontSize: '13px' }}
           />
         </YStack>
-        <XStack space={'$3'} className="overview-cards">
+        <div className={styles.overviewCards}>
           <OverviewCard text={'Current APR'} value={'4.40%'} />
           <OverviewCard text={'Total ETH Staked'} value={'9,451,123'} />
           <OverviewCard text={'Estimated Activation Time'} value={'32 Days'} />
           <OverviewCard text={'Validator Queue'} value={'92603'} />
-        </XStack>
+        </div>
       </YStack>
     </OverviewWrapper>
   )

@@ -1,21 +1,21 @@
 import { YStack } from 'tamagui'
 import { Text } from '@status-im/components'
-
+import styles from './overviewLayout.module.css'
 type OverviewCardProps = {
   text: string
   value: string
 }
-import './overviewLayout.css'
+
 const OverviewCard = ({ text, value }: OverviewCardProps) => {
   return (
-    <YStack className="overview-card">
+    <div className={styles.overviewCard}>
       <Text size={15} weight={'semibold'}>
         {text}
       </Text>
       <Text size={27} color="blue" weight={'semibold'}>
         {value}
       </Text>
-    </YStack>
+    </div>
   )
 }
 
