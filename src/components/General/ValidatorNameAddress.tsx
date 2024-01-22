@@ -1,6 +1,7 @@
 import { Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
-import { CopyIcon, VerifiedIcon, ContactIcon } from '@status-im/icons'
+import { CopyIcon, VerifiedIcon, ContactIcon, CheckIcon } from '@status-im/icons'
+import { useState } from 'react'
 
 import { copyFunction, getFormattedValidatorAddress } from '../../utilities'
 
@@ -17,8 +18,18 @@ const ValidatorNameAddress = ({
   isVerified,
   isAvatarChipIncluded,
 }: ValidatorNameAddressProps) => {
+  const [isCopied, setIsCopied] = useState(false)
+
   const onCopyAddress = () => {
     copyFunction(address)
+
+    if (isCopied === false) {
+      setIsCopied(true)
+
+      setTimeout(() => {
+        setIsCopied(false)
+      }, 3000)
+    }
   }
 
   return (
@@ -34,7 +45,16 @@ const ValidatorNameAddress = ({
         <Text size={13} color="#647084">
           {getFormattedValidatorAddress(address)}
         </Text>
-        <CopyIcon size={16} color="#647084" style={{ cursor: 'pointer' }} onClick={onCopyAddress} />
+        {isCopied ? (
+          <CheckIcon size={16} />
+        ) : (
+          <CopyIcon
+            size={16}
+            color="#647084"
+            style={{ cursor: 'pointer' }}
+            onClick={onCopyAddress}
+          />
+        )}
       </XStack>
     </YStack>
   )
