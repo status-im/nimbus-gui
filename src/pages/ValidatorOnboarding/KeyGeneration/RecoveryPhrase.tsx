@@ -15,7 +15,6 @@ type RecoveryPhraseProps = {
 const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
   const [isReveal, setIsReveal] = useState(false)
   const [isCopied, setIsCopied] = useState(false)
-  const [isTimeoutActive, setIsTimeoutActive] = useState(false)
   const { generatedMnemonic } = useSelector((state: RootState) => state.keyGeneration)
 
   useEffect(() => {
@@ -29,13 +28,11 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
   const copyRecoveryPhraseHandler = () => {
     copyFunction(generatedMnemonic.join(' '))
 
-    if (!isTimeoutActive) {
+    if (isCopied === false) {
       setIsCopied(true)
-      setIsTimeoutActive(true)
 
       setTimeout(() => {
         setIsCopied(false)
-        setIsTimeoutActive(false)
       }, 3000)
     }
   }
