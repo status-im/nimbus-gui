@@ -21,6 +21,7 @@
               figlet
             ];
             shellHook = ''
+              export PATH="$PWD/node_modules/.bin:$PATH"
               if [ "''${DISABLE_DEVSHELL_BANNER:-}" != true ]; then
                 figlet "Welcome to Nimbus-GUI"
               fi
