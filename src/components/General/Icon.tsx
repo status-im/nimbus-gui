@@ -1,4 +1,4 @@
-import { Image } from '@status-im/components'
+import { Image } from 'tamagui'
 
 export type IconProps = {
   src: string
@@ -6,16 +6,8 @@ export type IconProps = {
   height?: number
 }
 
-const Icon = ({ src, width = 16, height = 16 }: IconProps) => {
-  return (
-    <Image
-      src={src}
-      source={{ uri: src }}
-      width={width}
-      height={height}
-      style={{ backgroundColor: 'transparent' }}
-    />
-  )
+const Icon = ({ src, height = 100, width = 100 }: IconProps) => {
+  return <Image src={src} source={{ uri: src }} height={height} width={width} />
 }
 
 export default Icon

@@ -1,6 +1,5 @@
-import { YStack } from 'tamagui'
-import { Text } from '@status-im/components'
-
+import styles from './overviewLayout.module.css'
+import { Text, YStack } from 'tamagui'
 type OverviewCardProps = {
   text: string
   value: string
@@ -8,21 +7,22 @@ type OverviewCardProps = {
 
 const OverviewCard = ({ text, value }: OverviewCardProps) => {
   return (
-    <YStack
-      style={{
-        borderRadius: '16px',
-        border: '1px solid rgba(0, 0, 0, 0.15)',
-        width: '44%',
-        padding: '12px 16px',
-        backgroundColor: '#FFF',
-      }}
-    >
-      <Text size={15} weight={'semibold'}>
-        {text}
-      </Text>
-      <Text size={27} color="blue" weight={'semibold'}>
-        {value}
-      </Text>
+    <YStack>
+      <div className={styles.overviewCard}>
+        <Text
+          fontWeight={'500'}
+          style={{ display: 'block', marginBottom: '8px', fontSize: '15px' }}
+        >
+          {text}
+        </Text>
+        <Text
+          color="blue"
+          fontWeight={'500'}
+          style={{ display: 'block', marginBottom: '8px', fontSize: '27px' }}
+        >
+          {value}
+        </Text>
+      </div>
     </YStack>
   )
 }

@@ -1,31 +1,24 @@
-import { Avatar, Text } from '@status-im/components'
-import { XStack, YStack } from 'tamagui'
+import { Avatar } from '@status-im/components'
+import { XStack } from 'tamagui'
 
-import { getFormattedValidatorAddress } from '../../utilities'
+import ValidatorNameAddress from './ValidatorNameAddress'
 
 type ValidatorProfileProps = {
-  number: number
+  name: string
   address: string
 }
 
-const ValidatorProfile = ({ number, address }: ValidatorProfileProps) => {
+const ValidatorProfile = ({ name, address }: ValidatorProfileProps) => {
   return (
     <XStack space={'$2'}>
       <Avatar
         type="user"
         size={32}
         src="/icons/validator-request.svg"
-        name={number.toString()}
+        name={name}
         indicator="online"
       />
-      <YStack>
-        <Text size={15} weight={'semibold'}>
-          Validator {number}
-        </Text>
-        <Text size={13} color="#647084">
-          {getFormattedValidatorAddress(address)}
-        </Text>
-      </YStack>
+      <ValidatorNameAddress name={name} address={address} />
     </XStack>
   )
 }

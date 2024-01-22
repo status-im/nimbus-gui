@@ -53,9 +53,15 @@ span[class*='Connector-'] {
   content: attr(data-subtitle);
   position: absolute;
   top: calc(100% + 4px);
-  left: 8px;
+  left: 9px;
   font-size: 12px;
   font-family: 'Inter', sans-serif;
   color: #a2a9b0;
   width: max-content;
+}
+
+@media (max-width: 410px) {
+  .custom-step::after {
+    font-size: 10px;
+  }
 }

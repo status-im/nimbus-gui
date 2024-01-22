@@ -15,7 +15,6 @@ import {
   setIsCopyPastedPhrase,
   setValidWords,
 } from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
-import { setSubStepAdvisories } from '../../redux/ValidatorOnboarding/Advisories/slice'
 
 const ContinueButton = () => {
   const [isDisabled, setIsDisabled] = useState(false)
@@ -32,7 +31,6 @@ const ContinueButton = () => {
     (state: RootState) => state.validatorOnboarding,
   )
   const { isValidatorSet } = useSelector((state: RootState) => state.validatorSetup)
-  const { subStepAdvisories } = useSelector((state: RootState) => state.advisories)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -64,12 +62,7 @@ const ContinueButton = () => {
   ])
 
   const handleStep1 = () => {
-    if (subStepAdvisories < 5) {
-      dispatch(setSubStepAdvisories(subStepAdvisories + 1))
-    } else {
-      dispatch(setSubStepAdvisories(0))
-      dispatch(setActiveStep(activeStep + 1))
-    }
+    dispatch(setActiveStep(activeStep + 1))
   }
 
   const handleStep2 = () => {
@@ -124,7 +117,7 @@ const ContinueButton = () => {
         justifyContent: isActivationValScreen ? 'space-between' : 'end',
         alignItems: 'center',
         zIndex: 1000,
-        marginTop: '10px',
+        marginTop: '21px',
       }}
     >
       {isCopyPastedPhrase && (

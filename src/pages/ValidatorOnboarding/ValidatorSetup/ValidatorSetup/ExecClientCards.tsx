@@ -1,4 +1,4 @@
-import { Stack, XStack, YStack } from 'tamagui'
+import { Stack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 
 import ExecClientCard from './ExecClientCard'
@@ -10,11 +10,17 @@ const ExecClientCards = () => {
       <Stack style={{ marginTop: '15px', marginLeft: 0, marginBottom: '15px' }}>
         <Text size={27}>Select Execution client</Text>
       </Stack>
-      <XStack justifyContent={'space-between'}>
+      <Stack
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+          gap: '8px',
+        }}
+      >
         {Object.entries(DOCUMENTATIONS).map(([name, { icon }], index) => (
           <ExecClientCard key={index} name={name} icon={icon} />
         ))}
-      </XStack>
+      </Stack>
     </YStack>
   )
 }

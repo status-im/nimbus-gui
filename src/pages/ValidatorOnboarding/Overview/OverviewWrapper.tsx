@@ -1,30 +1,20 @@
 import { ReactNode } from 'react'
 import { useTheme } from 'tamagui'
 
-import NimbusLogoMark from '../Logos/NimbusLogoMark'
-import styles from './index.module.css'
+import styles from './validatorLayout.module.css'
 
-type PageWrapperShadowProps = {
-  breadcrumbBar?: ReactNode
+type OverviewWrapperProps = {
   rightImageSrc?: string
-  rightImageLogo?: boolean
   children: ReactNode
   imgHeight?: string
 }
 
-const PageWrapperShadow = ({
-  breadcrumbBar,
-  rightImageSrc,
-  rightImageLogo,
-  children,
-  imgHeight,
-}: PageWrapperShadowProps) => {
+const OverviewWrapper = ({ rightImageSrc, children, imgHeight }: OverviewWrapperProps) => {
   const theme = useTheme()
 
   return (
     <div className={styles['layout']} style={{ backgroundColor: theme.background.val }}>
       <section className={styles['layout-left']}>
-        {breadcrumbBar}
         <div className={styles['container']}>
           <div className={styles['container-inner']}>{children}</div>
         </div>
@@ -37,11 +27,10 @@ const PageWrapperShadow = ({
             className={styles['background-img']}
             style={{ height: imgHeight }}
           />
-          {rightImageLogo ? <NimbusLogoMark /> : null}
         </div>
       </section>
     </div>
   )
 }
 
-export default PageWrapperShadow
+export default OverviewWrapper

@@ -68,3 +68,7 @@ export const getHeightPercentages = (amountOfElements: number) => {
 
   return `${percentages}%`
 }
+
+export const copyFunction = (text: string) => {
+  navigator.clipboard.writeText(text)
+}

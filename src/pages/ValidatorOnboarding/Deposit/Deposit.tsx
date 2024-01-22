@@ -52,7 +52,7 @@ const Deposit = () => {
       {Array.from({ length: validatorCount }).map((_, index) => (
         <ValidatorRequest
           key={index}
-          number={index + 1}
+          name={(index + 1).toString()}
           isTransactionConfirmation={isTransactionConfirmation}
         />
       ))}

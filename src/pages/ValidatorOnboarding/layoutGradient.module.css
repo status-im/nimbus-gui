@@ -1,4 +1,4 @@
-.gradient-wrapper .image-container .background-img {
+.gradientWrapper .image-container .background-img {
   position: absolute;
   top: 50%;
   left: 75%;
@@ -6,7 +6,7 @@
   width: auto;
 }
 
-.gradient-wrapper:after {
+.gradientWrapper:after {
   display: block;
   content: '';
   position: absolute;

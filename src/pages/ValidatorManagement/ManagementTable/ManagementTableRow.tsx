@@ -32,7 +32,7 @@ const ManagementTableRow = ({ validator, isAllSelected }: ManagementTableRowProp
         />
       </td>
       <td>
-        <ValidatorProfile number={validator.number} address={validator.address} />
+        <ValidatorProfile name={validator.name} address={validator.address} />
       </td>
       <td>
         <Text size={15} color={'#647084'} weight={'semibold'}>
