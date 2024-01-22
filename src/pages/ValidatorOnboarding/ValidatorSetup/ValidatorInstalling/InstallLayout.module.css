@@ -34,9 +34,9 @@
     grid-template-columns: repeat(1, 1fr);
   }
   .osCard {
-    width: 90%;
+    width: 100%;
   }
   .osCard:nth-child(3) {
-    width: 90%;
+    width: 100%;
   }
 }
