@@ -7,6 +7,11 @@
     "libs/*"
   ],
   "scripts": {
+    "clean": "yarn clean:normal",
+    "clean:normal": "yarn clean:nx-cache && EXCL_NM='-e node_modules' yarn clean:untracked_artifacts",
+    "clean:all": "yarn clean:nx-cache && EXCL_NM='' yarn clean:untracked_artifacts",
+    "clean:nx-cache": "rm -rvf \"$(git rev-parse --show-toplevel)/node_modules/.cache\"",
+    "clean:untracked_artifacts": "git clean -fdx -e .env -e .direnv -e .yarn -e .netlify -e .vscode $EXCL_NM -- $(git rev-parse --show-toplevel)",
     "dev": "NODE_ENV=development vite",
     "build": "tsc -p . && vite build",
     "build-lib": "yarn nx build",
