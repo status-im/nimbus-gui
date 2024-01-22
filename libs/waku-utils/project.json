@@ -4,14 +4,22 @@
   "sourceRoot": "libs/waku-utils/src",
   "projectType": "library",
   "targets": {
-    "build": {
+    "tsc": {
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/waku-utils",
+        "outputPath": "libs/waku-utils/dist/",
         "main": "libs/waku-utils/src/index.ts",
         "tsConfig": "libs/waku-utils/tsconfig.lib.json",
-        "assets": ["libs/waku-utils/*.md"]
+        "assets": ["libs/waku-utils/*.md"],
+        "rootDir": "libs/waku-utils/src"
+      }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["tsc"],
+      "options": {
+        "command": "rm -rf libs/waku-utils/dist/package.json"
       }
     },
     "lint": {

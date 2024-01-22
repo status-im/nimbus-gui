@@ -1,1 +1,3 @@
-export * from './lib/waku-utils'
+export function wakuUtils(): string {
+  return 'waku-utils';
+}
