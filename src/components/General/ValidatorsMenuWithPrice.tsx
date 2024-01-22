@@ -36,6 +36,7 @@ const ValidatorsMenuWithPrice = ({
     <ResponsiveStack
       isVerticalAligned={media.sm}
       style={{ justifyContent: 'space-between', width: media.lg ? '100%' : '80%' }}
+      space={'$2'}
     >
       <Stack space={'$2'}>
         <Text size={15} weight="regular" color={'#647084'}>
