@@ -17,7 +17,14 @@
               nodejs
               yarn-berry
               python3
+
+              figlet
             ];
+            shellHook = ''
+              if [ "''${DISABLE_DEVSHELL_BANNER:-}" != true ]; then
+                figlet "Welcome to Nimbus-GUI"
+              fi
+            '';
           };
       };
     };
