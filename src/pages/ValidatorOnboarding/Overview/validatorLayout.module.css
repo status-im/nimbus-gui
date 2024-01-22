@@ -5,6 +5,7 @@
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
+  border-radius: 25px;
 }
 .layout::after {
   display: block;
@@ -24,6 +25,7 @@
   display: flex;
   flex-wrap: wrap;
   height: 100%;
+  padding-left: 10%;
 }
 .container-inner {
   max-width: 70%;

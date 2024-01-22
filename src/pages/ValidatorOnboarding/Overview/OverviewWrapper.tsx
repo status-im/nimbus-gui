@@ -11,7 +11,6 @@ type OverviewWrapperProps = {
 
 const OverviewWrapper = ({
   rightImageSrc,
-
   children,
   imgHeight,
 }: OverviewWrapperProps) => {

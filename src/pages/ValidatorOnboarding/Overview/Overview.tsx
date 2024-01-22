@@ -12,7 +12,7 @@ const Overview = () => {
       imgHeight="250%"
       rightImageSrc="./background-images/sync-status-background.png"
     >
-      <YStack marginLeft="10%">
+      
         <YStack space={'$5'} width="150%" marginTop={'2rem'}>
           <Text size={27} weight={'semibold'}>
             Overview
@@ -43,7 +43,7 @@ const Overview = () => {
           <OverviewCard text={'Estimated Activation Time'} value={'32 Days'} />
           <OverviewCard text={'Validator Queue'} value={'92603'} />
         </div>
-      </YStack>
+      
     </OverviewWrapper>
   )
 }
