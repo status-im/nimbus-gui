@@ -1,4 +1,4 @@
-import { XStack, YStack } from 'tamagui'
+import { YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 
 import OverviewCard from './OverviewCard'
