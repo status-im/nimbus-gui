@@ -18,7 +18,7 @@ const ValidatorSetupInstall = () => {
   }
 
   return (
-    <YStack style={{ padding: '26px 32px', width:'fit-content'}} >
+    <YStack style={{ padding: '26px 32px', width: 'fit-content' }}>
       <Text size={27} weight={'semibold'}>
         Validator Setup
       </Text>

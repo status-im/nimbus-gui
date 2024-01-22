@@ -9,11 +9,7 @@ type OverviewWrapperProps = {
   imgHeight?: string
 }
 
-const OverviewWrapper = ({
-  rightImageSrc,
-  children,
-  imgHeight,
-}: OverviewWrapperProps) => {
+const OverviewWrapper = ({ rightImageSrc, children, imgHeight }: OverviewWrapperProps) => {
   const theme = useTheme()
 
   return (
