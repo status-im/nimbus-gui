@@ -1,4 +1,4 @@
-import { XStack, YStack } from 'tamagui'
+import {   YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 
 import OverviewCard from './OverviewCard'
@@ -12,7 +12,7 @@ const Overview = () => {
       imgHeight="250%"
       rightImageSrc="./background-images/sync-status-background.png"
     >
-      <YStack space={'$5'} marginTop={'2rem'} width="150%">
+      <YStack space={'$5'} marginTop={'2rem'} width="100%">
         <Text size={27} weight={'semibold'}>
           Overview
         </Text>
