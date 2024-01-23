@@ -32,6 +32,10 @@ const EmojiPickerDialog = ({ emojiStyle, changeEmoji }: EmojiPickerProps) => {
     }
   }
 
+  if (windowSize.width === 0) {
+    return null
+  }
+
   return (
     <Stack position="absolute" zIndex={1} left={100} top={-150}>
       <EmojiPicker
