@@ -11,9 +11,6 @@ type PairDeviceStateType = {
   isNodeSwitchOn: boolean
   isBeaconSwitchOn: boolean
   isVcSwitchOn: boolean
-  isNodeChecked: boolean
-  isBeaconChecked: boolean
-  isVcChecked: boolean
 }
 
 const initialState: PairDeviceStateType = {
@@ -25,9 +22,6 @@ const initialState: PairDeviceStateType = {
   isNodeSwitchOn: true,
   isBeaconSwitchOn: true,
   isVcSwitchOn: true,
-  isNodeChecked: true,
-  isBeaconChecked: true,
-  isVcChecked: true,
 }
 
 const pairDeviceSlice = createSlice({
@@ -57,15 +51,6 @@ const pairDeviceSlice = createSlice({
         state.isVcSwitchOn = action.payload.value
       } else {
         state.isNodeSwitchOn = action.payload.value
-      }
-    },
-    setIsChecked: (state, action) => {
-      if (action.payload.checkType === BEACON) {
-        state.isBeaconChecked = action.payload.value
-      } else if (action.payload.checkType === VALIDATOR_CLIENT) {
-        state.isVcChecked = action.payload.value
-      } else {
-        state.isNodeChecked = action.payload.value
       }
     },
   },

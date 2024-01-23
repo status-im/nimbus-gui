@@ -25,9 +25,8 @@ const InputsRow = ({
   address,
   port,
   isSwitchOn,
-  isChecked,
 }: InputsRowProps) => {
-  const { beaconPort, vcPort, isNodeChecked, isNodeSwitchOn } = useSelector(
+  const { beaconPort, vcPort, isNodeSwitchOn } = useSelector(
     (state: RootState) => state.pairDevice,
   )
   const dispatch = useDispatch()
@@ -38,10 +37,6 @@ const InputsRow = ({
 
   const onSwitchChange = (value: boolean) => {
     dispatch({ type: 'pairDevice/setIsSwitchOn', payload: { value, switchType: addressType } })
-  }
-
-  const onCheckboxChange = (value: boolean) => {
-    dispatch({ type: 'pairDevice/setIsChecked', payload: { value, checkType: addressType } })
   }
 
   const onAddressChange = (value: string) => {

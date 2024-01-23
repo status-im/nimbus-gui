@@ -20,8 +20,6 @@ const ConnectViaIP = () => {
     vcAddress,
     isBeaconSwitchOn,
     isVcSwitchOn,
-    isBeaconChecked,
-    isVcChecked,
   } = useSelector((state: RootState) => state.pairDevice)
 
   const changeApiToken = (value: string) => {
@@ -56,7 +54,6 @@ const ConnectViaIP = () => {
             port={vcPort}
             isAdvanced={isAdvanced}
             isSwitchOn={isVcSwitchOn}
-            isChecked={isVcChecked}
           />
           <InputsRow
             addressType={BEACON}
@@ -65,7 +62,6 @@ const ConnectViaIP = () => {
             port={beaconPort}
             isAdvanced={isAdvanced}
             isSwitchOn={isBeaconSwitchOn}
-            isChecked={isBeaconChecked}
           />
         </YStack>
       ) : (
