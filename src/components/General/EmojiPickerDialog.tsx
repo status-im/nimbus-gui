@@ -14,7 +14,7 @@ type EmojiPickerProps = {
   changeEmoji: (emojiData: EmojiClickData) => void
 }
 
-function EmojiPickerDialog({ emojiStyle, changeEmoji }: EmojiPickerProps) {
+const EmojiPickerDialog = ({ emojiStyle, changeEmoji }: EmojiPickerProps) => {
   return (
     <Stack position="absolute" zIndex={1} left={100} top={-150}>
       <EmojiPicker
@@ -54,4 +54,5 @@ function EmojiPickerDialog({ emojiStyle, changeEmoji }: EmojiPickerProps) {
     </Stack>
   )
 }
+
 export default EmojiPickerDialog
