@@ -1,6 +1,7 @@
-import { Checkbox, Input, Text } from '@status-im/components'
+import { Input, Text } from '@status-im/components'
 import { useDispatch, useSelector } from 'react-redux'
 import { Stack, Switch, YStack } from 'tamagui'
+import { CheckIcon } from '@status-im/icons'
 
 import { RootState } from '../../../redux/store'
 import PortInput from './PortInput'
@@ -84,14 +85,16 @@ const InputsRow = ({
       {isAdvanced === true && <PortInput port={port} portType={portType} />}
       {isAdvanced === false && <PortInput port={vcPort} portType={VC} />}
       {isAdvanced === false && <PortInput port={beaconPort} portType={BEACON} />}
-      <div style={{ display: 'flex', alignItems: 'end' }}>
-        <Stack height={'46%'} flexBasis={0} flexGrow={0.5}>
-          <Checkbox
-            id="AddressAndPortInputs"
-            variant="outline"
-            selected={isAdvanced ? isChecked : isNodeChecked}
-            onCheckedChange={onCheckboxChange}
-            size={20}
+      <div style={{ display: 'flex', alignItems: 'end', marginBottom: '11px' }}>
+        <Stack flexBasis={0} flexGrow={0.5}>
+          <CheckIcon
+            size={16}
+            style={{
+              borderRadius: '50%',
+              backgroundColor: isChecked ? '#1B273D1A' : '#2A4AF5',
+              padding: '1px',
+            }}
+            color={'white'}
           />
         </Stack>
       </div>
