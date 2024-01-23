@@ -34,9 +34,7 @@ const CreateAvatar = () => {
 
   return (
     <YStack>
-      <XStack>
-        <LabelInputField labelText="Device Name" placeholderText="Stake and chips" width="95%" />
-      </XStack>
+      <LabelInputField labelText="Device Name" placeholderText="Stake and chips" width="100%" />
       <XStack space={'$3'} justifyContent={'space-between'}>
         <YStack>
           <Text size={13} weight="semibold" color={'#647084'}>
