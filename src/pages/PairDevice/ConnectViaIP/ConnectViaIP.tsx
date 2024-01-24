@@ -2,7 +2,7 @@ import { Separator, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
 import { Button, Input, Text } from '@status-im/components'
 import { SettingsIcon, ClearIcon } from '@status-im/icons'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import InputsRow from './InputsRow'
 import { RootState } from '../../../redux/store'
@@ -11,8 +11,8 @@ import styles from './index.module.css'
 
 const ConnectViaIP = () => {
   const [apiToken, setApiToken] = useState('')
-  const [isAdvanced, setIsAdvanced] = useState(false)
   const {
+    isAdvanced,
     beaconPort,
     vcPort,
     nodeAddress,
@@ -21,13 +21,14 @@ const ConnectViaIP = () => {
     isBeaconSwitchOn,
     isVcSwitchOn,
   } = useSelector((state: RootState) => state.pairDevice)
+  const dispatch = useDispatch()
 
   const changeApiToken = (value: string) => {
     setApiToken(value)
   }
 
   const onAdvancedClickHandler = () => {
-    setIsAdvanced(state => !state)
+    dispatch({ type: 'pairDevice/setIsAdvanced', payload: !isAdvanced })
   }
 
   return (
@@ -52,7 +53,6 @@ const ConnectViaIP = () => {
             portType={VC}
             address={vcAddress}
             port={vcPort}
-            isAdvanced={isAdvanced}
             isSwitchOn={isVcSwitchOn}
           />
           <InputsRow
@@ -60,18 +60,11 @@ const ConnectViaIP = () => {
             portType={BEACON}
             address={beaconAddress}
             port={beaconPort}
-            isAdvanced={isAdvanced}
             isSwitchOn={isBeaconSwitchOn}
           />
         </YStack>
       ) : (
-        <InputsRow
-          addressType={NODE}
-          address={nodeAddress}
-          port={''}
-          portType={''}
-          isAdvanced={isAdvanced}
-        />
+        <InputsRow addressType={NODE} address={nodeAddress} port={''} portType={''} />
       )}
       <Separator borderColor={'#e3e3e3'} />
       <YStack space={'$2'}>

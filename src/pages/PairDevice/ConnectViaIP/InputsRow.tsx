@@ -11,22 +11,16 @@ import styles from './index.module.css'
 type InputsRowProps = {
   addressType: string
   portType: string
-  isAdvanced: boolean
   address: string
   port: string
   isSwitchOn?: boolean
   isChecked?: boolean
 }
 
-const InputsRow = ({
-  isAdvanced,
-  addressType,
-  portType,
-  address,
-  port,
-  isSwitchOn,
-}: InputsRowProps) => {
-  const { beaconPort, vcPort, isNodeSwitchOn } = useSelector((state: RootState) => state.pairDevice)
+const InputsRow = ({ addressType, portType, address, port, isSwitchOn }: InputsRowProps) => {
+  const { isAdvanced, beaconPort, vcPort, isNodeSwitchOn } = useSelector(
+    (state: RootState) => state.pairDevice,
+  )
   const dispatch = useDispatch()
   const isSwitchOnResult = isAdvanced ? isSwitchOn : isNodeSwitchOn
   const switchStyle = isSwitchOnResult
