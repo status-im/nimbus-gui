@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { Input, Text } from '@status-im/components'
 import { AddIcon } from '@status-im/icons'
-import { Stack, XStack, YStack } from 'tamagui'
+import { Stack, XStack, YStack, useMedia } from 'tamagui'
 
 import { CURRENCIES, ETH_PER_VALIDATOR } from '../../constants'
 import CurrencyDropdown from './CurrencyDropdown'
+import ResponsiveStack from './ResponsiveStack'
 
 type ValidatorsMenuWithPriceProps = {
   validatorCount: number
@@ -20,6 +21,7 @@ const ValidatorsMenuWithPrice = ({
   label,
 }: ValidatorsMenuWithPriceProps) => {
   const [currency, setCurrency] = useState(Object.keys(CURRENCIES)[0] as CurrencyType)
+  const media = useMedia()
 
   const changeCurrency = (currency: CurrencyType) => {
     if (CURRENCIES[currency]) {
@@ -31,7 +33,11 @@ const ValidatorsMenuWithPrice = ({
   const totalPrice = totalETH * CURRENCIES[currency as keyof typeof CURRENCIES]
 
   return (
-    <XStack justifyContent={'space-between'} width={'80%'}>
+    <ResponsiveStack
+      isVerticalAligned={media.sm}
+      style={{ justifyContent: 'space-between', width: media.lg ? '100%' : '80%' }}
+      space={'$2'}
+    >
       <Stack space={'$2'}>
         <Text size={15} weight="regular" color={'#647084'}>
           {label}
@@ -49,26 +55,30 @@ const ValidatorsMenuWithPrice = ({
           onChangeText={changeValidatorCountHandler}
         />
       </Stack>
-      <YStack space={'$2'}>
-        <Text size={15} weight={'semibold'}>
-          ETH
-        </Text>
-        <Text size={27} weight={'semibold'}>
-          {totalETH}
-        </Text>
-      </YStack>
-      <YStack space={'$2'}>
-        <XStack style={{ justifyContent: 'space-between', width: '115%' }}>
+      <XStack space={'$10'} style={{ justifyContent: 'space-between' }}>
+        <YStack space={'$2'}>
           <Text size={15} weight={'semibold'}>
-            {currency}
+            ETH
           </Text>
-          <CurrencyDropdown changeCurrency={changeCurrency} />
-        </XStack>
-        <Text size={27} weight={'semibold'}>
-          {totalPrice.toFixed(2)} {currency}
-        </Text>
-      </YStack>
-    </XStack>
+          <Stack style={{ marginTop: '2px' }}>
+            <Text size={27} weight={'semibold'}>
+              {totalETH}
+            </Text>
+          </Stack>
+        </YStack>
+        <YStack space={'$2'}>
+          <XStack style={{ justifyContent: 'space-between' }}>
+            <Text size={15} weight={'semibold'}>
+              {currency}
+            </Text>
+            <CurrencyDropdown changeCurrency={changeCurrency} />
+          </XStack>
+          <Text size={27} weight={'semibold'}>
+            {totalPrice.toFixed(2)} {currency}
+          </Text>
+        </YStack>
+      </XStack>
+    </ResponsiveStack>
   )
 }
 

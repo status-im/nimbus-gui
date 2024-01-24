@@ -1,9 +1,8 @@
 import { useState } from 'react'
-import { XStack, YStack } from 'tamagui'
-import { Avatar, Checkbox, Text } from '@status-im/components'
-import { VerifiedIcon, ContactIcon } from '@status-im/icons'
+import { XStack } from 'tamagui'
+import { Avatar, Checkbox } from '@status-im/components'
 
-import { getFormattedValidatorAddress } from '../../../../utilities'
+import ValidatorNameAddress from '../../ValidatorNameAddress'
 
 type ValidatorListItemProps = {
   name: string
@@ -41,7 +40,7 @@ const ValidatorListItem = ({
       }}
       width="92%"
     >
-      <XStack alignItems="center">
+      <XStack alignItems="center" space={'$2'}>
         <Avatar
           type="user"
           size={32}
@@ -54,16 +53,12 @@ const ValidatorListItem = ({
             [11, 20],
           ]}
         />
-        <YStack pl="8px">
-          <XStack space={'$1'} alignItems="center">
-            <Text size={13} weight={'semibold'}>
-              Validator {name}
-            </Text>
-            {isVerified && <VerifiedIcon size={20} />}
-            {isAvatarChipIncluded && <ContactIcon size={20} />}
-          </XStack>
-          <Text size={13}>{getFormattedValidatorAddress(validatorAddress)}</Text>
-        </YStack>
+        <ValidatorNameAddress
+          name={name}
+          address={validatorAddress}
+          isVerified={isVerified}
+          isAvatarChipIncluded={isAvatarChipIncluded}
+        />
       </XStack>
       {isSelected && <Checkbox id={name} variant="outline" size={20} selected={isSelected} />}
     </XStack>

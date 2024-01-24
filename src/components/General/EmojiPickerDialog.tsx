@@ -6,6 +6,7 @@ import EmojiPicker, {
   Categories,
 } from 'emoji-picker-react'
 import { Stack } from 'tamagui'
+import { useWindowSize } from '../../hooks/useWindowSize'
 
 type EmojiStyleType = 'FACEBOOK' | 'APPLE' | 'GOOGLE' | 'TWITTER' | 'NATIVE'
 
@@ -14,7 +15,27 @@ type EmojiPickerProps = {
   changeEmoji: (emojiData: EmojiClickData) => void
 }
 
-function EmojiPickerDialog({ emojiStyle, changeEmoji }: EmojiPickerProps) {
+const EmojiPickerDialog = ({ emojiStyle, changeEmoji }: EmojiPickerProps) => {
+  const windowSize = useWindowSize()
+
+  const getEmojiPickerWidth = () => {
+    if (windowSize.width < 505) {
+      return '67vw'
+    } else if (windowSize.width < 640) {
+      return '73vw'
+    } else if (windowSize.width < 780) {
+      return '78vw'
+    } else if (windowSize.width < 1000) {
+      return '82vw'
+    } else {
+      return '40vw'
+    }
+  }
+
+  if (windowSize.width === 0) {
+    return null
+  }
+
   return (
     <Stack position="absolute" zIndex={1} left={100} top={-150}>
       <EmojiPicker
@@ -22,7 +43,7 @@ function EmojiPickerDialog({ emojiStyle, changeEmoji }: EmojiPickerProps) {
         autoFocusSearch={false}
         theme={Theme.AUTO}
         height={'50vh'}
-        width={'50vw'}
+        width={getEmojiPickerWidth()}
         emojiVersion="1"
         lazyLoadEmojis={false}
         previewConfig={{ showPreview: false }}
@@ -54,4 +75,5 @@ function EmojiPickerDialog({ emojiStyle, changeEmoji }: EmojiPickerProps) {
     </Stack>
   )
 }
+
 export default EmojiPickerDialog

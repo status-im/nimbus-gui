@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { withRouter } from 'storybook-addon-react-router-v6'
 
 import AdvisoriesContent from './AdvisoriesContent'
-import { advisoryTopics } from './Advisories'
+import { ADVISORY_TOPICS } from '../../../constants'
 
 const meta = {
   title: 'ValidatorOnboarding/AdvisoriesContent',
@@ -17,8 +17,8 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const advisoryTopicsKeys = Object.keys(advisoryTopics)
-const advisoryTopicsValues = Object.values(advisoryTopics)
+const advisoryTopicsKeys = Object.keys(ADVISORY_TOPICS)
+const advisoryTopicsValues = Object.values(ADVISORY_TOPICS)
 
 export const ProofOfStake: Story = {
   args: {

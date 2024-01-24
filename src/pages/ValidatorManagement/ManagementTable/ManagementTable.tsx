@@ -15,7 +15,7 @@ type ManagementTableProps = {
 }
 
 export type Validator = {
-  number: number
+  name: string
   address: string
   balance: number
   income: number
@@ -35,12 +35,12 @@ const isValidStatus = (validatorStatus: string, tabStatus: string) => {
   return false
 }
 
-const isValidNumberOrAddress = (
-  validatorNumber: number,
+const isValidNameOrAddress = (
+  validatorName: string,
   validatorAddress: string,
   searchValue: string,
 ) => {
-  if (validatorNumber.toString().includes(searchValue) || validatorAddress.includes(searchValue)) {
+  if (validatorName.includes(searchValue) || validatorAddress.includes(searchValue)) {
     return true
   }
   return false
@@ -61,7 +61,7 @@ const ManagementTable = ({ tab, searchValue, changeSearchValue }: ManagementTabl
   const filteredValidators = useMemo(() => {
     return validators
       .filter(validator => isValidStatus(validator.status, tab))
-      .filter(validator => isValidNumberOrAddress(validator.number, validator.address, searchValue))
+      .filter(validator => isValidNameOrAddress(validator.name, validator.address, searchValue))
   }, [validators, tab, searchValue])
 
   const handleSelectAll = () => {

@@ -41,3 +41,6 @@ dist-ssr
 # Nix & Direnv
 .direnv
 result
+
+# Nx
+.nx/

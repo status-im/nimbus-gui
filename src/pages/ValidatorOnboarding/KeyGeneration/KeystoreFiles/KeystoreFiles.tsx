@@ -1,9 +1,10 @@
-import { Stack, XStack, YStack } from 'tamagui'
+import { Stack, YStack, useMedia } from 'tamagui'
 import { Button, InformationBox, Input, Text } from '@status-im/components'
 import { ClearIcon, CloseCircleIcon } from '@status-im/icons'
 import { useState } from 'react'
 
 import KeystoreBackupsCard from './KeystoreBackupsCard'
+import ResponsiveStack from '../../../../components/General/ResponsiveStack'
 
 const KeystoreFiles = () => {
   const [encryptedPassword, setEncryptedPassword] = useState('')
@@ -12,6 +13,7 @@ const KeystoreFiles = () => {
   const [confirmEncryptedPasswordError, setConfirmEncryptedPasswordError] = useState(false)
   const [displayEncryptedPassword, setDisplayEncryptedPassword] = useState('')
   const [displayConfirmEncryptedPassword, setDisplayConfirmEncryptedPassword] = useState('')
+  const media = useMedia()
 
   const generateKeystoreFilesHandler = () => {
     if (
@@ -55,8 +57,12 @@ const KeystoreFiles = () => {
 
   return (
     <YStack space={'$4'}>
-      <XStack space={'$2'} style={{ justifyContent: 'space-between', width: '100%' }}>
-        <YStack space={'$4'} style={{ width: '66%' }}>
+      <ResponsiveStack
+        isVerticalAligned={!!media.sm}
+        space={'$2'}
+        style={{ justifyContent: 'space-between', width: '100%' }}
+      >
+        <YStack space={'$4'} style={{ width: media.sm ? '100%' : '66%' }}>
           <YStack space={'$4'}>
             <Text size={15} color={'#647084'}>
               Encryption Password
@@ -96,8 +102,10 @@ const KeystoreFiles = () => {
             />
           </YStack>
         </YStack>
-        <KeystoreBackupsCard />
-      </XStack>
+        <div style={{ width: media.sm ? '100%' : '32%', paddingTop: '3.8%' }}>
+          <KeystoreBackupsCard />
+        </div>
+      </ResponsiveStack>
       <Stack style={{ width: 'fit-content' }}>
         <Button onPress={generateKeystoreFilesHandler}>Generate Key files</Button>
       </Stack>

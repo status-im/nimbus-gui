@@ -5,11 +5,11 @@ import TransactionStatus from './TransactionStatus'
 import ValidatorProfile from '../../../../components/General/ValidatorProfile'
 
 type ValidatorRequestProps = {
-  number: number
+  name: string
   isTransactionConfirmation?: boolean
 }
 
-const ValidatorRequest = ({ number, isTransactionConfirmation }: ValidatorRequestProps) => {
+const ValidatorRequest = ({ name, isTransactionConfirmation }: ValidatorRequestProps) => {
   let transactionStatus = 'Complete'
   const isTransactionCompleted = transactionStatus === 'Complete'
 
@@ -17,7 +17,7 @@ const ValidatorRequest = ({ number, isTransactionConfirmation }: ValidatorReques
     <YStack space={'$3'} style={{ width: '100%' }}>
       <XStack style={{ justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
         <XStack style={{ justifyContent: 'space-between', width: '44%', alignItems: 'center' }}>
-          <ValidatorProfile number={number} address={'zQ3asdf9d4Gs0'} />
+          <ValidatorProfile name={name} address={'zQ3asdf9d4Gs0'} />
           <Text size={13} color="#647084" weight={'semibold'}>
             Keys Generated
           </Text>

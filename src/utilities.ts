@@ -80,3 +80,7 @@ export const isPortValid = (port: string) => {
 
   return !isNaN(Number(port))
 }
+
+export const copyFunction = (text: string) => {
+  navigator.clipboard.writeText(text)
+}

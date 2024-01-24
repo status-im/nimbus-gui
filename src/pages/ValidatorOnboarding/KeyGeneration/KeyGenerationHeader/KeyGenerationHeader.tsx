@@ -1,13 +1,12 @@
-import { XStack } from 'tamagui'
-
 import SyncStatusCard from '../../../../components/General/SyncStatusCard'
 import KeyGenerationTitle from '../KeyGenerationTitle'
+import styles from '../index.module.css'
 
 const KeyGenerationHeader = () => {
   return (
-    <XStack style={{ width: '100%', justifyContent: 'space-between' }}>
+    <div className={styles['header']}>
       <KeyGenerationTitle />
-      <XStack space={'$2'}>
+      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
         <SyncStatusCard
           synced={123.524}
           total={172.503}
@@ -20,8 +19,8 @@ const KeyGenerationHeader = () => {
           title="Consensus Sync Status"
           color="#ff6161"
         />
-      </XStack>
-    </XStack>
+      </div>
+    </div>
   )
 }
 

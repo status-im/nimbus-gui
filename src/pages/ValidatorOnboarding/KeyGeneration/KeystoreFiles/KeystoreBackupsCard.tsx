@@ -16,9 +16,7 @@ const KeystoreBackupsCard = () => {
       style={{
         border: '1px solid #DCE0E5',
         borderRadius: '16px',
-        padding: '12px 16px',
-        width: '32%',
-        marginTop: '3.4%',
+        padding: '9px 16px',
         cursor: 'pointer',
       }}
       onClick={downloadKeyFilesHandler}
@@ -31,7 +29,6 @@ const KeystoreBackupsCard = () => {
           justifyContent: 'space-between',
           width: '100%',
           alignItems: 'center',
-          marginTop: '8px',
         }}
       >
         <Text size={13} color="#647084">

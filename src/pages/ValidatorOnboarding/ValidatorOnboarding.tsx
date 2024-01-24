@@ -1,5 +1,4 @@
 import { YStack } from 'tamagui'
-
 import { useSelector } from 'react-redux'
 
 import { RootState } from '../../redux/store'
@@ -15,26 +14,23 @@ import Advisories from './Advisories/Advisories'
 import ValidatorSetup from './ValidatorSetup/ValidatorSetup/ValidatorSetup'
 import ValidatorSetupInstall from './ValidatorSetup/ValidatorInstalling/ValidatorInstall'
 import ContinueButton from './ContinueButton'
-
 import ActivationValidatorSetup from './ValidatorSetup/ValidatorActivation/ActivationValidatorSetup'
-import './layoutGradient.css'
-
 import Deposit from './Deposit/Deposit'
-
-import './layoutGradient.css'
+import { useWindowSize } from '../../hooks/useWindowSize'
+import styles from './layoutGradient.module.css'
 
 const ValidatorOnboarding = () => {
   const { activeStep, subStepValidatorSetup } = useSelector(
     (state: RootState) => state.validatorOnboarding,
   )
+  const windowSize = useWindowSize()
 
   return (
-    <div className="gradient-wrapper">
+    <div className={styles.gradientWrapper}>
       <YStack
         style={{
           width: '100%',
-          maxWidth: '1100px',
-          margin: '4rem auto 2rem',
+          padding: windowSize.width < 1000 ? '5% 2% 3% 2%' : '3% 13% 1% 13%',
           justifyContent: 'start',
           alignItems: 'start',
         }}
@@ -48,13 +44,11 @@ const ValidatorOnboarding = () => {
         <ValidatorBoxWrapper>
           {activeStep === 0 && <Overview />}
           {activeStep === 1 && <Advisories />}
-
           {activeStep === 2 && subStepValidatorSetup === 0 && <ValidatorSetup />}
           {activeStep === 2 && subStepValidatorSetup === 1 && <ValidatorSetupInstall />}
           {activeStep === 2 && subStepValidatorSetup === 2 && <ConsensusSelection />}
           {activeStep === 2 && subStepValidatorSetup === 3 && <ActivationValidatorSetup />}
           {activeStep === 3 && <ClientSetup />}
-
           {activeStep === 4 && <KeyGeneration />}
           {activeStep === 5 && <Deposit />}
           {activeStep === 6 && (

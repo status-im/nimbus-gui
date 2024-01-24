@@ -31,6 +31,49 @@ export const KEYSTORE_FILES = 'KeystoreFiles'
 export const RECOVERY_PHRASE = 'Recovery Phrase'
 export const BOTH_KEY_AND_RECOVERY = 'Both KeystoreFiles & Recovery Phrase'
 export const ETH_PER_VALIDATOR = 32
+export const FORM_STEPS = [
+  { label: 'Overview', subtitle: 'Get Started' },
+  { label: 'Advisories', subtitle: 'Understand your Duties' },
+  { label: 'Client Setup', subtitle: 'Execution & Consensus' },
+  { label: 'Validator Setup', subtitle: 'Validators & Withdrawal' },
+  { label: 'Key Generation', subtitle: 'Secure your Keypairs' },
+  { label: 'Deposit', subtitle: 'Stake your ETH' },
+  { label: 'Activation', subtitle: 'Complete Setup' },
+]
+export const ADVISORY_TOPICS: {
+  [key: string]: string[]
+} = {
+  'Proof of Stake': [
+    'Proof of Stake systems require validators to hold and lock up a certain amount of cryptocurrency to participate.',
+    'In Proof of Stake, the chances of creating a block is proportional to the amount of cryptocurrency held.',
+    'Unlike Proof of Work, Proof of Stake aims to achieve consensus without intensive computational work.',
+  ],
+  Deposit: [
+    'Deposits are often irreversible, so ensure to double-check transaction details before confirming.',
+    'Delay in deposit acknowledgment might be due to network congestion or node synchronization.',
+    'Always keep transaction IDs or hashes for records and future references in case of disputes.',
+  ],
+  'Key Management': [
+    'Storing your private keys on a device connected to the internet is susceptible to hacks and malware.',
+    'Hardware wallets provide an added layer of security by keeping private keys isolated from online systems.',
+    'Regularly back up and encrypt your key management solutions to prevent potential losses.',
+  ],
+  'Bad Behaviour': [
+    'If you try to cheat the system, or act contrary to the specification, you will be liable to incur a penalty known as slashing.',
+    'Running your validator keys simultaneously on two or more machines will result in slashing.*',
+    'Simply being offline with an otherwise healthy network does not result in slashing, but will result in small inactivity penalties.',
+  ],
+  Requirements: [
+    'Ensure your system meets the minimum software and hardware requirements before initiating any operations.',
+    'Staying updated with the latest versions is vital to maintain system integrity and performance.',
+    'Failure to meet requirements might result in operational inefficiencies or security vulnerabilities.',
+  ],
+  Risks: [
+    'Cryptocurrency investments are subject to high volatility and can result in both significant gains and losses.',
+    'Always do thorough research before making investment decisions or engaging in transactions.',
+    'Be wary of phishing scams, malicious software, and too-good-to-be-true offers.',
+  ],
+}
 
 export const MAC = 'MacOS'
 export const WINDOWS = 'Windows'
@@ -73,7 +116,7 @@ export const VALIDATOR_TABS_MANAGEMENT = [
 
 export const VALIDATORS_DATA = [
   {
-    number: 1,
+    name: '1',
     address: 'zQ3asdf9d4Gs0',
     balance: 32.0786,
     income: 0.0786,
@@ -83,7 +126,7 @@ export const VALIDATORS_DATA = [
     status: 'Active',
   },
   {
-    number: 1,
+    name: '1',
     address: 'zQ3asdf9d4Gs0',
     balance: 32.0786,
     income: 0.0786,
@@ -93,7 +136,7 @@ export const VALIDATORS_DATA = [
     status: 'Active',
   },
   {
-    number: 1,
+    name: '1',
     address: 'zQ3asdf9d4Gs0',
     balance: 32.0786,
     income: 0.0786,
@@ -103,7 +146,7 @@ export const VALIDATORS_DATA = [
     status: 'Active',
   },
   {
-    number: 1,
+    name: '1',
     address: 'zQ3asdf9d4Gs0',
     balance: 32.0786,
     income: 0.0786,
