@@ -1,6 +1,7 @@
 import { NodeIcon, CompleteIdIcon, ConnectionIcon } from '@status-im/icons'
 import { Label, Separator, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Button, Checkbox, Text } from '@status-im/components'
 
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
@@ -11,11 +12,16 @@ import CreateAvatar from '../../components/General/CreateAvatar/CreateAvatar'
 import GenerateId from './GenerateId'
 import Header from '../../components/General/Header'
 import ConnectViaIP from './ConnectViaIP/ConnectViaIP'
+import { RootState } from '../../redux/store'
+import { isAddressValid, isPortValid } from '../../utilities'
 
 const PairDevice = () => {
   const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
   const [isConnectingViaIp, setIsConnectingViaIp] = useState(false)
   const [isAutoConnectChecked, setIsAutoConnectChecked] = useState(false)
+  const { isAdvanced, nodeAddress, beaconAddress, beaconPort, vcAddress, vcPort } = useSelector(
+    (state: RootState) => state.pairDevice,
+  )
   const isPaired = false
   const isPairing = false
 
@@ -28,6 +34,23 @@ const PairDevice = () => {
   }
 
   const continueHandler = () => {}
+
+  const isDisabledButton = () => {
+    if (isConnectingViaIp) {
+      if (isAdvanced) {
+        return (
+          !isAddressValid(beaconAddress) ||
+          !isPortValid(beaconPort) ||
+          !isAddressValid(vcAddress) ||
+          !isPortValid(vcPort)
+        )
+      } else {
+        return !isAddressValid(nodeAddress) || !isPortValid(beaconPort) || !isPortValid(vcPort)
+      }
+    } else {
+      return !isPaired
+    }
+  }
 
   return (
     <PageWrapperShadow rightImageSrc="./background-images/day-night-bg.png" rightImageLogo={true}>
@@ -99,7 +122,7 @@ const PairDevice = () => {
         <div>
           <Button
             icon={<NodeIcon size={20} />}
-            disabled={isConnectingViaIp ? false : !isPaired}
+            disabled={isDisabledButton()}
             onPress={continueHandler}
           >
             {isConnectingViaIp ? 'Connect Device' : 'Continue'}
