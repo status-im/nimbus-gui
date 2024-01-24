@@ -68,3 +68,15 @@ export const getHeightPercentages = (amountOfElements: number) => {
 
   return `${percentages}%`
 }
+
+export const isAddressValid = (address: string) => {
+  return address.length > 0
+}
+
+export const isPortValid = (port: string) => {
+  if (port.length === 0) {
+    return false
+  }
+
+  return !isNaN(Number(port))
+}

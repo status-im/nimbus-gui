@@ -6,6 +6,7 @@ import { CheckIcon } from '@status-im/icons'
 import { RootState } from '../../../redux/store'
 import PortInput from './PortInput'
 import { BEACON, VC } from '../../../constants'
+import { isAddressValid, isPortValid } from '../../../utilities'
 import styles from './index.module.css'
 
 type InputsRowProps = {
@@ -33,18 +34,6 @@ const InputsRow = ({ addressType, portType, address, port, isSwitchOn }: InputsR
 
   const onAddressChange = (value: string) => {
     dispatch({ type: 'pairDevice/setAddress', payload: { value, addressType } })
-  }
-
-  const isAddressValid = (address: string) => {
-    return address.length > 0
-  }
-
-  const isPortValid = (port: string) => {
-    if (port.length === 0) {
-      return false
-    }
-
-    return !isNaN(Number(port))
   }
 
   const isValidRow = () => {
