@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { BEACON, BEACON_PORT, DEFAULT_ADDRESS, VALIDATOR_CLIENT, VC_PORT } from '../../constants'
 
 type PairDeviceStateType = {
+  isAdvanced: boolean
   beaconPort: string
   vcPort: string
   nodeAddress: string
@@ -14,6 +15,7 @@ type PairDeviceStateType = {
 }
 
 const initialState: PairDeviceStateType = {
+  isAdvanced: false,
   beaconPort: BEACON_PORT,
   vcPort: VC_PORT,
   nodeAddress: DEFAULT_ADDRESS,
@@ -28,6 +30,9 @@ const pairDeviceSlice = createSlice({
   name: 'pairDevice',
   initialState,
   reducers: {
+    setIsAdvanced: (state, action) => {
+      state.isAdvanced = action.payload
+    },
     setPort: (state, action) => {
       if (action.payload.portType === BEACON) {
         state.beaconPort = action.payload.value
