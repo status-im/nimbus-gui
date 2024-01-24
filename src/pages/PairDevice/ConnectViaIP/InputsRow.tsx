@@ -26,9 +26,7 @@ const InputsRow = ({
   port,
   isSwitchOn,
 }: InputsRowProps) => {
-  const { beaconPort, vcPort, isNodeSwitchOn } = useSelector(
-    (state: RootState) => state.pairDevice,
-  )
+  const { beaconPort, vcPort, isNodeSwitchOn } = useSelector((state: RootState) => state.pairDevice)
   const dispatch = useDispatch()
   const isSwitchOnResult = isAdvanced ? isSwitchOn : isNodeSwitchOn
   const switchStyle = isSwitchOnResult
@@ -41,6 +39,26 @@ const InputsRow = ({
 
   const onAddressChange = (value: string) => {
     dispatch({ type: 'pairDevice/setAddress', payload: { value, addressType } })
+  }
+
+  const isAddressValid = (address: string) => {
+    return address.length > 0
+  }
+
+  const isPortValid = (port: string) => {
+    if (port.length === 0) {
+      return false
+    }
+
+    return !isNaN(Number(port))
+  }
+
+  const isValidRow = () => {
+    if (isAdvanced) {
+      return isAddressValid(address) && isPortValid(port)
+    } else {
+      return isAddressValid(address) && isPortValid(vcPort) && isPortValid(beaconPort)
+    }
   }
 
   return (
@@ -86,7 +104,7 @@ const InputsRow = ({
             size={16}
             style={{
               borderRadius: '50%',
-              backgroundColor: isChecked ? '#1B273D1A' : '#2A4AF5',
+              backgroundColor: isValidRow() ? '#2A4AF5' : '#1B273D1A',
               padding: '1px',
             }}
             color={'white'}
