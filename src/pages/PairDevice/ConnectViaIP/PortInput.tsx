@@ -19,7 +19,7 @@ const PortInput = ({ portType, port }: PortInputProps) => {
   }
 
   return (
-    <YStack space={'$2'} flexBasis={0} flexGrow={3}>
+    <YStack space={'$2'} flexBasis={0} flexGrow={2}>
       <Text size={13} color={'#647084'} weight={'semibold'}>
         {portType} Port
       </Text>

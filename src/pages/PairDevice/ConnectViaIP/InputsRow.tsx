@@ -1,31 +1,25 @@
-import { Checkbox, Input, Text } from '@status-im/components'
+import { Input, Text } from '@status-im/components'
 import { useDispatch, useSelector } from 'react-redux'
-import { Stack, Switch, XStack, YStack } from 'tamagui'
+import { Stack, Switch, YStack } from 'tamagui'
+import { CheckIcon } from '@status-im/icons'
 
 import { RootState } from '../../../redux/store'
 import PortInput from './PortInput'
 import { BEACON, VC } from '../../../constants'
+import { isAddressValid, isPortValid } from '../../../utilities'
+import styles from './index.module.css'
 
 type InputsRowProps = {
   addressType: string
   portType: string
-  isAdvanced?: boolean
   address: string
   port: string
   isSwitchOn?: boolean
   isChecked?: boolean
 }
 
-const InputsRow = ({
-  isAdvanced,
-  addressType,
-  portType,
-  address,
-  port,
-  isSwitchOn,
-  isChecked,
-}: InputsRowProps) => {
-  const { beaconPort, vcPort, isNodeChecked, isNodeSwitchOn } = useSelector(
+const InputsRow = ({ addressType, portType, address, port, isSwitchOn }: InputsRowProps) => {
+  const { isAdvanced, beaconPort, vcPort, isNodeSwitchOn } = useSelector(
     (state: RootState) => state.pairDevice,
   )
   const dispatch = useDispatch()
@@ -38,16 +32,20 @@ const InputsRow = ({
     dispatch({ type: 'pairDevice/setIsSwitchOn', payload: { value, switchType: addressType } })
   }
 
-  const onCheckboxChange = (value: boolean) => {
-    dispatch({ type: 'pairDevice/setIsChecked', payload: { value, checkType: addressType } })
-  }
-
   const onAddressChange = (value: string) => {
     dispatch({ type: 'pairDevice/setAddress', payload: { value, addressType } })
   }
 
+  const isValidRow = () => {
+    if (isAdvanced) {
+      return isAddressValid(address) && isPortValid(port)
+    } else {
+      return isAddressValid(address) && isPortValid(vcPort) && isPortValid(beaconPort)
+    }
+  }
+
   return (
-    <XStack space={'$3'}>
+    <div className={styles['row-container']}>
       <YStack space={'$2'} flexBasis={0} flexGrow={2}>
         <YStack>
           <Text size={13} color={'#647084'} weight={'semibold'}>
@@ -80,26 +78,23 @@ const InputsRow = ({
         </Text>
         <Input value={address} onChangeText={onAddressChange} />
       </YStack>
-      {isAdvanced ? (
-        <PortInput port={port} portType={portType} />
-      ) : (
-        <XStack space={'$3'} flexGrow={4} flexBasis={0}>
-          <PortInput port={vcPort} portType={VC} />
-          <PortInput port={beaconPort} portType={BEACON} />
-        </XStack>
-      )}
-      <div style={{ display: 'flex', alignItems: 'end', height: '100%' }}>
-        <Stack height={'46%'} flexBasis={0} flexGrow={0.5}>
-          <Checkbox
-            id="AddressAndPortInputs"
-            variant="outline"
-            selected={isAdvanced ? isChecked : isNodeChecked}
-            onCheckedChange={onCheckboxChange}
-            size={20}
+      {isAdvanced === true && <PortInput port={port} portType={portType} />}
+      {isAdvanced === false && <PortInput port={vcPort} portType={VC} />}
+      {isAdvanced === false && <PortInput port={beaconPort} portType={BEACON} />}
+      <div style={{ display: 'flex', alignItems: 'end', marginBottom: '11px' }}>
+        <Stack flexBasis={0} flexGrow={0.5}>
+          <CheckIcon
+            size={16}
+            style={{
+              borderRadius: '50%',
+              backgroundColor: isValidRow() ? '#2A4AF5' : '#1B273D1A',
+              padding: '1px',
+            }}
+            color={'white'}
           />
         </Stack>
       </div>
-    </XStack>
+    </div>
   )
 }
 

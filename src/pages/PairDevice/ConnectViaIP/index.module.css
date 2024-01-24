@@ -1,0 +1,42 @@
+.row-container {
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: 1150px) and (min-width: 1000px) {
+  .row-container {
+    display: block;
+  }
+
+  .row-container > * {
+    margin-bottom: 8px;
+  }
+
+  .row-container > *:last-child {
+    margin-bottom: 0;
+  }
+
+  .rows-container {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .row-container {
+    display: block;
+  }
+
+  .row-container > * {
+    margin-bottom: 8px;
+  }
+
+  .row-container > *:last-child {
+    margin-bottom: 0;
+  }
+
+  .rows-container {
+    display: flex;
+    gap: 10px;
+  }
+}

@@ -2,16 +2,17 @@ import { Separator, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
 import { Button, Input, Text } from '@status-im/components'
 import { SettingsIcon, ClearIcon } from '@status-im/icons'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import InputsRow from './InputsRow'
 import { RootState } from '../../../redux/store'
 import { BEACON, NODE, VALIDATOR_CLIENT, VC } from '../../../constants'
+import styles from './index.module.css'
 
 const ConnectViaIP = () => {
   const [apiToken, setApiToken] = useState('')
-  const [isAdvanced, setIsAdvanced] = useState(false)
   const {
+    isAdvanced,
     beaconPort,
     vcPort,
     nodeAddress,
@@ -19,16 +20,15 @@ const ConnectViaIP = () => {
     vcAddress,
     isBeaconSwitchOn,
     isVcSwitchOn,
-    isBeaconChecked,
-    isVcChecked,
   } = useSelector((state: RootState) => state.pairDevice)
+  const dispatch = useDispatch()
 
   const changeApiToken = (value: string) => {
     setApiToken(value)
   }
 
   const onAdvancedClickHandler = () => {
-    setIsAdvanced(state => !state)
+    dispatch({ type: 'pairDevice/setIsAdvanced', payload: !isAdvanced })
   }
 
   return (
@@ -47,24 +47,20 @@ const ConnectViaIP = () => {
         </Button>
       </XStack>
       {isAdvanced ? (
-        <YStack space={'$3'}>
+        <YStack space={'$3'} className={styles['rows-container']}>
           <InputsRow
             addressType={VALIDATOR_CLIENT}
             portType={VC}
             address={vcAddress}
             port={vcPort}
-            isAdvanced={isAdvanced}
             isSwitchOn={isVcSwitchOn}
-            isChecked={isVcChecked}
           />
           <InputsRow
             addressType={BEACON}
             portType={BEACON}
             address={beaconAddress}
             port={beaconPort}
-            isAdvanced={isAdvanced}
             isSwitchOn={isBeaconSwitchOn}
-            isChecked={isBeaconChecked}
           />
         </YStack>
       ) : (

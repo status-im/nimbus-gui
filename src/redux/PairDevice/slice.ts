@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { BEACON, BEACON_PORT, DEFAULT_ADDRESS, VALIDATOR_CLIENT, VC_PORT } from '../../constants'
 
 type PairDeviceStateType = {
+  isAdvanced: boolean
   beaconPort: string
   vcPort: string
   nodeAddress: string
@@ -11,12 +12,10 @@ type PairDeviceStateType = {
   isNodeSwitchOn: boolean
   isBeaconSwitchOn: boolean
   isVcSwitchOn: boolean
-  isNodeChecked: boolean
-  isBeaconChecked: boolean
-  isVcChecked: boolean
 }
 
 const initialState: PairDeviceStateType = {
+  isAdvanced: false,
   beaconPort: BEACON_PORT,
   vcPort: VC_PORT,
   nodeAddress: DEFAULT_ADDRESS,
@@ -25,15 +24,15 @@ const initialState: PairDeviceStateType = {
   isNodeSwitchOn: true,
   isBeaconSwitchOn: true,
   isVcSwitchOn: true,
-  isNodeChecked: true,
-  isBeaconChecked: true,
-  isVcChecked: true,
 }
 
 const pairDeviceSlice = createSlice({
   name: 'pairDevice',
   initialState,
   reducers: {
+    setIsAdvanced: (state, action) => {
+      state.isAdvanced = action.payload
+    },
     setPort: (state, action) => {
       if (action.payload.portType === BEACON) {
         state.beaconPort = action.payload.value
@@ -57,15 +56,6 @@ const pairDeviceSlice = createSlice({
         state.isVcSwitchOn = action.payload.value
       } else {
         state.isNodeSwitchOn = action.payload.value
-      }
-    },
-    setIsChecked: (state, action) => {
-      if (action.payload.checkType === BEACON) {
-        state.isBeaconChecked = action.payload.value
-      } else if (action.payload.checkType === VALIDATOR_CLIENT) {
-        state.isVcChecked = action.payload.value
-      } else {
-        state.isNodeChecked = action.payload.value
       }
     },
   },
