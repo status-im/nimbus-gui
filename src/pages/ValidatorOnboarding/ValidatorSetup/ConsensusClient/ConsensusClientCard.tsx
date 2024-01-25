@@ -2,6 +2,7 @@ import { Stack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 
 import Icon from '../../../../components/General/Icon'
+import { useWindowSize } from '../../../../hooks/useWindowSize'
 
 type ConsensusClientCardProps = {
   name: string
@@ -9,6 +10,7 @@ type ConsensusClientCardProps = {
 }
 
 const ConsensusClientCard = ({ name, icon }: ConsensusClientCardProps) => {
+  const windowSize = useWindowSize()
   return (
     <YStack
       style={{
@@ -16,8 +18,9 @@ const ConsensusClientCard = ({ name, icon }: ConsensusClientCardProps) => {
         border: '1px solid #2A4AF5',
         borderRadius: '16px',
         padding: '12px 16px',
-        width: '29%',
         cursor: 'pointer',
+        minWidth: '250px',
+        width: windowSize.width < 780 ? '100%' : 'auto',
       }}
       space={'$8'}
     >
