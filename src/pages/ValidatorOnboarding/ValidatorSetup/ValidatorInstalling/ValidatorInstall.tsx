@@ -38,6 +38,7 @@ const ValidatorSetupInstall = () => {
         <Stack>
           <Markdown children={DOCUMENTATIONS[selectedClient].general} />
           <OSCards selectedOS={selectedOS} handleOSCardClick={handleOSCardClick} />
+
           <Markdown children={DOCUMENTATIONS[selectedClient].documentation[selectedOS]} />
         </Stack>
       </YStack>
