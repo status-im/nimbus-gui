@@ -103,7 +103,7 @@ const stepStyle = {
   inactiveTextColor: '#000000',
   size: '28px',
   circleFontSize: '0px',
-  labelFontSize: '14px',
+  labelFontSize: '13px',
   borderRadius: '50%',
   fontWeight: 700,
 }
