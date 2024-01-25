@@ -1,4 +1,4 @@
-import { YStack } from 'tamagui'
+import { YStack, Stack } from 'tamagui'
 import { Text } from '@status-im/components'
 
 import OverviewCard from './OverviewCard'
@@ -13,9 +13,11 @@ const Overview = () => {
       rightImageSrc="./background-images/sync-status-background.png"
     >
       <YStack space={'$5'} marginTop={'2rem'} marginBottom={'2rem'} width="100%">
-        <Text size={27} weight={'semibold'}>
-          Overview
-        </Text>
+        <Stack marginBottom={'$2'}>
+          <Text size={27} weight={'semibold'}>
+            Overview
+          </Text>
+        </Stack>
         <Text size={19}>
           Becoming a validator is a big responsibility with important preparation steps. Only start
           the deposit process when you're ready.
