@@ -10,6 +10,7 @@ const PairedDeviceCard = () => {
         padding: '6px 12px',
         border: '1px solid #DCE0E5',
         borderRadius: '10px',
+        marginBottom:'20px'
       }}
       alignItems={'center'}
     >
