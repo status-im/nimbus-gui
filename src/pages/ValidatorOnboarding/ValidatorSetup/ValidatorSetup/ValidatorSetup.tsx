@@ -14,7 +14,7 @@ const ValidatorSetup = () => {
     >
       <XStack justifyContent={'space-between'} alignItems={'center'} flexWrap="wrap" space={'$8'}>
         <Text size={27} weight={'semibold'}>
-          Validator Setup
+          Client Setup
         </Text>
         <PairedDeviceCard />
       </XStack>

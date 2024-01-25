@@ -35,7 +35,7 @@ const ConsensusSelection = () => {
     <YStack style={{ width: '100%', padding: '32px' }} minHeight={'65vh'}>
       <XStack justifyContent={'space-between'} alignItems={'center'} mb={'30px'} flexWrap="wrap">
         <Text size={27} weight={'semibold'}>
-          Validator Setup
+          Client Setup
         </Text>
         <XStack space={'$2'} flexWrap="wrap">
           <PairedDeviceCard />
