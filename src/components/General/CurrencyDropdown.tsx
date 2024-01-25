@@ -1,20 +1,12 @@
 import { useState } from 'react'
 import { Button, DropdownMenu } from '@status-im/components'
-import { ChevronDownIcon, ChevronTopIcon } from '@status-im/icons'
 
 import { CURRENCIES } from '../../constants'
 import { CurrencyType } from './ValidatorsMenuWithPrice'
+import ChevronIcon from './ChevronIcon'
 
 type CurrencyDropdownProps = {
   changeCurrency: (currency: CurrencyType) => void
-}
-
-const ChevronIcon = ({ isOpen }: { isOpen: boolean }) => {
-  if (isOpen) {
-    return <ChevronTopIcon size={16} color={'#919191'} />
-  } else {
-    return <ChevronDownIcon size={16} color={'#919191'} />
-  }
 }
 
 const CurrencyDropdown = ({ changeCurrency }: CurrencyDropdownProps) => {
