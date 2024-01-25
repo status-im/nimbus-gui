@@ -47,22 +47,3 @@
     width: 100%;
   }
 }
-@media (max-width: 750px) {
-  .os-cards-container {
-    grid-template-columns: repeat(1, 0.9fr);
-  }
-  .markdown-text {
-    
-    width: 80%;
-  }
-  
-}
-@media (max-width: 650px) {
-  .os-cards-container {
-    grid-template-columns: repeat(1, 0.65fr);
-  }
-  .markdown-text {
-    overflow-x: auto;
-    width: 70%;
-  }
-}
