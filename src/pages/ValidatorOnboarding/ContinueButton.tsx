@@ -118,7 +118,7 @@ const ContinueButton = () => {
         width: '100%',
         justifyContent: isActivationValScreen
           ? 'space-between'
-          : windowSize.width < 720
+          : windowSize.width < 560
           ? 'start'
           : 'end',
         alignItems: 'center',
