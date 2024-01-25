@@ -1,8 +1,10 @@
 import { XStack, YStack } from 'tamagui'
 import { InfoBadgeIcon } from '@status-im/icons'
 import { Avatar, Text } from '@status-im/components'
+import { useWindowSize } from '../../../../hooks/useWindowSize'
 
 const PairedDeviceCard = () => {
+  const windowSize = useWindowSize()
   return (
     <XStack
       space={'$7'}
@@ -10,11 +12,13 @@ const PairedDeviceCard = () => {
         padding: '6px 12px',
         border: '1px solid #DCE0E5',
         borderRadius: '10px',
-        marginBottom:'20px'
+        marginBottom: '20px',
+        width: windowSize.width < 580 ? '100%' : 'auto',
       }}
+      justifyContent="space-between"
       alignItems={'center'}
     >
-      <XStack space={'$3'} alignItems={'center'}>
+      <XStack space={'$3'}>
         <Avatar
           backgroundColor="pink"
           type="icon"
