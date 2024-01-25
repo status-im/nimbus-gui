@@ -15,8 +15,10 @@ import {
   setIsCopyPastedPhrase,
   setValidWords,
 } from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
+import { useWindowSize } from '../../hooks/useWindowSize'
 
 const ContinueButton = () => {
+  const windowSize = useWindowSize()
   const [isDisabled, setIsDisabled] = useState(false)
   const {
     isCopyPastedPhrase,
@@ -114,7 +116,11 @@ const ContinueButton = () => {
     <XStack
       style={{
         width: '100%',
-        justifyContent: isActivationValScreen ? 'space-between' : 'end',
+        justifyContent: isActivationValScreen
+          ? 'space-between'
+          : windowSize.width < 720
+          ? 'start'
+          : 'end',
         alignItems: 'center',
         zIndex: 1000,
         marginTop: '21px',
