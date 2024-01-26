@@ -15,8 +15,14 @@ type SyncStatusCardProps = {
 
 const SyncStatusCard = ({ synced, total, title, color }: SyncStatusCardProps) => {
   return (
-    <BorderBox style={{ borderRadius: '10.1px', borderWidth: '0.5px' }}>
-      <XStack space={'$2'} alignItems="center">
+    <BorderBox
+      style={{
+        borderRadius: '10.1px',
+        borderWidth: '0.5px',
+        flex: '1',
+      }}
+    >
+      <XStack space={'$2'} alignItems="center" justifyContent={'space-between'}>
         <Stack
           style={{
             height: '35px',
