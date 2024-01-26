@@ -1,4 +1,4 @@
-import { Stack, XStack } from 'tamagui'
+import { Stack, XStack, YStack } from 'tamagui'
 import { Button, InformationBox } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
 
@@ -15,6 +15,7 @@ import {
   setIsCopyPastedPhrase,
   setValidWords,
 } from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
+import { useWindowSize } from '../../hooks/useWindowSize'
 
 const ContinueButton = () => {
   const [isDisabled, setIsDisabled] = useState(false)
@@ -26,6 +27,7 @@ const ContinueButton = () => {
     recoveryMechanism,
     generatedMnemonic,
   } = useSelector((state: RootState) => state.keyGeneration)
+  const windowSize = useWindowSize()
 
   const { activeStep, subStepValidatorSetup } = useSelector(
     (state: RootState) => state.validatorOnboarding,
@@ -111,17 +113,53 @@ const ContinueButton = () => {
   }
 
   return (
-    <XStack
-      style={{
-        width: '100%',
-        justifyContent: isActivationValScreen ? 'space-between' : 'end',
-        alignItems: 'center',
-        zIndex: 1000,
-        marginTop: '21px',
-      }}
-    >
+    <YStack style={{ width: '100%' }}>
+      {windowSize.width < 1155 && <CopyPastedNotification isSmallScreen={true} />}
+      <XStack
+        style={{
+          width: '100%',
+          justifyContent: isActivationValScreen ? 'space-between' : 'end',
+          alignItems: 'center',
+          zIndex: 1000,
+          marginTop: '12px',
+        }}
+      >
+        {windowSize.width >= 1155 && <CopyPastedNotification />}
+        {isActivationValScreen && (
+          <LinkWithArrow
+            text="Skip to Dashboard"
+            to="/dashboard"
+            arrowRight={true}
+            style={{ fontWeight: 'bold', zIndex: 999 }}
+          />
+        )}
+        <Button onPress={continueHandler} size={40} disabled={isDisabled}>
+          {activeStep < 6 ? 'Continue' : 'Continue to Dashboard'}
+        </Button>
+      </XStack>
+    </YStack>
+  )
+}
+
+type CopyPastedNotificationProps = {
+  isSmallScreen?: boolean
+}
+
+const CopyPastedNotification = ({ isSmallScreen }: CopyPastedNotificationProps) => {
+  const isCopyPastedPhrase = useSelector(
+    (state: RootState) => state.keyGeneration.isCopyPastedPhrase,
+  )
+
+  return (
+    <>
       {isCopyPastedPhrase && (
-        <Stack style={{ width: '100%', position: 'absolute' }}>
+        <Stack
+          style={{
+            width: '100%',
+            position: isSmallScreen ? 'static' : 'absolute',
+            marginTop: isSmallScreen ? '12px' : '0',
+          }}
+        >
           <InformationBox
             message="You have copy and pasted the entire Recovery Phrase. Please ensure you have secured it appropriately prior to continuing."
             variant="error"
@@ -129,18 +167,7 @@ const ContinueButton = () => {
           />
         </Stack>
       )}
-      {isActivationValScreen && (
-        <LinkWithArrow
-          text="Skip to Dashboard"
-          to="/dashboard"
-          arrowRight={true}
-          style={{ fontWeight: 'bold', zIndex: 999 }}
-        />
-      )}
-      <Button onPress={continueHandler} size={40} disabled={isDisabled}>
-        {activeStep < 6 ? 'Continue' : 'Continue to Dashboard'}
-      </Button>
-    </XStack>
+    </>
   )
 }
 
