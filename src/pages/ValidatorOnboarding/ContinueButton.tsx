@@ -14,7 +14,7 @@ import {
   setValidWords,
 } from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
 import { useWindowSize } from '../../hooks/useWindowSize'
-import CopyPastedNotification from './CopyPastedNotification'
+import CopyPastedRecoveryPhrase from './CopyPastedRecoveryPhrase'
 
 const ContinueButton = () => {
   const [isDisabled, setIsDisabled] = useState(false)
@@ -113,7 +113,7 @@ const ContinueButton = () => {
 
   return (
     <YStack style={{ width: '100%' }}>
-      {windowSize.width < 1155 && <CopyPastedNotification isSmallScreen={true} />}
+      {windowSize.width < 1155 && <CopyPastedRecoveryPhrase isSmallScreen={true} />}
       <XStack
         style={{
           width: '100%',
@@ -123,7 +123,7 @@ const ContinueButton = () => {
           marginTop: '12px',
         }}
       >
-        {windowSize.width >= 1155 && <CopyPastedNotification />}
+        {windowSize.width >= 1155 && <CopyPastedRecoveryPhrase />}
         {isActivationValScreen && (
           <LinkWithArrow
             text="Skip to Dashboard"
