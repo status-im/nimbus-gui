@@ -11,7 +11,7 @@ type AdvisoriesContentProps = {
 const AdvisoriesContent = ({ title, content }: AdvisoriesContentProps) => {
   const windowSize = useWindowSize()
   return (
-    <YStack space={'$1'}  width={windowSize.width < 780 ? '100%' : '70%'}>
+    <YStack space={'$1'} width={windowSize.width < 780 ? '100%' : '70%'}>
       <Stack style={{ marginBottom: '5%' }}>
         <Text size={27} weight={400}>
           {title}

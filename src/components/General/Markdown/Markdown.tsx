@@ -6,7 +6,6 @@ type MarkdownProps = {
   children: string
 }
 
-
 const Markdown = ({ children }: MarkdownProps) => {
   return (
     <ReactMarkdown

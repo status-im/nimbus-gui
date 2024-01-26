@@ -43,7 +43,7 @@ const ConsensusSelection = () => {
           space={'$2'}
           flexWrap={windowSize.width < 735 ? 'wrap' : 'nowrap'}
           marginTop={windowSize.width < 735 ? '20px' : 0}
-           width={windowSize.width < 580 ? '100%' : 'auto'}
+          width={windowSize.width < 580 ? '100%' : 'auto'}
         >
           <PairedDeviceCard />
 
