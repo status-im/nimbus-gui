@@ -6,6 +6,10 @@ import styles from '../index.module.css'
 const KeyGenerationHeader = () => {
   const windowSize = useWindowSize()
 
+  if (windowSize.width <= 0) {
+    return null
+  }
+
   return (
     <div className={styles['header']}>
       <KeyGenerationTitle />
