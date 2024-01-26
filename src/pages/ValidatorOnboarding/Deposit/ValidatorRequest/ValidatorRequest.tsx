@@ -16,16 +16,11 @@ const ValidatorRequest = ({ name, isTransactionConfirmation }: ValidatorRequestP
   return (
     <YStack space={'$3'} style={{ width: '100%' }}>
       <XStack style={{ justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
-        <XStack style={{ justifyContent: 'space-between', width: '44%', alignItems: 'center' }}>
-          <ValidatorProfile name={name} address={'zQ3asdf9d4Gs0'} />
-          <Text size={13} color="#647084" weight={'semibold'}>
-            Keys Generated
-          </Text>
-        </XStack>
+        <ValidatorProfile name={name} address={'zQ3asdf9d4Gs0'} />
         <XStack
           style={{
             justifyContent: isTransactionConfirmation ? 'space-between' : 'end',
-            width: '53%',
+            width: '58%',
             alignItems: 'center',
           }}
         >
