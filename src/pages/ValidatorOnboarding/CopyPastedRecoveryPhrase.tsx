@@ -5,13 +5,13 @@ import { useSelector } from 'react-redux'
 
 import { RootState } from '../../redux/store'
 
-type CopyPastedNotificationProps = {
+type CopyPastedRecoveryPhraseProps = {
   isSmallScreen?: boolean
 }
 
-const CopyPastedNotification = ({
+const CopyPastedRecoveryPhrase = ({
   isSmallScreen,
-}: CopyPastedNotificationProps) => {
+}: CopyPastedRecoveryPhraseProps) => {
   const isCopyPastedPhrase = useSelector(
     (state: RootState) => state.keyGeneration.isCopyPastedPhrase,
   )
@@ -37,4 +37,4 @@ const CopyPastedNotification = ({
   )
 }
 
-export default CopyPastedNotification
+export default CopyPastedRecoveryPhrase
