@@ -23,7 +23,7 @@ const ConsensusGaugeCard = ({ synced, total, title, color }: ConsensusGaugeCardP
         borderRadius: '10px',
         padding: '6px 12px',
         borderWidth: '0.5px',
-        width: windowSize.width < 580 ? '90%' : 'auto',
+width: windowSize.width < 580 ? '100%' : 'auto',
         height: '100%',
       }}
     >
