@@ -1,7 +1,5 @@
-import { Stack, XStack, YStack } from 'tamagui'
-import { Button, InformationBox } from '@status-im/components'
-import { CloseCircleIcon } from '@status-im/icons'
-
+import { XStack, YStack } from 'tamagui'
+import { Button } from '@status-im/components'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -16,6 +14,7 @@ import {
   setValidWords,
 } from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
 import { useWindowSize } from '../../hooks/useWindowSize'
+import CopyPastedNotification from './CopyPastedNotification'
 
 const ContinueButton = () => {
   const windowSize = useWindowSize()
@@ -165,38 +164,6 @@ const ContinueButton = () => {
         </Button>
       </XStack>
     </YStack>
-  )
-}
-
-type CopyPastedNotificationProps = {
-  isSmallScreen?: boolean
-}
-
-const CopyPastedNotification = ({
-  isSmallScreen,
-}: CopyPastedNotificationProps) => {
-  const isCopyPastedPhrase = useSelector(
-    (state: RootState) => state.keyGeneration.isCopyPastedPhrase,
-  )
-
-  return (
-    <>
-      {isCopyPastedPhrase && (
-        <Stack
-          style={{
-            width: '100%',
-            position: isSmallScreen ? 'static' : 'absolute',
-            marginTop: isSmallScreen ? '12px' : '0',
-          }}
-        >
-          <InformationBox
-            message="You have copy and pasted the entire Recovery Phrase. Please ensure you have secured it appropriately prior to continuing."
-            variant="error"
-            icon={<CloseCircleIcon size={20} />}
-          />
-        </Stack>
-      )}
-    </>
   )
 }
 
