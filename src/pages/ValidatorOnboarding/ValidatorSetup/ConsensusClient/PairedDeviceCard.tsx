@@ -13,7 +13,7 @@ const PairedDeviceCard = () => {
         border: '1px solid #DCE0E5',
         borderRadius: '10px',
         marginBottom: '20px',
-        width: windowSize.width < 580 ? '100%' : 'auto',
+        width: windowSize.width < 580 ? '90%' : 'auto',
       }}
       justifyContent="space-between"
       alignItems={'center'}
