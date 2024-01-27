@@ -4,10 +4,11 @@ import { Text } from '@status-im/components'
 import Confetti from 'react-confetti'
 
 import ActivationCard from '../../Activation/ActivationCard'
+import { useWindowSize } from '../../../../hooks/useWindowSize'
 
 const ActivationValidatorSetup = () => {
   const [showConfetti, setShowConfetti] = useState(true)
-
+  const windowSize = useWindowSize()
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowConfetti(false)
@@ -19,7 +20,7 @@ const ActivationValidatorSetup = () => {
   }, [])
 
   return (
-    <Stack style={styles.confettiContainer} width={'100%'} minHeight={'65vh'}>
+    <Stack style={styles.confettiContainer} minHeight={'65vh'}>
       {showConfetti && <Confetti style={styles.confettiCanvas} />}
       <YStack style={{ padding: '26px 32px' }}>
         <YStack space={'$5'}>
@@ -33,8 +34,8 @@ const ActivationValidatorSetup = () => {
               up your validators and making a deposit.
             </Text>
           </Stack>
-          <YStack space={'$3'} marginTop={'25px'} width={'33%'}>
-            <XStack width={'151%'} space={'$3'}>
+          <YStack space={'$3'} marginTop={'25px'}>
+            <XStack space={'$3'} width="100%" flexWrap={windowSize.width < 780 ? 'wrap' : 'nowrap'}>
               <ActivationCard
                 text="Execution Sync Status"
                 isGaugeIncluded={true}
@@ -50,7 +51,7 @@ const ActivationValidatorSetup = () => {
                 gaugeTotal={172.503}
               />
             </XStack>
-            <XStack space={'$3'}>
+            <XStack space={'$3'} flexWrap={windowSize.width < 780 ? 'wrap' : 'nowrap'} width="100%">
               <ActivationCard text="Validator Queue" value="92603" />
               <ActivationCard text="Estimated Activation Time" value="32 Days" />
               <ActivationCard text="Current APR" value="4.40%" />
