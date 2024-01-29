@@ -1,3 +1,2 @@
-export function wakuUtils(): string {
-  return 'waku-utils';
-}
+import { scheduleHandshakeAuthConfirmation, getPairingObject, proceedHandshake } from "./waku-utils";
+export { scheduleHandshakeAuthConfirmation, getPairingObject, proceedHandshake }
