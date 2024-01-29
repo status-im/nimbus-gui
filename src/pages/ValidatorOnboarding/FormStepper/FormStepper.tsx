@@ -1,7 +1,5 @@
 import { Stepper, Step } from 'react-form-stepper'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-
 import { FORM_STEPS } from '../../../constants'
 import { useWindowSize } from '../../../hooks/useWindowSize'
 import './FormStepper.css'
