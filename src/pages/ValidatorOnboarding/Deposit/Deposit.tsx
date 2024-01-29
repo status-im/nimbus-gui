@@ -41,9 +41,18 @@ const Deposit = () => {
     >
       <DepositTitle />
       {isChainParity ? (
-        <Text size={15} weight="regular" color={'#647084'}>
-          Awaiting chain parity
-        </Text>
+        <>
+          <Text size={15} weight="regular" color={'#647084'}>
+            Awaiting chain parity
+          </Text>
+          <div>
+            <img
+              src="/images/chain-parity.png"
+              alt="Chain parity"
+              style={{ width: '100%' }}
+            />
+          </div>
+        </>
       ) : (
         <>
           {isTransactionConfirmation ? (
