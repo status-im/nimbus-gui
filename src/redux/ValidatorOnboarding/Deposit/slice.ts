@@ -3,11 +3,13 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 type DepositState = {
   isWalletConnected: boolean
   isTransactionConfirmation: boolean
+  isChainParity: boolean
 }
 
 const initialState: DepositState = {
   isWalletConnected: false,
   isTransactionConfirmation: false,
+  isChainParity: true,
 }
 
 const depositSlice = createSlice({
@@ -20,10 +22,13 @@ const depositSlice = createSlice({
     setIsTransactionConfirmation: (state, action: PayloadAction<boolean>) => {
       state.isTransactionConfirmation = action.payload
     },
+    setIsChainParity: (state, action: PayloadAction<boolean>) => {
+      state.isChainParity = action.payload
+    },
   },
 })
 
-export const { setIsWalletConnected, setIsTransactionConfirmation } =
+export const { setIsWalletConnected, setIsTransactionConfirmation, setIsChainParity } =
   depositSlice.actions
 
 export default depositSlice.reducer
