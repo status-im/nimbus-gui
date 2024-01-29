@@ -51,7 +51,7 @@ const ContinueButton = () => {
   const { isValidatorSet } = useSelector((state: RootState) => state.validatorSetup)
 
   const navigate = useNavigate()
-  
+
   const isActivationValScreen = activeStep === 5
 
   useEffect(() => {
@@ -79,12 +79,10 @@ const ContinueButton = () => {
     isValidatorSet,
   ])
 
-//FIX: move this function out of the component  
-  const handleStep4 = () => {
+  const handleRecoveryMechanism = () => {
     if (!isConfirmPhraseStage && recoveryMechanism === KEYSTORE_FILES) {
       return dispatch(setActiveStep(activeStep + 1))
     }
-
     if (!isConfirmPhraseStage) {
       return dispatch(setIsConfirmPhraseStage(true))
     }
@@ -109,10 +107,18 @@ const ContinueButton = () => {
     else if (activeStep === 2) nextPath = '/validator-onboarding/validator-setup-install'
     else if (activeStep === 3) nextPath = '/validator-onboarding/consensus-selection'
     else if (activeStep === 4) nextPath = '/validator-onboarding/activation-validator-setup'
-    else if (activeStep === 5) nextPath = '/validator-onboarding/client-setup'
-    else if (activeStep === 6) nextPath = '/validator-onboarding/key-generation'
-    else if (activeStep === 7) nextPath = '/validator-onboarding/deposit'
-    else if (activeStep === 8) nextPath = '/validator-onboarding/activation'
+    else if (activeStep === 5) {
+      nextPath = '/validator-onboarding/client-setup'
+    } else if (activeStep === 6) {
+      nextPath = '/validator-onboarding/key-generation'
+    } else if (activeStep === 7) {
+      if (isConfirmPhraseStage) {
+        nextPath = '/validator-onboarding/deposit'
+      } else {
+        nextPath = '/validator-onboarding/key-generation'
+      }
+      handleRecoveryMechanism()
+    } else if (activeStep === 8) nextPath = '/validator-onboarding/activation'
     else if (activeStep === 9) nextPath = '/dashboard'
     else nextPath = '/validator-onboarding/'
 
