@@ -17,17 +17,18 @@ const Overview = () => {
           Overview
         </Text>
         <Text size={19}>
-          Becoming a validator is a big responsibility with important preparation steps. Only start
-          the deposit process when you're ready.
+          Becoming a validator is a big responsibility with important
+          preparation steps. Only start the deposit process when you're ready.
         </Text>
         <Text size={15} color="#939BA1">
-          By running a validator, you'll be responsible for securing the network and receive
-          continuous payouts for actions that help the network reach consensus.
+          By running a validator, you'll be responsible for securing the network
+          and receive continuous payouts for actions that help the network reach
+          consensus.
         </Text>
         <Text size={15} color="#939BA1">
-          Since the successful transition to proof-of-stake via The Merge, Ethereum is fully secured
-          by proof-of-stake validators. By running a validator, you'll be helping to secure the
-          Ethereum network.
+          Since the successful transition to proof-of-stake via The Merge,
+          Ethereum is fully secured by proof-of-stake validators. By running a
+          validator, you'll be helping to secure the Ethereum network.
         </Text>
         <LinkWithArrow
           text="Learn More"

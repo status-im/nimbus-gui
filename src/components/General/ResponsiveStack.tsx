@@ -8,7 +8,12 @@ type ResponsiveStackProps = {
   style?: CSSProperties
 }
 
-const ResponsiveStack = ({ isVerticalAligned, children, space, style }: ResponsiveStackProps) => {
+const ResponsiveStack = ({
+  isVerticalAligned,
+  children,
+  space,
+  style,
+}: ResponsiveStackProps) => {
   if (isVerticalAligned) {
     return (
       <YStack space={space} style={style}>

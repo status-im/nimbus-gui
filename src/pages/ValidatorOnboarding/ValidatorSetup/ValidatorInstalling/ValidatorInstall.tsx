@@ -11,7 +11,9 @@ import Markdown from '../../../../components/General/Markdown/Markdown'
 
 const ValidatorSetupInstall = () => {
   const [selectedOS, setSelectedOS] = useState(MAC)
-  const selectedClient = useSelector((state: RootState) => state.execClient.selectedClient)
+  const selectedClient = useSelector(
+    (state: RootState) => state.execClient.selectedClient,
+  )
 
   const handleOSCardClick = (os: string) => {
     setSelectedOS(os)
@@ -37,8 +39,13 @@ const ValidatorSetupInstall = () => {
         </Text>
         <Stack>
           <Markdown children={DOCUMENTATIONS[selectedClient].general} />
-          <OSCards selectedOS={selectedOS} handleOSCardClick={handleOSCardClick} />
-          <Markdown children={DOCUMENTATIONS[selectedClient].documentation[selectedOS]} />
+          <OSCards
+            selectedOS={selectedOS}
+            handleOSCardClick={handleOSCardClick}
+          />
+          <Markdown
+            children={DOCUMENTATIONS[selectedClient].documentation[selectedOS]}
+          />
         </Stack>
       </YStack>
     </YStack>

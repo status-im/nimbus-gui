@@ -57,8 +57,8 @@ const Activation = ({
           </Text>
           <Stack style={{ width: '66%' }}>
             <Text size={19}>
-              Congratulations! You have successfully setup your Nimbus Validators and are currently
-              syncing your nodes.
+              Congratulations! You have successfully setup your Nimbus
+              Validators and are currently syncing your nodes.
             </Text>
           </Stack>
           <YStack space={'$3'} marginTop={'25px'} width={'33%'}>
@@ -73,7 +73,10 @@ const Activation = ({
                 text="Estimated Activation Time"
                 value={estimatedActivationTimeValue}
               />
-              <ActivationCard text="Validator Queue" value={validatorQueueValue} />
+              <ActivationCard
+                text="Validator Queue"
+                value={validatorQueueValue}
+              />
             </XStack>
           </YStack>
         </YStack>

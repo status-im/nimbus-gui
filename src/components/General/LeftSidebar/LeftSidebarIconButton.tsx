@@ -21,7 +21,8 @@ const LeftSidebarIconButton = ({
 }: IconButtonWithDotProps) => {
   const dispatch = useDispatch()
 
-  const onClickHandler = () => (isDisabled ? null : dispatch(toggleButtonSelection(id)))
+  const onClickHandler = () =>
+    isDisabled ? null : dispatch(toggleButtonSelection(id))
 
   return (
     <Stack style={{ position: 'relative', display: 'inline-block' }}>

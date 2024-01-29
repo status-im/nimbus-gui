@@ -12,7 +12,10 @@ const CreateLocalNode = () => {
   const [autoConnectChecked, setAutoConnectChecked] = useState(false)
 
   return (
-    <PageWrapperShadow rightImageSrc="./background-images/day-night-bg.png" rightImageLogo={true}>
+    <PageWrapperShadow
+      rightImageSrc="./background-images/day-night-bg.png"
+      rightImageLogo={true}
+    >
       <YStack space={'$3'}>
         <Header selectedTag="Create" />
         <article className="content">

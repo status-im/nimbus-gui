@@ -9,9 +9,18 @@ type LabelInputProps = {
   width?: string
 }
 
-const LabelInputField = ({ labelText, placeholderText, width }: LabelInputProps) => {
+const LabelInputField = ({
+  labelText,
+  placeholderText,
+  width,
+}: LabelInputProps) => {
   return (
-    <Label flexDirection="column" alignItems="flex-start" my={10} style={{ width: width }}>
+    <Label
+      flexDirection="column"
+      alignItems="flex-start"
+      my={10}
+      style={{ width: width }}
+    >
       <Text size={13} weight="semibold" color={'#647084'}>
         {labelText}
       </Text>

@@ -23,7 +23,9 @@ export const Default: Story = (args: { selectedOS: string }) => {
     setSelectedOS(os)
   }
 
-  return <OSCards selectedOS={selectedOS} handleOSCardClick={handleOSCardClick} />
+  return (
+    <OSCards selectedOS={selectedOS} handleOSCardClick={handleOSCardClick} />
+  )
 }
 
 Default.args = {

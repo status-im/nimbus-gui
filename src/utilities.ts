@@ -22,7 +22,9 @@ export function assertUnreachable(value: never): never {
 export const convertSecondsToTimerFormat = (seconds: number) => {
   const minutes = Math.floor(seconds / 60)
   const remainingSeconds = seconds % 60
-  return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`
+  return `${String(minutes).padStart(2, '0')}:${String(
+    remainingSeconds,
+  ).padStart(2, '0')}`
 }
 
 export const formatNumbersWithComa = (n: number): string => {

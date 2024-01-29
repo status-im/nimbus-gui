@@ -1,7 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import RecoveryMechanismCard from './RecoveryMechanismCard'
-import { BOTH_KEY_AND_RECOVERY, KEYSTORE_FILES, RECOVERY_PHRASE } from '../../../../constants'
+import {
+  BOTH_KEY_AND_RECOVERY,
+  KEYSTORE_FILES,
+  RECOVERY_PHRASE,
+} from '../../../../constants'
 
 const meta = {
   title: 'ValidatorOnboarding/RecoveryMechanismCard',

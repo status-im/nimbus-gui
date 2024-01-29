@@ -28,7 +28,8 @@ export type Validator = {
 const isValidStatus = (validatorStatus: string, tabStatus: string) => {
   if (
     validatorStatus === tabStatus ||
-    tabStatus === VALIDATOR_TABS_MANAGEMENT[VALIDATOR_TABS_MANAGEMENT.length - 1]
+    tabStatus ===
+      VALIDATOR_TABS_MANAGEMENT[VALIDATOR_TABS_MANAGEMENT.length - 1]
   ) {
     return true
   }
@@ -40,13 +41,20 @@ const isValidNameOrAddress = (
   validatorAddress: string,
   searchValue: string,
 ) => {
-  if (validatorName.includes(searchValue) || validatorAddress.includes(searchValue)) {
+  if (
+    validatorName.includes(searchValue) ||
+    validatorAddress.includes(searchValue)
+  ) {
     return true
   }
   return false
 }
 
-const ManagementTable = ({ tab, searchValue, changeSearchValue }: ManagementTableProps) => {
+const ManagementTable = ({
+  tab,
+  searchValue,
+  changeSearchValue,
+}: ManagementTableProps) => {
   const [validators, setValidators] = useState<Validator[]>([])
   const [isAllSelected, setIsAllSelected] = useState(false)
 
@@ -61,7 +69,9 @@ const ManagementTable = ({ tab, searchValue, changeSearchValue }: ManagementTabl
   const filteredValidators = useMemo(() => {
     return validators
       .filter(validator => isValidStatus(validator.status, tab))
-      .filter(validator => isValidNameOrAddress(validator.name, validator.address, searchValue))
+      .filter(validator =>
+        isValidNameOrAddress(validator.name, validator.address, searchValue),
+      )
   }, [validators, tab, searchValue])
 
   const handleSelectAll = () => {
@@ -71,7 +81,10 @@ const ManagementTable = ({ tab, searchValue, changeSearchValue }: ManagementTabl
   return (
     <YStack>
       <XStack space={'$3'} justifyContent="space-between" alignItems="center">
-        <SearchManagement searchValue={searchValue} changeSearchValue={changeSearchValue} />
+        <SearchManagement
+          searchValue={searchValue}
+          changeSearchValue={changeSearchValue}
+        />
         <DropdownFilter />
       </XStack>
       <table>

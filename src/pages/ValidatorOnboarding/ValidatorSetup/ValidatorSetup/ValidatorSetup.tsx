@@ -12,7 +12,12 @@ const ValidatorSetup = () => {
       minHeight={'65vh'}
       justifyContent={'space-between'}
     >
-      <XStack justifyContent={'space-between'} alignItems={'center'} flexWrap="wrap" space={'$8'}>
+      <XStack
+        justifyContent={'space-between'}
+        alignItems={'center'}
+        flexWrap="wrap"
+        space={'$8'}
+      >
         <Text size={27} weight={'semibold'}>
           Validator Setup
         </Text>
@@ -25,11 +30,12 @@ const ValidatorSetup = () => {
           </Text>
         </Stack>
         <Text size={15}>
-          No existing execution client installations have been detected on paired device.
+          No existing execution client installations have been detected on
+          paired device.
         </Text>
         <Text size={13} color="#828282">
-          If you believe this to be incorrect please test your pairing to the correct device and try
-          again.
+          If you believe this to be incorrect please test your pairing to the
+          correct device and try again.
         </Text>
       </YStack>
       <ExecClientCards />

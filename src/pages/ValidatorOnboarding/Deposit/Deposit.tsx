@@ -33,7 +33,12 @@ const Deposit = () => {
   return (
     <YStack
       space={'$3'}
-      style={{ width: '100%', padding: '16px 32px', alignItems: 'start', paddingBottom: '30px' }}
+      style={{
+        width: '100%',
+        padding: '16px 32px',
+        alignItems: 'start',
+        paddingBottom: '30px',
+      }}
     >
       <DepositTitle />
       {isTransactionConfirmation ? (
@@ -48,7 +53,9 @@ const Deposit = () => {
         />
       )}
       {isTransactionConfirmation && <ConnectedWallet />}
-      <DividerLine style={{ marginTop: isTransactionConfirmation ? '0px' : '15px' }} />
+      <DividerLine
+        style={{ marginTop: isTransactionConfirmation ? '0px' : '15px' }}
+      />
       {Array.from({ length: validatorCount }).map((_, index) => (
         <ValidatorRequest
           key={index}

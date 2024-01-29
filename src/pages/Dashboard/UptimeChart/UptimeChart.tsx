@@ -181,7 +181,18 @@ type UptimeChartProps = {
   withLabels: boolean
 }
 
-const keys = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
+const keys = [
+  'one',
+  'two',
+  'three',
+  'four',
+  'five',
+  'six',
+  'seven',
+  'eight',
+  'nine',
+  'ten',
+]
 
 const updateMonthlyValues = (data: any, monthlyActivity: any) => {
   for (let i = 0; i < data.length; i++) {
@@ -216,7 +227,9 @@ const UptimeChart = ({ monthlyActivity, withLabels }: UptimeChartProps) => {
         <Bar dataKey="eight" barSize={10} fill="#E95460" />
         <Bar dataKey="nine" barSize={10} fill="#E95460" />
         <Bar dataKey="ten" barSize={10} fill="#E95460" />
-        {withLabels && <XAxis dataKey="name" fontSize={'10px'} tickMargin={10} height={24} />}
+        {withLabels && (
+          <XAxis dataKey="name" fontSize={'10px'} tickMargin={10} height={24} />
+        )}
       </BarChart>
     </ResponsiveContainer>
   )

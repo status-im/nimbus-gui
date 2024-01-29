@@ -43,14 +43,25 @@ const HeaderBtns = ({
               label="Validator"
               onSelect={() => setDropdownMenuItem('Validator')}
             />
-            <DropdownMenu.Item label="Critical" onSelect={() => setDropdownMenuItem('Critical')} />
-            <DropdownMenu.Item label="Warnings" onSelect={() => setDropdownMenuItem('Warnings')} />
+            <DropdownMenu.Item
+              label="Critical"
+              onSelect={() => setDropdownMenuItem('Critical')}
+            />
+            <DropdownMenu.Item
+              label="Warnings"
+              onSelect={() => setDropdownMenuItem('Warnings')}
+            />
           </DropdownMenu.Content>
         </DropdownMenu>
       </Stack>
       <Button
         variant="outline"
-        icon={<SwitchComponent timestamps={timestamps} setTimestamps={setTimestamps} />}
+        icon={
+          <SwitchComponent
+            timestamps={timestamps}
+            setTimestamps={setTimestamps}
+          />
+        }
       >
         Timestamps
       </Button>

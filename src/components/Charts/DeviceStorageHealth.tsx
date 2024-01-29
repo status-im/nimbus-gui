@@ -12,7 +12,10 @@ interface DeviceStorageHealthProps {
 const GOOD_COLOR = '#8DC6BC'
 const POOR_COLOR = '#E95460'
 
-const DeviceStorageHealth = ({ storage, maxStorage }: DeviceStorageHealthProps) => {
+const DeviceStorageHealth = ({
+  storage,
+  maxStorage,
+}: DeviceStorageHealthProps) => {
   const [isHovered, setIsHovered] = useState(false)
 
   const message = storage < maxStorage ? 'Good' : 'Poor'
@@ -44,7 +47,11 @@ const DeviceStorageHealth = ({ storage, maxStorage }: DeviceStorageHealthProps) 
         minHeight: '135px',
         borderRadius: '16px',
         border: message === 'Poor' ? '1px solid #D92344' : '1px solid #E0E0E0',
-        backgroundColor: isHovered ? '#f8f6ff' : message === 'Poor' ? '#fefafa' : '#fff',
+        backgroundColor: isHovered
+          ? '#f8f6ff'
+          : message === 'Poor'
+          ? '#fefafa'
+          : '#fff',
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -79,7 +86,13 @@ const DeviceStorageHealth = ({ storage, maxStorage }: DeviceStorageHealthProps) 
         <Separator borderColor={'#e3e3e3'} />
         <XStack space={'$4'} style={{ padding: '0.65rem 1rem' }}>
           <IconText
-            icon={message === 'Good' ? <CheckCircleIcon size={16} /> : <IncorrectIcon size={16} />}
+            icon={
+              message === 'Good' ? (
+                <CheckCircleIcon size={16} />
+              ) : (
+                <IncorrectIcon size={16} />
+              )
+            }
             weight={'semibold'}
           >
             {message}

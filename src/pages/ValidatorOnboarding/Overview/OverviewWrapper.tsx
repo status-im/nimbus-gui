@@ -9,11 +9,18 @@ type OverviewWrapperProps = {
   imgHeight?: string
 }
 
-const OverviewWrapper = ({ rightImageSrc, children, imgHeight }: OverviewWrapperProps) => {
+const OverviewWrapper = ({
+  rightImageSrc,
+  children,
+  imgHeight,
+}: OverviewWrapperProps) => {
   const theme = useTheme()
 
   return (
-    <div className={styles['layout']} style={{ backgroundColor: theme.background.val }}>
+    <div
+      className={styles['layout']}
+      style={{ backgroundColor: theme.background.val }}
+    >
       <section className={styles['layout-left']}>
         <div className={styles['container']}>
           <div className={styles['container-inner']}>{children}</div>

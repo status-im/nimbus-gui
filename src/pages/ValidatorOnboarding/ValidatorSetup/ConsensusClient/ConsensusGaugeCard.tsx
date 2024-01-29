@@ -13,7 +13,12 @@ type ConsensusGaugeCardProps = {
   color: string
 }
 
-const ConsensusGaugeCard = ({ synced, total, title, color }: ConsensusGaugeCardProps) => {
+const ConsensusGaugeCard = ({
+  synced,
+  total,
+  title,
+  color,
+}: ConsensusGaugeCardProps) => {
   return (
     <BorderBox style={{ borderRadius: '10.1px', borderWidth: '0.5px' }}>
       <XStack space={'$2'} alignItems="center">

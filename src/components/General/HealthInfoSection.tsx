@@ -21,8 +21,14 @@ type HealthInfoSectionProps = {
 }
 
 const HealthInfoSection = (props: HealthInfoSectionProps) => {
-  const { usedStorage, maxStorage, usedRamMemory, maxRamMemory, cpuClockRate, networkLatency } =
-    props
+  const {
+    usedStorage,
+    maxStorage,
+    usedRamMemory,
+    maxRamMemory,
+    cpuClockRate,
+    networkLatency,
+  } = props
 
   const usedStoragePercentage = (usedStorage / maxStorage) * 100
   const usedRamMemoryPercentage = (usedRamMemory / maxRamMemory) * 100

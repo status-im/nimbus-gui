@@ -10,7 +10,11 @@ import RecoveryMechanism from './RecoveryMechanism/RecoveryMechanism'
 import KeystoreFiles from './KeystoreFiles/KeystoreFiles'
 import RecoveryPhrase from './RecoveryPhrase'
 import ConfirmRecoveryPhrase from './ConfirmRecoveryPhrase/ConfirmRecoveryPhrase'
-import { BOTH_KEY_AND_RECOVERY, KEYSTORE_FILES, RECOVERY_PHRASE } from '../../../constants'
+import {
+  BOTH_KEY_AND_RECOVERY,
+  KEYSTORE_FILES,
+  RECOVERY_PHRASE,
+} from '../../../constants'
 import { RootState } from '../../../redux/store'
 import { setGeneratedMnemonic } from '../../../redux/ValidatorOnboarding/KeyGeneration/slice'
 
@@ -30,13 +34,18 @@ const KeyGeneration = () => {
   }
 
   const isKeystoreFiles =
-    recoveryMechanism === KEYSTORE_FILES || recoveryMechanism === BOTH_KEY_AND_RECOVERY
+    recoveryMechanism === KEYSTORE_FILES ||
+    recoveryMechanism === BOTH_KEY_AND_RECOVERY
 
   const isRecoveryPhrase =
-    recoveryMechanism === RECOVERY_PHRASE || recoveryMechanism === BOTH_KEY_AND_RECOVERY
+    recoveryMechanism === RECOVERY_PHRASE ||
+    recoveryMechanism === BOTH_KEY_AND_RECOVERY
 
   return (
-    <YStack space={'$2'} style={{ width: '100%', padding: '16px 32px', alignItems: 'start' }}>
+    <YStack
+      space={'$2'}
+      style={{ width: '100%', padding: '16px 32px', alignItems: 'start' }}
+    >
       {isConfirmPhraseStage && <ConfirmRecoveryPhrase />}
       {isConfirmPhraseStage === false && (
         <>
@@ -48,7 +57,9 @@ const KeyGeneration = () => {
             </Text>
           </Stack>
           {isKeystoreFiles && <KeystoreFiles />}
-          {isRecoveryPhrase && <RecoveryPhrase isKeystoreFiles={isKeystoreFiles} />}
+          {isRecoveryPhrase && (
+            <RecoveryPhrase isKeystoreFiles={isKeystoreFiles} />
+          )}
         </>
       )}
     </YStack>
