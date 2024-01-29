@@ -78,17 +78,7 @@ const ContinueButton = () => {
     isValidatorSet,
   ])
 
-  const handleStep1 = () => {
-    dispatch(setActiveStep(activeStep + 1))
-  }
-
-  const handleStep2 = () => {
-    if (subStepValidatorSetup === 3) {
-      return dispatch(setActiveStep(activeStep + 1))
-    }
-    dispatch(setSubStepValidatorSetup(subStepValidatorSetup + 1))
-  }
-
+//FIX: move this function out of the component  
   const handleStep4 = () => {
     if (!isConfirmPhraseStage && recoveryMechanism === KEYSTORE_FILES) {
       return dispatch(setActiveStep(activeStep + 1))
