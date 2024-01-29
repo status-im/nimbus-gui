@@ -4,13 +4,23 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../../redux/store'
 
 const DepositTitle = () => {
-  const { isTransactionConfirmation } = useSelector(
+  const { isTransactionConfirmation, isChainParity } = useSelector(
     (state: RootState) => state.deposit,
   )
 
+  const getTitle = () => {
+    if (isChainParity) {
+      return 'Activate Validators'
+    } else if (isTransactionConfirmation) {
+      return 'Transaction Confirmation'
+    } else {
+      return 'Deposit Funds'
+    }
+  }
+
   return (
     <Text size={19} weight={'semibold'}>
-      {isTransactionConfirmation ? 'Transaction Confirmation' : 'Deposit Funds'}
+      {getTitle()}
     </Text>
   )
 }
