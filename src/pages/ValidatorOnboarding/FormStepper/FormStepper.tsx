@@ -26,7 +26,6 @@ const FormStepper = ({ activeStep }: FormStepperProps) => {
     '/validator-onboarding/key-generation',
     '/validator-onboarding/deposit',
     '/validator-onboarding/activation',
-    // Add more steps as needed
   ]
 
   const getIsStepVisible = (index: number, stepsBefore: number, stepsAfter: number) => {
