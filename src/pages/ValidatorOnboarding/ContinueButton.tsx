@@ -51,7 +51,8 @@ const ContinueButton = () => {
   const { isValidatorSet } = useSelector((state: RootState) => state.validatorSetup)
 
   const navigate = useNavigate()
-  const isActivationValScreen = activeStep === 3 && subStepValidatorSetup === 3
+  
+  const isActivationValScreen = activeStep === 5
 
   useEffect(() => {
     const getDisabledButton = () => {
