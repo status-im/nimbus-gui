@@ -29,39 +29,40 @@ const ContinueButton = () => {
     generatedMnemonic,
   } = useSelector((state: RootState) => state.keyGeneration)
 
-  const stepToPathMap: (string | string[])[] = [
-    '/validator-onboarding/overview',
-    '/validator-onboarding/advisories',
-    [
-      '/validator-onboarding/validator-setup',
-      '/validator-onboarding/validator-setup-install',
-      '/validator-onboarding/consensus-selection',
-      '/validator-onboarding/activation-validator-setup',
-    ],
-    '/validator-onboarding/client-setup',
-    '/validator-onboarding/key-generation',
-    '/validator-onboarding/deposit',
-    '/dashboard',
-  ]
   const { activeStep, subStepValidatorSetup } = useSelector(
     (state: RootState) => state.validatorOnboarding,
   )
+  const dispatch = useDispatch()
+
+  const pathToStepMap = {
+    '/validator-onboarding/': 0,
+    '/validator-onboarding/advisories': 1,
+    '/validator-onboarding/validator-setup': 2,
+    '/validator-onboarding/validator-setup-install': 3,
+    '/validator-onboarding/consensus-selection': 4,
+    '/validator-onboarding/activation-validator-setup': 5,
+    '/validator-onboarding/client-setup': 6,
+    '/validator-onboarding/key-generation': 7,
+    '/validator-onboarding/deposit': 8,
+    '/validator-onboarding/activation': 9,
+  }
+  dispatch(setActiveStep(pathToStepMap[location.pathname as keyof typeof pathToStepMap] || 0))
+
   const { isValidatorSet } = useSelector((state: RootState) => state.validatorSetup)
 
-  const dispatch = useDispatch()
   const navigate = useNavigate()
   const isActivationValScreen = activeStep === 3 && subStepValidatorSetup === 3
 
   useEffect(() => {
     const getDisabledButton = () => {
-      if (activeStep === 4 && isConfirmPhraseStage) {
+      if (activeStep === 7 && isConfirmPhraseStage) {
         if (
           validWords.some(w => w === false) ||
           generatedMnemonic.some((w, i) => w !== mnemonic[i])
         ) {
           return true
         }
-      } else if (activeStep === 3 && !isValidatorSet) {
+      } else if (activeStep === 6 && !isValidatorSet) {
         return true
       }
       return false
@@ -111,22 +112,22 @@ const ContinueButton = () => {
   }
 
   const continueHandler = () => {
-    let nextPath: string
-
-    if (activeStep === 2) {
-      const paths = stepToPathMap[activeStep]
-      if (Array.isArray(paths)) {
-        nextPath = paths[subStepValidatorSetup + 1] || '/dashboard'
-      } else {
-        nextPath = '/dashboard'
-      }
-    } else {
-      const path = stepToPathMap[activeStep + 1]
-      nextPath = typeof path === 'string' ? path : '/dashboard'
-    }
+    let nextPath
+    if (activeStep === 0) nextPath = '/validator-onboarding/advisories'
+    else if (activeStep === 1) nextPath = '/validator-onboarding/validator-setup'
+    else if (activeStep === 2) nextPath = '/validator-onboarding/validator-setup-install'
+    else if (activeStep === 3) nextPath = '/validator-onboarding/consensus-selection'
+    else if (activeStep === 4) nextPath = '/validator-onboarding/activation-validator-setup'
+    else if (activeStep === 5) nextPath = '/validator-onboarding/client-setup'
+    else if (activeStep === 6) nextPath = '/validator-onboarding/key-generation'
+    else if (activeStep === 7) nextPath = '/validator-onboarding/deposit'
+    else if (activeStep === 8) nextPath = '/validator-onboarding/activation'
+    else if (activeStep === 9) nextPath = '/dashboard'
+    else nextPath = '/validator-onboarding/'
 
     navigate(nextPath)
   }
+
   return (
     <XStack
       style={{
