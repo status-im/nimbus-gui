@@ -21,6 +21,18 @@ import LogsPage from './pages/LogsPage/LogsPage'
 import { ethereumRopsten, wcV2InitOptions, apiKey } from './constants'
 import './App.css'
 
+//ValidatorOnboarding sub-routes
+import Overview from './pages/ValidatorOnboarding/Overview/Overview'
+import Advisories from './pages/ValidatorOnboarding/Advisories/Advisories'
+import ValidatorSetup from './pages/ValidatorOnboarding/ValidatorSetup/ValidatorSetup/ValidatorSetup'
+import ValidatorSetupInstall from './pages/ValidatorOnboarding/ValidatorSetup/ValidatorInstalling/ValidatorInstall'
+import ConsensusSelection from './pages/ValidatorOnboarding/ValidatorSetup/ConsensusClient/ConsensusSelection'
+import ActivationValidatorSetup from './pages/ValidatorOnboarding/ValidatorSetup/ValidatorActivation/ActivationValidatorSetup'
+import ClientSetup from './pages/ValidatorOnboarding/ClientSetup/ClientSetup'
+import KeyGeneration from './pages/ValidatorOnboarding/KeyGeneration/KeyGeneration'
+import Deposit from './pages/ValidatorOnboarding/Deposit/Deposit'
+import Activation from './pages/ValidatorOnboarding/Activation/Activation'
+
 const injected = injectedModule()
 const walletConnect = walletConnectModule(wcV2InitOptions)
 
@@ -55,10 +67,53 @@ const router = createBrowserRouter([
     element: <PairDevice />,
   },
   { path: '/create-local-node', element: <CreateLocalNode /> },
-  { path: '/validator-onboarding', element: <ValidatorOnboarding /> },
+  {
+    path: '/validator-onboarding',
+    children: [
+      { path: '', element: <Overview /> },
+      { path: 'advisories', element: <Advisories /> },
+      { path: 'validator-setup', element: <ValidatorSetup /> },
+      { path: 'validator-setup-install', element: <ValidatorSetupInstall /> },
+      { path: 'consensus-selection', element: <ConsensusSelection /> },
+      { path: 'activation-validator-setup', element: <ActivationValidatorSetup /> },
+      { path: 'client-setup', element: <ClientSetup /> },
+      { path: 'key-generation', element: <KeyGeneration /> },
+      { path: 'deposit', element: <Deposit /> },
+      {
+        path: 'activation',
+        element: (
+          <Activation
+            validatorsValue="4"
+            executionSyncStatus1={{
+              text: 'Execution Sync Status',
+              isGaugeIncluded: true,
+              gaugeColor: '$blue',
+              gaugeSynced: 123.524,
+              gaugeTotal: 172.503,
+            }}
+            executionSyncStatus2={{
+              text: 'Execution Sync Status',
+              isGaugeIncluded: true,
+              gaugeColor: '$red',
+              gaugeSynced: 123.524,
+              gaugeTotal: 172.503,
+            }}
+            currentAPRValue="4.40%"
+            estimatedActivationTimeValue="32 Days"
+            validatorQueueValue="92603"
+          />
+        ),
+      },
+    ],
+    element: <ValidatorOnboarding />,
+  },
   { path: '/dashboard', element: <Dashboard /> },
   { path: '/logs', element: <LogsPage /> },
-  { path: '/validator-management', element: <ValidatorManagement /> },
+  {
+    path: '/validator-management',
+
+    element: <ValidatorManagement />,
+  },
 ])
 
 function App() {
