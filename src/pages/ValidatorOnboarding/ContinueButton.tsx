@@ -160,7 +160,7 @@ const ContinueButton = () => {
         />
       )}
       <Button onPress={continueHandler} size={40} disabled={isDisabled}>
-        {activeStep < 6 ? 'Continue' : 'Continue to Dashboard'}
+        {activeStep <9? 'Continue' : 'Continue to Dashboard'}
       </Button>
     </XStack>
   )
