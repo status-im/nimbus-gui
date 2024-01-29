@@ -1,7 +1,7 @@
 import { Stepper, Step } from 'react-form-stepper'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { setActiveStep } from '../../../redux/ValidatorOnboarding/slice'
+
 import { FORM_STEPS } from '../../../constants'
 import { useWindowSize } from '../../../hooks/useWindowSize'
 import './FormStepper.css'
@@ -11,7 +11,6 @@ type FormStepperProps = {
 }
 
 const FormStepper = ({ activeStep }: FormStepperProps) => {
-  const dispatch = useDispatch()
   const navigate = useNavigate()
   const windowSize = useWindowSize()
 
@@ -64,9 +63,12 @@ const FormStepper = ({ activeStep }: FormStepperProps) => {
 
   const changeStepOnClickHandler = (index: number) => {
     const path = stepToUrlMap[index]
-    if (path) {
+    if (path && index < activeStep) {
       navigate(path)
     }
+  }
+  if (activeStep > 1) {
+    activeStep = activeStep < 6 ? 2 : activeStep - 3
   }
 
   return (
