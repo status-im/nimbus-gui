@@ -6,7 +6,10 @@ type SearchManagementProps = {
   changeSearchValue: (value: string) => void
 }
 
-const SearchManagement = ({ searchValue, changeSearchValue }: SearchManagementProps) => {
+const SearchManagement = ({
+  searchValue,
+  changeSearchValue,
+}: SearchManagementProps) => {
   return (
     <div style={{ width: '100%' }}>
       <Input

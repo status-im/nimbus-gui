@@ -13,7 +13,12 @@ type SyncStatusCardProps = {
   color: string
 }
 
-const SyncStatusCard = ({ synced, total, title, color }: SyncStatusCardProps) => {
+const SyncStatusCard = ({
+  synced,
+  total,
+  title,
+  color,
+}: SyncStatusCardProps) => {
   return (
     <BorderBox
       style={{
@@ -54,7 +59,11 @@ const SyncStatusCard = ({ synced, total, title, color }: SyncStatusCardProps) =>
             {formatNumbersWithComa(synced)} / {formatNumbersWithComa(total)}
           </Text>
         </YStack>
-        <InfoBadgeIcon size={20} color="#A1ABBD" style={{ cursor: 'pointer' }} />
+        <InfoBadgeIcon
+          size={20}
+          color="#A1ABBD"
+          style={{ cursor: 'pointer' }}
+        />
       </XStack>
     </BorderBox>
   )

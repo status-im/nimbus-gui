@@ -2,7 +2,11 @@ import { Text } from '@status-im/components'
 import { YStack } from 'tamagui'
 
 import RecoveryMechanismCard from './RecoveryMechanismCard'
-import { BOTH_KEY_AND_RECOVERY, KEYSTORE_FILES, RECOVERY_PHRASE } from '../../../../constants'
+import {
+  BOTH_KEY_AND_RECOVERY,
+  KEYSTORE_FILES,
+  RECOVERY_PHRASE,
+} from '../../../../constants'
 import styles from '../index.module.css'
 
 type RecoveryMechanismProps = {

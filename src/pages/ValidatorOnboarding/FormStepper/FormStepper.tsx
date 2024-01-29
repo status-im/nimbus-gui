@@ -14,7 +14,11 @@ const FormStepper = ({ activeStep }: FormStepperProps) => {
   const dispatch = useDispatch()
   const windowSize = useWindowSize()
 
-  const getIsStepVisible = (index: number, stepsBefore: number, stepsAfter: number) => {
+  const getIsStepVisible = (
+    index: number,
+    stepsBefore: number,
+    stepsAfter: number,
+  ) => {
     const totalSteps = FORM_STEPS.length
     let start = activeStep - stepsBefore
     let end = activeStep + stepsAfter

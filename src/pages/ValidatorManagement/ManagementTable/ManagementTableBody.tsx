@@ -8,7 +8,10 @@ type ManagementTableBodyProps = {
   isAllSelected: boolean
 }
 
-const ManagementTableBody = ({ filteredValidators, isAllSelected }: ManagementTableBodyProps) => {
+const ManagementTableBody = ({
+  filteredValidators,
+  isAllSelected,
+}: ManagementTableBodyProps) => {
   return (
     <tbody>
       {filteredValidators.map(validator => (

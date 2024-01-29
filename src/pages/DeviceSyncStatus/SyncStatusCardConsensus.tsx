@@ -12,7 +12,10 @@ interface DeviceStorageHealthProps {
   total: number
 }
 
-const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, total }) => {
+const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({
+  synced,
+  total,
+}) => {
   const message = synced === total ? 'Synced all data' : 'Syncing'
 
   const data = [
@@ -53,7 +56,9 @@ const SyncStatusCardConsensus: React.FC<DeviceStorageHealthProps> = ({ synced, t
             <Text size={15} color="#84888e" weight={'semibold'}>
               Consensus Client
             </Text>
-            <XStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+            <XStack
+              style={{ justifyContent: 'space-between', alignItems: 'center' }}
+            >
               <Icon src="./icons/vector.svg" height={46} width={93} />
               <Stack
                 style={{

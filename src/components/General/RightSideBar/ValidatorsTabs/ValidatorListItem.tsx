@@ -60,7 +60,9 @@ const ValidatorListItem = ({
           isAvatarChipIncluded={isAvatarChipIncluded}
         />
       </XStack>
-      {isSelected && <Checkbox id={name} variant="outline" size={20} selected={isSelected} />}
+      {isSelected && (
+        <Checkbox id={name} variant="outline" size={20} selected={isSelected} />
+      )}
     </XStack>
   )
 }

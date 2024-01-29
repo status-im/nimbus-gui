@@ -23,6 +23,7 @@ const validatorOnboardingSlice = createSlice({
   },
 })
 
-export const { setActiveStep, setSubStepValidatorSetup } = validatorOnboardingSlice.actions
+export const { setActiveStep, setSubStepValidatorSetup } =
+  validatorOnboardingSlice.actions
 
 export default validatorOnboardingSlice.reducer

@@ -10,7 +10,10 @@ type ManagementTableRowProps = {
   isAllSelected: boolean
 }
 
-const ManagementTableRow = ({ validator, isAllSelected }: ManagementTableRowProps) => {
+const ManagementTableRow = ({
+  validator,
+  isAllSelected,
+}: ManagementTableRowProps) => {
   const [isSelected, setIsSelected] = useState(false)
 
   useEffect(() => {

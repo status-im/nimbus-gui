@@ -1,6 +1,11 @@
 import { Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
-import { CopyIcon, VerifiedIcon, ContactIcon, CheckIcon } from '@status-im/icons'
+import {
+  CopyIcon,
+  VerifiedIcon,
+  ContactIcon,
+  CheckIcon,
+} from '@status-im/icons'
 import { useState } from 'react'
 
 import { copyFunction, getFormattedValidatorAddress } from '../../utilities'

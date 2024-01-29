@@ -6,7 +6,10 @@ type InputSearchProps = {
   changeSearchValue: (value: string) => void
 }
 
-const SearchValidatorsInput = ({ searchValue, changeSearchValue }: InputSearchProps) => {
+const SearchValidatorsInput = ({
+  searchValue,
+  changeSearchValue,
+}: InputSearchProps) => {
   return (
     <Input
       placeholder="Search Validators"

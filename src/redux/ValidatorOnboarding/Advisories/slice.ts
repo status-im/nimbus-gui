@@ -12,7 +12,10 @@ const AdvisoriesSlice = createSlice({
   name: 'advisories',
   initialState,
   reducers: {
-    setSubStepAdvisories: (state: AdvisoriesState, action: PayloadAction<number>) => {
+    setSubStepAdvisories: (
+      state: AdvisoriesState,
+      action: PayloadAction<number>,
+    ) => {
       state.subStepAdvisories = action.payload
     },
   },

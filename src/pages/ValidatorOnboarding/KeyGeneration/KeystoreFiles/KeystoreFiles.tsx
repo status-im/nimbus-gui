@@ -10,9 +10,11 @@ const KeystoreFiles = () => {
   const [encryptedPassword, setEncryptedPassword] = useState('')
   const [confirmEncryptedPassword, setConfirmEncryptedPassword] = useState('')
   const [encryptedPasswordError, setEncryptedPasswordError] = useState(false)
-  const [confirmEncryptedPasswordError, setConfirmEncryptedPasswordError] = useState(false)
+  const [confirmEncryptedPasswordError, setConfirmEncryptedPasswordError] =
+    useState(false)
   const [displayEncryptedPassword, setDisplayEncryptedPassword] = useState('')
-  const [displayConfirmEncryptedPassword, setDisplayConfirmEncryptedPassword] = useState('')
+  const [displayConfirmEncryptedPassword, setDisplayConfirmEncryptedPassword] =
+    useState('')
   const media = useMedia()
 
   const generateKeystoreFilesHandler = () => {
@@ -107,7 +109,9 @@ const KeystoreFiles = () => {
         </div>
       </ResponsiveStack>
       <Stack style={{ width: 'fit-content' }}>
-        <Button onPress={generateKeystoreFilesHandler}>Generate Key files</Button>
+        <Button onPress={generateKeystoreFilesHandler}>
+          Generate Key files
+        </Button>
       </Stack>
       <InformationBox
         message="You should see that you have one keystore per validator. This keystore contains your signing key, encrypted with your password. Warning: Do not store keys on multiple (backup) validator clients at once"

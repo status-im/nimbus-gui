@@ -14,7 +14,9 @@ type ExecClientCardProps = {
 
 const ExecClientCard = ({ name, icon, isComingSoon }: ExecClientCardProps) => {
   const dispatch = useDispatch()
-  const selectedClient = useSelector((state: RootState) => state.execClient.selectedClient)
+  const selectedClient = useSelector(
+    (state: RootState) => state.execClient.selectedClient,
+  )
   const isSelected = selectedClient === name
 
   return (
@@ -38,7 +40,11 @@ const ExecClientCard = ({ name, icon, isComingSoon }: ExecClientCardProps) => {
       }}
     >
       <Stack>
-        <Text size={19} weight={'semibold'} color={isComingSoon ? '#DCE0E5' : ''}>
+        <Text
+          size={19}
+          weight={'semibold'}
+          color={isComingSoon ? '#DCE0E5' : ''}
+        >
           {name}
         </Text>
         {isComingSoon && (

@@ -29,7 +29,11 @@ const AlertsList = () => {
   }, [])
 
   const onCloseAlert = (alert: Alert) => {
-    setAlerts(alerts.filter(a => a.message !== alert.message && a.variant !== alert.variant))
+    setAlerts(
+      alerts.filter(
+        a => a.message !== alert.message && a.variant !== alert.variant,
+      ),
+    )
   }
 
   return (
@@ -38,7 +42,10 @@ const AlertsList = () => {
         <Text size={15} weight={'semibold'}>
           Alerts
         </Text>
-        <ChevronRightIcon size={20} style={{ marginRight: '8px', cursor: 'pointer' }} />
+        <ChevronRightIcon
+          size={20}
+          style={{ marginRight: '8px', cursor: 'pointer' }}
+        />
       </XStack>
       {alerts.map(alert => (
         <InformationBox

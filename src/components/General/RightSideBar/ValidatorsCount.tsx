@@ -5,7 +5,9 @@ import { XStack } from 'tamagui'
 import { RootState } from '../../../redux/store'
 
 const ValidatorsCount = () => {
-  const countOfValidators = useSelector((state: RootState) => state.rightSidebar.countOfValidators)
+  const countOfValidators = useSelector(
+    (state: RootState) => state.rightSidebar.countOfValidators,
+  )
 
   return (
     <XStack justifyContent={'space-between'} width={'82%'}>

@@ -10,7 +10,12 @@ type LogsSumCardProps = {
   countActive?: number
   countInactive?: number
 }
-const LogsSumCard = ({ type, count, countActive, countInactive }: LogsSumCardProps) => {
+const LogsSumCard = ({
+  type,
+  count,
+  countActive,
+  countInactive,
+}: LogsSumCardProps) => {
   return (
     <DashboardCardWrapper maxWidth="260px">
       <YStack
@@ -51,10 +56,16 @@ const LogsSumCard = ({ type, count, countActive, countInactive }: LogsSumCardPro
         </XStack>
         <Separator borderColor={'#e3e3e3'} style={{ marginTop: 'auto' }} />
         <XStack space={'$2'} style={{ padding: '10px 16px' }}>
-          <IconText icon={<Icon src="icons/active.svg" width={16} />} weight={'semibold'}>
+          <IconText
+            icon={<Icon src="icons/active.svg" width={16} />}
+            weight={'semibold'}
+          >
             {countActive + ' Active'}
           </IconText>
-          <IconText icon={<Icon src="icons/inactive.svg" width={16} />} weight={'semibold'}>
+          <IconText
+            icon={<Icon src="icons/inactive.svg" width={16} />}
+            weight={'semibold'}
+          >
             {countInactive + ' Inactive'}
           </IconText>
         </XStack>

@@ -20,7 +20,9 @@ const ValidatorsMenuWithPrice = ({
   changeValidatorCountHandler,
   label,
 }: ValidatorsMenuWithPriceProps) => {
-  const [currency, setCurrency] = useState(Object.keys(CURRENCIES)[0] as CurrencyType)
+  const [currency, setCurrency] = useState(
+    Object.keys(CURRENCIES)[0] as CurrencyType,
+  )
   const media = useMedia()
 
   const changeCurrency = (currency: CurrencyType) => {
@@ -35,7 +37,10 @@ const ValidatorsMenuWithPrice = ({
   return (
     <ResponsiveStack
       isVerticalAligned={media.sm}
-      style={{ justifyContent: 'space-between', width: media.lg ? '100%' : '80%' }}
+      style={{
+        justifyContent: 'space-between',
+        width: media.lg ? '100%' : '80%',
+      }}
       space={'$2'}
     >
       <Stack space={'$2'}>
@@ -47,7 +52,9 @@ const ValidatorsMenuWithPrice = ({
             <AddIcon
               size={16}
               style={{ cursor: 'pointer' }}
-              onClick={() => changeValidatorCountHandler((validatorCount + 1).toString())}
+              onClick={() =>
+                changeValidatorCountHandler((validatorCount + 1).toString())
+              }
             />
           }
           style={{ fontWeight: 'bold' }}

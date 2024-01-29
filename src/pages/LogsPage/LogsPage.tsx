@@ -58,7 +58,9 @@ const LogsPage = () => {
             triggerSearch={triggerSearch}
           />
         </XStack>
-        <Stack style={{ width: '100%', alignItems: 'center', flexWrap: 'wrap' }}>
+        <Stack
+          style={{ width: '100%', alignItems: 'center', flexWrap: 'wrap' }}
+        >
           <LogsTerminal
             windowWidth={windowWidth}
             dropdownMenuItem={dropdownMenuItem}
@@ -78,9 +80,24 @@ const LogsPage = () => {
             }}
             width={'90%'}
           >
-            <LogsSumCard type={'Critical'} count={16} countActive={2} countInactive={3} />
-            <LogsSumCard type={'Warning'} count={9} countActive={2} countInactive={7} />
-            <LogsSumCard type={'Critical'} count={6} countActive={2} countInactive={0} />
+            <LogsSumCard
+              type={'Critical'}
+              count={16}
+              countActive={2}
+              countInactive={3}
+            />
+            <LogsSumCard
+              type={'Warning'}
+              count={9}
+              countActive={2}
+              countInactive={7}
+            />
+            <LogsSumCard
+              type={'Critical'}
+              count={6}
+              countActive={2}
+              countInactive={0}
+            />
             <SupportCard />
           </Stack>
         </Stack>

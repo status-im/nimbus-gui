@@ -29,6 +29,7 @@ const pinnedMessageSlice = createSlice({
   },
 })
 
-export const { setPinnedMessage, clearPinnedMessage } = pinnedMessageSlice.actions
+export const { setPinnedMessage, clearPinnedMessage } =
+  pinnedMessageSlice.actions
 
 export default pinnedMessageSlice.reducer

@@ -35,7 +35,9 @@ const CPUCard = ({ load }: CPUCardProps) => {
   ]
 
   const currentLoad =
-    chartData[0].data.length > 0 ? chartData[0].data[chartData[0].data.length - 1].y : 0
+    chartData[0].data.length > 0
+      ? chartData[0].data[chartData[0].data.length - 1].y
+      : 0
 
   const message = currentLoad < 80 ? 'Good' : 'Poor'
 
@@ -66,7 +68,14 @@ const CPUCard = ({ load }: CPUCardProps) => {
             </Text>
           </YStack>
           <Stack
-            style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, padding: '4px' }}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              padding: '4px',
+            }}
           >
             <StandardLineChart data={chartData} />
           </Stack>

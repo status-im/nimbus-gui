@@ -1,5 +1,9 @@
 import { Text } from '@status-im/components'
-import { FullscreenMacOsIcon, MinimizeMacOsIcon, CloseMacOsIcon } from '@status-im/icons'
+import {
+  FullscreenMacOsIcon,
+  MinimizeMacOsIcon,
+  CloseMacOsIcon,
+} from '@status-im/icons'
 import { XStack } from 'tamagui'
 
 type VTransactionStatusProps = {

@@ -19,9 +19,14 @@ const PairDevice = () => {
   const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
   const [isConnectingViaIp, setIsConnectingViaIp] = useState(false)
   const [isAutoConnectChecked, setIsAutoConnectChecked] = useState(false)
-  const { isAdvanced, nodeAddress, beaconAddress, beaconPort, vcAddress, vcPort } = useSelector(
-    (state: RootState) => state.pairDevice,
-  )
+  const {
+    isAdvanced,
+    nodeAddress,
+    beaconAddress,
+    beaconPort,
+    vcAddress,
+    vcPort,
+  } = useSelector((state: RootState) => state.pairDevice)
   const isPaired = false
   const isPairing = false
 
@@ -45,7 +50,11 @@ const PairDevice = () => {
           !isPortValid(vcPort)
         )
       } else {
-        return !isAddressValid(nodeAddress) || !isPortValid(beaconPort) || !isPortValid(vcPort)
+        return (
+          !isAddressValid(nodeAddress) ||
+          !isPortValid(beaconPort) ||
+          !isPortValid(vcPort)
+        )
       }
     } else {
       return !isPaired
@@ -53,7 +62,10 @@ const PairDevice = () => {
   }
 
   return (
-    <PageWrapperShadow rightImageSrc="./background-images/day-night-bg.png" rightImageLogo={true}>
+    <PageWrapperShadow
+      rightImageSrc="./background-images/day-night-bg.png"
+      rightImageLogo={true}
+    >
       <YStack space={'$3'}>
         <Header selectedTag="Pair" />
         <Titles
@@ -77,7 +89,11 @@ const PairDevice = () => {
         {isPaired ? (
           <>
             <YStack space={'$3'}>
-              <Separator alignSelf="stretch" borderColor={'#F0F2F5'} marginTop={3} />
+              <Separator
+                alignSelf="stretch"
+                borderColor={'#F0F2F5'}
+                marginTop={3}
+              />
               <Text size={19} weight="semibold">
                 General Settings
               </Text>
@@ -107,7 +123,11 @@ const PairDevice = () => {
               <XStack>
                 <Button
                   icon={
-                    isConnectingViaIp ? <CompleteIdIcon size={20} /> : <ConnectionIcon size={20} />
+                    isConnectingViaIp ? (
+                      <CompleteIdIcon size={20} />
+                    ) : (
+                      <ConnectionIcon size={20} />
+                    )
                   }
                   variant="outline"
                   onPress={connectAndPairHandler}

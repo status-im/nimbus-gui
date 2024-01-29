@@ -14,7 +14,9 @@ import { RootState } from '../../redux/store'
 import { useEffect, useState } from 'react'
 
 const DeviceHealthCheck = () => {
-  const deviceHealthState = useSelector((state: RootState) => state.deviceHealth)
+  const deviceHealthState = useSelector(
+    (state: RootState) => state.deviceHealth,
+  )
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   useEffect(() => {
@@ -35,7 +37,10 @@ const DeviceHealthCheck = () => {
   }
 
   return (
-    <PageWrapperShadow rightImageSrc="./background-images/eye-background.png" imgHeight="100%">
+    <PageWrapperShadow
+      rightImageSrc="./background-images/eye-background.png"
+      imgHeight="100%"
+    >
       <YStack
         space={'$4'}
         style={{

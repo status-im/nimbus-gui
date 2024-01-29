@@ -10,7 +10,10 @@ import { getMonthIndicesFromRange } from '../../../utilities'
 
 const DeviceUptime = () => {
   const [isCalendarVisible, setIsCalendarVisible] = useState(false)
-  const [dateRange, setDateRange] = useState<DateRange>({ from: undefined, to: undefined })
+  const [dateRange, setDateRange] = useState<DateRange>({
+    from: undefined,
+    to: undefined,
+  })
   const [startMonth, endMonth] = getMonthIndicesFromRange(dateRange)
 
   const handleRangeSelect = (
@@ -59,7 +62,9 @@ const DeviceUptime = () => {
             }}
           >
             <Text size={13} weight={'semibold'}>
-              {dateRange?.from ? dateRange.from.toLocaleDateString() + '  ->' : 'Start Date -> '}{' '}
+              {dateRange?.from
+                ? dateRange.from.toLocaleDateString() + '  ->'
+                : 'Start Date -> '}{' '}
             </Text>
             <Text size={13} weight={'semibold'}>
               {dateRange?.to ? dateRange.to.toLocaleDateString() : ' End Date'}

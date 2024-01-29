@@ -8,9 +8,18 @@ type StatusIconTextProps = {
   badText: string
 }
 
-const StatusIconText = ({ percentage, threshold, goodText, badText }: StatusIconTextProps) => {
+const StatusIconText = ({
+  percentage,
+  threshold,
+  goodText,
+  badText,
+}: StatusIconTextProps) => {
   const isGood = percentage < threshold
-  const icon = isGood ? <CheckCircleIcon size={16} /> : <IncorrectIcon size={16} />
+  const icon = isGood ? (
+    <CheckCircleIcon size={16} />
+  ) : (
+    <IncorrectIcon size={16} />
+  )
   const text = isGood ? goodText : badText
 
   return <IconText icon={icon}>{text}</IconText>

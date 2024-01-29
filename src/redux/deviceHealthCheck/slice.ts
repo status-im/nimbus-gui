@@ -39,12 +39,16 @@ const deviceHealthSlice = createSlice({
       state.memory = action.payload.memory
       state.maxMemory = action.payload.maxMemory
     },
-    setNetworkHealth: (state: DeviceHealthState, action: PayloadAction<{ latency: number[] }>) => {
+    setNetworkHealth: (
+      state: DeviceHealthState,
+      action: PayloadAction<{ latency: number[] }>,
+    ) => {
       state.latency = action.payload.latency
     },
   },
 })
 
-export const { setStorage, setCpuLoad, setMemory, setNetworkHealth } = deviceHealthSlice.actions
+export const { setStorage, setCpuLoad, setMemory, setNetworkHealth } =
+  deviceHealthSlice.actions
 
 export default deviceHealthSlice.reducer

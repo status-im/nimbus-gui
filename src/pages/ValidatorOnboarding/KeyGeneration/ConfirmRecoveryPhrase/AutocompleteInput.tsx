@@ -17,9 +17,15 @@ type AutocompleteInputProps = {
 const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
   const [suggestions, setSuggestions] = useState<string[]>([])
   const [isFocused, setIsFocused] = useState(false)
-  const word = useSelector((state: RootState) => state.keyGeneration.mnemonic[index])
-  const isValidWord = useSelector((state: RootState) => state.keyGeneration.validWords[index])
-  const { validWords, generatedMnemonic } = useSelector((state: RootState) => state.keyGeneration)
+  const word = useSelector(
+    (state: RootState) => state.keyGeneration.mnemonic[index],
+  )
+  const isValidWord = useSelector(
+    (state: RootState) => state.keyGeneration.validWords[index],
+  )
+  const { validWords, generatedMnemonic } = useSelector(
+    (state: RootState) => state.keyGeneration,
+  )
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -61,10 +67,15 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
 
   const updateWord = (idx: number, word: string, validWords: boolean[]) => {
     dispatch(setWord({ index: idx, word }))
-    validWords[idx] = generatedMnemonic[idx] === word || generatedMnemonic[idx].startsWith(word)
+    validWords[idx] =
+      generatedMnemonic[idx] === word || generatedMnemonic[idx].startsWith(word)
   }
 
-  const updateMultipleWords = (words: string[], validWords: boolean[], startIndex: number = 0) => {
+  const updateMultipleWords = (
+    words: string[],
+    validWords: boolean[],
+    startIndex: number = 0,
+  ) => {
     words.forEach((word, idx) => {
       const actualIdx = startIndex + idx
       dispatch(setWord({ index: actualIdx, word }))
@@ -96,7 +107,10 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
   }
 
   return (
-    <div style={autocompleteContainerStyle(isFocused)} className={styles['autocomplete-container']}>
+    <div
+      style={autocompleteContainerStyle(isFocused)}
+      className={styles['autocomplete-container']}
+    >
       <div className={styles['input-wrapper']}>
         <span className={styles['input-number']}>{index + 1}.</span>
         <input
@@ -126,7 +140,11 @@ const AutocompleteInput = ({ index }: AutocompleteInputProps) => {
 
 export default AutocompleteInput
 
-const inputStyle = (index: number, isFocused: boolean, isValidWord: boolean) => {
+const inputStyle = (
+  index: number,
+  isFocused: boolean,
+  isValidWord: boolean,
+) => {
   const style = {
     outline: 'none',
     padding: `12px 16px 12px ${index + 1 < 10 ? '35px' : '45px'}`,

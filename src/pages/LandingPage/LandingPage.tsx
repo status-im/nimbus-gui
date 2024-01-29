@@ -17,7 +17,10 @@ const LandingPage = () => {
 
   return (
     <>
-      <PageWrapperShadow rightImageSrc="./background-images/landing-page-bg.png" imgHeight="150%">
+      <PageWrapperShadow
+        rightImageSrc="./background-images/landing-page-bg.png"
+        imgHeight="150%"
+      >
         <YStack className={styles['landing-page']}>
           <XStack pt={'70px'}>
             <NimbusLogo />
@@ -27,12 +30,16 @@ const LandingPage = () => {
               Light and performant clients, for all Ethereum validators.
             </Text>
             <Text size={15} weight="regular">
-              <strong>Nimbus Nodes</strong> allows you to take control and ownership of the services
-              you wish to run in a completely trustless and decentralized manner.
+              <strong>Nimbus Nodes</strong> allows you to take control and
+              ownership of the services you wish to run in a completely
+              trustless and decentralized manner.
             </Text>
           </YStack>
           <XStack>
-            <StatusButton icon={<NodeIcon size={20} />} onPress={onGetStartedHandler}>
+            <StatusButton
+              icon={<NodeIcon size={20} />}
+              onPress={onGetStartedHandler}
+            >
               Get Started
             </StatusButton>
           </XStack>

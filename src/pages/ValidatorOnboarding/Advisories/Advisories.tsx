@@ -11,15 +11,21 @@ import styles from './advisoriesLayout.module.css'
 
 const Advisories = () => {
   const dispatch = useDispatch()
-  const { subStepAdvisories } = useSelector((state: RootState) => state.advisories)
+  const { subStepAdvisories } = useSelector(
+    (state: RootState) => state.advisories,
+  )
   const [completedSteps, setCompletedSteps] = useState<number[]>([])
-  const [selectedTitle, setSelectedTitle] = useState<string>(Object.keys(ADVISORY_TOPICS)[0])
+  const [selectedTitle, setSelectedTitle] = useState<string>(
+    Object.keys(ADVISORY_TOPICS)[0],
+  )
 
   const unicodeNumbers = ['➀', '➁', '➂', '➃', '➄', '➅']
 
   const isCompleted = (index: number): boolean => completedSteps.includes(index)
 
-  const advisoriesIcons = unicodeNumbers.map((number, index) => (isCompleted(index) ? '✓' : number))
+  const advisoriesIcons = unicodeNumbers.map((number, index) =>
+    isCompleted(index) ? '✓' : number,
+  )
 
   useEffect(() => {
     setSelectedTitle(Object.keys(ADVISORY_TOPICS)[subStepAdvisories])
@@ -67,15 +73,23 @@ const Advisories = () => {
             >
               <Text
                 size={27}
-                weight={isCompleted(index) || isCurrent(title) ? 'semibold' : 'normal'}
-                color={isCompleted(index) || isCurrent(title) ? 'blue' : 'default'}
+                weight={
+                  isCompleted(index) || isCurrent(title) ? 'semibold' : 'normal'
+                }
+                color={
+                  isCompleted(index) || isCurrent(title) ? 'blue' : 'default'
+                }
               >
                 {advisoriesIcons[index]}
               </Text>
               <Text
                 size={19}
-                weight={isCompleted(index) || isCurrent(title) ? 'semibold' : 'normal'}
-                color={isCompleted(index) || isCurrent(title) ? 'blue' : 'default'}
+                weight={
+                  isCompleted(index) || isCurrent(title) ? 'semibold' : 'normal'
+                }
+                color={
+                  isCompleted(index) || isCurrent(title) ? 'blue' : 'default'
+                }
               >
                 {title}
               </Text>
@@ -84,7 +98,10 @@ const Advisories = () => {
         </div>
       </YStack>
 
-      <AdvisoriesContent title={selectedTitle} content={ADVISORY_TOPICS[selectedTitle]} />
+      <AdvisoriesContent
+        title={selectedTitle}
+        content={ADVISORY_TOPICS[selectedTitle]}
+      />
     </div>
   )
 }

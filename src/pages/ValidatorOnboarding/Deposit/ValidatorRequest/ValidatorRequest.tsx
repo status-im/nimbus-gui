@@ -9,7 +9,10 @@ type ValidatorRequestProps = {
   isTransactionConfirmation?: boolean
 }
 
-const ValidatorRequest = ({ name, isTransactionConfirmation }: ValidatorRequestProps) => {
+const ValidatorRequest = ({
+  name,
+  isTransactionConfirmation,
+}: ValidatorRequestProps) => {
   let transactionStatus = 'Complete'
   const isTransactionCompleted = transactionStatus === 'Complete'
 

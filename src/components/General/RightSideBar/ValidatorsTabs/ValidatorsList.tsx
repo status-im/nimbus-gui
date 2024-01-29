@@ -16,7 +16,9 @@ type Validator = {
 
 const ValidatorsList = () => {
   const [validators, setValidators] = useState([] as Validator[])
-  const [filteredValidators, setFilteredValidators] = useState([] as Validator[])
+  const [filteredValidators, setFilteredValidators] = useState(
+    [] as Validator[],
+  )
   const [searchValue, setSearchValue] = useState('')
   const dispatch = useDispatch()
 
@@ -28,7 +30,11 @@ const ValidatorsList = () => {
       },
       { name: '2', validatorAddress: 'zQ3asdf9d4Gs0' },
       { name: '3', validatorAddress: 'zQ3asdf9d4Gs0', isVerified: true },
-      { name: '4', validatorAddress: 'zQ3asdf9d4Gs0', isAvatarChipIncluded: true },
+      {
+        name: '4',
+        validatorAddress: 'zQ3asdf9d4Gs0',
+        isAvatarChipIncluded: true,
+      },
     ])
   }, [])
 
@@ -48,7 +54,10 @@ const ValidatorsList = () => {
 
   return (
     <YStack>
-      <SearchValidatorsInput searchValue={searchValue} changeSearchValue={changeSearchValue} />
+      <SearchValidatorsInput
+        searchValue={searchValue}
+        changeSearchValue={changeSearchValue}
+      />
       <YStack space={'$1'} mt={'16px'}>
         {filteredValidators.map(validator => (
           <ValidatorListItem key={validator.name} {...validator} />

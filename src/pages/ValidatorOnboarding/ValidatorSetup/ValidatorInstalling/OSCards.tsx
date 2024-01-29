@@ -18,7 +18,9 @@ const OSCards = ({ selectedOS, handleOSCardClick }: OSCardsProps) => {
       {cards.map(card => (
         <div
           key={card.name}
-          className={`${styles.osCard} ${selectedOS === card.name ? styles.osCardSelected : ''}`}
+          className={`${styles.osCard} ${
+            selectedOS === card.name ? styles.osCardSelected : ''
+          }`}
           onClick={() => handleOSCardClick(card.name)}
         >
           <OSCard key={card.name} icon={card.icon} name={card.name} />

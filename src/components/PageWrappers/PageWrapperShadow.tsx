@@ -22,7 +22,10 @@ const PageWrapperShadow = ({
   const theme = useTheme()
 
   return (
-    <div className={styles['layout']} style={{ backgroundColor: theme.background.val }}>
+    <div
+      className={styles['layout']}
+      style={{ backgroundColor: theme.background.val }}
+    >
       <section className={styles['layout-left']}>
         {breadcrumbBar}
         <div className={styles['container']}>

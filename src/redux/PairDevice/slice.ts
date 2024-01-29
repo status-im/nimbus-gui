@@ -1,6 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { BEACON, BEACON_PORT, DEFAULT_ADDRESS, VALIDATOR_CLIENT, VC_PORT } from '../../constants'
+import {
+  BEACON,
+  BEACON_PORT,
+  DEFAULT_ADDRESS,
+  VALIDATOR_CLIENT,
+  VC_PORT,
+} from '../../constants'
 
 type PairDeviceStateType = {
   isAdvanced: boolean

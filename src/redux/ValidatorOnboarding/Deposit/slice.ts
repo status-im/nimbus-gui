@@ -23,6 +23,7 @@ const depositSlice = createSlice({
   },
 })
 
-export const { setIsWalletConnected, setIsTransactionConfirmation } = depositSlice.actions
+export const { setIsWalletConnected, setIsTransactionConfirmation } =
+  depositSlice.actions
 
 export default depositSlice.reducer

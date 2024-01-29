@@ -12,12 +12,16 @@ import { getMonthIndicesFromRange } from '../../../utilities'
 import './calendar.css'
 
 const userGains = [
-  10000, 15000, 17500, 20000, 19000, 23222, 25000, 20000, 20000, 21000, 22300, 21000,
+  10000, 15000, 17500, 20000, 19000, 23222, 25000, 20000, 20000, 21000, 22300,
+  21000,
 ]
 
 const BalanceChartCard = () => {
   const [isCalendarVisible, setIsCalendarVisible] = useState(false)
-  const [dateRange, setDateRange] = useState<DateRange>({ from: undefined, to: undefined })
+  const [dateRange, setDateRange] = useState<DateRange>({
+    from: undefined,
+    to: undefined,
+  })
   const [startMonth, endMonth] = getMonthIndicesFromRange(dateRange)
   const filteredYears = years.slice(startMonth, endMonth + 1)
   const filteredUserGains = userGains.slice(startMonth, endMonth + 1)
@@ -83,7 +87,9 @@ const BalanceChartCard = () => {
             space={'$2'}
           >
             <Text size={13} weight={'semibold'}>
-              {dateRange?.from ? dateRange.from.toLocaleDateString() : `Start Date`}
+              {dateRange?.from
+                ? dateRange.from.toLocaleDateString()
+                : `Start Date`}
             </Text>
             <Text size={13} weight={'semibold'}>
               {'->'}

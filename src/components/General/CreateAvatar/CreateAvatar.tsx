@@ -34,7 +34,11 @@ const CreateAvatar = () => {
 
   return (
     <YStack>
-      <LabelInputField labelText="Device Name" placeholderText="Stake and chips" width="100%" />
+      <LabelInputField
+        labelText="Device Name"
+        placeholderText="Stake and chips"
+        width="100%"
+      />
       <XStack space={'$3'} justifyContent={'space-between'}>
         <YStack>
           <Text size={13} weight="semibold" color={'#647084'}>
@@ -43,7 +47,11 @@ const CreateAvatar = () => {
           <XStack my={10} alignItems={'end'}>
             <div className="device-avatar" style={{ background: chosenColor }}>
               {selectedEmoji ? (
-                <Emoji unified={selectedEmoji} emojiStyle={EmojiStyle.TWITTER} size={30} />
+                <Emoji
+                  unified={selectedEmoji}
+                  emojiStyle={EmojiStyle.TWITTER}
+                  size={30}
+                />
               ) : null}
             </div>
             <Avatar
@@ -59,7 +67,10 @@ const CreateAvatar = () => {
             />
             <div ref={emojiRef}>
               {isEmojiDialogOpen && (
-                <EmojiPickerDialog changeEmoji={changeEmoji} emojiStyle="TWITTER" />
+                <EmojiPickerDialog
+                  changeEmoji={changeEmoji}
+                  emojiStyle="TWITTER"
+                />
               )}
             </div>
           </XStack>

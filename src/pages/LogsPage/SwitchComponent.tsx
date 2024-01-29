@@ -4,14 +4,20 @@ type SwitchComponentProps = {
   setTimestamps: (timestamps: boolean) => void
 }
 
-const SwitchComponent = ({ timestamps, setTimestamps }: SwitchComponentProps) => {
+const SwitchComponent = ({
+  timestamps,
+  setTimestamps,
+}: SwitchComponentProps) => {
   const handleCheckedChange = () => {
     setTimestamps(!timestamps)
   }
   return (
     <Switch
       size="$1"
-      style={{ backgroundColor: timestamps ? '#4360df' : 'grey', border: 'none' }}
+      style={{
+        backgroundColor: timestamps ? '#4360df' : 'grey',
+        border: 'none',
+      }}
       checked={timestamps}
       onCheckedChange={handleCheckedChange}
     >

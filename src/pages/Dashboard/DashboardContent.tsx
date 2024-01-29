@@ -117,7 +117,8 @@ const DashboardContentLayout = (windowWidth: number) => {
       <Stack
         style={{
           display: 'grid',
-          gridTemplateColumns: windowWidth < 1240 ? '1fr 1fr' : '1fr 1fr 1fr 1fr',
+          gridTemplateColumns:
+            windowWidth < 1240 ? '1fr 1fr' : '1fr 1fr 1fr 1fr',
           gap: '8px',
         }}
       >

@@ -6,7 +6,10 @@ import { useNavigate } from 'react-router-dom'
 
 import { RootState } from '../../redux/store'
 import LinkWithArrow from '../../components/General/LinkWithArrow'
-import { setActiveStep, setSubStepValidatorSetup } from '../../redux/ValidatorOnboarding/slice'
+import {
+  setActiveStep,
+  setSubStepValidatorSetup,
+} from '../../redux/ValidatorOnboarding/slice'
 import { KEYSTORE_FILES } from '../../constants'
 import {
   setIsConfirmPhraseStage,
@@ -31,7 +34,9 @@ const ContinueButton = () => {
   const { activeStep, subStepValidatorSetup } = useSelector(
     (state: RootState) => state.validatorOnboarding,
   )
-  const { isValidatorSet } = useSelector((state: RootState) => state.validatorSetup)
+  const { isValidatorSet } = useSelector(
+    (state: RootState) => state.validatorSetup,
+  )
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -83,7 +88,9 @@ const ContinueButton = () => {
     }
 
     if (isConfirmPhraseStage) {
-      const newValidWords = mnemonic.map((w, index) => generatedMnemonic[index] === w)
+      const newValidWords = mnemonic.map(
+        (w, index) => generatedMnemonic[index] === w,
+      )
       dispatch(setValidWords(newValidWords))
 
       if (!newValidWords.includes(false)) {

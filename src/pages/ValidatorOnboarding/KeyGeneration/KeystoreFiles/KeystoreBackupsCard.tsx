@@ -32,10 +32,13 @@ const KeystoreBackupsCard = () => {
         }}
       >
         <Text size={13} color="#647084">
-          Your keystore files are loaded automatically, please secure your keystore backups for
-          recovery.
+          Your keystore files are loaded automatically, please secure your
+          keystore backups for recovery.
         </Text>
-        <img src={'/icons/download-keystore-backups-icon.svg'} alt="download-keystore-backups" />
+        <img
+          src={'/icons/download-keystore-backups-icon.svg'}
+          alt="download-keystore-backups"
+        />
       </XStack>
     </YStack>
   )

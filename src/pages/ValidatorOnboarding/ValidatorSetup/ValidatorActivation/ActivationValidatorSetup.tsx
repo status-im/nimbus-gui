@@ -28,9 +28,10 @@ const ActivationValidatorSetup = () => {
           </Text>
           <Stack>
             <Text size={19}>
-              Congratulations! You have successfully setup your Execution and Consensus clients and
-              are currently syncing your nodes. You need to be sufficiently synced prior to setting
-              up your validators and making a deposit.
+              Congratulations! You have successfully setup your Execution and
+              Consensus clients and are currently syncing your nodes. You need
+              to be sufficiently synced prior to setting up your validators and
+              making a deposit.
             </Text>
           </Stack>
           <YStack space={'$3'} marginTop={'25px'} width={'33%'}>
@@ -52,7 +53,10 @@ const ActivationValidatorSetup = () => {
             </XStack>
             <XStack space={'$3'}>
               <ActivationCard text="Validator Queue" value="92603" />
-              <ActivationCard text="Estimated Activation Time" value="32 Days" />
+              <ActivationCard
+                text="Estimated Activation Time"
+                value="32 Days"
+              />
               <ActivationCard text="Current APR" value="4.40%" />
             </XStack>
           </YStack>

@@ -37,7 +37,9 @@ const ConsensusCard = ({ value, total }: ConsensusCardProps) => {
           <Text size={15} weight={'semibold'} color="#647084">
             Consensus Client
           </Text>
-          <XStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+          <XStack
+            style={{ justifyContent: 'space-between', alignItems: 'center' }}
+          >
             <Icon src="./icons/vector.svg" height={30} width={60} />
             <Stack
               style={{

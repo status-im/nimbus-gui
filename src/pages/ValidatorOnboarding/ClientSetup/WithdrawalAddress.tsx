@@ -1,5 +1,9 @@
 import { Stack, YStack } from 'tamagui'
-import { InformationBox, Input as StatusInput, Text } from '@status-im/components'
+import {
+  InformationBox,
+  Input as StatusInput,
+  Text,
+} from '@status-im/components'
 import { ClearIcon, CloseCircleIcon } from '@status-im/icons'
 import { useState } from 'react'
 import { isAddress } from 'web3-validator'

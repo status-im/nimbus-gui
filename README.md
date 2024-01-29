@@ -14,7 +14,7 @@ https://github.com/status-im/nimbus-eth2/issues/3423
 
 ## Development Plan
 
-The initial version of the management UI will be developed as a web application, communicating with a special service called the Logos Node Management Service.
+The initial version of the management UI will be developed as a web application, communicating with a special service called the [Status Node Management Service](https://github.com/status-im/status-node-manager).
 
 As part of the [Logos](https://logos.co/) movement, Nimbus benefits from close ties to [Status](https://status.im/), a messanger that offers strong integration with Ethereum and also serves as a [mobile wallet](https://status.im/secure-wallet/) and a [DApp browser](https://zerion.io/blog/what-is-dapp-browser/). We can provide a simple interface for solo stakers who would be able to execute their validator deposits directly from the Status app in the future. The Nimbus management UI will be then embedded within the app and it will use the same design system as the app.
 
