@@ -29,6 +29,20 @@ const ContinueButton = () => {
     generatedMnemonic,
   } = useSelector((state: RootState) => state.keyGeneration)
 
+  const stepToPathMap: (string | string[])[] = [
+    '/validator-onboarding/overview',
+    '/validator-onboarding/advisories',
+    [
+      '/validator-onboarding/validator-setup',
+      '/validator-onboarding/validator-setup-install',
+      '/validator-onboarding/consensus-selection',
+      '/validator-onboarding/activation-validator-setup',
+    ],
+    '/validator-onboarding/client-setup',
+    '/validator-onboarding/key-generation',
+    '/validator-onboarding/deposit',
+    '/dashboard',
+  ]
   const { activeStep, subStepValidatorSetup } = useSelector(
     (state: RootState) => state.validatorOnboarding,
   )
@@ -97,21 +111,22 @@ const ContinueButton = () => {
   }
 
   const continueHandler = () => {
-    if (activeStep === 1) {
-      handleStep1()
-    } else if (activeStep === 2) {
-      handleStep2()
-    } else if (activeStep === 4) {
-      handleStep4()
-    } else {
-      if (activeStep < 6) {
-        dispatch(setActiveStep(activeStep + 1))
-      } else {
-        navigate('/dashboard')
-      }
-    }
-  }
+    let nextPath: string
 
+    if (activeStep === 2) {
+      const paths = stepToPathMap[activeStep]
+      if (Array.isArray(paths)) {
+        nextPath = paths[subStepValidatorSetup + 1] || '/dashboard'
+      } else {
+        nextPath = '/dashboard'
+      }
+    } else {
+      const path = stepToPathMap[activeStep + 1]
+      nextPath = typeof path === 'string' ? path : '/dashboard'
+    }
+
+    navigate(nextPath)
+  }
   return (
     <XStack
       style={{
