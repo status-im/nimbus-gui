@@ -5,38 +5,11 @@ import Confetti from 'react-confetti'
 
 import ActivationCard from './ActivationCard'
 import LinkWithArrow from '../../../components/General/LinkWithArrow'
+import { useWindowSize } from '../../../hooks/useWindowSize'
 
-type ActivationProps = {
-  validatorsValue: string
-  executionSyncStatus1: {
-    text: string
-    isGaugeIncluded: boolean
-    gaugeColor: string
-    gaugeSynced: number
-    gaugeTotal: number
-  }
-  executionSyncStatus2: {
-    text: string
-    isGaugeIncluded: boolean
-    gaugeColor: string
-    gaugeSynced: number
-    gaugeTotal: number
-  }
-  currentAPRValue: string
-  estimatedActivationTimeValue: string
-  validatorQueueValue: string
-}
-
-const Activation = ({
-  validatorsValue,
-  executionSyncStatus1,
-  executionSyncStatus2,
-  currentAPRValue,
-  estimatedActivationTimeValue,
-  validatorQueueValue,
-}: ActivationProps) => {
+const Activation = () => {
   const [showConfetti, setShowConfetti] = useState(true)
-
+  const windowSize = useWindowSize()
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowConfetti(false)
@@ -61,19 +34,27 @@ const Activation = ({
               syncing your nodes.
             </Text>
           </Stack>
-          <YStack space={'$3'} marginTop={'25px'} width={'33%'}>
-            <XStack space={'$3'} justifyContent={'space-between'}>
-              <ActivationCard text="Validators" value={validatorsValue} />
-              <ActivationCard {...executionSyncStatus1} />
-              <ActivationCard {...executionSyncStatus2} />
-            </XStack>
-            <XStack space={'$3'}>
-              <ActivationCard text="Current APR" value={currentAPRValue} />
+          <YStack space={'$3'} marginTop={'25px'}>
+            <XStack space={'$3'} width="100%" flexWrap={windowSize.width < 780 ? 'wrap' : 'nowrap'}>
               <ActivationCard
-                text="Estimated Activation Time"
-                value={estimatedActivationTimeValue}
+                text="Execution Sync Status"
+                isGaugeIncluded={true}
+                gaugeColor={'#2a4af5'}
+                gaugeSynced={123.524}
+                gaugeTotal={172.503}
               />
-              <ActivationCard text="Validator Queue" value={validatorQueueValue} />
+              <ActivationCard
+                text="Execution Sync Status"
+                isGaugeIncluded={true}
+                gaugeColor={'#EB5757'}
+                gaugeSynced={123.524}
+                gaugeTotal={172.503}
+              />
+            </XStack>
+            <XStack space={'$3'} flexWrap={windowSize.width < 780 ? 'wrap' : 'nowrap'} width="100%">
+              <ActivationCard text="Validator Queue" value="92603" />
+              <ActivationCard text="Estimated Activation Time" value="32 Days" />
+              <ActivationCard text="Current APR" value="4.40%" isLast={true} />
             </XStack>
           </YStack>
         </YStack>
