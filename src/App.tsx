@@ -81,28 +81,7 @@ const router = createBrowserRouter([
       { path: 'deposit', element: <Deposit /> },
       {
         path: 'activation',
-        element: (
-          <Activation
-            validatorsValue="4"
-            executionSyncStatus1={{
-              text: 'Execution Sync Status',
-              isGaugeIncluded: true,
-              gaugeColor: '$blue',
-              gaugeSynced: 123.524,
-              gaugeTotal: 172.503,
-            }}
-            executionSyncStatus2={{
-              text: 'Execution Sync Status',
-              isGaugeIncluded: true,
-              gaugeColor: '$red',
-              gaugeSynced: 123.524,
-              gaugeTotal: 172.503,
-            }}
-            currentAPRValue="4.40%"
-            estimatedActivationTimeValue="32 Days"
-            validatorQueueValue="92603"
-          />
-        ),
+        element: <Activation />,
       },
     ],
     element: <ValidatorOnboarding />,
