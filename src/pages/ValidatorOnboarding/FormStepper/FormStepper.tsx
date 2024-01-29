@@ -95,6 +95,9 @@ const FormStepper = ({ activeStep }: FormStepperProps) => {
             completed={activeStep > originalIndex - 1}
             data-subtitle={step.subtitle}
             data-step={step.label}
+            style={
+              originalIndex === activeStep ? { backgroundColor: stepStyle.currentBgColor } : {}
+            }
           />
         )
       })}
@@ -121,6 +124,7 @@ const stepStyle = {
   labelFontSize: '13px',
   borderRadius: '50%',
   fontWeight: 700,
+  currentBgColor: '#808080',
 }
 
 const customConnectorStyle = {
