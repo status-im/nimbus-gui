@@ -1,25 +1,36 @@
-import { Stack, XStack } from 'tamagui'
-import { Button, InformationBox } from '@status-im/components'
-import { CloseCircleIcon } from '@status-im/icons'
-
-import { useDispatch, useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-
-import { RootState } from '../../redux/store'
-import LinkWithArrow from '../../components/General/LinkWithArrow'
-import { setActiveStep, setSubStepValidatorSetup } from '../../redux/ValidatorOnboarding/slice'
-import { KEYSTORE_FILES } from '../../constants'
-import {
-  setIsConfirmPhraseStage,
-  setIsCopyPastedPhrase,
-  setValidWords,
-} from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
-import { useWindowSize } from '../../hooks/useWindowSize'
+import { Stack, XStack } from 'tamagui';
+import { Button, InformationBox } from '@status-im/components';
+import { CloseCircleIcon } from '@status-im/icons';
+import { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
+import LinkWithArrow from '../../components/General/LinkWithArrow';
+import { useWindowSize } from '../../hooks/useWindowSize';
 
 const ContinueButton = () => {
-  const windowSize = useWindowSize()
-  const [isDisabled, setIsDisabled] = useState(false)
+  const windowSize = useWindowSize();
+  const [isDisabled, setIsDisabled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Derive the active step index based on the current URL
+  const pathToStepMap = {
+    '/validator-onboarding/overview': 0,
+    '/validator-onboarding/advisories': 1,
+    '/validator-onboarding/validator-setup': 2,
+    '/validator-onboarding/validator-setup-install': 3,
+    '/validator-onboarding/consensus-selection': 4,
+    '/validator-onboarding/activation-validator-setup': 5,
+    '/validator-onboarding/client-setup': 6,
+    '/validator-onboarding/key-generation': 7,
+    '/validator-onboarding/deposit': 8,
+    '/validator-onboarding/activation': 9,
+    // Add more mappings as needed
+  };
+
+  const activeStep = pathToStepMap[location.pathname] || 0;
+
   const {
     isCopyPastedPhrase,
     mnemonic,
@@ -27,115 +38,60 @@ const ContinueButton = () => {
     isConfirmPhraseStage,
     recoveryMechanism,
     generatedMnemonic,
-  } = useSelector((state: RootState) => state.keyGeneration)
+  } = useSelector((state: RootState) => state.keyGeneration);
 
-  const stepToPathMap: (string | string[])[] = [
-    '/validator-onboarding/overview',
-    '/validator-onboarding/advisories',
-    [
-      '/validator-onboarding/validator-setup',
-      '/validator-onboarding/validator-setup-install',
-      '/validator-onboarding/consensus-selection',
-      '/validator-onboarding/activation-validator-setup',
-    ],
-    '/validator-onboarding/client-setup',
-    '/validator-onboarding/key-generation',
-    '/validator-onboarding/deposit',
-    '/dashboard',
-  ]
-  const { activeStep, subStepValidatorSetup } = useSelector(
-    (state: RootState) => state.validatorOnboarding,
-  )
-  const { isValidatorSet } = useSelector((state: RootState) => state.validatorSetup)
-
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const isActivationValScreen = activeStep === 3 && subStepValidatorSetup === 3
+  const { isValidatorSet } = useSelector((state: RootState) => state.validatorSetup);
 
   useEffect(() => {
     const getDisabledButton = () => {
-      if (activeStep === 4 && isConfirmPhraseStage) {
+      if (activeStep === 7 && isConfirmPhraseStage) {
         if (
           validWords.some(w => w === false) ||
           generatedMnemonic.some((w, i) => w !== mnemonic[i])
         ) {
-          return true
+          return true;
         }
-      } else if (activeStep === 3 && !isValidatorSet) {
-        return true
+      } else if (activeStep === 6 && !isValidatorSet) {
+        return true;
       }
-      return false
-    }
+      return false;
+    };
 
-    setIsDisabled(getDisabledButton())
+    setIsDisabled(getDisabledButton());
   }, [
     activeStep,
-    subStepValidatorSetup,
     isConfirmPhraseStage,
     mnemonic,
     validWords,
     isValidatorSet,
-  ])
-
-  const handleStep1 = () => {
-    dispatch(setActiveStep(activeStep + 1))
-  }
-
-  const handleStep2 = () => {
-    if (subStepValidatorSetup === 3) {
-      return dispatch(setActiveStep(activeStep + 1))
-    }
-    dispatch(setSubStepValidatorSetup(subStepValidatorSetup + 1))
-  }
-
-  const handleStep4 = () => {
-    if (!isConfirmPhraseStage && recoveryMechanism === KEYSTORE_FILES) {
-      return dispatch(setActiveStep(activeStep + 1))
-    }
-
-    if (!isConfirmPhraseStage) {
-      return dispatch(setIsConfirmPhraseStage(true))
-    }
-
-    if (isConfirmPhraseStage) {
-      const newValidWords = mnemonic.map((w, index) => generatedMnemonic[index] === w)
-      dispatch(setValidWords(newValidWords))
-
-      if (!newValidWords.includes(false)) {
-        dispatch(setActiveStep(activeStep + 1))
-        if (isCopyPastedPhrase) {
-          dispatch(setIsCopyPastedPhrase(false))
-        }
-      }
-    }
-  }
+  ]);
 
   const continueHandler = () => {
-    let nextPath: string
-
-    if (activeStep === 2) {
-      const paths = stepToPathMap[activeStep]
-      if (Array.isArray(paths)) {
-        nextPath = paths[subStepValidatorSetup + 1] || '/dashboard'
-      } else {
-        nextPath = '/dashboard'
-      }
-    } else {
-      const path = stepToPathMap[activeStep + 1]
-      nextPath = typeof path === 'string' ? path : '/dashboard'
+    // Logic to determine the next path based on activeStep
+    // For example, if activeStep is 1 (advisories), navigate to step 2's URL
+    let nextPath;
+    switch(activeStep) {
+      case 0: nextPath = '/validator-onboarding/advisories'; break;
+      case 1: nextPath = '/validator-onboarding/validator-setup'; break;
+      case 2: nextPath = '/validator-onboarding/validator-setup-install'; break;
+      case 3: nextPath = '/validator-onboarding/consensus-selection'; break;
+      case 4: nextPath = '/validator-onboarding/activation-validator-setup'; break;
+      case 5: nextPath = '/validator-onboarding/client-setup'; break;
+      case 6: nextPath = '/validator-onboarding/key-generation'; break;
+      case 7: nextPath = '/validator-onboarding/deposit'; break;
+      case 8: nextPath = '/validator-onboarding/activation'; break;
+      case 9: nextPath = '/dashboard'; break;
+      default: nextPath = '/validator-onboarding/overview';
     }
 
-    navigate(nextPath)
-  }
+    navigate(nextPath);
+  };
+
   return (
     <XStack
       style={{
         width: '100%',
-        justifyContent: isActivationValScreen
-          ? 'space-between'
-          : windowSize.width < 560
-          ? 'start'
-          : 'end',
+        justifyContent: windowSize.width < 560 ? 'start' : 'end',
         alignItems: 'center',
         zIndex: 1000,
         marginTop: '21px',
@@ -150,19 +106,17 @@ const ContinueButton = () => {
           />
         </Stack>
       )}
-      {isActivationValScreen && (
-        <LinkWithArrow
-          text="Skip to Dashboard"
-          to="/dashboard"
-          arrowRight={true}
-          style={{ fontWeight: 'bold', zIndex: 999 }}
-        />
-      )}
+      <LinkWithArrow
+        text="Skip to Dashboard"
+        to="/dashboard"
+        arrowRight={true}
+        style={{ fontWeight: 'bold', zIndex: 999 }}
+      />
       <Button onPress={continueHandler} size={40} disabled={isDisabled}>
         {activeStep < 6 ? 'Continue' : 'Continue to Dashboard'}
       </Button>
     </XStack>
-  )
-}
+  );
+};
 
-export default ContinueButton
+export default ContinueButton;
