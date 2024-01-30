@@ -9,7 +9,7 @@ type DepositState = {
 const initialState: DepositState = {
   isWalletConnected: false,
   isTransactionConfirmation: false,
-  isChainParity: true,
+  isChainParity: false,
 }
 
 const depositSlice = createSlice({
