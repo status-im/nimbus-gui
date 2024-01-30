@@ -12,7 +12,9 @@ import styles from './layoutGradient.module.css'
 import { Outlet } from 'react-router-dom'
 
 const ValidatorOnboarding = () => {
-  const { activeStep } = useSelector((state: RootState) => state.validatorOnboarding)
+  const { activeStep } = useSelector(
+    (state: RootState) => state.validatorOnboarding,
+  )
   const windowSize = useWindowSize()
 
   return (

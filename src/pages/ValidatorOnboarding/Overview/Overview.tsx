@@ -12,7 +12,12 @@ const Overview = () => {
       imgHeight="250%"
       rightImageSrc="./background-images/sync-status-background.png"
     >
-      <YStack space={'$5'} marginTop={'2rem'} marginBottom={'2rem'} width="100%">
+      <YStack
+        space={'$5'}
+        marginTop={'2rem'}
+        marginBottom={'2rem'}
+        width="100%"
+      >
         <Stack marginBottom={'$2'}>
           <Text size={27} weight={'semibold'}>
             Overview

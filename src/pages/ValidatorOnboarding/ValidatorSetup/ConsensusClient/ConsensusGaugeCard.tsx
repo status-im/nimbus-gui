@@ -13,7 +13,12 @@ type ConsensusGaugeCardProps = {
   color: string
 }
 
-const ConsensusGaugeCard = ({ synced, total, title, color }: ConsensusGaugeCardProps) => {
+const ConsensusGaugeCard = ({
+  synced,
+  total,
+  title,
+  color,
+}: ConsensusGaugeCardProps) => {
   const windowSize = useWindowSize()
   return (
     <Stack

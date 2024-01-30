@@ -19,12 +19,9 @@ const clientIcons = {
 
 const ConsensusSelection = () => {
   const windowSize = useWindowSize()
-  const selectedClient = useSelector((state: RootState) => state.execClient.selectedClient) as
-    | 'Nethermind'
-    | 'Besu'
-    | 'Geth'
-    | 'Erigon'
-    | 'Nimbus'
+  const selectedClient = useSelector(
+    (state: RootState) => state.execClient.selectedClient,
+  ) as 'Nethermind' | 'Besu' | 'Geth' | 'Erigon' | 'Nimbus'
 
   const clients = [
     {

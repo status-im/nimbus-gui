@@ -46,9 +46,15 @@ const ContinueButton = () => {
     '/validator-onboarding/deposit': 8,
     '/validator-onboarding/activation': 9,
   }
-  dispatch(setActiveStep(pathToStepMap[location.pathname as keyof typeof pathToStepMap] || 0))
+  dispatch(
+    setActiveStep(
+      pathToStepMap[location.pathname as keyof typeof pathToStepMap] || 0,
+    ),
+  )
 
-  const { isValidatorSet } = useSelector((state: RootState) => state.validatorSetup)
+  const { isValidatorSet } = useSelector(
+    (state: RootState) => state.validatorSetup,
+  )
 
   const navigate = useNavigate()
 
@@ -105,10 +111,14 @@ const ContinueButton = () => {
   const continueHandler = () => {
     let nextPath
     if (activeStep === 0) nextPath = '/validator-onboarding/advisories'
-    else if (activeStep === 1) nextPath = '/validator-onboarding/validator-setup'
-    else if (activeStep === 2) nextPath = '/validator-onboarding/validator-setup-install'
-    else if (activeStep === 3) nextPath = '/validator-onboarding/consensus-selection'
-    else if (activeStep === 4) nextPath = '/validator-onboarding/activation-validator-setup'
+    else if (activeStep === 1)
+      nextPath = '/validator-onboarding/validator-setup'
+    else if (activeStep === 2)
+      nextPath = '/validator-onboarding/validator-setup-install'
+    else if (activeStep === 3)
+      nextPath = '/validator-onboarding/consensus-selection'
+    else if (activeStep === 4)
+      nextPath = '/validator-onboarding/activation-validator-setup'
     else if (activeStep === 5) {
       nextPath = '/validator-onboarding/client-setup'
     } else if (activeStep === 6) {

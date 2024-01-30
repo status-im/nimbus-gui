@@ -25,7 +25,11 @@ const FormStepper = ({ activeStep }: FormStepperProps) => {
     '/validator-onboarding/activation',
   ]
 
-  const getIsStepVisible = (index: number, stepsBefore: number, stepsAfter: number) => {
+  const getIsStepVisible = (
+    index: number,
+    stepsBefore: number,
+    stepsAfter: number,
+  ) => {
     const totalSteps = FORM_STEPS.length
     let start = activeStep - stepsBefore
     let end = activeStep + stepsAfter
@@ -96,7 +100,9 @@ const FormStepper = ({ activeStep }: FormStepperProps) => {
             data-subtitle={step.subtitle}
             data-step={step.label}
             style={
-              originalIndex === activeStep ? { backgroundColor: stepStyle.currentBgColor } : {}
+              originalIndex === activeStep
+                ? { backgroundColor: stepStyle.currentBgColor }
+                : {}
             }
           />
         )

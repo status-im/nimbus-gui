@@ -36,7 +36,11 @@ const ActivationValidatorSetup = () => {
             </Text>
           </Stack>
           <YStack space={'$3'} marginTop={'25px'}>
-            <XStack space={'$3'} width="100%" flexWrap={windowSize.width < 780 ? 'wrap' : 'nowrap'}>
+            <XStack
+              space={'$3'}
+              width="100%"
+              flexWrap={windowSize.width < 780 ? 'wrap' : 'nowrap'}
+            >
               <ActivationCard
                 text="Execution Sync Status"
                 isGaugeIncluded={true}
@@ -52,9 +56,16 @@ const ActivationValidatorSetup = () => {
                 gaugeTotal={172.503}
               />
             </XStack>
-            <XStack space={'$3'} flexWrap={windowSize.width < 780 ? 'wrap' : 'nowrap'} width="100%">
+            <XStack
+              space={'$3'}
+              flexWrap={windowSize.width < 780 ? 'wrap' : 'nowrap'}
+              width="100%"
+            >
               <ActivationCard text="Validator Queue" value="92603" />
-              <ActivationCard text="Estimated Activation Time" value="32 Days" />
+              <ActivationCard
+                text="Estimated Activation Time"
+                value="32 Days"
+              />
               <ActivationCard text="Current APR" value="4.40%" isLast={true} />
             </XStack>
           </YStack>

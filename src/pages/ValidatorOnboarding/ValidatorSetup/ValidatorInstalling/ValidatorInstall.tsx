@@ -24,7 +24,9 @@ function extractBashCommands(documentation: any) {
 const ValidatorSetupInstall = () => {
   const dispatch = useDispatch()
   const [selectedOS, setSelectedOS] = useState(MAC)
-  const selectedClient = useSelector((state: RootState) => state.execClient.selectedClient)
+  const selectedClient = useSelector(
+    (state: RootState) => state.execClient.selectedClient,
+  )
   const docText = DOCUMENTATIONS[selectedClient].documentation[selectedOS]
   const bashCommands = extractBashCommands(docText)
 
@@ -72,9 +74,16 @@ const ValidatorSetupInstall = () => {
         </Text>
         <Stack>
           <Markdown children={DOCUMENTATIONS[selectedClient].general} />
-          <OSCards selectedOS={selectedOS} handleOSCardClick={handleOSCardClick} />
+          <OSCards
+            selectedOS={selectedOS}
+            handleOSCardClick={handleOSCardClick}
+          />
           <Stack onPress={() => copyCommands()}>
-            <Markdown children={DOCUMENTATIONS[selectedClient].documentation[selectedOS]} />
+            <Markdown
+              children={
+                DOCUMENTATIONS[selectedClient].documentation[selectedOS]
+              }
+            />
           </Stack>
         </Stack>
       </YStack>

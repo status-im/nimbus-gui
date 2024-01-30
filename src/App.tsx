@@ -75,7 +75,10 @@ const router = createBrowserRouter([
       { path: 'validator-setup', element: <ValidatorSetup /> },
       { path: 'validator-setup-install', element: <ValidatorSetupInstall /> },
       { path: 'consensus-selection', element: <ConsensusSelection /> },
-      { path: 'activation-validator-setup', element: <ActivationValidatorSetup /> },
+      {
+        path: 'activation-validator-setup',
+        element: <ActivationValidatorSetup />,
+      },
       { path: 'client-setup', element: <ClientSetup /> },
       { path: 'key-generation', element: <KeyGeneration /> },
       { path: 'deposit', element: <Deposit /> },
