@@ -9,7 +9,6 @@ type ActivationCardProps = {
   gaugeColor?: string
   gaugeSynced?: number
   gaugeTotal?: number
-  isLast?: boolean
 }
 
 const ActivationCard = ({
@@ -19,7 +18,6 @@ const ActivationCard = ({
   gaugeColor,
   gaugeSynced,
   gaugeTotal,
-  isLast,
 }: ActivationCardProps) => {
   return (
     <YStack
@@ -28,8 +26,8 @@ const ActivationCard = ({
         border: '1px solid rgba(0, 0, 0, 0.15)',
         padding: '12px 16px',
         backgroundColor: '#FFF',
-        marginBottom: !isLast && '10px',
         flex: 1,
+        margin: '8px',
       }}
     >
       {!isGaugeIncluded && (
