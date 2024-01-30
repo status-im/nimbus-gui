@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { RootState } from '../../redux/store'
 import LinkWithArrow from '../../components/General/LinkWithArrow'
-import { setActiveStep, setSubStepValidatorSetup } from '../../redux/ValidatorOnboarding/slice'
+import { setActiveStep } from '../../redux/ValidatorOnboarding/slice'
 import { KEYSTORE_FILES } from '../../constants'
 import {
   setIsConfirmPhraseStage,
