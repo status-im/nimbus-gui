@@ -66,7 +66,11 @@ const SyncStatus = ({
         />
       </XStack>
       {isPairing ? (
-        <Text size={15} color={isAwaitingPairing ? '#EB5757' : '#09101C'} weight={'semibold'}>
+        <Text
+          size={15}
+          color={isAwaitingPairing ? '#EB5757' : '#09101C'}
+          weight={'semibold'}
+        >
           Awaiting pairing connection...
         </Text>
       ) : (

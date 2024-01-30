@@ -88,7 +88,9 @@ const ContinueButton = () => {
     }
 
     if (isConfirmPhraseStage) {
-      const newValidWords = mnemonic.map((w, index) => generatedMnemonic[index] === w)
+      const newValidWords = mnemonic.map(
+        (w, index) => generatedMnemonic[index] === w,
+      )
       dispatch(setValidWords(newValidWords))
 
       if (!newValidWords.includes(false)) {

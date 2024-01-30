@@ -5,7 +5,9 @@ import { Stack } from 'tamagui'
 const DropdownFilter = () => {
   return (
     <DropdownMenu>
-      <Stack style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+      <Stack
+        style={{ position: 'relative', display: 'flex', alignItems: 'center' }}
+      >
         <SortIcon
           size={20}
           color="#647084"

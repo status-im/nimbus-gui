@@ -9,7 +9,11 @@ type RecoveryMechanismProps = {
   icon: string
 }
 
-const RecoveryMechanismCard = ({ value, recoveryMechanism, icon }: RecoveryMechanismProps) => {
+const RecoveryMechanismCard = ({
+  value,
+  recoveryMechanism,
+  icon,
+}: RecoveryMechanismProps) => {
   const dispatch = useDispatch()
 
   const handleRecMechanismChange = () => {
@@ -19,7 +23,9 @@ const RecoveryMechanismCard = ({ value, recoveryMechanism, icon }: RecoveryMecha
   return (
     <div
       style={{
-        border: `1px solid ${recoveryMechanism === value ? '#2A4AF566' : '#DCE0E5'}`,
+        border: `1px solid ${
+          recoveryMechanism === value ? '#2A4AF566' : '#DCE0E5'
+        }`,
         borderRadius: '16px',
         padding: '12px 16px',
         cursor: 'pointer',
@@ -33,7 +39,9 @@ const RecoveryMechanismCard = ({ value, recoveryMechanism, icon }: RecoveryMecha
         {value}
       </Text>
       {icon && (
-        <div style={{ display: 'flex', justifyContent: 'end', marginTop: '16px' }}>
+        <div
+          style={{ display: 'flex', justifyContent: 'end', marginTop: '16px' }}
+        >
           <img src={`/icons/${icon}`} alt="logo" />
         </div>
       )}

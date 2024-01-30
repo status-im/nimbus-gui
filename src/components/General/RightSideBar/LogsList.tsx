@@ -34,7 +34,10 @@ const LogsList = () => {
         <Text size={15} weight={'semibold'}>
           Logs
         </Text>
-        <ChevronRightIcon size={20} style={{ marginRight: '8px', cursor: 'pointer' }} />
+        <ChevronRightIcon
+          size={20}
+          style={{ marginRight: '8px', cursor: 'pointer' }}
+        />
       </XStack>
       {logs.map(log => (
         <InformationBox

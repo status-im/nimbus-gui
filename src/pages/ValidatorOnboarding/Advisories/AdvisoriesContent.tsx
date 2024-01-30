@@ -34,7 +34,11 @@ const AdvisoriesContent = ({ title, content }: AdvisoriesContentProps) => {
         <Text size={15} weight={'semibold'}>
           <Link
             to={'https://github.com/ethereum/consensus-specs'}
-            style={{ textDecorationLine: 'underline', color: '#2A4CF4', fontWeight: 'bold' }}
+            style={{
+              textDecorationLine: 'underline',
+              color: '#2A4CF4',
+              fontWeight: 'bold',
+            }}
           >
             More on slashing risks
           </Link>

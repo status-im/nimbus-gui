@@ -32,7 +32,9 @@ const WrapperComponent = ({ initialCount, label }: WrapperComponentProps) => {
   )
 }
 
-export const Default = () => <WrapperComponent initialCount={2} label={DEPOSIT_SUBTITLE} />
+export const Default = () => (
+  <WrapperComponent initialCount={2} label={DEPOSIT_SUBTITLE} />
+)
 
 export const ClientSetupLabel = () => (
   <WrapperComponent initialCount={2} label={CLIENT_SETUP_SUBTITLE} />
@@ -46,6 +48,10 @@ export const WithoutValidatorCount = () => (
   <WrapperComponent initialCount={0} label={DEPOSIT_SUBTITLE} />
 )
 
-export const WithoutLabel = () => <WrapperComponent initialCount={2} label={''} />
+export const WithoutLabel = () => (
+  <WrapperComponent initialCount={2} label={''} />
+)
 
-export const WithoutValues = () => <WrapperComponent initialCount={0} label={''} />
+export const WithoutValues = () => (
+  <WrapperComponent initialCount={0} label={''} />
+)

@@ -38,7 +38,10 @@ const ConnectedWallet = () => {
           type="icon"
           size={32}
           icon={
-            <img src={'/icons/connected-wallet-eth-logo.svg'} alt="connected-wallet-eth-logo" />
+            <img
+              src={'/icons/connected-wallet-eth-logo.svg'}
+              alt="connected-wallet-eth-logo"
+            />
           }
         />
         <YStack>

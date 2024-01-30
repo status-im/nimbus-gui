@@ -9,7 +9,11 @@ type ActivationSyncCardProps = {
   gaugeTotal: number
 }
 
-const ActivationSyncCard = ({ gaugeColor, gaugeSynced, gaugeTotal }: ActivationSyncCardProps) => {
+const ActivationSyncCard = ({
+  gaugeColor,
+  gaugeSynced,
+  gaugeTotal,
+}: ActivationSyncCardProps) => {
   return (
     <XStack space={'$2'} alignItems="center">
       <Stack
@@ -37,7 +41,8 @@ const ActivationSyncCard = ({ gaugeColor, gaugeSynced, gaugeTotal }: ActivationS
       </Stack>
       <YStack>
         <Text size={15} weight={'semibold'}>
-          {formatNumbersWithComa(gaugeSynced)} / {formatNumbersWithComa(gaugeTotal)}
+          {formatNumbersWithComa(gaugeSynced)} /{' '}
+          {formatNumbersWithComa(gaugeTotal)}
         </Text>
       </YStack>
     </XStack>

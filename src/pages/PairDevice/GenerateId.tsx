@@ -53,16 +53,22 @@ const GenerateId = ({ isAwaitingPairing }: GenerateIdProps) => {
         <Input
           placeholder={'nimbus pair <random-pairing-id>'}
           icon={
-            <CopyIcon size={20} onClick={copyGeneratedIdHandler} style={{ cursor: 'pointer' }} />
+            <CopyIcon
+              size={20}
+              onClick={copyGeneratedIdHandler}
+              style={{ cursor: 'pointer' }}
+            />
           }
           value={generatedId}
           error={isAwaitingPairing}
         />
       </YStack>
       <StatusText size={13} weight={'medium'} color={'#647084'}>
-        Please execute the following command with your randomly generated pairing id on the machine
-        where the Nimbus Service is running.{' '}
-        <Text style={{ fontStyle: 'italic', fontWeight: 'normal' }}>Learn how with our </Text>
+        Please execute the following command with your randomly generated
+        pairing id on the machine where the Nimbus Service is running.{' '}
+        <Text style={{ fontStyle: 'italic', fontWeight: 'normal' }}>
+          Learn how with our{' '}
+        </Text>
         <Link style={{ textDecoration: 'underline', color: 'inherit' }} to="/">
           Documentation
         </Link>

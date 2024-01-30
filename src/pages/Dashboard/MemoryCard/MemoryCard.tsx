@@ -37,7 +37,9 @@ const MemoryCard = ({ currentMemory, maxMemory }: MemoryCardProps) => {
   ]
 
   const currentLoad =
-    chartData[0].data.length > 0 ? chartData[0].data[chartData[0].data.length - 1].y : 0
+    chartData[0].data.length > 0
+      ? chartData[0].data[chartData[0].data.length - 1].y
+      : 0
 
   const message = currentLoad < maxMemory ? 'Good' : 'Poor'
 
@@ -59,7 +61,14 @@ const MemoryCard = ({ currentMemory, maxMemory }: MemoryCardProps) => {
           }}
         >
           <Stack
-            style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, padding: '4px' }}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              padding: '4px',
+            }}
           >
             <StandardLineChart data={chartData} />
           </Stack>
@@ -77,7 +86,13 @@ const MemoryCard = ({ currentMemory, maxMemory }: MemoryCardProps) => {
 
         <XStack space={'$4'} style={{ padding: '10px 16px' }}>
           <IconText
-            icon={message === 'Good' ? <CheckCircleIcon size={16} /> : <IncorrectIcon size={16} />}
+            icon={
+              message === 'Good' ? (
+                <CheckCircleIcon size={16} />
+              ) : (
+                <IncorrectIcon size={16} />
+              )
+            }
           >
             {message}
           </IconText>

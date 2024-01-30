@@ -34,7 +34,9 @@ const ExecutionClientCard = ({ value, total }: ExecutionClientCardProps) => {
           <Text size={15} weight={'semibold'} color="#647084">
             Execution Client
           </Text>
-          <XStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+          <XStack
+            style={{ justifyContent: 'space-between', alignItems: 'center' }}
+          >
             <Text size={19} weight={'semibold'}>
               Geth
             </Text>

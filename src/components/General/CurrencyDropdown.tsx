@@ -11,7 +11,11 @@ type CurrencyDropdownProps = {
 const CurrencyDropdown = ({ changeCurrency }: CurrencyDropdownProps) => {
   return (
     <DropdownMenu>
-      <Button variant="ghost" size={24} icon={<ChevronDownIcon size={16} color={'#919191'} />} />
+      <Button
+        variant="ghost"
+        size={24}
+        icon={<ChevronDownIcon size={16} color={'#919191'} />}
+      />
       <DropdownMenu.Content sideOffset={10} position="absolute" zIndex={999}>
         {Object.keys(CURRENCIES).map(currency => (
           <DropdownMenu.Item

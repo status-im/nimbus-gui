@@ -9,7 +9,10 @@ interface DeviceStorageHealthProps {
   synced: number
   total: number
 }
-const SyncStatusCardExecution: React.FC<DeviceStorageHealthProps> = ({ synced, total }) => {
+const SyncStatusCardExecution: React.FC<DeviceStorageHealthProps> = ({
+  synced,
+  total,
+}) => {
   const message = synced === total ? 'Synced all data' : 'Syncing'
 
   const data = () => {
@@ -52,7 +55,9 @@ const SyncStatusCardExecution: React.FC<DeviceStorageHealthProps> = ({ synced, t
             <Text size={15} color="#84888e" weight={'semibold'}>
               Execution Client
             </Text>
-            <XStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+            <XStack
+              style={{ justifyContent: 'space-between', alignItems: 'center' }}
+            >
               <Text color={'#09101C'} size={27} weight={'semibold'}>
                 Geth
               </Text>

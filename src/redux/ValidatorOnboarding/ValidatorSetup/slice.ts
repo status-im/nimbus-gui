@@ -11,7 +11,10 @@ const validatorSetup = createSlice({
   name: 'validatorSetup',
   initialState,
   reducers: {
-    setIsValidatorSet: (state: ValidatorSetupState, action: PayloadAction<boolean>) => {
+    setIsValidatorSet: (
+      state: ValidatorSetupState,
+      action: PayloadAction<boolean>,
+    ) => {
       state.isValidatorSet = action.payload
     },
   },

@@ -18,7 +18,13 @@ type InputsRowProps = {
   isChecked?: boolean
 }
 
-const InputsRow = ({ addressType, portType, address, port, isSwitchOn }: InputsRowProps) => {
+const InputsRow = ({
+  addressType,
+  portType,
+  address,
+  port,
+  isSwitchOn,
+}: InputsRowProps) => {
   const { isAdvanced, beaconPort, vcPort, isNodeSwitchOn } = useSelector(
     (state: RootState) => state.pairDevice,
   )
@@ -29,7 +35,10 @@ const InputsRow = ({ addressType, portType, address, port, isSwitchOn }: InputsR
     : { backgroundColor: 'grey' }
 
   const onSwitchChange = (value: boolean) => {
-    dispatch({ type: 'pairDevice/setIsSwitchOn', payload: { value, switchType: addressType } })
+    dispatch({
+      type: 'pairDevice/setIsSwitchOn',
+      payload: { value, switchType: addressType },
+    })
   }
 
   const onAddressChange = (value: string) => {
@@ -40,7 +49,11 @@ const InputsRow = ({ addressType, portType, address, port, isSwitchOn }: InputsR
     if (isAdvanced) {
       return isAddressValid(address) && isPortValid(port)
     } else {
-      return isAddressValid(address) && isPortValid(vcPort) && isPortValid(beaconPort)
+      return (
+        isAddressValid(address) &&
+        isPortValid(vcPort) &&
+        isPortValid(beaconPort)
+      )
     }
   }
 
@@ -80,7 +93,9 @@ const InputsRow = ({ addressType, portType, address, port, isSwitchOn }: InputsR
       </YStack>
       {isAdvanced === true && <PortInput port={port} portType={portType} />}
       {isAdvanced === false && <PortInput port={vcPort} portType={VC} />}
-      {isAdvanced === false && <PortInput port={beaconPort} portType={BEACON} />}
+      {isAdvanced === false && (
+        <PortInput port={beaconPort} portType={BEACON} />
+      )}
       <div style={{ display: 'flex', alignItems: 'end', marginBottom: '11px' }}>
         <Stack flexBasis={0} flexGrow={0.5}>
           <CheckIcon

@@ -35,7 +35,12 @@ const ConsensusSelection = () => {
 
   return (
     <YStack style={{ width: '100%', padding: '32px' }} minHeight={'65vh'}>
-      <XStack justifyContent={'space-between'} alignItems={'center'} mb={'30px'} flexWrap="wrap">
+      <XStack
+        justifyContent={'space-between'}
+        alignItems={'center'}
+        mb={'30px'}
+        flexWrap="wrap"
+      >
         <Text size={27} weight={'semibold'}>
           Client Setup
         </Text>
@@ -63,15 +68,19 @@ const ConsensusSelection = () => {
           </Text>
         </Stack>
         <Text size={15}>
-          No existing execution client installations have been detected on paired device.
+          No existing execution client installations have been detected on
+          paired device.
         </Text>
         <Text size={13} color="#828282">
-          If you believe this to be incorrect please test your pairing to the correct device and try
-          again.
+          If you believe this to be incorrect please test your pairing to the
+          correct device and try again.
         </Text>
       </YStack>
 
-      <TextTam fontSize={19} style={{ marginLeft: 0, marginTop: '50px', marginBottom: '25px' }}>
+      <TextTam
+        fontSize={19}
+        style={{ marginLeft: 0, marginTop: '50px', marginBottom: '25px' }}
+      >
         Install Consensus client
       </TextTam>
 
@@ -80,10 +89,11 @@ const ConsensusSelection = () => {
         <YStack width={windowSize.width < 780 ? '100%' : '70%'} space={'$4'}>
           <Text size={19}>The resource efficient Ethereum Clients.</Text>
           <Text size={15}>
-            {selectedClient} is a client implementation for both execution and consensus layers that
-            strives to be as lightweight as possible in terms of resources used. This allows it to
-            perform well on embedded systems, resource-restricted devices -- including Raspberry Pis
-            -- and multi-purpose servers.
+            {selectedClient} is a client implementation for both execution and
+            consensus layers that strives to be as lightweight as possible in
+            terms of resources used. This allows it to perform well on embedded
+            systems, resource-restricted devices -- including Raspberry Pis --
+            and multi-purpose servers.
           </Text>
           <Text size={19} weight={'semibold'}>
             <LinkWithArrow

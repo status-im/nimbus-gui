@@ -46,7 +46,11 @@ const DeviceCPULoad = ({ load }: DeviceCPULoadProps) => {
         minHeight: '135px',
         borderRadius: '16px',
         border: message === 'Poor' ? '1px solid #D92344' : '1px solid #E0E0E0',
-        backgroundColor: isHovered ? '#f8f6ff' : message === 'Poor' ? '#fefafa' : '#fff',
+        backgroundColor: isHovered
+          ? '#f8f6ff'
+          : message === 'Poor'
+          ? '#fefafa'
+          : '#fff',
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -59,7 +63,15 @@ const DeviceCPULoad = ({ load }: DeviceCPULoadProps) => {
             position: 'relative',
           }}
         >
-          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+            }}
+          >
             <StandardLineChart data={chartData} isInteractive={false} />
           </div>
           <YStack space={'$3'}>
@@ -74,7 +86,13 @@ const DeviceCPULoad = ({ load }: DeviceCPULoadProps) => {
         <Separator borderColor={'#e3e3e3'} />
         <XStack space={'$4'} style={{ padding: '0.65rem 1rem' }}>
           <IconText
-            icon={message === 'Good' ? <CheckCircleIcon size={16} /> : <IncorrectIcon size={16} />}
+            icon={
+              message === 'Good' ? (
+                <CheckCircleIcon size={16} />
+              ) : (
+                <IncorrectIcon size={16} />
+              )
+            }
             weight={'semibold'}
           >
             {message}

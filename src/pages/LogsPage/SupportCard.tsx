@@ -42,7 +42,10 @@ const SupportCard = () => {
         </XStack>
         <Separator borderColor={'#e3e3e3'} style={{ marginTop: 'auto' }} />
         <XStack space={'$4'} style={{ padding: '10px 16px' }}>
-          <IconText icon={<Icon src="icons/communities.svg" width={16} />} weight={'semibold'}>
+          <IconText
+            icon={<Icon src="icons/communities.svg" width={16} />}
+            weight={'semibold'}
+          >
             {'Join Community'}
           </IconText>
         </XStack>

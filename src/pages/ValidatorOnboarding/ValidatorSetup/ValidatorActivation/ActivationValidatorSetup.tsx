@@ -29,9 +29,10 @@ const ActivationValidatorSetup = () => {
           </Text>
           <Stack>
             <Text size={19}>
-              Congratulations! You have successfully setup your Execution and Consensus clients and
-              are currently syncing your nodes. You need to be sufficiently synced prior to setting
-              up your validators and making a deposit.
+              Congratulations! You have successfully setup your Execution and
+              Consensus clients and are currently syncing your nodes. You need
+              to be sufficiently synced prior to setting up your validators and
+              making a deposit.
             </Text>
           </Stack>
           <YStack space={'$3'} marginTop={'25px'}>

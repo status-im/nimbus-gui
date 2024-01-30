@@ -73,7 +73,6 @@ const ValidatorSetupInstall = () => {
         <Stack>
           <Markdown children={DOCUMENTATIONS[selectedClient].general} />
           <OSCards selectedOS={selectedOS} handleOSCardClick={handleOSCardClick} />
-
           <Stack onPress={() => copyCommands()}>
             <Markdown children={DOCUMENTATIONS[selectedClient].documentation[selectedOS]} />
           </Stack>

@@ -27,8 +27,12 @@ const DeviceNetworkHealth = ({ latency }: DeviceNetworkHealthProps) => {
   const POOR_COLOR_LATENCY = '#D92344'
 
   const processLatency = (latency: number[], id: string) => {
-    const dataObj = latency.map((yValue, index: number) => ({ x: index + 1, y: yValue }))
-    const currentLatency = dataObj.length > 0 ? dataObj[dataObj.length - 1].y : 0
+    const dataObj = latency.map((yValue, index: number) => ({
+      x: index + 1,
+      y: yValue,
+    }))
+    const currentLatency =
+      dataObj.length > 0 ? dataObj[dataObj.length - 1].y : 0
     const message = currentLatency < THRESHOLD ? 'Good' : 'Poor'
     const color = message === 'Good' ? GOOD_COLOR : POOR_COLOR_LATENCY
 
@@ -52,7 +56,10 @@ const DeviceNetworkHealth = ({ latency }: DeviceNetworkHealthProps) => {
         width: '50%',
         minHeight: '135px',
         borderRadius: '16px',
-        border: processedLatency.message === 'Poor' ? '1px solid #D92344' : '1px solid #E0E0E0',
+        border:
+          processedLatency.message === 'Poor'
+            ? '1px solid #D92344'
+            : '1px solid #E0E0E0',
         backgroundColor: isHovered
           ? '#f8f6ff'
           : processedLatency.message === 'Poor'
@@ -70,7 +77,15 @@ const DeviceNetworkHealth = ({ latency }: DeviceNetworkHealthProps) => {
             position: 'relative',
           }}
         >
-          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+            }}
+          >
             <StandardLineChart data={chartData} isInteractive={false} />
           </div>
           <YStack space={'$3'}>

@@ -15,7 +15,9 @@ type RecoveryPhraseProps = {
 const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
   const [isReveal, setIsReveal] = useState(false)
   const [isCopied, setIsCopied] = useState(false)
-  const { generatedMnemonic } = useSelector((state: RootState) => state.keyGeneration)
+  const { generatedMnemonic } = useSelector(
+    (state: RootState) => state.keyGeneration,
+  )
 
   useEffect(() => {
     setIsCopied(false)
@@ -38,7 +40,10 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
   }
 
   return (
-    <YStack space={'$4'} style={{ width: '100%', marginTop: isKeystoreFiles ? '20px' : '0px' }}>
+    <YStack
+      space={'$4'}
+      style={{ width: '100%', marginTop: isKeystoreFiles ? '20px' : '0px' }}
+    >
       <YStack
         style={{
           border: `1px solid #2A4AF566`,
@@ -62,7 +67,12 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
           {generatedMnemonic.map((word, index) => (
             <XStack style={{ width: '100%' }} key={word}>
               <Stack>
-                <Text key={index} size={19} weight={'semibold'} color="#0d162566">
+                <Text
+                  key={index}
+                  size={19}
+                  weight={'semibold'}
+                  color="#0d162566"
+                >
                   {index + 1}.&nbsp;
                 </Text>
               </Stack>

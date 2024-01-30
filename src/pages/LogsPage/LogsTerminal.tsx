@@ -33,9 +33,15 @@ const fetchMoreData = (): Promise<DataType[]> => {
   })
 }
 
-const LogsTerminal = ({ windowWidth, timestamps, searchInput }: LogsTerminalProps) => {
+const LogsTerminal = ({
+  windowWidth,
+  timestamps,
+  searchInput,
+}: LogsTerminalProps) => {
   const [data, setData] = useState<DataType[]>([])
-  const [loadedIndexes, setLoadedIndexes] = useState<{ [key: number]: boolean }>({})
+  const [loadedIndexes, setLoadedIndexes] = useState<{
+    [key: number]: boolean
+  }>({})
   const listRef = useRef<List | null>(null)
 
   const [shouldAutoScroll, setShouldAutoScroll] = useState(true)
@@ -126,7 +132,8 @@ const LogsTerminal = ({ windowWidth, timestamps, searchInput }: LogsTerminalProp
           >
             {({ index, style }) => {
               const highlight =
-                searchInput && data[index].description.split(' ').includes(searchInput)
+                searchInput &&
+                data[index].description.split(' ').includes(searchInput)
                   ? true
                   : false
               // now we only check for the existing text at the moment

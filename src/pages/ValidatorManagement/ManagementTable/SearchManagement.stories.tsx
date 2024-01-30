@@ -18,7 +18,12 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = (args: { searchValue: string }) => {
   const [searchValue, setSearchValue] = useState(args.searchValue)
 
-  return <SearchManagement searchValue={searchValue} changeSearchValue={setSearchValue} />
+  return (
+    <SearchManagement
+      searchValue={searchValue}
+      changeSearchValue={setSearchValue}
+    />
+  )
 }
 
 Default.args = {
