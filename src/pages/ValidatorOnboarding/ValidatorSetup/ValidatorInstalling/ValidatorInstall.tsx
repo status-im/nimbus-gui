@@ -30,7 +30,7 @@ const ValidatorSetupInstall = () => {
 
   const handleOSCardClick = (os: string) => {
     setSelectedOS(os)
-  } 
+  }
 
   const copyCommands = () => {
     navigator.clipboard.writeText(bashCommands)
