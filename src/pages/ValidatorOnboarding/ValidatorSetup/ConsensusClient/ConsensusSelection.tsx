@@ -7,6 +7,7 @@ import ConsensusGaugeCard from './ConsensusGaugeCard'
 import ConsensusClientCard from './ConsensusClientCard'
 import LinkWithArrow from '../../../../components/General/LinkWithArrow'
 import { RootState } from '../../../../redux/store'
+import { useWindowSize } from '../../../../hooks/useWindowSize'
 
 const clientIcons = {
   Nethermind: '/icons/nethermind-circle.png',
@@ -17,6 +18,7 @@ const clientIcons = {
 }
 
 const ConsensusSelection = () => {
+  const windowSize = useWindowSize()
   const selectedClient = useSelector(
     (state: RootState) => state.execClient.selectedClient,
   ) as 'Nethermind' | 'Besu' | 'Geth' | 'Erigon' | 'Nimbus'
@@ -37,9 +39,14 @@ const ConsensusSelection = () => {
         flexWrap="wrap"
       >
         <Text size={27} weight={'semibold'}>
-          Validator Setup
+          Client Setup
         </Text>
-        <XStack space={'$2'} flexWrap="wrap">
+        <XStack
+          space={'$2'}
+          flexWrap={windowSize.width < 735 ? 'wrap' : 'nowrap'}
+          marginTop={windowSize.width < 735 ? '20px' : 0}
+          width={windowSize.width < 580 ? '100%' : 'auto'}
+        >
           <PairedDeviceCard />
 
           <ConsensusGaugeCard
@@ -76,7 +83,7 @@ const ConsensusSelection = () => {
 
       <XStack space={'$8'} flexWrap="wrap">
         <ConsensusClientCard name={clients[0].name} icon={clients[0].icon} />
-        <YStack width={'67%'} maxWidth="550px" space={'$4'}>
+        <YStack width={windowSize.width < 780 ? '100%' : '70%'} space={'$4'}>
           <Text size={19}>The resource efficient Ethereum Clients.</Text>
           <Text size={15}>
             {selectedClient} is a client implementation for both execution and

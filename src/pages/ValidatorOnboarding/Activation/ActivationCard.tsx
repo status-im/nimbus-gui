@@ -26,7 +26,8 @@ const ActivationCard = ({
         border: '1px solid rgba(0, 0, 0, 0.15)',
         padding: '12px 16px',
         backgroundColor: '#FFF',
-        width: '100%',
+        flex: 1,
+        margin: '8px',
       }}
     >
       {!isGaugeIncluded && (

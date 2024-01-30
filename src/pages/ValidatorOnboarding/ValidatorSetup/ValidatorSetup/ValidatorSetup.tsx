@@ -19,7 +19,7 @@ const ValidatorSetup = () => {
         space={'$8'}
       >
         <Text size={27} weight={'semibold'}>
-          Validator Setup
+          Client Setup
         </Text>
         <PairedDeviceCard />
       </XStack>

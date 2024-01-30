@@ -1,4 +1,4 @@
-.osCardsContainer {
+.os-cards-container {
   display: flex;
   justify-content: space-between;
   display: grid;
@@ -7,36 +7,45 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
-.osCard {
+.os-card {
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 16px;
   padding: 12px 16px;
   cursor: pointer;
   box-sizing: border-box;
 }
-
-.osCardSelected {
+.markdown-text {
+  overflow-x: auto;
+  width: 100%;
+  -ms-overflow-style: none;
+}
+  
+.os-card-selected {
   background-color: #2a4af50d;
   border: 1px solid #2a4af566;
+  border-radius: 16px;
+  padding: 12px 16px;
+  cursor: pointer;
+  box-sizing: border-box;
 }
 
 @media (max-width: 1000px) {
-  .osCardsContainer {
+  .os-cards-container {
     grid-template-columns: repeat(2, 1fr);
   }
-  .osCard:nth-child(3) {
+  .os-card:nth-child(3) {
     width: 205%;
   }
 }
 
-@media (max-width: 750px) {
-  .osCardsContainer {
+@media (max-width: 850px) {
+  .os-cards-container {
     grid-template-columns: repeat(1, 1fr);
   }
-  .osCard {
+  .os-card {
     width: 100%;
   }
-  .osCard:nth-child(3) {
+  .os-card:nth-child(3) {
     width: 100%;
   }
 }

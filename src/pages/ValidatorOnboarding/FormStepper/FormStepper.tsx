@@ -1,7 +1,5 @@
 import { Stepper, Step } from 'react-form-stepper'
-import { useDispatch } from 'react-redux'
-
-import { setActiveStep } from '../../../redux/ValidatorOnboarding/slice'
+import { useNavigate } from 'react-router-dom'
 import { FORM_STEPS } from '../../../constants'
 import { useWindowSize } from '../../../hooks/useWindowSize'
 import './FormStepper.css'
@@ -11,8 +9,21 @@ type FormStepperProps = {
 }
 
 const FormStepper = ({ activeStep }: FormStepperProps) => {
-  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const windowSize = useWindowSize()
+
+  const stepToUrlMap = [
+    '/validator-onboarding/',
+    '/validator-onboarding/advisories',
+    '/validator-onboarding/validator-setup',
+    '/validator-onboarding/validator-setup-install',
+    '/validator-onboarding/consensus-selection',
+    '/validator-onboarding/activation-validator-setup',
+    '/validator-onboarding/client-setup',
+    '/validator-onboarding/key-generation',
+    '/validator-onboarding/deposit',
+    '/validator-onboarding/activation',
+  ]
 
   const getIsStepVisible = (
     index: number,
@@ -23,7 +34,6 @@ const FormStepper = ({ activeStep }: FormStepperProps) => {
     let start = activeStep - stepsBefore
     let end = activeStep + stepsAfter
 
-    // active step is near the start or end
     if (start < 0) {
       end -= start
       start = 0
@@ -41,22 +51,26 @@ const FormStepper = ({ activeStep }: FormStepperProps) => {
 
   const isStepVisible = (index: number) => {
     if (windowSize.width < 774) {
-      return getIsStepVisible(index, 1, 1) // 3 steps (1 before, 1 after)
+      return getIsStepVisible(index, 1, 1)
     } else if (windowSize.width < 963) {
-      return getIsStepVisible(index, 1, 2) // 4 steps
+      return getIsStepVisible(index, 1, 2)
     } else if (windowSize.width < 1183) {
-      return getIsStepVisible(index, 1, 3) // 5 steps
+      return getIsStepVisible(index, 1, 3)
     } else if (windowSize.width < 1300) {
-      return getIsStepVisible(index, 2, 3) // 6 steps
+      return getIsStepVisible(index, 2, 3)
     } else {
       return true
     }
   }
 
   const changeStepOnClickHandler = (index: number) => {
-    if (activeStep > index) {
-      dispatch(setActiveStep(index))
+    const path = stepToUrlMap[index]
+    if (path && index < activeStep) {
+      navigate(path)
     }
+  }
+  if (activeStep > 1) {
+    activeStep = activeStep < 6 ? 2 : activeStep - 3
   }
 
   return (
@@ -85,12 +99,18 @@ const FormStepper = ({ activeStep }: FormStepperProps) => {
             completed={activeStep > originalIndex - 1}
             data-subtitle={step.subtitle}
             data-step={step.label}
+            style={
+              originalIndex === activeStep
+                ? { backgroundColor: stepStyle.currentBgColor }
+                : {}
+            }
           />
         )
       })}
     </Stepper>
   )
 }
+
 const stepStyle = {
   // For default dots:
   inactiveBgColor: '#FFFFFF',
@@ -107,9 +127,10 @@ const stepStyle = {
   inactiveTextColor: '#000000',
   size: '28px',
   circleFontSize: '0px',
-  labelFontSize: '14px',
+  labelFontSize: '13px',
   borderRadius: '50%',
   fontWeight: 700,
+  currentBgColor: '#808080',
 }
 
 const customConnectorStyle = {
