@@ -54,7 +54,7 @@ const Deposit = () => {
           </div>
         </>
       ) : (
-        <>
+        <YStack space={'$3'}>
           {isTransactionConfirmation ? (
             <Text size={15} weight="regular" color={'#647084'}>
               {DEPOSIT_SUBTITLE}
@@ -93,7 +93,7 @@ const Deposit = () => {
               {isWalletConnected ? <ConnectedWallet /> : <ConnectWallet />}
             </YStack>
           )}
-        </>
+        </YStack>
       )}
     </YStack>
   )
