@@ -19,9 +19,7 @@
   width: 100%;
   -ms-overflow-style: none;
 }
-.markdown-text::-webkit-scrollbar {
-  display: none;
-}
+  
 .os-card-selected {
   background-color: #2a4af50d;
   border: 1px solid #2a4af566;
