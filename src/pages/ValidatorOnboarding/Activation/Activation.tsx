@@ -34,9 +34,8 @@ const Activation = () => {
               Validators and are currently syncing your nodes.
             </Text>
           </Stack>
-          <YStack space={'$3'} marginTop={'25px'}>
+          <YStack marginTop={'25px'}>
             <XStack
-              space={'$3'}
               width="100%"
               flexWrap={windowSize.width < 780 ? 'wrap' : 'nowrap'}
             >
@@ -56,7 +55,6 @@ const Activation = () => {
               />
             </XStack>
             <XStack
-              space={'$3'}
               flexWrap={windowSize.width < 780 ? 'wrap' : 'nowrap'}
               width="100%"
             >
@@ -65,7 +63,7 @@ const Activation = () => {
                 text="Estimated Activation Time"
                 value="32 Days"
               />
-              <ActivationCard text="Current APR" value="4.40%" isLast={true} />
+              <ActivationCard text="Current APR" value="4.40%" />
             </XStack>
           </YStack>
         </YStack>
