@@ -35,7 +35,7 @@ const ActivationValidatorSetup = () => {
               making a deposit.
             </Text>
           </Stack>
-          <YStack  marginTop={'25px'}>
+          <YStack marginTop={'25px'}>
             <XStack
               width="100%"
               flexWrap={windowSize.width < 780 ? 'wrap' : 'nowrap'}
