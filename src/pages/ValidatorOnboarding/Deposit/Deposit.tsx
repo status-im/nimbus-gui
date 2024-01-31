@@ -44,7 +44,7 @@ const Deposit = () => {
       {isChainParity ? (
         <ChainParity />
       ) : (
-        <YStack space={'$3'}>
+        <YStack space={'$3'} style={{ width: '100%' }}>
           {isTransactionConfirmation ? (
             <Text size={15} weight="regular" color={'#647084'}>
               {DEPOSIT_SUBTITLE}
