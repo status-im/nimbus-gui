@@ -8,6 +8,7 @@ import ValidatorRequest from './ValidatorRequest/ValidatorRequest'
 import ConnectWallet from './ConnectWallet'
 import ConnectedWallet from './ConnectedWallet'
 import DepositTitle from './DepositTitle'
+import ChainParity from './ChainParity'
 import ValidatorsMenuWithPrice from '../../../components/General/ValidatorsMenuWithPrice'
 import { RootState } from '../../../redux/store'
 import { DEPOSIT_SUBTITLE } from '../../../constants'
@@ -41,18 +42,7 @@ const Deposit = () => {
     >
       <DepositTitle />
       {isChainParity ? (
-        <>
-          <Text size={15} weight="regular" color={'#647084'}>
-            Awaiting chain parity
-          </Text>
-          <div style={{ padding: '7.5% 20%' }}>
-            <img
-              src="/images/chain-parity.png"
-              alt="Chain parity"
-              style={{ width: '100%' }}
-            />
-          </div>
-        </>
+        <ChainParity />
       ) : (
         <YStack space={'$3'}>
           {isTransactionConfirmation ? (
