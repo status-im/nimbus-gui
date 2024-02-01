@@ -1,3 +1,10 @@
+.deposit-container {
+  width: 100%;
+  padding: 16px 32px;
+  align-items: start;
+  padding-bottom: 30px;
+}
+
 .chain-parity-img-container {
   padding: 7.5% 20%;
 }

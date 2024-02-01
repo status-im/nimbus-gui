@@ -12,6 +12,7 @@ import ChainParity from './ChainParity'
 import ValidatorsMenuWithPrice from '../../../components/General/ValidatorsMenuWithPrice'
 import { RootState } from '../../../redux/store'
 import { DEPOSIT_SUBTITLE } from '../../../constants'
+import styles from './deposit.module.css'
 
 const Deposit = () => {
   const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(true)
@@ -31,15 +32,7 @@ const Deposit = () => {
   }
 
   return (
-    <YStack
-      space={'$3'}
-      style={{
-        width: '100%',
-        padding: '16px 32px',
-        alignItems: 'start',
-        paddingBottom: '30px',
-      }}
-    >
+    <YStack space={'$3'} className={styles['deposit-container']}>
       <DepositTitle />
       {isChainParity ? (
         <ChainParity />
