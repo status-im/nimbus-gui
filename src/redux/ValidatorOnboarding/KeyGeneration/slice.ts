@@ -20,7 +20,7 @@ const initialState: KeyGenerationState = {
   mnemonic: Array(24).fill(''),
   isCopyPastedPhrase: false,
   validWords: Array(24).fill(true),
-  generatedMnemonic: Array(24).fill(''),
+  generatedMnemonic: [],
   isConfirmPhraseStage: false,
   recoveryMechanism: RECOVERY_PHRASE,
 }
