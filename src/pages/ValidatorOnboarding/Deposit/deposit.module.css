@@ -1,0 +1,15 @@
+.chain-parity-img-container {
+  padding: 7.5% 20%;
+}
+
+@media (max-width: 880px) {
+  .chain-parity-img-container {
+    padding: 7.5% 10%;
+  }
+}
+
+@media (max-width: 570px) {
+  .chain-parity-img-container {
+    padding: 7.5% 5%;
+  }
+}

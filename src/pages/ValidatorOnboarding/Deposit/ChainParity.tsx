@@ -1,12 +1,14 @@
 import { Text } from '@status-im/components'
 
+import styles from './deposit.module.css'
+
 const ChainParity = () => {
   return (
     <>
       <Text size={15} weight="regular" color={'#647084'}>
         Awaiting chain parity
       </Text>
-      <div style={{ padding: '7.5% 20%' }}>
+      <div className={styles['chain-parity-img-container']}>
         <img
           src="/images/chain-parity.png"
           alt="Chain parity"
