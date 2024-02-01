@@ -64,16 +64,21 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
           }}
           className={styles['recovery-phrase']}
         >
-          {generatedMnemonic.map((word, index) => (
-            <XStack style={{ width: '100%' }} key={word}>
-              <Stack>
-                <Text
-                  key={index}
-                  size={19}
-                  weight={'semibold'}
-                  color="#0d162566"
-                >
-                  {index + 1}.&nbsp;
+          {generatedMnemonic.length === 24 &&
+            generatedMnemonic.map((word, index) => (
+              <XStack style={{ width: '100%' }} key={word + index}>
+                <Stack>
+                  <Text
+                    key={index}
+                    size={19}
+                    weight={'semibold'}
+                    color="#0d162566"
+                  >
+                    {index + 1}.&nbsp;
+                  </Text>
+                </Stack>
+                <Text key={index} size={19} weight={'semibold'}>
+                  {word}
                 </Text>
               </Stack>
               <Text key={index} size={19} weight={'semibold'}>
