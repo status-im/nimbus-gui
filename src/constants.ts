@@ -43,6 +43,12 @@ export const FORM_STEPS = [
   { label: 'Deposit', subtitle: 'Stake your ETH' },
   { label: 'Activation', subtitle: 'Complete Setup' },
 ]
+export const DepositStatusSteps = [
+  { label: 'Deposit' },
+  { label: 'Pending' },
+  { label: 'Active' },
+  { label: 'Exit' },
+]
 export const ADVISORY_TOPICS: {
   [key: string]: string[]
 } = {
