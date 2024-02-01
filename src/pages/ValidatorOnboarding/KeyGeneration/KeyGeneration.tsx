@@ -1,9 +1,6 @@
-import { useEffect } from 'react'
 import { Stack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
-import { generateMnemonic } from 'web-bip39'
-import { useDispatch, useSelector } from 'react-redux'
-import wordlist from 'web-bip39/wordlists/english'
+import { useSelector } from 'react-redux'
 
 import KeyGenerationHeader from './KeyGenerationHeader/KeyGenerationHeader'
 import RecoveryMechanism from './RecoveryMechanism/RecoveryMechanism'
@@ -16,22 +13,11 @@ import {
   RECOVERY_PHRASE,
 } from '../../../constants'
 import { RootState } from '../../../redux/store'
-import { setGeneratedMnemonic } from '../../../redux/ValidatorOnboarding/KeyGeneration/slice'
 
 const KeyGeneration = () => {
   const { recoveryMechanism, isConfirmPhraseStage } = useSelector(
     (state: RootState) => state.keyGeneration,
   )
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    getMnemonic()
-  }, [])
-
-  const getMnemonic = async () => {
-    const mnemonic = await generateMnemonic(wordlist, 256)
-    dispatch(setGeneratedMnemonic(mnemonic.split(' ')))
-  }
 
   const isKeystoreFiles =
     recoveryMechanism === KEYSTORE_FILES ||

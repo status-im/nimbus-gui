@@ -2,10 +2,13 @@ import { Stack, XStack, YStack } from 'tamagui'
 import { Button, InformationBox, Text } from '@status-im/components'
 import { CloseCircleIcon, CopyIcon, CheckIcon } from '@status-im/icons'
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { generateMnemonic } from 'web-bip39'
+import wordlist from 'web-bip39/wordlists/english'
 
 import { RootState } from '../../../redux/store'
 import { copyFunction } from '../../../utilities'
+import { setGeneratedMnemonic } from '../../../redux/ValidatorOnboarding/KeyGeneration/slice'
 import styles from './index.module.css'
 
 type RecoveryPhraseProps = {
@@ -18,6 +21,16 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
   const { generatedMnemonic } = useSelector(
     (state: RootState) => state.keyGeneration,
   )
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    getMnemonic()
+  }, [])
+
+  const getMnemonic = async () => {
+    const mnemonic = await generateMnemonic(wordlist, 256)
+    dispatch(setGeneratedMnemonic(mnemonic.split(' ')))
+  }
 
   useEffect(() => {
     setIsCopied(false)
@@ -80,12 +93,8 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
                 <Text key={index} size={19} weight={'semibold'}>
                   {word}
                 </Text>
-              </Stack>
-              <Text key={index} size={19} weight={'semibold'}>
-                {word}
-              </Text>
-            </XStack>
-          ))}
+              </XStack>
+            ))}
         </div>
         {isCopied ? <CheckIcon size={20} /> : <CopyIcon size={20} />}
       </YStack>
