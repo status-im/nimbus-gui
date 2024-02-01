@@ -5,7 +5,7 @@ import ManagementTabs from './ManagementTabs'
 import AddCardsContainer from '../../components/General/AddCards/AddCardsContainer'
 import ManagementHeader from './ManagementHeader'
 import ManagementCard from './ManagementCard'
-
+import styles from './validatorManagement.module.css'
 const ValidatorManagementContent = () => {
   return (
     <YStack
@@ -16,7 +16,7 @@ const ValidatorManagementContent = () => {
         flexGrow: '1',
         overflowY: 'auto',
       }}
-      className="transparent-scrollbar"
+      className={styles['transparent-scrollbar']}
     >
       <ManagementHeader />
       <div
@@ -27,7 +27,7 @@ const ValidatorManagementContent = () => {
           width: '100%',
           gap: '16px',
         }}
-        className="cards"
+        className={styles['cards']}
       >
         <ManagementCard />
         <ManagementCard />

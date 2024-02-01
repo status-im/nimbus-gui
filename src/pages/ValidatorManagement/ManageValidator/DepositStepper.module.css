@@ -1,0 +1,67 @@
+.custom-step {
+  background-color: #ffffff;
+}
+div[class*='StepMain-'] {
+  align-items: start;
+}
+div[class*='LabelContainer-'] span[class*='Label-'] {
+  text-align: initial;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+}
+div[class*='ConnectorContainer-'] {
+  right: unset;
+  left: calc(-100% + 28px);
+  width: 100%;
+}
+span[class*='Connector-'] {
+  position: relative;
+  z-index: -1;
+}
+.custom-step.StepMain--active,
+.custom-step.StepMain--completed {
+  background-color: #2a4cf4;
+}
+
+.custom-step::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 50%;
+}
+
+.custom-step.StepMain--active::before,
+.custom-step.StepMain--completed::before {
+  border-color: #2a4cf4;
+}
+
+.custom-step.StepMain--active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #2a4cf4;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.custom-step::after {
+  content: attr(data-subtitle);
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 9px;
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  color: #a2a9b0;
+  width: max-content;
+}
+
+@media (max-width: 410px) {
+  .custom-step::after {
+    font-size: 10px;
+  }
+}

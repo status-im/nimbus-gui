@@ -118,7 +118,6 @@ export const VALIDATOR_TABS_MANAGEMENT = [
   'Withdraw',
   'All',
 ]
-
 export const VALIDATORS_DATA = [
   {
     name: '1',
@@ -160,6 +159,68 @@ export const VALIDATORS_DATA = [
     effectiveness: 98,
     status: 'Active',
   },
+]
+//Manage Validator
+export const MANAGE_VALIDATOR_TABS = [
+  'Overview',
+  'Charts',
+  'Blocks',
+  'Attestations',
+  'Sync',
+  'Slashings',
+  'Deposits',
+  'Withdrawals',
+]
+export const MANAGE_VALIDATOR_TABS_TABLE_DATA = [
+  {
+    headers: [
+      'Balance',
+      'Income',
+      'Proposals',
+      'Attestations',
+      'Effectiveness',
+      'Rank',
+    ],
+    rows: [
+      ['32.0786', null],
+      ['0.0786', '#00D957'],
+      ['1/102', null],
+      ['98%', null],
+      ['1', '#2F80ED'],
+      ['585910', '#2F80ED'],
+    ],
+  },
+  {
+    headers: [
+      'Total Rewards',
+      '1D',
+      '7D',
+      '31D',
+      'APR',
+      '7D',
+      '31D',
+      '365D',
+      'Luck',
+    ],
+    rows: [
+      ['+1.31402 ETH', null],
+      ['+1.31402 ETH', '#00D957'],
+      ['+0.01579', '#00D957'],
+      ['+0.06969', '#00D957'],
+      ['%', null],
+      ['2.57%', null],
+      ['2.56%', null],
+      ['4.10%', null],
+      ['69.2% B / 592.1% S', null],
+    ],
+  },
+  { headers: [] },
+  { headers: [] },
+  { headers: [] },
+  { headers: [] },
+  { headers: [] },
+  { headers: [] },
+  { headers: [] },
 ]
 
 // Pair Device

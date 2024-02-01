@@ -2,7 +2,7 @@ import { XStack } from 'tamagui'
 
 import TitleLogo from '../../components/General/TitleLogo'
 import SyncStatusCard from '../../components/General/SyncStatusCard'
-
+import styles from './validatorManagement.module.css'
 const ManagementHeader = () => {
   return (
     <XStack
@@ -15,7 +15,7 @@ const ManagementHeader = () => {
     >
       <TitleLogo subtitle="Validator Management" />
       <XStack space={'$2'}>
-        <div className="sync-status-card-container-first">
+        <div className={styles['sync-status-card-container-first']}>
           <SyncStatusCard
             synced={123.524}
             total={172.503}
@@ -23,7 +23,7 @@ const ManagementHeader = () => {
             color="#2a4af5"
           />
         </div>
-        <div className="sync-status-card-container-second">
+        <div className={styles['sync-status-card-container-second']}>
           <SyncStatusCard
             synced={123.524}
             total={172.503}

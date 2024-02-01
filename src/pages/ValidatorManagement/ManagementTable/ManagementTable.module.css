@@ -1,4 +1,4 @@
-table {
+.validator-management-table > table {
   width: 100%;
   border-spacing: 0;
   margin: 20px 0;

@@ -6,7 +6,7 @@ import SearchManagement from './SearchManagement'
 import DropdownFilter from './DropdownFilter'
 import ManagementTableHeader from './ManagementTableHeader'
 import ManagementTableBody from './ManagementTableBody'
-import './ManagementTable.css'
+import './ManagementTable.module.css'
 
 type ManagementTableProps = {
   tab: string
@@ -87,7 +87,7 @@ const ManagementTable = ({
         />
         <DropdownFilter />
       </XStack>
-      <table>
+      <table className="validator-management-table">
         <ManagementTableHeader
           validatorsAmount={filteredValidators.length}
           isAllSelected={isAllSelected}
