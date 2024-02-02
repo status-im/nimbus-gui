@@ -2,7 +2,7 @@ import { Stepper, Step } from 'react-form-stepper'
 import { useNavigate } from 'react-router-dom'
 import { FORM_STEPS } from '../../../constants'
 import { useWindowSize } from '../../../hooks/useWindowSize'
-import './FormStepper.css'
+import styles from './FormStepper.module.css'
 
 type FormStepperProps = {
   activeStep: number
@@ -94,7 +94,7 @@ const FormStepper = ({ activeStep }: FormStepperProps) => {
           <Step
             key={originalIndex}
             label={`${step.label}`}
-            className="custom-step"
+            className={styles['custom-step']}
             onClick={() => changeStepOnClickHandler(originalIndex)}
             completed={activeStep > originalIndex - 1}
             data-subtitle={step.subtitle}
