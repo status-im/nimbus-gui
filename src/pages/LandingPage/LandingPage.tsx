@@ -22,9 +22,7 @@ const LandingPage = () => {
         imgHeight="150%"
       >
         <YStack className={styles['landing-page']}>
-          <XStack pt={'70px'}>
-            <NimbusLogo />
-          </XStack>
+          <NimbusLogo />
           <YStack className={styles['landing-texts']} space={'16px'}>
             <Text size={27} weight={'semibold'}>
               Light and performant clients, for all Ethereum validators.
