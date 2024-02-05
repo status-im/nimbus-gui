@@ -12,7 +12,7 @@ const Header = ({ selectedTag }: HeaderProps) => {
         display: 'flex',
         justifyContent: 'space-between',
         paddingBottom: '25px',
-        marginTop: '4.4rem',
+        alignItems: 'end',
       }}
       className="header-container"
     >
