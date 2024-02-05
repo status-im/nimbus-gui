@@ -1,15 +1,14 @@
 import { YStack } from 'tamagui'
 import { useSelector } from 'react-redux'
+import { Outlet } from 'react-router-dom'
 
 import { RootState } from '../../redux/store'
 import FormStepper from './FormStepper/FormStepper'
 import Titles from '../../components/General/Titles'
 import ValidatorBoxWrapper from './ValidatorBoxWrapper/ValidatorBoxWrapper'
 import ContinueButton from './ContinueButton'
-
 import { useWindowSize } from '../../hooks/useWindowSize'
 import styles from './layoutGradient.module.css'
-import { Outlet } from 'react-router-dom'
 
 const ValidatorOnboarding = () => {
   const { activeStep } = useSelector(

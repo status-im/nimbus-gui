@@ -93,7 +93,6 @@ const router = createBrowserRouter([
   { path: '/logs', element: <LogsPage /> },
   {
     path: '/validator-management',
-
     element: <ValidatorManagement />,
   },
 ])

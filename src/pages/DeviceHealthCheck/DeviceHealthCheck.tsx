@@ -36,7 +36,6 @@ const DeviceHealthCheck = () => {
       <YStack
         space={'$4'}
         style={{
-          justifyContent: 'end',
           alignItems: 'start',
           marginBottom: '2rem',
           maxWidth: '100%',

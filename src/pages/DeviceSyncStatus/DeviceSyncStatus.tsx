@@ -1,5 +1,6 @@
 import { Stack, YStack } from 'tamagui'
-
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { Button } from '@status-im/components'
 
 import Titles from '../../components/General/Titles'
@@ -8,8 +9,6 @@ import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import SyncStatusCardConsensus from './SyncStatusCardConsensus'
 import SyncStatusCardExecution from './SyncStatusCardExecution'
 import { setPinnedMessage } from '../../redux/PinnedMessage/slice'
-import { useDispatch } from 'react-redux'
-import { useEffect } from 'react'
 
 const DeviceSyncStatus = () => {
   const dispatch = useDispatch()

@@ -1,8 +1,9 @@
 import { Separator, Stack, XStack, YStack } from 'tamagui'
 import { Shadow, Text } from '@status-im/components'
+import { TokenIcon } from '@status-im/icons'
+
 import StandardGauge from '../../components/Charts/StandardGauge'
 import IconText from '../../components/General/IconText'
-import { TokenIcon } from '@status-im/icons'
 import { formatNumbersWithComa } from '../../utilities'
 
 interface DeviceStorageHealthProps {
