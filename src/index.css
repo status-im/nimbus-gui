@@ -119,6 +119,10 @@ ul li {
   background: transparent;
 }
 
+.nimbus-logo {
+  margin-top: 4.4rem;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #09101c;
@@ -142,5 +146,11 @@ ul li {
 @media (max-width: 900px) {
   .right-sidebar-wrapper {
     display: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .nimbus-logo {
+    margin-top: 0;
   }
 }

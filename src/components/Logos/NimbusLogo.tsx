@@ -10,8 +10,8 @@ const NimbusLogo = () => {
       style={{
         alignItems: 'center',
         justifyContent: 'flex-start',
-        marginTop: '4.4rem',
       }}
+      className="nimbus-logo"
       space={'$3'}
     >
       <NimbusLogoMark />
