@@ -1,39 +1,31 @@
+import { useSelector } from 'react-redux'
 import { Stack, XStack, YStack } from 'tamagui'
+import { CloseCircleIcon } from '@status-im/icons'
+import { Button, InformationBox } from '@status-im/components'
+
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import NimbusLogo from '../../components/Logos/NimbusLogo'
 import Titles from '../../components/General/Titles'
 import DeviceStorageHealth from '../../components/Charts/DeviceStorageHealth'
 import DeviceCPULoad from '../../components/Charts/DeviceCPULoad'
 import HealthInfoSection from '../../components/General/HealthInfoSection'
-import { Button, InformationBox } from '@status-im/components'
 import DeviceMemory from '../../components/Charts/DeviceMemoryHealth'
 import DeviceNetworkHealth from '../../components/Charts/DeviceNetworkHealth'
-import { CloseCircleIcon } from '@status-im/icons'
-import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
-import { useEffect, useState } from 'react'
+import { useWindowSize } from '../../hooks/useWindowSize'
 
 const DeviceHealthCheck = () => {
   const deviceHealthState = useSelector(
     (state: RootState) => state.deviceHealth,
   )
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth)
-    }
-    window.addEventListener('resize', handleResize)
-
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+  const windowSize = useWindowSize()
   const breakpoint = 768
 
   const responsiveStyle = {
-    flexWrap: windowWidth <= breakpoint ? 'wrap' : 'nowrap',
-    flexDirection: windowWidth <= breakpoint ? 'column' : 'row',
+    flexWrap: windowSize.width <= breakpoint ? 'wrap' : 'nowrap',
+    flexDirection: windowSize.width <= breakpoint ? 'column' : 'row',
     alignItems: 'flex-start',
-    width: windowWidth <= breakpoint ? '200%' : '100%',
+    width: windowSize.width <= breakpoint ? '200%' : '100%',
   }
 
   return (
