@@ -1,7 +1,8 @@
 import { XStack } from 'tamagui'
+
 import BetaTag from './BetaTag'
-import './NimbusLogo.css'
 import NimbusLogoMark from './NimbusLogoMark'
+import './NimbusLogo.css'
 
 const NimbusLogo = () => {
   return (
@@ -9,6 +10,7 @@ const NimbusLogo = () => {
       style={{
         alignItems: 'center',
         justifyContent: 'flex-start',
+        marginTop: '4.4rem',
       }}
       space={'$3'}
     >
