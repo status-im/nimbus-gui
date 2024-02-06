@@ -30,7 +30,11 @@ const TagContainer = ({ selectedTag }: TagContainerProps) => {
   }
 
   return (
-    <XStack space={'$2'} alignItems="center" className="tag-container">
+    <XStack
+      space={'$2'}
+      alignItems="center"
+      className="tag-container nimbus-logo"
+    >
       {TAGS.map(tag => (
         <Tag
           key={tag.label}

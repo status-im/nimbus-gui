@@ -12,7 +12,6 @@ const Header = ({ selectedTag }: HeaderProps) => {
         display: 'flex',
         justifyContent: 'space-between',
         paddingBottom: '25px',
-        alignItems: 'end',
       }}
       className="header-container"
     >
