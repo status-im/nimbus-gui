@@ -49,6 +49,18 @@ export const DepositStatusSteps = [
   { label: 'Active' },
   { label: 'Exit' },
 ]
+export const STEPPER_PATHS = [
+  '/validator-onboarding/advisories',
+  '/validator-onboarding/validator-setup',
+  '/validator-onboarding/validator-setup-install',
+  '/validator-onboarding/consensus-selection',
+  '/validator-onboarding/activation-validator-setup',
+  '/validator-onboarding/client-setup',
+  '/validator-onboarding/key-generation',
+  '/validator-onboarding/',
+  '/validator-onboarding/activation',
+  '/dashboard',
+]
 export const ADVISORY_TOPICS: {
   [key: string]: string[]
 } = {
