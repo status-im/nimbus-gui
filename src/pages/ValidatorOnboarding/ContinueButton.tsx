@@ -110,14 +110,15 @@ const ContinueButton = () => {
 
   const continueHandler = () => {
     let nextPath = STEPPER_PATHS[activeStep] || '/validator-onboarding/'
-  
-     
+
     if (activeStep === 7) {
-      nextPath = isConfirmPhraseStage ? '/validator-onboarding/deposit' : '/validator-onboarding/key-generation';
-      handleRecoveryMechanism();
+      nextPath = isConfirmPhraseStage
+        ? '/validator-onboarding/deposit'
+        : '/validator-onboarding/key-generation'
+      handleRecoveryMechanism()
     }
-  
-    navigate(nextPath);
+
+    navigate(nextPath)
   }
 
   return (
@@ -128,14 +129,14 @@ const ContinueButton = () => {
       <XStack
         style={{
           width: '100%',
-          justifyContent:
-            isActivationValScreen || true ? 'space-between' : 'end',
+          justifyContent: 'space-between',
           alignItems: 'center',
           zIndex: 1000,
           marginTop: '12px',
         }}
       >
         {windowSize.width >= 1155 && <CopyPastedRecoveryPhrase />}
+        <BackButton prevPageIndex={activeStep}></BackButton>
         {isActivationValScreen && (
           <LinkWithArrow
             text="Skip to Dashboard"
@@ -144,7 +145,6 @@ const ContinueButton = () => {
             style={{ fontWeight: 'bold', zIndex: 999 }}
           />
         )}
-        <BackButton prevPageIndex={activeStep}></BackButton>
         <Button onPress={continueHandler} size={40} disabled={isDisabled}>
           {activeStep < 6 ? 'Continue' : 'Continue to Dashboard'}
         </Button>
