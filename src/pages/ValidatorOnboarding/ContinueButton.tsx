@@ -145,7 +145,8 @@ const ContinueButton = () => {
       <XStack
         style={{
           width: '100%',
-          justifyContent: isActivationValScreen||true ? 'space-between' : 'end',
+          justifyContent:
+            isActivationValScreen || true ? 'space-between' : 'end',
           alignItems: 'center',
           zIndex: 1000,
           marginTop: '12px',
@@ -160,7 +161,7 @@ const ContinueButton = () => {
             style={{ fontWeight: 'bold', zIndex: 999 }}
           />
         )}
-        <BackButton buttonState="pressed" prevPage="Gosho"></BackButton>
+        <BackButton prevPageIndex={activeStep}></BackButton>
         <Button onPress={continueHandler} size={40} disabled={isDisabled}>
           {activeStep < 6 ? 'Continue' : 'Continue to Dashboard'}
         </Button>
