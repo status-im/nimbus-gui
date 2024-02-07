@@ -3,38 +3,55 @@ import { Stack, XStack } from 'tamagui'
 import { ArrowLeftIcon } from '@status-im/icons'
 import { useEffect, useState } from 'react'
 import { FORM_STEPS } from '../../../constants'
+
 type BackButtonProps = {
   prevPageIndex: number
-  buttonState: 'disabled' | 'enabled' | 'pressed'
 }
 
 const BackButton = ({ prevPageIndex }: BackButtonProps) => {
-  const [buttonState, setButtonState] = useState('disabled')
+  const [buttonState, setButtonState] = useState<
+    'disabled' | 'enabled' | 'pressed'
+  >('disabled')
+
   useEffect(() => {
-    const a = prevPageIndex > 0 ? 'enabled' : 'disabled'
-    setButtonState(a)
+    setButtonState(prevPageIndex > 0 ? 'enabled' : 'disabled')
   }, [prevPageIndex])
 
-  const prevPageName = FORM_STEPS[prevPageIndex-1]?.label || 'Back'
+  const prevPageName = FORM_STEPS[prevPageIndex - 1]?.label || 'Back'
+
+  const handleMouseEnter = () => {
+    if (buttonState === 'enabled') {
+      setButtonState('pressed')
+    }
+  }
+
+  const handleMouseLeave = () => {
+    if (buttonState === 'pressed') {
+      setButtonState('enabled')
+    }
+  }
 
   const buttonStyle = {
     color:
       buttonState === 'enabled'
         ? '09101C'
-        : buttonState == 'disabled'
+        : buttonState === 'disabled'
         ? 'CED4DB'
         : 'fff',
     fill: buttonState === 'pressed' ? '2A4AF5' : '',
     textColor: buttonState === 'disabled' ? 'CED4DB' : '09101C',
   }
+
   return (
     <XStack
       alignItems="center"
       space="$3"
-      cursor={buttonState === 'pressed' ? 'pointer' : ''}
-      onClick={() => console.log('gosho')}
-      onMouseEnter={() => setButtonState('pressed')}
-      onMouseLeave={() => setButtonState('enabled')}
+      cursor={buttonState !== 'disabled' ? 'pointer' : 'default'}
+      onClick={() =>
+        buttonState !== 'disabled' && console.log('Back button clicked')
+      }
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <Stack
         style={{
@@ -42,15 +59,11 @@ const BackButton = ({ prevPageIndex }: BackButtonProps) => {
           borderRadius: '8px',
           padding: '10px',
           backgroundColor: `#${buttonStyle.fill}`,
-          background: `#${buttonStyle.fill}`,
         }}
       >
-        <ArrowLeftIcon
-          size={16}
-          color={`#${buttonStyle.color}`}
-        ></ArrowLeftIcon>
+        <ArrowLeftIcon size={16} color={`#${buttonStyle.color}`} />
       </Stack>
-      <Text size={15} color={`#${buttonStyle.textColor}`} weight={'regular'}>
+      <Text size={15} color={`#${buttonStyle.textColor}`} weight={'semibold'}>
         {prevPageName}
       </Text>
     </XStack>
