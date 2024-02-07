@@ -43,4 +43,8 @@
     top: 12%;
     width: 85%;
   }
+
+  .quick-start-bar > div {
+    padding: 0.5rem 0.25rem;
+  }
 }
