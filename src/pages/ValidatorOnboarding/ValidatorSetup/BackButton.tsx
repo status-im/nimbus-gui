@@ -1,13 +1,21 @@
 import { Text } from '@status-im/components'
 import { Stack, XStack } from 'tamagui'
 import { ArrowLeftIcon } from '@status-im/icons'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { FORM_STEPS } from '../../../constants'
 type BackButtonProps = {
-  prevPage: string
+  prevPageIndex: number
   buttonState: 'disabled' | 'enabled' | 'pressed'
 }
-const BackButton = ({ prevPage }: BackButtonProps) => {
-  const [buttonState, setButtonState] = useState('enabled')
+
+const BackButton = ({ prevPageIndex }: BackButtonProps) => {
+  const [buttonState, setButtonState] = useState('disabled')
+  useEffect(() => {
+    const a = prevPageIndex > 0 ? 'enabled' : 'disabled'
+    setButtonState(a)
+  }, [prevPageIndex])
+
+  const prevPageName = FORM_STEPS[prevPageIndex-1]?.label || 'Back'
 
   const buttonStyle = {
     color:
@@ -43,7 +51,7 @@ const BackButton = ({ prevPage }: BackButtonProps) => {
         ></ArrowLeftIcon>
       </Stack>
       <Text size={15} color={`#${buttonStyle.textColor}`} weight={'regular'}>
-        {prevPage}
+        {prevPageName}
       </Text>
     </XStack>
   )
