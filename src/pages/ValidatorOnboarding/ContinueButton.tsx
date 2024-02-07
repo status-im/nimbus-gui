@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { RootState } from '../../redux/store'
 import LinkWithArrow from '../../components/General/LinkWithArrow'
 import { setActiveStep } from '../../redux/ValidatorOnboarding/slice'
-import { KEYSTORE_FILES } from '../../constants'
+import { KEYSTORE_FILES, STEPPER_PATHS } from '../../constants'
 import {
   setIsConfirmPhraseStage,
   setIsCopyPastedPhrase,
@@ -109,32 +109,15 @@ const ContinueButton = () => {
   }
 
   const continueHandler = () => {
-    let nextPath
-    if (activeStep === 0) nextPath = '/validator-onboarding/advisories'
-    else if (activeStep === 1)
-      nextPath = '/validator-onboarding/validator-setup'
-    else if (activeStep === 2)
-      nextPath = '/validator-onboarding/validator-setup-install'
-    else if (activeStep === 3)
-      nextPath = '/validator-onboarding/consensus-selection'
-    else if (activeStep === 4)
-      nextPath = '/validator-onboarding/activation-validator-setup'
-    else if (activeStep === 5) {
-      nextPath = '/validator-onboarding/client-setup'
-    } else if (activeStep === 6) {
-      nextPath = '/validator-onboarding/key-generation'
-    } else if (activeStep === 7) {
-      if (isConfirmPhraseStage) {
-        nextPath = '/validator-onboarding/deposit'
-      } else {
-        nextPath = '/validator-onboarding/key-generation'
-      }
-      handleRecoveryMechanism()
-    } else if (activeStep === 8) nextPath = '/validator-onboarding/activation'
-    else if (activeStep === 9) nextPath = '/dashboard'
-    else nextPath = '/validator-onboarding/'
-
-    navigate(nextPath)
+    let nextPath = STEPPER_PATHS[activeStep] || '/validator-onboarding/'
+  
+     
+    if (activeStep === 7) {
+      nextPath = isConfirmPhraseStage ? '/validator-onboarding/deposit' : '/validator-onboarding/key-generation';
+      handleRecoveryMechanism();
+    }
+  
+    navigate(nextPath);
   }
 
   return (
