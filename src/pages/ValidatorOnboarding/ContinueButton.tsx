@@ -15,6 +15,7 @@ import {
 } from '../../redux/ValidatorOnboarding/KeyGeneration/slice'
 import { useWindowSize } from '../../hooks/useWindowSize'
 import CopyPastedRecoveryPhrase from './CopyPastedRecoveryPhrase'
+import BackButton from './ValidatorSetup/BackButton'
 
 const ContinueButton = () => {
   const windowSize = useWindowSize()
@@ -144,7 +145,7 @@ const ContinueButton = () => {
       <XStack
         style={{
           width: '100%',
-          justifyContent: isActivationValScreen ? 'space-between' : 'end',
+          justifyContent: isActivationValScreen||true ? 'space-between' : 'end',
           alignItems: 'center',
           zIndex: 1000,
           marginTop: '12px',
@@ -159,6 +160,7 @@ const ContinueButton = () => {
             style={{ fontWeight: 'bold', zIndex: 999 }}
           />
         )}
+        <BackButton buttonState="pressed" prevPage="Gosho"></BackButton>
         <Button onPress={continueHandler} size={40} disabled={isDisabled}>
           {activeStep < 6 ? 'Continue' : 'Continue to Dashboard'}
         </Button>
