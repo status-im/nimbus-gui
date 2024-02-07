@@ -2,13 +2,15 @@ import { Text } from '@status-im/components'
 import { Stack, XStack } from 'tamagui'
 import { ArrowLeftIcon } from '@status-im/icons'
 import { useEffect, useState } from 'react'
-import { FORM_STEPS } from '../../../constants'
+import { FORM_STEPS, STEPPER_PATHS } from '../../../constants'
+import { useNavigate } from 'react-router-dom'
 
 type BackButtonProps = {
   prevPageIndex: number
 }
 
 const BackButton = ({ prevPageIndex }: BackButtonProps) => {
+  const navigate = useNavigate()
   const [buttonState, setButtonState] = useState<
     'disabled' | 'enabled' | 'pressed'
   >('disabled')
@@ -41,15 +43,17 @@ const BackButton = ({ prevPageIndex }: BackButtonProps) => {
     fill: buttonState === 'pressed' ? '2A4AF5' : '',
     textColor: buttonState === 'disabled' ? 'CED4DB' : '09101C',
   }
-
+  const handleNavigateBack = () => {
+    const prevPath =
+      STEPPER_PATHS[prevPageIndex - 2] || '/validator-onboarding/'
+    navigate(prevPath)
+  }
   return (
     <XStack
       alignItems="center"
       space="$3"
       cursor={buttonState !== 'disabled' ? 'pointer' : 'default'}
-      onClick={() =>
-        buttonState !== 'disabled' && console.log('Back button clicked')
-      }
+      onClick={() => buttonState !== 'disabled' && handleNavigateBack()}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
