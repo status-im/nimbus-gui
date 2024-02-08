@@ -23,7 +23,7 @@ const LandingPage = () => {
       >
         <YStack className={styles['landing-page']}>
           <NimbusLogo />
-          <YStack className={styles['landing-texts']} space={'16px'}>
+          <YStack className={styles['landing-texts']} space={'$4'}>
             <Text size={27} weight={'semibold'}>
               Light and performant clients, for all Ethereum validators.
             </Text>
