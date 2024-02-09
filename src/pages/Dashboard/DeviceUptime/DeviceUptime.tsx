@@ -65,7 +65,7 @@ const DeviceUptime = () => {
             <Text size={13} weight={'semibold'}>
               {dateRange?.to ? dateRange.to.toLocaleDateString() : ' End Date'}
             </Text>
-            <Icon src="/icons/edit.svg" />
+            <Icon src="/icons/edit.svg" height={20} width={20} />
           </XStack>
           {isCalendarVisible && (
             <Calendar
