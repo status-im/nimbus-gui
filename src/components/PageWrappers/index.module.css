@@ -93,7 +93,7 @@
 
 @media (max-width: 1000px) {
   .layout {
-    height: 65vh;
+    height: auto;
   }
   .layout-left {
     flex: 0 0 100%;
@@ -116,7 +116,7 @@
     max-width: 100%;
     order: 0;
     margin-top: -10%;
-    margin-bottom: -92%;
+    margin-bottom: -70%;
   }
 
   .image-container {
