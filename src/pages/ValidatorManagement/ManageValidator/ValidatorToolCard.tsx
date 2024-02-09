@@ -21,7 +21,7 @@ const ValidatorToolCard = ({ name, icon }: ValidatorToolCardProps) => {
         minWidth: '100px',
       }}
       space={'$4'}
-      onClick={() => {}}
+      onPress={() => {}}
     >
       <Stack>
         <Text size={19} weight={'semibold'}>

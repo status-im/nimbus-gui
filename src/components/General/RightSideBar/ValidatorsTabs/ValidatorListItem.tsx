@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { XStack } from 'tamagui'
 import { Avatar, Checkbox } from '@status-im/components'
 
+import { colorsTyped } from '../../../../../tokens.ts'
 import ValidatorNameAddress from '../../ValidatorNameAddress'
 
 type ValidatorListItemProps = {
@@ -29,23 +30,24 @@ const ValidatorListItem = ({
     <XStack
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onClick={handleClick}
       justifyContent="space-between"
       alignItems="center"
       style={{
         padding: '6px 8px',
         borderRadius: '12px',
-        backgroundColor: (isSelected || isHovered) && 'rgba(42, 74, 245, 0.05)',
+        backgroundColor:
+          isSelected || isHovered ? 'rgba(42, 74, 245, 0.05)' : '',
         cursor: 'pointer',
       }}
       width="92%"
+      onPress={handleClick}
     >
       <XStack alignItems="center" space={'$2'}>
         <Avatar
           type="user"
           size={32}
           name={name}
-          backgroundColor="$red-50"
+          backgroundColor={colorsTyped['red-50']}
           colorHash={[
             [2, 9],
             [4, 8],

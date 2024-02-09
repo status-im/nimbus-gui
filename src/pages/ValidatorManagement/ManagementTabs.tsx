@@ -20,7 +20,7 @@ const ManagementTabs = () => {
             maxWidth={'120px'}
             style={{ cursor: 'pointer', margin: '8px 0' }}
           >
-            <Tabs.List size={32}>
+            <Tabs.List size={32} variant="grey">
               {VALIDATOR_TABS_MANAGEMENT.map(tab => (
                 <Tabs.Trigger key={tab} type="default" value={tab}>
                   {tab}

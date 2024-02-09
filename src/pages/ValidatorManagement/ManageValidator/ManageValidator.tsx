@@ -15,7 +15,7 @@ import Footer from './Footer'
 
 const ManageValidator = () => {
   return (
-    <XStack flexGrow="1">
+    <XStack flexGrow={1}>
       <Stack width={'50%'} space="$2">
         <Header />
         <YStack backgroundColor="#F4F6FE" space={'$3'}>

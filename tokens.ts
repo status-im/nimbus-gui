@@ -1,10 +1,10 @@
 import { customisation } from '@status-im/colors'
 import { createTokens } from '@tamagui/core'
 import { size, space, zIndex } from '@tamagui/themes'
-import { ColorTokens } from 'tamagui';
+import { ColorTokens } from 'tamagui'
 
 type ColorObject = {
-  [key: string]: ColorTokens;
+  [key: string]: ColorTokens
 }
 
 export const tokens = createTokens({
@@ -206,7 +206,7 @@ export const tokens = createTokens({
 })
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const colorsTyped: ColorObject = tokens.color as  { [key: string]: any };
+export const colorsTyped: ColorObject = tokens.color as { [key: string]: any }
 
 type GetTokenString<A> = A extends string | number ? `$${A}` : `$${string}`
 type RadiusTokens = GetTokenString<keyof typeof tokens.radius> | number

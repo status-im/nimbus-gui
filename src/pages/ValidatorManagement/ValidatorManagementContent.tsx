@@ -10,7 +10,7 @@ const ValidatorManagementContent = () => {
   return (
     <YStack
       space="$4"
-      alignItems="start"
+      alignItems="flex-start"
       px="24px"
       style={{
         flexGrow: '1',

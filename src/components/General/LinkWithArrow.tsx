@@ -34,7 +34,7 @@ const LinkWithArrow = ({
         cursor: 'pointer',
         ...style,
       }}
-      onClick={navigateHandler}
+      onPress={navigateHandler}
     >
       {arrowLeft && <ArrowLeftIcon size={20} color="#2A4CF4" />}
       <Link

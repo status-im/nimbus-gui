@@ -13,7 +13,7 @@ const AdvisoriesContent = ({ title, content }: AdvisoriesContentProps) => {
   return (
     <YStack space={'$1'} width={windowSize.width < 780 ? '100%' : '70%'}>
       <Stack style={{ marginBottom: '5%' }}>
-        <Text size={27} weight={400}>
+        <Text size={27} weight="regular">
           {title}
         </Text>
       </Stack>

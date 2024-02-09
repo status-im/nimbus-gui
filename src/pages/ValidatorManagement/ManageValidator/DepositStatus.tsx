@@ -22,10 +22,12 @@ const depositStatusData = [
 const DepositStatus = () => {
   return (
     <XStack
-      border="1px solid ##DCE0E5"
+      borderWidth="1px"
+      borderStyle="solid"
+      borderColor={'#DCE0E5'}
       space={'$2'}
       backgroundColor="#fff"
-      borderRadius="10px"
+      borderRadius="$10"
       marginTop="0px"
       marginLeft="30px"
       marginRight="20px"

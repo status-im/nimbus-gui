@@ -44,7 +44,7 @@ const CreateAvatar = () => {
           <Text size={13} weight="semibold" color={'#647084'}>
             Device Avatar
           </Text>
-          <XStack my={10} alignItems={'end'}>
+          <XStack my={10} alignItems={'flex-end'}>
             <div className="device-avatar" style={{ background: chosenColor }}>
               {selectedEmoji ? (
                 <Emoji

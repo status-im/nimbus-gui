@@ -6,6 +6,7 @@ import {
 } from '@status-im/components'
 import { ClearIcon, CloseCircleIcon } from '@status-im/icons'
 import { useState } from 'react'
+import { NativeSyntheticEvent, TextInputFocusEventData } from 'react-native'
 import { isAddress } from 'web3-validator'
 
 type WithdrawalAddressProps = {
@@ -22,11 +23,12 @@ const WithdrawalAddress = ({ title }: WithdrawalAddressProps) => {
   const removeWithdrawalAddressHandler = () => {
     setWithdrawalAddress('')
   }
-  const checkAddress = (e: any) => {
+  const checkAddress = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
     if (e.nativeEvent.text.length !== 0) {
       setIsValidAddress(isAddress(e.nativeEvent.text))
     }
   }
+
   return (
     <YStack space={'$4'}>
       <Text size={19} weight={'semibold'}>
@@ -55,13 +57,13 @@ const WithdrawalAddress = ({ title }: WithdrawalAddressProps) => {
         <InformationBox
           message="If withdrawal address is not provided at this step, your deposited funds will remain locked on the Beacon Chain until an address is provided. Unlocking will require signing a message with your withdrawal keys, generated from your mnemonic seed phrase (so keep it safe)."
           variant="error"
-          icon={<CloseCircleIcon size={20} color="$red" />}
+          icon={<CloseCircleIcon size={20} />}
         />
         {!isValidAddress && (
           <InformationBox
             message="Not valid ethereum address"
             variant="error"
-            icon={<CloseCircleIcon size={20} color="$red" />}
+            icon={<CloseCircleIcon size={20} />}
           />
         )}
       </YStack>

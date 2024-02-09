@@ -74,7 +74,9 @@ const Advisories = () => {
               <Text
                 size={27}
                 weight={
-                  isCompleted(index) || isCurrent(title) ? 'semibold' : 'normal'
+                  isCompleted(index) || isCurrent(title)
+                    ? 'semibold'
+                    : 'regular'
                 }
                 color={
                   isCompleted(index) || isCurrent(title) ? 'blue' : 'default'
@@ -85,7 +87,9 @@ const Advisories = () => {
               <Text
                 size={19}
                 weight={
-                  isCompleted(index) || isCurrent(title) ? 'semibold' : 'normal'
+                  isCompleted(index) || isCurrent(title)
+                    ? 'semibold'
+                    : 'regular'
                 }
                 color={
                   isCompleted(index) || isCurrent(title) ? 'blue' : 'default'

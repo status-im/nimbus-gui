@@ -8,7 +8,7 @@ const ValidatorsTabs = () => {
   return (
     <Tabs defaultValue={VALIDATOR_TABS_RIGHT_SIDEBAR[0]}>
       <Stack style={{ cursor: 'pointer', width: 'fit-content' }}>
-        <Tabs.List size={32}>
+        <Tabs.List size={32} variant="grey">
           {VALIDATOR_TABS_RIGHT_SIDEBAR.map(tab => (
             <Tabs.Trigger key={tab} type="default" value={tab}>
               {tab}

@@ -35,7 +35,7 @@ const ExecClientCard = ({ name, icon, isComingSoon }: ExecClientCardProps) => {
         minWidth: '150px',
       }}
       space={'$8'}
-      onClick={() => {
+      onPress={() => {
         dispatch(selectClient(name))
       }}
     >

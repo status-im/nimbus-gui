@@ -79,7 +79,7 @@ const BackButton = () => {
       alignItems="center"
       space="$3"
       cursor={buttonState !== 'disabled' ? 'pointer' : 'default'}
-      onClick={() => buttonState !== 'disabled' && handleNavigateBack()}
+      onPress={() => buttonState !== 'disabled' && handleNavigateBack()}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

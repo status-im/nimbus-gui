@@ -21,7 +21,7 @@ const DashboardContent = ({ windowWidth }: DashboardContentProps) => {
   return (
     <YStack
       space="$4"
-      alignItems="start"
+      alignItems="flex-start"
       px="24px"
       minWidth="500px"
       width="50vh"

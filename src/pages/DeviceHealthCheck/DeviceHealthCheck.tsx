@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux'
 import { Stack, XStack, YStack } from 'tamagui'
 import { CloseCircleIcon } from '@status-im/icons'
 import { Button, InformationBox } from '@status-im/components'
+import type { Property } from 'csstype'
 
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import NimbusLogo from '../../components/Logos/NimbusLogo'
@@ -22,8 +23,12 @@ const DeviceHealthCheck = () => {
   const breakpoint = 768
 
   const responsiveStyle = {
-    flexWrap: windowSize.width <= breakpoint ? 'wrap' : 'nowrap',
-    flexDirection: windowSize.width <= breakpoint ? 'column' : 'row',
+    flexWrap: (windowSize.width <= breakpoint
+      ? 'wrap'
+      : 'nowrap') as Property.FlexWrap,
+    flexDirection: (windowSize.width <= breakpoint
+      ? 'column'
+      : 'row') as Property.FlexDirection,
     alignItems: 'flex-start',
     width: windowSize.width <= breakpoint ? '200%' : '100%',
   }
@@ -47,13 +52,13 @@ const DeviceHealthCheck = () => {
           subtitle="Configure your device to start Staking on Nimbus"
           isAdvancedSettings={true}
         />
-        <XStack space={'$4'} style={responsiveStyle}>
+        <Stack space={'$4'} style={responsiveStyle}>
           <DeviceStorageHealth
             storage={deviceHealthState.storage}
             maxStorage={deviceHealthState.maxMemory}
           />
           <DeviceCPULoad load={deviceHealthState.cpuLoad} />
-        </XStack>
+        </Stack>
         <XStack space={'$4'} style={responsiveStyle}>
           <DeviceMemory
             currentMemory={deviceHealthState.memory}

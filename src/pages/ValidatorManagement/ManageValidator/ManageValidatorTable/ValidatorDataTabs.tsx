@@ -25,7 +25,7 @@ const ValidatorDataTabs = () => {
             maxWidth={'120px'}
             style={{ cursor: 'pointer', margin: '8px 0' }}
           >
-            <Tabs.List size={32}>
+            <Tabs.List size={32} variant="grey">
               {MANAGE_VALIDATOR_TABS.map((tab, index) => (
                 <Tabs.Trigger key={index} type="default" value={tab}>
                   {tab}

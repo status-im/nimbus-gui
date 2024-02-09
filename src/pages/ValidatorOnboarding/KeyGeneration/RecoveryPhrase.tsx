@@ -71,7 +71,7 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
           paddingRight: '18px',
           paddingLeft: '18px',
         }}
-        onClick={copyRecoveryPhraseHandler}
+        onPress={copyRecoveryPhraseHandler}
       >
         <div
           style={{

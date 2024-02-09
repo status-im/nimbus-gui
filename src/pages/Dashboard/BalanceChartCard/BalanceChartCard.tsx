@@ -48,11 +48,7 @@ const BalanceChartCard = () => {
             <Text size={15} weight={'semibold'}>
               Balance
             </Text>
-            <XStack
-              style={{ alignItems: 'end' }}
-              space={'$1'}
-              onClick={() => setIsCalendarVisible(true)}
-            >
+            <XStack style={{ alignItems: 'end' }} space={'$1'}>
               <Text size={27} weight={'semibold'}>
                 24,273
               </Text>
@@ -76,7 +72,6 @@ const BalanceChartCard = () => {
             />
           )}
           <XStack
-            onClick={() => setIsCalendarVisible(prev => !prev)}
             style={{
               border: '2px solid #09101C14',
               height: 'fit-content',
@@ -85,6 +80,7 @@ const BalanceChartCard = () => {
               cursor: 'pointer',
             }}
             space={'$2'}
+            onPress={() => setIsCalendarVisible(prev => !prev)}
           >
             <Text size={13} weight={'semibold'}>
               {dateRange?.from
@@ -100,7 +96,6 @@ const BalanceChartCard = () => {
             <Icon src="/icons/edit.svg" />
           </XStack>
         </XStack>
-
         <LineChart years={filteredYears} userGains={filteredUserGains} />
       </YStack>
     </DashboardCardWrapper>

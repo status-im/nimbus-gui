@@ -35,7 +35,7 @@ const LogsPage = () => {
       <LeftSidebar />
       <YStack
         space="$4"
-        alignItems="start"
+        alignItems="flex-start"
         px="24px"
         minWidth="500px"
         width="50vh"
@@ -46,7 +46,7 @@ const LogsPage = () => {
         }}
         className={'transparent-scrollbar'}
       >
-        <XStack justifyContent="space-between" width={'100%'} flexWrap="wrap  ">
+        <XStack justifyContent="space-between" width={'100%'} flexWrap="wrap">
           <TitleLogo />
           <HeaderBtns
             dropdownMenuItem={dropdownMenuItem}

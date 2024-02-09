@@ -19,7 +19,7 @@ const KeystoreBackupsCard = () => {
         padding: '9px 16px',
         cursor: 'pointer',
       }}
-      onClick={downloadKeyFilesHandler}
+      onPress={downloadKeyFilesHandler}
     >
       <Text size={15} weight={'semibold'}>
         Download Keystore Backups

@@ -52,7 +52,7 @@ const ConnectedWallet = () => {
             {getFormattedWalletAddress(address)}
           </Text>
           <Stack style={{ marginTop: '3px' }}>
-            <Text size={13} color="#2A4CF4" weight={'semiboldF'}>
+            <Text size={13} color="#2A4CF4" weight={'semibold'}>
               Connected
             </Text>
           </Stack>

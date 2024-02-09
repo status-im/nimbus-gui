@@ -38,7 +38,7 @@ const ValidatorNameAddress = ({
   }
 
   return (
-    <YStack alignItems={'start'}>
+    <YStack alignItems={'flex-start'}>
       <XStack space={'$1'} alignItems="center">
         <Text size={13} weight={'semibold'}>
           Validator {name}
