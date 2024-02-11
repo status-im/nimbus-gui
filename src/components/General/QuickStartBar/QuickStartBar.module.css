@@ -56,3 +56,9 @@
     padding: 0.5rem 0.25rem;
   }
 }
+
+@media (max-width: 464px) {
+  .quick-start-bar-container {
+    padding: 0 35px;
+  }
+}
