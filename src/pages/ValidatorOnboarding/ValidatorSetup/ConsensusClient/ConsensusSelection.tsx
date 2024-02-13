@@ -1,32 +1,22 @@
+@ -1,111 +1,100 @@
 import { XStack, Stack, Text as TextTam, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
-import { useSelector } from 'react-redux'
 
 import PairedDeviceCard from './PairedDeviceCard'
 import ConsensusGaugeCard from './ConsensusGaugeCard'
 import ConsensusClientCard from './ConsensusClientCard'
 import LinkWithArrow from '../../../../components/General/LinkWithArrow'
-import { RootState } from '../../../../redux/store'
-import { useWindowSize } from '../../../../hooks/useWindowSize'
 
-const clientIcons = {
-  Nethermind: '/icons/nethermind-circle.png',
-  Besu: '/icons/hyperledger-besu-circle.png',
-  Geth: '/icons/gethereum-mascot-circle.png',
-  Erigon: '/icons/erigon-circle.png',
-  Nimbus: '/icons/NimbusDisabled.svg',
-}
+import { useWindowSize } from '../../../../hooks/useWindowSize'
 
 const ConsensusSelection = () => {
   const windowSize = useWindowSize()
-  const selectedClient = useSelector(
-    (state: RootState) => state.execClient.selectedClient,
-  ) as 'Nethermind' | 'Besu' | 'Geth' | 'Erigon' | 'Nimbus'
+  const selectedClient = 'Nimbus'
 
   const clients = [
     {
       name: selectedClient,
-      icon: clientIcons[selectedClient],
+      icon: '/icons/nimbus-disabled.svg',
     },
   ]
 
@@ -108,3 +98,4 @@ const ConsensusSelection = () => {
 }
 
 export default ConsensusSelection
+  
