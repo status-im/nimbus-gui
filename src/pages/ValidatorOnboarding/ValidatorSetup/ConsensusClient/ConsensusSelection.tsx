@@ -1,4 +1,3 @@
-@ -1,111 +1,100 @@
 import { XStack, Stack, Text as TextTam, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 
@@ -98,4 +97,3 @@ const ConsensusSelection = () => {
 }
 
 export default ConsensusSelection
-  

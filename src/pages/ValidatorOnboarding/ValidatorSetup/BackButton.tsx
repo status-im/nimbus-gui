@@ -10,7 +10,7 @@ import { setIsConfirmPhraseStage } from '../../../redux/ValidatorOnboarding/KeyG
 import { setActiveStep } from '../../../redux/ValidatorOnboarding/slice'
 
 const BackButton = () => {
-  const dispatch = useDispatch()  
+  const dispatch = useDispatch()
   const isConfirmPhraseStage = useSelector(
     (state: RootState) => state.keyGeneration.isConfirmPhraseStage,
   )
@@ -57,11 +57,8 @@ const BackButton = () => {
     textColor: buttonState === 'disabled' ? 'CED4DB' : '09101C',
   }
   const handleNavigateBack = () => {
-    
-
     if (activeStep === 7 && isConfirmPhraseStage) {
-      
-      dispatch(setIsConfirmPhraseStage(false))  
+      dispatch(setIsConfirmPhraseStage(false))
       navigate('/validator-onboarding/key-generation')
       return
     } else {
