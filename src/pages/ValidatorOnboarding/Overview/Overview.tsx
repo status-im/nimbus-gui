@@ -12,12 +12,7 @@ const Overview = () => {
       imgHeight="250%"
       rightImageSrc="./background-images/sync-status-background.png"
     >
-      <YStack
-        space={'$5'}
-        marginTop={'2rem'}
-        marginBottom={'2rem'}
-        width="100%"
-      >
+      <YStack space={'$4'} width="100%">
         <Stack marginBottom={'$2'}>
           <Text size={27} weight={'semibold'}>
             Overview
@@ -41,7 +36,7 @@ const Overview = () => {
           text="Learn More"
           to={'/'}
           arrowRight={true}
-          style={{ marginBottom: '1%', fontSize: '13px' }}
+          style={{ marginBottom: '1.5rem', fontSize: '13px' }}
         />
       </YStack>
       <div className={styles.overviewCards}>
