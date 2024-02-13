@@ -34,14 +34,41 @@ export const KEYSTORE_FILES = 'KeystoreFiles'
 export const RECOVERY_PHRASE = 'Recovery Phrase'
 export const BOTH_KEY_AND_RECOVERY = 'Both KeystoreFiles & Recovery Phrase'
 export const ETH_PER_VALIDATOR = 32
+
 export const FORM_STEPS = [
-  { label: 'Overview', subtitle: 'Get Started' },
-  { label: 'Advisories', subtitle: 'Understand your Duties' },
-  { label: 'Client Setup', subtitle: 'Execution & Consensus' },
-  { label: 'Validator Setup', subtitle: 'Validators & Withdrawal' },
-  { label: 'Key Generation', subtitle: 'Secure your Keypairs' },
-  { label: 'Deposit', subtitle: 'Stake your ETH' },
-  { label: 'Activation', subtitle: 'Complete Setup' },
+  { label: 'Overview', subtitle: 'Get Started', paths: [''] },
+  {
+    label: 'Advisories',
+    subtitle: 'Understand your Duties',
+    paths: ['advisories'],
+  },
+  {
+    label: 'Client Setup',
+    subtitle: 'Execution & Consensus',
+    paths: [
+      'validator-setup',
+      'validator-setup-install',
+      'client-setup',
+      'activation-validator-setup',
+    ],
+  },
+  {
+    label: 'Validator Setup',
+    subtitle: 'Validators & Withdrawal',
+    paths: [
+      'validator-setup',
+      'validator-setup-install',
+      'consensus-selection',
+      'activation-validator-setup',
+    ],
+  },
+  {
+    label: 'Key Generation',
+    subtitle: 'Secure your Keypairs',
+    paths: ['key-generation'],
+  },
+  { label: 'Deposit', subtitle: 'Stake your ETH', paths: ['deposit'] },
+  { label: 'Activation', subtitle: 'Complete Setup', paths: ['activation'] },
 ]
 export const DepositStatusSteps = [
   { label: 'Deposit' },
@@ -50,6 +77,7 @@ export const DepositStatusSteps = [
   { label: 'Exit' },
 ]
 export const STEPPER_PATHS = [
+  '/validator-onboarding/',
   '/validator-onboarding/advisories',
   '/validator-onboarding/validator-setup',
   '/validator-onboarding/validator-setup-install',
@@ -57,6 +85,7 @@ export const STEPPER_PATHS = [
   '/validator-onboarding/activation-validator-setup',
   '/validator-onboarding/client-setup',
   '/validator-onboarding/key-generation',
+  '/validator-onboarding/recovery-phrase',
   '/validator-onboarding/',
   '/validator-onboarding/activation',
   '/dashboard',
