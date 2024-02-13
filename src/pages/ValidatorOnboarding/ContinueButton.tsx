@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { RootState } from '../../redux/store'
 import LinkWithArrow from '../../components/General/LinkWithArrow'
 import { setActiveStep } from '../../redux/ValidatorOnboarding/slice'
-import { FORM_STEPS, KEYSTORE_FILES, STEPPER_PATHS } from '../../constants'
+import { KEYSTORE_FILES, STEPPER_PATHS } from '../../constants'
 import {
   setIsConfirmPhraseStage,
   setIsCopyPastedPhrase,
@@ -117,13 +117,14 @@ const ContinueButton = () => {
       nextPath = isConfirmPhraseStage
         ? '/validator-onboarding/deposit'
         : '/validator-onboarding/recovery-phrase'
-
       handleRecoveryMechanism()
+    } else if (activeStep === 8) {
+      nextPath = '/validator-onboarding/activation'
+    } else if (activeStep === 9) {
+      nextPath = '/dashboard'
     }
-
     navigate(nextPath)
   }
-
   return (
     <YStack style={{ width: '100%' }}>
       {windowSize.width < 1155 && (

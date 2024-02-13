@@ -7,10 +7,10 @@ import { useNavigate } from 'react-router-dom'
 import { RootState } from '../../../redux/store'
 import { useDispatch, useSelector } from 'react-redux'
 import { setIsConfirmPhraseStage } from '../../../redux/ValidatorOnboarding/KeyGeneration/slice'
-import { setActiveStep } from '../../../redux/ValidatorOnboarding/slice'
 
 const BackButton = () => {
   const dispatch = useDispatch()
+  const [prevPageName, setPrevPageName] = useState<string>('Back')
   const isConfirmPhraseStage = useSelector(
     (state: RootState) => state.keyGeneration.isConfirmPhraseStage,
   )
@@ -24,14 +24,21 @@ const BackButton = () => {
 
   useEffect(() => {
     setButtonState(activeStep > 0 ? 'enabled' : 'disabled')
+    prevPageNameHandler()
   }, [activeStep])
 
-  const prevPageName = () => {
-    let name = FORM_STEPS[activeStep - 1]?.label || 'Back'
-    if (activeStep === 7) {
-      name = 'Key Generation'
+  const prevPageNameHandler = () => {
+    console.log(activeStep)
+
+    let adjustedStepIndex = activeStep - 1
+    if (activeStep > 4 && activeStep < 7) {
+      adjustedStepIndex -= 2
+    } else if (activeStep >= 7) {
+      adjustedStepIndex -= isConfirmPhraseStage ? 3 : 4
     }
-    return name
+
+    const stepLabel = FORM_STEPS[adjustedStepIndex]?.label || 'Back'
+    setPrevPageName(stepLabel)
   }
 
   const handleMouseEnter = () => {
@@ -62,7 +69,6 @@ const BackButton = () => {
       navigate('/validator-onboarding/key-generation')
       return
     } else {
-      // Handle other cases as before
       let prevPath = STEPPER_PATHS[activeStep - 1] || '/validator-onboarding/'
       navigate(prevPath)
     }
@@ -88,7 +94,7 @@ const BackButton = () => {
         <ArrowLeftIcon size={16} color={`#${buttonStyle.color}`} />
       </Stack>
       <Text size={15} color={`#${buttonStyle.textColor}`} weight={'semibold'}>
-        {prevPageName()}
+        {prevPageName}
       </Text>
     </XStack>
   )
