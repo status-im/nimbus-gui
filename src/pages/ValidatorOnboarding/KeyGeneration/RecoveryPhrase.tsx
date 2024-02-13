@@ -24,7 +24,9 @@ const RecoveryPhrase = ({ isKeystoreFiles }: RecoveryPhraseProps) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    getMnemonic()
+    if (generatedMnemonic.length === 0) {
+      getMnemonic()
+    }
   }, [])
 
   const getMnemonic = async () => {
