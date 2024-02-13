@@ -129,7 +129,7 @@
     position: absolute;
     top: 10%;
     left: 50%;
-    /* transform: translateX(-50%) translateY(-5%); */
+    transform: translateX(-50%) translateY(-5%);
     clip-path: inset(0 0 85% 0);
     height: auto;
   }
