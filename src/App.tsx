@@ -32,6 +32,8 @@ import ClientSetup from './pages/ValidatorOnboarding/ClientSetup/ClientSetup'
 import KeyGeneration from './pages/ValidatorOnboarding/KeyGeneration/KeyGeneration'
 import Deposit from './pages/ValidatorOnboarding/Deposit/Deposit'
 import Activation from './pages/ValidatorOnboarding/Activation/Activation'
+import RecoveryPhrase from './pages/ValidatorOnboarding/KeyGeneration/RecoveryPhrase'
+import ConfirmRecoveryPhrase from './pages/ValidatorOnboarding/KeyGeneration/ConfirmRecoveryPhrase/ConfirmRecoveryPhrase'
 
 const injected = injectedModule()
 const walletConnect = walletConnectModule(wcV2InitOptions)
@@ -81,6 +83,7 @@ const router = createBrowserRouter([
       },
       { path: 'client-setup', element: <ClientSetup /> },
       { path: 'key-generation', element: <KeyGeneration /> },
+      { path: 'recovery-phrase', element: <ConfirmRecoveryPhrase /> },
       { path: 'deposit', element: <Deposit /> },
       {
         path: 'activation',
