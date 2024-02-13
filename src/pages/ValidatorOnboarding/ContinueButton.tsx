@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { RootState } from '../../redux/store'
 import LinkWithArrow from '../../components/General/LinkWithArrow'
 import { setActiveStep } from '../../redux/ValidatorOnboarding/slice'
-import { KEYSTORE_FILES, STEPPER_PATHS } from '../../constants'
+import { FORM_STEPS, KEYSTORE_FILES, STEPPER_PATHS } from '../../constants'
 import {
   setIsConfirmPhraseStage,
   setIsCopyPastedPhrase,
@@ -46,11 +46,13 @@ const ContinueButton = () => {
     '/validator-onboarding/deposit': 8,
     '/validator-onboarding/activation': 9,
   }
-  dispatch(
-    setActiveStep(
-      pathToStepMap[location.pathname as keyof typeof pathToStepMap] || 0,
-    ),
-  )
+  const handleActiveStep = () => {
+    if (location.pathname === '/validator-onboarding/recovery-phrase') {
+      return 7
+    }
+    return pathToStepMap[location.pathname as keyof typeof pathToStepMap] || 0
+  }
+  dispatch(setActiveStep(handleActiveStep()))
 
   const { isValidatorSet } = useSelector(
     (state: RootState) => state.validatorSetup,
@@ -109,12 +111,13 @@ const ContinueButton = () => {
   }
 
   const continueHandler = () => {
-    let nextPath = STEPPER_PATHS[activeStep] || '/validator-onboarding/'
+    let nextPath = STEPPER_PATHS[activeStep + 1] || ''
 
     if (activeStep === 7) {
       nextPath = isConfirmPhraseStage
         ? '/validator-onboarding/deposit'
-        : '/validator-onboarding/key-generation'
+        : '/validator-onboarding/recovery-phrase'
+
       handleRecoveryMechanism()
     }
 
@@ -136,7 +139,7 @@ const ContinueButton = () => {
         }}
       >
         {windowSize.width >= 1155 && <CopyPastedRecoveryPhrase />}
-        <BackButton prevPageIndex={activeStep}></BackButton>
+        <BackButton></BackButton>
         {isActivationValScreen && (
           <LinkWithArrow
             text="Skip to Dashboard"
@@ -146,7 +149,7 @@ const ContinueButton = () => {
           />
         )}
         <Button onPress={continueHandler} size={40} disabled={isDisabled}>
-          {activeStep < 6 ? 'Continue' : 'Continue to Dashboard'}
+          {'Continue'}
         </Button>
       </XStack>
     </YStack>
