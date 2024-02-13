@@ -4,22 +4,35 @@ import { ArrowLeftIcon } from '@status-im/icons'
 import { useEffect, useState } from 'react'
 import { FORM_STEPS, STEPPER_PATHS } from '../../../constants'
 import { useNavigate } from 'react-router-dom'
+import { RootState } from '../../../redux/store'
+import { useDispatch, useSelector } from 'react-redux'
+import { setIsConfirmPhraseStage } from '../../../redux/ValidatorOnboarding/KeyGeneration/slice'
+import { setActiveStep } from '../../../redux/ValidatorOnboarding/slice'
 
-type BackButtonProps = {
-  prevPageIndex: number
-}
-
-const BackButton = ({ prevPageIndex }: BackButtonProps) => {
+const BackButton = () => {
+  const dispatch = useDispatch()  
+  const isConfirmPhraseStage = useSelector(
+    (state: RootState) => state.keyGeneration.isConfirmPhraseStage,
+  )
+  const { activeStep } = useSelector(
+    (state: RootState) => state.validatorOnboarding,
+  )
   const navigate = useNavigate()
   const [buttonState, setButtonState] = useState<
     'disabled' | 'enabled' | 'pressed'
   >('disabled')
 
   useEffect(() => {
-    setButtonState(prevPageIndex > 0 ? 'enabled' : 'disabled')
-  }, [prevPageIndex])
+    setButtonState(activeStep > 0 ? 'enabled' : 'disabled')
+  }, [activeStep])
 
-  const prevPageName = FORM_STEPS[prevPageIndex - 1]?.label || 'Back'
+  const prevPageName = () => {
+    let name = FORM_STEPS[activeStep - 1]?.label || 'Back'
+    if (activeStep === 7) {
+      name = 'Key Generation'
+    }
+    return name
+  }
 
   const handleMouseEnter = () => {
     if (buttonState === 'enabled') {
@@ -44,10 +57,20 @@ const BackButton = ({ prevPageIndex }: BackButtonProps) => {
     textColor: buttonState === 'disabled' ? 'CED4DB' : '09101C',
   }
   const handleNavigateBack = () => {
-    const prevPath =
-      STEPPER_PATHS[prevPageIndex - 2] || '/validator-onboarding/'
-    navigate(prevPath)
+    
+
+    if (activeStep === 7 && isConfirmPhraseStage) {
+      
+      dispatch(setIsConfirmPhraseStage(false))  
+      navigate('/validator-onboarding/key-generation')
+      return
+    } else {
+      // Handle other cases as before
+      let prevPath = STEPPER_PATHS[activeStep - 1] || '/validator-onboarding/'
+      navigate(prevPath)
+    }
   }
+
   return (
     <XStack
       alignItems="center"
@@ -68,7 +91,7 @@ const BackButton = ({ prevPageIndex }: BackButtonProps) => {
         <ArrowLeftIcon size={16} color={`#${buttonStyle.color}`} />
       </Stack>
       <Text size={15} color={`#${buttonStyle.textColor}`} weight={'semibold'}>
-        {prevPageName}
+        {prevPageName()}
       </Text>
     </XStack>
   )
