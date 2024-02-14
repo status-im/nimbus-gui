@@ -1,6 +1,6 @@
 import { Text } from '@status-im/components'
 
-import styles from './overviewLayout.module.css'
+import styles from './overview.module.css'
 
 type OverviewCardProps = {
   text: string

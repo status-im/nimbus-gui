@@ -4,7 +4,7 @@ import { Text } from '@status-im/components'
 import OverviewCard from './OverviewCard'
 import LinkWithArrow from '../../../components/General/LinkWithArrow'
 import OverviewWrapper from './OverviewWrapper'
-import styles from './overviewLayout.module.css'
+import styles from './overview.module.css'
 
 const Overview = () => {
   return (

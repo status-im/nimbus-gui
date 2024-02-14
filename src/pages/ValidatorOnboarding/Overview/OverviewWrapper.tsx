@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { useTheme } from 'tamagui'
 
-import styles from './validatorLayout.module.css'
+import styles from './overviewWrapper.module.css'
 
 type OverviewWrapperProps = {
   rightImageSrc?: string
