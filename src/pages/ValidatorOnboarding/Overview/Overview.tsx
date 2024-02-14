@@ -9,7 +9,7 @@ import styles from './overviewLayout.module.css'
 const Overview = () => {
   return (
     <OverviewWrapper
-      imgHeight="250%"
+      imgHeight="200%"
       rightImageSrc="./background-images/sync-status-background.png"
     >
       <YStack space={'$2'} width="100%">
