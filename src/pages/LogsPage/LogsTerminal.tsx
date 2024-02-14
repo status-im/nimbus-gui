@@ -1,17 +1,18 @@
-import { Button } from '@status-im/components'
-
-import { VariableSizeList as List } from 'react-window'
-import InfiniteLoader from 'react-window-infinite-loader'
 import './scroller.css'
-import { Stack } from 'tamagui'
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { FixedSizeList as List } from 'react-window'
 import TerminalRow from './TerminalRow'
-
-type DataType = {
-  option: string
-  description: string
+import { LogType, simulateLogs } from '../../constants'
+import { useDispatch } from 'react-redux'
+import {
+  incrementErrorLogs,
+  incrementNoticeCount,
+  incrementWarningCount,
+} from '../../redux/LogsTerminal/slice'
+type ListOnScrollProps = {
+  scrollDirection: 'forward' | 'backward'
+  scrollUpdateWasRequested: boolean
 }
-
 type LogsTerminalProps = {
   windowWidth: number
   dropdownMenuItem: string
@@ -19,143 +20,111 @@ type LogsTerminalProps = {
   searchInput: string
   setSearchInput: (searchInput: string) => void
   highLightSearched: boolean
-}
-
-const fetchMoreData = (): Promise<DataType[]> => {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      const newData: DataType[] = []
-      for (let i = 0; i < 10; i++) {
-        newData.push({ option: `Option ${i}`, description: `Description ${i}` })
-      }
-      resolve(newData)
-    }, 500)
-  })
+  indexesVisible: boolean
 }
 
 const LogsTerminal = ({
   windowWidth,
-  timestamps,
   searchInput,
+  timestamps,
+  dropdownMenuItem,
+  indexesVisible,
 }: LogsTerminalProps) => {
-  const [data, setData] = useState<DataType[]>([])
-  const [loadedIndexes, setLoadedIndexes] = useState<{
-    [key: number]: boolean
-  }>({})
-  const listRef = useRef<List | null>(null)
-
-  const [shouldAutoScroll, setShouldAutoScroll] = useState(true)
+  const dispatch = useDispatch()
+  const [logs, setLogs] = useState<LogType[]>([])
+  const listRef = useRef<List>(null)
+  const [isAutoScroll, setIsAutoScroll] = useState(true)
 
   useEffect(() => {
-    if (shouldAutoScroll) {
-      setTimeout(() => {
-        listRef.current?.scrollToItem(data.length - 1, 'end')
-      }, 500)
+    let currentIndex = 0
+    const intervalId = setInterval(() => {
+      const newLog = simulateLogs[currentIndex % simulateLogs.length]
+      setLogs(prevLogs => [...prevLogs, newLog])
+      updateLogCounts(newLog)
+      currentIndex++
+    }, 1000)
+
+    return () => clearInterval(intervalId)
+  }, [])
+
+  useEffect(() => {
+    if (isAutoScroll && listRef.current) {
+      listRef.current.scrollToItem(logs.length - 1, 'end')
     }
-  }, [data.length, shouldAutoScroll])
+  }, [logs, isAutoScroll])
 
-  const loadMoreItems = () => {
-    fetchMoreData().then(newItems => {
-      setData(prevData => [...prevData, ...newItems])
-    })
-  }
-  const isItemLoaded = (index: number) => !!loadedIndexes[index]
-
-  const addNewLog = () => {
-    const newLog: DataType = {
-      option: `--new-option-${data.length + 1}`,
-      description: `New log entry ${data.length + 1} ${Math.random()}`,
-    }
-
-    const newIndex = data.length
-    setData(prevData => [...prevData, newLog])
-    setLoadedIndexes(prev => ({ ...prev, [newIndex]: true }))
-    if (shouldAutoScroll) {
-      listRef.current?.scrollToItem(data.length, 'end')
-    }
-  }
-
-  const handleScroll = ({ scrollTop, scrollHeight, clientHeight }: any) => {
-    const isAtBottom = scrollTop + clientHeight >= scrollHeight
-
-    if (isAtBottom) {
-      setShouldAutoScroll(true)
-    } else {
-      setShouldAutoScroll(false)
+  const handleScroll = ({
+    scrollDirection,
+    scrollUpdateWasRequested,
+  }: ListOnScrollProps) => {
+    if (!scrollUpdateWasRequested) {
+      const isUserScrollingUp = scrollDirection === 'backward'
+      setIsAutoScroll(!isUserScrollingUp)
     }
   }
-  function itemSize(index: number) {
-    const oneLineCountChars = 165
-    const descriptionLength = data[index].description.length
-    const value1 = 76
-    const value2 = 120
-    const value3 = 250
 
-    if (descriptionLength <= oneLineCountChars) {
-      return value1
-    } else if (descriptionLength <= oneLineCountChars * 2) {
-      return value2
-    } else {
-      return value3
-    }
+  const updateLogCounts = (newLog: LogType) => {
+    if (newLog.lvl === 'NTC') dispatch(incrementNoticeCount())
+    else if (newLog.lvl === 'WRN') dispatch(incrementWarningCount())
+    else if (newLog.lvl === 'ERR') dispatch(incrementErrorLogs())
   }
+
+  const filteredLogs = logs.filter(log => {
+    return (
+      (dropdownMenuItem === '' || log.lvl === dropdownMenuItem) &&
+      (searchInput === '' ||
+        log.msg.toLowerCase().includes(searchInput.toLowerCase()))
+    )
+  })
+  const Row = ({
+    index,
+    style,
+  }: {
+    index: number
+    style: React.CSSProperties
+  }) => {
+    const log = filteredLogs[index]
+    return (
+      <div style={style}>
+        <TerminalRow
+          log={log}
+          index={index}
+          searchInput={searchInput}
+          timestamps={timestamps}
+          indexesVisible={indexesVisible}
+        />
+      </div>
+    )
+  }
+
   return (
-    <Stack
+    <List
+      height={650}
+      itemCount={filteredLogs.length}
+      itemSize={20}
+      width={windowWidth - 500}
+      ref={listRef}
+      onItemsRendered={({ visibleStopIndex }) => {
+        if (
+          isAutoScroll &&
+          visibleStopIndex === logs.length - 1 &&
+          listRef.current
+        ) {
+          listRef.current.scrollToItem(logs.length, 'end')
+        }
+      }}
+      onScroll={handleScroll}
       style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr',
+        height: '650px',
+        overflowX: 'auto',
+        width: windowWidth - 500,
+        border: '1px solid #E7EAEE',
+        borderRadius: '15px',
+        backgroundColor: '#282c34',
       }}
     >
-      <InfiniteLoader
-        itemCount={data.length + 1}
-        isItemLoaded={isItemLoaded}
-        loadMoreItems={loadMoreItems}
-      >
-        {({ onItemsRendered, ref }) => (
-          <List
-            ref={(list: List | null) => {
-              ref(list)
-              listRef.current = list
-            }}
-            className="custom-scroll"
-            height={650}
-            width={windowWidth - 500}
-            itemCount={data.length}
-            itemData={data}
-            itemSize={itemSize}
-            onItemsRendered={onItemsRendered}
-            onScroll={handleScroll}
-            style={{
-              borderRadius: '25px',
-              border: '1px solid #E7EAEE',
-            }}
-          >
-            {({ index, style }) => {
-              const highlight =
-                searchInput &&
-                data[index].description.split(' ').includes(searchInput)
-                  ? true
-                  : false
-              // now we only check for the existing text at the moment
-              // I have to move this statemant in the terminalRow component
-              return (
-                <Stack style={style}>
-                  <TerminalRow
-                    data={data[index]}
-                    index={index}
-                    timestamps={timestamps}
-                    highlight={highlight}
-                  />
-                </Stack>
-              )
-            }}
-          </List>
-        )}
-      </InfiniteLoader>
-      <Button fullWidth onPress={() => addNewLog()}>
-        Press to add log
-      </Button>
-    </Stack>
+      {Row}
+    </List>
   )
 }
 

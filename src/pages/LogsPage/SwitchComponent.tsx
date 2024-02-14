@@ -1,29 +1,26 @@
 import { Switch } from 'tamagui'
 type SwitchComponentProps = {
-  timestamps: boolean
-  setTimestamps: (timestamps: boolean) => void
+  value: boolean
+  setValue: (value: boolean) => void
 }
 
-const SwitchComponent = ({
-  timestamps,
-  setTimestamps,
-}: SwitchComponentProps) => {
+const SwitchComponent = ({ value, setValue }: SwitchComponentProps) => {
   const handleCheckedChange = () => {
-    setTimestamps(!timestamps)
+    setValue(!value)
   }
   return (
     <Switch
       size="$1"
       style={{
-        backgroundColor: timestamps ? '#4360df' : 'grey',
+        backgroundColor: value ? '#4360df' : 'grey',
         border: 'none',
       }}
-      checked={timestamps}
+      checked={value}
       onCheckedChange={handleCheckedChange}
     >
       <Switch.Thumb
         style={{
-          right: 7,
+          right: 0,
           bottom: 3,
           backgroundColor: '#fff',
           height: '18px',

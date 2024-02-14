@@ -1,72 +1,107 @@
 import { Text } from '@status-im/components'
 import { Stack, XStack } from 'tamagui'
-import { faker } from '@faker-js/faker'
+import { LogType } from '../../constants'
 
-type DataType = {
-  option: string
-  description: string
+const colorMap = {
+  NTC: '#9b64b0',
+  DBG: '#7d828a',
+  INF: '#5ca8b4',
+  WRN: '#c9ad72',
+  ERR: '#bc5b5c',
+  FAT: '#b0686f',
 }
+
+const formatLog = (log: LogType, timestamps: boolean) => {
+  const { lvl, ts, msg, ...rest } = log
+
+  const logStyle = { color: colorMap[lvl] }
+  const tsStyle = { color: '#848994' }
+  const msgStyle = { color: '#a0a6b2', fontWeight: 'bold' }
+  const genericStyle = { color: '#5777c5' }
+
+  return (
+    <XStack space="$4">
+      <span style={{ ...logStyle }}>{lvl}</span>
+      {timestamps && <span style={{ ...tsStyle }}>{ts}</span>}
+      <span style={{ ...msgStyle }}>{msg}</span>
+      {Object.entries(rest).map(([key, value]) => {
+        if (value !== undefined && value !== null) {
+          return (
+            <div key={key}>
+              <span style={logStyle}>{key}=</span>
+              <span style={{ ...genericStyle }}>{`${JSON.stringify(
+                value,
+              )}`}</span>
+            </div>
+          )
+        }
+        return null
+      })}
+    </XStack>
+  )
+}
+
 interface RowProps {
-  data: DataType | undefined
+  log: LogType
   index: number
-  timestamps: boolean
-  highlight: boolean
-}
-function cutSentenceToRandomWords(sentence: string) {
-  const randomLength = Math.floor(Math.random() * 100) + 1
-  let words = sentence.split(' ')
-  let slicedWords = words.slice(0, randomLength)
-  return slicedWords.join(' ')
+  searchInput: string
+  timestamps?: boolean
+  indexesVisible?: boolean
 }
 
-const TerminalRow = ({ data, index, timestamps, highlight }: RowProps) => {
-  if (!data) {
+const TerminalRow = ({
+  log,
+  index,
+  searchInput,
+  timestamps,
+  indexesVisible,
+}: RowProps) => {
+  if (!log) {
     return <Text size={19}>Loading...</Text>
   }
+  const rowText = Object.values(log)
+  const logElements = formatLog(log, timestamps || false)
 
-  const randomName = faker.person.firstName()
-
-  const { option, description } = data
+  const rowHighlightStyle = {
+    backgroundColor: searchInput
+      ? rowText.some(
+          value =>
+            typeof value === 'string' &&
+            value.toLowerCase().includes(searchInput.toLowerCase()),
+        )
+        ? '#fff2'
+        : 'transparent'
+      : 'transparent',
+  }
 
   return (
     <XStack style={{ fontFamily: 'monospace' }}>
-      <Stack
-        style={{
-          alignContent: 'flex-start',
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginRight: '20px',
-          width: '30px',
-          backgroundColor: highlight ? 'yellow' : '#f5f6f8',
-          color: '#A1ABBD',
-        }}
-      >
-        {index}
-      </Stack>
-      {timestamps && (
-        <Stack>
-          {new Date(Date.now()).getHours()}:{new Date(Date.now()).getMinutes()}:
-          {new Date(Date.now()).getSeconds()}
+      {indexesVisible && (
+        <Stack
+          style={{
+            width: '30px',
+            display: 'inline-block',
+            color: '#F5F6F8',
+            backgroundColor: '#fff2',
+            textAlign: 'center',
+            borderRadius: '25px',
+            marginRight: '1rem',
+            userSelect: 'none',
+          }}
+        >
+          {index}
         </Stack>
       )}
-      <Stack
+
+      <XStack
         style={{
+          ...rowHighlightStyle,
           alignContent: 'flex-start',
-          marginRight: '20px',
-          marginLeft: '20px',
-          wordWrap: 'break-word',
-          maxWidth: '89%',
-          height: '100%',
-          backgroundColor: highlight ? 'yellow' : ' ',
+          marginLeft: !indexesVisible ? '15px' : '0',
         }}
       >
-        {option} {description} -- {randomName}{' '}
-        {cutSentenceToRandomWords(`
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
-        nobis, numquam non rerum illo eligendi quaerat neque mollitia temporibus quam placeat
-        repellat asperiores veritatis officiis unde sed praesentium obcaecati nihil? Quasi, quae
-        eveniet cupiditate mollitia est facilis ea vero, aperiam dolore dolor doloribus labore`)}
-      </Stack>
+        {logElements}
+      </XStack>
     </XStack>
   )
 }

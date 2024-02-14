@@ -13,6 +13,7 @@ import advisoriesReducer from './ValidatorOnboarding/Advisories/slice'
 import validatorSetupReducer from './ValidatorOnboarding/ValidatorSetup/slice'
 import pairDeviceReducer from './PairDevice/slice'
 import manageValidatorTabReducer from './ManageValidatorTab/slice'
+import logsTerminalReducer from './LogsTerminal/slice'
 
 const store = configureStore({
   reducer: {
@@ -29,6 +30,7 @@ const store = configureStore({
     validatorSetup: validatorSetupReducer,
     pairDevice: pairDeviceReducer,
     manageValidatorTab: manageValidatorTabReducer,
+    logsTerminal: logsTerminalReducer,
   },
 })
 
