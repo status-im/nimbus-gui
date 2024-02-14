@@ -17,7 +17,7 @@ const ExecutionUptime = () => {
             <Text size={27} weight={'semibold'}>
               99%
             </Text>
-            <Icon src="/icons/positive.svg" width={13}></Icon>
+            <Icon src="/icons/positive.svg" width={13} height={13}></Icon>
             <Text size={13} color="#E95460">
               2%
             </Text>
