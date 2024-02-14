@@ -1,6 +1,6 @@
 .overview-cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 16px;
   width: 258%;
 }
@@ -10,22 +10,26 @@
   border: 1px solid rgba(0, 0, 0, 0.15);
   padding: 10px 12px;
   background-color: #fff;
-}
-
-@media screen and (max-width: 1300px) {
-  .overview-cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  min-width: 21%;
+  flex: 1;
 }
 
 @media screen and (max-width: 1000px) {
+  }
+
   .overview-cards {
     width: 100%;
   }
 }
 
-@media screen and (max-width: 515px) {
-  .overview-cards {
-    grid-template-columns: 1fr;
+@media screen and (max-width: 775px) {
+  .overview-card {
+    min-width: 30%;
+  }
+}
+
+@media screen and (max-width: 545px) {
+  .overview-card {
+    min-width: 50%;
   }
 }
