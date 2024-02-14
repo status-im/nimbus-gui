@@ -1,9 +1,8 @@
 .overviewCards {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
-  flex-wrap: wrap;
-  width: 250%;
+  width: 258%;
 }
 
 .overviewCard {
@@ -11,14 +10,22 @@
   border: 1px solid rgba(0, 0, 0, 0.15);
   padding: 12px 16px;
   background-color: #fff;
-  min-width: 180px;
+}
+
+@media screen and (max-width: 1300px) {
+  .overviewCards {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media screen and (max-width: 1000px) {
   .overviewCards {
-    flex-direction: column;
+    width: 100%;
   }
-  .overviewCard {
-    width: 35%;
+}
+
+@media screen and (max-width: 515px) {
+  .overviewCards {
+    grid-template-columns: 1fr;
   }
 }
