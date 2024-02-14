@@ -1,3 +1,7 @@
+.overview-container {
+  width: 121%;
+}
+
 .overview-cards {
   display: flex;
   flex-wrap: wrap;
@@ -15,6 +19,8 @@
 }
 
 @media screen and (max-width: 1000px) {
+  .overview-container {
+    width: 100%;
   }
 
   .overview-cards {

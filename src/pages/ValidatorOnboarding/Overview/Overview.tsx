@@ -12,7 +12,7 @@ const Overview = () => {
       imgHeight="200%"
       rightImageSrc="./background-images/sync-status-background.png"
     >
-      <YStack space={'$2'} width="100%">
+      <YStack space={'$3'} className={styles['overview-container']}>
         <Text size={27} weight={'semibold'}>
           Overview
         </Text>
