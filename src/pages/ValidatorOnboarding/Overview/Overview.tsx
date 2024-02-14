@@ -1,4 +1,4 @@
-import { YStack, Stack } from 'tamagui'
+import { YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 
 import OverviewCard from './OverviewCard'
@@ -37,7 +37,7 @@ const Overview = () => {
           style={{ marginBottom: '1rem', fontSize: '13px' }}
         />
       </YStack>
-      <div className={styles.overviewCards}>
+      <div className={styles['overview-cards']}>
         <OverviewCard text={'Current APR'} value={'4.40%'} />
         <OverviewCard text={'Total ETH Staked'} value={'9,451,123'} />
         <OverviewCard text={'Estimated Activation Time'} value={'32 Days'} />

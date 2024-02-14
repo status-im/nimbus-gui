@@ -9,7 +9,7 @@ type OverviewCardProps = {
 
 const OverviewCard = ({ text, value }: OverviewCardProps) => {
   return (
-    <div className={styles['overviewCard']}>
+    <div className={styles['overview-card']}>
       <div>
         <Text size={15} weight={'semibold'}>
           {text}

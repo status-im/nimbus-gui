@@ -1,11 +1,11 @@
-.overviewCards {
+.overview-cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   width: 258%;
 }
 
-.overviewCard {
+.overview-card {
   border-radius: 16px;
   border: 1px solid rgba(0, 0, 0, 0.15);
   padding: 10px 12px;
@@ -13,19 +13,19 @@
 }
 
 @media screen and (max-width: 1300px) {
-  .overviewCards {
+  .overview-cards {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media screen and (max-width: 1000px) {
-  .overviewCards {
+  .overview-cards {
     width: 100%;
   }
 }
 
 @media screen and (max-width: 515px) {
-  .overviewCards {
+  .overview-cards {
     grid-template-columns: 1fr;
   }
 }
