@@ -12,12 +12,10 @@ const Overview = () => {
       imgHeight="250%"
       rightImageSrc="./background-images/sync-status-background.png"
     >
-      <YStack space={'$4'} width="100%">
-        <Stack marginBottom={'$2'}>
-          <Text size={27} weight={'semibold'}>
-            Overview
-          </Text>
-        </Stack>
+      <YStack space={'$2'} width="100%">
+        <Text size={27} weight={'semibold'}>
+          Overview
+        </Text>
         <Text size={19}>
           Becoming a validator is a big responsibility with important
           preparation steps. Only start the deposit process when you're ready.
@@ -36,7 +34,7 @@ const Overview = () => {
           text="Learn More"
           to={'/'}
           arrowRight={true}
-          style={{ marginBottom: '1.5rem', fontSize: '13px' }}
+          style={{ marginBottom: '1rem', fontSize: '13px' }}
         />
       </YStack>
       <div className={styles.overviewCards}>
