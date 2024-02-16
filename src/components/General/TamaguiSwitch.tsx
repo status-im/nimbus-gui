@@ -20,11 +20,13 @@ const TamaguiSwitch = ({ isSwitchOn, onSwitchChange }: TamaguiSwitchProps) => {
       width={36}
       cursor="pointer"
     >
-      {isSwitchOn ? (
-        <Switch.Thumb width={16} height={16} bottom={-2} right={2} />
-      ) : (
-        <Switch.Thumb width={16} height={16} bottom={-2} left={2} />
-      )}
+      <Switch.Thumb
+        width={16}
+        height={16}
+        bottom={-2}
+        right={isSwitchOn && 2}
+        left={!isSwitchOn && 2}
+      />
     </Switch>
   )
 }
