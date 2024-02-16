@@ -53,6 +53,7 @@
     "@storybook/addon-actions": "^7.4.0",
     "@tamagui/config": "1.74.21",
     "@tamagui/react-17-patch": "1.74.21",
+    "@tamagui/switch": "^1.89.26",
     "@tamagui/vite-plugin": "1.74.21",
     "@types/react": "18",
     "@types/react-chartjs-2": "^2.5.7",
