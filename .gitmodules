@@ -1,0 +1,3 @@
+[submodule "vendor/status-web"]
+	path = vendor/status-web
+	url = https://github.com/nimbus-gui/status-web.git
