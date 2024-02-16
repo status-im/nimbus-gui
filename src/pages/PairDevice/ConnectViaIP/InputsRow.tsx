@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Stack, Switch, YStack } from 'tamagui'
 import { CheckIcon } from '@status-im/icons'
 
-import { RootState } from '../../../redux/store'
 import PortInput from './PortInput'
+import { RootState } from '../../../redux/store'
 import { BEACON, VC } from '../../../constants'
 import { isAddressValid, isPortValid } from '../../../utilities'
 import styles from './index.module.css'
@@ -69,20 +69,19 @@ const InputsRow = ({
           </Text>
         </YStack>
         <Switch
-          size="$1"
+          size="$2"
           style={switchStyle}
           checked={isSwitchOnResult}
           onCheckedChange={onSwitchChange}
+          height={24}
+          width={36}
+          cursor="pointer"
         >
-          <Switch.Thumb
-            style={{
-              right: 7.6,
-              bottom: 2.4,
-              backgroundColor: '#fff',
-              height: '16px',
-              width: '16px',
-            }}
-          />
+          {isSwitchOnResult ? (
+            <Switch.Thumb width={16} height={16} bottom={-2} right={2} />
+          ) : (
+            <Switch.Thumb width={16} height={16} bottom={-2} left={2} />
+          )}
         </Switch>
       </YStack>
       <YStack space={'$2'} flexBasis={0} flexGrow={isAdvanced ? 5 : 4}>
