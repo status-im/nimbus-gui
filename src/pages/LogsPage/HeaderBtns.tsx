@@ -2,7 +2,7 @@ import { Button, DropdownMenu, Input } from '@status-im/components'
 import { Stack, XStack } from 'tamagui'
 import { SearchIcon, DropdownIcon } from '@status-im/icons'
 
-import SwitchComponent from './SwitchComponent'
+import TamaguiSwitch from '../../components/General/TamaguiSwitch'
 
 type HeaderBtnsProps = {
   setDropdownMenuItem: (dropdownMenuItem: string) => void
@@ -57,9 +57,9 @@ const HeaderBtns = ({
       <Button
         variant="outline"
         icon={
-          <SwitchComponent
-            timestamps={timestamps}
-            setTimestamps={setTimestamps}
+          <TamaguiSwitch
+            isSwitchOn={timestamps}
+            onSwitchChange={setTimestamps}
           />
         }
       >

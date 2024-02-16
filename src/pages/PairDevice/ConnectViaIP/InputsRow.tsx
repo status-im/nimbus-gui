@@ -1,6 +1,6 @@
 import { Input, Text } from '@status-im/components'
 import { useDispatch, useSelector } from 'react-redux'
-import { Stack, Switch, YStack } from 'tamagui'
+import { Stack, YStack } from 'tamagui'
 import { CheckIcon } from '@status-im/icons'
 
 import PortInput from './PortInput'
@@ -8,6 +8,7 @@ import { RootState } from '../../../redux/store'
 import { BEACON, VC } from '../../../constants'
 import { isAddressValid, isPortValid } from '../../../utilities'
 import styles from './index.module.css'
+import TamaguiSwitch from '../../../components/General/TamaguiSwitch'
 
 type InputsRowProps = {
   addressType: string
@@ -30,9 +31,6 @@ const InputsRow = ({
   )
   const dispatch = useDispatch()
   const isSwitchOnResult = isAdvanced ? isSwitchOn : isNodeSwitchOn
-  const switchStyle = isSwitchOnResult
-    ? { backgroundColor: '#2A4AF5' }
-    : { backgroundColor: 'grey' }
 
   const onSwitchChange = (value: boolean) => {
     dispatch({
@@ -68,21 +66,10 @@ const InputsRow = ({
             (HTTP/HTTPS)
           </Text>
         </YStack>
-        <Switch
-          size="$2"
-          style={switchStyle}
-          checked={isSwitchOnResult}
-          onCheckedChange={onSwitchChange}
-          height={24}
-          width={36}
-          cursor="pointer"
-        >
-          {isSwitchOnResult ? (
-            <Switch.Thumb width={16} height={16} bottom={-2} right={2} />
-          ) : (
-            <Switch.Thumb width={16} height={16} bottom={-2} left={2} />
-          )}
-        </Switch>
+        <TamaguiSwitch
+          isSwitchOn={isSwitchOnResult}
+          onSwitchChange={onSwitchChange}
+        />
       </YStack>
       <YStack space={'$2'} flexBasis={0} flexGrow={isAdvanced ? 5 : 4}>
         <Text size={13} color={'#647084'} weight={'semibold'}>
