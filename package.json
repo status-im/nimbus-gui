@@ -24,7 +24,10 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "test-storybook": "test-storybook",
     "test-lib": "yarn nx test",
-    "test-lib:all": "yarn nx run-many --targets=test"
+    "test-lib:all": "yarn nx run-many --targets=test",
+    "local_deps:begin": "scripts/local_component_development.sh begin",
+    "local_deps:build": "scripts/local_component_development.sh build",
+    "local_deps:end": "scripts/local_component_development.sh end"
   },
   "resolutions": {
     "@tamagui/core": "1.74.21",
