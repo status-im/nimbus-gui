@@ -13,7 +13,7 @@ const MigratePanel = () => {
         revert this action! Please make sure you understand the consequences.
       </Text>
       <InformationBox
-        message="You should see that you have one keystore per validator. This keystore contains your signing key, encrypted with your password. Warning: Do not store keys on multiple (backup) validator clients at once"
+        message="Please make sure to enforce the file on another node to continue validating with your Validator."
         variant="error"
         icon={<CloseCircleIcon size={20} />}
       />
