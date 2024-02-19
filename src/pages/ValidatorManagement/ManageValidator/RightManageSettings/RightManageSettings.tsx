@@ -1,8 +1,13 @@
-import { YStack } from 'tamagui'
-import Icon from '../../../../components/General/Icon'
 import { Text } from '@status-im/components'
+import { YStack } from 'tamagui'
+
+import Icon from '../../../../components/General/Icon'
 
 const RightManageSettings = () => {
+  const isDefault = false
+  const isMigrate = true
+  const isDeposit = false
+
   return (
     <YStack
       space={'$2'}
