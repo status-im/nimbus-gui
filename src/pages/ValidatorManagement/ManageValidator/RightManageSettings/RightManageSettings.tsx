@@ -1,4 +1,4 @@
-import DefaultPanel from './DefaultPanel'
+import DefaultPanel from './Panels/DefaultPanel'
 
 const RightManageSettings = () => {
   const isDefault = false
