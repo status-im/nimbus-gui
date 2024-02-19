@@ -1,5 +1,5 @@
 import { YStack } from 'tamagui'
-import Icon from '../../../components/General/Icon'
+import Icon from '../../../../components/General/Icon'
 import { Text } from '@status-im/components'
 
 const RightPanel = () => {
