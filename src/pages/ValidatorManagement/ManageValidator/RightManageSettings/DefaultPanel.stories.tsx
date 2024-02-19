@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import RightManageSettings from './RightManageSettings'
+import DefaultPanel from './DefaultPanel'
 
 const meta = {
-  title: 'ValidatorManagement/RightManageSettings',
-  component: RightManageSettings,
+  title: 'ValidatorManagement/DefaultPanel',
+  component: DefaultPanel,
   tags: ['autodocs'],
-} satisfies Meta<typeof RightManageSettings>
+} satisfies Meta<typeof DefaultPanel>
 
 export default meta
 type Story = StoryObj<typeof meta>
