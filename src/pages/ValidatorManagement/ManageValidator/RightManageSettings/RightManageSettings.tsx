@@ -2,7 +2,7 @@ import { YStack } from 'tamagui'
 import Icon from '../../../../components/General/Icon'
 import { Text } from '@status-im/components'
 
-const RightPanel = () => {
+const RightManageSettings = () => {
   return (
     <YStack
       space={'$2'}
@@ -21,4 +21,4 @@ const RightPanel = () => {
   )
 }
 
-export default RightPanel
+export default RightManageSettings

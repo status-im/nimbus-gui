@@ -2,7 +2,7 @@ import { XStack, YStack } from 'tamagui'
 
 import { Stack } from 'tamagui'
 
-import RightPanel from './RightPanel/RightPanel'
+import RightManageSettings from './RightManageSettings/RightManageSettings'
 import ValidatorInfo from './ValidatorInfo'
 import DepositStatus from './DepositStatus'
 import Header from './Header'
@@ -31,7 +31,7 @@ const ManageValidator = () => {
         <ValidatorDataTabs />
         <Footer />
       </Stack>
-      <RightPanel />
+      <RightManageSettings />
     </XStack>
   )
 }
