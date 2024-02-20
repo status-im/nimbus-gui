@@ -1,6 +1,6 @@
 import { Button, InformationBox, Text } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
-import { YStack } from 'tamagui'
+import { Stack, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
 
 import KeystoreBackupsCard from '../../../../ValidatorOnboarding/KeyGeneration/KeystoreFiles/KeystoreBackupsCard'
@@ -42,7 +42,9 @@ const MigratePanel = () => {
           onClosePress={() => setIsVisibleWarning(false)}
         />
       )}
-      <Button onPress={migrateValidatorHandler}>Migrate Validator</Button>
+      <XStack style={{ width: '100%', justifyContent: 'end' }}>
+        <Button onPress={migrateValidatorHandler}>Migrate Validator</Button>
+      </XStack>
     </PanelWrapper>
   )
 }
