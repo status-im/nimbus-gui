@@ -23,7 +23,12 @@ const ManageValidator = () => {
         flexGrow: 1,
       }}
     >
-      <Stack width={'50%'} flexGrow={1} space={'$2'}>
+      <Stack
+        width={'50%'}
+        flexGrow={1}
+        space={'$2'}
+        style={{ borderRight: '1px solid #DCE0E5' }}
+      >
         <Header />
         <YStack backgroundColor="#F4F6FE" space={'$3'}>
           <ValidatorInfo />
