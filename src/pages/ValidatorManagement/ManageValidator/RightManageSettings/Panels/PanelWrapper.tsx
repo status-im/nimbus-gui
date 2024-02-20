@@ -6,7 +6,7 @@ type PanelWrapperProps = {
 
 const PanelWrapper = ({ children }: PanelWrapperProps) => {
   return (
-    <YStack space={'$2'} style={{ padding: '30px', alignItems: 'start' }}>
+    <YStack space={'$3'} style={{ padding: '30px', alignItems: 'start' }}>
       {children}
     </YStack>
   )

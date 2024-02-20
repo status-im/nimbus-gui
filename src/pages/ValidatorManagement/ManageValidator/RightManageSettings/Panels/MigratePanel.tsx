@@ -44,7 +44,9 @@ const MigratePanel = () => {
           />
         )}
       </div>
-      <XStack style={{ width: '100%', justifyContent: 'end' }}>
+      <XStack
+        style={{ width: '100%', justifyContent: 'end', marginTop: '6px' }}
+      >
         <Button onPress={migrateValidatorHandler}>Migrate Validator</Button>
       </XStack>
     </PanelWrapper>
