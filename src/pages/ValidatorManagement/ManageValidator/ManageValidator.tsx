@@ -16,8 +16,14 @@ import ValidatorSettingsCards from './ValidatorSeettingsCards'
 
 const ManageValidator = () => {
   return (
-    <XStack flexGrow={1}>
-      <Stack width={'50%'} space="$2">
+    <XStack
+      width={'min-content'}
+      alignItems="flex-start"
+      style={{
+        flexGrow: 1,
+      }}
+    >
+      <Stack width={'50%'} flexGrow={1} space={'$2'}>
         <Header />
         <YStack backgroundColor="#F4F6FE" space={'$3'}>
           <ValidatorInfo />
@@ -35,4 +41,5 @@ const ManageValidator = () => {
     </XStack>
   )
 }
+
 export default ManageValidator
