@@ -3,12 +3,13 @@ import { CloseCircleIcon } from '@status-im/icons'
 import { YStack } from 'tamagui'
 
 import KeystoreBackupsCard from '../../../../ValidatorOnboarding/KeyGeneration/KeystoreFiles/KeystoreBackupsCard'
+import PanelWrapper from './PanelWrapper'
 
 const MigratePanel = () => {
   const migrateValidatorHandler = () => {}
 
   return (
-    <YStack space={'$2'} style={{ padding: '30px', alignItems: 'start' }}>
+    <PanelWrapper>
       <Text size={19} weight={'semibold'}>
         Migrate Validator
       </Text>
@@ -36,7 +37,7 @@ const MigratePanel = () => {
         icon={<CloseCircleIcon size={20} />}
       />
       <Button onPress={migrateValidatorHandler}>Migrate Validator</Button>
-    </YStack>
+    </PanelWrapper>
   )
 }
 

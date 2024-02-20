@@ -1,7 +1,11 @@
-import { YStack } from 'tamagui'
+import PanelWrapper from './PanelWrapper'
 
 const DepositPanel = () => {
-  return <YStack></YStack>
+  return (
+    <PanelWrapper>
+      <div>Deposit Funds</div>
+    </PanelWrapper>
+  )
 }
 
 export default DepositPanel
