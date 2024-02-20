@@ -1,11 +1,14 @@
 import { Button, InformationBox, Text } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
 import { YStack } from 'tamagui'
+import { useState } from 'react'
 
 import KeystoreBackupsCard from '../../../../ValidatorOnboarding/KeyGeneration/KeystoreFiles/KeystoreBackupsCard'
 import PanelWrapper from './PanelWrapper'
 
 const MigratePanel = () => {
+  const [isVisibleWarning, setIsVisibleWarning] = useState(true)
+
   const migrateValidatorHandler = () => {}
 
   return (
@@ -31,11 +34,14 @@ const MigratePanel = () => {
         </Text>
       </YStack>
       <KeystoreBackupsCard />
-      <InformationBox
-        message="Please make sure to enforce the file on another node to continue validating with your Validator."
-        variant="error"
-        icon={<CloseCircleIcon size={20} />}
-      />
+      {isVisibleWarning && (
+        <InformationBox
+          message="Please make sure to enforce the file on another node to continue validating with your Validator."
+          variant="error"
+          icon={<CloseCircleIcon size={20} />}
+          onClosePress={() => setIsVisibleWarning(false)}
+        />
+      )}
       <Button onPress={migrateValidatorHandler}>Migrate Validator</Button>
     </PanelWrapper>
   )
