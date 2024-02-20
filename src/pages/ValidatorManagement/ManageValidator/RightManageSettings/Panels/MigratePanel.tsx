@@ -8,7 +8,7 @@ const MigratePanel = () => {
   const migrateValidatorHandler = () => {}
 
   return (
-    <YStack>
+    <YStack space={'$2'} style={{ padding: '30px', alignItems: 'start' }}>
       <Text size={19} weight={'semibold'}>
         Migrate Validator
       </Text>
