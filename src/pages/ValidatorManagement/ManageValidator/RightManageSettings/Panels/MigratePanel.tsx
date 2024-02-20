@@ -6,16 +6,29 @@ import KeystoreBackupsCard from '../../../../ValidatorOnboarding/KeyGeneration/K
 
 const MigratePanel = () => {
   const migrateValidatorHandler = () => {}
+
   return (
     <YStack>
       <Text size={19} weight={'semibold'}>
         Migrate Validator
       </Text>
-      <img src="/public/images/migrate.png" alt="migrate" />
-      <Text size={15}>
-        You are about to Migrate your validator it is not possible for you to
-        revert this action! Please make sure you understand the consequences.
-      </Text>
+      <YStack
+        space={'$2'}
+        style={{
+          alignItems: 'center',
+          textAlign: 'center',
+        }}
+      >
+        <img
+          src="/public/images/migrate.png"
+          alt="migrate"
+          style={{ width: '300px' }}
+        />
+        <Text size={15}>
+          You are about to Migrate your validator it is not possible for you to
+          revert this action! Please make sure you understand the consequences.
+        </Text>
+      </YStack>
       <KeystoreBackupsCard />
       <InformationBox
         message="Please make sure to enforce the file on another node to continue validating with your Validator."
