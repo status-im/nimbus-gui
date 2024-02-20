@@ -18,6 +18,7 @@ const KeystoreBackupsCard = () => {
         borderRadius: '16px',
         padding: '9px 16px',
         cursor: 'pointer',
+        width: '100%',
       }}
       onPress={downloadKeyFilesHandler}
     >
