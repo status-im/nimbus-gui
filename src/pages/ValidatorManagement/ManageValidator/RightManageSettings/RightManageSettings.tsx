@@ -8,11 +8,11 @@ const RightManageSettings = () => {
   const isDeposit = false
 
   return (
-    <>
+    <div style={{ flexGrow: 1 }}>
       {isDefault && <DefaultPanel />}
       {isMigrate && <MigratePanel />}
       {isDeposit && <DepositPanel />}
-    </>
+    </div>
   )
 }
 
