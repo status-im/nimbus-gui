@@ -6,6 +6,7 @@ import AddCardsContainer from '../../components/General/AddCards/AddCardsContain
 import ManagementHeader from './ManagementHeader'
 import ManagementCard from './ManagementCard'
 import styles from './validatorManagement.module.css'
+
 const ValidatorManagementContent = () => {
   return (
     <YStack
@@ -16,7 +17,7 @@ const ValidatorManagementContent = () => {
         flexGrow: '1',
         overflowY: 'auto',
       }}
-      className={styles['transparent-scrollbar']}
+      className={'transparent-scrollbar'}
     >
       <ManagementHeader />
       <div
