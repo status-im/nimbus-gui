@@ -11,7 +11,7 @@ const MigratePanel = () => {
       <Text size={19} weight={'semibold'}>
         Migrate Validator
       </Text>
-      <img src="" alt="" />
+      <img src="/public/images/migrate.png" alt="migrate" />
       <Text size={15}>
         You are about to Migrate your validator it is not possible for you to
         revert this action! Please make sure you understand the consequences.
