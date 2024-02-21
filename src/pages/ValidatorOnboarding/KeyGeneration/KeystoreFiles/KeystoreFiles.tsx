@@ -3,7 +3,7 @@ import { Button, InformationBox, Input, Text } from '@status-im/components'
 import { ClearIcon, CloseCircleIcon } from '@status-im/icons'
 import { useState } from 'react'
 
-import KeystoreBackupsCard from './KeystoreBackupsCard'
+import KeystoreBackupsCard from '../../../../components/General/KeystoreBackupsCard'
 import ResponsiveStack from '../../../../components/General/ResponsiveStack'
 
 const KeystoreFiles = () => {
