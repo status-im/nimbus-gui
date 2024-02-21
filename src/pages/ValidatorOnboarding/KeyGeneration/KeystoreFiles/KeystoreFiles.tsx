@@ -64,7 +64,10 @@ const KeystoreFiles = () => {
         space={'$2'}
         style={{ justifyContent: 'space-between', width: '100%' }}
       >
-        <YStack space={'$4'} style={{ width: media.sm ? '100%' : '66%' }}>
+        <YStack
+          space={'$4'}
+          style={{ width: media.sm ? '100%' : '66%', justifyContent: 'end' }}
+        >
           <YStack space={'$4'}>
             <Text size={15} color={'#647084'}>
               Encryption Password
