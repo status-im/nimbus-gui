@@ -32,10 +32,12 @@ const KeystoreBackupsCard = () => {
           alignItems: 'center',
         }}
       >
-        <Text size={13} color="#647084">
-          Your keystore files are loaded automatically, please secure your
-          keystore backups for recovery.
-        </Text>
+        <XStack style={{ maxWidth: '250px', width: '60%' }}>
+          <Text size={13} color="#647084">
+            Your keystore files are loaded automatically, please secure your
+            keystore backups for recovery.
+          </Text>
+        </XStack>
         <img
           src={'/icons/download-keystore-backups-icon.svg'}
           alt="download-keystore-backups"
