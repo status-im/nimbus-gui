@@ -1,7 +1,11 @@
 import { Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
 
-const KeystoreBackupsCard = () => {
+type KeystoreBackupsCardProps = {
+  isSelected?: boolean
+}
+
+const KeystoreBackupsCard = ({ isSelected }: KeystoreBackupsCardProps) => {
   const downloadKeyFilesHandler = () => {
     const element = document.createElement('a')
     const file = new Blob([''], { type: 'text/plain' })
@@ -14,7 +18,8 @@ const KeystoreBackupsCard = () => {
   return (
     <YStack
       style={{
-        border: '1px solid #DCE0E5',
+        backgroundColor: isSelected ? '#f4f6fe' : '#fff',
+        border: `1px solid ${isSelected ? '#2A4AF566' : '#DCE0E5'}`,
         borderRadius: '16px',
         padding: '9px 16px',
         cursor: 'pointer',

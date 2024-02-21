@@ -37,7 +37,7 @@ const MigratePanel = () => {
           </Text>
         </div>
       </YStack>
-      <KeystoreBackupsCard />
+      <KeystoreBackupsCard isSelected={true} />
       <div style={{ width: '100%' }}>
         {isVisibleWarning && (
           <InformationBox
