@@ -1,11 +1,7 @@
-import PanelWrapper from './PanelWrapper'
+import Deposit from '../../../../ValidatorOnboarding/Deposit/Deposit'
 
 const DepositPanel = () => {
-  return (
-    <PanelWrapper>
-      <div>Deposit Funds</div>
-    </PanelWrapper>
-  )
+  return <Deposit />
 }
 
 export default DepositPanel
