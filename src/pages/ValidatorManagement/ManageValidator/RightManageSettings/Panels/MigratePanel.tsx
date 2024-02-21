@@ -17,10 +17,11 @@ const MigratePanel = () => {
         Migrate Validator
       </Text>
       <YStack
-        space={'$2'}
+        space={'$3'}
         style={{
           alignItems: 'center',
           textAlign: 'center',
+          marginBottom: '6px',
         }}
       >
         <img
@@ -28,10 +29,13 @@ const MigratePanel = () => {
           alt="migrate"
           style={{ width: '300px' }}
         />
-        <Text size={15}>
-          You are about to Migrate your validator it is not possible for you to
-          revert this action! Please make sure you understand the consequences.
-        </Text>
+        <div style={{ width: '73%' }}>
+          <Text size={15}>
+            You are about to Migrate your validator it is not possible for you
+            to revert this action! Please make sure you understand the
+            consequences.
+          </Text>
+        </div>
       </YStack>
       <KeystoreBackupsCard />
       <div style={{ width: '100%' }}>
