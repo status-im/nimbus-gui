@@ -33,7 +33,7 @@ const TransactionStatus = ({
           </Text>
         </XStack>
       ) : (
-        <Text size={13} color="#2F80ED" weight={'semibold'}>
+        <Text size={13} color="#E95460" weight={'semibold'}>
           Requires Deposit
         </Text>
       )}
