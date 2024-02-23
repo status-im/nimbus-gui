@@ -9,6 +9,7 @@ import { RootState } from '../../../../../redux/store'
 import ConnectedWallet from '../../../../../components/General/ConnectedWallet'
 import ConnectWallet from '../../../../../components/General/ConnectWallet'
 import ChainParity from '../../../../ValidatorOnboarding/Deposit/ChainParity'
+import ValidatorRequest from '../../../../ValidatorOnboarding/Deposit/ValidatorRequest/ValidatorRequest'
 
 const DepositPanel = () => {
   const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(true)
@@ -30,6 +31,11 @@ const DepositPanel = () => {
             width: '100%',
           }}
         >
+          <ValidatorRequest
+            key={2}
+            name={'2'}
+            isTransactionConfirmation={isTransactionConfirmation}
+          />
           {isInfoBoxVisible && !isTransactionConfirmation && (
             <InformationBox
               message="Your Validator balances currently require a deposit. If you have already made a deposit using Launchpad please wait until the transaction is posted on execution layer to continue."
