@@ -20,10 +20,7 @@ const DepositPanel = () => {
   }
 
   return (
-    <PanelWrapper>
-      <Text size={19} weight={'semibold'}>
-        Deposit Funds
-      </Text>
+    <PanelWrapper title={'Deposit Funds'}>
       {isChainParity ? (
         <ChainParity />
       ) : (

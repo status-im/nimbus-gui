@@ -15,5 +15,6 @@ type Story = StoryObj<typeof meta>
 export const WrappedMigratePanel: Story = {
   args: {
     children: <MigratePanel />,
+    title: 'Migrate Validator',
   },
 }
