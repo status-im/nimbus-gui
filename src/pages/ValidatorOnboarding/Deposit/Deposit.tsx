@@ -58,6 +58,7 @@ const Deposit = () => {
               key={index}
               name={(index + 1).toString()}
               isTransactionConfirmation={isTransactionConfirmation}
+              isWithDivider={true}
             />
           ))}
           {isInfoBoxVisible && !isTransactionConfirmation && (

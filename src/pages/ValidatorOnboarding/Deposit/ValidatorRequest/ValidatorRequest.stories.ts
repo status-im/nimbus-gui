@@ -34,3 +34,11 @@ export const BigNumber: Story = {
     isTransactionConfirmation: false,
   },
 }
+
+export const WithDivider: Story = {
+  args: {
+    name: '1',
+    isTransactionConfirmation: false,
+    isWithDivider: true,
+  },
+}

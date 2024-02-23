@@ -7,11 +7,13 @@ import ValidatorProfile from '../../../../components/General/ValidatorProfile'
 type ValidatorRequestProps = {
   name: string
   isTransactionConfirmation?: boolean
+  isWithDivider?: boolean
 }
 
 const ValidatorRequest = ({
   name,
   isTransactionConfirmation,
+  isWithDivider,
 }: ValidatorRequestProps) => {
   let transactionStatus = 'Complete'
   const isTransactionCompleted = transactionStatus === 'Complete'
@@ -48,7 +50,7 @@ const ValidatorRequest = ({
           />
         </XStack>
       </XStack>
-      <DividerLine />
+      {isWithDivider && <DividerLine />}
     </YStack>
   )
 }
