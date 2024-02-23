@@ -30,9 +30,7 @@ const DepositPanel = () => {
         <YStack
           space={'$3'}
           style={{
-            alignItems: 'center',
-            textAlign: 'center',
-            marginBottom: '6px',
+            width: '100%',
           }}
         >
           {isInfoBoxVisible && !isTransactionConfirmation && (
