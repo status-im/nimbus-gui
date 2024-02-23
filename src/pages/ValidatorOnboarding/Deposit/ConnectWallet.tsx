@@ -6,7 +6,11 @@ import { useEffect } from 'react'
 
 import { setIsWalletConnected } from '../../../redux/ValidatorOnboarding/Deposit/slice'
 
-const ConnectWallet = () => {
+type ConnectWalletProps = {
+  isConnectBtnJustifyEnd?: boolean
+}
+
+const ConnectWallet = ({ isConnectBtnJustifyEnd }: ConnectWalletProps) => {
   const [{ wallet, connecting }, connect, disconnect] = useConnectWallet()
   const updateAccountCenter = useAccountCenter()
   const dispatch = useDispatch()
@@ -29,7 +33,11 @@ const ConnectWallet = () => {
   }
 
   return (
-    <XStack space={'$2'} alignItems={'center'}>
+    <XStack
+      space={'$2'}
+      alignItems={'center'}
+      justifyContent={isConnectBtnJustifyEnd ? 'space-between' : 'flex-start'}
+    >
       <Avatar
         type="icon"
         size={32}
