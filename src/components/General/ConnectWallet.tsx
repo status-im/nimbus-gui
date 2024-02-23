@@ -4,7 +4,7 @@ import { XStack } from 'tamagui'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 
-import { setIsWalletConnected } from '../../../redux/ValidatorOnboarding/Deposit/slice'
+import { setIsWalletConnected } from '../../redux/ValidatorOnboarding/Deposit/slice'
 
 type ConnectWalletProps = {
   isConnectBtnJustifyEnd?: boolean
