@@ -11941,9 +11941,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@waku/noise@npm:0.0.3-a19e968":
-  version: 0.0.3-a19e968
-  resolution: "@waku/noise@npm:0.0.3-a19e968"
+"@waku/noise@npm:0.0.3-dc9b797 ":
+  version: 0.0.3-dc9b797
+  resolution: "@waku/noise@npm:0.0.3-dc9b797"
   dependencies:
     "@stablelib/chacha20poly1305": ^1.0.1
     "@stablelib/hkdf": ^1.0.1
@@ -11959,7 +11959,7 @@ __metadata:
     pkcs7-padding: ^0.1.1
     uint8arraylist: ^2.3.2
     uint8arrays: ^4.0.2
-  checksum: 1581e6615198ba7a2f8f8dc1cbc71a9d13fe21d8ce1d0f385a37603f33eeee95120ac1dc88dfb2455ef573bee518d9d99b36a4dc4ed00f8e3413cacbc666c3ce
+  checksum: 2258e0edb6a824fe09c2a86fbb6aa0ba7ddcaf0bc3f06c363e2d745d4a24fa4ce0e888ef3f9d2d86f786e0bfc2bd5008d59f2d70968ec7d81f5e70698f95508c
   languageName: node
   linkType: hard
 
@@ -28231,7 +28231,7 @@ __metadata:
   dependencies:
     "@waku/core": 0.0.17
     "@waku/interfaces": 0.0.17
-    "@waku/noise": 0.0.3-a19e968
+    "@waku/noise": "0.0.3-dc9b797 "
     "@waku/proto": 0.0.4
     "@waku/sdk": 0.0.18
     "@waku/utils": 0.0.10
