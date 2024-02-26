@@ -61,17 +61,16 @@ const TerminalRow = ({
   }
   const rowText = Object.values(log)
   const logElements = formatLog(log, timestamps || false)
+  const isRowSearched = searchInput
+    ? rowText.some(value =>
+        String(value).toLowerCase().includes(searchInput.toLowerCase()),
+      )
+      ? '#fff2'
+      : 'transparent'
+    : 'transparent'
 
   const rowHighlightStyle = {
-    backgroundColor: searchInput
-      ? rowText.some(
-          value =>
-            typeof value === 'string' &&
-            value.toLowerCase().includes(searchInput.toLowerCase()),
-        )
-        ? '#fff2'
-        : 'transparent'
-      : 'transparent',
+    backgroundColor: isRowSearched,
   }
 
   return (
