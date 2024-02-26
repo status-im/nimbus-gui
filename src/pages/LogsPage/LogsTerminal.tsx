@@ -2,7 +2,8 @@ import './scroller.css'
 import React, { useEffect, useRef, useState } from 'react'
 import { FixedSizeList as List } from 'react-window'
 import TerminalRow from './TerminalRow'
-import { LogType, simulateLogs } from '../../constants'
+import { simulateLogs } from '../../constants'
+import { LogType } from '../../types'
 import { useDispatch } from 'react-redux'
 import {
   incrementErrorLogs,

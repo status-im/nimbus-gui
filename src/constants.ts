@@ -1,3 +1,5 @@
+import { LogType } from './types'
+
 // App
 export const apiKey = '1730eff0-9d50-4382-a3fe-89f0d34a2070'
 const INFURA_KEY = 'f25e905e25a545dcaad2c939530b91db'
@@ -279,26 +281,6 @@ export const VC_PORT = '9000'
 export const BEACON_PORT = '5052'
 export const DEFAULT_ADDRESS = 'http://124.0.0.1'
 
-// Logs Terminal data
-export type LogLevel = 'NTC' | 'DBG' | 'INF' | 'WRN' | 'ERR' | 'FAT'
-export type LogType = {
-  lvl: LogLevel
-  ts: string
-  msg: string
-  tid?: number
-  file?: string
-  wakuPort?: number
-  discv5Port?: number
-  contentTopic?: string
-  qrMessageNameTag?: number[]
-  topics?: string
-  connectedPeers?: number
-  required?: number
-  step?: number
-  psTopic?: string
-  payload?: any
-  message?: any
-}
 export const simulateLogs: LogType[] = [
   {
     lvl: 'NTC',

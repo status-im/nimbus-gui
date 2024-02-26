@@ -17,3 +17,12 @@
 export type Distinct<Tag, Type> = Type & {
   readonly __distinct_tag: Tag
 }
+
+// Logs Terminal data
+export type LogLevel = 'NTC' | 'DBG' | 'INF' | 'WRN' | 'ERR' | 'FAT'
+export type LogType = {
+  lvl: LogLevel
+  ts: string
+  msg: string
+  [key: string]: unknown
+}

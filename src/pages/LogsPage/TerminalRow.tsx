@@ -1,6 +1,6 @@
 import { Text } from '@status-im/components'
 import { Stack, XStack } from 'tamagui'
-import { LogType } from '../../constants'
+import { LogType } from '../../types'
 
 const colorMap = {
   NTC: '#9b64b0',
