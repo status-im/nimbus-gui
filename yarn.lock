@@ -11130,6 +11130,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-virtualized@npm:^9.21.29":
+  version: 9.21.29
+  resolution: "@types/react-virtualized@npm:9.21.29"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/react": "*"
+  checksum: df10e8847e20ac2b4bac647a9bfc027edbc73ff41e298024de7b8588e0d8e9b220ba7d65231fced9ca9eb5284a1d6a478ec934f950f33795baed586bd0e30ea0
+  languageName: node
+  linkType: hard
+
 "@types/react-window-infinite-loader@npm:^1.0.9":
   version: 1.0.9
   resolution: "@types/react-window-infinite-loader@npm:1.0.9"
@@ -22709,6 +22719,7 @@ __metadata:
     "@types/react-color": ^3.0.6
     "@types/react-dom": 18
     "@types/react-syntax-highlighter": ^15.5.7
+    "@types/react-virtualized": ^9.21.29
     "@types/react-window": ^1.8.8
     "@types/react-window-infinite-loader": ^1.0.9
     "@types/uuid": ^9.0.2
@@ -22745,9 +22756,9 @@ __metadata:
     react-redux: ^8.1.2
     react-router-dom: ^6.14.2
     react-syntax-highlighter: ^15.5.0
+    react-virtualized: ^9.22.5
     react-virtuoso: ^4.6.2
-    react-window: ^1.8.9
-    react-window-infinite-loader: ^1.0.9
+    react-window: ^1.8.10
     recharts: ^2.9.0
     storybook: ^7.2.0
     storybook-addon-react-router-v6: ^2.0.5
@@ -24985,7 +24996,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-virtualized@npm:^9.21.0":
+"react-virtualized@npm:^9.21.0, react-virtualized@npm:^9.22.5":
   version: 9.22.5
   resolution: "react-virtualized@npm:9.22.5"
   dependencies:
@@ -25012,26 +25023,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-window-infinite-loader@npm:^1.0.9":
-  version: 1.0.9
-  resolution: "react-window-infinite-loader@npm:1.0.9"
-  peerDependencies:
-    react: ^15.3.0 || ^16.0.0-alpha || ^17.0.0 || ^18.0.0
-    react-dom: ^15.3.0 || ^16.0.0-alpha || ^17.0.0 || ^18.0.0
-  checksum: 9ba451e827ddf1605ae12d26fe8eab1e70928e528b16c0a3443a98dcf7df93a362b0c2a0f64e6e4465b136fee6ccdfda3b1f7fa6748a441cb76a03f926559336
-  languageName: node
-  linkType: hard
-
-"react-window@npm:^1.8.9":
-  version: 1.8.9
-  resolution: "react-window@npm:1.8.9"
+"react-window@npm:^1.8.10":
+  version: 1.8.10
+  resolution: "react-window@npm:1.8.10"
   dependencies:
     "@babel/runtime": ^7.0.0
     memoize-one: ">=3.1.1 <6"
   peerDependencies:
     react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
     react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-  checksum: cefa232f4f37269d292529ef15780fb108123d6bb5beee19eeac657e75cf8d4664be66f2da04baf0cb1bc64c5ab3d83a88199c3358f023b78940acd37b0673b2
+  checksum: e8830f32e3ad4bf91af9cdc5cead84148c7694ce6abd9fdb447fb609da6cd4bbd0bbc75ff985f78828f4bbbd3ba4cbc98235cc9c056b5e5787578518f7fafbb9
   languageName: node
   linkType: hard
 
