@@ -15,5 +15,5 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: { count: 234, type: 'Warning', countActive: 23, countInactive: 211 },
+  args: { count: 234, type: 'WRN', countActive: 23, countInactive: 211 },
 }

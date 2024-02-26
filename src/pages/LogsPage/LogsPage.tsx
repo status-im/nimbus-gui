@@ -78,22 +78,25 @@ const LogsPage = () => {
             width={'90%'}
           >
             <LogsSumCard
-              type={'Notice'}
+              type={'NTC'}
               count={logsCount.noticeLogs}
               countActive={2}
               countInactive={3}
+              setDropdownMenuItem={setDropdownMenuItem}
             />
             <LogsSumCard
-              type={'Warning'}
+              type={'WRN'}
               count={logsCount.warningLogs}
               countActive={2}
               countInactive={7}
+              setDropdownMenuItem={setDropdownMenuItem}
             />
             <LogsSumCard
-              type={'Error'}
+              type={'ERR'}
               count={logsCount.errorLogs || 0}
               countActive={2}
               countInactive={0}
+              setDropdownMenuItem={setDropdownMenuItem}
             />
             <SupportCard />
           </Stack>

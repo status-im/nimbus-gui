@@ -3,18 +3,21 @@ import { Separator, XStack, YStack } from 'tamagui'
 import IconText from '../../components/General/IconText'
 import Icon from '../../components/General/Icon'
 import DashboardCardWrapper from '../Dashboard/DashboardCardWrapper'
+import { LogsTypes } from '../../constants'
 
 type LogsSumCardProps = {
-  type: string
+  type: keyof typeof LogsTypes
   count: number
   countActive?: number
   countInactive?: number
+  setDropdownMenuItem: (item: string) => void
 }
 const LogsSumCard = ({
   type,
   count,
   countActive,
   countInactive,
+  setDropdownMenuItem,
 }: LogsSumCardProps) => {
   //when working with real waku data => change this constants with first and last log timestamps.
   const startTimestamp = new Date('2024-02-15T13:07:26.934+02:00')
@@ -33,6 +36,7 @@ const LogsSumCard = ({
           flexGrow: '1',
           minWidth: '280px',
         }}
+        onPress={() => setDropdownMenuItem(type)}
       >
         <XStack
           justifyContent="space-between"
@@ -45,7 +49,7 @@ const LogsSumCard = ({
           <YStack space={'$3'} width={'100%'}>
             <XStack justifyContent="space-between" width={'100%'}>
               <Text size={27} weight={'semibold'}>
-                {type}
+                {LogsTypes[type]}
               </Text>
               <Text size={15} weight={'semibold'}>
                 {'>'}
