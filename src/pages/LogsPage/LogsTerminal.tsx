@@ -71,12 +71,9 @@ const LogsTerminal = ({
   }
 
   const filteredLogs = logs.filter(log => {
-    return (
-      (dropdownMenuItem === '' || log.lvl === dropdownMenuItem) &&
-      (searchInput === '' ||
-        log.msg.toLowerCase().includes(searchInput.toLowerCase()))
-    )
+    return dropdownMenuItem === '' || log.lvl === dropdownMenuItem
   })
+
   const Row = ({
     index,
     style,
