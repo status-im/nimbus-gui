@@ -4,8 +4,8 @@ import MigratePanel from './Panels/MigratePanel'
 
 const RightManageSettings = () => {
   const isDefault = false
-  const isMigrate = true
-  const isDeposit = false
+  const isMigrate = false
+  const isDeposit = true
 
   return (
     <div style={{ flexGrow: 1 }}>

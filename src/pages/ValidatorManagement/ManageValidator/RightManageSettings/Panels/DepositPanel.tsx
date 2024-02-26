@@ -1,6 +1,6 @@
-import { InformationBox, Text } from '@status-im/components'
-import { PlaceholderIcon } from '@status-im/icons'
-import { YStack } from 'tamagui'
+import { InformationBox, Input, Text } from '@status-im/components'
+import { ClearIcon, PlaceholderIcon } from '@status-im/icons'
+import { Stack, YStack } from 'tamagui'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 
@@ -13,11 +13,23 @@ import ValidatorRequest from '../../../../ValidatorOnboarding/Deposit/ValidatorR
 
 const DepositPanel = () => {
   const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(true)
+  const [depositAmount, setDepositAmount] = useState('')
   const { isWalletConnected, isTransactionConfirmation, isChainParity } =
     useSelector((state: RootState) => state.deposit)
 
   const onCloseInfoBox = () => {
     setIsInfoBoxVisible(false)
+  }
+
+  const changeDepositAmountHandler = (value: string) => {
+    const numberValue = Number(value)
+    if (isNaN(numberValue) === false) {
+      setDepositAmount(value)
+    }
+  }
+
+  const removeDepositAmountHandler = () => {
+    setDepositAmount('')
   }
 
   return (
@@ -31,6 +43,23 @@ const DepositPanel = () => {
             width: '100%',
           }}
         >
+          <Stack space={'$2'}>
+            <Text size={15} weight="regular" color={'#647084'}>
+              Deposit validator
+            </Text>
+            <Input
+              icon={
+                <ClearIcon
+                  size={16}
+                  style={{ cursor: 'pointer' }}
+                  onClick={removeDepositAmountHandler}
+                />
+              }
+              placeholder="Deposit Amount"
+              value={depositAmount}
+              onChangeText={changeDepositAmountHandler}
+            />
+          </Stack>
           <ValidatorRequest
             key={2}
             name={'2'}
