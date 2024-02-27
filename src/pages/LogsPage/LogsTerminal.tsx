@@ -15,7 +15,6 @@ type ListOnScrollProps = {
   scrollUpdateWasRequested: boolean
 }
 type LogsTerminalProps = {
-  windowWidth: number
   dropdownMenuItem: string
   timestamps: boolean
   searchInput: string
@@ -25,7 +24,6 @@ type LogsTerminalProps = {
 }
 
 const LogsTerminal = ({
-  windowWidth,
   searchInput,
   timestamps,
   dropdownMenuItem,
@@ -100,7 +98,7 @@ const LogsTerminal = ({
       height={650}
       itemCount={filteredLogs.length}
       itemSize={20}
-      width={windowWidth - 500}
+      width={0}
       ref={listRef}
       onItemsRendered={({ visibleStopIndex }) => {
         if (
@@ -115,7 +113,7 @@ const LogsTerminal = ({
       style={{
         height: '650px',
         overflowX: 'auto',
-        width: windowWidth - 500,
+        width: '90%',
         border: '1px solid #E7EAEE',
         borderRadius: '15px',
         backgroundColor: '#282c34',

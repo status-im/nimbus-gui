@@ -58,7 +58,6 @@ const LogsPage = () => {
           style={{ width: '100%', alignItems: 'center', flexWrap: 'wrap' }}
         >
           <LogsTerminal
-            windowWidth={windowSize.width}
             dropdownMenuItem={dropdownMenuItem}
             timestamps={timestamps}
             searchInput={searchInput}

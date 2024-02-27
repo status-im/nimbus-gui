@@ -21,6 +21,5 @@ export const Default: Story = {
     indexesVisible: true,
     searchInput: '',
     timestamps: true,
-    windowWidth: 1200,
   },
 }
