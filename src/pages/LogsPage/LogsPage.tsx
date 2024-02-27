@@ -102,7 +102,7 @@ const LogsPage = () => {
           </Stack>
         </Stack>
       </YStack>
-      <RightSidebar />
+      {windowSize.width > 900 && <RightSidebar />}
     </XStack>
   )
 }
