@@ -86,3 +86,19 @@ export const isPortValid = (port: string) => {
 export const copyFunction = (text: string) => {
   navigator.clipboard.writeText(text)
 }
+
+export const getDepositTitle = ({
+  isChainParity,
+  isTransactionConfirmation,
+}: {
+  isChainParity: boolean
+  isTransactionConfirmation: boolean
+}) => {
+  if (isChainParity) {
+    return 'Activate Validators'
+  } else if (isTransactionConfirmation) {
+    return 'Transaction Confirmation'
+  } else {
+    return 'Deposit Funds'
+  }
+}

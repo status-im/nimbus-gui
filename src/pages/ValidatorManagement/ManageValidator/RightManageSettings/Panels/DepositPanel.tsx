@@ -33,7 +33,9 @@ const DepositPanel = () => {
   }
 
   return (
-    <PanelWrapper title={'Deposit Funds'}>
+    <PanelWrapper
+      title={getDepositTitle({ isChainParity, isTransactionConfirmation })}
+    >
       {isChainParity ? (
         <ChainParity />
       ) : (
