@@ -58,11 +58,11 @@ jobs:
       - name: Check formatting
         run: yarn format:check
       - name: Pull Vercel configuration
-        run: yarn vercel pull --yes --token ${{ secrets.vercel_token }}
+        run: yarn vercel pull --scope metacraft-labs --yes --token ${{ secrets.vercel_token }}
       - name: Build Vercel bundle
         run: yarn vercel build
       - name: Deploy to Vercel
-        run: yarn vercel deploy --prebuilt --token ${{ secrets.vercel_token }} > _vercel-deployment-url
+        run: yarn vercel deploy --scope metacraft-labs --prebuilt --token ${{ secrets.vercel_token }} > _vercel-deployment-url
       - name: Comment on PR with deployment URL
         uses: actions/github-script@v6
         with:

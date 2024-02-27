@@ -71,11 +71,11 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v2
       - name: Pull Vercel configuration
-        run: yarn vercel pull --yes --token ${{ secrets.vercel_token }}
+        run: yarn vercel pull --scope metacraft-labs --yes --token ${{ secrets.vercel_token }}
       - name: Build Vercel bundle
         run: yarn vercel build --prod
       - name: Deploy to Vercel
-        run: yarn vercel deploy --prebuilt --prod --token ${{ secrets.vercel_token }} > _vercel-deployment-url
+        run: yarn vercel deploy --scope metacraft-labs --prebuilt --prod --token ${{ secrets.vercel_token }} > _vercel-deployment-url
       - name: Add deployment
         uses: actions/github-script@v6
         id: vercel-deployment
