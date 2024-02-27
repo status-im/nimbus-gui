@@ -12,12 +12,10 @@ import StorageCard from './StorageCard/StorageCard'
 import NetworkCard from './NetworkCard/NetworkCard'
 import SyncStatusCards from './SyncStatusCards/SyncStatusCards'
 import MemoryCard from './MemoryCard/MemoryCard'
+import { useWindowSize } from '../../hooks/useWindowSize'
 
-type DashboardContentProps = {
-  windowWidth: number
-}
-
-const DashboardContent = ({ windowWidth }: DashboardContentProps) => {
+const DashboardContent = () => {
+  const { width } = useWindowSize()
   return (
     <YStack
       space="$4"
@@ -36,14 +34,14 @@ const DashboardContent = ({ windowWidth }: DashboardContentProps) => {
       <Stack
         style={{
           display: 'grid',
-          gridTemplateColumns: windowWidth < 1375 ? '1fr 1fr' : '1fr 1fr 2fr',
+          gridTemplateColumns: width < 1375 ? '1fr 1fr' : '1fr 1fr 2fr',
           gap: '8px',
           gridAutoFlow: 'row',
         }}
       >
         <SyncStatusCards />
         <AddCardsContainer cardsAmount={2} />
-        {windowWidth < 1375 ? (
+        {width < 1375 ? (
           <Stack style={{ gridColumn: '1 / span 2' }} width={'101%'}>
             <BalanceChartCard />
           </Stack>
@@ -55,8 +53,8 @@ const DashboardContent = ({ windowWidth }: DashboardContentProps) => {
       </Stack>
       <BasicInfoCards />
 
-      {windowWidth < 1400 ? (
-        DashboardContentLayout(windowWidth)
+      {width < 1400 ? (
+        DashboardContentLayout(width)
       ) : (
         <Stack
           style={{
@@ -98,7 +96,7 @@ const DashboardContent = ({ windowWidth }: DashboardContentProps) => {
     </YStack>
   )
 }
-const DashboardContentLayout = (windowWidth: number) => {
+const DashboardContentLayout = (width: number) => {
   return (
     <Stack width={'100%'}>
       <YStack>
@@ -117,8 +115,7 @@ const DashboardContentLayout = (windowWidth: number) => {
       <Stack
         style={{
           display: 'grid',
-          gridTemplateColumns:
-            windowWidth < 1240 ? '1fr 1fr' : '1fr 1fr 1fr 1fr',
+          gridTemplateColumns: width < 1240 ? '1fr 1fr' : '1fr 1fr 1fr 1fr',
           gap: '8px',
         }}
       >

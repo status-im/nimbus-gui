@@ -4,26 +4,15 @@ import LeftSidebar from '../../components/General/LeftSidebar/LeftSidebar'
 import RightSidebar from '../../components/General/RightSideBar/RightSidebar'
 import DashboardContent from './DashboardContent'
 import { useEffect, useState } from 'react'
+import { useWindowSize } from '../../hooks/useWindowSize'
 
 const Dashboard = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(+window.innerWidth)
-    }
-
-    window.addEventListener('resize', handleResize)
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
-
+  const { width } = useWindowSize()
   return (
     <XStack style={{ height: '100vh' }}>
       <LeftSidebar />
-      <DashboardContent windowWidth={windowWidth} />
-      {windowWidth > 900 && <RightSidebar />}
+      <DashboardContent />
+      {width > 900 && <RightSidebar />}
     </XStack>
   )
 }

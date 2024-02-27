@@ -93,7 +93,7 @@ const LogsPage = () => {
             />
             <LogsSumCard
               type={'ERR'}
-              count={logsCount.errorLogs || 0}
+              count={logsCount.errorLogs}
               countActive={2}
               countInactive={0}
               setDropdownMenuItem={setDropdownMenuItem}
