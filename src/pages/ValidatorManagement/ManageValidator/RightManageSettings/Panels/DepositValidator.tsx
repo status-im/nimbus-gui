@@ -2,24 +2,16 @@ import { Input, Text } from '@status-im/components'
 import { ClearIcon } from '@status-im/icons'
 import { XStack, YStack } from 'tamagui'
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 import CurrencyDropdown from '../../../../../components/General/CurrencyDropdown'
-import { CurrencyType } from '../../../../../components/General/ValidatorsMenuWithPrice'
-import { CURRENCIES } from '../../../../../constants'
 import { formatNumbersWithComa } from '../../../../../utilities'
+import { RootState } from '../../../../../redux/store'
 
 const DepositValidator = () => {
   const [depositAmount, setDepositAmount] = useState('')
-  const [currency, setCurrency] = useState(
-    Object.keys(CURRENCIES)[0] as CurrencyType,
-  )
+  const currency = useSelector((state: RootState) => state.currency)
   const totalPrice = 1594
-
-  const changeCurrency = (currency: CurrencyType) => {
-    if (CURRENCIES[currency]) {
-      setCurrency(currency)
-    }
-  }
 
   const changeDepositAmountHandler = (value: string) => {
     const numberValue = Number(value)
@@ -61,7 +53,7 @@ const DepositValidator = () => {
           <Text size={15} weight={'semibold'}>
             {currency}
           </Text>
-          <CurrencyDropdown changeCurrency={changeCurrency} />
+          <CurrencyDropdown />
         </XStack>
         <Text size={27} weight={'semibold'}>
           {formatNumbersWithComa(totalPrice)} {currency}

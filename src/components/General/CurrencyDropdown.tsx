@@ -1,19 +1,20 @@
 import { useState } from 'react'
 import { Button, DropdownMenu } from '@status-im/components'
+import { useDispatch } from 'react-redux'
 
 import { CURRENCIES } from '../../constants'
-import { CurrencyType } from './ValidatorsMenuWithPrice'
 import ChevronIcon from './ChevronIcon'
 
-type CurrencyDropdownProps = {
-  changeCurrency: (currency: CurrencyType) => void
-}
-
-const CurrencyDropdown = ({ changeCurrency }: CurrencyDropdownProps) => {
+const CurrencyDropdown = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const dispatch = useDispatch()
 
   const changeIsOpenHandler = (isOpen: boolean) => {
     setIsOpen(isOpen)
+  }
+
+  const changeCurrencyHandler = (currency: string) => {
+    dispatch({ type: 'currency/setCurrency', payload: currency })
   }
 
   return (
@@ -28,7 +29,7 @@ const CurrencyDropdown = ({ changeCurrency }: CurrencyDropdownProps) => {
           <DropdownMenu.Item
             key={currency}
             label={currency}
-            onSelect={() => changeCurrency(currency as CurrencyType)}
+            onSelect={() => changeCurrencyHandler(currency)}
           />
         ))}
       </DropdownMenu.Content>

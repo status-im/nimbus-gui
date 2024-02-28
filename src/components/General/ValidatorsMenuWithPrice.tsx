@@ -1,11 +1,12 @@
-import { useState } from 'react'
 import { Input, Text } from '@status-im/components'
 import { AddIcon } from '@status-im/icons'
 import { Stack, XStack, YStack, useMedia } from 'tamagui'
+import { useSelector } from 'react-redux'
 
 import { CURRENCIES, ETH_PER_VALIDATOR } from '../../constants'
 import CurrencyDropdown from './CurrencyDropdown'
 import ResponsiveStack from './ResponsiveStack'
+import { RootState } from '../../redux/store'
 
 type ValidatorsMenuWithPriceProps = {
   validatorCount: number
@@ -13,23 +14,13 @@ type ValidatorsMenuWithPriceProps = {
   label: string
 }
 
-export type CurrencyType = keyof typeof CURRENCIES
-
 const ValidatorsMenuWithPrice = ({
   validatorCount,
   changeValidatorCountHandler,
   label,
 }: ValidatorsMenuWithPriceProps) => {
-  const [currency, setCurrency] = useState(
-    Object.keys(CURRENCIES)[0] as CurrencyType,
-  )
+  const currency = useSelector((state: RootState) => state.currency)
   const media = useMedia()
-
-  const changeCurrency = (currency: CurrencyType) => {
-    if (CURRENCIES[currency]) {
-      setCurrency(currency)
-    }
-  }
 
   const totalETH = validatorCount * ETH_PER_VALIDATOR
   const totalPrice = totalETH * CURRENCIES[currency as keyof typeof CURRENCIES]
@@ -78,7 +69,7 @@ const ValidatorsMenuWithPrice = ({
             <Text size={15} weight={'semibold'}>
               {currency}
             </Text>
-            <CurrencyDropdown changeCurrency={changeCurrency} />
+            <CurrencyDropdown />
           </XStack>
           <Text size={27} weight={'semibold'}>
             {totalPrice.toFixed(2)} {currency}
