@@ -14,6 +14,7 @@ import validatorSetupReducer from './ValidatorOnboarding/ValidatorSetup/slice'
 import pairDeviceReducer from './PairDevice/slice'
 import manageValidatorTabReducer from './ManageValidatorTab/slice'
 import logsTerminalReducer from './LogsTerminal/slice'
+import currencyReducer from './Currency/slice'
 
 const store = configureStore({
   reducer: {
@@ -31,6 +32,7 @@ const store = configureStore({
     pairDevice: pairDeviceReducer,
     manageValidatorTab: manageValidatorTabReducer,
     logsTerminal: logsTerminalReducer,
+    currency: currencyReducer,
   },
 })
 
