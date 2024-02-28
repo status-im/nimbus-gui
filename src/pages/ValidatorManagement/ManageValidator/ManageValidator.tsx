@@ -12,6 +12,7 @@ import ValidatorDataCards from './ValidatorDataCards'
 import ValidatorDataTabs from './ManageValidatorTable/ValidatorDataTabs'
 import ValidatorGraffiti from './ValidatorGraffiti'
 import Footer from './Footer'
+import ValidatorSettingsCards from './ValidatorSeettingsCards'
 
 const ManageValidator = () => {
   return (
@@ -25,6 +26,7 @@ const ManageValidator = () => {
         </YStack>
         <ValidatorToolsCards />
         <ValidatorDataCards />
+        <ValidatorSettingsCards></ValidatorSettingsCards>
         <ValidatorGraffiti />
         <ValidatorDataTabs />
         <Footer />
