@@ -1,8 +1,18 @@
 import { Stack } from 'tamagui'
-import ValidatorDataCard from './ValidatorDataCard'
-import ValidatorPeersCard from './ValidatorPeersCard'
-import ValidatorSettingCard from './ValidatorSettingCard'
 
+import ValidatorSettingCard from './ValidatorSettingCard'
+type IconKey =
+  | 'Exit Validator'
+  | 'Migrate Validator'
+  | 'Top up Validator'
+  | 'Advanced'
+
+const cardTitles: IconKey[] = [
+  'Exit Validator',
+  'Migrate Validator',
+  'Top up Validator',
+  'Advanced',
+]
 const ValidatorSettingsCards = () => {
   return (
     <Stack
@@ -15,10 +25,9 @@ const ValidatorSettingsCards = () => {
         padding: '0 30px',
       }}
     >
-      <ValidatorSettingCard title="Exit Validator"/>
-      <ValidatorSettingCard title="Migrate Validator" />
-      <ValidatorSettingCard title="Top up Validator" />
-      <ValidatorSettingCard title="Advanced" />
+      {cardTitles.map(title => (
+        <ValidatorSettingCard key={title} title={title} />
+      ))}
     </Stack>
   )
 }

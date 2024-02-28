@@ -1,6 +1,11 @@
 import { Text } from '@status-im/components'
-import { AddIcon, DisconnectIcon, AdvancedIcon, ExternalIcon } from '@status-im/icons'
-import { Stack, XStack, YStack } from 'tamagui'
+import {
+  AddIcon,
+  DisconnectIcon,
+  AdvancedIcon,
+  ExternalIcon,
+} from '@status-im/icons'
+import { Stack, XStack } from 'tamagui'
 type IconKey =
   | 'Exit Validator'
   | 'Migrate Validator'
