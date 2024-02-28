@@ -1,5 +1,5 @@
 import { Text } from '@status-im/components'
-import { AddIcon } from '@status-im/icons'
+import { AddIcon, DisconnectIcon, AdvancedIcon, ExternalIcon } from '@status-im/icons'
 import { Stack, XStack, YStack } from 'tamagui'
 type IconKey =
   | 'Exit Validator'
@@ -14,20 +14,20 @@ type ValidatorSettingCardProps = {
 const ValidatorSettingCard = ({ title }: ValidatorSettingCardProps) => {
   const getIcon = {
     'Exit Validator': () => (
-      <AddIcon
+      <DisconnectIcon
         size={20}
         style={{
           padding: '5px',
         }}
-      ></AddIcon>
+      ></DisconnectIcon>
     ),
     'Migrate Validator': () => (
-      <AddIcon
+      <ExternalIcon
         size={20}
         style={{
           padding: '5px',
         }}
-      ></AddIcon>
+      ></ExternalIcon>
     ),
     'Top up Validator': () => (
       <AddIcon
@@ -38,12 +38,12 @@ const ValidatorSettingCard = ({ title }: ValidatorSettingCardProps) => {
       ></AddIcon>
     ),
     Advanced: () => (
-      <AddIcon
+      <AdvancedIcon
         size={20}
         style={{
           padding: '5px',
         }}
-      ></AddIcon>
+      ></AdvancedIcon>
     ),
   }
   return (
