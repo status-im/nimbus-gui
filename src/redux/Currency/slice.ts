@@ -4,8 +4,8 @@ import { CURRENCIES } from '../../constants'
 
 export type CurrencyType = keyof typeof CURRENCIES
 
-const pairDeviceSlice = createSlice({
-  name: 'pairDevice',
+const currencySlice = createSlice({
+  name: 'currency',
   initialState: Object.keys(CURRENCIES)[0],
   reducers: {
     setCurrency: (_, action) => {
@@ -14,6 +14,6 @@ const pairDeviceSlice = createSlice({
   },
 })
 
-export const {} = pairDeviceSlice.actions
+export const {} = currencySlice.actions
 
-export default pairDeviceSlice.reducer
+export default currencySlice.reducer
