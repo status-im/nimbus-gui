@@ -1,10 +1,10 @@
-name: 'UI tests'
+name: "UI tests"
 
 on:
   push:
     branches:
-      - '*'
-      - '!main'
+      - "*"
+      - "!main"
 
 permissions:
   pull-requests: write
@@ -42,7 +42,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/setup-node@v2
         with:
-          node-version: '18.x'
+          node-version: "18.x"
       - name: Restore yarn dependencies
         uses: actions/cache@v2
         id: yarn-cache
@@ -74,6 +74,8 @@ jobs:
             }
             const fs = require('fs');
             const deploymentUrl = fs.readFileSync('_vercel-deployment-url', 'utf8');
+            console.log(deploymentUrl);
+
             await github.rest.issues.createComment({
               issue_number: ${{ steps.pull_request.outputs.number }},
               owner: context.repo.owner,
@@ -88,6 +90,8 @@ jobs:
           script: |
             const fs = require('fs');
             const deploymentUrl = fs.readFileSync('_vercel-deployment-url', 'utf8');
+            console.log(deploymentUrl);
+
             const deployment = await github.rest.repos.createDeployment({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -109,6 +113,8 @@ jobs:
           script: |
             const fs = require('fs');
             const deploymentUrl = fs.readFileSync('_vercel-deployment-url', 'utf8');
+            console.log(deploymentUrl);
+
             await github.rest.repos.createDeploymentStatus({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -119,6 +125,9 @@ jobs:
               description: 'Deployed to Vercel',
               environment: 'preview',
               auto_inactive: true,
+              payload: JSON.stringify({
+                deploymentUrl,
+              }),
             });
 
   interaction-and-and-accessibility:
@@ -128,7 +137,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: '18.x'
+          node-version: "18.x"
       - name: Restore yarn dependencies
         uses: actions/cache@v2
         id: yarn-cache
