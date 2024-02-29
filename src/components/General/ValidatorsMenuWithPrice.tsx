@@ -4,9 +4,9 @@ import { Stack, XStack, YStack, useMedia } from 'tamagui'
 import { useSelector } from 'react-redux'
 
 import { CURRENCIES, ETH_PER_VALIDATOR } from '../../constants'
-import CurrencyDropdown from './CurrencyDropdown'
-import ResponsiveStack from './ResponsiveStack'
 import { RootState } from '../../redux/store'
+import ResponsiveStack from './ResponsiveStack'
+import CurrencyDropdown from './CurrencyDropdown'
 
 type ValidatorsMenuWithPriceProps = {
   validatorCount: number
@@ -64,17 +64,7 @@ const ValidatorsMenuWithPrice = ({
             </Text>
           </Stack>
         </YStack>
-        <YStack space={'$2'}>
-          <XStack style={{ justifyContent: 'space-between' }}>
-            <Text size={15} weight={'semibold'}>
-              {currency}
-            </Text>
-            <CurrencyDropdown />
-          </XStack>
-          <Text size={27} weight={'semibold'}>
-            {totalPrice.toFixed(2)} {currency}
-          </Text>
-        </YStack>
+        <CurrencyDropdown totalPrice={totalPrice} />
       </XStack>
     </ResponsiveStack>
   )
