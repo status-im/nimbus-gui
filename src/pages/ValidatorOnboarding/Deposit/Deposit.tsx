@@ -12,7 +12,7 @@ import { RootState } from '../../redux/store'
 import { DEPOSIT_SUBTITLE } from '../../constants'
 import { getDepositTitle } from '../../utilities'
 import styles from './deposit.module.css'
-import ValidatorBalanceInfoBox from './ValidatorBalanceInfoBox'
+import ValidatorBalanceInfoBox from '../../pages/ValidatorOnboarding/Deposit/ValidatorBalanceInfoBox'
 
 const Deposit = () => {
   const [validatorCount, setValidatorCount] = useState(2)

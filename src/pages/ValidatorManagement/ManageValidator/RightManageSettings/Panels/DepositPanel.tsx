@@ -10,7 +10,7 @@ import ChainParity from '../../../../../components/General/ChainParity'
 import ValidatorRequest from '../../../../../components/General/ValidatorRequest/ValidatorRequest'
 import { getDepositTitle } from '../../../../../utilities'
 import DepositValidator from './DepositValidator'
-import ValidatorBalanceInfoBox from '../../../../ValidatorOnboarding/Deposit/ValidatorBalanceInfoBox'
+import ValidatorBalanceInfoBox from '../../../../../components/General/ValidatorBalanceInfoBox'
 
 const DepositPanel = () => {
   const { isWalletConnected, isTransactionConfirmation, isChainParity } =

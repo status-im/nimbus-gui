@@ -3,7 +3,7 @@ import { PlaceholderIcon } from '@status-im/icons'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 
-import { RootState } from '../../../redux/store'
+import { RootState } from '../../redux/store'
 
 const ValidatorBalanceInfoBox = () => {
   const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(true)
