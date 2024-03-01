@@ -4,15 +4,15 @@ import { useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import ValidatorRequest from './ValidatorRequest/ValidatorRequest'
-import ConnectWallet from '../../../components/General/ConnectWallet'
-import ConnectedWallet from '../../../components/General/ConnectedWallet'
+import ConnectWallet from './ConnectWallet'
+import ConnectedWallet from './ConnectedWallet'
 import ChainParity from './ChainParity'
-import ValidatorsMenuWithPrice from '../../../components/General/ValidatorsMenuWithPrice'
-import { RootState } from '../../../redux/store'
-import { DEPOSIT_SUBTITLE } from '../../../constants'
-import { getDepositTitle } from '../../../utilities'
+import ValidatorsMenuWithPrice from './ValidatorsMenuWithPrice'
+import { RootState } from '../../redux/store'
+import { DEPOSIT_SUBTITLE } from '../../constants'
+import { getDepositTitle } from '../../utilities'
 import styles from './deposit.module.css'
-import ValidatorBalanceInfoBox from './ValidatorBalanceInfoBox'
+import ValidatorBalanceInfoBox from '../../pages/ValidatorOnboarding/Deposit/ValidatorBalanceInfoBox'
 
 const Deposit = () => {
   const [validatorCount, setValidatorCount] = useState(2)

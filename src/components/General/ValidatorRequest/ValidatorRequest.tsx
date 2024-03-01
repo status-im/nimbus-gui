@@ -2,7 +2,7 @@ import { DividerLine, Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
 
 import TransactionStatus from './TransactionStatus'
-import ValidatorProfile from '../../../../components/General/ValidatorProfile'
+import ValidatorProfile from '../ValidatorProfile'
 
 type ValidatorRequestProps = {
   name: string
