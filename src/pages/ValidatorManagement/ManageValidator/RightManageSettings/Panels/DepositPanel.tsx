@@ -1,7 +1,5 @@
-import { DividerLine, InformationBox, Text } from '@status-im/components'
-import { PlaceholderIcon } from '@status-im/icons'
+import { DividerLine, Text } from '@status-im/components'
 import { YStack } from 'tamagui'
-import { useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import PanelWrapper from './PanelWrapper'
@@ -12,15 +10,11 @@ import ChainParity from '../../../../ValidatorOnboarding/Deposit/ChainParity'
 import ValidatorRequest from '../../../../ValidatorOnboarding/Deposit/ValidatorRequest/ValidatorRequest'
 import { getDepositTitle } from '../../../../../utilities'
 import DepositValidator from './DepositValidator'
+import ValidatorBalanceInfoBox from '../../../../ValidatorOnboarding/Deposit/ValidatorBalanceInfoBox'
 
 const DepositPanel = () => {
-  const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(true)
   const { isWalletConnected, isTransactionConfirmation, isChainParity } =
     useSelector((state: RootState) => state.deposit)
-
-  const onCloseInfoBox = () => {
-    setIsInfoBoxVisible(false)
-  }
 
   return (
     <PanelWrapper
@@ -42,14 +36,7 @@ const DepositPanel = () => {
             name={'2'}
             isTransactionConfirmation={isTransactionConfirmation}
           />
-          {isInfoBoxVisible && !isTransactionConfirmation && (
-            <InformationBox
-              message="Your Validator balances currently require a deposit. If you have already made a deposit using Launchpad please wait until the transaction is posted on execution layer to continue."
-              variant="error"
-              onClosePress={onCloseInfoBox}
-              icon={<PlaceholderIcon size={16} />}
-            />
-          )}
+          <ValidatorBalanceInfoBox />
           {!isTransactionConfirmation && (
             <YStack space={'$3'} style={{ width: '100%' }}>
               <Text size={19} weight={'semibold'}>

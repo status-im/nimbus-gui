@@ -1,5 +1,4 @@
-import { DividerLine, InformationBox, Text } from '@status-im/components'
-import { PlaceholderIcon } from '@status-im/icons'
+import { DividerLine, Text } from '@status-im/components'
 import { YStack } from 'tamagui'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
@@ -13,9 +12,9 @@ import { RootState } from '../../../redux/store'
 import { DEPOSIT_SUBTITLE } from '../../../constants'
 import { getDepositTitle } from '../../../utilities'
 import styles from './deposit.module.css'
+import ValidatorBalanceInfoBox from './ValidatorBalanceInfoBox'
 
 const Deposit = () => {
-  const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(true)
   const [validatorCount, setValidatorCount] = useState(2)
   const { isWalletConnected, isTransactionConfirmation, isChainParity } =
     useSelector((state: RootState) => state.deposit)
@@ -25,10 +24,6 @@ const Deposit = () => {
     if (!isNaN(numberValue)) {
       setValidatorCount(numberValue)
     }
-  }
-
-  const onCloseInfoBox = () => {
-    setIsInfoBoxVisible(false)
   }
 
   return (
@@ -63,14 +58,7 @@ const Deposit = () => {
               isWithDivider={true}
             />
           ))}
-          {isInfoBoxVisible && !isTransactionConfirmation && (
-            <InformationBox
-              message="Your Validator balances currently require a deposit. If you have already made a deposit using Launchpad please wait until the transaction is posted on execution layer to continue."
-              variant="error"
-              onClosePress={onCloseInfoBox}
-              icon={<PlaceholderIcon size={16} />}
-            />
-          )}
+          <ValidatorBalanceInfoBox />
           {!isTransactionConfirmation && (
             <YStack space={'$3'} style={{ width: '100%' }}>
               <Text size={19} weight={'semibold'}>
