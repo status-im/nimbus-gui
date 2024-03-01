@@ -7,7 +7,7 @@ import CurrencyDropdown from '../../../../../components/General/CurrencyDropdown
 
 const DepositValidator = () => {
   const [depositAmount, setDepositAmount] = useState('')
-  const totalPrice = 1594
+  const price = 1
 
   const changeDepositAmountHandler = (value: string) => {
     const numberValue = Number(value)
@@ -44,7 +44,7 @@ const DepositValidator = () => {
           onChangeText={changeDepositAmountHandler}
         />
       </YStack>
-      <CurrencyDropdown totalPrice={totalPrice} />
+      <CurrencyDropdown price={price} />
     </XStack>
   )
 }

@@ -9,13 +9,14 @@ import { formatNumbersWithComa } from '../../utilities'
 import ChevronIcon from './ChevronIcon'
 
 type CurrencyDropdownProps = {
-  totalPrice: number
+  price: number
 }
 
-const CurrencyDropdown = ({ totalPrice }: CurrencyDropdownProps) => {
+const CurrencyDropdown = ({ price }: CurrencyDropdownProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const dispatch = useDispatch()
   const currency = useSelector((state: RootState) => state.currency)
+  const totalPrice = price * CURRENCIES[currency as keyof typeof CURRENCIES]
 
   const changeIsOpenHandler = (isOpen: boolean) => {
     setIsOpen(isOpen)

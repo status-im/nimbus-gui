@@ -1,10 +1,8 @@
 import { Input, Text } from '@status-im/components'
 import { AddIcon } from '@status-im/icons'
 import { Stack, XStack, YStack, useMedia } from 'tamagui'
-import { useSelector } from 'react-redux'
 
-import { CURRENCIES, ETH_PER_VALIDATOR } from '../../constants'
-import { RootState } from '../../redux/store'
+import { ETH_PER_VALIDATOR } from '../../constants'
 import ResponsiveStack from './ResponsiveStack'
 import CurrencyDropdown from './CurrencyDropdown'
 
@@ -19,11 +17,9 @@ const ValidatorsMenuWithPrice = ({
   changeValidatorCountHandler,
   label,
 }: ValidatorsMenuWithPriceProps) => {
-  const currency = useSelector((state: RootState) => state.currency)
   const media = useMedia()
 
   const totalETH = validatorCount * ETH_PER_VALIDATOR
-  const totalPrice = totalETH * CURRENCIES[currency as keyof typeof CURRENCIES]
 
   return (
     <ResponsiveStack
@@ -64,7 +60,7 @@ const ValidatorsMenuWithPrice = ({
             </Text>
           </Stack>
         </YStack>
-        <CurrencyDropdown totalPrice={totalPrice} />
+        <CurrencyDropdown price={totalETH} />
       </XStack>
     </ResponsiveStack>
   )
