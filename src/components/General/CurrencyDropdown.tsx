@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { XStack, YStack } from 'tamagui'
 
 import { CURRENCIES } from '../../constants'
-import ChevronIcon from './ChevronIcon'
 import { RootState } from '../../redux/store'
+import { formatNumbersWithComa } from '../../utilities'
+import ChevronIcon from './ChevronIcon'
 
 type CurrencyDropdownProps = {
   totalPrice: number
@@ -48,7 +49,7 @@ const CurrencyDropdown = ({ totalPrice }: CurrencyDropdownProps) => {
         </DropdownMenu>
       </XStack>
       <Text size={27} weight={'semibold'}>
-        {totalPrice.toFixed(2)} {currency}
+        {formatNumbersWithComa(totalPrice)} {currency}
       </Text>
     </YStack>
   )
