@@ -30,9 +30,9 @@ import ConsensusSelection from './pages/ValidatorOnboarding/ValidatorSetup/Conse
 import ActivationValidatorSetup from './pages/ValidatorOnboarding/ValidatorSetup/ValidatorActivation/ActivationValidatorSetup'
 import ClientSetup from './pages/ValidatorOnboarding/ClientSetup/ClientSetup'
 import KeyGeneration from './pages/ValidatorOnboarding/KeyGeneration/KeyGeneration'
-import Deposit from './components/General/Deposit'
 import Activation from './pages/ValidatorOnboarding/Activation/Activation'
 import ConfirmRecoveryPhrase from './pages/ValidatorOnboarding/KeyGeneration/ConfirmRecoveryPhrase/ConfirmRecoveryPhrase'
+import Deposit from './pages/ValidatorOnboarding/Deposit/Deposit'
 
 const injected = injectedModule()
 const walletConnect = walletConnectModule(wcV2InitOptions)

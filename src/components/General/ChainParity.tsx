@@ -1,6 +1,6 @@
 import { Text } from '@status-im/components'
 
-import styles from './deposit.module.css'
+import styles from '../../pages/ValidatorOnboarding/Deposit/deposit.module.css'
 
 const ChainParity = () => {
   return (
