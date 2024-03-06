@@ -1,4 +1,4 @@
-import { Button, InformationBox, Text } from '@status-im/components'
+import { Button, InformationBox, Input, Text } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
 import { XStack, YStack } from 'tamagui'
 import { useState } from 'react'
@@ -8,8 +8,13 @@ import PanelWrapper from './PanelWrapper'
 
 const MigratePanel = () => {
   const [isVisibleWarning, setIsVisibleWarning] = useState(true)
+  const [keymanagerApi, setKeymanagerApi] = useState('')
 
   const migrateValidatorHandler = () => {}
+
+  const onChangeKeymanagerApi = (value: string) => {
+    setKeymanagerApi(value)
+  }
 
   return (
     <PanelWrapper title={'Migrate Validator'}>
@@ -35,6 +40,16 @@ const MigratePanel = () => {
         </div>
       </YStack>
       <KeystoreBackupsCard isSelected={true} />
+      <YStack space={'$2'}>
+        <Text size={13} color={'#647084'} weight={'semibold'}>
+          Keymanager API
+        </Text>
+        <Input
+          value={keymanagerApi}
+          onChangeText={onChangeKeymanagerApi}
+          placeholder="Specify URL to keymanager API for node being transfered"
+        />
+      </YStack>
       <div style={{ width: '100%' }}>
         {isVisibleWarning && (
           <InformationBox
