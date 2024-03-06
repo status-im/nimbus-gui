@@ -1,16 +1,18 @@
-import { Avatar, Text } from '@status-im/components'
-import { XStack, YStack } from 'tamagui'
-import { CopyIcon } from '@status-im/icons'
+import { Avatar, Popover, Text } from '@status-im/components'
+import { Stack, XStack, YStack } from 'tamagui'
+import { AddSmallIcon, CopyIcon } from '@status-im/icons'
 
-import AddCard from '../AddCards/AddCard'
-import AlertsList from './AlertsList'
-import LogsList from './LogsList'
-import DiamondCard from './DiamondCard'
-import ValidatorsCount from './ValidatorsCount'
-import ValidatorsTabs from './ValidatorsTabs/ValidatorsTabs'
+import AlertsList from '../../../components/General/RightSideBar/AlertsList'
+import LogsList from '../../../components/General/RightSideBar/LogsList'
+
 import { copyFunction, getFormattedWalletAddress } from '../../../utilities'
+import ValidatorsTabs from '../../../components/General/RightSideBar/ValidatorsTabs/ValidatorsTabs'
+import ValidatorsCount from '../../../components/General/RightSideBar/ValidatorsCount'
 
-const RightSidebar = () => {
+import NodesList from './NodesList'
+import DiamondCard from './DiamondCard'
+
+const DashboardSidebar = () => {
   const onCopyWalletAddress = () => {
     copyFunction('0xb9dc35')
   }
@@ -28,7 +30,7 @@ const RightSidebar = () => {
         overflowY: 'auto',
       }}
     >
-      <XStack alignItems="center" space={'$2'}>
+      <XStack alignItems="center" space={'$2'} backgroundColor={'#F5F5F5'}>
         <Avatar type="user" size={32} name="Ethereum Mainnet" />
         <YStack>
           <Text size={15} weight={'semibold'}>
@@ -47,9 +49,38 @@ const RightSidebar = () => {
       </XStack>
       <XStack space={'$2'} alignItems="center" justifyContent="space-between">
         <DiamondCard />
-        <AddCard style={{ padding: '0 2vw' }} />
       </XStack>
       <ValidatorsCount />
+
+      <Popover
+        side="top"
+        align="center"
+        children={[
+          <YStack
+            backgroundColor={'#757e8c'}
+            style={{
+              padding: '8px 12px',
+              borderRadius: '16px',
+              flexGrow: '1',
+              height: 'max-fit',
+            }}
+          >
+            <XStack
+              style={{ marginBottom: '8px' }}
+              alignContent="center"
+              alignItems="center"
+              justifyContent="center"
+              space="$2"
+            >
+              <AddSmallIcon size={20} color="#fff"></AddSmallIcon>
+              <Text size={19} color={'#FFF'}>
+                Add Validator
+              </Text>
+            </XStack>
+          </YStack>,
+          <NodesList></NodesList>,
+        ]}
+      ></Popover>
       <ValidatorsTabs />
       <AlertsList />
       <LogsList />
@@ -57,4 +88,4 @@ const RightSidebar = () => {
   )
 }
 
-export default RightSidebar
+export default DashboardSidebar

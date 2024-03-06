@@ -1,7 +1,7 @@
 import { Text } from '@status-im/components'
 import { DragIcon, StatusIcon, ChevronRightIcon } from '@status-im/icons'
 import { Stack, Tooltip, XStack, YStack } from 'tamagui'
-import Icon from '../../../components/General/Icon'
+import Icon from '../Icon'
 
 const NodesList = () => {
   return (
