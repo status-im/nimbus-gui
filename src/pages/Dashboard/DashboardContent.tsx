@@ -37,19 +37,13 @@ const DashboardContent = () => {
           gridTemplateColumns: width < 1375 ? '1fr 1fr' : '1fr 1fr 2fr',
           gap: '8px',
           gridAutoFlow: 'row',
+          width: '100%',
         }}
       >
         <SyncStatusCards />
         <AddCardsContainer cardsAmount={2} />
-        {width < 1375 ? (
-          <Stack style={{ gridColumn: '1 / span 2' }} width={'101%'}>
-            <BalanceChartCard />
-          </Stack>
-        ) : (
-          <Stack width={'101%'}>
-            <BalanceChartCard />
-          </Stack>
-        )}
+
+        <BalanceChartCard />
       </Stack>
       <BasicInfoCards />
 
