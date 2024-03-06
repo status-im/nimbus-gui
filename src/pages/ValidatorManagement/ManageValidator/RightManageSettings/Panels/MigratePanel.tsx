@@ -40,7 +40,7 @@ const MigratePanel = () => {
         </div>
       </YStack>
       <KeystoreBackupsCard isSelected={true} />
-      <YStack space={'$2'}>
+      <YStack space={'$2'} width={'100%'}>
         <Text size={13} color={'#647084'} weight={'semibold'}>
           Keymanager API
         </Text>
