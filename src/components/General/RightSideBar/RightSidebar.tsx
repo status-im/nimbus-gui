@@ -1,6 +1,11 @@
 import { Avatar, Popover, Text } from '@status-im/components'
 import { Stack, XStack, YStack } from 'tamagui'
-import { AddSmallIcon, CopyIcon } from '@status-im/icons'
+import {
+  AddSmallIcon,
+  CloseIcon,
+  CopyIcon,
+  OptionsIcon,
+} from '@status-im/icons'
 
 import AlertsList from '../../../components/General/RightSideBar/AlertsList'
 import LogsList from '../../../components/General/RightSideBar/LogsList'
@@ -11,12 +16,17 @@ import ValidatorsCount from '../../../components/General/RightSideBar/Validators
 
 import NodesList from './NodesList'
 import DiamondCard from './DiamondCard'
+import { useState } from 'react'
 
 const DashboardSidebar = () => {
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false)
   const onCopyWalletAddress = () => {
     copyFunction('0xb9dc35')
   }
 
+  const handlePopoverOpenChange = (open: boolean) => {
+    setIsPopoverOpen(open)
+  }
   return (
     <YStack
       width={'320px'}
@@ -30,57 +40,73 @@ const DashboardSidebar = () => {
         overflowY: 'auto',
       }}
     >
-      <XStack alignItems="center" space={'$2'} backgroundColor={'#F5F5F5'}>
-        <Avatar type="user" size={32} name="Ethereum Mainnet" />
-        <YStack>
-          <Text size={15} weight={'semibold'}>
-            Ethereum Mainnet
-          </Text>
-          <XStack space={'$1'} alignItems="center">
-            <Text size={13}>{getFormattedWalletAddress('0xb9dc35')}</Text>
-            <CopyIcon
-              size={16}
-              color="#647084"
-              style={{ cursor: 'pointer' }}
-              onClick={onCopyWalletAddress}
-            />
-          </XStack>
-        </YStack>
+      <XStack
+        justifyContent="space-between"
+        alignItems="center"
+        alignContent="center"
+      >
+        <XStack space={'$2'} alignItems="center">
+          <Avatar type="user" size={32} name="Ethereum Mainnet" />
+          <YStack>
+            <Text size={15} weight={'semibold'}>
+              Ethereum Mainnet
+            </Text>
+            <XStack space={'$1'} alignItems="center">
+              <Text size={13}>{getFormattedWalletAddress('0xb9dc35')}</Text>
+              <CopyIcon
+                size={16}
+                color="#647084"
+                style={{ cursor: 'pointer' }}
+                onClick={onCopyWalletAddress}
+              />
+            </XStack>
+          </YStack>
+        </XStack>
+        <Popover
+          side="top"
+          align="center"
+          onOpenChange={handlePopoverOpenChange}
+          children={[
+            <Stack
+              style={{
+                border: '1px solid #C8D0D8',
+                borderRadius: '9px',
+                marginRight: '10px',
+                padding: '3px',
+                cursor: 'pointer',
+              }}
+            >
+              {isPopoverOpen ? (
+                <CloseIcon size={20} />
+              ) : (
+                <OptionsIcon size={20} />
+              )}
+            </Stack>,
+            <NodesList></NodesList>,
+          ]}
+        ></Popover>
       </XStack>
       <XStack space={'$2'} alignItems="center" justifyContent="space-between">
         <DiamondCard />
       </XStack>
       <ValidatorsCount />
+      <XStack
+        backgroundColor={'#757e8c'}
+        alignContent="center"
+        alignItems="center"
+        justifyContent="center"
+        space="$2"
+        style={{
+          padding: '8px 12px',
+          borderRadius: '16px',
+        }}
+      >
+        <AddSmallIcon size={20} color="#fff"></AddSmallIcon>
+        <Text size={19} color={'#FFF'}>
+          Add Validator
+        </Text>
+      </XStack>
 
-      <Popover
-        side="top"
-        align="center"
-        children={[
-          <YStack
-            backgroundColor={'#757e8c'}
-            style={{
-              padding: '8px 12px',
-              borderRadius: '16px',
-              flexGrow: '1',
-              height: 'max-fit',
-            }}
-          >
-            <XStack
-              style={{ marginBottom: '8px' }}
-              alignContent="center"
-              alignItems="center"
-              justifyContent="center"
-              space="$2"
-            >
-              <AddSmallIcon size={20} color="#fff"></AddSmallIcon>
-              <Text size={19} color={'#FFF'}>
-                Add Validator
-              </Text>
-            </XStack>
-          </YStack>,
-          <NodesList></NodesList>,
-        ]}
-      ></Popover>
       <ValidatorsTabs />
       <AlertsList />
       <LogsList />

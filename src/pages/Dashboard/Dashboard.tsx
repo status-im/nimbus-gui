@@ -3,7 +3,7 @@ import { XStack } from 'tamagui'
 import LeftSidebar from '../../components/General/LeftSidebar/LeftSidebar'
 import DashboardContent from './DashboardContent'
 import { useWindowSize } from '../../hooks/useWindowSize'
-import DashboardSidebar from './DashboardSidebar/DashboardSidebar'
+import RightSideBar from '../../components/General/RightSideBar/RightSidebar'
 
 const Dashboard = () => {
   const { width } = useWindowSize()
@@ -11,7 +11,7 @@ const Dashboard = () => {
     <XStack style={{ height: '100vh' }}>
       <LeftSidebar />
       <DashboardContent />
-      {width > 900 && <DashboardSidebar />}
+      {width > 900 && <RightSideBar />}
     </XStack>
   )
 }
