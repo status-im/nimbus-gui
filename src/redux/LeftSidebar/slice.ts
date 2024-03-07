@@ -5,6 +5,7 @@ interface SidebarButton {
   isDotOn: boolean
   isSelected: boolean
   isDisabled?: boolean
+  path: string
 }
 
 interface LeftSidebarState {
@@ -13,14 +14,48 @@ interface LeftSidebarState {
 
 const initialState: LeftSidebarState = {
   buttons: [
-    { id: 'dashboard', isDotOn: false, isSelected: true },
-    { id: 'speed', isDotOn: false, isSelected: false },
-    { id: 'chart', isDotOn: false, isSelected: false, isDisabled: true },
-    { id: 'heart', isDotOn: false, isSelected: false },
-    { id: 'codeBlock', isDotOn: false, isSelected: false },
-    { id: 'communities', isDotOn: false, isSelected: false },
-    { id: 'activityCenter', isDotOn: true, isSelected: false },
-    { id: 'settings', isDotOn: false, isSelected: false },
+    { id: 'dashboard', isDotOn: false, isSelected: true, path: '/dashboard' },
+    {
+      id: 'speed',
+      isDotOn: false,
+      isSelected: false,
+      path: '/validator-management',
+    },
+    {
+      id: 'chart',
+      isDotOn: false,
+      isSelected: false,
+      isDisabled: true,
+      path: '/',
+    },
+    {
+      id: 'heart',
+      isDotOn: false,
+      isSelected: false,
+      path: '/device-health-check',
+    },
+    { id: 'codeBlock', isDotOn: false, isSelected: false, path: '/logs' },
+    {
+      id: 'communities',
+      isDotOn: false,
+      isSelected: false,
+      isDisabled: true,
+      path: '/',
+    },
+    {
+      id: 'activityCenter',
+      isDotOn: true,
+      isSelected: false,
+      isDisabled: true,
+      path: '/',
+    },
+    {
+      id: 'settings',
+      isDotOn: false,
+      isSelected: false,
+      isDisabled: true,
+      path: '/',
+    },
   ],
 }
 
