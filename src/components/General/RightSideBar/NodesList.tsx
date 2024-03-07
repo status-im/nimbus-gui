@@ -1,72 +1,50 @@
+import { useState } from 'react'
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
+import { YStack } from 'tamagui'
+
 import { Text } from '@status-im/components'
-import { DragIcon, StatusIcon, ChevronRightIcon } from '@status-im/icons'
-import { Stack, Tooltip, XStack, YStack } from 'tamagui'
-import Icon from '../Icon'
+import DraggableNode from './DragableNode'
+interface NodeItem {
+  id: string
+  content: string
+}
+
+const initialNodes: NodeItem[] = [
+  { id: 'item-0', content: 'Nickname 0' },
+  { id: 'item-1', content: 'Nickname 1' },
+  { id: 'item-2', content: 'Nickname 2' },
+]
 
 const NodesList = () => {
-  return (
-    <YStack backgroundColor={'#fff'} padding="18px" borderRadius={25}>
-      <Text size={15} color="#647084" weight="semibold">
-        Nodes
-      </Text>
-      <YStack padding="$2" space="$3">
-        {Array.from(Array(3).keys()).map(e => {
-          return (
-            <XStack
-              alignContent="center"
-              alignItems="center"
-              justifyContent="space-between"
-              width={'250px'}
-              backgroundColor={'#FAFBFC'}
-              borderRadius={15}
-            >
-              <XStack
-                space="$3"
-                alignContent="center"
-                alignItems="center"
-                padding="8px"
-              >
-                <DragIcon size={20} color="#09101C"></DragIcon>
-                <StatusIcon size={20}></StatusIcon>
-                <YStack>
-                  <Text size={15} weight="semibold">
-                    Nickname {e}
-                  </Text>
-                  <Text size={13} color="#647084">
-                    Validators
-                  </Text>
-                </YStack>
-              </XStack>
+  const [nodes, setNodes] = useState<NodeItem[]>(initialNodes)
 
-              <Tooltip>
-                <Tooltip.Trigger>
-                  <Stack padding="3px">
-                    <ChevronRightIcon size={20}></ChevronRightIcon>
-                  </Stack>
-                </Tooltip.Trigger>
-                <Tooltip.Content>
-                  <XStack alignContent="center" alignItems="center" space="$1">
-                    <Icon
-                      src="icons/tooltipIcon.png"
-                      width={22}
-                      height={22}
-                    ></Icon>
-                    <YStack space="$2">
-                      <Text size={15} weight="semibold">
-                        Client Name
-                      </Text>
-                      <Text size={15} weight="semibold">
-                        Host Name
-                      </Text>
-                    </YStack>
-                  </XStack>
-                </Tooltip.Content>
-              </Tooltip>
-            </XStack>
-          )
-        })}
+  const moveNode = (dragIndex: number, hoverIndex: number) => {
+    const dragNode = nodes[dragIndex]
+    const newNodes = [...nodes]
+    newNodes.splice(dragIndex, 1)
+    newNodes.splice(hoverIndex, 0, dragNode)
+    setNodes(newNodes)
+  }
+
+  return (
+    <DndProvider backend={HTML5Backend}>
+      <YStack backgroundColor="#fff" padding="18px" borderRadius={25}>
+        <Text size={15} color="#647084" weight="semibold">
+          Nodes
+        </Text>
+        {nodes.map((node, index) => (
+          <DraggableNode
+            key={node.id}
+            id={node.id}
+            content={node.content}
+            index={index}
+            moveNode={moveNode}
+          />
+        ))}
       </YStack>
-    </YStack>
+    </DndProvider>
   )
 }
+
 export default NodesList
