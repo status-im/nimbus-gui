@@ -58,6 +58,7 @@ const LeftSidebar = () => {
           isSelected={button.isSelected}
           isDisabled={button.isDisabled}
           id={button.id}
+          path={button.path}
         />
       ))}
     </YStack>

@@ -1,6 +1,7 @@
 import { IconButton } from '@status-im/components'
 import { useDispatch } from 'react-redux'
 import { Stack } from 'tamagui'
+import { useNavigate } from 'react-router'
 
 import { toggleButtonSelection } from '../../../redux/LeftSidebar/slice'
 
@@ -10,6 +11,7 @@ type IconButtonWithDotProps = {
   isSelected: boolean
   isDisabled?: boolean
   id: string
+  path: string
 }
 
 const LeftSidebarIconButton = ({
@@ -18,11 +20,15 @@ const LeftSidebarIconButton = ({
   isSelected,
   isDisabled,
   id,
+  path,
 }: IconButtonWithDotProps) => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
-  const onClickHandler = () =>
+  const onClickHandler = () => {
     isDisabled ? null : dispatch(toggleButtonSelection(id))
+    navigate(path)
+  }
 
   return (
     <Stack style={{ position: 'relative', display: 'inline-block' }}>
