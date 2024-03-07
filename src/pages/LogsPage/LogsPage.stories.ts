@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import LogsPage from './LogsPage'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 const meta = {
   title: 'LogsPage/LogsPage',
@@ -9,6 +10,7 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  decorators: [withRouter],
 } satisfies Meta<typeof LogsPage>
 
 export default meta
