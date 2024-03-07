@@ -3,14 +3,14 @@ import { YStack } from 'tamagui'
 import { useSelector } from 'react-redux'
 
 import PanelWrapper from './PanelWrapper'
+import { getDepositTitle } from '../../../../../utilities'
 import { RootState } from '../../../../../redux/store'
 import ConnectedWallet from '../../../../../components/General/ConnectedWallet'
 import ConnectWallet from '../../../../../components/General/ConnectWallet'
 import ChainParity from '../../../../../components/General/ChainParity'
 import ValidatorRequest from '../../../../../components/General/ValidatorRequest/ValidatorRequest'
-import { getDepositTitle } from '../../../../../utilities'
-import DepositValidator from './DepositValidator'
 import ValidatorBalanceInfoBox from '../../../../../components/General/ValidatorBalanceInfoBox'
+import DepositValidator from './DepositValidator'
 
 const DepositPanel = () => {
   const { isWalletConnected, isTransactionConfirmation, isChainParity } =
