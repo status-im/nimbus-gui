@@ -28,7 +28,9 @@ export const convertSecondsToTimerFormat = (seconds: number) => {
 }
 
 export const formatNumbersWithComa = (n: number): string => {
-  const parts = n.toString().split('.')
+  const isWholeNumber = n % 1 === 0
+  const numberString = isWholeNumber ? n.toString() : n.toFixed(2)
+  const parts = numberString.split('.')
   parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',')
   return parts.join('.')
 }
