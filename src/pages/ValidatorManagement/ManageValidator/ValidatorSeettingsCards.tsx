@@ -1,16 +1,12 @@
 import { Stack } from 'tamagui'
 
 import ValidatorSettingCard from './ValidatorSettingCard'
-type IconKey =
-  | 'Exit Validator'
-  | 'Migrate Validator'
-  | 'Top up Validator'
-  | 'Advanced'
+type IconKey = 'Exit Validator' | 'Migrate Validator' | 'Advanced'
 
 const cardTitles: IconKey[] = [
   'Exit Validator',
   'Migrate Validator',
-  'Top up Validator',
+
   'Advanced',
 ]
 const ValidatorSettingsCards = () => {
@@ -19,10 +15,10 @@ const ValidatorSettingsCards = () => {
       style={{
         display: 'flex',
         flexDirection: 'row',
-        flexWrap: 'wrap',
-        gap: '1vw',
         width: '100%',
-        padding: '0 30px',
+        alignContent: 'center',
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
       }}
     >
       {cardTitles.map(title => (

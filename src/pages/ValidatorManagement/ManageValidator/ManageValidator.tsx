@@ -7,7 +7,6 @@ import ValidatorInfo from './ValidatorInfo'
 import DepositStatus from './DepositStatus'
 import Header from './Header'
 import ValidatorBalance from './ValidatorBalance'
-import ValidatorToolsCards from './ValidatorToolsCards'
 import ValidatorDataCards from './ValidatorDataCards'
 import ValidatorDataTabs from './ManageValidatorTable/ValidatorDataTabs'
 import ValidatorGraffiti from './ValidatorGraffiti'
@@ -36,7 +35,7 @@ const ManageValidator = () => {
           <DepositStatus />
           <ValidatorBalance />
         </YStack>
-        <ValidatorToolsCards />
+
         <ValidatorDataCards />
         <ValidatorSettingsCards></ValidatorSettingsCards>
         <ValidatorGraffiti />

@@ -1,16 +1,7 @@
 import { Text } from '@status-im/components'
-import {
-  AddIcon,
-  DisconnectIcon,
-  AdvancedIcon,
-  ExternalIcon,
-} from '@status-im/icons'
-import { Stack, XStack } from 'tamagui'
-type IconKey =
-  | 'Exit Validator'
-  | 'Migrate Validator'
-  | 'Top up Validator'
-  | 'Advanced'
+import { DisconnectIcon, AdvancedIcon, ExternalIcon } from '@status-im/icons'
+import { Stack, XStack, YStack } from 'tamagui'
+type IconKey = 'Exit Validator' | 'Migrate Validator' | 'Advanced'
 
 type ValidatorSettingCardProps = {
   title: IconKey
@@ -18,55 +9,27 @@ type ValidatorSettingCardProps = {
 
 const ValidatorSettingCard = ({ title }: ValidatorSettingCardProps) => {
   const getIcon = {
-    'Exit Validator': () => (
-      <DisconnectIcon
-        size={20}
-        style={{
-          padding: '5px',
-        }}
-      ></DisconnectIcon>
-    ),
-    'Migrate Validator': () => (
-      <ExternalIcon
-        size={20}
-        style={{
-          padding: '5px',
-        }}
-      ></ExternalIcon>
-    ),
-    'Top up Validator': () => (
-      <AddIcon
-        size={20}
-        style={{
-          padding: '5px',
-        }}
-      ></AddIcon>
-    ),
-    Advanced: () => (
-      <AdvancedIcon
-        size={20}
-        style={{
-          padding: '5px',
-        }}
-      ></AdvancedIcon>
-    ),
+    'Exit Validator': () => <DisconnectIcon size={20}></DisconnectIcon>,
+    'Migrate Validator': () => <ExternalIcon size={20}></ExternalIcon>,
+
+    Advanced: () => <AdvancedIcon size={20}></AdvancedIcon>,
   }
   return (
-    <Stack
-      style={{
-        border: '0.5px solid #DCE0E5',
-        flexGrow: '1',
-        borderRadius: '16px',
-        padding: '10px',
-      }}
-    >
-      <XStack space="$2" justifyContent="space-between" padding={'12px'}>
-        <Text size={19} weight={'semibold'}>
-          {title}
-        </Text>
-        {getIcon[title]()}
-      </XStack>
-    </Stack>
+    <YStack alignItems="center">
+      <Stack
+        style={{
+          border: '0.5px solid #DCE0E5',
+          borderRadius: '16px',
+          padding: '10px',
+          width: 'fit-content',
+        }}
+      >
+        <XStack>{getIcon[title]()}</XStack>
+      </Stack>
+      <Text size={15} weight="semibold" color="#647084">
+        {title}
+      </Text>
+    </YStack>
   )
 }
 
