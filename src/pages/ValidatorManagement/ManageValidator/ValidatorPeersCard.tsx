@@ -47,7 +47,7 @@ const ValidatorPeersCard = ({ title, value }: ValidatorPeersCardProps) => {
           <ValidatorPeersPieChart data={PeersPieData} />
         </Stack>
         <YStack>
-          <Text size={15} weight={'semibold'}>
+          <Text size={13} weight={'semibold'} color="#647084">
             {title}
           </Text>
           <Text size={27} weight={'semibold'}>
