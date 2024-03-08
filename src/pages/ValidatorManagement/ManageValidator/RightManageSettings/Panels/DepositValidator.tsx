@@ -24,9 +24,10 @@ const DepositValidator = () => {
       space={'$3'}
       style={{
         width: '100%',
+        justifyContent: 'space-between',
       }}
     >
-      <YStack space={'$2'}>
+      <YStack space={'$2'} width={"60%"} >
         <Text size={15} weight="regular" color={'#647084'}>
           Deposit validator
         </Text>
