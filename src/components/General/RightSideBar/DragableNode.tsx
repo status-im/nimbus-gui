@@ -69,7 +69,7 @@ const DraggableNode = ({
         </XStack>
         <Tooltip>
           <Tooltip.Trigger>
-            <Stack padding="3px">
+            <Stack padding="3px" cursor='pointer'>
               <ChevronRightIcon size={20} />
             </Stack>
           </Tooltip.Trigger>
@@ -82,6 +82,9 @@ const DraggableNode = ({
                 </Text>
                 <Text size={15} weight="semibold">
                   Host Name
+                </Text>
+                <Text size={13} weight="semibold">
+                  6 active Validator
                 </Text>
               </YStack>
             </XStack>

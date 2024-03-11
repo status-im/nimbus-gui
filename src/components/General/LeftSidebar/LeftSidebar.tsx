@@ -10,7 +10,7 @@ import {
 } from '@status-im/icons'
 import { YStack } from 'tamagui'
 import { useSelector } from 'react-redux'
-
+//import { Tooltip } from '@status-im/components'
 import LeftSidebarIconButton from './LeftSidebarIconButton'
 
 const LeftSidebar = () => {
