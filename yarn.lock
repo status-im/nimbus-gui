@@ -7777,9 +7777,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@status-im/components@git+https://git@github.com:nimbus-gui/status-web.git#workspace=@status-im/components&commit=9053e040fd3ff106c5db67a957772c64da2eeb90":
+"@status-im/components@git+https://git@github.com:nimbus-gui/status-web.git#workspace=@status-im/components&commit=6f1274231a48a706ac7ef6767e20a248efebd8e4":
   version: 0.6.1
-  resolution: "@status-im/components@https://git@github.com:nimbus-gui/status-web.git#workspace=%40status-im%2Fcomponents&commit=9053e040fd3ff106c5db67a957772c64da2eeb90"
+  resolution: "@status-im/components@https://git@github.com:nimbus-gui/status-web.git#workspace=%40status-im%2Fcomponents&commit=6f1274231a48a706ac7ef6767e20a248efebd8e4"
   dependencies:
     "@radix-ui/react-accordion": ^1.1.1
     "@radix-ui/react-checkbox": ^1.0.4
@@ -7808,7 +7808,7 @@ __metadata:
     zustand: ^4.3.7
   peerDependencies:
     react: ^18.2.0
-  checksum: 787158398293153614864816703ddbbfa26d10dc8120b49ebcc9841dceb319f4306f8bfed77f6f234170ad429ee164d0adf2ca4b45cc88910b2d9260a89615f6
+  checksum: b07f478e4d6611621172b6c400890d3e6f3d3884d4317a938d67512b0e7a4fa12fb9dcb4b0cfb0242a514e7edd342dcb02bc6bda62b4a08a2a7311ac42d710c7
   languageName: node
   linkType: hard
 
@@ -22727,7 +22727,7 @@ __metadata:
     "@nx/vite": 17.2.8
     "@reduxjs/toolkit": ^1.9.5
     "@status-im/colors": 0.4.0
-    "@status-im/components": "git+https://git@github.com:nimbus-gui/status-web.git#workspace=@status-im/components&commit=9053e040fd3ff106c5db67a957772c64da2eeb90"
+    "@status-im/components": "git+https://git@github.com:nimbus-gui/status-web.git#workspace=@status-im/components&commit=6f1274231a48a706ac7ef6767e20a248efebd8e4"
     "@status-im/icons": 0.6.0
     "@storybook/addon-actions": ^7.4.0
     "@storybook/addon-essentials": ^7.2.0
