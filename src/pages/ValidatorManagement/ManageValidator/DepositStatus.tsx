@@ -51,7 +51,7 @@ const DepositStatus = () => {
           </Text>
         </YStack>
       </XStack>
-      <DepositStepper activeStep={0}></DepositStepper>
+      <DepositStepper activeStep={1}></DepositStepper>
     </XStack>
   )
 }

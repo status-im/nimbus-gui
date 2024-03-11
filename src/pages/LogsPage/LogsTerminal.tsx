@@ -5,6 +5,7 @@ import TerminalRow from './TerminalRow'
 import { simulateLogs } from '../../constants'
 import { LogType } from '../../types'
 import { useDispatch } from 'react-redux'
+
 import {
   incrementErrorLogs,
   incrementNoticeCount,

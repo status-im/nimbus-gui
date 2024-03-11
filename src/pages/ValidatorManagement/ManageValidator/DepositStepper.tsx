@@ -13,6 +13,8 @@ const DepositStepper = ({ activeStep }: DepositStepperProps) => {
 
   const stepToUrlMap = [
     '/validator-management/',
+    '/validator-management/',
+    '/validator-management/',
     // fix paths
   ]
 
@@ -71,10 +73,8 @@ const DepositStepper = ({ activeStep }: DepositStepperProps) => {
       styleConfig={stepStyle}
       connectorStyleConfig={customConnectorStyle}
       style={{
-        fontSize: '14px',
         zIndex: 1,
-        width: '40%',
-        height: 'fit-content',
+        width: '50%',
         padding: 0,
         paddingBottom: '10px',
       }}
@@ -82,6 +82,13 @@ const DepositStepper = ({ activeStep }: DepositStepperProps) => {
       {DepositStatusSteps.filter((_, index) => isStepVisible(index)).map(
         step => {
           const originalIndex = DepositStatusSteps.indexOf(step)
+          const isActive = originalIndex <= activeStep
+
+          const customStepStyle = {
+            backgroundColor: isActive ? '#2A4CF4' : '#E0E0E0',
+            border: '4px solid #fff',
+          }
+
           return (
             <Step
               key={originalIndex}
@@ -90,11 +97,7 @@ const DepositStepper = ({ activeStep }: DepositStepperProps) => {
               onClick={() => changeStepOnClickHandler(originalIndex)}
               completed={activeStep > originalIndex - 1}
               data-step={step.label}
-              style={
-                originalIndex === activeStep
-                  ? { backgroundColor: stepStyle.currentBgColor }
-                  : {}
-              }
+              style={customStepStyle} // Apply custom inline style
             />
           )
         },
@@ -110,6 +113,7 @@ const stepStyle = {
   inactiveBorderWidth: '2px',
   // For active dots:
   activeBgColor: '#FFFFFF',
+  activeTextColor: '',
   activeBorderColor: '#2A4CF4',
   activeBorderWidth: '2px',
   // For completed dots:
@@ -117,8 +121,10 @@ const stepStyle = {
   activeTextColor: '#ffffff',
   completedTextColor: '#ffffff',
   inactiveTextColor: '#000000',
-  size: '13px',
+  size: '22px',
+
   circleFontSize: '0px',
+
   labelFontSize: '11px',
   borderRadius: '50%',
   fontWeight: 700,
@@ -126,7 +132,8 @@ const stepStyle = {
 }
 
 const customConnectorStyle = {
-  size: '2px',
+  size: '3px',
+
   activeColor: '#2A4CF4',
   disabledColor: '#bdbdbd',
   completedColor: '#a10308',
