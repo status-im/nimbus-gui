@@ -49,8 +49,8 @@ const DeviceCPULoad = ({ load }: DeviceCPULoadProps) => {
         backgroundColor: isHovered
           ? '#f8f6ff'
           : message === 'Poor'
-          ? '#fefafa'
-          : '#fff',
+            ? '#fefafa'
+            : '#fff',
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

@@ -63,8 +63,8 @@ const DeviceNetworkHealth = ({ latency }: DeviceNetworkHealthProps) => {
         backgroundColor: isHovered
           ? '#f8f6ff'
           : processedLatency.message === 'Poor'
-          ? '#fefafa'
-          : '#fff',
+            ? '#fefafa'
+            : '#fff',
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

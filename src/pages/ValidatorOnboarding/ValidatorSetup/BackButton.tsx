@@ -58,8 +58,8 @@ const BackButton = () => {
       buttonState === 'enabled'
         ? '09101C'
         : buttonState === 'disabled'
-        ? 'CED4DB'
-        : 'fff',
+          ? 'CED4DB'
+          : 'fff',
     fill: buttonState === 'pressed' ? '2A4AF5' : '',
     textColor: buttonState === 'disabled' ? 'CED4DB' : '09101C',
   }

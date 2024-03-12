@@ -47,8 +47,8 @@ const ConnectWallet = ({ isConnectBtnJustifyEnd }: ConnectWalletProps) => {
         {connecting
           ? 'Connecting'
           : wallet
-          ? 'Disconnect Wallet'
-          : 'Connect Wallet'}
+            ? 'Disconnect Wallet'
+            : 'Connect Wallet'}
       </Button>
     </XStack>
   )
