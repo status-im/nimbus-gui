@@ -114,7 +114,7 @@ const LogsTerminal = ({
       style={{
         height: '650px',
         overflowX: 'auto',
-        width: '90%',
+        width: 'calc(100% - 20px)',
         border: '1px solid #E7EAEE',
         borderRadius: '15px',
         backgroundColor: '#282c34',

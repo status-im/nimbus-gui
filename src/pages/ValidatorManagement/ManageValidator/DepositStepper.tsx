@@ -83,12 +83,10 @@ const DepositStepper = ({ activeStep }: DepositStepperProps) => {
         step => {
           const originalIndex = DepositStatusSteps.indexOf(step)
           const isActive = originalIndex <= activeStep
-
           const customStepStyle = {
             backgroundColor: isActive ? '#2A4CF4' : '#E0E0E0',
             border: '4px solid #fff',
           }
-
           return (
             <Step
               key={originalIndex}
@@ -97,7 +95,7 @@ const DepositStepper = ({ activeStep }: DepositStepperProps) => {
               onClick={() => changeStepOnClickHandler(originalIndex)}
               completed={activeStep > originalIndex - 1}
               data-step={step.label}
-              style={customStepStyle} // Apply custom inline style
+              style={customStepStyle}
             />
           )
         },
@@ -118,10 +116,10 @@ const stepStyle = {
   activeBorderWidth: '2px',
   // For completed dots:
   completedBgColor: '#2A4CF4',
-  activeTextColor: '#ffffff',
+
   completedTextColor: '#ffffff',
   inactiveTextColor: '#000000',
-  size: '22px',
+  size: '21px',
 
   circleFontSize: '0px',
 
