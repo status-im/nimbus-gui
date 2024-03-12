@@ -15,7 +15,7 @@
           mkShell {
             packages = [
               nodejs
-              yarn-berry
+              corepack
               python3
 
               figlet

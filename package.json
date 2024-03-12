@@ -51,7 +51,7 @@
     "@nivo/pie": "^0.83.0",
     "@reduxjs/toolkit": "^1.9.5",
     "@status-im/colors": "0.4.0",
-    "@status-im/components": "git+https://git@github.com:nimbus-gui/status-web.git#workspace=@status-im/components&commit=6f1274231a48a706ac7ef6767e20a248efebd8e4",
+    "@status-im/components": "git@github.com:nimbus-gui/status-web.git#workspace=@status-im/components&commit=6f1274231a48a706ac7ef6767e20a248efebd8e4",
     "@status-im/icons": "0.6.0",
     "@storybook/addon-actions": "^7.4.0",
     "@tamagui/config": "1.74.21",
@@ -136,5 +136,5 @@
     "vite": "^5.0.0",
     "vitest": "~0.34.6"
   },
-  "packageManager": "yarn@3.6.1"
+  "packageManager": "yarn@4.1.1"
 }
