@@ -16727,21 +16727,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-blur@npm:^12.2.2":
-  version: 12.9.2
-  resolution: "expo-blur@npm:12.9.2"
+"expo-blur@npm:12.5.0":
+  version: 12.5.0
+  resolution: "expo-blur@npm:12.5.0"
   peerDependencies:
     expo: "*"
-  checksum: 10/df5a893da1f0c647506fa08459b3fe3cdd9c0078cf8b06ef8313e3e36659abd449905f5edb25d2cb1987a7ab5570e4fec992c09d042a61f01ddd08ab6a587be8
+  checksum: 10/0917e351f2df7858788ec2538dd9b21af0bcebdec82c723079371be0475e1414391a391837b22e122f96cddafceed92a6bbbee8ea8bb98dabd2b1af86f85ae2f
   languageName: node
   linkType: hard
 
-"expo-linear-gradient@npm:^12.1.2":
-  version: 12.7.2
-  resolution: "expo-linear-gradient@npm:12.7.2"
+"expo-linear-gradient@npm:12.4.0":
+  version: 12.4.0
+  resolution: "expo-linear-gradient@npm:12.4.0"
   peerDependencies:
     expo: "*"
-  checksum: 10/74fc7449bc3400add8cb40173cf5f8010aa239d086a2d43031197c76a380905d126671db7d8efc332cb1e73f806e937156383092798bfb08c09e1191e606fa06
+  checksum: 10/4a8bade3efd4c580940d6b9389b6a4451b6e2feda4f33d75219d41a6599d9fcc3b5e86d58a969d140db5b78819126cdc6916ffab82d7329aea8cea2f4be978fd
   languageName: node
   linkType: hard
 

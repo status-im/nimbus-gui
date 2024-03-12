@@ -44,7 +44,9 @@
     "@tamagui/button": "1.74.21",
     "tamagui": "1.74.21",
     "react": "18",
-    "react-dom": "18"
+    "react-dom": "18",
+    "expo-linear-gradient": "12.4.0",
+    "expo-blur": "12.5.0"
   },
   "dependencies": {
     "@nivo/line": "^0.83.0",
