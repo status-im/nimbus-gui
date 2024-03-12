@@ -25,6 +25,7 @@ const ManageValidator = () => {
     >
       <Stack
         width={'50%'}
+        maxWidth="50%"
         flexGrow={1}
         space={'$2'}
         style={{ borderRight: '1px solid #DCE0E5' }}
