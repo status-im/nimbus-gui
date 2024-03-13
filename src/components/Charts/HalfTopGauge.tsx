@@ -5,6 +5,7 @@ export interface GaugeDataPoint {
   label: string
   value: number
 }
+import { linearGradientDef } from '@nivo/core'
 
 interface HalfTopGaugeProps {
   data: GaugeDataPoint[]
@@ -28,6 +29,17 @@ const HalfTopGauge = ({ data, isInteractive = true }: HalfTopGaugeProps) => {
         startAngle={-90}
         endAngle={90}
         isInteractive={isInteractive}
+        colors={d =>
+          d.id === 'storage-free' ? '#F5F6F8' : 'url(#gradientUsed)'
+        }
+        defs={[
+          linearGradientDef('gradientA', [
+            { offset: 0, color: 'rgba(25, 146, 215, 1)' },
+            { offset: 50, color: 'rgba(255, 168, 0, 1)' },
+            { offset: 100, color: 'rgba(255, 125, 70, 1)' },
+          ]),
+        ]}
+        fill={[{ match: { id: 'storage-used' }, id: 'gradientA' }]}
         animate={true}
         motionConfig="gentle"
         enableArcLinkLabels={false}
