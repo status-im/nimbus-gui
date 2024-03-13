@@ -13,6 +13,7 @@ import NetworkCard from './NetworkCard/NetworkCard'
 import SyncStatusCards from './SyncStatusCards/SyncStatusCards'
 import MemoryCard from './MemoryCard/MemoryCard'
 import { useWindowSize } from '../../hooks/useWindowSize'
+import ActiveValidators from './ActiveValidators/ActiveValidators'
 
 const DashboardContent = () => {
   const { width } = useWindowSize()
@@ -40,10 +41,10 @@ const DashboardContent = () => {
           width: '100%',
         }}
       >
-        <SyncStatusCards />
-        <AddCardsContainer cardsAmount={2} />
-
         <BalanceChartCard />
+        <SyncStatusCards />
+        {/* <AddCardsContainer cardsAmount={2} /> */}
+        <ActiveValidators></ActiveValidators>
       </Stack>
       <BasicInfoCards />
 
