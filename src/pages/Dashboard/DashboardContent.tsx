@@ -14,6 +14,8 @@ import SyncStatusCards from './SyncStatusCards/SyncStatusCards'
 import MemoryCard from './MemoryCard/MemoryCard'
 import { useWindowSize } from '../../hooks/useWindowSize'
 import ActiveValidators from './ActiveValidators/ActiveValidators'
+import { Text } from '@status-im/components'
+import ConnectedPeers from './ConnectedPeers/ConnectedPeers'
 
 const DashboardContent = () => {
   const { width } = useWindowSize()
@@ -35,7 +37,7 @@ const DashboardContent = () => {
       <Stack
         style={{
           display: 'grid',
-          gridTemplateColumns: width < 1375 ? '1fr 1fr' : '1fr 1fr 2fr',
+          gridTemplateColumns: width < 1375 ? '1fr 1fr' : '2fr 1fr 1fr',
           gap: '8px',
           gridAutoFlow: 'row',
           width: '100%',
@@ -44,7 +46,10 @@ const DashboardContent = () => {
         <BalanceChartCard />
         <SyncStatusCards />
         {/* <AddCardsContainer cardsAmount={2} /> */}
-        <ActiveValidators></ActiveValidators>
+        <YStack space="$2">
+          <ActiveValidators></ActiveValidators>
+          <ConnectedPeers></ConnectedPeers>
+        </YStack>
       </Stack>
       <BasicInfoCards />
 
