@@ -51,6 +51,7 @@ const MemoryCard = ({ currentMemory, maxMemory }: MemoryCardProps) => {
           border: message === 'Poor' ? '1px solid  #D92344' : 'none',
           backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
         }}
+        height={'100%'}
       >
         <XStack
           justifyContent="space-between"
@@ -82,7 +83,7 @@ const MemoryCard = ({ currentMemory, maxMemory }: MemoryCardProps) => {
           </YStack>
         </XStack>
 
-        <Separator borderColor={'#e3e3e3'} style={{ marginTop: 'auto' }} />
+        <Separator borderColor={'#e3e3e3'} />
 
         <XStack space={'$4'} style={{ padding: '10px 16px' }}>
           <IconText

@@ -57,6 +57,7 @@ const NetworkCard = ({ uploadRate, downloadRate }: NetworkCardProps) => {
           border: message === 'Poor' ? '1px solid  #D92344' : 'none',
           backgroundColor: message === 'Poor' ? '#fefafa' : '#fff',
         }}
+        height={'100%'}
       >
         <XStack
           justifyContent="space-between"
@@ -99,8 +100,8 @@ const NetworkCard = ({ uploadRate, downloadRate }: NetworkCardProps) => {
             </Text>
           </YStack>
         </XStack>
-        <Separator borderColor={'#e3e3e3'} style={{ marginTop: 'auto' }} />
-        <XStack space={'$4'} style={{ padding: '10px 16px' }}>
+        <Separator borderColor={'#e3e3e3'} />
+        <XStack space={'$4'} style={{ padding: '12px 16px' }}>
           <IconText
             icon={
               message === 'Good' ? (
