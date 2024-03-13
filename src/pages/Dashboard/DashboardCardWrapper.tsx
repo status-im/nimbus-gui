@@ -32,6 +32,7 @@ const DashboardCardWrapper = ({
         minWidth: minWidth,
         maxWidth: maxWidth,
         maxHeight: maxHeight,
+        border: '1px solid #E7EAEE',
       }}
     >
       {children}
