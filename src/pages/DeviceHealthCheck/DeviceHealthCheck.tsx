@@ -14,8 +14,10 @@ import DeviceMemory from '../../components/Charts/DeviceMemoryHealth'
 import DeviceNetworkHealth from '../../components/Charts/DeviceNetworkHealth'
 import { RootState } from '../../redux/store'
 import { useWindowSize } from '../../hooks/useWindowSize'
+import { useNavigate } from 'react-router-dom'
 
 const DeviceHealthCheck = () => {
+  const navigate = useNavigate()
   const deviceHealthState = useSelector(
     (state: RootState) => state.deviceHealth,
   )
@@ -79,7 +81,9 @@ const DeviceHealthCheck = () => {
           message="The information provided in the Nodes Health Check is meant to utilized as a guide to guage the readiness of your device, however please do your own due diligence prior to commiting any funds. Read our Health Check Disclosure for more information."
         />
         <Stack style={{ marginTop: '1rem' }}>
-          <Button>Continue</Button>
+          <Button cursor="pointer" onPress={navigate('/device-sync-status')}>
+            Continue
+          </Button>
         </Stack>
       </YStack>
     </PageWrapperShadow>

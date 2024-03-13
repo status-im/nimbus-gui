@@ -7,10 +7,11 @@ import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import Header from '../../components/General/Header'
 import Titles from '../../components/General/Titles'
 import CreateAvatar from '../../components/General/CreateAvatar/CreateAvatar'
+import { useNavigate } from 'react-router-dom'
 
 const CreateLocalNode = () => {
   const [autoConnectChecked, setAutoConnectChecked] = useState(false)
-
+  const navigate = useNavigate()
   return (
     <PageWrapperShadow
       rightImageSrc="./background-images/day-night-bg.png"
@@ -43,7 +44,13 @@ const CreateLocalNode = () => {
             </XStack>
             <Separator alignSelf="stretch" borderColor={'#F0F2F5'} />
           </YStack>
-          <StatusButton icon={<NodeIcon size={20} />}>Continue</StatusButton>
+          <StatusButton
+            icon={<NodeIcon size={20} />}
+            onPress={navigate('/device-health-check')}
+            cursor="pointer"
+          >
+            Continue
+          </StatusButton>
         </article>
       </YStack>
     </PageWrapperShadow>
