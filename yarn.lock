@@ -7443,7 +7443,7 @@ __metadata:
     zustand: "npm:^4.3.7"
   peerDependencies:
     react: ^18.2.0
-  checksum: 10/c88091a4d90768211b3ce06c61ec2c5e770e32a4a2a5428439023f5abeda5c8fbd333f49ee36eff03ba33aed995835e2e0305e9fdd39efb97b11ccfdc6428f8d
+  checksum: 10/18b89909c21f8f4bcb399e2871d51c32e8d8ed96c07f5cfe6fac98774429e164142e5e12a41b1c0de79e01a3d99fbae83b546bef85fa223af74f56639b50e0db
   languageName: node
   linkType: hard
 
