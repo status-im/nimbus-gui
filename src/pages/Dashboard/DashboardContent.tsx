@@ -1,7 +1,7 @@
 import { Stack, YStack, XStack } from 'tamagui'
 
 import BasicInfoCards from './BasicInfoCards/BasicInfoCards'
-import AddCardsContainer from '../../components/General/AddCards/AddCardsContainer'
+
 import BalanceChartCard from './BalanceChartCard/BalanceChartCard'
 import CPUCard from './CPULoad/CPUCard'
 import ConsensusUptimeCard from './ConsensusUptime/ConsensusUptimeCard'
@@ -14,7 +14,7 @@ import SyncStatusCards from './SyncStatusCards/SyncStatusCards'
 import MemoryCard from './MemoryCard/MemoryCard'
 import { useWindowSize } from '../../hooks/useWindowSize'
 import ActiveValidators from './ActiveValidators/ActiveValidators'
-import { Text } from '@status-im/components'
+
 import ConnectedPeers from './ConnectedPeers/ConnectedPeers'
 
 const DashboardContent = () => {

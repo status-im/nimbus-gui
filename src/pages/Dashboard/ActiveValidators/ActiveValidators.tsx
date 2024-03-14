@@ -1,5 +1,6 @@
 import { Text } from '@status-im/components'
 import { Separator, Stack, XStack, YStack } from 'tamagui'
+
 import DashboardCardWrapper from '../DashboardCardWrapper'
 
 const ActiveValidators = () => {
