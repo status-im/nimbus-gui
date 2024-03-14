@@ -1,9 +1,10 @@
 import { DragIcon, StatusIcon, ChevronRightIcon } from '@status-im/icons'
-import { Stack, Tooltip, XStack, YStack } from 'tamagui'
+import { XStack, YStack } from 'tamagui'
 import Icon from '../Icon'
-import { Text } from '@status-im/components'
+import { Text, Tooltip } from '@status-im/components'
 import { useRef } from 'react'
 import { useDrag, useDrop } from 'react-dnd'
+
 const NodeType = 'Node'
 const DraggableNode = ({
   id,
@@ -67,13 +68,8 @@ const DraggableNode = ({
             </Text>
           </YStack>
         </XStack>
-        <Tooltip>
-          <Tooltip.Trigger>
-            <Stack padding="3px" cursor='pointer'>
-              <ChevronRightIcon size={20} />
-            </Stack>
-          </Tooltip.Trigger>
-          <Tooltip.Content>
+        <Tooltip
+          content={
             <XStack alignItems="center" space="$1">
               <Icon src="icons/tooltipIcon.png" width={22} height={22} />
               <YStack space="$2">
@@ -88,7 +84,11 @@ const DraggableNode = ({
                 </Text>
               </YStack>
             </XStack>
-          </Tooltip.Content>
+          }
+        >
+          <div style={{ padding: '3px', cursor: 'pointer' }}>
+            <ChevronRightIcon size={20} />
+          </div>
         </Tooltip>
       </XStack>
     </div>
