@@ -15,14 +15,22 @@ const ValidatorDataCards = () => {
       }}
     >
       <ValidatorPeersCard title="Peers" value="67"></ValidatorPeersCard>
-      <ValidatorDataCard title="Blocks" value={1900} fractionValue={1023} iconPath="ghost.png" isFractionResult={true}/>
+      <ValidatorDataCard title="Slots Behind" value={19} iconPath="ghost.png" />
       <ValidatorDataCard
-        title="Attestations"
+        title="Blocks"
         value={1452}
         iconPath="rubiks-cube.png"
+        isFractionResult={true}
+        fractionValue={987}
       />
-      <ValidatorDataCard title="Syncs" value={45} iconPath="pacman.png" />
-      <ValidatorDataCard title="Deposits" value={1} iconPath="toaster.png" />
+      <ValidatorDataCard
+        title="Attestations"
+        value={2199}
+        iconPath="pacman.png"
+        fractionValue={1023}
+        isFractionResult={true}
+      />
+      <ValidatorDataCard title="Syncs" value={1} iconPath="toaster.png" />
     </Stack>
   )
 }
