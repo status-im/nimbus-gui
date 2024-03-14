@@ -6,7 +6,6 @@ type IconKey = 'Exit Validator' | 'Migrate Validator' | 'Advanced'
 const cardTitles: IconKey[] = [
   'Exit Validator',
   'Migrate Validator',
-
   'Advanced',
 ]
 const ValidatorSettingsCards = () => {
@@ -19,6 +18,8 @@ const ValidatorSettingsCards = () => {
         alignContent: 'center',
         alignItems: 'center',
         justifyContent: 'space-evenly',
+        paddingTop: '20px',
+        paddingBottom: '20px',
       }}
     >
       {cardTitles.map(title => (
