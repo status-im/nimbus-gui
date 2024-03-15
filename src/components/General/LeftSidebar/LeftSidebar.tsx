@@ -8,9 +8,9 @@ import {
   ActivityCenterIcon,
   SettingsIcon,
 } from '@status-im/icons'
-import { YStack } from 'tamagui'
+import { XStack, YStack } from 'tamagui'
 import { useSelector } from 'react-redux'
-//import { Tooltip } from '@status-im/components'
+import { Text, Tooltip } from '@status-im/components'
 import LeftSidebarIconButton from './LeftSidebarIconButton'
 
 const LeftSidebar = () => {
@@ -51,15 +51,27 @@ const LeftSidebar = () => {
       }}
     >
       {buttons.map((button: any) => (
-        <LeftSidebarIconButton
-          key={button.id}
-          iconEl={renderIcon(button.id)}
-          isDotOn={button.isDotOn}
-          isSelected={button.isSelected}
-          isDisabled={button.isDisabled}
-          id={button.id}
-          path={button.path}
-        />
+        <Tooltip
+          content={
+            <XStack alignItems="center" space="$1">
+              <Text size={15} weight="semibold">
+                {button.path.slice(1)}
+              </Text>
+            </XStack>
+          }
+        >
+          <div style={{ padding: '3px', cursor: 'pointer' }}>
+            <LeftSidebarIconButton
+              key={button.id}
+              iconEl={renderIcon(button.id)}
+              isDotOn={button.isDotOn}
+              isSelected={button.isSelected}
+              isDisabled={button.isDisabled}
+              id={button.id}
+              path={button.path}
+            />
+          </div>
+        </Tooltip>
       ))}
     </YStack>
   )
