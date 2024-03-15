@@ -60,6 +60,10 @@ const router = createBrowserRouter([
     element: <DeviceHealthCheck />,
   },
   {
+    path: '/devices-health-check',
+    element: <DeviceHealthCheck />,
+  },
+  {
     path: '/device-sync-status',
     element: <DeviceSyncStatus />,
   },
