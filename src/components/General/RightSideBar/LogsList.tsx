@@ -1,11 +1,13 @@
 import { InformationBox, Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
-import { CloseCircleIcon, ChevronRightIcon } from '@status-im/icons'
+import { ChevronRightIcon } from '@status-im/icons'
 import { useEffect, useState } from 'react'
+import Icon from '../Icon'
 
 type Log = {
   message: string
   variant: 'default' | 'information' | 'error'
+  iconPath: string
 }
 
 const LogsList = () => {
@@ -16,14 +18,17 @@ const LogsList = () => {
       {
         message: 'Critical Logs: 0.01 / M',
         variant: 'default',
+        iconPath: '/icons/thunder.png',
       },
       {
         message: 'Warning Logs: 0.01 / M',
         variant: 'default',
+        iconPath: '/icons/small-warn.png',
       },
       {
         message: 'Error Logs: 0.01 / M',
         variant: 'default',
+        iconPath: '/icons/small-error.png',
       },
     ])
   }, [])
@@ -43,7 +48,7 @@ const LogsList = () => {
         <InformationBox
           key={log.message + log.variant}
           message={log.message}
-          icon={<CloseCircleIcon size={20} />}
+          icon={<Icon src={log.iconPath} width={14} height={14} />}
           variant={log.variant}
         />
       ))}
