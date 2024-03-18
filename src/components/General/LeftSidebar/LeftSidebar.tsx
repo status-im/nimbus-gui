@@ -52,10 +52,14 @@ const LeftSidebar = () => {
     >
       {buttons.map((button: any) => (
         <Tooltip
+          side="right"
           content={
             <XStack alignItems="center" space="$1">
               <Text size={15} weight="semibold">
-                {button.path.slice(1)}
+                {button.path
+                  .replace(/-/g, ' ')
+                  .slice(1)
+                  .replace(/^\w/, (c: any) => c.toUpperCase())}
               </Text>
             </XStack>
           }
