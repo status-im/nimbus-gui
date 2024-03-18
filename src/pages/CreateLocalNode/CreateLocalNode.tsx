@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Button as StatusButton, Text, Checkbox } from '@status-im/components'
 import { NodeIcon } from '@status-im/icons'
-import { Label, Separator, XStack, YStack } from 'tamagui'
+import { Label, Separator, Stack, XStack, YStack } from 'tamagui'
 
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import Header from '../../components/General/Header'
@@ -44,13 +44,14 @@ const CreateLocalNode = () => {
             </XStack>
             <Separator alignSelf="stretch" borderColor={'#F0F2F5'} />
           </YStack>
-          <StatusButton
-            icon={<NodeIcon size={20} />}
-            onPress={navigate('/device-health-check')}
-            cursor="pointer"
-          >
-            Continue
-          </StatusButton>
+          <Stack cursor="pointer" width={'fit-content'}>
+            <StatusButton
+              icon={<NodeIcon size={20} />}
+              onPress={() => navigate('/device-health-check')}
+            >
+              Continue
+            </StatusButton>
+          </Stack>
         </article>
       </YStack>
     </PageWrapperShadow>
