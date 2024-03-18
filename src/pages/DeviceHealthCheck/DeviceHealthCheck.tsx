@@ -80,8 +80,8 @@ const DeviceHealthCheck = () => {
           icon={<CloseCircleIcon size={20} />}
           message="The information provided in the Nodes Health Check is meant to utilized as a guide to guage the readiness of your device, however please do your own due diligence prior to commiting any funds. Read our Health Check Disclosure for more information."
         />
-        <Stack style={{ marginTop: '1rem' }}>
-          <Button cursor="pointer" onPress={navigate('/device-sync-status')}>
+        <Stack style={{ marginTop: '1rem', cursor: 'pointer' }}>
+          <Button onPress={() => navigate('/device-sync-status')}>
             Continue
           </Button>
         </Stack>
