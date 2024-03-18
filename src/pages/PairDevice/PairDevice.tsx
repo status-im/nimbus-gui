@@ -40,7 +40,7 @@ const PairDevice = () => {
     setIsConnectingViaIp(state => !state)
   }
 
-  const continueHandler = (e: Event) => {
+  const continueHandler = () => {
     navigate('/device-health-check')
   }
 

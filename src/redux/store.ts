@@ -15,6 +15,7 @@ import pairDeviceReducer from './PairDevice/slice'
 import manageValidatorTabReducer from './ManageValidatorTab/slice'
 import logsTerminalReducer from './LogsTerminal/slice'
 import currencyReducer from './Currency/slice'
+import navigationFlowReducer from './NavigationFlow/slice'
 
 const store = configureStore({
   reducer: {
@@ -33,6 +34,7 @@ const store = configureStore({
     manageValidatorTab: manageValidatorTabReducer,
     logsTerminal: logsTerminalReducer,
     currency: currencyReducer,
+    navigationFLow: navigationFlowReducer,
   },
 })
 
