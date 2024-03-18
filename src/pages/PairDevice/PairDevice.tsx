@@ -14,6 +14,7 @@ import Header from '../../components/General/Header'
 import ConnectViaIP from './ConnectViaIP/ConnectViaIP'
 import { RootState } from '../../redux/store'
 import { isAddressValid, isPortValid } from '../../utilities'
+import { useNavigate } from 'react-router-dom'
 
 const PairDevice = () => {
   const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
@@ -27,6 +28,7 @@ const PairDevice = () => {
     vcAddress,
     vcPort,
   } = useSelector((state: RootState) => state.pairDevice)
+  const navigate = useNavigate()
   const isPaired = false
   const isPairing = false
 
@@ -38,7 +40,9 @@ const PairDevice = () => {
     setIsConnectingViaIp(state => !state)
   }
 
-  const continueHandler = () => {}
+  const continueHandler = (e: Event) => {
+    navigate('/device-health-check')
+  }
 
   const isDisabledButton = () => {
     if (isConnectingViaIp) {
