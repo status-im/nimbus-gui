@@ -1,7 +1,7 @@
 import { NodeIcon, CompleteIdIcon, ConnectionIcon } from '@status-im/icons'
 import { Label, Separator, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Button, Checkbox, Text } from '@status-im/components'
 
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
@@ -15,8 +15,10 @@ import ConnectViaIP from './ConnectViaIP/ConnectViaIP'
 import { RootState } from '../../redux/store'
 import { isAddressValid, isPortValid } from '../../utilities'
 import { useNavigate } from 'react-router-dom'
+import { setNavigationFlow } from '../../redux/NavigationFlow/slice'
 
 const PairDevice = () => {
+  const dispatch = useDispatch()
   const [isAwaitingPairing, setIsAwaitingPairing] = useState(false)
   const [isConnectingViaIp, setIsConnectingViaIp] = useState(false)
   const [isAutoConnectChecked, setIsAutoConnectChecked] = useState(false)
@@ -41,6 +43,7 @@ const PairDevice = () => {
   }
 
   const continueHandler = () => {
+    dispatch(setNavigationFlow('pairDevice'))
     navigate('/device-health-check')
   }
 

@@ -21,6 +21,9 @@ const DeviceHealthCheck = () => {
   const deviceHealthState = useSelector(
     (state: RootState) => state.deviceHealth,
   )
+  const navigateFlow = useSelector(
+    (state: RootState) => state.navigationFLow.navigationFlow,
+  )
   const windowSize = useWindowSize()
   const breakpoint = 768
 
@@ -35,6 +38,13 @@ const DeviceHealthCheck = () => {
     width: windowSize.width <= breakpoint ? '200%' : '100%',
   }
 
+  const continueHandler = () => {
+    navigate(
+      navigateFlow === 'pairDevice'
+        ? '/device-sync-status'
+        : '/validator-onboarding',
+    )
+  }
   return (
     <PageWrapperShadow
       rightImageSrc="./background-images/eye-background.png"
@@ -81,9 +91,7 @@ const DeviceHealthCheck = () => {
           message="The information provided in the Nodes Health Check is meant to utilized as a guide to guage the readiness of your device, however please do your own due diligence prior to commiting any funds. Read our Health Check Disclosure for more information."
         />
         <Stack style={{ marginTop: '1rem', cursor: 'pointer' }}>
-          <Button onPress={() => navigate('/device-sync-status')}>
-            Continue
-          </Button>
+          <Button onPress={continueHandler}>Continue</Button>
         </Stack>
       </YStack>
     </PageWrapperShadow>

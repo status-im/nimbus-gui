@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 type NavigationFlowStateType = {
- navigationFlow:string
+  navigationFlow: 'pairDevice' | 'createNode' | ''
 }
 
 const initialState: NavigationFlowStateType = {
@@ -13,8 +13,8 @@ const NavigationFlow = createSlice({
   initialState,
   reducers: {
     setNavigationFlow: (state, action) => {
-        state.navigationFlow = action.payload
-      },
+      state.navigationFlow = action.payload
+    },
   },
 })
 
