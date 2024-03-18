@@ -45,7 +45,7 @@ const DeviceSyncStatus = () => {
           <SyncStatusCardConsensus synced={149.5} total={160} />
         </YStack>
         <Stack style={{ marginTop: '1rem' }}>
-          <Button>Continue</Button>
+          <Button disabled>Continue</Button>
         </Stack>
       </YStack>
     </PageWrapperShadow>
