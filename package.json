@@ -53,7 +53,7 @@
     "@nivo/pie": "^0.83.0",
     "@reduxjs/toolkit": "^1.9.5",
     "@status-im/colors": "0.4.0",
-    "@status-im/components": "git+https://git@github.com:nimbus-gui/status-web.git#workspace=@status-im/components&commit=6f1274231a48a706ac7ef6767e20a248efebd8e4",
+    "@status-im/components": "git+https://git@github.com:nimbus-gui/status-web.git#workspace=@status-im/components&commit=4e3f3bb6446202a923bc688f8f9fcba1d7e4e791",
     "@status-im/icons": "0.6.0",
     "@storybook/addon-actions": "^7.4.0",
     "@tamagui/config": "1.74.21",
