@@ -1,19 +1,19 @@
 import { useSelector } from 'react-redux'
 import { Stack, XStack, YStack } from 'tamagui'
 import { CloseCircleIcon } from '@status-im/icons'
-import { Button, InformationBox } from '@status-im/components'
+import { InformationBox } from '@status-im/components'
 import type { Property } from 'csstype'
 
-import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
-import NimbusLogo from '../../components/Logos/NimbusLogo'
-import Titles from '../../components/General/Titles'
 import DeviceStorageHealth from '../../components/Charts/DeviceStorageHealth'
 import DeviceCPULoad from '../../components/Charts/DeviceCPULoad'
 import HealthInfoSection from '../../components/General/HealthInfoSection'
 import DeviceMemory from '../../components/Charts/DeviceMemoryHealth'
 import DeviceNetworkHealth from '../../components/Charts/DeviceNetworkHealth'
 import { RootState } from '../../redux/store'
+import TitleLogo from '../../components/General/TitleLogo'
 import { useWindowSize } from '../../hooks/useWindowSize'
+import RightSidebar from '../../components/General/RightSideBar/RightSidebar'
+import LeftSidebar from '../../components/General/LeftSidebar/LeftSidebar'
 
 const DevicesHealthCheck = () => {
   const deviceHealthState = useSelector(
@@ -34,24 +34,20 @@ const DevicesHealthCheck = () => {
   }
 
   return (
-    <PageWrapperShadow
-      rightImageSrc="./background-images/eye-background.png"
-      imgHeight="100%"
-    >
+    <XStack style={{ height: '100vh' }}>
+      <LeftSidebar />
       <YStack
         space={'$4'}
+        alignItems="flex-start"
         style={{
-          alignItems: 'start',
-          marginBottom: '2rem',
-          maxWidth: '100%',
+          flexGrow: '1',
+          overflowY: 'auto',
+          padding: '0 24px 24px 24px',
+          maxWidth: '75%',
         }}
+        className={'transparent-scrollbar'}
       >
-        <NimbusLogo />
-        <Titles
-          title="Device Health Check"
-          subtitle="Configure your device to start Staking on Nimbus"
-          isAdvancedSettings={true}
-        />
+        <TitleLogo subtitle="Device Health Check" />
         <Stack space={'$4'} style={responsiveStyle}>
           <DeviceStorageHealth
             storage={deviceHealthState.storage}
@@ -78,11 +74,9 @@ const DevicesHealthCheck = () => {
           icon={<CloseCircleIcon size={20} />}
           message="The information provided in the Nodes Health Check is meant to utilized as a guide to guage the readiness of your device, however please do your own due diligence prior to commiting any funds. Read our Health Check Disclosure for more information."
         />
-        <Stack style={{ marginTop: '1rem' }}>
-          <Button>Continue</Button>
-        </Stack>
       </YStack>
-    </PageWrapperShadow>
+      <RightSidebar />
+    </XStack>
   )
 }
 
