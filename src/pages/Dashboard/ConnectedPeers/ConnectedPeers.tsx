@@ -2,6 +2,8 @@ import { Separator, Stack, XStack, YStack } from 'tamagui'
 import DashboardCardWrapper from '../DashboardCardWrapper'
 import { Text } from '@status-im/components'
 import HalfTopGauge from '../../../components/Charts/HalfTopGauge'
+import HalfDoughnutWithGradient from '../../../components/Charts/HalfDoughnutWithGradient'
+import DoughnutChartHalf from '../../../components/Charts/HalfDoughnutWithGradient'
 
 const ConnectedPeers = () => {
   const data = [
@@ -33,7 +35,7 @@ const ConnectedPeers = () => {
               16
             </Text>
 
-            <HalfTopGauge data={data} />
+            <DoughnutChartHalf></DoughnutChartHalf>
           </XStack>
         </Stack>
         <Separator borderColor={'#e3e3e3'} />
