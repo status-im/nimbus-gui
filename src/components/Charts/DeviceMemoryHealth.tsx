@@ -49,7 +49,7 @@ const DeviceMemoryHealth = ({
     <ShadowBox
       variant="$2"
       style={{
-        width: '50%',
+        minWidth: '220px',
         minHeight: '135px',
         borderRadius: '16px',
         border: message === 'Poor' ? '1px solid #D92344' : '1px solid #E0E0E0',

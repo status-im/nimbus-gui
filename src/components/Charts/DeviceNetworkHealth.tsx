@@ -53,7 +53,7 @@ const DeviceNetworkHealth = ({ latency }: DeviceNetworkHealthProps) => {
     <ShadowBox
       variant="$2"
       style={{
-        width: '50%',
+        minWidth: '220px',
         minHeight: '135px',
         borderRadius: '16px',
         border:
