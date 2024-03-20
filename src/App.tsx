@@ -57,11 +57,11 @@ const router = createBrowserRouter([
     element: <LandingPage />,
   },
   {
-    path: '/device-health-check',
+    path: '/device-health-check-onboarding',
     element: <DeviceHealthCheck />,
   },
   {
-    path: '/devices-health-check',
+    path: '/device-health-check',
     element: <DevicesHealthCheck />,
   },
   {
