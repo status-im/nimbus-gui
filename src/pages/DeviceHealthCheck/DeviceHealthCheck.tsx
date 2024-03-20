@@ -1,8 +1,7 @@
 import { useSelector } from 'react-redux'
-import { Stack, XStack, YStack } from 'tamagui'
+import { XStack, YStack } from 'tamagui'
 import { CloseCircleIcon } from '@status-im/icons'
 import { InformationBox } from '@status-im/components'
-import type { Property } from 'csstype'
 
 import DeviceStorageHealth from '../../components/Charts/DeviceStorageHealth'
 import DeviceCPULoad from '../../components/Charts/DeviceCPULoad'
@@ -11,27 +10,14 @@ import DeviceMemory from '../../components/Charts/DeviceMemoryHealth'
 import DeviceNetworkHealth from '../../components/Charts/DeviceNetworkHealth'
 import { RootState } from '../../redux/store'
 import TitleLogo from '../../components/General/TitleLogo'
-import { useWindowSize } from '../../hooks/useWindowSize'
 import RightSidebar from '../../components/General/RightSideBar/RightSidebar'
 import LeftSidebar from '../../components/General/LeftSidebar/LeftSidebar'
+import styles from './deviceHealthCheck.module.css'
 
 const DeviceHealthCheck = () => {
   const deviceHealthState = useSelector(
     (state: RootState) => state.deviceHealth,
   )
-  const windowSize = useWindowSize()
-  const breakpoint = 768
-
-  const responsiveStyle = {
-    flexWrap: (windowSize.width <= breakpoint
-      ? 'wrap'
-      : 'nowrap') as Property.FlexWrap,
-    flexDirection: (windowSize.width <= breakpoint
-      ? 'column'
-      : 'row') as Property.FlexDirection,
-    alignItems: 'flex-start',
-    width: windowSize.width <= breakpoint ? '200%' : '100%',
-  }
 
   return (
     <XStack style={{ height: '100vh' }}>
@@ -48,20 +34,18 @@ const DeviceHealthCheck = () => {
         className={'transparent-scrollbar'}
       >
         <TitleLogo subtitle="Device Health Check" />
-        <Stack space={'$4'} style={responsiveStyle}>
+        <div className={styles['cards-container']}>
           <DeviceStorageHealth
             storage={deviceHealthState.storage}
             maxStorage={deviceHealthState.maxMemory}
           />
           <DeviceCPULoad load={deviceHealthState.cpuLoad} />
-        </Stack>
-        <XStack space={'$4'} style={responsiveStyle}>
           <DeviceMemory
             currentMemory={deviceHealthState.memory}
             maxMemory={deviceHealthState.maxMemory}
           />
           <DeviceNetworkHealth latency={deviceHealthState.latency} />
-        </XStack>
+        </div>
         <HealthInfoSection
           usedStorage={120}
           maxStorage={160}
