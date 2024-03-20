@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 
 import themeReducer from './theme/slice'
-import deviceHealthReducer from './deviceHealthCheck/slice'
+import deviceHealthReducer from './DeviceHealthCheck/slice'
 import pinnedMessageReducer from './PinnedMessage/slice'
 import execClientReducer from './ValidatorOnboarding/ClientSetup/slice'
 import keyGenerationReducer from './ValidatorOnboarding/KeyGeneration/slice'

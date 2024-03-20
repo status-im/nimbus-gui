@@ -33,7 +33,7 @@ import KeyGeneration from './pages/ValidatorOnboarding/KeyGeneration/KeyGenerati
 import Activation from './pages/ValidatorOnboarding/Activation/Activation'
 import ConfirmRecoveryPhrase from './pages/ValidatorOnboarding/KeyGeneration/ConfirmRecoveryPhrase/ConfirmRecoveryPhrase'
 import Deposit from './pages/ValidatorOnboarding/Deposit/Deposit'
-import DevicesHealthCheck from './pages/DevicesHealthCheck/DevicesHealthCheck'
+import DeviceHealthCheck from './pages/DeviceHealthCheck/DeviceHealthCheck'
 
 const injected = injectedModule()
 const walletConnect = walletConnectModule(wcV2InitOptions)
@@ -62,7 +62,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/device-health-check',
-    element: <DevicesHealthCheck />,
+    element: <DeviceHealthCheck />,
   },
   {
     path: '/device-sync-status',

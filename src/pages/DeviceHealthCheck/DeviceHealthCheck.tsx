@@ -15,7 +15,7 @@ import { useWindowSize } from '../../hooks/useWindowSize'
 import RightSidebar from '../../components/General/RightSideBar/RightSidebar'
 import LeftSidebar from '../../components/General/LeftSidebar/LeftSidebar'
 
-const DevicesHealthCheck = () => {
+const DeviceHealthCheck = () => {
   const deviceHealthState = useSelector(
     (state: RootState) => state.deviceHealth,
   )
@@ -80,4 +80,4 @@ const DevicesHealthCheck = () => {
   )
 }
 
-export default DevicesHealthCheck
+export default DeviceHealthCheck
