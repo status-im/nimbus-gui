@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux'
 
 import config from '../tamagui.config'
 import LandingPage from './pages/LandingPage/LandingPage'
-import DeviceHealthCheck from './pages/DeviceHealthCheck/DeviceHealthCheck'
+import DeviceHealthCheckOnboarding from './pages/DeviceHealthCheckOnboarding/DeviceHealthCheckOnboarding'
 import { RootState } from './redux/store'
 import DeviceSyncStatus from './pages/DeviceSyncStatus/DeviceSyncStatus'
 import PairDevice from './pages/PairDevice/PairDevice'
@@ -58,7 +58,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/device-health-check-onboarding',
-    element: <DeviceHealthCheck />,
+    element: <DeviceHealthCheckOnboarding />,
   },
   {
     path: '/device-health-check',

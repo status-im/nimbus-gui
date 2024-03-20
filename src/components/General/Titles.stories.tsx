@@ -11,7 +11,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const WelcomeTitles: Story = {
+export const Welcome: Story = {
   args: {
     title:
       'Welcome, John. This is your complete access to a truly decentralized Web 3.0',
@@ -21,7 +21,7 @@ export const WelcomeTitles: Story = {
   },
 }
 
-export const DeviceHealthCheckTitles: Story = {
+export const DeviceHealthCheckOnboarding: Story = {
   args: {
     title: 'Device Health Check',
     subtitle: 'Configure your device to start Staking on Nimbus',

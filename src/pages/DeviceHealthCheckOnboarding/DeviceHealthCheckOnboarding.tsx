@@ -16,7 +16,7 @@ import { RootState } from '../../redux/store'
 import { useWindowSize } from '../../hooks/useWindowSize'
 import { useNavigate } from 'react-router-dom'
 
-const DeviceHealthCheck = () => {
+const DeviceHealthCheckOnboarding = () => {
   const navigate = useNavigate()
   const deviceHealthState = useSelector(
     (state: RootState) => state.deviceHealth,
@@ -98,4 +98,4 @@ const DeviceHealthCheck = () => {
   )
 }
 
-export default DeviceHealthCheck
+export default DeviceHealthCheckOnboarding
