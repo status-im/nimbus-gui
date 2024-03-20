@@ -35,7 +35,6 @@ const ManageValidator = () => {
           <DepositStatus />
           <ValidatorBalance />
         </YStack>
-
         <ValidatorDataCards />
         <ValidatorSettingsCards></ValidatorSettingsCards>
         <ValidatorGraffiti />

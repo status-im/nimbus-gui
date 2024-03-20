@@ -39,7 +39,7 @@ const DepositValidator = () => {
               onClick={removeDepositAmountHandler}
             />
           }
-          placeholder="Deposit Amount"
+          placeholder="Deposit ETH Amount"
           value={depositAmount}
           onChangeText={changeDepositAmountHandler}
         />
