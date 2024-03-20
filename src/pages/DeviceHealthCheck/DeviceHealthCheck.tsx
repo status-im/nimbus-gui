@@ -43,7 +43,7 @@ const DeviceHealthCheck = () => {
           flexGrow: '1',
           overflowY: 'auto',
           padding: '0 24px 24px 24px',
-          maxWidth: '75%',
+          width: 'calc(100% - 380px)',
         }}
         className={'transparent-scrollbar'}
       >
