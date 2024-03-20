@@ -1,4 +1,3 @@
-import React from 'react'
 import { Doughnut } from 'react-chartjs-2'
 import {
   Chart as ChartJS,
@@ -20,7 +19,7 @@ const options: ChartOptions<'doughnut'> = {
       display: false,
     },
     tooltip: {
-      enabled: true,
+      enabled: false,
     },
   },
 }
@@ -29,27 +28,28 @@ const DoughnutChartHalf = () => {
   const data = {
     datasets: [
       {
-        data: [90, 10],
+        data: [85, 15],
         backgroundColor: function (context: any) {
           const chart = context.chart
           const { ctx, chartArea } = chart
 
           if (!chartArea) {
-            // This case happens on initial chart load
             return null
           }
-          // Create the gradient for the first dataset (90%)
           const gradient = ctx.createLinearGradient(
             chartArea.left,
             0,
             chartArea.right,
             0,
           )
-          gradient.addColorStop(0.0024, '#FF7D46')
+          gradient.addColorStop(0.0124, '#FF7D46')
           gradient.addColorStop(0.6216, '#FFA800')
-          gradient.addColorStop(0.9406, '#1992D7')
+          gradient.addColorStop(0.9006, '#1992D7')
+          if (context.index === 0) {
+            return gradient
+          }
 
-          return [gradient, '#F5F6F8']
+          return '#F5F6F8'
         },
       },
     ],

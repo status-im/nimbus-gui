@@ -1,23 +1,10 @@
 import { Separator, Stack, XStack, YStack } from 'tamagui'
 import DashboardCardWrapper from '../DashboardCardWrapper'
 import { Text } from '@status-im/components'
-import HalfTopGauge from '../../../components/Charts/HalfTopGauge'
-import HalfDoughnutWithGradient from '../../../components/Charts/HalfDoughnutWithGradient'
+
 import DoughnutChartHalf from '../../../components/Charts/HalfDoughnutWithGradient'
 
 const ConnectedPeers = () => {
-  const data = [
-    {
-      id: 'storage-used',
-      label: 'Used',
-      value: 10,
-    },
-    {
-      id: 'storage-free',
-      label: 'Free',
-      value: 3,
-    },
-  ]
   return (
     <DashboardCardWrapper padding="0" height="156ppx" minWidth="200px">
       <YStack height={'100%'}>
