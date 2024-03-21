@@ -1,4 +1,4 @@
-import { XStack, YStack } from 'tamagui'
+import { YStack } from 'tamagui'
 import { Button, Text } from '@status-im/components'
 import { RevealIcon } from '@status-im/icons'
 
@@ -19,7 +19,7 @@ const Titles = ({
 }: TitlesProps) => {
   return (
     <YStack style={{ width: '100%', margin: '0 0 1em' }}>
-      <XStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+      <div className={'titles-container'}>
         <Text size={titleSize} weight={'semibold'}>
           {title}
         </Text>
@@ -28,7 +28,7 @@ const Titles = ({
             Advanced Settings
           </Button>
         )}
-      </XStack>
+      </div>
       <Text size={subtitleSize}>{subtitle}</Text>
     </YStack>
   )

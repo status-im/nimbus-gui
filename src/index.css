@@ -123,6 +123,11 @@ ul li {
   margin-top: 4.4rem;
 }
 
+.titles-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #09101c;
@@ -152,5 +157,17 @@ ul li {
 @media (max-width: 1000px) {
   .nimbus-logo {
     margin-top: 0;
+  }
+}
+
+@media (max-width: 1160px) and (min-width: 1000px) {
+  .titles-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 500px) {
+  .titles-container {
+    flex-direction: column;
   }
 }
