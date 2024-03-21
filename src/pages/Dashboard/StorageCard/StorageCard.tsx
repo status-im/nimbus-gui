@@ -65,7 +65,7 @@ const StorageCard = ({ storage, maxStorage }: StorageCardProps) => {
               position: 'absolute',
               top: '10%',
               right: '1px',
-              width: '50%',
+              width: '40%',
               height: '75%',
             }}
           >
@@ -73,7 +73,10 @@ const StorageCard = ({ storage, maxStorage }: StorageCardProps) => {
           </Stack>
         </XStack>
         <Separator borderColor={'#e3e3e3'} style={{ marginTop: 'auto' }} />
-        <XStack space={'$4'} style={{ padding: '10px 16px' }}>
+        <XStack
+          space={'$4'}
+          style={{ padding: '0.65rem 0', paddingLeft: '1rem' }}
+        >
           <IconText
             icon={
               message === 'Good' ? (
