@@ -64,17 +64,11 @@ const DashboardContent = () => {
             width: '100%',
           }}
         >
-          <YStack>
-            <Stack
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '8px',
-              }}
-            >
+          <YStack space="$3">
+            <XStack space="$2">
               <ConsensusUptimeCard />
               <ExecutionUptime />
-            </Stack>
+            </XStack>
             <DeviceUptime />
           </YStack>
           <YStack space={'$4'}>
@@ -100,18 +94,13 @@ const DashboardContentLayout = (width: number) => {
   return (
     <Stack width={'100%'}>
       <YStack>
-        <Stack
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '8px',
-          }}
-        >
+        <XStack>
           <ConsensusUptimeCard />
           <ExecutionUptime />
-        </Stack>
+        </XStack>
         <DeviceUptime />
       </YStack>
+
       <Stack
         style={{
           display: 'grid',

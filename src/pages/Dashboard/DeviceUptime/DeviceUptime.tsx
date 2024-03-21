@@ -32,7 +32,7 @@ const DeviceUptime = () => {
 
   return (
     <DashboardCardWrapper minWidth="100px">
-      <YStack space={'$3'}>
+      <YStack>
         <XStack justifyContent={'space-between'}>
           <YStack>
             <Text size={15} weight={'semibold'}>
@@ -89,7 +89,7 @@ const DeviceUptime = () => {
               justifyContent: 'center',
               alignItems: 'center',
               width: '100%',
-              height: '100%',
+              height: '90%',
             }}
           >
             <UptimeChart
