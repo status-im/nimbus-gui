@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux'
-import { Stack, XStack, YStack } from 'tamagui'
+import { Stack, YStack } from 'tamagui'
 import { CloseCircleIcon } from '@status-im/icons'
 import { Button, InformationBox } from '@status-im/components'
-import type { Property } from 'csstype'
+import { useNavigate } from 'react-router-dom'
 
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import NimbusLogo from '../../components/Logos/NimbusLogo'
@@ -13,8 +13,7 @@ import HealthInfoSection from '../../components/General/HealthInfoSection'
 import DeviceMemory from '../../components/Charts/DeviceMemoryHealth'
 import DeviceNetworkHealth from '../../components/Charts/DeviceNetworkHealth'
 import { RootState } from '../../redux/store'
-import { useWindowSize } from '../../hooks/useWindowSize'
-import { useNavigate } from 'react-router-dom'
+import styles from './deviceHealthCheckOnboarding.module.css'
 
 const DeviceHealthCheckOnboarding = () => {
   const navigate = useNavigate()
@@ -24,19 +23,6 @@ const DeviceHealthCheckOnboarding = () => {
   const navigateFlow = useSelector(
     (state: RootState) => state.navigationFLow.navigationFlow,
   )
-  const windowSize = useWindowSize()
-  const breakpoint = 768
-
-  const responsiveStyle = {
-    flexWrap: (windowSize.width <= breakpoint
-      ? 'wrap'
-      : 'nowrap') as Property.FlexWrap,
-    flexDirection: (windowSize.width <= breakpoint
-      ? 'column'
-      : 'row') as Property.FlexDirection,
-    alignItems: 'flex-start',
-    width: windowSize.width <= breakpoint ? '200%' : '100%',
-  }
 
   const continueHandler = () => {
     navigate(
@@ -64,20 +50,18 @@ const DeviceHealthCheckOnboarding = () => {
           subtitle="Configure your device to start Staking on Nimbus"
           isAdvancedSettings={true}
         />
-        <Stack space={'$4'} style={responsiveStyle}>
+        <div className={styles['cards-container']}>
           <DeviceStorageHealth
             storage={deviceHealthState.storage}
             maxStorage={deviceHealthState.maxMemory}
           />
           <DeviceCPULoad load={deviceHealthState.cpuLoad} />
-        </Stack>
-        <XStack space={'$4'} style={responsiveStyle}>
           <DeviceMemory
             currentMemory={deviceHealthState.memory}
             maxMemory={deviceHealthState.maxMemory}
           />
           <DeviceNetworkHealth latency={deviceHealthState.latency} />
-        </XStack>
+        </div>
         <HealthInfoSection
           usedStorage={120}
           maxStorage={160}
