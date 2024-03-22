@@ -7,7 +7,7 @@ import DashboardCardWrapper from '../DashboardCardWrapper'
 
 const ExecutionUptime = () => {
   return (
-    <DashboardCardWrapper minWidth="100px" maxWidth="1fr">
+    <DashboardCardWrapper minWidth="100px">
       <YStack space={'$3'}>
         <YStack>
           <Text size={15} weight={'semibold'}>
@@ -30,7 +30,7 @@ const ExecutionUptime = () => {
               justifyContent: 'center',
               alignItems: 'center',
               width: '100%',
-              height: '90%',
+              height: '100%',
             }}
           >
             <UptimeChart

@@ -64,8 +64,8 @@ const DashboardContent = () => {
             width: '100%',
           }}
         >
-          <YStack space="$3">
-            <XStack space="$2">
+          <YStack space="$4">
+            <XStack space="$2" width="100%" flexWrap="wrap">
               <ConsensusUptimeCard />
               <ExecutionUptime />
             </XStack>
