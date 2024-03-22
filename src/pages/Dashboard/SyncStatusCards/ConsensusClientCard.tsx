@@ -14,7 +14,9 @@ type ConsensusCardProps = {
 }
 
 const ConsensusCard = ({ value, total }: ConsensusCardProps) => {
-  const style: CSSProperties = {}
+  const style: CSSProperties = {
+    minWidth: '150px',
+  }
   const data = [
     {
       id: 'storage-used',
