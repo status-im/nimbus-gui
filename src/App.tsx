@@ -104,7 +104,7 @@ const router = createBrowserRouter([
     element: <ValidatorManagement />,
   },
   {
-    path: '/validator-management/:validatorName',
+    path: '/manage-validator/:validatorName',
     element: <ManageValidator />,
   },
 ])
