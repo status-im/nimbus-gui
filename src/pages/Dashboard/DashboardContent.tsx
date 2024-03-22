@@ -37,19 +37,21 @@ const DashboardContent = () => {
       <Stack
         style={{
           display: 'grid',
-          gridTemplateColumns: width < 1375 ? '1fr 1fr' : '2fr 1fr 1fr',
+          gridTemplateColumns: width < 1400 ? '1fr' : '1fr 1fr',
           gap: '8px',
           gridAutoFlow: 'row',
           width: '100%',
         }}
       >
-        <BalanceChartCard />
-        <SyncStatusCards />
-        {/* <AddCardsContainer cardsAmount={2} /> */}
-        <YStack space="$2">
-          <ActiveValidators></ActiveValidators>
-          <ConnectedPeers></ConnectedPeers>
-        </YStack>
+        {width >= 1400 && <BalanceChartCard />}
+        <XStack space="$3"  >
+          <SyncStatusCards />
+          <YStack space="$3" flexWrap="wrap">
+            <ActiveValidators></ActiveValidators>
+            <ConnectedPeers></ConnectedPeers>
+          </YStack>
+        </XStack>
+        {width < 1400 && <BalanceChartCard />}
       </Stack>
       <BasicInfoCards />
 

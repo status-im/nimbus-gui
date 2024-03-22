@@ -6,7 +6,7 @@ import DoughnutChartHalf from '../../../components/Charts/HalfDoughnutWithGradie
 
 const ConnectedPeers = () => {
   return (
-    <DashboardCardWrapper padding="0" height="156ppx" minWidth="200px">
+    <DashboardCardWrapper padding="0" height="156ppx" minWidth="250px">
       <YStack height={'100%'}>
         <Stack
           style={{ minHeight: '90px', padding: '12px 16px', flex: 1 }}
