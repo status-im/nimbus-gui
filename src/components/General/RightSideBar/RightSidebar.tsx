@@ -6,22 +6,22 @@ import {
   CopyIcon,
   OptionsIcon,
 } from '@status-im/icons'
+import { useState } from 'react'
 
 import AlertsList from '../../../components/General/RightSideBar/AlertsList'
 import LogsList from '../../../components/General/RightSideBar/LogsList'
-
-import { copyFunction, getFormattedWalletAddress } from '../../../utilities'
 import ValidatorsTabs from '../../../components/General/RightSideBar/ValidatorsTabs/ValidatorsTabs'
 import ValidatorsCount from '../../../components/General/RightSideBar/ValidatorsCount'
-
 import NodesList from './NodesList'
 import DiamondCard from './DiamondCard'
-import { useState } from 'react'
+import { copyFunction, getFormattedWalletAddress } from '../../../utilities'
 
-const DashboardSidebar = () => {
+const RightSidebar = () => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false)
+  const address = '0xb9dc35'
+
   const onCopyWalletAddress = () => {
-    copyFunction('0xb9dc35')
+    copyFunction(address)
   }
 
   const handlePopoverOpenChange = (open: boolean) => {
@@ -52,7 +52,7 @@ const DashboardSidebar = () => {
               Ethereum Mainnet
             </Text>
             <XStack space={'$1'} alignItems="center">
-              <Text size={13}>{getFormattedWalletAddress('0xb9dc35')}</Text>
+              <Text size={13}>{getFormattedWalletAddress(address)}</Text>
               <CopyIcon
                 size={16}
                 color="#647084"
@@ -82,13 +82,11 @@ const DashboardSidebar = () => {
                 <OptionsIcon size={20} />
               )}
             </Stack>,
-            <NodesList></NodesList>,
+            <NodesList />,
           ]}
-        ></Popover>
+        />
       </XStack>
-      <XStack space={'$2'} alignItems="center" justifyContent="space-between">
-        <DiamondCard />
-      </XStack>
+      <DiamondCard />
       <ValidatorsCount />
       <XStack
         backgroundColor={'#757e8c'}
@@ -101,12 +99,11 @@ const DashboardSidebar = () => {
           borderRadius: '16px',
         }}
       >
-        <AddSmallIcon size={20} color="#fff"></AddSmallIcon>
+        <AddSmallIcon size={20} color="#fff" />
         <Text size={19} color={'#FFF'}>
           Add Validator
         </Text>
       </XStack>
-
       <ValidatorsTabs />
       <AlertsList />
       <LogsList />
@@ -114,4 +111,4 @@ const DashboardSidebar = () => {
   )
 }
 
-export default DashboardSidebar
+export default RightSidebar
