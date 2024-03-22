@@ -21,7 +21,7 @@ const DashboardContent = () => {
   const { width } = useWindowSize()
   return (
     <YStack
-      space="$4"
+      space="$3"
       alignItems="flex-start"
       px="24px"
       minWidth="500px"
@@ -64,14 +64,14 @@ const DashboardContent = () => {
             width: '100%',
           }}
         >
-          <YStack space="$4">
-            <XStack space="$2" width="100%" flexWrap="wrap">
+          <YStack space="$3">
+            <XStack space="$2" width={'100%'}>
               <ConsensusUptimeCard />
               <ExecutionUptime />
             </XStack>
             <DeviceUptime />
           </YStack>
-          <YStack space={'$4'}>
+          <YStack space={'$3'}>
             <XStack space={'$4'}>
               <StorageCard maxStorage={100} storage={182} />
               <CPUCard load={[12, 31, 3, 2, 24, 98]} />
@@ -92,12 +92,13 @@ const DashboardContent = () => {
 }
 const DashboardContentLayout = (width: number) => {
   return (
-    <Stack width={'100%'}>
-      <YStack>
-        <XStack>
+    <Stack width={'100%'} space="$3">
+      <YStack space="$3">
+        <Stack space="$2" width={'100%'}>
           <ConsensusUptimeCard />
           <ExecutionUptime />
-        </XStack>
+        </Stack>
+
         <DeviceUptime />
       </YStack>
 

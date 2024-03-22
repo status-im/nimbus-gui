@@ -7,7 +7,7 @@ import DashboardCardWrapper from '../DashboardCardWrapper'
 
 const ConsensusUptimeCard = () => {
   return (
-    <DashboardCardWrapper minWidth="100px">
+    <DashboardCardWrapper>
       <YStack space={'$3'}>
         <YStack>
           <Text size={15} weight={'semibold'}>
