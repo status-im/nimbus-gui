@@ -44,7 +44,7 @@ const DashboardContent = () => {
         }}
       >
         {width >= 1400 && <BalanceChartCard />}
-        <XStack space="$3"  >
+        <XStack space="$3">
           <SyncStatusCards />
           <YStack space="$3" flexWrap="wrap">
             <ActiveValidators></ActiveValidators>

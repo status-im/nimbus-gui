@@ -11,10 +11,11 @@ const TitleLogo = ({ subtitle }: TitleLogoProps) => {
       <Stack style={{ marginTop: '3px' }}>
         <Avatar
           type="icon"
-          size={32}
+          size={48}
+          backgroundColor="white"
           icon={
             <img
-              src={'/icons/dashboard-logo.png'}
+              src={'/icons/Nimbus-black.png'}
               alt="dashboard-logo"
               style={{ width: '100%' }}
             />

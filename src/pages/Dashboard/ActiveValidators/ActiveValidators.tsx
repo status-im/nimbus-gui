@@ -5,7 +5,7 @@ import DashboardCardWrapper from '../DashboardCardWrapper'
 
 const ActiveValidators = () => {
   return (
-    <DashboardCardWrapper padding="0" height="156px" minWidth="250px"  >
+    <DashboardCardWrapper padding="0" height="156px" minWidth="250px">
       <img
         src="/images/validators-count.png"
         alt=""
