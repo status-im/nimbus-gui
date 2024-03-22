@@ -6,10 +6,8 @@ import injectedModule from '@web3-onboard/injected-wallets'
 import walletConnectModule from '@web3-onboard/walletconnect'
 import { useSelector } from 'react-redux'
 
-import config from '../tamagui.config'
 import LandingPage from './pages/LandingPage/LandingPage'
 import DeviceHealthCheckOnboarding from './pages/DeviceHealthCheckOnboarding/DeviceHealthCheckOnboarding'
-import { RootState } from './redux/store'
 import DeviceSyncStatus from './pages/DeviceSyncStatus/DeviceSyncStatus'
 import PairDevice from './pages/PairDevice/PairDevice'
 import PinnedNotification from './components/General/PinnedNottification'
@@ -18,6 +16,9 @@ import ValidatorOnboarding from './pages/ValidatorOnboarding/ValidatorOnboarding
 import Dashboard from './pages/Dashboard/Dashboard'
 import ValidatorManagement from './pages/ValidatorManagement/ValidatorManagement'
 import LogsPage from './pages/LogsPage/LogsPage'
+import ManageValidator from './pages/ValidatorManagement/ManageValidator/ManageValidator'
+import config from '../tamagui.config'
+import { RootState } from './redux/store'
 import { ethereumRopsten, wcV2InitOptions, apiKey } from './constants'
 import './App.css'
 
@@ -34,7 +35,6 @@ import Activation from './pages/ValidatorOnboarding/Activation/Activation'
 import ConfirmRecoveryPhrase from './pages/ValidatorOnboarding/KeyGeneration/ConfirmRecoveryPhrase/ConfirmRecoveryPhrase'
 import Deposit from './pages/ValidatorOnboarding/Deposit/Deposit'
 import DeviceHealthCheck from './pages/DeviceHealthCheck/DeviceHealthCheck'
-import ManageValidator from './pages/ValidatorManagement/ManageValidator/ManageValidator'
 
 const injected = injectedModule()
 const walletConnect = walletConnectModule(wcV2InitOptions)
