@@ -1,6 +1,6 @@
 import { Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
-import Icon from '../../components/General/Icon'
+import Icon from '../../../components/General/Icon'
 
 type ValidatorDataCardProps = {
   title: string

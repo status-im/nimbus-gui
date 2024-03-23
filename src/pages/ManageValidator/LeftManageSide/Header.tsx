@@ -1,5 +1,5 @@
 import { XStack } from 'tamagui'
-import Titles from '../../components/General/Titles'
+import Titles from '../../../components/General/Titles'
 import { PopupIcon } from '@status-im/icons'
 const Header = () => {
   return (
