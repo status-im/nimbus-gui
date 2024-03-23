@@ -7,6 +7,7 @@ import {
   CheckIcon,
 } from '@status-im/icons'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { copyFunction, getFormattedValidatorAddress } from '../../utilities'
 
@@ -24,6 +25,7 @@ const ValidatorNameAddress = ({
   isAvatarChipIncluded,
 }: ValidatorNameAddressProps) => {
   const [isCopied, setIsCopied] = useState(false)
+  const navigate = useNavigate()
 
   const onCopyAddress = () => {
     copyFunction(address)
@@ -37,9 +39,18 @@ const ValidatorNameAddress = ({
     }
   }
 
+  const onNavigateToManageValidator = () => {
+    navigate(`/manage-validator/${name}`)
+  }
+
   return (
     <YStack alignItems={'flex-start'}>
-      <XStack space={'$1'} alignItems="center">
+      <XStack
+        space={'$1'}
+        alignItems="center"
+        onPress={onNavigateToManageValidator}
+        cursor="pointer"
+      >
         <Text size={13} weight={'semibold'}>
           Validator {name}
         </Text>
