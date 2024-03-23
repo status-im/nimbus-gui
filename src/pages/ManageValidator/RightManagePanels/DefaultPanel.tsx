@@ -1,7 +1,7 @@
 import { Text } from '@status-im/components'
 import { YStack } from 'tamagui'
 
-import Icon from '../../../../components/General/Icon'
+import Icon from '../../../components/General/Icon'
 
 const DefaultPanel = () => {
   return (

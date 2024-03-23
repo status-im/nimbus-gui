@@ -3,7 +3,7 @@ import { ClearIcon } from '@status-im/icons'
 import { XStack, YStack } from 'tamagui'
 import { useState } from 'react'
 
-import CurrencyDropdown from '../../../../components/General/CurrencyDropdown'
+import CurrencyDropdown from '../../../components/General/CurrencyDropdown'
 
 const DepositValidator = () => {
   const [depositAmount, setDepositAmount] = useState('')

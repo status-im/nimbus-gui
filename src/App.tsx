@@ -35,9 +35,10 @@ import Activation from './pages/ValidatorOnboarding/Activation/Activation'
 import ConfirmRecoveryPhrase from './pages/ValidatorOnboarding/KeyGeneration/ConfirmRecoveryPhrase/ConfirmRecoveryPhrase'
 import Deposit from './pages/ValidatorOnboarding/Deposit/Deposit'
 import DeviceHealthCheck from './pages/DeviceHealthCheck/DeviceHealthCheck'
-import ExitPanel from './pages/ManageValidator/RightManage/Panels/ExitPanel'
-import MigratePanel from './pages/ManageValidator/RightManage/Panels/MigratePanel'
-import DepositPanel from './pages/ManageValidator/RightManage/Panels/DepositPanel'
+import ExitPanel from './pages/ManageValidator/RightManagePanels/ExitPanel'
+import MigratePanel from './pages/ManageValidator/RightManagePanels/MigratePanel'
+import DepositPanel from './pages/ManageValidator/RightManagePanels/DepositPanel'
+import DefaultPanel from './pages/ManageValidator/RightManagePanels/DefaultPanel'
 
 const injected = injectedModule()
 const walletConnect = walletConnectModule(wcV2InitOptions)
