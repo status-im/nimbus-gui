@@ -3,7 +3,7 @@ import ValidatorTableHeader from './ValidatorTableHeader'
 
 const ValidatorTable = () => {
   return (
-    <table className="manage-validator-table">
+    <table>
       <ValidatorTableHeader />
       <ValidatorTableBody />
     </table>
