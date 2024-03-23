@@ -1,7 +1,7 @@
 import { Stack, XStack, YStack } from 'tamagui'
+import { Text } from '@status-im/components'
 
 import DepositStatusPieChart from './DepositStatusPieChart'
-import { Text } from '@status-im/components'
 import DepositStepper from './DepositStepper'
 
 const depositStatusData = [
@@ -51,7 +51,7 @@ const DepositStatus = () => {
           </Text>
         </YStack>
       </XStack>
-      <DepositStepper activeStep={1}></DepositStepper>
+      <DepositStepper activeStep={1} />
     </XStack>
   )
 }
