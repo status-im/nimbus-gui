@@ -35,6 +35,9 @@ import Activation from './pages/ValidatorOnboarding/Activation/Activation'
 import ConfirmRecoveryPhrase from './pages/ValidatorOnboarding/KeyGeneration/ConfirmRecoveryPhrase/ConfirmRecoveryPhrase'
 import Deposit from './pages/ValidatorOnboarding/Deposit/Deposit'
 import DeviceHealthCheck from './pages/DeviceHealthCheck/DeviceHealthCheck'
+import ExitPanel from './pages/ManageValidator/RightManage/Panels/ExitPanel'
+import MigratePanel from './pages/ManageValidator/RightManage/Panels/MigratePanel'
+import DepositPanel from './pages/ManageValidator/RightManage/Panels/DepositPanel'
 
 const injected = injectedModule()
 const walletConnect = walletConnectModule(wcV2InitOptions)
@@ -106,6 +109,11 @@ const router = createBrowserRouter([
   {
     path: '/manage-validator/:validatorName',
     element: <ManageValidator />,
+    children: [
+      { path: 'exit', element: <ExitPanel /> },
+      { path: 'migrate', element: <MigratePanel /> },
+      { path: 'deposit', element: <DepositPanel /> },
+    ],
   },
 ])
 
