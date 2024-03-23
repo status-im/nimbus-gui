@@ -1,7 +1,7 @@
 import { XStack } from 'tamagui'
+import { Outlet } from 'react-router-dom'
 
 import LeftSidebar from '../../components/General/LeftSidebar/LeftSidebar'
-import RightManage from './RightManage/RightManage'
 import LeftManage from './LeftManage/LeftManage'
 
 const ManageValidator = () => {
@@ -16,7 +16,9 @@ const ManageValidator = () => {
         }}
       >
         <LeftManage />
-        <RightManage />
+        <div style={{ flexGrow: 1 }}>
+          <Outlet />
+        </div>
       </XStack>
     </XStack>
   )
