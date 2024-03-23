@@ -1,7 +1,7 @@
 import { Stepper, Step } from 'react-form-stepper'
 import { useNavigate } from 'react-router-dom'
-import { DepositStatusSteps, FORM_STEPS } from '../../../constants'
-import { useWindowSize } from '../../../hooks/useWindowSize'
+import { DepositStatusSteps, FORM_STEPS } from '../../constants'
+import { useWindowSize } from '../../hooks/useWindowSize'
 import styles from './DepositStepper.module.css'
 type DepositStepperProps = {
   activeStep: number

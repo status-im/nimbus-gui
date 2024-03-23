@@ -16,7 +16,7 @@ import ValidatorOnboarding from './pages/ValidatorOnboarding/ValidatorOnboarding
 import Dashboard from './pages/Dashboard/Dashboard'
 import ValidatorManagement from './pages/ValidatorManagement/ValidatorManagement'
 import LogsPage from './pages/LogsPage/LogsPage'
-import ManageValidator from './pages/ValidatorManagement/ManageValidator/ManageValidator'
+import ManageValidator from './pages/ManageValidator/ManageValidator'
 import config from '../tamagui.config'
 import { RootState } from './redux/store'
 import { ethereumRopsten, wcV2InitOptions, apiKey } from './constants'

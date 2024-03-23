@@ -1,7 +1,7 @@
 import { Text } from '@status-im/components'
 import { useSelector } from 'react-redux'
-import { RootState } from '../../../../redux/store'
-import { MANAGE_VALIDATOR_TABS_TABLE_DATA } from '../../../../constants'
+import { RootState } from '../../../redux/store'
+import { MANAGE_VALIDATOR_TABS_TABLE_DATA } from '../../../constants'
 
 const ValidatorTableHeader = () => {
   const currentTab = useSelector(

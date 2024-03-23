@@ -1,11 +1,11 @@
 import { Stack } from 'tamagui'
-import { MANAGE_VALIDATOR_TABS } from '../../../../constants'
+import { MANAGE_VALIDATOR_TABS } from '../../../constants'
 import ValidatorTable from './ValidatorTable'
 import { Tabs } from '@status-im/components'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { RootState } from '../../../../redux/store'
-import { setCurrentTab } from '../../../../redux/ManageValidatorTab/slice'
+import { RootState } from '../../../redux/store'
+import { setCurrentTab } from '../../../redux/ManageValidatorTab/slice'
 
 const ValidatorDataTabs = () => {
   const dispatch = useDispatch()

@@ -1,7 +1,7 @@
 import { XStack, YStack } from 'tamagui'
 import { Stack } from 'tamagui'
 
-import LeftSidebar from '../../../components/General/LeftSidebar/LeftSidebar'
+import LeftSidebar from '../../components/General/LeftSidebar/LeftSidebar'
 import RightManageSettings from './RightManageSettings/RightManageSettings'
 import ValidatorInfo from './ValidatorInfo'
 import DepositStatus from './DepositStatus'

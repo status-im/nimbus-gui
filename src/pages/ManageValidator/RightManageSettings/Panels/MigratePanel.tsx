@@ -3,7 +3,7 @@ import { CloseCircleIcon } from '@status-im/icons'
 import { XStack, YStack } from 'tamagui'
 import { useState } from 'react'
 
-import KeystoreBackupsCard from '../../../../../components/General/KeystoreBackupsCard'
+import KeystoreBackupsCard from '../../../../components/General/KeystoreBackupsCard'
 import PanelWrapper from './PanelWrapper'
 
 const MigratePanel = () => {
