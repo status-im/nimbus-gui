@@ -7,7 +7,8 @@ const DefaultPanel = () => {
   return (
     <YStack
       space={'$2'}
-      width={'50%'}
+      width={'100%'}
+      height={'100vh'}
       justifyContent="center"
       alignItems="center"
     >
