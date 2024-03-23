@@ -1,6 +1,7 @@
 import { Text } from '@status-im/components'
 import { DisconnectIcon, AdvancedIcon, ExternalIcon } from '@status-im/icons'
-import { Stack, XStack, YStack } from 'tamagui'
+import { Stack, YStack } from 'tamagui'
+
 type IconKey = 'Exit Validator' | 'Migrate Validator' | 'Advanced'
 
 type ValidatorSettingCardProps = {
@@ -9,11 +10,11 @@ type ValidatorSettingCardProps = {
 
 const ValidatorSettingCard = ({ title }: ValidatorSettingCardProps) => {
   const getIcon = {
-    'Exit Validator': () => <DisconnectIcon size={20}></DisconnectIcon>,
-    'Migrate Validator': () => <ExternalIcon size={20}></ExternalIcon>,
-
-    Advanced: () => <AdvancedIcon size={20}></AdvancedIcon>,
+    'Exit Validator': <DisconnectIcon size={20} />,
+    'Migrate Validator': <ExternalIcon size={20} />,
+    Advanced: <AdvancedIcon size={20} />,
   }
+
   return (
     <YStack alignItems="center">
       <Stack
@@ -24,7 +25,7 @@ const ValidatorSettingCard = ({ title }: ValidatorSettingCardProps) => {
           width: 'fit-content',
         }}
       >
-        <XStack>{getIcon[title]()}</XStack>
+        {getIcon[title]}
       </Stack>
       <Text size={15} weight="semibold" color="#647084">
         {title}
