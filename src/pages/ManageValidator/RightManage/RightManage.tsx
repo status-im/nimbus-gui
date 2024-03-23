@@ -4,19 +4,22 @@ import ExitPanel from './Panels/ExitPanel'
 import MigratePanel from './Panels/MigratePanel'
 
 const RightManage = () => {
-  const isDefault = false
-  const isMigrate = false
-  const isDeposit = false
-  const isExit = true
+  const lastUrlSegment = window.location.pathname.split('/').pop()
 
-  return (
-    <div style={{ flexGrow: 1 }}>
-      {isDefault && <DefaultPanel />}
-      {isMigrate && <MigratePanel />}
-      {isDeposit && <DepositPanel />}
-      {isExit && <ExitPanel />}
-    </div>
-  )
+  const getPanel = () => {
+    switch (lastUrlSegment) {
+      case 'migrate':
+        return <MigratePanel />
+      case 'deposit':
+        return <DepositPanel />
+      case 'exit':
+        return <ExitPanel />
+      default:
+        return <DefaultPanel />
+    }
+  }
+
+  return <div style={{ flexGrow: 1 }}>{getPanel()}</div>
 }
 
 export default RightManage
