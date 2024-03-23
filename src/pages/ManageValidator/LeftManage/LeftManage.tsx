@@ -1,4 +1,7 @@
+import { useState } from 'react'
 import { Stack, YStack } from 'tamagui'
+import { InformationBox } from '@status-im/components'
+import { CloseCircleIcon } from '@status-im/icons'
 
 import Header from './Header'
 import ValidatorInfo from './ValidatorInfo'
@@ -11,6 +14,8 @@ import ValidatorDataTabs from './ManageValidatorTable/ValidatorDataTabs'
 import Footer from './Footer'
 
 const LeftManage = () => {
+  const [isVisibleWarning, setIsVisibleWarning] = useState(true)
+
   return (
     <Stack
       width={'50%'}
@@ -29,6 +34,14 @@ const LeftManage = () => {
       <ValidatorSettingsCards />
       <ValidatorGraffiti />
       <ValidatorDataTabs />
+      {isVisibleWarning && (
+        <InformationBox
+          message="Your Validator balance is currently 0 ETH and requires a deposit."
+          variant="error"
+          icon={<CloseCircleIcon size={20} />}
+          onClosePress={() => setIsVisibleWarning(false)}
+        />
+      )}
       <Footer />
     </Stack>
   )
