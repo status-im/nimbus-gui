@@ -209,7 +209,9 @@ export const VALIDATORS_DATA = [
     status: 'Active',
   },
 ]
-//Manage Validator
+// Manage Validator
+export const CARD_TITLES = ['Exit', 'Migrate', 'Advanced']
+
 export const MANAGE_VALIDATOR_TABS = [
   'Overview',
   'Charts',
