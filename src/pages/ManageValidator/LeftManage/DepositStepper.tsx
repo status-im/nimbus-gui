@@ -12,9 +12,7 @@ const DepositStepper = ({ activeStep }: DepositStepperProps) => {
   const windowSize = useWindowSize()
 
   const stepToUrlMap = [
-    '/validator-management/',
-    '/validator-management/',
-    '/validator-management/',
+    'deposit',
     // fix paths
   ]
 
