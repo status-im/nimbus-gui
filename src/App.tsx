@@ -110,6 +110,7 @@ const router = createBrowserRouter([
     path: '/manage-validator/:validatorName',
     element: <ManageValidator />,
     children: [
+      { path: '', element: <DefaultPanel /> },
       { path: 'exit', element: <ExitPanel /> },
       { path: 'migrate', element: <MigratePanel /> },
       { path: 'deposit', element: <DepositPanel /> },
