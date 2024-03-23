@@ -3,7 +3,7 @@ import DepositPanel from './Panels/DepositPanel'
 import ExitPanel from './Panels/ExitPanel'
 import MigratePanel from './Panels/MigratePanel'
 
-const RightManageSettings = () => {
+const RightManage = () => {
   const isDefault = false
   const isMigrate = false
   const isDeposit = false
@@ -19,4 +19,4 @@ const RightManageSettings = () => {
   )
 }
 
-export default RightManageSettings
+export default RightManage

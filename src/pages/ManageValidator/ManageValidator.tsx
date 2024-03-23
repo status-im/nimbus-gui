@@ -1,8 +1,8 @@
 import { XStack } from 'tamagui'
 
 import LeftSidebar from '../../components/General/LeftSidebar/LeftSidebar'
-import RightManageSettings from './RightManageSettings/RightManageSettings'
-import LeftManageSide from './LeftManageSide/LeftManageSide'
+import RightManage from './RightManage/RightManage'
+import LeftManage from './LeftManage/LeftManage'
 
 const ManageValidator = () => {
   return (
@@ -15,8 +15,8 @@ const ManageValidator = () => {
           flexGrow: 1,
         }}
       >
-        <LeftManageSide />
-        <RightManageSettings />
+        <LeftManage />
+        <RightManage />
       </XStack>
     </XStack>
   )

@@ -10,7 +10,7 @@ import ValidatorGraffiti from './ValidatorGraffiti'
 import ValidatorDataTabs from './ManageValidatorTable/ValidatorDataTabs'
 import Footer from './Footer'
 
-const LeftManageSide = () => {
+const LeftManage = () => {
   return (
     <Stack
       width={'50%'}
@@ -34,4 +34,4 @@ const LeftManageSide = () => {
   )
 }
 
-export default LeftManageSide
+export default LeftManage
