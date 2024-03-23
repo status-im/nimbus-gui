@@ -25,7 +25,7 @@ const DiamondCard = () => {
           0%
         </Text>
         <Text size={13} color={'#bac7fb'}>
-          .
+          |
         </Text>
         <Text size={13} color={'#bac7fb'}>
           $0
