@@ -1,5 +1,6 @@
 import { Text } from '@status-im/components'
 import { DisconnectIcon, AdvancedIcon, ExternalIcon } from '@status-im/icons'
+import { useNavigate } from 'react-router-dom'
 import { Stack, YStack } from 'tamagui'
 
 type IconKey = 'Exit Validator' | 'Migrate Validator' | 'Advanced'
@@ -9,14 +10,23 @@ type ValidatorSettingCardProps = {
 }
 
 const ValidatorSettingCard = ({ title }: ValidatorSettingCardProps) => {
+  const navigate = useNavigate()
+
   const getIcon = {
     'Exit Validator': <DisconnectIcon size={20} />,
     'Migrate Validator': <ExternalIcon size={20} />,
     Advanced: <AdvancedIcon size={20} />,
   }
 
+  const onNavigateToPanel = () => {
+    if (title === 'Advanced') {
+      return
+    }
+    navigate(`${title.toLowerCase()}`)
+  }
+
   return (
-    <YStack alignItems="center">
+    <YStack alignItems="center" cursor="pointer" onPress={onNavigateToPanel}>
       <Stack
         style={{
           border: '0.5px solid #DCE0E5',
