@@ -17,7 +17,7 @@ const CreateLocalNode = () => {
   const dispatch = useDispatch()
   const handleContinue = () => {
     dispatch(setNavigationFlow('createNode'))
-    navigate('/device-health-check')
+    navigate('/device-health-check-onboarding')
   }
   return (
     <PageWrapperShadow

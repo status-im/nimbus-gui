@@ -44,7 +44,7 @@ const PairDevice = () => {
 
   const continueHandler = () => {
     dispatch(setNavigationFlow('pairDevice'))
-    navigate('/device-health-check')
+    navigate('/device-health-check-onboarding')
   }
 
   const isDisabledButton = () => {
