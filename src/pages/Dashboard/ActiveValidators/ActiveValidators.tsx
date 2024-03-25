@@ -2,6 +2,7 @@ import { Text } from '@status-im/components'
 import { Separator, Stack, XStack, YStack } from 'tamagui'
 
 import DashboardCardWrapper from '../DashboardCardWrapper'
+import Icon from '../../../components/General/Icon'
 
 const ActiveValidators = () => {
   return (
@@ -32,10 +33,11 @@ const ActiveValidators = () => {
           </Text>
         </Stack>
         <Separator borderColor={'#e3e3e3'} />
-        <XStack style={{ padding: '12px 16px' }}>
+        <XStack style={{ padding: '12px 16px' }} justifyContent="space-between">
           <Text size={13} weight={'semibold'} color="#09101C">
             Manage Validator
           </Text>
+          <Icon src="/icons/spark-outlined.png" height={20} width={20}></Icon>
         </XStack>
       </YStack>
     </DashboardCardWrapper>
