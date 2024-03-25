@@ -96,7 +96,7 @@ const LogsTerminal = ({
 
   return (
     <List
-      height={650}
+      height={750}
       itemCount={filteredLogs.length}
       itemSize={20}
       width={0}
@@ -112,7 +112,7 @@ const LogsTerminal = ({
       }}
       onScroll={handleScroll}
       style={{
-        height: '650px',
+        height: '750px',
         overflowX: 'auto',
         width: 'calc(100% - 20px)',
         border: '1px solid #E7EAEE',
