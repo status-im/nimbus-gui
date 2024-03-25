@@ -1,6 +1,6 @@
 import { Button, DropdownMenu, Input } from '@status-im/components'
 import { Stack, XStack } from 'tamagui'
-import { SearchIcon, DropdownIcon } from '@status-im/icons'
+import { SortIcon, SearchIcon } from '@status-im/icons'
 
 import SwitchComponent from './SwitchComponent'
 import { LogsTypes } from '../../constants'
@@ -40,7 +40,7 @@ const HeaderBtns = ({
       ></Input>
       <Stack>
         <DropdownMenu>
-          <Button variant="outline" icon={<DropdownIcon size={16} />}>
+          <Button variant="outline" icon={<SortIcon size={20} />}>
             {dropdownMenuItem}
           </Button>
           <DropdownMenu.Content>
@@ -75,7 +75,7 @@ const HeaderBtns = ({
           />
         }
       >
-        indexesVisible
+        Indices
       </Button>
     </XStack>
   )
