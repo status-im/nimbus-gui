@@ -1,4 +1,5 @@
 import { Stack } from 'tamagui'
+
 import ValidatorDataCard from './ValidatorDataCard'
 import ValidatorPeersCard from './ValidatorPeersCard'
 
@@ -14,7 +15,7 @@ const ValidatorDataCards = () => {
         padding: '0 30px',
       }}
     >
-      <ValidatorPeersCard title="Peers" value="67"></ValidatorPeersCard>
+      <ValidatorPeersCard title="Peers" value="67" />
       <ValidatorDataCard title="Slots Behind" value={19} iconPath="ghost.png" />
       <ValidatorDataCard
         title="Blocks"
