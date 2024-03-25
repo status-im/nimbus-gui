@@ -8,15 +8,15 @@ import { LogsTypes } from '../../constants'
 type LogsSumCardProps = {
   type: keyof typeof LogsTypes
   count: number
-  countActive?: number
-  countInactive?: number
+  icon: string
+  iconText: string
   setDropdownMenuItem: (item: string) => void
 }
 const LogsSumCard = ({
   type,
   count,
-  countActive,
-  countInactive,
+  iconText,
+  icon,
   setDropdownMenuItem,
 }: LogsSumCardProps) => {
   //when working with real waku data => change this constants with first and last log timestamps.
@@ -27,60 +27,37 @@ const LogsSumCard = ({
   const durationMinutes = durationMilliseconds / (1000 * 60)
 
   return (
-    <DashboardCardWrapper maxWidth="260px">
-      <YStack
+    <DashboardCardWrapper>
+      <XStack
         style={{
           borderRadius: '16px',
           border: 'none',
           backgroundColor: '#fff',
-          flexGrow: '1',
+          justifyContent: 'space-between',
           minWidth: '280px',
         }}
         onPress={() => setDropdownMenuItem(type)}
       >
-        <XStack
-          justifyContent="space-between"
-          style={{
-            padding: '8px 16px',
-            position: 'relative',
-            flexGrow: '1',
-          }}
-        >
-          <YStack space={'$3'} width={'100%'}>
-            <XStack justifyContent="space-between" width={'100%'}>
-              <Text size={27} weight={'semibold'}>
-                {LogsTypes[type]}
-              </Text>
-              <Text size={15} weight={'semibold'}>
-                {'>'}
-              </Text>
-            </XStack>
-            <XStack justifyContent="space-between" width={'100%'}>
-              <Text size={27} weight={'semibold'}>
-                {(count / durationMinutes).toFixed(0)}
-              </Text>
-              <Text size={19} weight={'semibold'} color="#84888E">
-                Per Minute
-              </Text>
-            </XStack>
+        <YStack>
+          <Text size={27} weight={'semibold'}>
+            {LogsTypes[type]}
+          </Text>
+          <IconText
+            children={iconText}
+            icon={<Icon src={icon} width={14} height={14} />}
+            weight={'semibold'}
+          ></IconText>
+        </YStack>
+        <XStack>
+          <Separator borderColor={'#e3e3e3'} vertical={true} scale={1.5} />
+          <YStack paddingLeft="1rem" paddingRight="1rem">
+            <Text size={19} weight={'semibold'}>
+              {(count / durationMinutes).toFixed(0)}
+            </Text>
+            <Text size={13}>p/m</Text>
           </YStack>
         </XStack>
-        <Separator borderColor={'#e3e3e3'} style={{ marginTop: 'auto' }} />
-        <XStack space={'$2'} style={{ padding: '10px 16px' }}>
-          <IconText
-            icon={<Icon src="icons/active.svg" width={16} height={16} />}
-            weight={'semibold'}
-          >
-            {countActive + ' Active'}
-          </IconText>
-          <IconText
-            icon={<Icon src="icons/inactive.svg" width={16} height={16} />}
-            weight={'semibold'}
-          >
-            {countInactive + ' Inactive'}
-          </IconText>
-        </XStack>
-      </YStack>
+      </XStack>
     </DashboardCardWrapper>
   )
 }

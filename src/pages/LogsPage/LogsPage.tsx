@@ -56,6 +56,7 @@ const LogsPage = () => {
         </XStack>
         <Stack
           style={{ width: '100%', alignItems: 'center', flexWrap: 'wrap' }}
+          space={'$4'}
         >
           <LogsTerminal
             dropdownMenuItem={dropdownMenuItem}
@@ -74,27 +75,26 @@ const LogsPage = () => {
               gap: '1vw',
               width: '100%',
             }}
-            width={'90%'}
           >
             <LogsSumCard
-              type={'NTC'}
-              count={logsCount.noticeLogs}
-              countActive={2}
-              countInactive={3}
+              type={'WRN'}
+              icon={'/icons/thunder.png'}
+              iconText={'Good'}
+              count={logsCount.warningLogs}
               setDropdownMenuItem={setDropdownMenuItem}
             />
             <LogsSumCard
-              type={'WRN'}
-              count={logsCount.warningLogs}
-              countActive={2}
-              countInactive={7}
+              type={'NTC'}
+              count={logsCount.noticeLogs}
+              icon="/icons/small-warn.png"
+              iconText={'Good'}
               setDropdownMenuItem={setDropdownMenuItem}
             />
             <LogsSumCard
               type={'ERR'}
+              icon={'/icons/small-error.png'}
+              iconText={'Good'}
               count={logsCount.errorLogs}
-              countActive={2}
-              countInactive={0}
               setDropdownMenuItem={setDropdownMenuItem}
             />
             <SupportCard />
