@@ -1,17 +1,15 @@
 import { useState } from 'react'
-import { Stack, YStack } from 'tamagui'
+import { Stack } from 'tamagui'
 import { InformationBox } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
 
 import Header from './Header'
-import ValidatorInfo from './ValidatorInfo'
-import DepositStatus from './DepositStatus'
-import ValidatorBalance from './ValidatorBalance'
 import ValidatorDataCards from './ValidatorDataCards'
 import ValidatorSettingsCards from './ValidatorSettingsCards'
 import ValidatorGraffiti from './ValidatorGraffiti'
 import ValidatorDataTabs from './ManageValidatorTable/ValidatorDataTabs'
 import Footer from './Footer'
+import ValidatorBlueSection from './ValidatorBlueSection'
 
 const LeftManage = () => {
   const [isVisibleWarning, setIsVisibleWarning] = useState(true)
@@ -25,11 +23,7 @@ const LeftManage = () => {
       style={{ borderRight: '1px solid #DCE0E5' }}
     >
       <Header />
-      <YStack backgroundColor="#F4F6FE" space={'$3'}>
-        <ValidatorInfo />
-        <DepositStatus />
-        <ValidatorBalance />
-      </YStack>
+      <ValidatorBlueSection />
       <ValidatorDataCards />
       <ValidatorSettingsCards />
       <ValidatorGraffiti />
