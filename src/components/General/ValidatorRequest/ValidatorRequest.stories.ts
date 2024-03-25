@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import ValidatorRequest from './ValidatorRequest'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 const meta = {
   title: 'ValidatorOnboarding/ValidatorRequest',
@@ -8,6 +9,7 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
+  decorators: [withRouter()],
   tags: ['autodocs'],
 } satisfies Meta<typeof ValidatorRequest>
 
