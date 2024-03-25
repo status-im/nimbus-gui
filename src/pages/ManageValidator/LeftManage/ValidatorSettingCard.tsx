@@ -3,18 +3,20 @@ import { DisconnectIcon, AdvancedIcon, ExternalIcon } from '@status-im/icons'
 import { useNavigate } from 'react-router-dom'
 import { Stack, YStack } from 'tamagui'
 
-type IconKey = 'Exit Validator' | 'Migrate Validator' | 'Advanced'
+import { CARD_TITLES } from '../../../constants'
+
+type CardTitle = (typeof CARD_TITLES)[number]
 
 type ValidatorSettingCardProps = {
-  title: IconKey
+  title: CardTitle
 }
 
 const ValidatorSettingCard = ({ title }: ValidatorSettingCardProps) => {
   const navigate = useNavigate()
 
   const getIcon = {
-    'Exit Validator': <DisconnectIcon size={20} />,
-    'Migrate Validator': <ExternalIcon size={20} />,
+    Exit: <DisconnectIcon size={20} />,
+    Migrate: <ExternalIcon size={20} />,
     Advanced: <AdvancedIcon size={20} />,
   }
 
@@ -35,7 +37,7 @@ const ValidatorSettingCard = ({ title }: ValidatorSettingCardProps) => {
           width: 'fit-content',
         }}
       >
-        {getIcon[title]}
+        {getIcon[title as keyof typeof getIcon]}
       </Stack>
       <Text size={15} weight="semibold" color="#647084">
         {title}
