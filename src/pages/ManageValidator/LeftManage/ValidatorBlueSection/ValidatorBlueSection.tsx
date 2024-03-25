@@ -1,7 +1,7 @@
 import { YStack } from 'tamagui'
 
 import ValidatorInfo from './ValidatorInfo'
-import DepositStatus from './DepositStatus'
+import DepositStatus from './DepositStatus/DepositStatus'
 import ValidatorBalance from './ValidatorBalance'
 
 const ValidatorBlueSection = () => {

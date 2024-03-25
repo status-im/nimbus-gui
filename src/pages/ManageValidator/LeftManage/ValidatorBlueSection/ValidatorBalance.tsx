@@ -1,6 +1,7 @@
 import { Text } from '@status-im/components'
 import { Stack, XStack, YStack } from 'tamagui'
-import Icon from '../../../components/General/Icon'
+
+import Icon from '../../../../components/General/Icon'
 
 const ValidatorBalance = () => {
   return (
@@ -32,8 +33,8 @@ const ValidatorBalance = () => {
           $0 USD
         </Text>
       </YStack>
-      <Stack marginRight="3rem">
-        <Icon src="/icons/suit-guy.png" width={200} height={70}></Icon>
+      <Stack marginRight="5rem">
+        <Icon src="/icons/suit-guy.png" width={200} height={70} />
       </Stack>
     </XStack>
   )

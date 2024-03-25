@@ -55,4 +55,5 @@ const DepositStatus = () => {
     </XStack>
   )
 }
+
 export default DepositStatus

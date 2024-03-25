@@ -9,7 +9,7 @@ import ValidatorSettingsCards from './ValidatorSettingsCards'
 import ValidatorGraffiti from './ValidatorGraffiti'
 import ValidatorDataTabs from './ManageValidatorTable/ValidatorDataTabs'
 import Footer from './Footer'
-import ValidatorBlueSection from './ValidatorBlueSection'
+import ValidatorBlueSection from './ValidatorBlueSection/ValidatorBlueSection'
 
 const LeftManage = () => {
   const [isVisibleWarning, setIsVisibleWarning] = useState(true)
