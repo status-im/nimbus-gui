@@ -4,7 +4,7 @@ import PanelWrapper from './PanelWrapper'
 import MigratePanel from './MigratePanel'
 
 const meta = {
-  title: 'ValidatorManagement/PanelWrapper',
+  title: 'ManageValidator/PanelWrapper',
   component: PanelWrapper,
   tags: ['autodocs'],
 } satisfies Meta<typeof PanelWrapper>
