@@ -1,8 +1,9 @@
 import { Text as TextStat } from '@status-im/components'
-
-import { Text, XStack } from 'tamagui'
 import { ExternalIcon } from '@status-im/icons'
-import Icon from '../../../components/General/Icon'
+import { Text, XStack } from 'tamagui'
+
+import Icon from '../../../../components/General/Icon'
+
 const Footer = () => {
   return (
     <XStack

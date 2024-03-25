@@ -3,12 +3,12 @@ import { Stack } from 'tamagui'
 import { InformationBox } from '@status-im/components'
 import { CloseCircleIcon } from '@status-im/icons'
 
-import Header from './Header'
+import Header from './PageParts/Header'
 import ValidatorDataCards from './ValidatorDataCards/ValidatorDataCards'
 import ValidatorSettingsCards from './ValidatorSettingsCards/ValidatorSettingsCards'
-import ValidatorGraffiti from './ValidatorGraffiti'
+import ValidatorGraffiti from './ValidatorGraffiti/ValidatorGraffiti'
 import ValidatorDataTabs from './ManageValidatorTable/ValidatorDataTabs'
-import Footer from './Footer'
+import Footer from './PageParts/Footer'
 import ValidatorBlueSection from './ValidatorBlueSection/ValidatorBlueSection'
 
 const LeftManage = () => {

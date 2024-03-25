@@ -1,6 +1,8 @@
 import { XStack } from 'tamagui'
-import Titles from '../../../components/General/Titles'
 import { PopupIcon } from '@status-im/icons'
+
+import Titles from '../../../../components/General/Titles'
+
 const Header = () => {
   return (
     <XStack justifyContent="space-between" alignItems="center" padding="30px">
