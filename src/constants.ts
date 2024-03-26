@@ -210,7 +210,7 @@ export const VALIDATORS_DATA = [
   },
 ]
 // Manage Validator
-export const CARD_TITLES = ['Exit', 'Migrate', 'Advanced']
+export const VALIDATOR_SETTINGS_CARDS_TITLES = ['Exit', 'Migrate', 'Advanced']
 
 export const MANAGE_VALIDATOR_TABS = [
   'Overview',

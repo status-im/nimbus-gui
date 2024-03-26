@@ -1,7 +1,7 @@
 import { Stack } from 'tamagui'
 
 import ValidatorSettingCard from './ValidatorSettingCard'
-import { CARD_TITLES } from '../../../../constants'
+import { VALIDATOR_SETTINGS_CARDS_TITLES } from '../../../../constants'
 
 const ValidatorSettingsCards = () => {
   return (
@@ -17,7 +17,7 @@ const ValidatorSettingsCards = () => {
         paddingBottom: '20px',
       }}
     >
-      {CARD_TITLES.map(title => (
+      {VALIDATOR_SETTINGS_CARDS_TITLES.map(title => (
         <ValidatorSettingCard key={title} title={title} />
       ))}
     </Stack>

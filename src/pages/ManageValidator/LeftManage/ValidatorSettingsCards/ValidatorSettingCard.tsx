@@ -3,9 +3,9 @@ import { DisconnectIcon, AdvancedIcon, ExternalIcon } from '@status-im/icons'
 import { useNavigate } from 'react-router-dom'
 import { Stack, YStack } from 'tamagui'
 
-import { CARD_TITLES } from '../../../../constants'
+import { VALIDATOR_SETTINGS_CARDS_TITLES } from '../../../../constants'
 
-type CardTitle = (typeof CARD_TITLES)[number]
+type CardTitle = (typeof VALIDATOR_SETTINGS_CARDS_TITLES)[number]
 
 type ValidatorSettingCardProps = {
   title: CardTitle
