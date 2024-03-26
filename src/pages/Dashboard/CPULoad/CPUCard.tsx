@@ -85,7 +85,7 @@ const CPUCard = ({ load }: CPUCardProps) => {
           <IconText
             icon={
               message === 'Good' ? (
-                <Icon src="icons/active.svg" width={16} />
+                <Icon src="icons/active.svg" width={16} height={16} />
               ) : (
                 <IncorrectIcon size={16} />
               )
