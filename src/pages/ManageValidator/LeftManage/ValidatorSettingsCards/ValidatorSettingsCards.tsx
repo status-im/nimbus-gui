@@ -13,8 +13,7 @@ const ValidatorSettingsCards = () => {
         alignContent: 'center',
         alignItems: 'center',
         justifyContent: 'space-evenly',
-        paddingTop: '20px',
-        paddingBottom: '20px',
+        paddingBottom: '15px',
       }}
     >
       {VALIDATOR_SETTINGS_CARDS_TITLES.map(title => (

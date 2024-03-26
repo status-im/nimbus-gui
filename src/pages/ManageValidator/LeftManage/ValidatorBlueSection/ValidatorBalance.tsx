@@ -12,10 +12,6 @@ const ValidatorBalance = () => {
       space={'$2'}
       backgroundColor="#2A4AF5"
       borderRadius="$10"
-      marginTop="0px"
-      marginLeft="30px"
-      marginRight="20px"
-      marginBottom="30px"
       padding="15px"
       justifyContent="space-between"
     >

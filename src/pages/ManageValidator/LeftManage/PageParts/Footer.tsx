@@ -6,12 +6,7 @@ import Icon from '../../../../components/General/Icon'
 
 const Footer = () => {
   return (
-    <XStack
-      justifyContent="space-between"
-      marginLeft="30px"
-      padding="10px"
-      marginRight="20px"
-    >
+    <XStack justifyContent="space-between">
       <Text
         color="#2F80ED"
         fontSize={15}

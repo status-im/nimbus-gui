@@ -12,7 +12,6 @@ const ValidatorDataCards = () => {
         flexWrap: 'wrap',
         gap: '1vw',
         width: '100%',
-        padding: '0 30px',
       }}
     >
       <ValidatorPeersCard title="Peers" value="67" />

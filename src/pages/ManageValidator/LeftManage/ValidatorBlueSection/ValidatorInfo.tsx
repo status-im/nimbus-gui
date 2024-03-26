@@ -7,7 +7,7 @@ import Icon from '../../../../components/General/Icon'
 
 const ValidatorInfo = () => {
   return (
-    <XStack space={'$2'} padding="30px" justifyContent="space-between">
+    <XStack space={'$2'} justifyContent="space-between">
       <XStack space="$2">
         <Avatar
           type="user"

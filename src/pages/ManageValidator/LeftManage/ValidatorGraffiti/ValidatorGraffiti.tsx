@@ -5,11 +5,9 @@ const ValidatorGraffiti = () => {
   return (
     <Stack
       style={{
-        marginLeft: '30px',
         border: '0.5px solid #DCE0E5',
         borderRadius: '16px',
         padding: '20px',
-        marginRight: '30px',
       }}
     >
       <XStack space="$4">

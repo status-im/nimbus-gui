@@ -5,7 +5,13 @@ import Titles from '../../../../components/General/Titles'
 
 const Header = () => {
   return (
-    <XStack justifyContent="space-between" alignItems="center" padding="30px">
+    <XStack
+      style={{
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '30px 25px 0px 30px',
+      }}
+    >
       <XStack alignItems="flex-end">
         <Titles title="Manage Validator" titleSize={27} subtitle="" />
       </XStack>

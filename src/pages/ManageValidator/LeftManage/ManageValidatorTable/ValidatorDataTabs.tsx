@@ -13,7 +13,7 @@ const ValidatorDataTabs = () => {
     (state: RootState) => state.manageValidatorTab.currentTab,
   )
   return (
-    <Stack marginLeft="30px">
+    <Stack>
       <Tabs
         defaultValue={'' + MANAGE_VALIDATOR_TABS[currentTab]}
         onValueChange={(value: string) =>
@@ -21,10 +21,7 @@ const ValidatorDataTabs = () => {
         }
       >
         <div className="tabs transparent-scrollbar">
-          <Stack
-            maxWidth={'120px'}
-            style={{ cursor: 'pointer', margin: '8px 0' }}
-          >
+          <Stack style={{ cursor: 'pointer', margin: '8px 0' }}>
             <Tabs.List size={32} variant="grey">
               {MANAGE_VALIDATOR_TABS.map((tab, index) => (
                 <Tabs.Trigger key={index} type="default" value={tab}>
@@ -35,7 +32,7 @@ const ValidatorDataTabs = () => {
           </Stack>
         </div>
         {MANAGE_VALIDATOR_TABS.map(tab => (
-          <Tabs.Content key={tab} value={tab} style={{ marginTop: '8px' }}>
+          <Tabs.Content key={tab} value={tab}>
             <ValidatorTable />
           </Tabs.Content>
         ))}
