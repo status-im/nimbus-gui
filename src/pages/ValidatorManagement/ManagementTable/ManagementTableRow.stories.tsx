@@ -1,3 +1,4 @@
+import { withRouter } from 'storybook-addon-react-router-v6'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import ManagementTableRow from './ManagementTableRow'
@@ -9,6 +10,7 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
+  decorators: [withRouter()],
   tags: ['autodocs'],
 } satisfies Meta<typeof ManagementTableRow>
 
