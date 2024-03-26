@@ -3,8 +3,10 @@ import { Separator, Stack, XStack, YStack } from 'tamagui'
 
 import DashboardCardWrapper from '../DashboardCardWrapper'
 import Icon from '../../../components/General/Icon'
-
-const ActiveValidators = () => {
+type ActiveValidatorsProps = {
+  count: number
+}
+const ActiveValidators = ({ count }: ActiveValidatorsProps) => {
   return (
     <DashboardCardWrapper padding="0" height="156px" minWidth="250px">
       <img
@@ -29,7 +31,7 @@ const ActiveValidators = () => {
           </Text>
 
           <Text size={27} weight={'semibold'}>
-            6
+            {count}
           </Text>
         </Stack>
         <Separator borderColor={'#e3e3e3'} />

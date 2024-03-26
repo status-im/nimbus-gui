@@ -13,9 +13,9 @@ import NetworkCard from './NetworkCard/NetworkCard'
 import SyncStatusCards from './SyncStatusCards/SyncStatusCards'
 import MemoryCard from './MemoryCard/MemoryCard'
 import { useWindowSize } from '../../hooks/useWindowSize'
-import ActiveValidators from './ActiveValidators/ActiveValidators'
 
 import ConnectedPeers from './ConnectedPeers/ConnectedPeers'
+import ActiveValidators from './ActiveValidators/ActiveValidators'
 
 const DashboardContent = () => {
   const { width } = useWindowSize()
@@ -47,7 +47,7 @@ const DashboardContent = () => {
         <XStack space="$3">
           <SyncStatusCards />
           <YStack space="$3" flexWrap="wrap">
-            <ActiveValidators></ActiveValidators>
+            <ActiveValidators count={6} />
             <ConnectedPeers></ConnectedPeers>
           </YStack>
         </XStack>
