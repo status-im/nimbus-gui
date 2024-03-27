@@ -4,8 +4,12 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@status-im/icons'
 
 import ValidatorNameAddress from '../../../../components/General/ValidatorNameAddress'
 import Icon from '../../../../components/General/Icon'
+import { useState } from 'react'
 
 const ValidatorInfo = () => {
+  const intervalsOfTime = ['Day', 'Week', 'Month', 'Year']
+  const [currentInterval, setCurrentInterval] = useState(0)
+
   return (
     <XStack space={'$2'} justifyContent="space-between">
       <XStack space="$2">
@@ -40,15 +44,25 @@ const ValidatorInfo = () => {
             </Text>
             <XStack space="$2">
               <Text size={15} weight={'semibold'}>
-                Day
+                {intervalsOfTime[currentInterval]}
               </Text>
               <Icon src="icons/cross.svg" height={13} width={13}></Icon>
             </XStack>
           </YStack>
         </YStack>
         <XStack>
-          <ChevronLeftIcon size={16} />
-          <ChevronRightIcon size={16} />
+          <ChevronLeftIcon
+            size={16}
+            style={{ cursor: 'pointer' }}
+            onClick={() => {
+            }}
+          />
+          <ChevronRightIcon
+            size={16}
+            onClick={() => {
+            }}
+            style={{ cursor: 'pointer' }}
+          />
         </XStack>
       </XStack>
     </XStack>
