@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import { useTheme } from 'tamagui'
 
 import NimbusLogoMark from '../Logos/NimbusLogoMark'
-import styles from './index.module.css'
+import styles from './page-wrapper-shadow.module.css'
 
 type PageWrapperShadowProps = {
   breadcrumbBar?: ReactNode
