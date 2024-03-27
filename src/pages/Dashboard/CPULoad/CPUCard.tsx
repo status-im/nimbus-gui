@@ -59,14 +59,6 @@ const CPUCard = ({ load }: CPUCardProps) => {
             flexGrow: '1',
           }}
         >
-          <YStack space={'$3'} justifyContent="space-between">
-            <Text size={15} weight={'semibold'}>
-              CPU
-            </Text>
-            <Text size={27} weight={'semibold'}>
-              {currentLoad} GB
-            </Text>
-          </YStack>
           <Stack
             style={{
               position: 'absolute',
@@ -79,6 +71,14 @@ const CPUCard = ({ load }: CPUCardProps) => {
           >
             <StandardLineChart data={chartData} />
           </Stack>
+          <YStack space={'$3'} justifyContent="space-between">
+            <Text size={15} weight={'semibold'}>
+              CPU
+            </Text>
+            <Text size={27} weight={'semibold'}>
+              {currentLoad} GB
+            </Text>
+          </YStack>
         </XStack>
         <Separator borderColor={'#e3e3e3'} style={{ marginTop: 'auto' }} />
         <XStack space={'$4'} style={{ padding: '10px 16px' }}>
