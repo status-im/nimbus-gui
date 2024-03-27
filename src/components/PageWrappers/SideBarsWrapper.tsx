@@ -3,19 +3,19 @@ import { XStack } from 'tamagui'
 
 import LeftSidebar from '../General/LeftSidebar/LeftSidebar'
 import RightSidebar from '../General/RightSideBar/RightSidebar'
-import styles from './side-bars-wrapper.module.css'
+import styles from './sidebars-wrapper.module.css'
 
-type SideBardsWrapperProps = {
+type SidebarsWrapperProps = {
   children: ReactNode
   isNotLeftSideBar?: boolean
   isNotRightSideBar?: boolean
 }
 
-const SideBarsWrapper = ({
+const SidebarsWrapper = ({
   children,
   isNotLeftSideBar,
   isNotRightSideBar,
-}: SideBardsWrapperProps) => {
+}: SidebarsWrapperProps) => {
   return (
     <XStack style={{ height: '100vh' }}>
       {!isNotLeftSideBar && <LeftSidebar />}
@@ -29,4 +29,4 @@ const SideBarsWrapper = ({
   )
 }
 
-export default SideBarsWrapper
+export default SidebarsWrapper
