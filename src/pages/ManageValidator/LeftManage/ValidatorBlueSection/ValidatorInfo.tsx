@@ -10,6 +10,17 @@ const ValidatorInfo = () => {
   const intervalsOfTime = ['Day', 'Week', 'Month', 'Year']
   const [currentInterval, setCurrentInterval] = useState(0)
 
+  const toggleIntervalChange = () => {
+    setCurrentInterval(
+      prevInterval => (prevInterval + 1) % intervalsOfTime.length,
+    )
+  }
+  const togglePreviousInterval = () => {
+    setCurrentInterval(
+      prevInterval => (prevInterval - 1 + intervalsOfTime.length) % intervalsOfTime.length,
+    )
+  }
+
   return (
     <XStack space={'$2'} justifyContent="space-between">
       <XStack space="$2">
@@ -55,11 +66,13 @@ const ValidatorInfo = () => {
             size={16}
             style={{ cursor: 'pointer' }}
             onClick={() => {
+              togglePreviousInterval()
             }}
           />
           <ChevronRightIcon
             size={16}
             onClick={() => {
+              toggleIntervalChange()
             }}
             style={{ cursor: 'pointer' }}
           />
