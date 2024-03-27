@@ -27,7 +27,7 @@ const MigratePanel = () => {
         }}
       >
         <img
-          src="/public/images/migrate.png"
+          src="/images/migrate.png"
           alt="migrate"
           style={{ width: '300px' }}
         />

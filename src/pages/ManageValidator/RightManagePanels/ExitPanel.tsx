@@ -26,7 +26,7 @@ const ExitPanel = () => {
         }}
       >
         <img
-          src="/public/images/exit-validator.png"
+          src="images/exit-validator.png"
           alt="exit validator"
           style={{ width: '300px' }}
         />
