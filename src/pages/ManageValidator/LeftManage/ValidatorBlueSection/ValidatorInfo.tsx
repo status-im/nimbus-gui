@@ -7,7 +7,7 @@ import Icon from '../../../../components/General/Icon'
 import { useState } from 'react'
 
 const ValidatorInfo = () => {
-  const intervalsOfTime = ['Day', 'Week', 'Month', 'Year']
+  const intervalsOfTime: string[] = ['Day', 'Week', 'Month', 'Year']
   const [currentInterval, setCurrentInterval] = useState(0)
 
   const toggleIntervalChange = () => {
@@ -17,7 +17,8 @@ const ValidatorInfo = () => {
   }
   const togglePreviousInterval = () => {
     setCurrentInterval(
-      prevInterval => (prevInterval - 1 + intervalsOfTime.length) % intervalsOfTime.length,
+      prevInterval =>
+        (prevInterval - 1 + intervalsOfTime.length) % intervalsOfTime.length,
     )
   }
 
