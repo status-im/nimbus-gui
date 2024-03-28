@@ -1,18 +1,16 @@
 import { Text } from '@status-im/components'
-import { XStack, YStack } from 'tamagui'
+import { YStack } from 'tamagui'
 
-import LeftSidebar from '../../components/General/LeftSidebar/LeftSidebar'
-import RightSidebar from '../../components/General/RightSideBar/RightSidebar'
 import ManagementTabs from './ManagementTabs'
 import AddCardsContainer from '../../components/General/AddCards/AddCardsContainer'
 import ManagementHeader from './ManagementHeader'
 import ManagementCard from './ManagementCard'
 import styles from './validatorManagement.module.css'
+import SidebarsWrapper from '../../components/PageWrappers/SidebarsWrapper'
 
 const ValidatorManagement = () => {
   return (
-    <XStack style={{ height: '100vh' }}>
-      <LeftSidebar />
+    <SidebarsWrapper>
       <YStack
         space="$4"
         alignItems="flex-start"
@@ -43,10 +41,7 @@ const ValidatorManagement = () => {
         </Text>
         <ManagementTabs />
       </YStack>
-      <div className={styles['right-sidebar-wrapper']}>
-        <RightSidebar />
-      </div>
-    </XStack>
+    </SidebarsWrapper>
   )
 }
 

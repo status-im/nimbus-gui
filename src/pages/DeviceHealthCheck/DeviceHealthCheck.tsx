@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { XStack, YStack } from 'tamagui'
+import { YStack } from 'tamagui'
 import { CloseCircleIcon } from '@status-im/icons'
 import { InformationBox } from '@status-im/components'
 
@@ -10,9 +10,8 @@ import DeviceMemory from '../../components/Charts/DeviceMemoryHealth'
 import DeviceNetworkHealth from '../../components/Charts/DeviceNetworkHealth'
 import { RootState } from '../../redux/store'
 import TitleLogo from '../../components/General/TitleLogo'
-import RightSidebar from '../../components/General/RightSideBar/RightSidebar'
-import LeftSidebar from '../../components/General/LeftSidebar/LeftSidebar'
 import styles from './deviceHealthCheck.module.css'
+import SidebarsWrapper from '../../components/PageWrappers/SidebarsWrapper'
 
 const DeviceHealthCheck = () => {
   const deviceHealthState = useSelector(
@@ -20,8 +19,7 @@ const DeviceHealthCheck = () => {
   )
 
   return (
-    <XStack style={{ height: '100vh' }}>
-      <LeftSidebar />
+    <SidebarsWrapper>
       <YStack
         space={'$4'}
         alignItems="flex-start"
@@ -59,8 +57,7 @@ const DeviceHealthCheck = () => {
           message="The information provided in the Nodes Health Check is meant to utilized as a guide to guage the readiness of your device, however please do your own due diligence prior to commiting any funds. Read our Health Check Disclosure for more information."
         />
       </YStack>
-      <RightSidebar />
-    </XStack>
+    </SidebarsWrapper>
   )
 }
 

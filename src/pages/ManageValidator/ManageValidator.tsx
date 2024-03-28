@@ -1,13 +1,12 @@
 import { XStack } from 'tamagui'
 import { Outlet } from 'react-router-dom'
 
-import LeftSidebar from '../../components/General/LeftSidebar/LeftSidebar'
 import LeftManage from './LeftManage/LeftManage'
+import SidebarsWrapper from '../../components/PageWrappers/SidebarsWrapper'
 
 const ManageValidator = () => {
   return (
-    <XStack style={{ height: '100vh' }}>
-      <LeftSidebar />
+    <SidebarsWrapper isNotRightSideBar={true}>
       <XStack
         width={'min-content'}
         alignItems="flex-start"
@@ -20,7 +19,7 @@ const ManageValidator = () => {
           <Outlet />
         </div>
       </XStack>
-    </XStack>
+    </SidebarsWrapper>
   )
 }
 

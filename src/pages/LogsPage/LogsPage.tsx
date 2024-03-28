@@ -1,19 +1,16 @@
 import { Stack, XStack, YStack } from 'tamagui'
+import { useSelector } from 'react-redux'
+import { useState } from 'react'
 
-import LeftSidebar from '../../components/General/LeftSidebar/LeftSidebar'
-import RightSidebar from '../../components/General/RightSideBar/RightSidebar'
 import LogsTerminal from './LogsTerminal'
 import LogsSumCard from './LogsSumCard'
 import SupportCard from './SupportCard'
-import { useState } from 'react'
 import HeaderBtns from './HeaderBtns'
 import TitleLogo from '../../components/General/TitleLogo'
-import { useWindowSize } from '../../hooks/useWindowSize'
-import { useSelector } from 'react-redux'
+import SidebarsWrapper from '../../components/PageWrappers/SidebarsWrapper'
 import { RootState } from '../../redux/store'
 
 const LogsPage = () => {
-  const windowSize = useWindowSize()
   const [highLightSearched, setHighLightSearched] = useState(false)
   const [searchInput, setSearchInput] = useState('')
   const [timestamps, setTimestamps] = useState(true)
@@ -25,8 +22,7 @@ const LogsPage = () => {
   }
 
   return (
-    <XStack style={{ height: '100vh' }}>
-      <LeftSidebar />
+    <SidebarsWrapper>
       <YStack
         space="$4"
         alignItems="flex-start"
@@ -100,8 +96,7 @@ const LogsPage = () => {
           </Stack>
         </Stack>
       </YStack>
-      {windowSize.width > 900 && <RightSidebar />}
-    </XStack>
+    </SidebarsWrapper>
   )
 }
 
