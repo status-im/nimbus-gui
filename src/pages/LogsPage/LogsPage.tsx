@@ -67,13 +67,12 @@ const LogsPage = () => {
             indexesVisible={indexesVisible}
           />
           <Stack
-            space="$4"
             style={{
               display: 'flex',
-              flexDirection: 'row',
               flexWrap: 'wrap',
-              gap: '1vw',
+              flexDirection: 'row',
               width: '100%',
+              gap: '20px',
             }}
           >
             <LogsSumCard

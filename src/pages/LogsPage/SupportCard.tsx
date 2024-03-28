@@ -13,7 +13,6 @@ const SupportCard = () => {
           borderRadius: '16px',
           border: 'none',
           backgroundColor: '#fff',
-
           minWidth: '280px',
         }}
       >
