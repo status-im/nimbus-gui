@@ -3,6 +3,7 @@ import { XStack } from 'tamagui'
 import TitleLogo from '../../components/General/TitleLogo'
 import SyncStatusCard from '../../components/General/SyncStatusCard'
 import styles from './validatorManagement.module.css'
+
 const ManagementHeader = () => {
   return (
     <XStack
@@ -10,7 +11,6 @@ const ManagementHeader = () => {
         width: '100%',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginTop: '16px',
       }}
     >
       <TitleLogo subtitle="Validator Management" />

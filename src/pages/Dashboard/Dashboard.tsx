@@ -24,12 +24,10 @@ const Dashboard = () => {
       <YStack
         space="$3"
         alignItems="flex-start"
-        px="24px"
         minWidth="500px"
         width="50vh"
         style={{
           flexGrow: '1',
-          marginTop: '16px',
           overflowY: 'auto',
         }}
         className={'transparent-scrollbar'}

@@ -26,7 +26,6 @@ const LogsPage = () => {
       <YStack
         space="$4"
         alignItems="flex-start"
-        px="24px"
         minWidth="500px"
         width="50vh"
         style={{
