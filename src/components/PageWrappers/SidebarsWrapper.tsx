@@ -19,6 +19,19 @@ const SidebarsWrapper = ({
   isNotSidePadding,
 }: SidebarsWrapperProps) => {
   return (
+    <XStack style={{ minHeight: '100vh' }}>
+      {!isNotLeftSidebar && <LeftSidebar />}
+      <div
+        style={{
+          display: 'flex',
+          flexGrow: '1',
+          padding: `20px ${isNotSidePadding ? 0 : 20}px`,
+          overflowY: 'auto',
+          height: 'fit-content',
+        }}
+      >
+        {children}
+      </div>
       {!isNotRightSidebar && (
         <div className={styles['right-sidebar-wrapper']}>
           <RightSidebar />
