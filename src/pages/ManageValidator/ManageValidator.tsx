@@ -6,7 +6,7 @@ import SidebarsWrapper from '../../components/PageWrappers/SidebarsWrapper'
 
 const ManageValidator = () => {
   return (
-    <SidebarsWrapper isNotRightSideBar={true}>
+    <SidebarsWrapper isNotRightSidebar={true} isNotSidePadding={true}>
       <XStack
         width={'min-content'}
         alignItems="flex-start"

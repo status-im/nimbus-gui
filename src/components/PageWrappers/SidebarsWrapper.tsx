@@ -7,20 +7,19 @@ import styles from './sidebars-wrapper.module.css'
 
 type SidebarsWrapperProps = {
   children: ReactNode
-  isNotLeftSideBar?: boolean
-  isNotRightSideBar?: boolean
+  isNotLeftSidebar?: boolean
+  isNotRightSidebar?: boolean
+  isNotSidePadding?: boolean
 }
 
 const SidebarsWrapper = ({
   children,
-  isNotLeftSideBar,
-  isNotRightSideBar,
+  isNotLeftSidebar,
+  isNotRightSidebar,
+  isNotSidePadding,
 }: SidebarsWrapperProps) => {
   return (
-    <XStack style={{ height: '100vh' }}>
-      {!isNotLeftSideBar && <LeftSidebar />}
-      {children}
-      {!isNotRightSideBar && (
+      {!isNotRightSidebar && (
         <div className={styles['right-sidebar-wrapper']}>
           <RightSidebar />
         </div>
