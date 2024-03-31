@@ -1,4 +1,4 @@
-import { Separator, Stack, YStack } from 'tamagui'
+import { Separator, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 
 import DashboardCardWrapper from '../DashboardCardWrapper'
