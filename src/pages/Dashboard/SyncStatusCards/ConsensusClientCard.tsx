@@ -35,7 +35,7 @@ const ConsensusCard = ({ value, total }: ConsensusCardProps) => {
   return (
     <Shadow variant="$1" style={style}>
       <YStack>
-        <Stack style={{ minHeight: '90px', padding: '12px 16px' }}>
+        <Stack style={{ padding: '12px 16px' }}>
           <Text size={15} weight={'semibold'} color="#647084">
             Consensus Client
           </Text>
@@ -45,8 +45,8 @@ const ConsensusCard = ({ value, total }: ConsensusCardProps) => {
             <Icon src="./icons/vector.svg" height={30} width={60} />
             <Stack
               style={{
-                height: '56px',
-                width: '56px',
+                height: '70px',
+                width: '70px',
               }}
             >
               <StandardGauge data={data} />

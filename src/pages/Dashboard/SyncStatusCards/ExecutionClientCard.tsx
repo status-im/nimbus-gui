@@ -42,8 +42,8 @@ const ExecutionClientCard = ({ value, total }: ExecutionClientCardProps) => {
             </Text>
             <Stack
               style={{
-                height: '56px',
-                width: '56px',
+                height: '70px',
+                width: '70px',
               }}
             >
               <StandardGauge data={data} />
