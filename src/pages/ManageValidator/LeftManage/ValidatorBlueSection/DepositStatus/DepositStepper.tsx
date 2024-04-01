@@ -12,7 +12,7 @@ const DepositStepper = ({ activeStep }: DepositStepperProps) => {
   const windowSize = useWindowSize()
 
   const stepToUrlMap = [
-    'deposit',
+    '',
     // fix paths
   ]
 
