@@ -30,7 +30,6 @@ const LogsPage = () => {
         width="50vh"
         style={{
           flexGrow: '1',
-          marginTop: '16px',
           overflowY: 'auto',
         }}
         className={'transparent-scrollbar'}
