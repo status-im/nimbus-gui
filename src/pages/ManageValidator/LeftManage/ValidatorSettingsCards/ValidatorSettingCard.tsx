@@ -1,6 +1,5 @@
 import { Text } from '@status-im/components'
 import { DisconnectIcon, AdvancedIcon, ExternalIcon } from '@status-im/icons'
-import { useNavigate } from 'react-router-dom'
 import { Stack, YStack } from 'tamagui'
 
 import { VALIDATOR_SETTINGS_CARDS_TITLES } from '../../../../constants'
@@ -12,23 +11,16 @@ type ValidatorSettingCardProps = {
 }
 
 const ValidatorSettingCard = ({ title }: ValidatorSettingCardProps) => {
-  const navigate = useNavigate()
-
   const getIcon = {
     Exit: <DisconnectIcon size={20} />,
     Migrate: <ExternalIcon size={20} />,
     Advanced: <AdvancedIcon size={20} />,
   }
 
-  const onNavigateToPanel = () => {
-    if (title === 'Advanced') {
-      return
-    }
-    navigate(`${title.toLowerCase()}`)
-  }
+  console.log(title)
 
   return (
-    <YStack alignItems="center" cursor="pointer" onPress={onNavigateToPanel}>
+    <YStack alignItems="center" cursor="pointer">
       <Stack
         style={{
           border: '0.5px solid #DCE0E5',
