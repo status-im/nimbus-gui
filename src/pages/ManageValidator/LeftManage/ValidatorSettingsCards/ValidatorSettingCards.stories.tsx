@@ -9,7 +9,7 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
-  decorators:[withRouter],
+  decorators: [withRouter],
   tags: ['autodocs'],
 } satisfies Meta<typeof ValidatorSettingsCards>
 
