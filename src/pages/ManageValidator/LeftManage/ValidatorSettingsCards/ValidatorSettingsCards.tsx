@@ -1,4 +1,5 @@
 import { Stack } from 'tamagui'
+import { Link } from 'react-router-dom'
 
 import AdvancedDropdownMenu from './AdvancedDropdownMenu'
 import ValidatorSettingCard from './ValidatorSettingCard'
@@ -21,7 +22,9 @@ const ValidatorSettingsCards = () => {
         title === VALIDATOR_SETTINGS_CARDS_TITLES[2] ? (
           <AdvancedDropdownMenu key={title} title={title} />
         ) : (
-          <ValidatorSettingCard key={title} title={title} />
+          <Link to={title.toLowerCase()} key={title}>
+            <ValidatorSettingCard title={title} />
+          </Link>
         ),
       )}
     </Stack>
