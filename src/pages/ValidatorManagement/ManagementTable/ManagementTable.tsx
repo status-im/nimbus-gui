@@ -1,9 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
-import { YStack, XStack } from 'tamagui'
+import { YStack } from 'tamagui'
 
 import { VALIDATORS_DATA, VALIDATOR_TABS_MANAGEMENT } from '../../../constants'
-import SearchManagement from './SearchManagement'
-import DropdownFilter from './DropdownFilter'
 import ManagementTableHeader from './ManagementTableHeader'
 import ManagementTableBody from './ManagementTableBody'
 import './ManagementTable.module.css'
@@ -11,7 +9,6 @@ import './ManagementTable.module.css'
 type ManagementTableProps = {
   tab: string
   searchValue: string
-  changeSearchValue: (value: string) => void
 }
 
 export type Validator = {
@@ -53,7 +50,6 @@ const isValidNameOrAddress = (
 const ManagementTable = ({
   tab,
   searchValue,
-  changeSearchValue,
 }: ManagementTableProps) => {
   const [validators, setValidators] = useState<Validator[]>([])
   const [isAllSelected, setIsAllSelected] = useState(false)
@@ -80,13 +76,6 @@ const ManagementTable = ({
 
   return (
     <YStack>
-      <XStack space={'$3'} justifyContent="space-between" alignItems="center">
-        <SearchManagement
-          searchValue={searchValue}
-          changeSearchValue={changeSearchValue}
-        />
-        <DropdownFilter />
-      </XStack>
       <table className="validator-management-table">
         <ManagementTableHeader
           validatorsAmount={filteredValidators.length}
