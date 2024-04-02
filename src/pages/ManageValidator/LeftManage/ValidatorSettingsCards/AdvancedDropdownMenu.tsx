@@ -4,6 +4,7 @@ import { AdvancedIcon } from '@status-im/icons'
 import { Link } from 'react-router-dom'
 
 import { CardTitle } from './ValidatorSettingCard'
+import { VALIDATOR_SETTING_ADVANCED_OPTIONS } from '../../../../constants'
 
 type AdvancedDropdownMenuProps = {
   title: CardTitle
@@ -30,9 +31,11 @@ const AdvancedDropdownMenu = ({ title }: AdvancedDropdownMenuProps) => {
         </Text>
       </YStack>
       <DropdownMenu.Content>
-        <Link to="deposit">
-          <DropdownMenu.Item label="Deposit" onSelect={onSelectDropdownItem} />
-        </Link>
+        {VALIDATOR_SETTING_ADVANCED_OPTIONS.map(option => (
+          <Link to={option.toLowerCase()}>
+            <DropdownMenu.Item label={option} onSelect={onSelectDropdownItem} />
+          </Link>
+        ))}
       </DropdownMenu.Content>
     </DropdownMenu>
   )
