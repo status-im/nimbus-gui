@@ -1,20 +1,34 @@
-import { DropdownMenu } from '@status-im/components'
+import { DropdownMenu, Text } from '@status-im/components'
+import { Stack, YStack } from 'tamagui'
+import { AdvancedIcon } from '@status-im/icons'
+import { Link } from 'react-router-dom'
 
-import { VALIDATOR_SETTINGS_CARDS_TITLES } from '../../../../constants'
-import ValidatorSettingCard from './ValidatorSettingCard'
-
-type CardTitle = (typeof VALIDATOR_SETTINGS_CARDS_TITLES)[number]
+import { CardTitle } from './ValidatorSettingCard'
 
 type AdvancedDropdownMenuProps = {
   title: CardTitle
 }
 
 const AdvancedDropdownMenu = ({ title }: AdvancedDropdownMenuProps) => {
+
   return (
     <DropdownMenu>
-      <ValidatorSettingCard title={title} />
+      <YStack alignItems="center" cursor="pointer">
+        <Stack
+          style={{
+            border: '0.5px solid #DCE0E5',
+            borderRadius: '16px',
+            padding: '10px',
+            width: 'fit-content',
+          }}
+        >
+          <AdvancedIcon size={20} />
+        </Stack>
+        <Text size={15} weight="semibold" color="#647084">
+          {title}
+        </Text>
+      </YStack>
       <DropdownMenu.Content>
-        <DropdownMenu.Item label="Deposit" onSelect={() => {}} />
       </DropdownMenu.Content>
     </DropdownMenu>
   )
