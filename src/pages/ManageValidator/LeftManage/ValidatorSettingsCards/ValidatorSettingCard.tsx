@@ -4,7 +4,7 @@ import { Stack, YStack } from 'tamagui'
 
 import { VALIDATOR_SETTINGS_CARDS_TITLES } from '../../../../constants'
 
-type CardTitle = (typeof VALIDATOR_SETTINGS_CARDS_TITLES)[number]
+export type CardTitle = (typeof VALIDATOR_SETTINGS_CARDS_TITLES)[number]
 
 type ValidatorSettingCardProps = {
   title: CardTitle
@@ -16,8 +16,6 @@ const ValidatorSettingCard = ({ title }: ValidatorSettingCardProps) => {
     Migrate: <ExternalIcon size={20} />,
     Advanced: <AdvancedIcon size={20} />,
   }
-
-  console.log(title)
 
   return (
     <YStack alignItems="center" cursor="pointer">
