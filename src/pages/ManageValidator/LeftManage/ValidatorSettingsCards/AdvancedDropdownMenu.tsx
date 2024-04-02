@@ -10,6 +10,7 @@ type AdvancedDropdownMenuProps = {
 }
 
 const AdvancedDropdownMenu = ({ title }: AdvancedDropdownMenuProps) => {
+  const onSelectDropdownItem = () => {}
 
   return (
     <DropdownMenu>
@@ -29,6 +30,9 @@ const AdvancedDropdownMenu = ({ title }: AdvancedDropdownMenuProps) => {
         </Text>
       </YStack>
       <DropdownMenu.Content>
+        <Link to="deposit">
+          <DropdownMenu.Item label="Deposit" onSelect={onSelectDropdownItem} />
+        </Link>
       </DropdownMenu.Content>
     </DropdownMenu>
   )
