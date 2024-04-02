@@ -1,10 +1,10 @@
 import { Text } from '@status-im/components'
-import { DisconnectIcon, AdvancedIcon, ExternalIcon } from '@status-im/icons'
+import { DisconnectIcon, ExternalIcon } from '@status-im/icons'
 import { Stack, YStack } from 'tamagui'
 
 import { VALIDATOR_SETTINGS_CARDS_TITLES } from '../../../../constants'
 
-export type CardTitle = (typeof VALIDATOR_SETTINGS_CARDS_TITLES)[number]
+type CardTitle = (typeof VALIDATOR_SETTINGS_CARDS_TITLES)[number]
 
 type ValidatorSettingCardProps = {
   title: CardTitle
@@ -14,7 +14,6 @@ const ValidatorSettingCard = ({ title }: ValidatorSettingCardProps) => {
   const getIcon = {
     Exit: <DisconnectIcon size={20} />,
     Migrate: <ExternalIcon size={20} />,
-    Advanced: <AdvancedIcon size={20} />,
   }
 
   return (

@@ -3,11 +3,10 @@ import { Stack, YStack } from 'tamagui'
 import { AdvancedIcon } from '@status-im/icons'
 import { Link } from 'react-router-dom'
 
-import { CardTitle } from './ValidatorSettingCard'
 import { VALIDATOR_SETTING_ADVANCED_OPTIONS } from '../../../../constants'
 
 type AdvancedDropdownMenuProps = {
-  title: CardTitle
+  title: string
 }
 
 const AdvancedDropdownMenu = ({ title }: AdvancedDropdownMenuProps) => {
