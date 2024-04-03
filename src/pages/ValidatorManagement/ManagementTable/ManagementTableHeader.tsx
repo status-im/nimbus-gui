@@ -5,7 +5,7 @@ const ManagementTableHeader = () => {
     <thead>
       <tr>
         <th />
-        <th style={{ textAlign: 'start' }}>
+        <th style={{ textAlign: 'start', paddingLeft: 0, paddingRight: 0 }}>
           <Text size={15} color={'#647084'}>
             Validator
           </Text>

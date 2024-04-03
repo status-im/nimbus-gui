@@ -18,7 +18,7 @@ const ManagementTableRow = ({ validator }: ManagementTableRowProps) => {
 
   return (
     <tr>
-      <td>
+      <td style={{ padding: 0 }}>
         <Checkbox
           id={validator.address}
           variant="outline"
@@ -26,7 +26,7 @@ const ManagementTableRow = ({ validator }: ManagementTableRowProps) => {
           onCheckedChange={handleChangeIsSelected}
         />
       </td>
-      <td>
+      <td style={{ paddingLeft: 0, paddingRight: 0 }}>
         <ValidatorProfile name={validator.name} address={validator.address} />
       </td>
       <td>
