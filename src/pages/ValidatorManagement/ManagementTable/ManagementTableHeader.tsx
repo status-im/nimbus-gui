@@ -7,7 +7,7 @@ const ManagementTableHeader = () => {
         <th />
         <th style={{ textAlign: 'start' }}>
           <Text size={15} color={'#647084'}>
-            {validatorsAmount} Validators
+            Validator
           </Text>
         </th>
         <th>
