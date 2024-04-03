@@ -8,8 +8,7 @@ const DiamondCard = () => {
       style={{
         padding: '8px 12px',
         borderRadius: '16px',
-        flexGrow: '1',
-        height: 'max-fit',
+        height: 'auto',
       }}
     >
       <Stack style={{ marginBottom: '8px' }}>
