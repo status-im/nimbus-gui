@@ -20,13 +20,5 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     filteredValidators: VALIDATORS_DATA,
-    isAllSelected: false,
-  },
-}
-
-export const AllSelected: Story = {
-  args: {
-    filteredValidators: VALIDATORS_DATA,
-    isAllSelected: true,
   },
 }

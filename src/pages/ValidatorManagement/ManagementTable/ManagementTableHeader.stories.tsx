@@ -1,5 +1,5 @@
+import { withRouter } from 'storybook-addon-react-router-v6'
 import type { Meta, StoryObj } from '@storybook/react'
-import { useState } from 'react'
 
 import ManagementTableHeader from './ManagementTableHeader'
 
@@ -9,30 +9,13 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
+  decorators: [withRouter()],
   tags: ['autodocs'],
 } satisfies Meta<typeof ManagementTableHeader>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = () => {
-  const [isAllSelected, setIsAllSelected] = useState(false)
-
-  const handleSelectAll = () => {
-    setIsAllSelected(state => !state)
-  }
-
-  return (
-    <ManagementTableHeader
-      validatorsAmount={4}
-      isAllSelected={isAllSelected}
-      handleSelectAll={handleSelectAll}
-    />
-  )
-}
-
-Default.args = {
-  isAllSelected: false,
-  validatorsAmount: 4,
-  handleSelectAll: () => {},
+export const Default: Story = {
+  args: {},
 }

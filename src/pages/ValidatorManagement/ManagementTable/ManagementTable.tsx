@@ -49,15 +49,10 @@ const isValidNameOrAddress = (
 
 const ManagementTable = ({ tab, searchValue }: ManagementTableProps) => {
   const [validators, setValidators] = useState<Validator[]>([])
-  const [isAllSelected, setIsAllSelected] = useState(false)
 
   useEffect(() => {
     setValidators(VALIDATORS_DATA)
   }, [])
-
-  useEffect(() => {
-    setIsAllSelected(false)
-  }, [validators, tab, searchValue])
 
   const filteredValidators = useMemo(() => {
     return validators
@@ -67,22 +62,11 @@ const ManagementTable = ({ tab, searchValue }: ManagementTableProps) => {
       )
   }, [validators, tab, searchValue])
 
-  const handleSelectAll = () => {
-    setIsAllSelected(state => !state)
-  }
-
   return (
     <YStack>
       <table className="validator-management-table">
-        <ManagementTableHeader
-          validatorsAmount={filteredValidators.length}
-          isAllSelected={isAllSelected}
-          handleSelectAll={handleSelectAll}
-        />
-        <ManagementTableBody
-          filteredValidators={filteredValidators}
-          isAllSelected={isAllSelected}
-        />
+        <ManagementTableHeader />
+        <ManagementTableBody filteredValidators={filteredValidators} />
       </table>
     </YStack>
   )

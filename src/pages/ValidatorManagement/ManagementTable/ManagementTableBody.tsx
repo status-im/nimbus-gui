@@ -5,21 +5,15 @@ import ManagementTableRow from './ManagementTableRow'
 
 type ManagementTableBodyProps = {
   filteredValidators: Validator[]
-  isAllSelected: boolean
 }
 
 const ManagementTableBody = ({
   filteredValidators,
-  isAllSelected,
 }: ManagementTableBodyProps) => {
   return (
     <tbody>
       {filteredValidators.map(validator => (
-        <ManagementTableRow
-          key={validator.address}
-          validator={validator}
-          isAllSelected={isAllSelected}
-        />
+        <ManagementTableRow key={validator.address} validator={validator} />
       ))}
       {filteredValidators.length === 0 && (
         <tr>
