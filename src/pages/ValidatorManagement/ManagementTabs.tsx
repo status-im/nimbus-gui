@@ -15,9 +15,24 @@ const ManagementTabs = () => {
   }
 
   return (
-    <div style={{ width: '100%' }}>
+    <div
+      style={{
+        width: '100%',
+        border: '1px solid #E7EAEE',
+        borderRadius: '16px',
+        borderBottom: 'none',
+        borderBottomLeftRadius: '0',
+        borderBottomRightRadius: '0',
+      }}
+    >
       <Tabs defaultValue={VALIDATOR_TABS_MANAGEMENT[0]}>
-        <div className="tabs transparent-scrollbar">
+        <div
+          className="tabs transparent-scrollbar"
+          style={{
+            borderBottom: '1px solid #E7EAEE',
+            padding: '12px',
+          }}
+        >
           <XStack
             space={'$3'}
             justifyContent="space-between"

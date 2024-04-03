@@ -47,10 +47,7 @@ const isValidNameOrAddress = (
   return false
 }
 
-const ManagementTable = ({
-  tab,
-  searchValue,
-}: ManagementTableProps) => {
+const ManagementTable = ({ tab, searchValue }: ManagementTableProps) => {
   const [validators, setValidators] = useState<Validator[]>([])
   const [isAllSelected, setIsAllSelected] = useState(false)
 
