@@ -8,8 +8,10 @@ const ManageValidator = () => {
   return (
     <SidebarsWrapper
       isNotRightSidebar={true}
-      isNotSidePadding={true}
-      isNotVerticalPadding={true}
+      isNotTopPadding={true}
+      isNotRightPadding={true}
+      isNotBottomPadding={true}
+      isNotLeftPadding={true}
     >
       <XStack
         width={'min-content'}

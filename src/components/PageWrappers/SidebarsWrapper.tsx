@@ -9,16 +9,20 @@ type SidebarsWrapperProps = {
   children: ReactNode
   isNotLeftSidebar?: boolean
   isNotRightSidebar?: boolean
-  isNotSidePadding?: boolean
-  isNotVerticalPadding?: boolean
+  isNotLeftPadding?: boolean
+  isNotRightPadding?: boolean
+  isNotTopPadding?: boolean
+  isNotBottomPadding?: boolean
 }
 
 const SidebarsWrapper = ({
   children,
   isNotLeftSidebar,
   isNotRightSidebar,
-  isNotSidePadding,
-  isNotVerticalPadding,
+  isNotLeftPadding,
+  isNotRightPadding,
+  isNotTopPadding,
+  isNotBottomPadding,
 }: SidebarsWrapperProps) => {
   return (
     <XStack style={{ minHeight: '100vh' }}>
@@ -27,7 +31,12 @@ const SidebarsWrapper = ({
         style={{
           display: 'flex',
           flexGrow: 1,
-          padding: `${isNotVerticalPadding ? 0 : 12}px ${isNotSidePadding ? 0 : 20}px`,
+          padding: `${isNotTopPadding ? 0 : '12px'} ${
+            isNotRightPadding ? 0 : '20px'
+          } ${isNotBottomPadding ? 0 : '12px'} ${
+            isNotLeftPadding ? 0 : '20px'
+          }`,
+          overflowY: 'auto',
           height: 'fit-content',
         }}
       >

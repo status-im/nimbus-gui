@@ -10,7 +10,7 @@ import SidebarsWrapper from '../../components/PageWrappers/SidebarsWrapper'
 
 const ValidatorManagement = () => {
   return (
-    <SidebarsWrapper>
+    <SidebarsWrapper isNotBottomPadding={true}>
       <YStack
         space="$4"
         alignItems="flex-start"
