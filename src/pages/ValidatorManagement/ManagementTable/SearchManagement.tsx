@@ -11,16 +11,15 @@ const SearchManagement = ({
   changeSearchValue,
 }: SearchManagementProps) => {
   return (
-    <div style={{ width: '100%' }}>
-      <Input
-        placeholder="Filter Validators"
-        value={searchValue}
-        onChangeText={changeSearchValue}
-        icon={<SearchIcon size={20} />}
-        onClear={() => changeSearchValue('')}
-        size={40}
-      />
-    </div>
+    <Input
+      variant="retractable"
+      placeholder="Filter Validators"
+      value={searchValue}
+      onChangeText={changeSearchValue}
+      icon={<SearchIcon size={20} />}
+      onClear={() => changeSearchValue('')}
+      size={40}
+    />
   )
 }
 

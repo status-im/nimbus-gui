@@ -49,11 +49,13 @@ const ManagementTabs = () => {
                 ))}
               </Tabs.List>
             </Stack>
-            <SearchManagement
-              searchValue={searchValue}
-              changeSearchValue={changeSearchValue}
-            />
-            <DropdownFilter />
+            <XStack space={'$3'} alignItems="center">
+              <SearchManagement
+                searchValue={searchValue}
+                changeSearchValue={changeSearchValue}
+              />
+              <DropdownFilter />
+            </XStack>
           </XStack>
         </div>
         {VALIDATOR_TABS_MANAGEMENT.map(tab => (
