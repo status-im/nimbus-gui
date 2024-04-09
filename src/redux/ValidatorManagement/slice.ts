@@ -1,11 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+import { VALIDATOR_TABS_MANAGEMENT } from '../../constants'
+
 type ValidatorManagementType = {
   currentTab: string
 }
 
 const initialState: ValidatorManagementType = {
-  currentTab: '',
+  currentTab: VALIDATOR_TABS_MANAGEMENT[0],
 }
 
 const ValidatorManagementSlice = createSlice({

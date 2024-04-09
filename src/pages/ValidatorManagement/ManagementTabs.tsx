@@ -1,11 +1,13 @@
 import { Tabs } from '@status-im/components'
 import { Stack, XStack } from 'tamagui'
 import { useEffect, useMemo, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { VALIDATOR_TABS_MANAGEMENT, VALIDATORS_DATA } from '../../constants'
 import ManagementTable from './ManagementTable/ManagementTable'
 import SearchManagement from './ManagementTable/SearchManagement'
 import DropdownFilter from './ManagementTable/DropdownFilter'
+import { RootState } from '../../redux/store'
 
 export type Validator = {
   name: string
@@ -46,23 +48,29 @@ const isValidNameOrAddress = (
 const ManagementTabs = () => {
   const [searchValue, setSearchValue] = useState('')
   const [validators, setValidators] = useState<Validator[]>([])
+  const { currentTab } = useSelector(
+    (state: RootState) => state.validatorManagement,
+  )
+  const dispatch = useDispatch()
 
   useEffect(() => {
     setValidators(VALIDATORS_DATA)
   }, [])
 
   const filteredValidators = useMemo(() => {
-    return (
-      validators
-        // .filter(validator => isValidStatus(validator.status, tab))
-        .filter(validator =>
-          isValidNameOrAddress(validator.name, validator.address, searchValue),
-        )
-    )
-  }, [validators, searchValue])
+    return validators
+      .filter(validator => isValidStatus(validator.status, currentTab))
+      .filter(validator =>
+        isValidNameOrAddress(validator.name, validator.address, searchValue),
+      )
+  }, [validators, searchValue, currentTab])
 
   const changeSearchValue = (value: string) => {
     setSearchValue(value)
+  }
+
+  const changeCurrentTabHandler = (value: string) => {
+    dispatch({ type: 'validatorManagement/setCurrentTab', payload: value })
   }
 
   return (
@@ -75,7 +83,10 @@ const ManagementTabs = () => {
         paddingBottom: '12px',
       }}
     >
-      <Tabs defaultValue={VALIDATOR_TABS_MANAGEMENT[0]}>
+      <Tabs
+        defaultValue={VALIDATOR_TABS_MANAGEMENT[0]}
+        onValueChange={changeCurrentTabHandler}
+      >
         <div
           className="tabs transparent-scrollbar"
           style={{
