@@ -106,7 +106,7 @@ const ManagementTabs = () => {
               <Tabs.List size={32} variant="grey">
                 {VALIDATOR_TABS_MANAGEMENT.map(tab => (
                   <Tabs.Trigger key={tab} type="default" value={tab}>
-                    {`${filteredValidators.length.toString()} ${tab}`}
+                    {`${currentTab === tab ? filteredValidators.length.toString() : ''} ${tab}`}
                   </Tabs.Trigger>
                 ))}
               </Tabs.List>
