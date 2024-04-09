@@ -16,6 +16,7 @@ import manageValidatorTabReducer from './ManageValidatorTab/slice'
 import logsTerminalReducer from './LogsTerminal/slice'
 import currencyReducer from './Currency/slice'
 import navigationFlowReducer from './NavigationFlow/slice'
+import validatorManagementReducer from './ValidatorManagement/slice'
 
 const store = configureStore({
   reducer: {
@@ -35,6 +36,7 @@ const store = configureStore({
     logsTerminal: logsTerminalReducer,
     currency: currencyReducer,
     navigationFLow: navigationFlowReducer,
+    validatorManagement: validatorManagementReducer,
   },
 })
 
