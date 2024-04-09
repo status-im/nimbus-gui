@@ -1,5 +1,4 @@
 import { Tabs } from '@status-im/components'
-import { XStack } from 'tamagui'
 import { useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -107,13 +106,23 @@ const ManagementTabs = () => {
               ))}
             </Tabs.List>
           </div>
-          <XStack space={'$3'} alignItems="center">
+          <div
+            className="transparent-scrollbar"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'start',
+              gap: '8px',
+              overflowX: 'auto',
+              width: '100%',
+            }}
+          >
             <SearchManagement
               searchValue={searchValue}
               changeSearchValue={changeSearchValue}
             />
             <DropdownFilter />
-          </XStack>
+          </div>
         </div>
         {VALIDATOR_TABS_MANAGEMENT.map(tab => (
           <Tabs.Content key={tab} value={tab} style={{ marginTop: '8px' }}>
