@@ -29,15 +29,13 @@
 }
 
 @media (max-width: 600px) {
-  .tabs {
-    overflow-x: auto;
-    overflow-y: none;
-  }
-}
-
-@media (max-width: 600px) {
   .cards {
     flex-direction: column;
+  }
+
+  .tabs-settings-container {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 

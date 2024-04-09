@@ -93,6 +93,8 @@ const ManagementTabs = () => {
             className="transparent-scrollbar"
             style={{
               cursor: 'pointer',
+              display: 'flex',
+              width: '100%',
               overflowX: 'auto',
               whiteSpace: 'nowrap',
             }}
