@@ -3,7 +3,7 @@ import { Checkbox, Text } from '@status-im/components'
 import { OptionsIcon } from '@status-im/icons'
 
 import ValidatorProfile from '../../../components/General/ValidatorProfile'
-import { Validator } from './ManagementTable'
+import { Validator } from '../ManagementTabs'
 
 type ManagementTableRowProps = {
   validator: Validator
