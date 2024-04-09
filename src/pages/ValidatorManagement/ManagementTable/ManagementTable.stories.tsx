@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import ManagementTable from './ManagementTable'
+import { VALIDATORS_DATA } from '../../../constants'
 
 const meta = {
   title: 'ValidatorManagement/ManagementTable',
@@ -16,7 +17,6 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    searchValue: '',
-    tab: 'Active',
+    filteredValidators: VALIDATORS_DATA,
   },
 }

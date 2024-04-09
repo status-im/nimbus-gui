@@ -1,7 +1,7 @@
 import { Text } from '@status-im/components'
 
-import { Validator } from './ManagementTable'
 import ManagementTableRow from './ManagementTableRow'
+import { Validator } from '../ManagementTabs'
 
 type ManagementTableBodyProps = {
   filteredValidators: Validator[]

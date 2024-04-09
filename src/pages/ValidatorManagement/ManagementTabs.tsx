@@ -1,14 +1,65 @@
 import { Tabs } from '@status-im/components'
 import { Stack, XStack } from 'tamagui'
-import { useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
-import { VALIDATOR_TABS_MANAGEMENT } from '../../constants'
+import { VALIDATOR_TABS_MANAGEMENT, VALIDATORS_DATA } from '../../constants'
 import ManagementTable from './ManagementTable/ManagementTable'
 import SearchManagement from './ManagementTable/SearchManagement'
 import DropdownFilter from './ManagementTable/DropdownFilter'
 
+export type Validator = {
+  name: string
+  address: string
+  balance: number
+  income: number
+  proposals: string
+  attestations: string
+  effectiveness: number
+  status: string
+}
+
+const isValidStatus = (validatorStatus: string, tabStatus: string) => {
+  if (
+    validatorStatus === tabStatus ||
+    tabStatus ===
+      VALIDATOR_TABS_MANAGEMENT[VALIDATOR_TABS_MANAGEMENT.length - 1]
+  ) {
+    return true
+  }
+  return false
+}
+
+const isValidNameOrAddress = (
+  validatorName: string,
+  validatorAddress: string,
+  searchValue: string,
+) => {
+  if (
+    validatorName.includes(searchValue) ||
+    validatorAddress.includes(searchValue)
+  ) {
+    return true
+  }
+  return false
+}
+
 const ManagementTabs = () => {
   const [searchValue, setSearchValue] = useState('')
+  const [validators, setValidators] = useState<Validator[]>([])
+
+  useEffect(() => {
+    setValidators(VALIDATORS_DATA)
+  }, [])
+
+  const filteredValidators = useMemo(() => {
+    return (
+      validators
+        // .filter(validator => isValidStatus(validator.status, tab))
+        .filter(validator =>
+          isValidNameOrAddress(validator.name, validator.address, searchValue),
+        )
+    )
+  }, [validators, searchValue])
 
   const changeSearchValue = (value: string) => {
     setSearchValue(value)
@@ -60,7 +111,7 @@ const ManagementTabs = () => {
         </div>
         {VALIDATOR_TABS_MANAGEMENT.map(tab => (
           <Tabs.Content key={tab} value={tab} style={{ marginTop: '8px' }}>
-            <ManagementTable tab={tab} searchValue={searchValue} />
+            <ManagementTable filteredValidators={filteredValidators} />
           </Tabs.Content>
         ))}
       </Tabs>
