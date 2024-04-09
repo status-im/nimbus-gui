@@ -1,5 +1,5 @@
 import { Tabs } from '@status-im/components'
-import { Stack, XStack } from 'tamagui'
+import { XStack } from 'tamagui'
 import { useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -8,6 +8,7 @@ import ManagementTable from './ManagementTable/ManagementTable'
 import SearchManagement from './ManagementTable/SearchManagement'
 import DropdownFilter from './ManagementTable/DropdownFilter'
 import { RootState } from '../../redux/store'
+import styles from './validatorManagement.module.css'
 
 export type Validator = {
   name: string
@@ -87,37 +88,29 @@ const ManagementTabs = () => {
         defaultValue={VALIDATOR_TABS_MANAGEMENT[0]}
         onValueChange={changeCurrentTabHandler}
       >
-        <div
-          className="tabs transparent-scrollbar"
-          style={{
-            borderTopLeftRadius: '16px',
-            borderTopRightRadius: '16px',
-            borderBottom: '1px solid #E7EAEE',
-            backgroundColor: '#fafbfc',
-          }}
-        >
-          <XStack
-            space={'$3'}
-            justifyContent="space-between"
-            alignItems="center"
-            style={{ padding: '8px 16px' }}
+        <div className={styles['tabs-settings-container']}>
+          <div
+            className="transparent-scrollbar"
+            style={{
+              cursor: 'pointer',
+              overflowX: 'auto',
+              whiteSpace: 'nowrap',
+            }}
           >
-            <Stack maxWidth={'120px'} style={{ cursor: 'pointer' }}>
-              <Tabs.List size={32} variant="grey">
-                {VALIDATOR_TABS_MANAGEMENT.map(tab => (
-                  <Tabs.Trigger key={tab} type="default" value={tab}>
-                    {`${currentTab === tab ? filteredValidators.length.toString() : ''} ${tab}`}
-                  </Tabs.Trigger>
-                ))}
-              </Tabs.List>
-            </Stack>
-            <XStack space={'$3'} alignItems="center">
-              <SearchManagement
-                searchValue={searchValue}
-                changeSearchValue={changeSearchValue}
-              />
-              <DropdownFilter />
-            </XStack>
+            <Tabs.List size={32} variant="grey">
+              {VALIDATOR_TABS_MANAGEMENT.map(tab => (
+                <Tabs.Trigger key={tab} type="default" value={tab}>
+                  {`${currentTab === tab ? filteredValidators.length.toString() : ''} ${tab}`}
+                </Tabs.Trigger>
+              ))}
+            </Tabs.List>
+          </div>
+          <XStack space={'$3'} alignItems="center">
+            <SearchManagement
+              searchValue={searchValue}
+              changeSearchValue={changeSearchValue}
+            />
+            <DropdownFilter />
           </XStack>
         </div>
         {VALIDATOR_TABS_MANAGEMENT.map(tab => (

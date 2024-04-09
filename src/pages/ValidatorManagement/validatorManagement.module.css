@@ -16,6 +16,18 @@
   }
 }
 
+.tabs-settings-container {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-bottom: 1px solid #e7eaee;
+  background-color: #fafbfc;
+  padding: 8px 16px;
+}
+
 @media (max-width: 600px) {
   .tabs {
     overflow-x: auto;
