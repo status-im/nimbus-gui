@@ -74,29 +74,14 @@ const ManagementTabs = () => {
   }
 
   return (
-    <div
-      style={{
-        width: '100%',
-        border: '1px solid #E7EAEE',
-        borderTopLeftRadius: '16px',
-        borderTopRightRadius: '16px',
-        paddingBottom: '12px',
-      }}
-    >
+    <div className={styles['tabs-container']}>
       <Tabs
         defaultValue={VALIDATOR_TABS_MANAGEMENT[0]}
         onValueChange={changeCurrentTabHandler}
       >
         <div className={styles['tabs-settings-container']}>
           <div
-            className="transparent-scrollbar"
-            style={{
-              cursor: 'pointer',
-              display: 'flex',
-              width: '100%',
-              overflowX: 'auto',
-              whiteSpace: 'nowrap',
-            }}
+            className={`${styles['tabs-list-container']} transparent-scrollbar`}
           >
             <Tabs.List size={32} variant="grey">
               {VALIDATOR_TABS_MANAGEMENT.map(tab => (
@@ -107,15 +92,7 @@ const ManagementTabs = () => {
             </Tabs.List>
           </div>
           <div
-            className="transparent-scrollbar"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'start',
-              gap: '8px',
-              overflowX: 'auto',
-              width: '100%',
-            }}
+            className={`${styles['search-filter-container']} transparent-scrollbar`}
           >
             <SearchManagement
               searchValue={searchValue}

@@ -16,6 +16,14 @@
   }
 }
 
+.tabs-container {
+  width: 100%;
+  border: 1px solid #e7eaee;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  padding-bottom: 12px;
+}
+
 .tabs-settings-container {
   display: flex;
   gap: 16px;
@@ -26,6 +34,23 @@
   border-bottom: 1px solid #e7eaee;
   background-color: #fafbfc;
   padding: 8px 16px;
+}
+
+.tabs-list-container {
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.search-filter-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 8px;
+  overflow: auto;
 }
 
 @media (max-width: 600px) {
