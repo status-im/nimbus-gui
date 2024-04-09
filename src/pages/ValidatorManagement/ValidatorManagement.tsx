@@ -15,8 +15,7 @@ const ValidatorManagement = () => {
         space="$4"
         alignItems="flex-start"
         style={{
-          flexGrow: '1',
-          overflowY: 'auto',
+          width: '100%',
         }}
         className={'transparent-scrollbar'}
       >
