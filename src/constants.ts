@@ -164,7 +164,7 @@ export const VALIDATOR_TABS_MANAGEMENT = [
   'Pending',
   'Inactive',
   'Exited',
-  'Withdraw',
+  'Withdrawn',
   'All',
 ]
 export const VALIDATORS_DATA = [
