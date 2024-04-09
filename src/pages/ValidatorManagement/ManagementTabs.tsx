@@ -31,6 +31,7 @@ const ManagementTabs = () => {
           style={{
             borderBottom: '1px solid #E7EAEE',
             padding: '12px',
+            backgroundColor: '#fafbfc',
           }}
         >
           <XStack
