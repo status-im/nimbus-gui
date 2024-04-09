@@ -13,7 +13,6 @@ const ValidatorManagement = () => {
     <SidebarsWrapper isNotBottomPadding={true}>
       <YStack
         space="$4"
-        alignItems="flex-start"
         style={{
           width: '100%',
         }}

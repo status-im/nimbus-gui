@@ -19,18 +19,18 @@ const ManagementTabs = () => {
       style={{
         width: '100%',
         border: '1px solid #E7EAEE',
-        borderRadius: '16px',
-        borderBottom: 'none',
-        borderBottomLeftRadius: '0',
-        borderBottomRightRadius: '0',
+        borderTopLeftRadius: '16px',
+        borderTopRightRadius: '16px',
+        paddingBottom: '12px',
       }}
     >
       <Tabs defaultValue={VALIDATOR_TABS_MANAGEMENT[0]}>
         <div
           className="tabs transparent-scrollbar"
           style={{
+            borderTopLeftRadius: '16px',
+            borderTopRightRadius: '16px',
             borderBottom: '1px solid #E7EAEE',
-            padding: '12px',
             backgroundColor: '#fafbfc',
           }}
         >
@@ -38,11 +38,9 @@ const ManagementTabs = () => {
             space={'$3'}
             justifyContent="space-between"
             alignItems="center"
+            style={{ padding: '8px 16px' }}
           >
-            <Stack
-              maxWidth={'120px'}
-              style={{ cursor: 'pointer', margin: '8px 0' }}
-            >
+            <Stack maxWidth={'120px'} style={{ cursor: 'pointer' }}>
               <Tabs.List size={32} variant="grey">
                 {VALIDATOR_TABS_MANAGEMENT.map(tab => (
                   <Tabs.Trigger key={tab} type="default" value={tab}>
