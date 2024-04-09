@@ -20,16 +20,9 @@ export type Validator = {
   status: string
 }
 
-const isValidStatus = (validatorStatus: string, tabStatus: string) => {
-  if (
-    validatorStatus === tabStatus ||
-    tabStatus ===
-      VALIDATOR_TABS_MANAGEMENT[VALIDATOR_TABS_MANAGEMENT.length - 1]
-  ) {
-    return true
-  }
-  return false
-}
+const isValidStatus = (validatorStatus: string, tabStatus: string) =>
+  validatorStatus === tabStatus ||
+  tabStatus === VALIDATOR_TABS_MANAGEMENT[VALIDATOR_TABS_MANAGEMENT.length - 1]
 
 const isValidNameOrAddress = (
   validatorName: string,
