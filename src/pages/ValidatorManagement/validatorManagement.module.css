@@ -27,7 +27,6 @@
 .tabs-settings-container {
   display: flex;
   gap: 16px;
-  justify-content: space-between;
   align-items: center;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
@@ -39,28 +38,31 @@
 .tabs-list-container {
   cursor: pointer;
   display: flex;
-  width: 100%;
+  flex-grow: 1;
   overflow-x: auto;
   white-space: nowrap;
 }
 
 .search-filter-container {
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: start;
   gap: 8px;
-  overflow: auto;
 }
 
 @media (max-width: 600px) {
-  .cards {
-    flex-direction: column;
-  }
-
   .tabs-settings-container {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+  }
+
+  .search-filter-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .cards {
+    flex-direction: column;
   }
 }
 
