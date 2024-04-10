@@ -48,8 +48,6 @@ const LeftSidebar = () => {
       minHeight={'14vh'}
       style={{
         padding: '8px',
-        borderTopLeftRadius: '16px',
-        borderBottomLeftRadius: '16px',
         border: '1px solid #F0F2F5',
       }}
     >
