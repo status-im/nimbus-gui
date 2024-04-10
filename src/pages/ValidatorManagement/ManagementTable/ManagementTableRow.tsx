@@ -59,7 +59,7 @@ const ManagementTableRow = ({ validator }: ManagementTableRowProps) => {
           {validator.status}
         </Text>
       </td>
-      <td>
+      <td style={{ padding: 0 }}>
         <OptionsIcon size={20} color="#647084" style={{ cursor: 'pointer' }} />
       </td>
     </tr>

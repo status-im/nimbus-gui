@@ -32,7 +32,7 @@
   border-top-right-radius: 16px;
   border-bottom: 1px solid #e7eaee;
   background-color: #fafbfc;
-  padding: 8px 16px;
+  padding: 8px 12px;
 }
 
 .tabs-list-container {
@@ -66,7 +66,14 @@
 }
 
 /* Hide Effectiveness */
-@media (max-width: 1300px) {
+@media (max-width: 1280px) and (min-width: 1200px) {
+  th:nth-child(7),
+  td:nth-child(7) {
+    display: none;
+  }
+}
+
+@media (max-width: 1080px) {
   th:nth-child(7),
   td:nth-child(7) {
     display: none;
@@ -74,7 +81,7 @@
 }
 
 /* Hide the Attestations */
-@media (max-width: 1200px) {
+@media (max-width: 960px) {
   th:nth-child(6),
   td:nth-child(6) {
     display: none;
@@ -82,39 +89,23 @@
 }
 
 /* Hide the Proposals */
-@media (max-width: 1100px) {
+@media (max-width: 760px) {
   th:nth-child(5),
   td:nth-child(5) {
     display: none;
   }
 }
 
-/* Hide and show Proposals */
-@media (max-width: 900px) and (min-width: 800px) {
-  th:nth-child(5),
-  td:nth-child(5) {
-    display: table-cell;
-  }
-}
-
-/* Hide the Income */
-@media (max-width: 1000px) {
+/* Hide Income */
+@media (max-width: 660px) {
   th:nth-child(4),
   td:nth-child(4) {
     display: none;
-  }
-}
-
-/* Hide and show Income */
-@media (max-width: 900px) and (min-width: 700px) {
-  th:nth-child(4),
-  td:nth-child(4) {
-    display: table-cell;
   }
 }
 
 /* Hide Status */
-@media (max-width: 560px) {
+@media (max-width: 520px) {
   th:nth-child(8),
   td:nth-child(8) {
     display: none;
@@ -122,7 +113,7 @@
 }
 
 /* Hide Balance */
-@media (max-width: 475px) {
+@media (max-width: 420px) {
   th:nth-child(3),
   td:nth-child(3) {
     display: none;
