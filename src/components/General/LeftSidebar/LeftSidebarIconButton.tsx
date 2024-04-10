@@ -1,35 +1,22 @@
 import { IconButton } from '@status-im/components'
-import { useDispatch } from 'react-redux'
 import { Stack } from 'tamagui'
 import { Link } from 'react-router-dom'
-
-import { toggleButtonSelection } from '../../../redux/LeftSidebar/slice'
 
 type IconButtonWithDotProps = {
   iconEl: any
   isDotOn: boolean
-  isSelected: boolean
   isDisabled?: boolean
-  id: string
   path: string
 }
 
 const LeftSidebarIconButton = ({
   iconEl,
   isDotOn,
-  isSelected,
   isDisabled,
-  id,
   path,
 }: IconButtonWithDotProps) => {
-  const dispatch = useDispatch()
-
-  const onClickHandler = () => {
-    isDisabled ? null : dispatch(toggleButtonSelection(id))
-  }
-
   return (
-    <Link to={path} onClick={onClickHandler}>
+    <Link to={path}>
       <Stack style={{ position: 'relative', display: 'inline-block' }}>
         <IconButton
           icon={iconEl}

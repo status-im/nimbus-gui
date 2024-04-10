@@ -1,9 +1,7 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
 interface SidebarButton {
-  id: string
   isDotOn: boolean
-  isSelected: boolean
   isDisabled?: boolean
   path: string
 }
@@ -14,47 +12,35 @@ interface LeftSidebarState {
 
 const initialState: LeftSidebarState = {
   buttons: [
-    { id: 'dashboard', isDotOn: false, isSelected: true, path: '/dashboard' },
+    { isDotOn: false, path: '/dashboard' },
     {
-      id: 'speed',
       isDotOn: false,
-      isSelected: false,
       path: '/validator-management',
     },
     {
-      id: 'chart',
       isDotOn: false,
-      isSelected: false,
       isDisabled: true,
-      path: '/',
+      path: '/charts',
     },
     {
-      id: 'heart',
       isDotOn: false,
-      isSelected: false,
       path: '/device-health-check',
     },
-    { id: 'codeBlock', isDotOn: false, isSelected: false, path: '/logs' },
+    { isDotOn: false, path: '/logs' },
     {
-      id: 'communities',
       isDotOn: false,
-      isSelected: false,
       isDisabled: true,
-      path: '/',
+      path: '/communities',
     },
     {
-      id: 'activityCenter',
       isDotOn: true,
-      isSelected: false,
       isDisabled: true,
-      path: '/',
+      path: '/activityCenter',
     },
     {
-      id: 'settings',
       isDotOn: false,
-      isSelected: false,
       isDisabled: true,
-      path: '/',
+      path: '/settings',
     },
   ],
 }
@@ -62,21 +48,9 @@ const initialState: LeftSidebarState = {
 const leftSidebarSlice = createSlice({
   name: 'leftSidebar',
   initialState,
-  reducers: {
-    toggleButtonSelection: (state, action: PayloadAction<string>) => {
-      state.buttons.forEach(button => {
-        button.isSelected = button.id === action.payload
-      })
-    },
-    toggleDot: (state, action: PayloadAction<string>) => {
-      const button = state.buttons.find(button => button.id === action.payload)
-      if (button) {
-        button.isDotOn = !button.isDotOn
-      }
-    },
-  },
+  reducers: {},
 })
 
-export const { toggleButtonSelection, toggleDot } = leftSidebarSlice.actions
+export const {} = leftSidebarSlice.actions
 
 export default leftSidebarSlice.reducer

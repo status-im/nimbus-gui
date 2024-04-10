@@ -16,23 +16,23 @@ import LeftSidebarIconButton from './LeftSidebarIconButton'
 const LeftSidebar = () => {
   const buttons = useSelector((state: any) => state.leftSidebar.buttons)
 
-  const renderIcon = (id: string) => {
-    switch (id) {
-      case 'dashboard':
+  const renderIcon = (path: string) => {
+    switch (path) {
+      case '/dashboard':
         return <DashboardIcon size={20} />
-      case 'speed':
+      case '/validator-management':
         return <SpeedIcon size={20} />
-      case 'chart':
+      case '/charts':
         return <ChartIcon size={20} />
-      case 'heart':
+      case '/device-health-check':
         return <HeartIcon size={20} />
-      case 'codeBlock':
+      case '/logs':
         return <CodeBlockIcon size={20} />
-      case 'communities':
+      case '/communities':
         return <CommunitiesIcon size={20} />
-      case 'activityCenter':
+      case '/activityCenter':
         return <ActivityCenterIcon size={20} />
-      case 'settings':
+      case '/settings':
         return <SettingsIcon size={20} />
       default:
         return null
@@ -66,12 +66,10 @@ const LeftSidebar = () => {
         >
           <div style={{ padding: '3px', cursor: 'pointer' }}>
             <LeftSidebarIconButton
-              key={button.id}
-              iconEl={renderIcon(button.id)}
+              key={button.path}
+              iconEl={renderIcon(button.path)}
               isDotOn={button.isDotOn}
-              isSelected={button.isSelected}
               isDisabled={button.isDisabled}
-              id={button.id}
               path={button.path}
             />
           </div>
