@@ -17,28 +17,26 @@ const LeftSidebarIconButton = ({
 }: IconButtonWithDotProps) => {
   return (
     <Link to={path}>
-      <Stack style={{ position: 'relative', display: 'inline-block' }}>
-        <IconButton
-          icon={iconEl}
-          variant={isDisabled ? 'outline' : 'ghost'}
-          selected={path === window.location.pathname}
-          disabled={isDisabled}
+      <IconButton
+        icon={iconEl}
+        variant={isDisabled ? 'outline' : 'ghost'}
+        selected={path === window.location.pathname}
+        disabled={isDisabled}
+      />
+      {isDotOn && (
+        <Stack
+          style={{
+            position: 'absolute',
+            right: 7,
+            top: 5,
+            width: '9px',
+            height: '9px',
+            borderRadius: '50%',
+            backgroundColor: '#1992D7',
+            border: '1.5px solid #fff',
+          }}
         />
-        {isDotOn && (
-          <Stack
-            style={{
-              position: 'absolute',
-              right: 7,
-              top: 5,
-              width: '9px',
-              height: '9px',
-              borderRadius: '50%',
-              backgroundColor: '#1992D7',
-              border: '1.5px solid #fff',
-            }}
-          />
-        )}
-      </Stack>
+      )}
     </Link>
   )
 }
