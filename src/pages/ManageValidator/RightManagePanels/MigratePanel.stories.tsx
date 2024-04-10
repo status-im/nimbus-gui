@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import MigratePanel from './MigratePanel'
 
 const meta = {
-  title: 'ValidatorManagement/MigratePanel',
+  title: 'ManageValidator/MigratePanel',
   component: MigratePanel,
   tags: ['autodocs'],
 } satisfies Meta<typeof MigratePanel>
