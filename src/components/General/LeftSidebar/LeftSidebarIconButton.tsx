@@ -34,7 +34,7 @@ const LeftSidebarIconButton = ({
         <IconButton
           icon={iconEl}
           variant={isDisabled ? 'outline' : 'ghost'}
-          selected={isSelected}
+          selected={path === window.location.pathname}
           disabled={isDisabled}
         />
         {isDotOn && (
