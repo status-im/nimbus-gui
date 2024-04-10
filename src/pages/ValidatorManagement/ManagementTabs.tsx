@@ -74,13 +74,15 @@ const ManagementTabs = () => {
           <div
             className={`${styles['tabs-list-container']} transparent-scrollbar`}
           >
-            <Tabs.List size={32} variant="grey">
-              {VALIDATOR_TABS_MANAGEMENT.map(tab => (
-                <Tabs.Trigger key={tab} type="default" value={tab}>
-                  {`${currentTab === tab ? filteredValidators.length.toString() : ''} ${tab}`}
-                </Tabs.Trigger>
-              ))}
-            </Tabs.List>
+            <div style={{ cursor: 'pointer' }}>
+              <Tabs.List size={32} variant="grey">
+                {VALIDATOR_TABS_MANAGEMENT.map(tab => (
+                  <Tabs.Trigger key={tab} type="default" value={tab}>
+                    {`${currentTab === tab ? filteredValidators.length.toString() : ''} ${tab}`}
+                  </Tabs.Trigger>
+                ))}
+              </Tabs.List>
+            </div>
           </div>
           <div
             className={`${styles['search-filter-container']} transparent-scrollbar`}
