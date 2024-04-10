@@ -28,7 +28,6 @@ const SidebarsWrapper = ({
           display: 'flex',
           flexGrow: 1,
           padding: `${isNotVerticalPadding ? 0 : 12}px ${isNotSidePadding ? 0 : 20}px`,
-          overflowY: 'auto',
           height: 'fit-content',
         }}
       >

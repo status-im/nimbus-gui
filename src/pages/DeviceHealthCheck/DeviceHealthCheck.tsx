@@ -25,10 +25,8 @@ const DeviceHealthCheck = () => {
         alignItems="flex-start"
         style={{
           flexGrow: '1',
-          overflowY: 'auto',
           width: 'calc(100% - 380px)',
         }}
-        className={'transparent-scrollbar'}
       >
         <TitleLogo subtitle="Device Health Check" />
         <div className={styles['cards-container']}>
