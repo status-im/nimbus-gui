@@ -16,31 +16,19 @@ import LeftSidebarIconButton from './LeftSidebarIconButton'
 import { SidebarButton } from '../../../redux/LeftSidebar/slice'
 import { RootState } from '../../../redux/store'
 
+const iconMap = {
+  '/dashboard': <DashboardIcon size={20} />,
+  '/validator-management': <SpeedIcon size={20} />,
+  '/charts': <ChartIcon size={20} />,
+  '/device-health-check': <HeartIcon size={20} />,
+  '/logs': <CodeBlockIcon size={20} />,
+  '/communities': <CommunitiesIcon size={20} />,
+  '/activityCenter': <ActivityCenterIcon size={20} />,
+  '/settings': <SettingsIcon size={20} />,
+}
+
 const LeftSidebar = () => {
   const buttons = useSelector((state: RootState) => state.leftSidebar.buttons)
-
-  const renderIcon = (path: string) => {
-    switch (path) {
-      case '/dashboard':
-        return <DashboardIcon size={20} />
-      case '/validator-management':
-        return <SpeedIcon size={20} />
-      case '/charts':
-        return <ChartIcon size={20} />
-      case '/device-health-check':
-        return <HeartIcon size={20} />
-      case '/logs':
-        return <CodeBlockIcon size={20} />
-      case '/communities':
-        return <CommunitiesIcon size={20} />
-      case '/activityCenter':
-        return <ActivityCenterIcon size={20} />
-      case '/settings':
-        return <SettingsIcon size={20} />
-      default:
-        return null
-    }
-  }
 
   return (
     <YStack
@@ -52,11 +40,10 @@ const LeftSidebar = () => {
       }}
     >
       {buttons.map((button: SidebarButton) => (
-        <Tooltip side="right" content={button.tooltip}>
+        <Tooltip side="right" content={button.tooltip} key={button.path}>
           <div style={{ padding: '3px', cursor: 'pointer' }}>
             <LeftSidebarIconButton
-              key={button.path}
-              iconEl={renderIcon(button.path)}
+              iconEl={iconMap[button.path as keyof typeof iconMap]}
               isDotOn={button.isDotOn}
               isDisabled={button.isDisabled}
               path={button.path}
