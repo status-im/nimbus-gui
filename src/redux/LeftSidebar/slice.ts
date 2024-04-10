@@ -4,6 +4,7 @@ interface SidebarButton {
   isDotOn: boolean
   isDisabled?: boolean
   path: string
+  tooltip?: string
 }
 
 interface LeftSidebarState {
@@ -12,10 +13,11 @@ interface LeftSidebarState {
 
 const initialState: LeftSidebarState = {
   buttons: [
-    { isDotOn: false, path: '/dashboard' },
+    { isDotOn: false, path: '/dashboard', tooltip: 'Dashboard' },
     {
       isDotOn: false,
       path: '/validator-management',
+      tooltip: 'Validator Management',
     },
     {
       isDotOn: false,
@@ -25,8 +27,9 @@ const initialState: LeftSidebarState = {
     {
       isDotOn: false,
       path: '/device-health-check',
+      tooltip: 'Device Health Check',
     },
-    { isDotOn: false, path: '/logs' },
+    { isDotOn: false, path: '/logs', tooltip: 'Logs' },
     {
       isDotOn: false,
       isDisabled: true,

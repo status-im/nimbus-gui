@@ -56,10 +56,7 @@ const LeftSidebar = () => {
           content={
             <XStack alignItems="center" space="$1">
               <Text size={15} weight="semibold">
-                {button.path
-                  .replace(/-/g, ' ')
-                  .slice(1)
-                  .replace(/^\w/, (c: any) => c.toUpperCase())}
+                {button.tooltip}
               </Text>
             </XStack>
           }
