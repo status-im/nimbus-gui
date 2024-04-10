@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { withRouter } from 'storybook-addon-react-router-v6'
 
 import ManagementTable from './ManagementTable'
-import { VALIDATORS_DATA } from '../../../constants'
 
 const meta = {
   title: 'ValidatorManagement/ManagementTable',
@@ -18,7 +17,5 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: {
-    filteredValidators: VALIDATORS_DATA,
-  },
+  args: {},
 }

@@ -1,15 +1,14 @@
 import { Text } from '@status-im/components'
+import { useSelector } from 'react-redux'
 
 import ManagementTableRow from './ManagementTableRow'
-import { Validator } from '../ManagementTabs'
+import { RootState } from '../../../redux/store'
 
-type ManagementTableBodyProps = {
-  filteredValidators: Validator[]
-}
+const ManagementTableBody = () => {
+  const { filteredValidators } = useSelector(
+    (state: RootState) => state.validatorManagement,
+  )
 
-const ManagementTableBody = ({
-  filteredValidators,
-}: ManagementTableBodyProps) => {
   return (
     <tbody>
       {filteredValidators.map(validator => (

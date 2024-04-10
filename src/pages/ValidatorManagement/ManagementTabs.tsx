@@ -1,5 +1,5 @@
 import { Tabs } from '@status-im/components'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { VALIDATOR_TABS_MANAGEMENT, VALIDATORS_DATA } from '../../constants'
@@ -28,20 +28,13 @@ const isValidNameOrAddress = (
   validatorName: string,
   validatorAddress: string,
   searchValue: string,
-) => {
-  if (
-    validatorName.includes(searchValue) ||
-    validatorAddress.includes(searchValue)
-  ) {
-    return true
-  }
-  return false
-}
+) =>
+  validatorName.includes(searchValue) || validatorAddress.includes(searchValue)
 
 const ManagementTabs = () => {
   const [searchValue, setSearchValue] = useState('')
   const [validators, setValidators] = useState<Validator[]>([])
-  const { currentTab } = useSelector(
+  const { currentTab, filteredValidators } = useSelector(
     (state: RootState) => state.validatorManagement,
   )
   const dispatch = useDispatch()
@@ -50,12 +43,17 @@ const ManagementTabs = () => {
     setValidators(VALIDATORS_DATA)
   }, [])
 
-  const filteredValidators = useMemo(() => {
-    return validators
+  useEffect(() => {
+    const newValidators = validators
       .filter(validator => isValidStatus(validator.status, currentTab))
       .filter(validator =>
         isValidNameOrAddress(validator.name, validator.address, searchValue),
       )
+
+    dispatch({
+      type: 'validatorManagement/setFilteredValidators',
+      payload: newValidators,
+    })
   }, [validators, searchValue, currentTab])
 
   const changeSearchValue = (value: string) => {
@@ -96,7 +94,7 @@ const ManagementTabs = () => {
         </div>
         {VALIDATOR_TABS_MANAGEMENT.map(tab => (
           <Tabs.Content key={tab} value={tab} style={{ marginTop: '8px' }}>
-            <ManagementTable filteredValidators={filteredValidators} />
+            <ManagementTable />
           </Tabs.Content>
         ))}
       </Tabs>
