@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-interface SidebarButton {
+export interface SidebarButton {
   isDotOn: boolean
   isDisabled?: boolean
   path: string

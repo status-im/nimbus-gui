@@ -11,10 +11,13 @@ import {
 import { XStack, YStack } from 'tamagui'
 import { useSelector } from 'react-redux'
 import { Text, Tooltip } from '@status-im/components'
+
 import LeftSidebarIconButton from './LeftSidebarIconButton'
+import { SidebarButton } from '../../../redux/LeftSidebar/slice'
+import { RootState } from '../../../redux/store'
 
 const LeftSidebar = () => {
-  const buttons = useSelector((state: any) => state.leftSidebar.buttons)
+  const buttons = useSelector((state: RootState) => state.leftSidebar.buttons)
 
   const renderIcon = (path: string) => {
     switch (path) {
@@ -50,7 +53,7 @@ const LeftSidebar = () => {
         border: '1px solid #F0F2F5',
       }}
     >
-      {buttons.map((button: any) => (
+      {buttons.map((button: SidebarButton) => (
         <Tooltip
           side="right"
           content={
