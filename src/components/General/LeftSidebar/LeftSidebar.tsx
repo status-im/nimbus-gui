@@ -8,9 +8,9 @@ import {
   ActivityCenterIcon,
   SettingsIcon,
 } from '@status-im/icons'
-import { XStack, YStack } from 'tamagui'
+import { YStack } from 'tamagui'
 import { useSelector } from 'react-redux'
-import { Text, Tooltip } from '@status-im/components'
+import { Tooltip } from '@status-im/components'
 
 import LeftSidebarIconButton from './LeftSidebarIconButton'
 import { SidebarButton } from '../../../redux/LeftSidebar/slice'
@@ -54,16 +54,7 @@ const LeftSidebar = () => {
       }}
     >
       {buttons.map((button: SidebarButton) => (
-        <Tooltip
-          side="right"
-          content={
-            <XStack alignItems="center" space="$1">
-              <Text size={15} weight="semibold">
-                {button.tooltip}
-              </Text>
-            </XStack>
-          }
-        >
+        <Tooltip side="right" content={button.tooltip}>
           <div style={{ padding: '3px', cursor: 'pointer' }}>
             <LeftSidebarIconButton
               key={button.path}
