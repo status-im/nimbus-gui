@@ -3,11 +3,11 @@ import { Stack } from 'tamagui'
 import { Link } from 'react-router-dom'
 
 type IconButtonWithDotProps = {
-  iconEl: IconAvatarProps['icon']
+  icon: IconAvatarProps['icon']
   path: string
 }
 
-const LeftSidebarIconButton = ({ iconEl, path }: IconButtonWithDotProps) => {
+const LeftSidebarIconButton = ({ icon, path }: IconButtonWithDotProps) => {
   const isDotOn = path === '/notifications'
   const isDisabled =
     path === '/advanced-analytics' ||
@@ -18,7 +18,7 @@ const LeftSidebarIconButton = ({ iconEl, path }: IconButtonWithDotProps) => {
   return (
     <Link to={path}>
       <IconButton
-        icon={iconEl}
+        icon={icon}
         variant={isDisabled ? 'outline' : 'ghost'}
         selected={path === window.location.pathname}
         disabled={isDisabled}

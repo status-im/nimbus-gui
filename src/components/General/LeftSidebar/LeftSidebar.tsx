@@ -12,18 +12,45 @@ import { Stack, YStack } from 'tamagui'
 import { Tooltip } from '@status-im/components'
 
 import LeftSidebarIconButton from './LeftSidebarIconButton'
-import { LEFT_SIDEBAR_ICONS } from '../../../constants'
 
-const iconMap = {
-  '/dashboard': <DashboardIcon size={20} />,
-  '/validator-management': <SpeedIcon size={20} />,
-  '/advanced-analytics': <ChartIcon size={20} />,
-  '/device-health-check': <HeartIcon size={20} />,
-  '/logs': <CodeBlockIcon size={20} />,
-  '/community': <CommunitiesIcon size={20} />,
-  '/notifications': <ActivityCenterIcon size={20} />,
-  '/settings': <SettingsIcon size={20} />,
-}
+export const LEFT_SIDEBAR_ICONS = [
+  {
+    path: '/dashboard',
+    tooltip: 'Dashboard',
+    icon: <DashboardIcon size={20} />,
+  },
+  {
+    path: '/validator-management',
+    tooltip: 'Validator Management',
+    icon: <SpeedIcon size={20} />,
+  },
+  {
+    path: '/advanced-analytics',
+    tooltip: 'Advanced Analytics',
+    icon: <ChartIcon size={20} />,
+  },
+  {
+    path: '/device-health-check',
+    tooltip: 'Device Health Check',
+    icon: <HeartIcon size={20} />,
+  },
+  { path: '/logs', tooltip: 'Logs', icon: <CodeBlockIcon size={20} /> },
+  {
+    path: '/community',
+    tooltip: 'Community',
+    icon: <CommunitiesIcon size={20} />,
+  },
+  {
+    path: '/notifications',
+    tooltip: 'Notifications',
+    icon: <ActivityCenterIcon size={20} />,
+  },
+  {
+    path: '/settings',
+    tooltip: 'Settings',
+    icon: <SettingsIcon size={20} />,
+  },
+]
 
 const LeftSidebar = () => {
   return (
@@ -38,10 +65,7 @@ const LeftSidebar = () => {
       {LEFT_SIDEBAR_ICONS.map(icon => (
         <Tooltip side="right" content={icon.tooltip} key={icon.path}>
           <Stack>
-            <LeftSidebarIconButton
-              iconEl={iconMap[icon.path as keyof typeof iconMap]}
-              path={icon.path}
-            />
+            <LeftSidebarIconButton icon={icon.icon} path={icon.path} />
           </Stack>
         </Tooltip>
       ))}

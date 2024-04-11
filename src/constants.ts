@@ -276,36 +276,6 @@ export const MANAGE_VALIDATOR_TABS_TABLE_DATA = [
   { headers: [] },
 ]
 
-// Left Sidebar
-export const LEFT_SIDEBAR_ICONS = [
-  { path: '/dashboard', tooltip: 'Dashboard' },
-  {
-    path: '/validator-management',
-    tooltip: 'Validator Management',
-  },
-  {
-    path: '/advanced-analytics',
-    tooltip: 'Advanced Analytics',
-  },
-  {
-    path: '/device-health-check',
-    tooltip: 'Device Health Check',
-  },
-  { path: '/logs', tooltip: 'Logs' },
-  {
-    path: '/community',
-    tooltip: 'Community',
-  },
-  {
-    path: '/notifications',
-    tooltip: 'Notifications',
-  },
-  {
-    path: '/settings',
-    tooltip: 'Settings',
-  },
-]
-
 // Pair Device
 export const VC = 'VC'
 export const VALIDATOR_CLIENT = 'Validator Client'
