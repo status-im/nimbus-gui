@@ -16,6 +16,31 @@ export const ethereumRopsten = {
   rpcUrl,
 }
 
+export const LANDING = '/'
+export const DEVICE_HEALTH_CHECK_ONBOARDING = '/device-health-check-onboarding'
+export const DEVICE_HEALTH_CHECK = '/device-health-check'
+export const DEVICE_SYNC_STATUS = '/device-sync-status'
+export const PAIR_DEVICE = '/pair-device'
+export const CREATE_LOCAL_NODE = '/create-local-node'
+export const VALIDATOR_ONBOARDING = '/validator-onboarding'
+export const ADVISORIES = 'advisories'
+export const VALIDATOR_SETUP = 'validator-setup'
+export const VALIDATOR_SETUP_INSTALL = 'validator-setup-install'
+export const CONSENSUS_SELECTION = 'consensus-selection'
+export const ACTIVATION_VALIDATOR_SETUP = 'activation-validator-setup'
+export const CLIENT_SETUP = 'client-setup'
+export const KEY_GENERATION = 'key-generation'
+export const RECOVERY_PHRASE = 'recovery-phrase'
+export const DEPOSIT = 'deposit'
+export const ACTIVATION = 'activation'
+export const DASHBOARD = '/dashboard'
+export const LOGS = '/logs'
+export const VALIDATOR_MANAGEMENT = '/validator-management'
+export const MANAGE_VALIDATOR = '/manage-validator'
+export const EXIT = 'exit'
+export const MIGRATE = 'migrate'
+export const DEPOSIT_PANEL = 'deposit'
+
 // Device Health Check
 export const GOOD_STORAGE_TEXT =
   'You have plenty of storage available for additional node services.'
@@ -32,8 +57,8 @@ export const BAD_RAM_MEMORY_TEXT =
 export const BAD_NETWORK_TEXT = 'Network Latency is high.'
 
 // Validator Onboarding
-export const KEYSTORE_FILES = 'KeystoreFiles'
-export const RECOVERY_PHRASE = 'Recovery Phrase'
+export const KEYSTORE_FILES_OPTION = 'KeystoreFiles'
+export const RECOVERY_PHRASE_OPTION = 'Recovery Phrase'
 export const BOTH_KEY_AND_RECOVERY = 'Both KeystoreFiles & Recovery Phrase'
 export const ETH_PER_VALIDATOR = 32
 
