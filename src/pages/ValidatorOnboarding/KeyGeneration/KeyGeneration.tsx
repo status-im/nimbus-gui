@@ -9,8 +9,8 @@ import RecoveryPhrase from './RecoveryPhrase'
 import ConfirmRecoveryPhrase from './ConfirmRecoveryPhrase/ConfirmRecoveryPhrase'
 import {
   BOTH_KEY_AND_RECOVERY,
-  KEYSTORE_FILES,
-  RECOVERY_PHRASE,
+  KEYSTORE_FILES_OPTION,
+  RECOVERY_PHRASE_OPTION,
 } from '../../../constants'
 import { RootState } from '../../../redux/store'
 
@@ -20,11 +20,11 @@ const KeyGeneration = () => {
   )
 
   const isKeystoreFiles =
-    recoveryMechanism === KEYSTORE_FILES ||
+    recoveryMechanism === KEYSTORE_FILES_OPTION ||
     recoveryMechanism === BOTH_KEY_AND_RECOVERY
 
   const isRecoveryPhrase =
-    recoveryMechanism === RECOVERY_PHRASE ||
+    recoveryMechanism === RECOVERY_PHRASE_OPTION ||
     recoveryMechanism === BOTH_KEY_AND_RECOVERY
 
   return (

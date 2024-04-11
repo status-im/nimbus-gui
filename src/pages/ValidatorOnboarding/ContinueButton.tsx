@@ -7,7 +7,22 @@ import { useNavigate } from 'react-router-dom'
 import { RootState } from '../../redux/store'
 import LinkWithArrow from '../../components/General/LinkWithArrow'
 import { setActiveStep } from '../../redux/ValidatorOnboarding/slice'
-import { KEYSTORE_FILES, STEPPER_PATHS } from '../../constants'
+import {
+  ACTIVATION,
+  ACTIVATION_VALIDATOR_SETUP,
+  ADVISORIES,
+  CLIENT_SETUP,
+  CONSENSUS_SELECTION,
+  DASHBOARD,
+  DEPOSIT,
+  KEY_GENERATION,
+  KEYSTORE_FILES_OPTION,
+  RECOVERY_PHRASE,
+  STEPPER_PATHS,
+  VALIDATOR_ONBOARDING,
+  VALIDATOR_SETUP,
+  VALIDATOR_SETUP_INSTALL,
+} from '../../constants'
 import {
   setIsConfirmPhraseStage,
   setIsCopyPastedPhrase,
@@ -35,19 +50,19 @@ const ContinueButton = () => {
   const dispatch = useDispatch()
 
   const pathToStepMap = {
-    '/validator-onboarding/': 0,
-    '/validator-onboarding/advisories': 1,
-    '/validator-onboarding/validator-setup': 2,
-    '/validator-onboarding/validator-setup-install': 3,
-    '/validator-onboarding/consensus-selection': 4,
-    '/validator-onboarding/activation-validator-setup': 5,
-    '/validator-onboarding/client-setup': 6,
-    '/validator-onboarding/key-generation': 7,
-    '/validator-onboarding/deposit': 8,
-    '/validator-onboarding/activation': 9,
+    [`${VALIDATOR_ONBOARDING}/`]: 0,
+    [`${VALIDATOR_ONBOARDING}/${ADVISORIES}`]: 1,
+    [`${VALIDATOR_ONBOARDING}/${VALIDATOR_SETUP}`]: 2,
+    [`${VALIDATOR_ONBOARDING}/${VALIDATOR_SETUP_INSTALL}`]: 3,
+    [`${VALIDATOR_ONBOARDING}/${CONSENSUS_SELECTION}`]: 4,
+    [`${VALIDATOR_ONBOARDING}/${ACTIVATION_VALIDATOR_SETUP}`]: 5,
+    [`${VALIDATOR_ONBOARDING}/${CLIENT_SETUP}`]: 6,
+    [`${VALIDATOR_ONBOARDING}/${KEY_GENERATION}`]: 7,
+    [`${VALIDATOR_ONBOARDING}/${DEPOSIT}`]: 8,
+    [`${VALIDATOR_ONBOARDING}/${ACTIVATION}`]: 9,
   }
   const handleActiveStep = () => {
-    if (location.pathname === '/validator-onboarding/recovery-phrase') {
+    if (location.pathname === `${VALIDATOR_ONBOARDING}/${RECOVERY_PHRASE}`) {
       return 7
     }
     return pathToStepMap[location.pathname as keyof typeof pathToStepMap] || 0
@@ -88,7 +103,7 @@ const ContinueButton = () => {
   ])
 
   const handleRecoveryMechanism = () => {
-    if (!isConfirmPhraseStage && recoveryMechanism === KEYSTORE_FILES) {
+    if (!isConfirmPhraseStage && recoveryMechanism === KEYSTORE_FILES_OPTION) {
       return dispatch(setActiveStep(activeStep + 1))
     }
     if (!isConfirmPhraseStage) {
@@ -115,13 +130,13 @@ const ContinueButton = () => {
 
     if (activeStep === 7) {
       nextPath = isConfirmPhraseStage
-        ? '/validator-onboarding/deposit'
-        : '/validator-onboarding/recovery-phrase'
+        ? `${VALIDATOR_ONBOARDING}/${DEPOSIT}`
+        : `${VALIDATOR_ONBOARDING}/${RECOVERY_PHRASE}`
       handleRecoveryMechanism()
     } else if (activeStep === 8) {
-      nextPath = '/validator-onboarding/activation'
+      nextPath = `${VALIDATOR_ONBOARDING}/${ACTIVATION}`
     } else if (activeStep === 9) {
-      nextPath = '/dashboard'
+      nextPath = DASHBOARD
     }
     navigate(nextPath)
   }
@@ -144,7 +159,7 @@ const ContinueButton = () => {
         {isActivationValScreen && (
           <LinkWithArrow
             text="Skip to Dashboard"
-            to="/dashboard"
+            to={DASHBOARD}
             arrowRight={true}
             style={{ fontWeight: 'bold', zIndex: 999 }}
           />

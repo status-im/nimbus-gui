@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { RECOVERY_PHRASE } from '../../../constants'
+import { RECOVERY_PHRASE_OPTION } from '../../../constants'
 
 type KeyGenerationState = {
   mnemonic: string[]
@@ -22,7 +22,7 @@ const initialState: KeyGenerationState = {
   validWords: Array(24).fill(true),
   generatedMnemonic: [],
   isConfirmPhraseStage: false,
-  recoveryMechanism: RECOVERY_PHRASE,
+  recoveryMechanism: RECOVERY_PHRASE_OPTION,
 }
 
 const keyGenerationSlice = createSlice({

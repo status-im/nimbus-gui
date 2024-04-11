@@ -6,13 +6,14 @@ import { Button as StatusButton, Text } from '@status-im/components'
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import QuickStartBar from '../../components/General/QuickStartBar/QuickStartBar'
 import NimbusLogo from '../../components/Logos/NimbusLogo'
+import { PAIR_DEVICE } from '../../constants'
 import styles from './LandingPage.module.css'
 
 const LandingPage = () => {
   const navigate = useNavigate()
 
   const onGetStartedHandler = () => {
-    navigate('/pair-device')
+    navigate(PAIR_DEVICE)
   }
 
   return (

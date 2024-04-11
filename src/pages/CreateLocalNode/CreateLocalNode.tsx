@@ -2,22 +2,24 @@ import { useState } from 'react'
 import { Button as StatusButton, Text, Checkbox } from '@status-im/components'
 import { NodeIcon } from '@status-im/icons'
 import { Label, Separator, Stack, XStack, YStack } from 'tamagui'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import Header from '../../components/General/Header'
 import Titles from '../../components/General/Titles'
 import CreateAvatar from '../../components/General/CreateAvatar/CreateAvatar'
-import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
 import { setNavigationFlow } from '../../redux/NavigationFlow/slice'
+import { DEVICE_HEALTH_CHECK_ONBOARDING } from '../../constants'
 
 const CreateLocalNode = () => {
   const [autoConnectChecked, setAutoConnectChecked] = useState(false)
   const navigate = useNavigate()
   const dispatch = useDispatch()
+
   const handleContinue = () => {
     dispatch(setNavigationFlow('createNode'))
-    navigate('/device-health-check-onboarding')
+    navigate(DEVICE_HEALTH_CHECK_ONBOARDING)
   }
   return (
     <PageWrapperShadow

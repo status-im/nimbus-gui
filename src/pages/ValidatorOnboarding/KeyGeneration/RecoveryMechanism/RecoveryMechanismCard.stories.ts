@@ -3,8 +3,8 @@ import type { Meta, StoryObj } from '@storybook/react'
 import RecoveryMechanismCard from './RecoveryMechanismCard'
 import {
   BOTH_KEY_AND_RECOVERY,
-  KEYSTORE_FILES,
-  RECOVERY_PHRASE,
+  KEYSTORE_FILES_OPTION,
+  RECOVERY_PHRASE_OPTION,
 } from '../../../../constants'
 
 const meta = {
@@ -21,16 +21,16 @@ type Story = StoryObj<typeof meta>
 
 export const KeystoreFiles: Story = {
   args: {
-    value: KEYSTORE_FILES,
-    recoveryMechanism: KEYSTORE_FILES,
+    value: KEYSTORE_FILES_OPTION,
+    recoveryMechanism: KEYSTORE_FILES_OPTION,
     icon: 'keystore-files-icon.svg',
   },
 }
 
 export const RecoveryPhrase: Story = {
   args: {
-    value: RECOVERY_PHRASE,
-    recoveryMechanism: RECOVERY_PHRASE,
+    value: RECOVERY_PHRASE_OPTION,
+    recoveryMechanism: RECOVERY_PHRASE_OPTION,
     icon: 'recovery-phrase-icon.svg',
   },
 }
@@ -45,7 +45,7 @@ export const BothKeyAndRecovery: Story = {
 
 export const NotSelected: Story = {
   args: {
-    value: KEYSTORE_FILES,
+    value: KEYSTORE_FILES_OPTION,
     recoveryMechanism: '',
     icon: 'keystore-files-icon.svg',
   },
@@ -54,7 +54,7 @@ export const NotSelected: Story = {
 export const WithoutValue: Story = {
   args: {
     value: '',
-    recoveryMechanism: KEYSTORE_FILES,
+    recoveryMechanism: KEYSTORE_FILES_OPTION,
     icon: '',
   },
 }

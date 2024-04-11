@@ -2,10 +2,16 @@ import { Text } from '@status-im/components'
 import { Stack, XStack } from 'tamagui'
 import { ArrowLeftIcon } from '@status-im/icons'
 import { useEffect, useState } from 'react'
-import { FORM_STEPS, STEPPER_PATHS } from '../../../constants'
+import { useDispatch, useSelector } from 'react-redux'
+
+import {
+  FORM_STEPS,
+  KEY_GENERATION,
+  STEPPER_PATHS,
+  VALIDATOR_ONBOARDING,
+} from '../../../constants'
 import { useNavigate } from 'react-router-dom'
 import { RootState } from '../../../redux/store'
-import { useDispatch, useSelector } from 'react-redux'
 import { setIsConfirmPhraseStage } from '../../../redux/ValidatorOnboarding/KeyGeneration/slice'
 
 const BackButton = () => {
@@ -66,10 +72,10 @@ const BackButton = () => {
   const handleNavigateBack = () => {
     if (activeStep === 7 && isConfirmPhraseStage) {
       dispatch(setIsConfirmPhraseStage(false))
-      navigate('/validator-onboarding/key-generation')
+      navigate(`${VALIDATOR_ONBOARDING}/${KEY_GENERATION}`)
       return
     } else {
-      let prevPath = STEPPER_PATHS[activeStep - 1] || '/validator-onboarding/'
+      let prevPath = STEPPER_PATHS[activeStep - 1] || `${VALIDATOR_ONBOARDING}/`
       navigate(prevPath)
     }
   }

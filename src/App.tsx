@@ -19,7 +19,35 @@ import LogsPage from './pages/LogsPage/LogsPage'
 import ManageValidator from './pages/ManageValidator/ManageValidator'
 import config from '../tamagui.config'
 import { RootState } from './redux/store'
-import { ethereumRopsten, wcV2InitOptions, apiKey } from './constants'
+import {
+  ethereumRopsten,
+  wcV2InitOptions,
+  apiKey,
+  LANDING,
+  DEVICE_HEALTH_CHECK_ONBOARDING,
+  DEVICE_HEALTH_CHECK,
+  DEVICE_SYNC_STATUS,
+  PAIR_DEVICE,
+  CREATE_LOCAL_NODE,
+  VALIDATOR_ONBOARDING,
+  ADVISORIES,
+  VALIDATOR_SETUP,
+  VALIDATOR_SETUP_INSTALL,
+  CONSENSUS_SELECTION,
+  ACTIVATION_VALIDATOR_SETUP,
+  KEY_GENERATION,
+  RECOVERY_PHRASE,
+  DEPOSIT,
+  ACTIVATION,
+  DASHBOARD,
+  LOGS,
+  VALIDATOR_MANAGEMENT,
+  MANAGE_VALIDATOR,
+  EXIT,
+  MIGRATE,
+  DEPOSIT_PANEL,
+  CLIENT_SETUP,
+} from './constants'
 import './App.css'
 
 //ValidatorOnboarding sub-routes
@@ -58,63 +86,63 @@ const web3Onboard = init({
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: LANDING,
     element: <LandingPage />,
   },
   {
-    path: '/device-health-check-onboarding',
+    path: DEVICE_HEALTH_CHECK_ONBOARDING,
     element: <DeviceHealthCheckOnboarding />,
   },
   {
-    path: '/device-health-check',
+    path: DEVICE_HEALTH_CHECK,
     element: <DeviceHealthCheck />,
   },
   {
-    path: '/device-sync-status',
+    path: DEVICE_SYNC_STATUS,
     element: <DeviceSyncStatus />,
   },
   {
-    path: '/pair-device',
+    path: PAIR_DEVICE,
     element: <PairDevice />,
   },
-  { path: '/create-local-node', element: <CreateLocalNode /> },
+  { path: CREATE_LOCAL_NODE, element: <CreateLocalNode /> },
   {
-    path: '/validator-onboarding',
+    path: VALIDATOR_ONBOARDING,
     children: [
       { path: '', element: <Overview /> },
-      { path: 'advisories', element: <Advisories /> },
-      { path: 'validator-setup', element: <ValidatorSetup /> },
-      { path: 'validator-setup-install', element: <ValidatorSetupInstall /> },
-      { path: 'consensus-selection', element: <ConsensusSelection /> },
+      { path: ADVISORIES, element: <Advisories /> },
+      { path: VALIDATOR_SETUP, element: <ValidatorSetup /> },
+      { path: VALIDATOR_SETUP_INSTALL, element: <ValidatorSetupInstall /> },
+      { path: CONSENSUS_SELECTION, element: <ConsensusSelection /> },
       {
-        path: 'activation-validator-setup',
+        path: ACTIVATION_VALIDATOR_SETUP,
         element: <ActivationValidatorSetup />,
       },
-      { path: 'client-setup', element: <ClientSetup /> },
-      { path: 'key-generation', element: <KeyGeneration /> },
-      { path: 'recovery-phrase', element: <ConfirmRecoveryPhrase /> },
-      { path: 'deposit', element: <Deposit /> },
+      { path: CLIENT_SETUP, element: <ClientSetup /> },
+      { path: KEY_GENERATION, element: <KeyGeneration /> },
+      { path: RECOVERY_PHRASE, element: <ConfirmRecoveryPhrase /> },
+      { path: DEPOSIT, element: <Deposit /> },
       {
-        path: 'activation',
+        path: ACTIVATION,
         element: <Activation />,
       },
     ],
     element: <ValidatorOnboarding />,
   },
-  { path: '/dashboard', element: <Dashboard /> },
-  { path: '/logs', element: <LogsPage /> },
+  { path: DASHBOARD, element: <Dashboard /> },
+  { path: LOGS, element: <LogsPage /> },
   {
-    path: '/validator-management',
+    path: VALIDATOR_MANAGEMENT,
     element: <ValidatorManagement />,
   },
   {
-    path: '/manage-validator/:validatorName',
+    path: `${MANAGE_VALIDATOR}/:validatorName`,
     element: <ManageValidator />,
     children: [
       { path: '', element: <DefaultPanel /> },
-      { path: 'exit', element: <ExitPanel /> },
-      { path: 'migrate', element: <MigratePanel /> },
-      { path: 'deposit', element: <DepositPanel /> },
+      { path: EXIT, element: <ExitPanel /> },
+      { path: MIGRATE, element: <MigratePanel /> },
+      { path: DEPOSIT_PANEL, element: <DepositPanel /> },
     ],
   },
 ])

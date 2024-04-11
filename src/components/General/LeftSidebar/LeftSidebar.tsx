@@ -12,15 +12,21 @@ import { Stack, YStack } from 'tamagui'
 import { Tooltip } from '@status-im/components'
 
 import LeftSidebarIconButton from './LeftSidebarIconButton'
+import {
+  DASHBOARD,
+  DEVICE_HEALTH_CHECK,
+  LOGS,
+  VALIDATOR_MANAGEMENT,
+} from '../../../constants'
 
 export const LEFT_SIDEBAR_ICONS = [
   {
-    path: '/dashboard',
+    path: DASHBOARD,
     tooltip: 'Dashboard',
     icon: <DashboardIcon size={20} />,
   },
   {
-    path: '/validator-management',
+    path: VALIDATOR_MANAGEMENT,
     tooltip: 'Validator Management',
     icon: <SpeedIcon size={20} />,
   },
@@ -30,11 +36,11 @@ export const LEFT_SIDEBAR_ICONS = [
     icon: <ChartIcon size={20} />,
   },
   {
-    path: '/device-health-check',
+    path: DEVICE_HEALTH_CHECK,
     tooltip: 'Device Health Check',
     icon: <HeartIcon size={20} />,
   },
-  { path: '/logs', tooltip: 'Logs', icon: <CodeBlockIcon size={20} /> },
+  { path: LOGS, tooltip: 'Logs', icon: <CodeBlockIcon size={20} /> },
   {
     path: '/community',
     tooltip: 'Community',

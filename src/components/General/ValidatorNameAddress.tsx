@@ -10,6 +10,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { copyFunction, getFormattedValidatorAddress } from '../../utilities'
+import { MANAGE_VALIDATOR } from '../../constants'
 
 type ValidatorNameAddressProps = {
   name: string
@@ -42,7 +43,7 @@ const ValidatorNameAddress = ({
     <YStack alignItems={'flex-start'}>
       <XStack space={'$1'} alignItems="center" cursor="pointer">
         <Text size={13} weight={'semibold'}>
-          <Link to={`/manage-validator/${name}`} style={{ color: 'black' }}>
+          <Link to={`${MANAGE_VALIDATOR}/${name}`} style={{ color: 'black' }}>
             Validator {name}
           </Link>
         </Text>

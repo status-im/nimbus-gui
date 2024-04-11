@@ -3,8 +3,8 @@ import type { Meta, StoryObj } from '@storybook/react'
 import RecoveryMechanism from './RecoveryMechanism'
 import {
   BOTH_KEY_AND_RECOVERY,
-  KEYSTORE_FILES,
-  RECOVERY_PHRASE,
+  KEYSTORE_FILES_OPTION,
+  RECOVERY_PHRASE_OPTION,
 } from '../../../../constants'
 
 const meta = {
@@ -16,9 +16,13 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     recoveryMechanism: {
-      options: [RECOVERY_PHRASE, KEYSTORE_FILES, BOTH_KEY_AND_RECOVERY],
+      options: [
+        RECOVERY_PHRASE_OPTION,
+        KEYSTORE_FILES_OPTION,
+        BOTH_KEY_AND_RECOVERY,
+      ],
       control: { type: 'radio' },
-      defaultValue: KEYSTORE_FILES,
+      defaultValue: KEYSTORE_FILES_OPTION,
     },
   },
 } satisfies Meta<typeof RecoveryMechanism>
@@ -28,13 +32,13 @@ type Story = StoryObj<typeof meta>
 
 export const KeystoreFiles: Story = {
   args: {
-    recoveryMechanism: KEYSTORE_FILES,
+    recoveryMechanism: KEYSTORE_FILES_OPTION,
   },
 }
 
 export const RecoveryPhrase: Story = {
   args: {
-    recoveryMechanism: RECOVERY_PHRASE,
+    recoveryMechanism: RECOVERY_PHRASE_OPTION,
   },
 }
 

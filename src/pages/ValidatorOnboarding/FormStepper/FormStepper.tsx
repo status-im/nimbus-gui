@@ -1,6 +1,19 @@
 import { Stepper, Step } from 'react-form-stepper'
 import { useNavigate } from 'react-router-dom'
-import { FORM_STEPS } from '../../../constants'
+
+import {
+  ACTIVATION,
+  ACTIVATION_VALIDATOR_SETUP,
+  ADVISORIES,
+  CLIENT_SETUP,
+  CONSENSUS_SELECTION,
+  DEPOSIT,
+  FORM_STEPS,
+  KEY_GENERATION,
+  VALIDATOR_ONBOARDING,
+  VALIDATOR_SETUP,
+  VALIDATOR_SETUP_INSTALL,
+} from '../../../constants'
 import { useWindowSize } from '../../../hooks/useWindowSize'
 import styles from './FormStepper.module.css'
 
@@ -13,16 +26,16 @@ const FormStepper = ({ activeStep }: FormStepperProps) => {
   const windowSize = useWindowSize()
 
   const stepToUrlMap = [
-    '/validator-onboarding/',
-    '/validator-onboarding/advisories',
-    '/validator-onboarding/validator-setup',
-    '/validator-onboarding/validator-setup-install',
-    '/validator-onboarding/consensus-selection',
-    '/validator-onboarding/activation-validator-setup',
-    '/validator-onboarding/client-setup',
-    '/validator-onboarding/key-generation',
-    '/validator-onboarding/deposit',
-    '/validator-onboarding/activation',
+    `${VALIDATOR_ONBOARDING}/`,
+    `${VALIDATOR_ONBOARDING}/${ADVISORIES}`,
+    `${VALIDATOR_ONBOARDING}/${VALIDATOR_SETUP}`,
+    `${VALIDATOR_ONBOARDING}/${VALIDATOR_SETUP_INSTALL}`,
+    `${VALIDATOR_ONBOARDING}/${CONSENSUS_SELECTION}`,
+    `${VALIDATOR_ONBOARDING}/${ACTIVATION_VALIDATOR_SETUP}`,
+    `${VALIDATOR_ONBOARDING}/${CLIENT_SETUP}`,
+    `${VALIDATOR_ONBOARDING}/${KEY_GENERATION}`,
+    `${VALIDATOR_ONBOARDING}/${DEPOSIT}`,
+    `${VALIDATOR_ONBOARDING}/${ACTIVATION}`,
   ]
 
   const getIsStepVisible = (

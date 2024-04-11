@@ -67,35 +67,35 @@ export const FORM_STEPS = [
   {
     label: 'Advisories',
     subtitle: 'Understand your Duties',
-    paths: ['advisories'],
+    paths: [ADVISORIES],
   },
   {
     label: 'Client Setup',
     subtitle: 'Execution & Consensus',
     paths: [
-      'validator-setup',
-      'validator-setup-install',
-      'client-setup',
-      'activation-validator-setup',
+      VALIDATOR_SETUP,
+      VALIDATOR_SETUP_INSTALL,
+      CLIENT_SETUP,
+      ACTIVATION_VALIDATOR_SETUP,
     ],
   },
   {
     label: 'Validator Setup',
     subtitle: 'Validators & Withdrawal',
     paths: [
-      'validator-setup',
-      'validator-setup-install',
-      'consensus-selection',
-      'activation-validator-setup',
+      VALIDATOR_SETUP,
+      VALIDATOR_SETUP_INSTALL,
+      CONSENSUS_SELECTION,
+      ACTIVATION_VALIDATOR_SETUP,
     ],
   },
   {
     label: 'Key Generation',
     subtitle: 'Secure your Keypairs',
-    paths: ['key-generation'],
+    paths: [KEY_GENERATION],
   },
-  { label: 'Deposit', subtitle: 'Stake your ETH', paths: ['deposit'] },
-  { label: 'Activation', subtitle: 'Complete Setup', paths: ['activation'] },
+  { label: 'Deposit', subtitle: 'Stake your ETH', paths: [DEPOSIT] },
+  { label: 'Activation', subtitle: 'Complete Setup', paths: [ACTIVATION] },
 ]
 export const DepositStatusSteps = [
   { label: 'Deposit' },
@@ -104,18 +104,18 @@ export const DepositStatusSteps = [
   { label: 'Exit' },
 ]
 export const STEPPER_PATHS = [
-  '/validator-onboarding/',
-  '/validator-onboarding/advisories',
-  '/validator-onboarding/validator-setup',
-  '/validator-onboarding/validator-setup-install',
-  '/validator-onboarding/consensus-selection',
-  '/validator-onboarding/activation-validator-setup',
-  '/validator-onboarding/client-setup',
-  '/validator-onboarding/key-generation',
-  '/validator-onboarding/recovery-phrase',
-  '/validator-onboarding/',
-  '/validator-onboarding/activation',
-  '/dashboard',
+  `${VALIDATOR_ONBOARDING}/`,
+  `${VALIDATOR_ONBOARDING}/${ADVISORIES}`,
+  `${VALIDATOR_ONBOARDING}/${VALIDATOR_SETUP}`,
+  `${VALIDATOR_ONBOARDING}/${VALIDATOR_SETUP_INSTALL}`,
+  `${VALIDATOR_ONBOARDING}/${CONSENSUS_SELECTION}`,
+  `${VALIDATOR_ONBOARDING}/${ACTIVATION_VALIDATOR_SETUP}`,
+  `${VALIDATOR_ONBOARDING}/${CLIENT_SETUP}`,
+  `${VALIDATOR_ONBOARDING}/${KEY_GENERATION}`,
+  `${VALIDATOR_ONBOARDING}/${RECOVERY_PHRASE}`,
+  `${VALIDATOR_ONBOARDING}/`,
+  `${VALIDATOR_ONBOARDING}/${ACTIVATION}`,
+  DASHBOARD,
 ]
 export const ADVISORY_TOPICS: {
   [key: string]: string[]

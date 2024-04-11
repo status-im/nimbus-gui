@@ -3,6 +3,7 @@ import { Label, Separator, XStack, YStack } from 'tamagui'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Button, Checkbox, Text } from '@status-im/components'
+import { useNavigate } from 'react-router-dom'
 
 import PageWrapperShadow from '../../components/PageWrappers/PageWrapperShadow'
 import SyncStatus from './SyncStatus'
@@ -14,8 +15,8 @@ import Header from '../../components/General/Header'
 import ConnectViaIP from './ConnectViaIP/ConnectViaIP'
 import { RootState } from '../../redux/store'
 import { isAddressValid, isPortValid } from '../../utilities'
-import { useNavigate } from 'react-router-dom'
 import { setNavigationFlow } from '../../redux/NavigationFlow/slice'
+import { DEVICE_HEALTH_CHECK_ONBOARDING } from '../../constants'
 
 const PairDevice = () => {
   const dispatch = useDispatch()
@@ -44,7 +45,7 @@ const PairDevice = () => {
 
   const continueHandler = () => {
     dispatch(setNavigationFlow('pairDevice'))
-    navigate('/device-health-check-onboarding')
+    navigate(DEVICE_HEALTH_CHECK_ONBOARDING)
   }
 
   const isDisabledButton = () => {

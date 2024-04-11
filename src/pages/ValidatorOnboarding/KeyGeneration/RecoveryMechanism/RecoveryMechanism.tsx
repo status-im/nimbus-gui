@@ -4,8 +4,8 @@ import { YStack } from 'tamagui'
 import RecoveryMechanismCard from './RecoveryMechanismCard'
 import {
   BOTH_KEY_AND_RECOVERY,
-  KEYSTORE_FILES,
-  RECOVERY_PHRASE,
+  KEYSTORE_FILES_OPTION,
+  RECOVERY_PHRASE_OPTION,
 } from '../../../../constants'
 import styles from '../index.module.css'
 
@@ -14,8 +14,8 @@ type RecoveryMechanismProps = {
 }
 
 const cards = {
-  [RECOVERY_PHRASE]: 'recovery-phrase-icon.svg',
-  [KEYSTORE_FILES]: 'keystore-files-icon.svg',
+  [RECOVERY_PHRASE_OPTION]: 'recovery-phrase-icon.svg',
+  [KEYSTORE_FILES_OPTION]: 'keystore-files-icon.svg',
   [BOTH_KEY_AND_RECOVERY]: 'both-recovery-keystore-icon.svg',
 }
 

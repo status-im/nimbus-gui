@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { withRouter } from 'storybook-addon-react-router-v6'
 
 import MarkdownLink from './MarkdownLink'
+import { LANDING } from '../../../constants'
 
 const meta = {
   title: 'General/MarkdownLink',
@@ -18,7 +19,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    href: '/',
+    href: LANDING,
     children: 'MarkdownLink',
   },
 }
