@@ -19,11 +19,11 @@ import { RootState } from '../../../redux/store'
 const iconMap = {
   '/dashboard': <DashboardIcon size={20} />,
   '/validator-management': <SpeedIcon size={20} />,
-  '/charts': <ChartIcon size={20} />,
+  '/advanced-analytics': <ChartIcon size={20} />,
   '/device-health-check': <HeartIcon size={20} />,
   '/logs': <CodeBlockIcon size={20} />,
-  '/communities': <CommunitiesIcon size={20} />,
-  '/activityCenter': <ActivityCenterIcon size={20} />,
+  '/community': <CommunitiesIcon size={20} />,
+  '/notifications': <ActivityCenterIcon size={20} />,
   '/settings': <SettingsIcon size={20} />,
 }
 

@@ -284,7 +284,8 @@ export const LEFT_SIDEBAR_ICONS = [
     tooltip: 'Validator Management',
   },
   {
-    path: '/charts',
+    path: '/advanced-analytics',
+    tooltip: 'Advanced Analytics',
   },
   {
     path: '/device-health-check',
@@ -292,13 +293,16 @@ export const LEFT_SIDEBAR_ICONS = [
   },
   { path: '/logs', tooltip: 'Logs' },
   {
-    path: '/communities',
+    path: '/community',
+    tooltip: 'Community',
   },
   {
-    path: '/activityCenter',
+    path: '/notifications',
+    tooltip: 'Notifications',
   },
   {
     path: '/settings',
+    tooltip: 'Settings',
   },
 ]
 
