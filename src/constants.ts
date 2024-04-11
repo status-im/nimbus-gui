@@ -209,6 +209,7 @@ export const VALIDATORS_DATA = [
     status: 'Active',
   },
 ]
+
 // Manage Validator
 export const VALIDATOR_SETTINGS_CARDS_TITLES = ['Exit', 'Migrate', 'Advanced']
 export const VALIDATOR_SETTING_ADVANCED_OPTIONS = ['Deposit']
@@ -273,6 +274,32 @@ export const MANAGE_VALIDATOR_TABS_TABLE_DATA = [
   { headers: [] },
   { headers: [] },
   { headers: [] },
+]
+
+// Left Sidebar
+export const LEFT_SIDEBAR_ICONS = [
+  { path: '/dashboard', tooltip: 'Dashboard' },
+  {
+    path: '/validator-management',
+    tooltip: 'Validator Management',
+  },
+  {
+    path: '/charts',
+  },
+  {
+    path: '/device-health-check',
+    tooltip: 'Device Health Check',
+  },
+  { path: '/logs', tooltip: 'Logs' },
+  {
+    path: '/communities',
+  },
+  {
+    path: '/activityCenter',
+  },
+  {
+    path: '/settings',
+  },
 ]
 
 // Pair Device
