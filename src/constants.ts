@@ -16,30 +16,40 @@ export const ethereumRopsten = {
   rpcUrl,
 }
 
-export const LANDING = '/'
-export const DEVICE_HEALTH_CHECK_ONBOARDING = '/device-health-check-onboarding'
-export const DEVICE_HEALTH_CHECK = '/device-health-check'
-export const DEVICE_SYNC_STATUS = '/device-sync-status'
-export const PAIR_DEVICE = '/pair-device'
-export const CREATE_LOCAL_NODE = '/create-local-node'
-export const VALIDATOR_ONBOARDING = '/validator-onboarding'
-export const ADVISORIES = 'advisories'
-export const VALIDATOR_SETUP = 'validator-setup'
-export const VALIDATOR_SETUP_INSTALL = 'validator-setup-install'
-export const CONSENSUS_SELECTION = 'consensus-selection'
-export const ACTIVATION_VALIDATOR_SETUP = 'activation-validator-setup'
-export const CLIENT_SETUP = 'client-setup'
-export const KEY_GENERATION = 'key-generation'
-export const RECOVERY_PHRASE = 'recovery-phrase'
-export const DEPOSIT = 'deposit'
-export const ACTIVATION = 'activation'
-export const DASHBOARD = '/dashboard'
-export const LOGS = '/logs'
-export const VALIDATOR_MANAGEMENT = '/validator-management'
-export const MANAGE_VALIDATOR = '/manage-validator'
-export const EXIT = 'exit'
-export const MIGRATE = 'migrate'
-export const DEPOSIT_PANEL = 'deposit'
+export const PATHS = {
+  LANDING: '/',
+  DEVICE_HEALTH_CHECK_ONBOARDING: '/device-health-check-onboarding',
+  DEVICE_HEALTH_CHECK: '/device-health-check',
+  DEVICE_SYNC_STATUS: '/device-sync-status',
+  PAIR_DEVICE: '/pair-device',
+  CREATE_LOCAL_NODE: '/create-local-node',
+  VALIDATOR_ONBOARDING: '/validator-onboarding',
+  DASHBOARD: '/dashboard',
+  LOGS: '/logs',
+  VALIDATOR_MANAGEMENT: '/validator-management',
+  MANAGE_VALIDATOR: '/manage-validator',
+}
+
+export const VALIDATOR_ONBOARDING_SUB_PATHS = {
+  OVERVIEW: '',
+  ADVISORIES: 'advisories',
+  VALIDATOR_SETUP: 'validator-setup',
+  VALIDATOR_SETUP_INSTALL: 'validator-setup-install',
+  CONSENSUS_SELECTION: 'consensus-selection',
+  ACTIVATION_VALIDATOR_SETUP: 'activation-validator-setup',
+  CLIENT_SETUP: 'client-setup',
+  KEY_GENERATION: 'key-generation',
+  RECOVERY_PHRASE: 'recovery-phrase',
+  DEPOSIT: 'deposit',
+  ACTIVATION: 'activation',
+}
+
+export const MANAGE_VALIDATOR_SUB_PATHS = {
+  DEFAULT: '',
+  EXIT: 'exit',
+  MIGRATE: 'migrate',
+  DEPOSIT: 'deposit',
+}
 
 // Device Health Check
 export const GOOD_STORAGE_TEXT =
@@ -67,35 +77,43 @@ export const FORM_STEPS = [
   {
     label: 'Advisories',
     subtitle: 'Understand your Duties',
-    paths: [ADVISORIES],
+    paths: [VALIDATOR_ONBOARDING_SUB_PATHS.ADVISORIES],
   },
   {
     label: 'Client Setup',
     subtitle: 'Execution & Consensus',
     paths: [
-      VALIDATOR_SETUP,
-      VALIDATOR_SETUP_INSTALL,
-      CLIENT_SETUP,
-      ACTIVATION_VALIDATOR_SETUP,
+      VALIDATOR_ONBOARDING_SUB_PATHS.VALIDATOR_SETUP,
+      VALIDATOR_ONBOARDING_SUB_PATHS.VALIDATOR_SETUP_INSTALL,
+      VALIDATOR_ONBOARDING_SUB_PATHS.CLIENT_SETUP,
+      VALIDATOR_ONBOARDING_SUB_PATHS.ACTIVATION_VALIDATOR_SETUP,
     ],
   },
   {
     label: 'Validator Setup',
     subtitle: 'Validators & Withdrawal',
     paths: [
-      VALIDATOR_SETUP,
-      VALIDATOR_SETUP_INSTALL,
-      CONSENSUS_SELECTION,
-      ACTIVATION_VALIDATOR_SETUP,
+      VALIDATOR_ONBOARDING_SUB_PATHS.VALIDATOR_SETUP,
+      VALIDATOR_ONBOARDING_SUB_PATHS.VALIDATOR_SETUP_INSTALL,
+      VALIDATOR_ONBOARDING_SUB_PATHS.CONSENSUS_SELECTION,
+      VALIDATOR_ONBOARDING_SUB_PATHS.ACTIVATION_VALIDATOR_SETUP,
     ],
   },
   {
     label: 'Key Generation',
     subtitle: 'Secure your Keypairs',
-    paths: [KEY_GENERATION],
+    paths: [VALIDATOR_ONBOARDING_SUB_PATHS.KEY_GENERATION],
   },
-  { label: 'Deposit', subtitle: 'Stake your ETH', paths: [DEPOSIT] },
-  { label: 'Activation', subtitle: 'Complete Setup', paths: [ACTIVATION] },
+  {
+    label: 'Deposit',
+    subtitle: 'Stake your ETH',
+    paths: [VALIDATOR_ONBOARDING_SUB_PATHS.DEPOSIT],
+  },
+  {
+    label: 'Activation',
+    subtitle: 'Complete Setup',
+    paths: [VALIDATOR_ONBOARDING_SUB_PATHS.ACTIVATION],
+  },
 ]
 export const DepositStatusSteps = [
   { label: 'Deposit' },
@@ -104,18 +122,18 @@ export const DepositStatusSteps = [
   { label: 'Exit' },
 ]
 export const STEPPER_PATHS = [
-  `${VALIDATOR_ONBOARDING}/`,
-  `${VALIDATOR_ONBOARDING}/${ADVISORIES}`,
-  `${VALIDATOR_ONBOARDING}/${VALIDATOR_SETUP}`,
-  `${VALIDATOR_ONBOARDING}/${VALIDATOR_SETUP_INSTALL}`,
-  `${VALIDATOR_ONBOARDING}/${CONSENSUS_SELECTION}`,
-  `${VALIDATOR_ONBOARDING}/${ACTIVATION_VALIDATOR_SETUP}`,
-  `${VALIDATOR_ONBOARDING}/${CLIENT_SETUP}`,
-  `${VALIDATOR_ONBOARDING}/${KEY_GENERATION}`,
-  `${VALIDATOR_ONBOARDING}/${RECOVERY_PHRASE}`,
-  `${VALIDATOR_ONBOARDING}/`,
-  `${VALIDATOR_ONBOARDING}/${ACTIVATION}`,
-  DASHBOARD,
+  `${PATHS.VALIDATOR_ONBOARDING}/`,
+  `${PATHS.VALIDATOR_ONBOARDING}/${VALIDATOR_ONBOARDING_SUB_PATHS.ADVISORIES}`,
+  `${PATHS.VALIDATOR_ONBOARDING}/${VALIDATOR_ONBOARDING_SUB_PATHS.VALIDATOR_SETUP}`,
+  `${PATHS.VALIDATOR_ONBOARDING}/${VALIDATOR_ONBOARDING_SUB_PATHS.VALIDATOR_SETUP_INSTALL}`,
+  `${PATHS.VALIDATOR_ONBOARDING}/${VALIDATOR_ONBOARDING_SUB_PATHS.CONSENSUS_SELECTION}`,
+  `${PATHS.VALIDATOR_ONBOARDING}/${VALIDATOR_ONBOARDING_SUB_PATHS.ACTIVATION_VALIDATOR_SETUP}`,
+  `${PATHS.VALIDATOR_ONBOARDING}/${VALIDATOR_ONBOARDING_SUB_PATHS.CLIENT_SETUP}`,
+  `${PATHS.VALIDATOR_ONBOARDING}/${VALIDATOR_ONBOARDING_SUB_PATHS.KEY_GENERATION}`,
+  `${PATHS.VALIDATOR_ONBOARDING}/${VALIDATOR_ONBOARDING_SUB_PATHS.RECOVERY_PHRASE}`,
+  `${PATHS.VALIDATOR_ONBOARDING}/`,
+  `${PATHS.VALIDATOR_ONBOARDING}/${VALIDATOR_ONBOARDING_SUB_PATHS.ACTIVATION}`,
+  PATHS.DASHBOARD,
 ]
 export const ADVISORY_TOPICS: {
   [key: string]: string[]

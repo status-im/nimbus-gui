@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { withRouter } from 'storybook-addon-react-router-v6'
 
 import LinkWithArrow from './LinkWithArrow'
-import { LANDING } from '../../constants'
+import { PATHS } from '../../constants'
 
 const meta = {
   title: 'General/LinkWithArrow',
@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>
 export const LeftArrow: Story = {
   args: {
     text: 'Learn More',
-    to: LANDING,
+    to: PATHS.LANDING,
     arrowLeft: true,
   },
 }
@@ -28,7 +28,7 @@ export const LeftArrow: Story = {
 export const RightArrow: Story = {
   args: {
     text: 'Learn More',
-    to: LANDING,
+    to: PATHS.LANDING,
     arrowRight: true,
   },
 }
@@ -36,7 +36,7 @@ export const RightArrow: Story = {
 export const BothArrows: Story = {
   args: {
     text: 'Learn More',
-    to: LANDING,
+    to: PATHS.LANDING,
     arrowLeft: true,
     arrowRight: true,
   },
@@ -45,14 +45,14 @@ export const BothArrows: Story = {
 export const WithoutArrow: Story = {
   args: {
     text: 'Learn More',
-    to: LANDING,
+    to: PATHS.LANDING,
   },
 }
 
 export const WithoutText: Story = {
   args: {
     text: '',
-    to: LANDING,
+    to: PATHS.LANDING,
     arrowLeft: true,
   },
 }
@@ -60,7 +60,7 @@ export const WithoutText: Story = {
 export const WithLongText: Story = {
   args: {
     text: 'This is a very long text that is used to test the component.',
-    to: LANDING,
+    to: PATHS.LANDING,
     arrowLeft: true,
   },
 }
@@ -68,7 +68,7 @@ export const WithLongText: Story = {
 export const WithCustomStyle: Story = {
   args: {
     text: 'Learn More',
-    to: LANDING,
+    to: PATHS.LANDING,
     arrowLeft: true,
     style: { backgroundColor: 'lightgray' },
   },

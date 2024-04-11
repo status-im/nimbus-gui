@@ -16,7 +16,7 @@ import ConnectViaIP from './ConnectViaIP/ConnectViaIP'
 import { RootState } from '../../redux/store'
 import { isAddressValid, isPortValid } from '../../utilities'
 import { setNavigationFlow } from '../../redux/NavigationFlow/slice'
-import { DEVICE_HEALTH_CHECK_ONBOARDING } from '../../constants'
+import { PATHS } from '../../constants'
 
 const PairDevice = () => {
   const dispatch = useDispatch()
@@ -45,7 +45,7 @@ const PairDevice = () => {
 
   const continueHandler = () => {
     dispatch(setNavigationFlow('pairDevice'))
-    navigate(DEVICE_HEALTH_CHECK_ONBOARDING)
+    navigate(PATHS.DEVICE_HEALTH_CHECK_ONBOARDING)
   }
 
   const isDisabledButton = () => {

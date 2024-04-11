@@ -4,7 +4,7 @@ import { Text } from '@status-im/components'
 import OverviewCard from './OverviewCard'
 import LinkWithArrow from '../../../components/General/LinkWithArrow'
 import OverviewWrapper from './OverviewWrapper'
-import { LANDING } from '../../../constants'
+import { PATHS } from '../../../constants'
 import styles from './overview.module.css'
 
 const Overview = () => {
@@ -33,7 +33,7 @@ const Overview = () => {
         </Text>
         <LinkWithArrow
           text="Learn More"
-          to={LANDING}
+          to={PATHS.LANDING}
           arrowRight={true}
           style={{ marginBottom: '1rem', fontSize: '13px' }}
         />

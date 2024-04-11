@@ -3,7 +3,7 @@ import { DashboardIcon } from '@status-im/icons'
 import { withRouter } from 'storybook-addon-react-router-v6'
 
 import LeftSidebarIconButton from './LeftSidebarIconButton'
-import { DASHBOARD } from '../../../constants'
+import { PATHS } from '../../../constants'
 
 const meta = {
   title: 'General/LeftSidebarIconButton',
@@ -21,13 +21,13 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     icon: <DashboardIcon size={20} />,
-    path: DASHBOARD,
+    path: PATHS.DASHBOARD,
   },
 }
 
 export const Disabled: Story = {
   args: {
     icon: <DashboardIcon size={20} />,
-    path: DASHBOARD,
+    path: PATHS.DASHBOARD,
   },
 }

@@ -6,9 +6,9 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import {
   FORM_STEPS,
-  KEY_GENERATION,
+  PATHS,
   STEPPER_PATHS,
-  VALIDATOR_ONBOARDING,
+  VALIDATOR_ONBOARDING_SUB_PATHS,
 } from '../../../constants'
 import { useNavigate } from 'react-router-dom'
 import { RootState } from '../../../redux/store'
@@ -72,10 +72,13 @@ const BackButton = () => {
   const handleNavigateBack = () => {
     if (activeStep === 7 && isConfirmPhraseStage) {
       dispatch(setIsConfirmPhraseStage(false))
-      navigate(`${VALIDATOR_ONBOARDING}/${KEY_GENERATION}`)
+      navigate(
+        `${PATHS.VALIDATOR_ONBOARDING}/${VALIDATOR_ONBOARDING_SUB_PATHS.KEY_GENERATION}`,
+      )
       return
     } else {
-      let prevPath = STEPPER_PATHS[activeStep - 1] || `${VALIDATOR_ONBOARDING}/`
+      let prevPath =
+        STEPPER_PATHS[activeStep - 1] || `${PATHS.VALIDATOR_ONBOARDING}/`
       navigate(prevPath)
     }
   }

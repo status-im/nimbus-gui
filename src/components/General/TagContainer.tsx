@@ -3,7 +3,7 @@ import { XStack } from 'tamagui'
 import { AddSmallIcon, SwapIcon } from '@status-im/icons'
 import { useNavigate } from 'react-router'
 
-import { CREATE_LOCAL_NODE, PAIR_DEVICE } from '../../constants'
+import { PATHS } from '../../constants'
 
 export type SelectedTag = 'Pair' | 'Create'
 
@@ -15,12 +15,12 @@ const TAGS = [
   {
     label: 'Pair',
     icon: SwapIcon,
-    path: PAIR_DEVICE,
+    path: PATHS.PAIR_DEVICE,
   },
   {
     label: 'Create',
     icon: AddSmallIcon,
-    path: CREATE_LOCAL_NODE,
+    path: PATHS.CREATE_LOCAL_NODE,
   },
 ]
 

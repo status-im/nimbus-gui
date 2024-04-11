@@ -10,7 +10,7 @@ import Header from '../../components/General/Header'
 import Titles from '../../components/General/Titles'
 import CreateAvatar from '../../components/General/CreateAvatar/CreateAvatar'
 import { setNavigationFlow } from '../../redux/NavigationFlow/slice'
-import { DEVICE_HEALTH_CHECK_ONBOARDING } from '../../constants'
+import { PATHS } from '../../constants'
 
 const CreateLocalNode = () => {
   const [autoConnectChecked, setAutoConnectChecked] = useState(false)
@@ -19,7 +19,7 @@ const CreateLocalNode = () => {
 
   const handleContinue = () => {
     dispatch(setNavigationFlow('createNode'))
-    navigate(DEVICE_HEALTH_CHECK_ONBOARDING)
+    navigate(PATHS.DEVICE_HEALTH_CHECK_ONBOARDING)
   }
   return (
     <PageWrapperShadow

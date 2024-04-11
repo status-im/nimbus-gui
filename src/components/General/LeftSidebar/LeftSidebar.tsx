@@ -14,12 +14,7 @@ import { Tooltip } from '@status-im/components'
 import { useMemo } from 'react'
 
 import LeftSidebarIconButton from './LeftSidebarIconButton'
-import {
-  DASHBOARD,
-  DEVICE_HEALTH_CHECK,
-  LOGS,
-  VALIDATOR_MANAGEMENT,
-} from '../../../constants'
+import { PATHS } from '../../../constants'
 
 const LeftSidebar = () => {
   const isNotification = true
@@ -27,12 +22,12 @@ const LeftSidebar = () => {
   const LEFT_SIDEBAR_ICONS = useMemo(
     () => [
       {
-        path: DASHBOARD,
+        path: PATHS.DASHBOARD,
         tooltip: 'Dashboard',
         icon: <DashboardIcon size={20} />,
       },
       {
-        path: VALIDATOR_MANAGEMENT,
+        path: PATHS.VALIDATOR_MANAGEMENT,
         tooltip: 'Validator Management',
         icon: <SpeedIcon size={20} />,
       },
@@ -42,11 +37,11 @@ const LeftSidebar = () => {
         icon: <ChartIcon size={20} />,
       },
       {
-        path: DEVICE_HEALTH_CHECK,
+        path: PATHS.DEVICE_HEALTH_CHECK,
         tooltip: 'Device Health Check',
         icon: <HeartIcon size={20} />,
       },
-      { path: LOGS, tooltip: 'Logs', icon: <CodeBlockIcon size={20} /> },
+      { path: PATHS.LOGS, tooltip: 'Logs', icon: <CodeBlockIcon size={20} /> },
       {
         path: '/community',
         tooltip: 'Community',

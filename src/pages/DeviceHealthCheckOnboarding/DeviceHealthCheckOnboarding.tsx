@@ -13,7 +13,7 @@ import HealthInfoSection from '../../components/General/HealthInfoSection'
 import DeviceMemory from '../../components/Charts/DeviceMemoryHealth'
 import DeviceNetworkHealth from '../../components/Charts/DeviceNetworkHealth'
 import { RootState } from '../../redux/store'
-import { DEVICE_SYNC_STATUS, VALIDATOR_ONBOARDING } from '../../constants'
+import { PATHS } from '../../constants'
 import styles from './deviceHealthCheckOnboarding.module.css'
 
 const DeviceHealthCheckOnboarding = () => {
@@ -27,7 +27,9 @@ const DeviceHealthCheckOnboarding = () => {
 
   const continueHandler = () => {
     navigate(
-      navigateFlow === 'pairDevice' ? DEVICE_SYNC_STATUS : VALIDATOR_ONBOARDING,
+      navigateFlow === 'pairDevice'
+        ? PATHS.DEVICE_SYNC_STATUS
+        : PATHS.VALIDATOR_ONBOARDING,
     )
   }
   return (
