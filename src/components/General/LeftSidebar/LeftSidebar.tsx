@@ -7,9 +7,11 @@ import {
   CommunitiesIcon,
   ActivityCenterIcon,
   SettingsIcon,
+  NotificationsUnreadIcon,
 } from '@status-im/icons'
 import { Stack, YStack } from 'tamagui'
 import { Tooltip } from '@status-im/components'
+import { useMemo } from 'react'
 
 import LeftSidebarIconButton from './LeftSidebarIconButton'
 import {
@@ -19,46 +21,55 @@ import {
   VALIDATOR_MANAGEMENT,
 } from '../../../constants'
 
-export const LEFT_SIDEBAR_ICONS = [
-  {
-    path: DASHBOARD,
-    tooltip: 'Dashboard',
-    icon: <DashboardIcon size={20} />,
-  },
-  {
-    path: VALIDATOR_MANAGEMENT,
-    tooltip: 'Validator Management',
-    icon: <SpeedIcon size={20} />,
-  },
-  {
-    path: '/advanced-analytics',
-    tooltip: 'Advanced Analytics',
-    icon: <ChartIcon size={20} />,
-  },
-  {
-    path: DEVICE_HEALTH_CHECK,
-    tooltip: 'Device Health Check',
-    icon: <HeartIcon size={20} />,
-  },
-  { path: LOGS, tooltip: 'Logs', icon: <CodeBlockIcon size={20} /> },
-  {
-    path: '/community',
-    tooltip: 'Community',
-    icon: <CommunitiesIcon size={20} />,
-  },
-  {
-    path: '/notifications',
-    tooltip: 'Notifications',
-    icon: <ActivityCenterIcon size={20} />,
-  },
-  {
-    path: '/settings',
-    tooltip: 'Settings',
-    icon: <SettingsIcon size={20} />,
-  },
-]
-
 const LeftSidebar = () => {
+  const isNotification = true
+
+  const LEFT_SIDEBAR_ICONS = useMemo(
+    () => [
+      {
+        path: DASHBOARD,
+        tooltip: 'Dashboard',
+        icon: <DashboardIcon size={20} />,
+      },
+      {
+        path: VALIDATOR_MANAGEMENT,
+        tooltip: 'Validator Management',
+        icon: <SpeedIcon size={20} />,
+      },
+      {
+        path: '/advanced-analytics',
+        tooltip: 'Advanced Analytics',
+        icon: <ChartIcon size={20} />,
+      },
+      {
+        path: DEVICE_HEALTH_CHECK,
+        tooltip: 'Device Health Check',
+        icon: <HeartIcon size={20} />,
+      },
+      { path: LOGS, tooltip: 'Logs', icon: <CodeBlockIcon size={20} /> },
+      {
+        path: '/community',
+        tooltip: 'Community',
+        icon: <CommunitiesIcon size={20} />,
+      },
+      {
+        path: '/notifications',
+        tooltip: 'Notifications',
+        icon: isNotification ? (
+          <NotificationsUnreadIcon size={20} />
+        ) : (
+          <ActivityCenterIcon size={20} />
+        ),
+      },
+      {
+        path: '/settings',
+        tooltip: 'Settings',
+        icon: <SettingsIcon size={20} />,
+      },
+    ],
+    [isNotification],
+  )
+
   return (
     <YStack
       space={'$3'}
