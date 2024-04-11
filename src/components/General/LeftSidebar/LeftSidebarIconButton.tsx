@@ -1,20 +1,20 @@
-import { IconButton } from '@status-im/components'
+import { IconAvatarProps, IconButton } from '@status-im/components'
 import { Stack } from 'tamagui'
 import { Link } from 'react-router-dom'
 
 type IconButtonWithDotProps = {
-  iconEl: any
-  isDotOn: boolean
-  isDisabled?: boolean
+  iconEl: IconAvatarProps['icon']
   path: string
 }
 
-const LeftSidebarIconButton = ({
-  iconEl,
-  isDotOn,
-  isDisabled,
-  path,
-}: IconButtonWithDotProps) => {
+const LeftSidebarIconButton = ({ iconEl, path }: IconButtonWithDotProps) => {
+  const isDotOn = path === '/notifications'
+  const isDisabled =
+    path === '/advanced-analytics' ||
+    path === '/community' ||
+    path === '/notifications' ||
+    path === '/settings'
+
   return (
     <Link to={path}>
       <IconButton

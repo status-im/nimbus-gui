@@ -9,12 +9,10 @@ import {
   SettingsIcon,
 } from '@status-im/icons'
 import { Stack, YStack } from 'tamagui'
-import { useSelector } from 'react-redux'
 import { Tooltip } from '@status-im/components'
 
 import LeftSidebarIconButton from './LeftSidebarIconButton'
-import { SidebarButton } from '../../../redux/LeftSidebar/slice'
-import { RootState } from '../../../redux/store'
+import { LEFT_SIDEBAR_ICONS } from '../../../constants'
 
 const iconMap = {
   '/dashboard': <DashboardIcon size={20} />,
@@ -28,8 +26,6 @@ const iconMap = {
 }
 
 const LeftSidebar = () => {
-  const buttons = useSelector((state: RootState) => state.leftSidebar.buttons)
-
   return (
     <YStack
       space={'$3'}
@@ -39,14 +35,12 @@ const LeftSidebar = () => {
         border: '1px solid #F0F2F5',
       }}
     >
-      {buttons.map((button: SidebarButton) => (
-        <Tooltip side="right" content={button.tooltip} key={button.path}>
+      {LEFT_SIDEBAR_ICONS.map(icon => (
+        <Tooltip side="right" content={icon.tooltip} key={icon.path}>
           <Stack>
             <LeftSidebarIconButton
-              iconEl={iconMap[button.path as keyof typeof iconMap]}
-              isDotOn={button.isDotOn}
-              isDisabled={button.isDisabled}
-              path={button.path}
+              iconEl={iconMap[icon.path as keyof typeof iconMap]}
+              path={icon.path}
             />
           </Stack>
         </Tooltip>

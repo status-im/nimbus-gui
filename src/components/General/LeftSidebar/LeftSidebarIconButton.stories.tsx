@@ -20,17 +20,15 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     iconEl: <DashboardIcon size={20} />,
-    isDotOn: false,
     isDisabled: false,
     path: 'dashboard',
   },
 }
 
-export const DotOn: Story = {
+export const Disabled: Story = {
   args: {
     iconEl: <DashboardIcon size={20} />,
-    isDotOn: true,
-    isDisabled: false,
+    isDisabled: true,
     path: 'dashboard',
   },
 }
