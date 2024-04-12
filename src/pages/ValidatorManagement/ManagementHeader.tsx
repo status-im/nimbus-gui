@@ -1,6 +1,6 @@
 import { XStack } from 'tamagui'
 
-import TitleLogo from '../../components/Logos/NimbusLogo'
+import NimbusLogo from '../../components/Logos/NimbusLogo'
 import SyncStatusCard from '../../components/General/SyncStatusCard'
 import styles from './validatorManagement.module.css'
 
@@ -13,7 +13,7 @@ const ManagementHeader = () => {
         alignItems: 'center',
       }}
     >
-      <TitleLogo subtitle="Validator Management" />
+      <NimbusLogo subtitle="Validator Management" />
       <XStack space={'$2'}>
         <div className={styles['sync-status-card-container-first']}>
           <SyncStatusCard

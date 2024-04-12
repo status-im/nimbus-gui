@@ -6,7 +6,7 @@ import LogsTerminal from './LogsTerminal'
 import LogsSumCard from './LogsSumCard'
 import SupportCard from './SupportCard'
 import HeaderBtns from './HeaderBtns'
-import TitleLogo from '../../components/Logos/NimbusLogo'
+import NimbusLogo from '../../components/Logos/NimbusLogo'
 import SidebarsWrapper from '../../components/PageWrappers/SidebarsWrapper'
 import { RootState } from '../../redux/store'
 
@@ -35,7 +35,7 @@ const LogsPage = () => {
         className={'transparent-scrollbar'}
       >
         <XStack justifyContent="space-between" width={'100%'} flexWrap="wrap">
-          <TitleLogo />
+          <NimbusLogo />
           <HeaderBtns
             dropdownMenuItem={dropdownMenuItem}
             setDropdownMenuItem={setDropdownMenuItem}

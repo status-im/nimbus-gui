@@ -6,7 +6,7 @@ import CPUCard from './CPULoad/CPUCard'
 import ConsensusUptimeCard from './ConsensusUptime/ConsensusUptimeCard'
 import ExecutionUptime from './ExecutionUptime/ExecutionUptime'
 import DeviceUptime from './DeviceUptime/DeviceUptime'
-import TitleLogo from '../../components/Logos/NimbusLogo'
+import NimbusLogo from '../../components/Logos/NimbusLogo'
 import StorageCard from './StorageCard/StorageCard'
 import NetworkCard from './NetworkCard/NetworkCard'
 import SyncStatusCards from './SyncStatusCards/SyncStatusCards'
@@ -32,7 +32,7 @@ const Dashboard = () => {
         }}
         className={'transparent-scrollbar'}
       >
-        <TitleLogo subtitle="Node Management Dashboard" />
+        <NimbusLogo subtitle="Node Management Dashboard" />
         <Stack
           style={{
             display: 'grid',

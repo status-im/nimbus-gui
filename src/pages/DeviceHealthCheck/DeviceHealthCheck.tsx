@@ -9,7 +9,7 @@ import HealthInfoSection from '../../components/General/HealthInfoSection'
 import DeviceMemory from '../../components/Charts/DeviceMemoryHealth'
 import DeviceNetworkHealth from '../../components/Charts/DeviceNetworkHealth'
 import { RootState } from '../../redux/store'
-import TitleLogo from '../../components/Logos/NimbusLogo'
+import NimbusLogo from '../../components/Logos/NimbusLogo'
 import styles from './deviceHealthCheck.module.css'
 import SidebarsWrapper from '../../components/PageWrappers/SidebarsWrapper'
 
@@ -28,7 +28,7 @@ const DeviceHealthCheck = () => {
           width: 'calc(100% - 380px)',
         }}
       >
-        <TitleLogo subtitle="Device Health Check" />
+        <NimbusLogo subtitle="Device Health Check" />
         <div className={styles['cards-container']}>
           <DeviceStorageHealth
             storage={deviceHealthState.storage}
