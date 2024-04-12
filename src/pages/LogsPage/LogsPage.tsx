@@ -6,7 +6,7 @@ import LogsTerminal from './LogsTerminal'
 import LogsSumCard from './LogsSumCard'
 import SupportCard from './SupportCard'
 import HeaderBtns from './HeaderBtns'
-import TitleLogo from '../../components/General/TitleLogo'
+import TitleLogo from '../../components/Logos/NimbusLogo'
 import SidebarsWrapper from '../../components/PageWrappers/SidebarsWrapper'
 import { RootState } from '../../redux/store'
 

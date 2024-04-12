@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import TitleLogo from './TitleLogo'
+import NimbusLogo from './NimbusLogo'
 
 const meta = {
-  title: 'General/TitleLogo',
-  component: TitleLogo,
+  title: 'General/NimbusLogo',
+  component: NimbusLogo,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof TitleLogo>
+} satisfies Meta<typeof NimbusLogo>
 
 export default meta
 type Story = StoryObj<typeof meta>

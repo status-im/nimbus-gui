@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import TitleLogo from '../../components/General/TitleLogo'
+import TitleLogo from '../../components/Logos/NimbusLogo'
 
 const meta = {
   title: 'LogsPage/TitleLogo',

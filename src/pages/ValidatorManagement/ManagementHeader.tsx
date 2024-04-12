@@ -1,6 +1,6 @@
 import { XStack } from 'tamagui'
 
-import TitleLogo from '../../components/General/TitleLogo'
+import TitleLogo from '../../components/Logos/NimbusLogo'
 import SyncStatusCard from '../../components/General/SyncStatusCard'
 import styles from './validatorManagement.module.css'
 

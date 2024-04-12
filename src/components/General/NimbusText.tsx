@@ -1,8 +1,4 @@
-import { useNavigate } from 'react-router-dom'
-
 const NimbusText = () => {
-  const navigate = useNavigate()
-
   return (
     <svg
       width="80"
@@ -10,8 +6,6 @@ const NimbusText = () => {
       viewBox="0 0 80 17"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      style={{ cursor: 'pointer', marginLeft: '1px' }}
-      onClick={() => navigate('/')}
     >
       <g id="Nimbus">
         <path

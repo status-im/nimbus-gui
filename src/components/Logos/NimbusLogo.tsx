@@ -1,23 +1,30 @@
-import { XStack } from 'tamagui'
+import { Text } from '@status-im/components'
+import { XStack, YStack } from 'tamagui'
+import { Link } from 'react-router-dom'
 
-import BetaTag from './BetaTag'
 import NimbusLogoMark from './NimbusLogoMark'
 import NimbusText from '../General/NimbusText'
-import './NimbusLogo.css'
+import BetaTag from './BetaTag'
 
-const NimbusLogo = () => {
+type NimbusLogoProps = {
+  subtitle?: string
+}
+
+const NimbusLogo = ({ subtitle }: NimbusLogoProps) => {
   return (
-    <XStack
-      style={{
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-      }}
-      className="nimbus-logo"
-      space={'$3'}
-    >
+    <XStack space={'$3'} className={subtitle ? '' : 'nimbus-logo'}>
       <NimbusLogoMark />
-      <NimbusText />
-      <BetaTag />
+      <YStack style={{ paddingTop: '2px' }}>
+        <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <XStack space={'$3'}>
+            <NimbusText />
+            {!subtitle && <BetaTag />}
+          </XStack>
+        </Link>
+        <Text size={19} color="#647084">
+          {subtitle}
+        </Text>
+      </YStack>
     </XStack>
   )
 }

@@ -9,7 +9,7 @@ import HealthInfoSection from '../../components/General/HealthInfoSection'
 import DeviceMemory from '../../components/Charts/DeviceMemoryHealth'
 import DeviceNetworkHealth from '../../components/Charts/DeviceNetworkHealth'
 import { RootState } from '../../redux/store'
-import TitleLogo from '../../components/General/TitleLogo'
+import TitleLogo from '../../components/Logos/NimbusLogo'
 import styles from './deviceHealthCheck.module.css'
 import SidebarsWrapper from '../../components/PageWrappers/SidebarsWrapper'
 
