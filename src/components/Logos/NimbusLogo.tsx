@@ -1,6 +1,5 @@
 import { Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
-import { Link } from 'react-router-dom'
 
 import NimbusLogoMark from './NimbusLogoMark'
 import NimbusText from '../General/NimbusText'
@@ -15,12 +14,10 @@ const NimbusLogo = ({ subtitle }: NimbusLogoProps) => {
     <XStack space={'$3'} className={subtitle ? '' : 'nimbus-logo'}>
       <NimbusLogoMark />
       <YStack style={{ paddingTop: '2px' }}>
-        <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <XStack space={'$3'}>
-            <NimbusText />
-            {!subtitle && <BetaTag />}
-          </XStack>
-        </Link>
+        <XStack space={'$2'} alignItems="flex-end">
+          <NimbusText />
+          {!subtitle && <BetaTag />}
+        </XStack>
         <Text size={19} color="#647084">
           {subtitle}
         </Text>
