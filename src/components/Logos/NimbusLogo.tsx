@@ -2,6 +2,7 @@ import { XStack } from 'tamagui'
 
 import BetaTag from './BetaTag'
 import NimbusLogoMark from './NimbusLogoMark'
+import NimbusText from '../General/NimbusText'
 import './NimbusLogo.css'
 
 const NimbusLogo = () => {
@@ -15,7 +16,7 @@ const NimbusLogo = () => {
       space={'$3'}
     >
       <NimbusLogoMark />
-      <img src={'./icons/nimbus.svg'} alt="marks" />
+      <NimbusText />
       <BetaTag />
     </XStack>
   )

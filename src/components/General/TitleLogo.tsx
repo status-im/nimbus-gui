@@ -1,6 +1,8 @@
 import { Avatar, Text } from '@status-im/components'
-import { Stack, XStack, YStack } from 'tamagui'
+import { XStack, YStack } from 'tamagui'
+
 import NimbusLogoMark from '../Logos/NimbusLogoMark'
+import NimbusText from './NimbusText'
 
 type TitleLogoProps = {
   subtitle?: string
@@ -9,18 +11,16 @@ type TitleLogoProps = {
 const TitleLogo = ({ subtitle }: TitleLogoProps) => {
   return (
     <XStack space={'$2'}>
-      <Stack style={{ marginTop: '3px' }}>
-        <Avatar
-          type="icon"
-          size={48}
-          backgroundColor="white"
-          icon={<NimbusLogoMark />}
-        />
-      </Stack>
+      <Avatar
+        type="icon"
+        size={48}
+        backgroundColor="white"
+        icon={<NimbusLogoMark />}
+      />
       <YStack>
-        <Text size={27} color="#09101C" weight={'semibold'}>
-          Nimbus
-        </Text>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <NimbusText />
+        </div>
         <Text size={19} color="#647084">
           {subtitle}
         </Text>
