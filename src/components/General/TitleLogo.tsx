@@ -1,5 +1,6 @@
 import { Avatar, Text } from '@status-im/components'
 import { Stack, XStack, YStack } from 'tamagui'
+import NimbusLogoMark from '../Logos/NimbusLogoMark'
 
 type TitleLogoProps = {
   subtitle?: string
@@ -13,13 +14,7 @@ const TitleLogo = ({ subtitle }: TitleLogoProps) => {
           type="icon"
           size={48}
           backgroundColor="white"
-          icon={
-            <img
-              src={'/icons/Nimbus-black.png'}
-              alt="dashboard-logo"
-              style={{ width: '100%' }}
-            />
-          }
+          icon={<NimbusLogoMark />}
         />
       </Stack>
       <YStack>
