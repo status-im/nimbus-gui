@@ -10,7 +10,7 @@ const NimbusText = () => {
       viewBox="0 0 80 17"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      style={{ cursor: 'pointer' }}
+      style={{ cursor: 'pointer', marginLeft: '1px' }}
       onClick={() => navigate('/')}
     >
       <g id="Nimbus">

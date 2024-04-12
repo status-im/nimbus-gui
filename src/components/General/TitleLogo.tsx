@@ -1,4 +1,4 @@
-import { Avatar, Text } from '@status-im/components'
+import { Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
 
 import NimbusLogoMark from '../Logos/NimbusLogoMark'
@@ -11,16 +11,9 @@ type TitleLogoProps = {
 const TitleLogo = ({ subtitle }: TitleLogoProps) => {
   return (
     <XStack space={'$2'}>
-      <Avatar
-        type="icon"
-        size={48}
-        backgroundColor="white"
-        icon={<NimbusLogoMark />}
-      />
+      <NimbusLogoMark />
       <YStack>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <NimbusText />
-        </div>
+        <NimbusText />
         <Text size={19} color="#647084">
           {subtitle}
         </Text>
