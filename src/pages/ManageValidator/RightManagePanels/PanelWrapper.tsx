@@ -32,7 +32,7 @@ const PanelWrapper = ({ children, title }: PanelWrapperProps) => {
           style={{
             content: {
               borderRadius: '12px',
-              width: '70%',
+              width: '75%',
               margin: '0 auto',
               scrollbarWidth: 'thin',
               scrollbarColor: 'transparent transparent',
