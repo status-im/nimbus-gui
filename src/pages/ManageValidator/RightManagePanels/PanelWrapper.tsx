@@ -31,6 +31,8 @@ const PanelWrapper = ({ children, title }: PanelWrapperProps) => {
           borderRadius: '12px',
           width: '70%',
           margin: '0 auto',
+          scrollbarWidth: 'thin',
+          scrollbarColor: 'transparent transparent',
         },
         overlay: {
           zIndex: 2,
