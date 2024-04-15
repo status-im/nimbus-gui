@@ -1,7 +1,7 @@
 import { Text } from '@status-im/components'
 import { ExpandRsIcon } from '@status-im/icons'
 import { useState } from 'react'
-import ReactModal from 'react-modal'
+import Modal from 'react-modal'
 import { useNavigate, useParams } from 'react-router-dom'
 import { XStack, YStack } from 'tamagui'
 
@@ -23,7 +23,7 @@ const PanelWrapper = ({ children, title }: PanelWrapperProps) => {
   }
 
   return (
-    <ReactModal
+    <Modal
       isOpen={isModalOpen}
       onRequestClose={closeModal}
       style={{
@@ -52,7 +52,7 @@ const PanelWrapper = ({ children, title }: PanelWrapperProps) => {
         </XStack>
         {children}
       </YStack>
-    </ReactModal>
+    </Modal>
   )
 }
 
