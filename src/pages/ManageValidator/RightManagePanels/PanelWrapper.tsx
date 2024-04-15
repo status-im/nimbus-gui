@@ -1,7 +1,10 @@
 import { Text } from '@status-im/components'
 import { useState } from 'react'
 import ReactModal from 'react-modal'
+import { useNavigate, useParams } from 'react-router-dom'
 import { YStack } from 'tamagui'
+
+import { PATHS } from '../../../constants'
 
 type PanelWrapperProps = {
   children: React.ReactNode
@@ -10,9 +13,18 @@ type PanelWrapperProps = {
 
 const PanelWrapper = ({ children, title }: PanelWrapperProps) => {
   const [isModalOpen, setIsModalOpen] = useState(true)
+  const navigate = useNavigate()
+  const { validatorName } = useParams()
+
+  const closeModal = () => {
+    setIsModalOpen(false)
+    navigate(`${PATHS.MANAGE_VALIDATOR}/${validatorName}`)
+  }
+
   return (
     <ReactModal
       isOpen={isModalOpen}
+      onRequestClose={closeModal}
       style={{
         content: {
           borderRadius: '12px',
