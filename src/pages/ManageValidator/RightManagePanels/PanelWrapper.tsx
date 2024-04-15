@@ -42,16 +42,16 @@ const PanelWrapper = ({ children, title }: PanelWrapperProps) => {
             },
           }}
         >
-          <PanelContent title={title} closeModal={closeModal}>
+          <PanelContent
+            title={title}
+            closeModal={closeModal}
+            isModalWidth={isModalWidth}
+          >
             {children}
           </PanelContent>
         </Modal>
       ) : (
-        <div>
-          <PanelContent title={title} closeModal={closeModal}>
-            {children}
-          </PanelContent>
-        </div>
+        <PanelContent title={title}>{children}</PanelContent>
       )}
     </>
   )
