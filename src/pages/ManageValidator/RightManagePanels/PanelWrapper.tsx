@@ -1,8 +1,9 @@
 import { Text } from '@status-im/components'
+import { ExpandRsIcon } from '@status-im/icons'
 import { useState } from 'react'
 import ReactModal from 'react-modal'
 import { useNavigate, useParams } from 'react-router-dom'
-import { YStack } from 'tamagui'
+import { XStack, YStack } from 'tamagui'
 
 import { PATHS } from '../../../constants'
 
@@ -37,9 +38,16 @@ const PanelWrapper = ({ children, title }: PanelWrapperProps) => {
       }}
     >
       <YStack space={'$3'} style={{ padding: '30px', alignItems: 'start' }}>
-        <Text size={19} weight={'semibold'}>
-          {title}
-        </Text>
+        <XStack style={{ width: '100%', justifyContent: 'space-between' }}>
+          <Text size={19} weight={'semibold'}>
+            {title}
+          </Text>
+          <ExpandRsIcon
+            size={20}
+            style={{ cursor: 'pointer' }}
+            onClick={closeModal}
+          />
+        </XStack>
         {children}
       </YStack>
     </ReactModal>
