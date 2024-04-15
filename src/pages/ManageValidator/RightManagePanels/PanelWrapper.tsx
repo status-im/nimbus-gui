@@ -13,6 +13,16 @@ const PanelWrapper = ({ children, title }: PanelWrapperProps) => {
   return (
     <ReactModal
       isOpen={isModalOpen}
+      style={{
+        content: {
+          borderRadius: '12px',
+          width: '70%',
+          margin: '0 auto',
+        },
+        overlay: {
+          zIndex: 2,
+        },
+      }}
     >
       <YStack space={'$3'} style={{ padding: '30px', alignItems: 'start' }}>
         <Text size={19} weight={'semibold'}>
