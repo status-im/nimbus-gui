@@ -1,11 +1,10 @@
-import { Text } from '@status-im/components'
-import { ExpandRsIcon } from '@status-im/icons'
 import { useState } from 'react'
 import Modal from 'react-modal'
 import { useNavigate, useParams } from 'react-router-dom'
-import { XStack, YStack } from 'tamagui'
 
 import { PATHS } from '../../../constants'
+import { useWindowSize } from '../../../hooks/useWindowSize'
+import PanelContent from './PanelContent'
 
 type PanelWrapperProps = {
   children: React.ReactNode
@@ -16,6 +15,8 @@ const PanelWrapper = ({ children, title }: PanelWrapperProps) => {
   const [isModalOpen, setIsModalOpen] = useState(true)
   const navigate = useNavigate()
   const { validatorName } = useParams()
+  const { width } = useWindowSize()
+  const isModalWidth = width < 1160
 
   const closeModal = () => {
     setIsModalOpen(false)
@@ -23,36 +24,36 @@ const PanelWrapper = ({ children, title }: PanelWrapperProps) => {
   }
 
   return (
-    <Modal
-      isOpen={isModalOpen}
-      onRequestClose={closeModal}
-      style={{
-        content: {
-          borderRadius: '12px',
-          width: '70%',
-          margin: '0 auto',
-          scrollbarWidth: 'thin',
-          scrollbarColor: 'transparent transparent',
-        },
-        overlay: {
-          zIndex: 2,
-        },
-      }}
-    >
-      <YStack space={'$3'} style={{ padding: '30px', alignItems: 'start' }}>
-        <XStack style={{ width: '100%', justifyContent: 'space-between' }}>
-          <Text size={19} weight={'semibold'}>
-            {title}
-          </Text>
-          <ExpandRsIcon
-            size={20}
-            style={{ cursor: 'pointer' }}
-            onClick={closeModal}
-          />
-        </XStack>
-        {children}
-      </YStack>
-    </Modal>
+    <>
+      {isModalWidth ? (
+        <Modal
+          isOpen={isModalOpen}
+          onRequestClose={closeModal}
+          style={{
+            content: {
+              borderRadius: '12px',
+              width: '70%',
+              margin: '0 auto',
+              scrollbarWidth: 'thin',
+              scrollbarColor: 'transparent transparent',
+            },
+            overlay: {
+              zIndex: 2,
+            },
+          }}
+        >
+          <PanelContent title={title} closeModal={closeModal}>
+            {children}
+          </PanelContent>
+        </Modal>
+      ) : (
+        <div>
+          <PanelContent title={title} closeModal={closeModal}>
+            {children}
+          </PanelContent>
+        </div>
+      )}
+    </>
   )
 }
 
