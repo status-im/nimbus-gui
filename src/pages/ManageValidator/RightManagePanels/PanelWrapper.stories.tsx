@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import PanelWrapper from './PanelWrapper'
 import MigratePanel from './MigratePanel'
@@ -6,6 +7,7 @@ import MigratePanel from './MigratePanel'
 const meta = {
   title: 'ManageValidator/PanelWrapper',
   component: PanelWrapper,
+  decorators: [withRouter()],
   tags: ['autodocs'],
 } satisfies Meta<typeof PanelWrapper>
 
