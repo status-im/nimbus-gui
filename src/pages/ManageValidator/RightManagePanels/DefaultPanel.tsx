@@ -3,10 +3,11 @@ import { YStack } from 'tamagui'
 
 import Icon from '../../../components/General/Icon'
 import { useWindowSize } from '../../../hooks/useWindowSize'
+import { MODAL_WIDTH } from '../../../constants'
 
 const DefaultPanel = () => {
   const { width } = useWindowSize()
-  const isModalWidth = width < 1160
+  const isModalWidth = width < MODAL_WIDTH
 
   return (
     <>

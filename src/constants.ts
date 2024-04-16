@@ -256,6 +256,7 @@ export const VALIDATORS_DATA = [
 // Manage Validator
 export const VALIDATOR_SETTINGS_CARDS_TITLES = ['Exit', 'Migrate', 'Advanced']
 export const VALIDATOR_SETTING_ADVANCED_OPTIONS = ['Deposit']
+export const MODAL_WIDTH = 1160
 
 export const MANAGE_VALIDATOR_TABS = [
   'Overview',

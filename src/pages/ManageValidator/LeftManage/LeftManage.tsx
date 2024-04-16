@@ -11,11 +11,12 @@ import ValidatorDataTabs from './ManageValidatorTable/ValidatorDataTabs'
 import ValidatorBlueSection from './ValidatorBlueSection/ValidatorBlueSection'
 import Footer from './PageParts/Footer'
 import { useWindowSize } from '../../../hooks/useWindowSize'
+import { MODAL_WIDTH } from '../../../constants'
 
 const LeftManage = () => {
   const [isVisibleWarning, setIsVisibleWarning] = useState(true)
   const { width } = useWindowSize()
-  const isModalWidth = width < 1160
+  const isModalWidth = width < MODAL_WIDTH
 
   return (
     <YStack

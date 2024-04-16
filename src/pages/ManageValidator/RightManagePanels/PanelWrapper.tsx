@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Modal from 'react-modal'
 import { useNavigate, useParams } from 'react-router-dom'
 
-import { PATHS } from '../../../constants'
+import { MODAL_WIDTH, PATHS } from '../../../constants'
 import { useWindowSize } from '../../../hooks/useWindowSize'
 import PanelContent from './PanelContent'
 
@@ -16,7 +16,7 @@ const PanelWrapper = ({ children, title }: PanelWrapperProps) => {
   const navigate = useNavigate()
   const { validatorName } = useParams()
   const { width } = useWindowSize()
-  const isModalWidth = width < 1160
+  const isModalWidth = width < MODAL_WIDTH
 
   const closeModal = () => {
     setIsModalOpen(false)
