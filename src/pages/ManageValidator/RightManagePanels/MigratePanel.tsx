@@ -5,6 +5,7 @@ import { useState } from 'react'
 
 import KeystoreBackupsCard from '../../../components/General/KeystoreBackupsCard'
 import PanelWrapper from './PanelWrapper'
+import PanelImage from './PanelImage'
 
 const MigratePanel = () => {
   const [isVisibleWarning, setIsVisibleWarning] = useState(true)
@@ -18,27 +19,12 @@ const MigratePanel = () => {
 
   return (
     <PanelWrapper title={'Migrate Validator'}>
-      <YStack
-        space={'$3'}
-        style={{
-          alignItems: 'center',
-          textAlign: 'center',
-          marginBottom: '6px',
-        }}
-      >
-        <img
-          src="/images/migrate.png"
-          alt="migrate"
-          style={{ width: '300px' }}
-        />
-        <div style={{ width: '73%' }}>
-          <Text size={15}>
-            You are about to Migrate your validator it is not possible for you
+      <PanelImage
+        imagePath={'migrate.png'}
+        text="You are about to Migrate your validator it is not possible for you
             to revert this action! Please make sure you understand the
-            consequences.
-          </Text>
-        </div>
-      </YStack>
+            consequences."
+      />
       <KeystoreBackupsCard isSelected={true} />
       <YStack space={'$2'} width={'100%'}>
         <Text size={13} color={'#647084'} weight={'semibold'}>

@@ -2,6 +2,7 @@ import { Button, Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
 
 import PanelWrapper from './PanelWrapper'
+import PanelImage from './PanelImage'
 
 const ExitPanel = () => {
   const exitQueue = 603
@@ -17,27 +18,12 @@ const ExitPanel = () => {
           {exitQueue}
         </Text>
       </YStack>
-      <YStack
-        space={'$3'}
-        style={{
-          alignItems: 'center',
-          textAlign: 'center',
-          marginBottom: '6px',
-        }}
-      >
-        <img
-          src="/images/exit-validator.png"
-          alt="exit validator"
-          style={{ width: '300px' }}
-        />
-        <div style={{ width: '73%' }}>
-          <Text size={15} color="#2A4AF5">
-            You are about to Exit your validator it is not possible for you to
+      <PanelImage
+        imagePath="exit-validator.png"
+        text=" You are about to Exit your validator it is not possible for you to
             revert this action! Please make sure you understand the
-            consequences.
-          </Text>
-        </div>
-      </YStack>
+            consequences."
+      />
       <XStack
         style={{ width: '100%', justifyContent: 'end', marginTop: '6px' }}
       >
