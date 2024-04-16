@@ -41,6 +41,7 @@ const PanelWrapper = ({ children, title }: PanelWrapperProps) => {
               zIndex: 2,
             },
           }}
+          ariaHideApp={false}
         >
           <PanelContent
             title={title}
