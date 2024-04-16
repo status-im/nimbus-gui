@@ -16,7 +16,10 @@ const PanelContent = ({
   isModalWidth,
 }: PanelContentProps) => {
   return (
-    <YStack space={'$3'} style={{ padding: '30px', alignItems: 'start' }}>
+    <YStack
+      space={'$3'}
+      style={{ padding: isModalWidth ? 0 : '30px', alignItems: 'start' }}
+    >
       <XStack style={{ width: '100%', justifyContent: 'space-between' }}>
         <Text size={19} weight={'semibold'}>
           {title}
