@@ -10,14 +10,17 @@ import ValidatorGraffiti from './ValidatorGraffiti/ValidatorGraffiti'
 import ValidatorDataTabs from './ManageValidatorTable/ValidatorDataTabs'
 import ValidatorBlueSection from './ValidatorBlueSection/ValidatorBlueSection'
 import Footer from './PageParts/Footer'
+import { useWindowSize } from '../../../hooks/useWindowSize'
 
 const LeftManage = () => {
   const [isVisibleWarning, setIsVisibleWarning] = useState(true)
+  const { width } = useWindowSize()
+  const isModalWidth = width < 1160
 
   return (
     <YStack
-      width={'50%'}
-      maxWidth="50%"
+      width={isModalWidth ? '100%' : '50%'}
+      maxWidth={isModalWidth ? '100%' : '50%'}
       flexGrow={1}
       space={'$3'}
       style={{ borderRight: '1px solid #DCE0E5' }}
