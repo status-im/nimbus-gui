@@ -25,6 +25,7 @@ const SyncStatusCard = ({
         borderRadius: '10.1px',
         borderWidth: '0.5px',
         flex: '1',
+        minWidth: '200px',
       }}
     >
       <XStack space={'$2'} alignItems="center" justifyContent={'space-between'}>
