@@ -1,4 +1,4 @@
-import { XStack, Stack, Text as TextTam, YStack } from 'tamagui'
+import { XStack, Stack, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 
 import PairedDeviceCard from './PairedDeviceCard'
@@ -35,7 +35,7 @@ const ConsensusSelection = () => {
           />
         </div>
       </div>
-      <YStack>
+      <YStack marginBottom={'40px'}>
         <Stack style={{ marginBottom: '4px' }}>
           <Text size={13} color="#647084">
             Consensus Client Detection
@@ -50,15 +50,8 @@ const ConsensusSelection = () => {
           correct device and try again.
         </Text>
       </YStack>
-
-      <TextTam
-        fontSize={19}
-        style={{ marginLeft: 0, marginTop: '50px', marginBottom: '25px' }}
-      >
-        Install Consensus client
-      </TextTam>
-
-      <XStack space={'$8'} flexWrap="wrap">
+      <Text size={27}>Install Consensus client</Text>
+      <XStack space={'$8'} marginTop={'20px'} flexWrap="wrap">
         <ConsensusClientCard name={clients[0].name} icon={clients[0].icon} />
         <YStack width={windowSize.width < 780 ? '100%' : '70%'} space={'$4'}>
           <Text size={19}>The resource efficient Ethereum Clients.</Text>
