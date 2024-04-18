@@ -1,9 +1,3 @@
-@media (max-width: 590px) {
-  .sync-status-card-container-second {
-    display: none;
-  }
-}
-
 .tabs-container {
   width: 100%;
   border: 1px solid #e7eaee;
@@ -35,6 +29,33 @@
   align-items: center;
   justify-content: start;
   gap: 8px;
+}
+
+.header-container {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sync-status-cards-container {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+@media (max-width: 790px) {
+  .sync-status-cards-container {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 550px) {
+  .sync-status-cards-container {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 600px) {

@@ -5,8 +5,8 @@ import ManagementTabs from './ManagementTabs'
 import AddCardsContainer from '../../components/General/AddCards/AddCardsContainer'
 import ManagementHeader from './ManagementHeader'
 import ManagementCard from './ManagementCard'
-import styles from './validatorManagement.module.css'
 import SidebarsWrapper from '../../components/PageWrappers/SidebarsWrapper'
+import styles from './validatorManagement.module.css'
 
 const ValidatorManagement = () => {
   return (
