@@ -33,3 +33,9 @@
     width: 100%;
   }
 }
+
+@media (max-width: 710px) {
+  .header-container {
+    margin-bottom: 12px;
+  }
+}
