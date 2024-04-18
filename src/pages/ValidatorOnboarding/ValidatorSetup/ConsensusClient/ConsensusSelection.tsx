@@ -5,11 +5,9 @@ import PairedDeviceCard from './PairedDeviceCard'
 import ConsensusClientCard from './ConsensusClientCard'
 import LinkWithArrow from '../../../../components/General/LinkWithArrow'
 import SyncStatusCard from '../../../../components/General/SyncStatusCard'
-import { useWindowSize } from '../../../../hooks/useWindowSize'
 import styles from './consensusSelection.module.css'
 
 const ConsensusSelection = () => {
-  const windowSize = useWindowSize()
   const selectedClient = 'Nimbus'
 
   const clients = [
@@ -53,7 +51,7 @@ const ConsensusSelection = () => {
       <Text size={27}>Install Consensus client</Text>
       <XStack space={'$8'} marginTop={'20px'} flexWrap="wrap">
         <ConsensusClientCard name={clients[0].name} icon={clients[0].icon} />
-        <YStack width={windowSize.width < 780 ? '100%' : '70%'} space={'$4'}>
+        <YStack className={styles['card-description-texts']} space={'$4'}>
           <Text size={19}>The resource efficient Ethereum Clients.</Text>
           <Text size={15}>
             {selectedClient} is a client implementation for both execution and

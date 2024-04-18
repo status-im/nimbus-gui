@@ -18,8 +18,18 @@
   gap: 8px;
 }
 
+.card-description-texts {
+  width: 70%;
+}
+
 @media (max-width: 710px) {
   .header-cards-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 780px) {
+  .card-description-texts {
     width: 100%;
   }
 }
