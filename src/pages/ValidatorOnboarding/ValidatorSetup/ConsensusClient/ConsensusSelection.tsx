@@ -2,10 +2,9 @@ import { XStack, Stack, Text as TextTam, YStack } from 'tamagui'
 import { Text } from '@status-im/components'
 
 import PairedDeviceCard from './PairedDeviceCard'
-import ConsensusGaugeCard from './ConsensusGaugeCard'
 import ConsensusClientCard from './ConsensusClientCard'
 import LinkWithArrow from '../../../../components/General/LinkWithArrow'
-
+import SyncStatusCard from '../../../../components/General/SyncStatusCard'
 import { useWindowSize } from '../../../../hooks/useWindowSize'
 
 const ConsensusSelection = () => {
@@ -42,16 +41,14 @@ const ConsensusSelection = () => {
           }}
         >
           <PairedDeviceCard />
-
-          <ConsensusGaugeCard
-            color="blue"
-            synced={134879}
+          <SyncStatusCard
+            synced={123.524}
+            total={172.503}
             title="Execution Sync Status"
-            total={150000}
+            color="#2a4af5"
           />
         </div>
       </div>
-
       <YStack mb={'50px'}>
         <Stack style={{ marginBottom: '4px' }}>
           <Text size={13} color="#647084">
