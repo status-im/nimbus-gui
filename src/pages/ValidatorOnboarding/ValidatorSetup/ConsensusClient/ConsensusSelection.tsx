@@ -21,20 +21,25 @@ const ConsensusSelection = () => {
 
   return (
     <YStack style={{ width: '100%', padding: '32px' }} minHeight={'65vh'}>
-      <XStack
-        justifyContent={'space-between'}
-        alignItems={'center'}
-        mb={'30px'}
-        flexWrap="wrap"
+      <div
+        style={{
+          width: '100%',
+          justifyContent: 'space-between',
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '8px',
+        }}
       >
         <Text size={27} weight={'semibold'}>
           Client Setup
         </Text>
-        <XStack
-          space={'$2'}
-          flexWrap={windowSize.width < 735 ? 'wrap' : 'nowrap'}
-          marginTop={windowSize.width < 735 ? '20px' : 0}
-          width={windowSize.width < 580 ? '100%' : 'auto'}
+        <div
+          style={{
+            display: 'flex',
+            gap: '8px',
+            flexWrap: 'wrap',
+            minWidth: windowSize.width < 771 ? '100%' : '',
+          }}
         >
           <PairedDeviceCard />
 
@@ -44,8 +49,8 @@ const ConsensusSelection = () => {
             title="Execution Sync Status"
             total={150000}
           />
-        </XStack>
-      </XStack>
+        </div>
+      </div>
 
       <YStack mb={'50px'}>
         <Stack style={{ marginBottom: '4px' }}>
