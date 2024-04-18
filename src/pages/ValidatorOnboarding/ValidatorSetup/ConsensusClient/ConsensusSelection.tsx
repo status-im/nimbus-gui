@@ -7,15 +7,15 @@ import LinkWithArrow from '../../../../components/General/LinkWithArrow'
 import SyncStatusCard from '../../../../components/General/SyncStatusCard'
 import styles from './consensusSelection.module.css'
 
-const ConsensusSelection = () => {
-  const selectedClient = 'Nimbus'
+const clients = [
+  {
+    name: 'Nimbus',
+    icon: '/icons/nimbus-disabled.svg',
+  },
+]
 
-  const clients = [
-    {
-      name: selectedClient,
-      icon: '/icons/nimbus-disabled.svg',
-    },
-  ]
+const ConsensusSelection = () => {
+  const selectedClient = clients[0]
 
   return (
     <YStack className={styles['main-container']}>
@@ -50,15 +50,18 @@ const ConsensusSelection = () => {
       </YStack>
       <Text size={27}>Install Consensus client</Text>
       <XStack space={'$8'} marginTop={'20px'} flexWrap="wrap">
-        <ConsensusClientCard name={clients[0].name} icon={clients[0].icon} />
+        <ConsensusClientCard
+          name={selectedClient.name}
+          icon={selectedClient.icon}
+        />
         <YStack className={styles['card-description-texts']} space={'$4'}>
           <Text size={19}>The resource efficient Ethereum Clients.</Text>
           <Text size={15}>
-            {selectedClient} is a client implementation for both execution and
-            consensus layers that strives to be as lightweight as possible in
-            terms of resources used. This allows it to perform well on embedded
-            systems, resource-restricted devices -- including Raspberry Pis --
-            and multi-purpose servers.
+            {selectedClient.name} is a client implementation for both execution
+            and consensus layers that strives to be as lightweight as possible
+            in terms of resources used. This allows it to perform well on
+            embedded systems, resource-restricted devices -- including Raspberry
+            Pis -- and multi-purpose servers.
           </Text>
           <Text size={19} weight={'semibold'}>
             <LinkWithArrow
