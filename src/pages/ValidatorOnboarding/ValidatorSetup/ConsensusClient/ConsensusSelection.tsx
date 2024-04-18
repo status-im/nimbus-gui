@@ -49,7 +49,7 @@ const ConsensusSelection = () => {
           />
         </div>
       </div>
-      <YStack mb={'50px'}>
+      <YStack>
         <Stack style={{ marginBottom: '4px' }}>
           <Text size={13} color="#647084">
             Consensus Client Detection
