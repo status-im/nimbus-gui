@@ -1,0 +1,25 @@
+.main-container {
+  width: 100%;
+  padding: 32px;
+  min-height: 65vh;
+}
+
+.header-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.header-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 710px) {
+  .header-cards-container {
+    width: 100%;
+  }
+}

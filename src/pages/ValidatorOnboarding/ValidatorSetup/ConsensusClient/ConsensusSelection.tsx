@@ -6,6 +6,7 @@ import ConsensusClientCard from './ConsensusClientCard'
 import LinkWithArrow from '../../../../components/General/LinkWithArrow'
 import SyncStatusCard from '../../../../components/General/SyncStatusCard'
 import { useWindowSize } from '../../../../hooks/useWindowSize'
+import styles from './consensusSelection.module.css'
 
 const ConsensusSelection = () => {
   const windowSize = useWindowSize()
@@ -19,27 +20,12 @@ const ConsensusSelection = () => {
   ]
 
   return (
-    <YStack style={{ width: '100%', padding: '32px' }} minHeight={'65vh'}>
-      <div
-        style={{
-          width: '100%',
-          justifyContent: 'space-between',
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '8px',
-        }}
-      >
+    <YStack className={styles['main-container']}>
+      <div className={styles['header-container']}>
         <Text size={27} weight={'semibold'}>
           Client Setup
         </Text>
-        <div
-          style={{
-            display: 'flex',
-            gap: '8px',
-            flexWrap: 'wrap',
-            minWidth: windowSize.width < 771 ? '100%' : '',
-          }}
-        >
+        <div className={styles['header-cards-container']}>
           <PairedDeviceCard />
           <SyncStatusCard
             synced={123.524}
