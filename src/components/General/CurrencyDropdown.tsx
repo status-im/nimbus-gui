@@ -86,7 +86,7 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
     <YStack space={'$2'}>
       <XStack style={{ justifyContent: 'space-between' }}>
         <Text size={15} weight={'semibold'}>
-          {isCurrencyLoading ? LOADING : currency}
+          {isCurrencyLoading ? '' : currency}
         </Text>
         <DropdownMenu onOpenChange={changeIsOpenHandler}>
           <Button
