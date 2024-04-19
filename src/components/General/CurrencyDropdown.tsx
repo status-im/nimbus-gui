@@ -6,7 +6,7 @@ import { XStack, YStack } from 'tamagui'
 import { RootState } from '../../redux/store'
 import { formatNumbersWithComa } from '../../utilities'
 import ChevronIcon from './ChevronIcon'
-import { LOADING } from '../../constants'
+import { COIN_GECKO_API_KEY, LOADING } from '../../constants'
 
 type CurrencyDropdownProps = {
   depositAmount: number
@@ -40,7 +40,7 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
         {
           headers: {
             accept: 'application/json',
-            'x-cg-demo-api-key': 'CG-FPQgFNTF26FzyCA7vtbaSh5U',
+            'x-cg-demo-api-key': COIN_GECKO_API_KEY,
           },
         },
       )
@@ -60,7 +60,7 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
         {
           headers: {
             accept: 'application/json',
-            'x-cg-demo-api-key': 'CG-FPQgFNTF26FzyCA7vtbaSh5U',
+            'x-cg-demo-api-key': COIN_GECKO_API_KEY,
           },
         },
       )

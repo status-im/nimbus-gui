@@ -176,6 +176,7 @@ export const LINUX = 'Linux'
 
 export const INITIAL_CURRENCY = 'usd'
 export const LOADING = 'Loading...'
+export const COIN_GECKO_API_KEY = 'CG-FPQgFNTF26FzyCA7vtbaSh5U'
 
 export const DEPOSIT_SUBTITLE =
   'Connect you Wallet to stake required ETH for new validators'
