@@ -6,6 +6,7 @@ import { XStack, YStack } from 'tamagui'
 import { RootState } from '../../redux/store'
 import { formatNumbersWithComa } from '../../utilities'
 import ChevronIcon from './ChevronIcon'
+import { LOADING } from '../../constants'
 
 type CurrencyDropdownProps = {
   depositAmount: number
@@ -15,6 +16,9 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const [supportedCurrencies, setSupportedCurrencies] = useState([])
   const [currentCurrencyAmount, setCurrentCurrencyAmount] = useState(0)
+  const [isCurrencyLoading, setIsCurrencyLoading] = useState(false)
+  const [isSupportedCurrenciesLoading, setIsSupportedCurrenciesLoading] =
+    useState(false)
   const currency = useSelector((state: RootState) => state.currency)
   const dispatch = useDispatch()
 
@@ -30,6 +34,7 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
 
   const fetchCurrencyPrice = async () => {
     try {
+      setIsCurrencyLoading(true)
       const response = await fetch(
         `https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=${currency}`,
         {
@@ -43,6 +48,8 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
       setCurrentCurrencyAmount(data.ethereum[currency])
     } catch (error) {
       console.error(error)
+    } finally {
+      setIsCurrencyLoading(false)
     }
   }
 
@@ -62,6 +69,8 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
       setSupportedCurrencies(newSupportedCurrencies)
     } catch (error) {
       console.error(error)
+    } finally {
+      setIsSupportedCurrenciesLoading(false)
     }
   }
 
@@ -77,7 +86,7 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
     <YStack space={'$2'}>
       <XStack style={{ justifyContent: 'space-between' }}>
         <Text size={15} weight={'semibold'}>
-          {currency}
+          {isCurrencyLoading ? LOADING : currency}
         </Text>
         <DropdownMenu onOpenChange={changeIsOpenHandler}>
           <Button
@@ -86,18 +95,24 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
             icon={<ChevronIcon isOpen={isOpen} />}
           />
           <DropdownMenu.Content width={63} side="bottom" zIndex={999}>
-            {supportedCurrencies.map(currency => (
-              <DropdownMenu.Item
-                key={currency}
-                label={currency}
-                onSelect={() => changeCurrencyHandler(currency)}
-              />
-            ))}
+            {isSupportedCurrenciesLoading ? (
+              <DropdownMenu.Item label={LOADING} onSelect={() => {}} />
+            ) : (
+              supportedCurrencies.map(currency => (
+                <DropdownMenu.Item
+                  key={currency}
+                  label={currency}
+                  onSelect={() => changeCurrencyHandler(currency)}
+                />
+              ))
+            )}
           </DropdownMenu.Content>
         </DropdownMenu>
       </XStack>
       <Text size={27} weight={'semibold'}>
-        {formatNumbersWithComa(totalPrice)} {currency}
+        {isCurrencyLoading
+          ? LOADING
+          : `${formatNumbersWithComa(totalPrice)} ${currency}`}
       </Text>
     </YStack>
   )
