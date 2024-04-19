@@ -106,6 +106,11 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
                 />
               ))
             )}
+            {/* Attribution required for Demo (Beta)*/}
+            <DropdownMenu.Item
+              label={'Data provided by CoinGecko'}
+              onSelect={() => {}}
+            />
           </DropdownMenu.Content>
         </DropdownMenu>
       </XStack>
