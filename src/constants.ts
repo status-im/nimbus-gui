@@ -174,11 +174,8 @@ export const MAC = 'MacOS'
 export const WINDOWS = 'Windows'
 export const LINUX = 'Linux'
 
-// for now, this will be constant values
-export const CURRENCIES = {
-  USD: 1583.42,
-  EUR: 1323.61,
-}
+export const INITIAL_CURRENCY = 'usd'
+
 export const DEPOSIT_SUBTITLE =
   'Connect you Wallet to stake required ETH for new validators'
 export const CLIENT_SETUP_SUBTITLE =
