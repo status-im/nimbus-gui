@@ -3,7 +3,6 @@ import { Button, DropdownMenu, Text } from '@status-im/components'
 import { useDispatch, useSelector } from 'react-redux'
 import { XStack, YStack } from 'tamagui'
 
-import { CURRENCIES } from '../../constants'
 import { RootState } from '../../redux/store'
 import { formatNumbersWithComa } from '../../utilities'
 import ChevronIcon from './ChevronIcon'
@@ -14,9 +13,11 @@ type CurrencyDropdownProps = {
 
 const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
   const [isOpen, setIsOpen] = useState(false)
-  const dispatch = useDispatch()
+  const [supportedCurrencies, setSupportedCurrencies] = useState([])
+  const [currentCurrencyAmount, setCurrentCurrencyAmount] = useState(0)
   const currency = useSelector((state: RootState) => state.currency)
   const totalPrice = price * CURRENCIES[currency as keyof typeof CURRENCIES]
+  const dispatch = useDispatch()
 
   const changeIsOpenHandler = (isOpen: boolean) => {
     setIsOpen(isOpen)
@@ -39,7 +40,7 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
             icon={<ChevronIcon isOpen={isOpen} />}
           />
           <DropdownMenu.Content width={63} side="bottom" zIndex={999}>
-            {Object.keys(CURRENCIES).map(currency => (
+            {supportedCurrencies.map(currency => (
               <DropdownMenu.Item
                 key={currency}
                 label={currency}
