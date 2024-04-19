@@ -94,7 +94,14 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
             size={24}
             icon={<ChevronIcon isOpen={isOpen} />}
           />
-          <DropdownMenu.Content width={63} side="bottom" zIndex={999}>
+          <DropdownMenu.Content
+            width={63}
+            side="bottom"
+            zIndex={999}
+            style={{ overflowY: 'auto' }}
+            height={190}
+            className={'transparent-scrollbar'}
+          >
             {isSupportedCurrenciesLoading ? (
               <DropdownMenu.Item label={LOADING} onSelect={() => {}} />
             ) : (
