@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button, DropdownMenu, Text } from '@status-im/components'
 import { useDispatch, useSelector } from 'react-redux'
 import { XStack, YStack } from 'tamagui'
@@ -19,6 +19,27 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
   const totalPrice = price * CURRENCIES[currency as keyof typeof CURRENCIES]
   const dispatch = useDispatch()
 
+  useEffect(() => {
+    fetchCurrencyPrice()
+  }, [currency])
+
+  const fetchCurrencyPrice = async () => {
+    try {
+      const response = await fetch(
+        `https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=${currency}`,
+        {
+          headers: {
+            accept: 'application/json',
+            'x-cg-demo-api-key': 'CG-FPQgFNTF26FzyCA7vtbaSh5U',
+          },
+        },
+      )
+      const data = await response.json()
+      setCurrentCurrencyAmount(data.ethereum[currency])
+    } catch (error) {
+      console.error(error)
+    }
+  }
   const changeIsOpenHandler = (isOpen: boolean) => {
     setIsOpen(isOpen)
   }
