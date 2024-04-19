@@ -106,11 +106,6 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
                 />
               ))
             )}
-            {/* Attribution required for Demo (Beta)*/}
-            <DropdownMenu.Item
-              label={'Data provided by CoinGecko'}
-              onSelect={() => {}}
-            />
           </DropdownMenu.Content>
         </DropdownMenu>
       </XStack>
@@ -119,6 +114,8 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
           ? LOADING
           : `${formatNumbersWithComa(totalPrice)} ${currency}`}
       </Text>
+      {/* Attribution required for Demo (Beta)*/}
+      <Text size={11}>Data provided by CoinGecko</Text>
     </YStack>
   )
 }
