@@ -19,6 +19,11 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
   const dispatch = useDispatch()
 
   const totalPrice = depositAmount * currentCurrencyAmount
+
+  useEffect(() => {
+    fetchSupportedCurrencies()
+  }, [])
+
   useEffect(() => {
     fetchCurrencyPrice()
   }, [currency])
@@ -40,6 +45,26 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
       console.error(error)
     }
   }
+
+  const fetchSupportedCurrencies = async () => {
+    try {
+      const response = await fetch(
+        'https://api.coingecko.com/api/v3/simple/supported_vs_currencies',
+        {
+          headers: {
+            accept: 'application/json',
+            'x-cg-demo-api-key': 'CG-FPQgFNTF26FzyCA7vtbaSh5U',
+          },
+        },
+      )
+
+      const newSupportedCurrencies = await response.json()
+      setSupportedCurrencies(newSupportedCurrencies)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   const changeIsOpenHandler = (isOpen: boolean) => {
     setIsOpen(isOpen)
   }
