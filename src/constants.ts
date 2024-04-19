@@ -175,6 +175,7 @@ export const WINDOWS = 'Windows'
 export const LINUX = 'Linux'
 
 export const INITIAL_CURRENCY = 'usd'
+export const LOADING = 'Loading...'
 
 export const DEPOSIT_SUBTITLE =
   'Connect you Wallet to stake required ETH for new validators'
