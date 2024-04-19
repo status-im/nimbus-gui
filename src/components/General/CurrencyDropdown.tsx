@@ -16,9 +16,9 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
   const [supportedCurrencies, setSupportedCurrencies] = useState([])
   const [currentCurrencyAmount, setCurrentCurrencyAmount] = useState(0)
   const currency = useSelector((state: RootState) => state.currency)
-  const totalPrice = price * CURRENCIES[currency as keyof typeof CURRENCIES]
   const dispatch = useDispatch()
 
+  const totalPrice = depositAmount * currentCurrencyAmount
   useEffect(() => {
     fetchCurrencyPrice()
   }, [currency])
