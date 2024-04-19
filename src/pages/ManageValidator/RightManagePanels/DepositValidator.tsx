@@ -44,7 +44,7 @@ const DepositValidator = () => {
           onChangeText={changeDepositAmountHandler}
         />
       </YStack>
-      <CurrencyDropdown price={Number(depositAmount)} />
+      <CurrencyDropdown depositAmount={Number(depositAmount)} />
     </XStack>
   )
 }

@@ -60,7 +60,7 @@ const ValidatorsMenuWithPrice = ({
             </Text>
           </Stack>
         </YStack>
-        <CurrencyDropdown price={totalETH} />
+        <CurrencyDropdown depositAmount={totalETH} />
       </XStack>
     </ResponsiveStack>
   )

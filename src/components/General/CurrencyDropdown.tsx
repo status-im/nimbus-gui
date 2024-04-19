@@ -9,10 +9,10 @@ import { formatNumbersWithComa } from '../../utilities'
 import ChevronIcon from './ChevronIcon'
 
 type CurrencyDropdownProps = {
-  price: number
+  depositAmount: number
 }
 
-const CurrencyDropdown = ({ price }: CurrencyDropdownProps) => {
+const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const dispatch = useDispatch()
   const currency = useSelector((state: RootState) => state.currency)
