@@ -101,14 +101,14 @@ ul li {
   font-size: 15px;
 }
 .transparent-scrollbar::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 6px;
 }
 
 .transparent-scrollbar::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  height: 8px;
+  height: 6px;
 }
 
 .transparent-scrollbar::-webkit-scrollbar-thumb:hover {
