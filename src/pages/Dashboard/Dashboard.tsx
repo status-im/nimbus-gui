@@ -65,18 +65,18 @@ const Dashboard = () => {
             }}
           >
             <YStack space="$3">
-              <XStack space="$2" width={'100%'}>
+              <XStack space="$3" width={'100%'}>
                 <ConsensusUptimeCard />
                 <ExecutionUptime />
               </XStack>
               <DeviceUptime />
             </YStack>
             <YStack space={'$3'}>
-              <XStack space={'$4'}>
+              <XStack space={'$3'}>
                 <StorageCard maxStorage={100} storage={182} />
                 <CPUCard load={[12, 31, 3, 2, 24, 98]} />
               </XStack>
-              <XStack space="$4">
+              <XStack space="$3">
                 <MemoryCard
                   currentMemory={[21, 33, 3, 42, 35]}
                   maxMemory={50}
@@ -98,7 +98,7 @@ const DashboardLayout = (width: number) => {
   return (
     <Stack width={'100%'} space="$3">
       <YStack space="$3">
-        <Stack space="$2" width={'100%'}>
+        <Stack space="$3" width={'100%'}>
           <ConsensusUptimeCard />
           <ExecutionUptime />
         </Stack>
@@ -108,7 +108,7 @@ const DashboardLayout = (width: number) => {
         style={{
           display: 'grid',
           gridTemplateColumns: width < 1240 ? '1fr 1fr' : '1fr 1fr 1fr 1fr',
-          gap: '8px',
+          gap: '15px',
         }}
       >
         <StorageCard maxStorage={100} storage={82} />
