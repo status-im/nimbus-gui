@@ -37,7 +37,7 @@ const Dashboard = () => {
           style={{
             display: 'grid',
             gridTemplateColumns: width < 1400 ? '1fr' : '1fr 1fr',
-            gap: '15px',
+            gap: '14px',
             gridAutoFlow: 'row',
             width: '100%',
           }}
@@ -56,38 +56,27 @@ const Dashboard = () => {
         {width < 1400 ? (
           DashboardLayout(width)
         ) : (
-          <Stack
+          <div
             style={{
               display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: '15px',
+              gridTemplateColumns: 'repeat(4, 1fr)', // Four columns, each taking up an equal portion of the available space
+              gap: '14px',
               width: '100%',
             }}
           >
-            <YStack space="$3">
-              <XStack space="$3" width={'100%'}>
-                <ConsensusUptimeCard />
-                <ExecutionUptime />
-              </XStack>
+            <ConsensusUptimeCard />
+            <ExecutionUptime />
+            <StorageCard maxStorage={100} storage={182} />
+            <CPUCard load={[12, 31, 3, 2, 24, 98]} />
+            <div style={{ gridColumn: 'span 2' }}>
               <DeviceUptime />
-            </YStack>
-            <YStack space={'$3'}>
-              <XStack space={'$3'}>
-                <StorageCard maxStorage={100} storage={182} />
-                <CPUCard load={[12, 31, 3, 2, 24, 98]} />
-              </XStack>
-              <XStack space="$3">
-                <MemoryCard
-                  currentMemory={[21, 33, 3, 42, 35]}
-                  maxMemory={50}
-                />
-                <NetworkCard
-                  downloadRate={[12, 31, 22, 12, 23, 23, 90]}
-                  uploadRate={[31, 22, 32, 132, 32, 45, 65]}
-                />
-              </XStack>
-            </YStack>
-          </Stack>
+            </div>
+            <MemoryCard currentMemory={[21, 33, 3, 42, 35]} maxMemory={50} />
+            <NetworkCard
+              downloadRate={[12, 31, 22, 12, 23, 23, 90]}
+              uploadRate={[31, 22, 32, 132, 32, 45, 65]}
+            />
+          </div>
         )}
       </YStack>
     </SidebarsWrapper>
@@ -108,7 +97,7 @@ const DashboardLayout = (width: number) => {
         style={{
           display: 'grid',
           gridTemplateColumns: width < 1240 ? '1fr 1fr' : '1fr 1fr 1fr 1fr',
-          gap: '15px',
+          gap: '14px',
         }}
       >
         <StorageCard maxStorage={100} storage={82} />
