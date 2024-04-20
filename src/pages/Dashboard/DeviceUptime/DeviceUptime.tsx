@@ -31,7 +31,9 @@ const DeviceUptime = ({ style }: { style?: React.CSSProperties }) => {
   }
 
   return (
-    <DashboardCardWrapper style={{ minWidth: '100px', ...style }}>
+    <DashboardCardWrapper
+      style={{ height: '156px', minWidth: '200px', ...style }}
+    >
       <YStack space={'$3'}>
         <XStack justifyContent={'space-between'}>
           <YStack>

@@ -7,7 +7,7 @@ import DashboardCardWrapper from '../DashboardCardWrapper'
 
 const ExecutionUptime = () => {
   return (
-    <DashboardCardWrapper>
+    <DashboardCardWrapper style={{ height: '156px', minWidth: '200px' }}>
       <YStack space={'$3'}>
         <YStack>
           <Text size={15} weight={'semibold'}>
