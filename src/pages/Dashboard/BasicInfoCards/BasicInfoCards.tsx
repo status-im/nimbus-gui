@@ -9,7 +9,7 @@ const BasicInfoCards = () => {
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        gap: '1vw',
+        gap: '15px',
         width: '100%',
       }}
     >
