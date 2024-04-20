@@ -37,7 +37,7 @@ const Dashboard = () => {
           style={{
             display: 'grid',
             gridTemplateColumns: width < 1400 ? '1fr' : '1fr 1fr',
-            gap: '8px',
+            gap: '15px',
             gridAutoFlow: 'row',
             width: '100%',
           }}
@@ -60,7 +60,7 @@ const Dashboard = () => {
             style={{
               display: 'grid',
               gridTemplateColumns: '1fr 1fr',
-              gap: '8px',
+              gap: '15px',
               width: '100%',
             }}
           >
