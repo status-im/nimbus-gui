@@ -8,6 +8,7 @@ type DashboardCardWrapperProps = {
   minWidth?: string
   maxWidth?: string
   maxHeight?: string
+  isErrorBorder?: boolean
 }
 
 const DashboardCardWrapper = ({
@@ -18,6 +19,7 @@ const DashboardCardWrapper = ({
   minWidth = '0',
   maxWidth,
   maxHeight,
+  isErrorBorder,
 }: DashboardCardWrapperProps) => {
   return (
     <Shadow
@@ -32,7 +34,7 @@ const DashboardCardWrapper = ({
         minWidth: minWidth,
         maxWidth: maxWidth,
         maxHeight: maxHeight,
-        border: '1px solid #E7EAEE',
+        border: isErrorBorder ? '1px solid  #D92344' : '1px solid #E7EAEE',
       }}
     >
       {children}
