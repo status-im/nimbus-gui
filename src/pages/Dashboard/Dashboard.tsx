@@ -59,7 +59,7 @@ const Dashboard = () => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)', // Four columns, each taking up an equal portion of the available space
+              gridTemplateColumns: 'repeat(4, 1fr)',
               gap: '14px',
               width: '100%',
             }}

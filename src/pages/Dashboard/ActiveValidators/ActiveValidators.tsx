@@ -3,12 +3,16 @@ import { Separator, Stack, XStack, YStack } from 'tamagui'
 
 import DashboardCardWrapper from '../DashboardCardWrapper'
 import Icon from '../../../components/General/Icon'
+
 type ActiveValidatorsProps = {
   count: number
 }
+
 const ActiveValidators = ({ count }: ActiveValidatorsProps) => {
   return (
-    <DashboardCardWrapper padding="0" height="156px" minWidth="250px">
+    <DashboardCardWrapper
+      style={{ padding: 0, height: '156px', minWidth: '250px' }}
+    >
       <img
         src="/images/validators-count.png"
         alt=""

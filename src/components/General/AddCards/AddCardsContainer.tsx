@@ -10,7 +10,7 @@ type AddCardsContainerProps = {
 
 const AddCardsContainer = ({ cardsAmount }: AddCardsContainerProps) => {
   return (
-    <DashboardCardWrapper padding="0" minWidth="50px">
+    <DashboardCardWrapper style={{ padding: 0, minWidth: '50px' }}>
       <YStack height={'100%'}>
         {Array.from({ length: cardsAmount }).map((_, index) => (
           <AddCard

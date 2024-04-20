@@ -43,9 +43,7 @@ const CPUCard = ({ load }: CPUCardProps) => {
 
   return (
     <DashboardCardWrapper
-      padding="0"
-      height="156px"
-      minWidth="200px"
+      style={{ padding: 0, height: '156px', minWidth: '250px' }}
       isErrorBorder={message === 'Poor'}
     >
       <YStack
