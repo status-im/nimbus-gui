@@ -1,14 +1,14 @@
 import { Calendar, Text } from '@status-im/components'
 import { Stack, XStack, YStack } from 'tamagui'
 import { DateRange } from 'react-day-picker'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import Icon from '../../../components/General/Icon'
 import UptimeChart from '../UptimeChart/UptimeChart'
 import DashboardCardWrapper from '../DashboardCardWrapper'
 import { getMonthIndicesFromRange } from '../../../utilities'
 
-const DeviceUptime = () => {
+const DeviceUptime = ({ style }: { style?: React.CSSProperties }) => {
   const [isCalendarVisible, setIsCalendarVisible] = useState(false)
   const [dateRange, setDateRange] = useState<DateRange>({
     from: undefined,
@@ -31,7 +31,7 @@ const DeviceUptime = () => {
   }
 
   return (
-    <DashboardCardWrapper style={{ minWidth: '100px' }}>
+    <DashboardCardWrapper style={{ minWidth: '100px', ...style }}>
       <YStack space={'$3'}>
         <XStack justifyContent={'space-between'}>
           <YStack>

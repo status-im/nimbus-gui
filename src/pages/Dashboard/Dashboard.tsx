@@ -68,9 +68,7 @@ const Dashboard = () => {
             <ExecutionUptime />
             <StorageCard maxStorage={100} storage={182} />
             <CPUCard load={[12, 31, 3, 2, 24, 98]} />
-            <div style={{ gridColumn: 'span 2' }}>
-              <DeviceUptime />
-            </div>
+            <DeviceUptime style={{ gridColumn: 'span 2' }} />
             <MemoryCard currentMemory={[21, 33, 3, 42, 35]} maxMemory={50} />
             <NetworkCard
               downloadRate={[12, 31, 22, 12, 23, 23, 90]}
