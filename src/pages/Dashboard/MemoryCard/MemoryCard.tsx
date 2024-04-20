@@ -45,7 +45,7 @@ const MemoryCard = ({ currentMemory, maxMemory }: MemoryCardProps) => {
 
   return (
     <DashboardCardWrapper
-      style={{ padding: 0, height: '156px', minWidth: '250px' }}
+      style={{ padding: 0, height: '156px', minWidth: '200px' }}
       isErrorBorder={message === 'Poor'}
     >
       <YStack
