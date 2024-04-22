@@ -4,11 +4,11 @@ import { YStack } from 'tamagui'
 import ManagementTabs from './ManagementTabs'
 import ManagementHeader from './ManagementHeader'
 import SidebarsWrapper from '../../components/PageWrappers/SidebarsWrapper'
-import styles from './validatorManagement.module.css'
 import DeviceUptime from '../Dashboard/DeviceUptime/DeviceUptime'
 import ConsensusUptimeCard from '../Dashboard/ConsensusUptime/ConsensusUptimeCard'
 import ExecutionUptime from '../Dashboard/ExecutionUptime/ExecutionUptime'
 import BasicInfoCard from '../Dashboard/BasicInfoCards/BasicInfoCard'
+import styles from './validatorManagement.module.css'
 
 const ValidatorManagement = () => {
   return (
@@ -21,21 +21,19 @@ const ValidatorManagement = () => {
         className={'transparent-scrollbar'}
       >
         <ManagementHeader />
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            width: '100%',
-            gap: '16px',
-          }}
-          className={styles['cards']}
-        >
-          <DeviceUptime />
-          <ConsensusUptimeCard />
-          <ExecutionUptime />
-          <BasicInfoCard title="Network Validators" value="498,156" />
-          <BasicInfoCard title="Queue" value="145" />
+        <div className={styles['container']}>
+          <div className={styles['column big-column']}>
+            <DeviceUptime />
+          </div>
+          <div className={styles['column small-column']}>
+            <ConsensusUptimeCard />
+            <ExecutionUptime />
+          </div>
+          <div className={styles['column small-column']}>
+            <BasicInfoCard title="Network Validators" value="498,156" />
+
+            <BasicInfoCard title="Queue" value="145" />
+          </div>
         </div>
         <Text size={27} weight={'semibold'}>
           Validators

@@ -46,6 +46,27 @@
   flex-direction: row;
 }
 
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.column {
+  flex: 1;
+  box-sizing: border-box;
+}
+.big-column {
+  flex-basis: 50%;
+}
+
+.small-column {
+  flex-basis: 25%;
+}
+
 @media (max-width: 790px) {
   .sync-status-cards-container {
     min-width: 100%;
