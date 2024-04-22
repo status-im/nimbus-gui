@@ -11,17 +11,24 @@ const ValidatorSetup = () => {
       style={{ width: '100%', padding: '26px 32px' }}
       minHeight={'65vh'}
       justifyContent={'space-between'}
+      space={'$3'}
     >
       <XStack
         justifyContent={'space-between'}
         alignItems={'center'}
         flexWrap="wrap"
-        space={'$8'}
       >
         <Text size={27} weight={'semibold'}>
           Client Setup
         </Text>
-        <PairedDeviceCard />
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+          }}
+        >
+          <PairedDeviceCard />
+        </div>
       </XStack>
       <YStack>
         <Stack style={{ marginBottom: '4px' }}>
