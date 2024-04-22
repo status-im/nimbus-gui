@@ -7,6 +7,9 @@ import ManagementHeader from './ManagementHeader'
 import ManagementCard from './ManagementCard'
 import SidebarsWrapper from '../../components/PageWrappers/SidebarsWrapper'
 import styles from './validatorManagement.module.css'
+import DeviceUptime from '../Dashboard/DeviceUptime/DeviceUptime'
+import ConsensusUptimeCard from '../Dashboard/ConsensusUptime/ConsensusUptimeCard'
+import ExecutionUptime from '../Dashboard/ExecutionUptime/ExecutionUptime'
 
 const ValidatorManagement = () => {
   return (
@@ -29,9 +32,9 @@ const ValidatorManagement = () => {
           }}
           className={styles['cards']}
         >
-          <ManagementCard />
-          <ManagementCard />
-          <AddCardsContainer cardsAmount={2} />
+          <DeviceUptime />
+          <ConsensusUptimeCard />
+          <ExecutionUptime />
         </div>
         <Text size={27} weight={'semibold'}>
           Validators
