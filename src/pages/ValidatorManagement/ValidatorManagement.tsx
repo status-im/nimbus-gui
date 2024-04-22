@@ -8,6 +8,7 @@ import styles from './validatorManagement.module.css'
 import DeviceUptime from '../Dashboard/DeviceUptime/DeviceUptime'
 import ConsensusUptimeCard from '../Dashboard/ConsensusUptime/ConsensusUptimeCard'
 import ExecutionUptime from '../Dashboard/ExecutionUptime/ExecutionUptime'
+import BasicInfoCard from '../Dashboard/BasicInfoCards/BasicInfoCard'
 
 const ValidatorManagement = () => {
   return (
@@ -33,6 +34,8 @@ const ValidatorManagement = () => {
           <DeviceUptime />
           <ConsensusUptimeCard />
           <ExecutionUptime />
+          <BasicInfoCard title="Network Validators" value="498,156" />
+          <BasicInfoCard title="Queue" value="145" />
         </div>
         <Text size={27} weight={'semibold'}>
           Validators
