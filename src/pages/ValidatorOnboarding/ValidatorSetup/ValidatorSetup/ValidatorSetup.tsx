@@ -4,6 +4,7 @@ import { Text } from '@status-im/components'
 import PairedDeviceCard from '../ConsensusClient/PairedDeviceCard'
 import LinkWithArrow from '../../../../components/General/LinkWithArrow'
 import ExecClientCards from './ExecClientCards'
+import styles from './validatorSetup.module.css'
 
 const ValidatorSetup = () => {
   return (
@@ -21,12 +22,7 @@ const ValidatorSetup = () => {
         <Text size={27} weight={'semibold'}>
           Client Setup
         </Text>
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-          }}
-        >
+        <div className={styles['paired-device-container']}>
           <PairedDeviceCard />
         </div>
       </XStack>
