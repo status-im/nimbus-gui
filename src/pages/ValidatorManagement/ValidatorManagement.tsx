@@ -21,20 +21,11 @@ const ValidatorManagement = () => {
         className={'transparent-scrollbar'}
       >
         <ManagementHeader />
-        <div className={styles['container']}>
-          <div className={styles['column big-column']}>
-            <DeviceUptime />
-          </div>
-          <div className={styles['column small-column']}>
-            <ConsensusUptimeCard />
-            <ExecutionUptime />
-          </div>
-          <div className={styles['column small-column']}>
-            <BasicInfoCard title="Network Validators" value="498,156" />
-
-            <BasicInfoCard title="Queue" value="145" />
-          </div>
-        </div>
+          <DeviceUptime style={{ height: 'auto' }} />
+              <ConsensusUptimeCard />
+              <ExecutionUptime />
+              <BasicInfoCard title="Network Validators" value="498,156" />
+              <BasicInfoCard title="Queue" value="145" />
         <Text size={27} weight={'semibold'}>
           Validators
         </Text>
