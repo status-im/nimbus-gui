@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { XStack, YStack } from 'tamagui'
 
 import { RootState } from '../../redux/store'
-import { formatNumbersWithComa } from '../../utilities'
+import { formatNumbersWithComa, getCurrencyLabel } from '../../utilities'
 import ChevronIcon from './ChevronIcon'
-import { COIN_GECKO_API_KEY, LOADING } from '../../constants'
+import { COIN_GECKO_API_KEY, LOADING, currencySymbols } from '../../constants'
 
 type CurrencyDropdownProps = {
   depositAmount: number
@@ -86,7 +86,7 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
     <YStack space={'$2'}>
       <XStack style={{ justifyContent: 'space-between' }}>
         <Text size={15} weight={'semibold'}>
-          {isCurrencyLoading ? '' : currency}
+          {isCurrencyLoading ? '' : getCurrencyLabel(currency)}
         </Text>
         <DropdownMenu onOpenChange={changeIsOpenHandler}>
           <Button
@@ -108,7 +108,7 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
               supportedCurrencies.map(currency => (
                 <DropdownMenu.Item
                   key={currency}
-                  label={currency}
+                  label={getCurrencyLabel(currency)}
                   onSelect={() => changeCurrencyHandler(currency)}
                 />
               ))
@@ -119,7 +119,7 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
       <Text size={27} weight={'semibold'}>
         {isCurrencyLoading
           ? LOADING
-          : `${formatNumbersWithComa(totalPrice)} ${currency}`}
+          : `${formatNumbersWithComa(totalPrice)} ${getCurrencyLabel(currency)} ${currencySymbols[currency]}`}
       </Text>
       {/* Attribution required for Demo (Beta)*/}
       <Text size={11}>Data provided by CoinGecko</Text>

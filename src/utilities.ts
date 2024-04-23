@@ -105,6 +105,10 @@ export const getDepositTitle = ({
   }
 }
 
+export const getCurrencyLabel = (currency: string) => {
+  return currency.toUpperCase()
+}
+
 /**
  * Asserts that a value is not null or undefined.
  *
