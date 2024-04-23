@@ -1,4 +1,5 @@
 import { LogType } from './types'
+import { assertNotNull } from './utilities'
 
 // App
 export const apiKey = '1730eff0-9d50-4382-a3fe-89f0d34a2070'
@@ -176,7 +177,9 @@ export const LINUX = 'Linux'
 
 export const INITIAL_CURRENCY = 'usd'
 export const LOADING = 'Loading...'
-export const COIN_GECKO_API_KEY = 'CG-FPQgFNTF26FzyCA7vtbaSh5U'
+export const COIN_GECKO_API_KEY = assertNotNull(
+  import.meta.env.VITE_COIN_GECKO_API_KEY,
+)
 
 export const DEPOSIT_SUBTITLE =
   'Connect you Wallet to stake required ETH for new validators'
