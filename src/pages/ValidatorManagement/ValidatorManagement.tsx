@@ -1,5 +1,5 @@
 import { Text } from '@status-im/components'
-import { YStack } from 'tamagui'
+import { XStack, YStack } from 'tamagui'
 
 import ManagementTabs from './ManagementTabs'
 import ManagementHeader from './ManagementHeader'
@@ -21,11 +21,19 @@ const ValidatorManagement = () => {
         className={'transparent-scrollbar'}
       >
         <ManagementHeader />
+        <XStack space="$4">
           <DeviceUptime style={{ height: 'auto' }} />
+          <XStack space="$4" style={{ width: '50%' }}>
+            <YStack space="$4">
               <ConsensusUptimeCard />
               <ExecutionUptime />
+            </YStack>
+            <YStack space="$4">
               <BasicInfoCard title="Network Validators" value="498,156" />
               <BasicInfoCard title="Queue" value="145" />
+            </YStack>
+          </XStack>
+        </XStack>
         <Text size={27} weight={'semibold'}>
           Validators
         </Text>
