@@ -25,9 +25,9 @@ const LineChart = ({ years, userGains }: LineChartProps) => {
         data: userGains,
         borderColor: '#1992D7',
         backgroundColor: '#f6fbfd',
-        fill: true,
         tension: 0.4,
         pointRadius: 0,
+        label: 'Balance',
       },
     ],
   }
