@@ -28,38 +28,40 @@ const SyncStatusCard = ({
         minWidth: '200px',
       }}
     >
-      <XStack space={'$2'} alignItems="center" justifyContent={'space-between'}>
-        <Stack
-          style={{
-            height: '35px',
-            width: '35px',
-          }}
-        >
-          <StandardGauge
-            data={[
-              {
-                id: title,
-                label: title,
-                value: synced,
-                color: color,
-              },
-              {
-                id: 'free',
-                label: 'free',
-                value: total - synced || 1,
-                color: '#E7EAEE',
-              },
-            ]}
-          />
-        </Stack>
-        <YStack>
-          <Text size={11} color="#84888e" weight={'semibold'}>
-            {title}
-          </Text>
-          <Text size={15} weight={'semibold'}>
-            {formatNumbersWithComa(synced)} / {formatNumbersWithComa(total)}
-          </Text>
-        </YStack>
+      <XStack alignItems="center" justifyContent={'space-between'}>
+        <XStack space={'$2'} alignItems="center">
+          <Stack
+            style={{
+              height: '35px',
+              width: '35px',
+            }}
+          >
+            <StandardGauge
+              data={[
+                {
+                  id: title,
+                  label: title,
+                  value: synced,
+                  color: color,
+                },
+                {
+                  id: 'free',
+                  label: 'free',
+                  value: total - synced || 1,
+                  color: '#E7EAEE',
+                },
+              ]}
+            />
+          </Stack>
+          <YStack>
+            <Text size={11} color="#84888e" weight={'semibold'}>
+              {title}
+            </Text>
+            <Text size={15} weight={'semibold'}>
+              {formatNumbersWithComa(synced)} / {formatNumbersWithComa(total)}
+            </Text>
+          </YStack>
+        </XStack>
         <InfoBadgeIcon
           size={20}
           color="#A1ABBD"
