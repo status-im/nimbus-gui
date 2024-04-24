@@ -22,14 +22,14 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
   const totalPrice = depositAmount * currentCurrencyAmount
 
   useEffect(() => {
-    fetchCurrencyPrice()
-  }, [currency])
+    fetchCurrencyPrice(currency)
+  }, [])
 
-  const fetchCurrencyPrice = async () => {
+  const fetchCurrencyPrice = async (newCurrency: string) => {
     try {
       setIsCurrencyLoading(true)
       const response = await fetch(
-        `https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=${currency}`,
+        `https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=${newCurrency}`,
         {
           headers: {
             accept: 'application/json',
@@ -38,7 +38,13 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
         },
       )
       const data = await response.json()
-      setCurrentCurrencyAmount(data.ethereum[currency])
+
+      if (!data.ethereum[newCurrency]) {
+        throw new Error('Currency not found')
+      }
+
+      setCurrentCurrencyAmount(data.ethereum[newCurrency])
+      dispatch({ type: 'currency/setCurrency', payload: newCurrency })
     } catch (error) {
       console.error(error)
     } finally {
@@ -50,8 +56,12 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
     setIsOpen(isOpen)
   }
 
-  const changeCurrencyHandler = (currency: string) => {
-    dispatch({ type: 'currency/setCurrency', payload: currency })
+  const changeCurrencyHandler = async (newCurrency: string) => {
+    try {
+      await fetchCurrencyPrice(newCurrency)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (
