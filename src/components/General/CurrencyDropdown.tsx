@@ -14,19 +14,12 @@ type CurrencyDropdownProps = {
 
 const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
   const [isOpen, setIsOpen] = useState(false)
-  const [supportedCurrencies, setSupportedCurrencies] = useState([])
   const [currentCurrencyAmount, setCurrentCurrencyAmount] = useState(0)
   const [isCurrencyLoading, setIsCurrencyLoading] = useState(false)
-  const [isSupportedCurrenciesLoading, setIsSupportedCurrenciesLoading] =
-    useState(false)
   const currency = useSelector((state: RootState) => state.currency)
   const dispatch = useDispatch()
 
   const totalPrice = depositAmount * currentCurrencyAmount
-
-  useEffect(() => {
-    fetchSupportedCurrencies()
-  }, [])
 
   useEffect(() => {
     fetchCurrencyPrice()
@@ -50,27 +43,6 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
       console.error(error)
     } finally {
       setIsCurrencyLoading(false)
-    }
-  }
-
-  const fetchSupportedCurrencies = async () => {
-    try {
-      const response = await fetch(
-        'https://api.coingecko.com/api/v3/simple/supported_vs_currencies',
-        {
-          headers: {
-            accept: 'application/json',
-            'x-cg-demo-api-key': COIN_GECKO_API_KEY,
-          },
-        },
-      )
-
-      const newSupportedCurrencies = await response.json()
-      setSupportedCurrencies(newSupportedCurrencies)
-    } catch (error) {
-      console.error(error)
-    } finally {
-      setIsSupportedCurrenciesLoading(false)
     }
   }
 
@@ -102,17 +74,13 @@ const CurrencyDropdown = ({ depositAmount }: CurrencyDropdownProps) => {
             height={190}
             className={'transparent-scrollbar'}
           >
-            {isSupportedCurrenciesLoading ? (
-              <DropdownMenu.Item label={LOADING} onSelect={() => {}} />
-            ) : (
-              supportedCurrencies.map(currency => (
-                <DropdownMenu.Item
-                  key={currency}
-                  label={getCurrencyLabel(currency)}
-                  onSelect={() => changeCurrencyHandler(currency)}
-                />
-              ))
-            )}
+            {Object.keys(currencySymbols).map(currency => (
+              <DropdownMenu.Item
+                key={currency}
+                label={getCurrencyLabel(currency)}
+                onSelect={() => changeCurrencyHandler(currency)}
+              />
+            ))}
           </DropdownMenu.Content>
         </DropdownMenu>
       </XStack>
