@@ -28,7 +28,15 @@ const ExecutionClientCard = ({ value, total }: ExecutionClientCardProps) => {
   ]
 
   return (
-    <Shadow variant="$1" minWidth={'150px'}>
+    <Shadow
+      variant="$1"
+      style={{
+        minWidth: '150px',
+        borderTop: '1px solid #E7EAEE',
+        borderTopLeftRadius: '16px',
+        borderTopRightRadius: '16px',
+      }}
+    >
       <YStack>
         <Stack style={{ minHeight: '90px', padding: '12px 16px' }}>
           <Text size={15} weight={'semibold'} color="#647084">
