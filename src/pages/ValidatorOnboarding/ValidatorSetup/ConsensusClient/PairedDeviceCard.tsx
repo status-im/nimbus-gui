@@ -14,21 +14,23 @@ const PairedDeviceCard = () => {
         minWidth: '200px',
       }}
     >
-      <XStack space={'$2'} alignItems="center" justifyContent={'space-between'}>
-        <Avatar
-          backgroundColor="pink"
-          type="icon"
-          size={32}
-          icon={<img src={'/icons/pepper.svg'} alt="pepper" />}
-        />
-        <YStack>
-          <Text size={13} color="#647084">
-            Paired Device
-          </Text>
-          <Text size={15} weight={'semibold'}>
-            Stake & Chips
-          </Text>
-        </YStack>
+      <XStack alignItems="center" justifyContent={'space-between'}>
+        <XStack space={'$2'} alignItems="center">
+          <Avatar
+            backgroundColor="pink"
+            type="icon"
+            size={32}
+            icon={<img src={'/icons/pepper.svg'} alt="pepper" />}
+          />
+          <YStack>
+            <Text size={13} color="#647084">
+              Paired Device
+            </Text>
+            <Text size={15} weight={'semibold'}>
+              Stake & Chips
+            </Text>
+          </YStack>
+        </XStack>
         <InfoBadgeIcon size={20} color="#A1ABBD" cursor={'pointer'} />
       </XStack>
     </BorderBox>
