@@ -1,6 +1,6 @@
 import { Text } from '@status-im/components'
 import { ChevronRightIcon } from '@status-im/icons'
-import { XStack } from 'tamagui'
+import { Stack, XStack } from 'tamagui'
 
 type BreadcrumbElementProps = {
   element: string
@@ -11,11 +11,15 @@ const BreadcrumbElement = ({
   element,
   isLastElement,
 }: BreadcrumbElementProps) => {
+  const onClickBreadcrumbElement = () => {}
+
   return (
     <XStack space={'$2'} alignItems="center">
-      <Text size={15} color={isLastElement ? '' : '#647084'}>
-        {element}
-      </Text>
+      <Stack onPress={onClickBreadcrumbElement} style={{ cursor: 'pointer' }}>
+        <Text size={15} color={isLastElement ? '' : '#647084'}>
+          {element}
+        </Text>
+      </Stack>
       {isLastElement === false && (
         <ChevronRightIcon size={20} color="#647084" />
       )}
