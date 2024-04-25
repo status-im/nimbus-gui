@@ -1,6 +1,7 @@
 import { Text } from '@status-im/components'
 import { ExpandRsIcon } from '@status-im/icons'
 import { XStack, YStack } from 'tamagui'
+import BreadcrumbBar from '../../../components/General/BreadcrumbBar/BreadcrumbBar'
 
 type PanelContentProps = {
   children: React.ReactNode
@@ -20,6 +21,13 @@ const PanelContent = ({
       space={'$3'}
       style={{ padding: isModalWidth ? 0 : '30px', alignItems: 'start' }}
     >
+      <BreadcrumbBar
+        breadcrumbList={[
+          'Validator Management',
+          'Manage Validator',
+          'Migrate Panel',
+        ]}
+      />
       <XStack style={{ width: '100%', justifyContent: 'space-between' }}>
         <Text size={19} weight={'semibold'}>
           {title}
