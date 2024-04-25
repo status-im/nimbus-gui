@@ -2,13 +2,13 @@ import { Text } from '@status-im/components'
 import { ChevronRightIcon } from '@status-im/icons'
 import { XStack } from 'tamagui'
 
-import './BreadcrumbBar.css'
+import './Breadcrumb.css'
 
 type BreadcrumbBarProps = {
   breadcrumbList: string[]
 }
 
-const BreadcrumbBar = ({ breadcrumbList }: BreadcrumbBarProps) => {
+const Breadcrumb = ({ breadcrumbList }: BreadcrumbBarProps) => {
   return (
     <nav className="breadcrumb-bar-nav">
       <ul className="breadcrumb-bar-ul">
@@ -28,4 +28,4 @@ const BreadcrumbBar = ({ breadcrumbList }: BreadcrumbBarProps) => {
   )
 }
 
-export default BreadcrumbBar
+export default Breadcrumb

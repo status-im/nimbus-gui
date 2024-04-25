@@ -1,7 +1,8 @@
 import { Text } from '@status-im/components'
 import { ExpandRsIcon } from '@status-im/icons'
 import { XStack, YStack } from 'tamagui'
-import BreadcrumbBar from '../../../components/General/BreadcrumbBar/BreadcrumbBar'
+
+import Breadcrumb from '../../../components/General/Breadcrumb/Breadcrumb'
 
 type PanelContentProps = {
   children: React.ReactNode
@@ -21,7 +22,7 @@ const PanelContent = ({
       space={'$3'}
       style={{ padding: isModalWidth ? 0 : '30px', alignItems: 'start' }}
     >
-      <BreadcrumbBar
+      <Breadcrumb
         breadcrumbList={[
           'Validator Management',
           'Manage Validator',
