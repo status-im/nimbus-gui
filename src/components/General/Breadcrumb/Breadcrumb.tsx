@@ -1,25 +1,19 @@
-import { Text } from '@status-im/components'
-import { ChevronRightIcon } from '@status-im/icons'
 import { XStack } from 'tamagui'
+import BreadcrumbElement from './BreadcrumbElement'
 
-type BreadcrumbBarProps = {
+type BreadcrumbProps = {
   breadcrumbList: string[]
 }
 
-const Breadcrumb = ({ breadcrumbList }: BreadcrumbBarProps) => {
+const Breadcrumb = ({ breadcrumbList }: BreadcrumbProps) => {
   return (
     <XStack space={'$2'} alignItems="center">
-      {breadcrumbList.map((item, index) => {
-        const isNotLast = index !== breadcrumbList.length - 1
-        return (
-          <XStack space={'$2'} alignItems="center" key={index}>
-            <Text size={15} color={isNotLast ? '#647084' : ''}>
-              {item}
-            </Text>
-            {isNotLast && <ChevronRightIcon size={20} color="#647084" />}
-          </XStack>
-        )
-      })}
+      {breadcrumbList.map((element, index) => (
+        <BreadcrumbElement
+          element={element}
+          isLastElement={index === breadcrumbList.length - 1}
+        />
+      ))}
     </XStack>
   )
 }
