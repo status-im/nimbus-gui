@@ -4,7 +4,7 @@ import DepositStepper from './DepositStepper'
 import { withRouter } from 'storybook-addon-react-router-v6'
 
 const meta = {
-  title: 'Manage Validator/DepositStepper',
+  title: 'ManageValidator/DepositStepper',
   component: DepositStepper,
   parameters: {
     layout: 'centered',

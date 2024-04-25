@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import ValidatorBalance from './ValidatorBalance'
 
 const meta = {
-  title: 'Manage Validator/ValidatorBalance',
+  title: 'ManageValidator/ValidatorBalance',
   component: ValidatorBalance,
   parameters: {
     layout: 'centered',

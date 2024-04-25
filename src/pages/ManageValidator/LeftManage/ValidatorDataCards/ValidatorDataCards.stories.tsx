@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import ValidatorDataCards from './ValidatorDataCards'
 
 const meta = {
-  title: 'Manage Validator/ValidatorDataCards',
+  title: 'ManageValidator/ValidatorDataCards',
   component: ValidatorDataCards,
   parameters: {
     layout: 'centered',

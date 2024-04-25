@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import ValidatorGraffiti from './ValidatorGraffiti'
 
 const meta = {
-  title: 'Manage Validator/ValidatorGraffiti',
+  title: 'ManageValidator/ValidatorGraffiti',
   component: ValidatorGraffiti,
   parameters: {
     layout: 'centered',

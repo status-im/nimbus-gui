@@ -4,7 +4,7 @@ import ValidatorSettingCard from './ValidatorSettingCard'
 import { withRouter } from 'storybook-addon-react-router-v6'
 
 const meta = {
-  title: 'Manage Validator/ValidatorSettingCard',
+  title: 'ManageValidator/ValidatorSettingCard',
   component: ValidatorSettingCard,
   parameters: {
     layout: 'centered',

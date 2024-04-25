@@ -4,7 +4,7 @@ import ValidatorInfo from './ValidatorInfo'
 import { withRouter } from 'storybook-addon-react-router-v6'
 
 const meta = {
-  title: 'Manage Validator/ValidatorInfo',
+  title: 'ManageValidator/ValidatorInfo',
   component: ValidatorInfo,
   parameters: {
     layout: 'centered',

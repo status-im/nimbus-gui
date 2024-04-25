@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import Header from './Header'
 
 const meta = {
-  title: 'Manage Validator/Header',
+  title: 'ManageValidator/Header',
   component: Header,
   parameters: {
     layout: 'centered',

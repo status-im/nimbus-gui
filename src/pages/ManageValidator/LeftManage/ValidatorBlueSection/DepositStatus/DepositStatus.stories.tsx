@@ -4,7 +4,7 @@ import DepositStatus from './DepositStatus'
 import { withRouter } from 'storybook-addon-react-router-v6'
 
 const meta = {
-  title: 'Manage Validator/DepositStatus',
+  title: 'ManageValidator/DepositStatus',
   component: DepositStatus,
   parameters: {
     layout: 'centered',
