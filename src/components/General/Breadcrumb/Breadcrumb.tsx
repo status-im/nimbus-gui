@@ -62,7 +62,15 @@ const Breadcrumb = () => {
         }
 
         return (
-          <NavLink key={match.pathname} to={match.pathname}>
+          <NavLink
+            key={match.pathname}
+            to={match.pathname}
+            style={{
+              textDecoration: 'none',
+              color: '#647084',
+              fontWeight: 'normal',
+            }}
+          >
             {breadcrumb}
           </NavLink>
         )
