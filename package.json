@@ -94,6 +94,7 @@
     "react-window": "^1.8.10",
     "recharts": "^2.9.0",
     "tamagui": "1.74.21",
+    "use-react-router-breadcrumbs": "^4.0.1",
     "web-bip39": "^0.0.3",
     "web3-validator": "^2.0.2"
   },
