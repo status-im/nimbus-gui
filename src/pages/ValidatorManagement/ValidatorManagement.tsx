@@ -7,10 +7,12 @@ import ManagementHeader from './ManagementHeader'
 import ManagementCard from './ManagementCard'
 import SidebarsWrapper from '../../components/PageWrappers/SidebarsWrapper'
 import styles from './validatorManagement.module.css'
+import Breadcrumb from '../../components/General/Breadcrumb/Breadcrumb'
 
 const ValidatorManagement = () => {
   return (
     <SidebarsWrapper isNotBottomPadding={true}>
+      <Breadcrumb />
       <YStack
         space="$4"
         style={{
