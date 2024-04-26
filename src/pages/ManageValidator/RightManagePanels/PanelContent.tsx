@@ -22,13 +22,7 @@ const PanelContent = ({
       space={'$3'}
       style={{ padding: isModalWidth ? 0 : '30px', alignItems: 'start' }}
     >
-      <Breadcrumb
-        breadcrumbList={[
-          'Validator Management',
-          'Manage Validator',
-          'Migrate Panel',
-        ]}
-      />
+      <Breadcrumb />
       <XStack style={{ width: '100%', justifyContent: 'space-between' }}>
         <Text size={19} weight={'semibold'}>
           {title}
