@@ -1,25 +1,37 @@
-import { Text } from '@status-im/components'
+import { NavLink } from 'react-router-dom'
+import { XStack } from 'tamagui'
 import { ChevronRightIcon } from '@status-im/icons'
-import { Stack, XStack } from 'tamagui'
+
+import { PATHS } from '../../../constants'
 
 type BreadcrumbElementProps = {
-  element: string
+  match: any
+  breadcrumb: any
   isLastElement: boolean
 }
 
 const BreadcrumbElement = ({
-  element,
+  match,
+  breadcrumb,
   isLastElement,
 }: BreadcrumbElementProps) => {
-  const onClickBreadcrumbElement = () => {}
+  if (match.pathname === `${PATHS.MANAGE_VALIDATOR}`) {
+    return
+  }
 
   return (
     <XStack space={'$2'} alignItems="center">
-      <Stack onPress={onClickBreadcrumbElement} style={{ cursor: 'pointer' }}>
-        <Text size={15} color={isLastElement ? '' : '#647084'}>
-          {element}
-        </Text>
-      </Stack>
+      <NavLink
+        key={match.pathname}
+        to={match.pathname}
+        style={{
+          textDecoration: 'none',
+          color: '#647084',
+          fontWeight: 'normal',
+        }}
+      >
+        {breadcrumb}
+      </NavLink>
       {isLastElement === false && (
         <ChevronRightIcon size={20} color="#647084" />
       )}

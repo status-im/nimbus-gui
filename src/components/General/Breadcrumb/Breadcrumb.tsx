@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom'
 import { XStack } from 'tamagui'
 import useBreadcrumbs, { BreadcrumbsRoute } from 'use-react-router-breadcrumbs'
 import {
@@ -6,6 +5,7 @@ import {
   VALIDATOR_ONBOARDING_SUB_PATHS,
   MANAGE_VALIDATOR_SUB_PATHS,
 } from '../../../constants'
+import BreadcrumbElement from './BreadcrumbElement'
 
 const routes = [
   { path: PATHS.LANDING },
@@ -56,25 +56,13 @@ const Breadcrumb = () => {
 
   return (
     <XStack space={'$2'} alignItems="center">
-      {breadcrumbs.map(({ match, breadcrumb }) => {
-        if (match.pathname === `${PATHS.MANAGE_VALIDATOR}`) {
-          return
-        }
-
-        return (
-          <NavLink
-            key={match.pathname}
-            to={match.pathname}
-            style={{
-              textDecoration: 'none',
-              color: '#647084',
-              fontWeight: 'normal',
-            }}
-          >
-            {breadcrumb}
-          </NavLink>
-        )
-      })}
+      {breadcrumbs.map(({ match, breadcrumb }, index) => (
+        <BreadcrumbElement
+          match={match}
+          breadcrumb={breadcrumb}
+          isLastElement={index === breadcrumbs.length - 1}
+        />
+      ))}
     </XStack>
   )
 }
