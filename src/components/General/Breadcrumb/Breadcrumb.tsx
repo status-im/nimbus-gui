@@ -1,5 +1,14 @@
 import { XStack } from 'tamagui'
+import useBreadcrumbs, { BreadcrumbsRoute } from 'use-react-router-breadcrumbs'
+import { NavLink } from 'react-router-dom'
+
 import BreadcrumbElement from './BreadcrumbElement'
+import {
+  MANAGE_VALIDATOR_SUB_PATHS,
+  PATHS,
+  VALIDATOR_ONBOARDING_SUB_PATHS,
+} from '../../../constants'
+
 const CustomPropsBreadcrumb = ({ someProp }: any) => <span>{someProp}</span>
 
 const routes = [
@@ -75,14 +84,14 @@ const routes = [
 ]
 
 const Breadcrumb = () => {
+  const breadcrumbs = useBreadcrumbs(routes as BreadcrumbsRoute<string>[])
 
   return (
     <XStack space={'$2'} alignItems="center">
-      {breadcrumbList.map((element, index) => (
-        <BreadcrumbElement
-          element={element}
-          isLastElement={index === breadcrumbList.length - 1}
-        />
+      {breadcrumbs.map(({ match, breadcrumb }) => (
+        <NavLink key={match.pathname} to={match.pathname}>
+          {breadcrumb}
+        </NavLink>
       ))}
     </XStack>
   )
