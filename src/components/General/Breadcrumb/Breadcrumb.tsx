@@ -36,10 +36,17 @@ const routes = [
   {
     path: `${PATHS.MANAGE_VALIDATOR}/:validatorName`,
     children: [
-      { path: MANAGE_VALIDATOR_SUB_PATHS.DEFAULT },
+      {
+        path: MANAGE_VALIDATOR_SUB_PATHS.DEFAULT,
+        breadcrumb: 'Manage Validator',
+      },
       { path: MANAGE_VALIDATOR_SUB_PATHS.EXIT },
-      { path: MANAGE_VALIDATOR_SUB_PATHS.MIGRATE },
-      { path: MANAGE_VALIDATOR_SUB_PATHS.DEPOSIT },
+      {
+        path: MANAGE_VALIDATOR_SUB_PATHS.MIGRATE,
+      },
+      {
+        path: MANAGE_VALIDATOR_SUB_PATHS.DEPOSIT,
+      },
     ],
   },
 ]
