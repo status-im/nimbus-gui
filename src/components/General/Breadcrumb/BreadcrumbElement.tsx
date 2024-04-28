@@ -26,7 +26,7 @@ const BreadcrumbElement = ({
         to={match.pathname}
         style={{
           textDecoration: 'none',
-          color: '#647084',
+          color: isLastElement ? '#09101C' : '#647084',
           fontWeight: 'normal',
         }}
       >
