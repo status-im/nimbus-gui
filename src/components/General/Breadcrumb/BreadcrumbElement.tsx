@@ -16,11 +16,11 @@ const BreadcrumbElement = ({
   isLastElement,
 }: BreadcrumbElementProps) => {
   if (match.pathname === `${PATHS.MANAGE_VALIDATOR}`) {
-    return
+    return null
   }
 
   return (
-    <XStack space={'$2'} alignItems="center">
+    <XStack space={'$2'} alignItems="flex-end">
       <NavLink
         key={match.pathname}
         to={match.pathname}
