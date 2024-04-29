@@ -25,7 +25,7 @@ import {
   apiKey,
   PATHS,
   VALIDATOR_ONBOARDING_SUB_PATHS,
-  MANAGE_VALIDATOR_SUB_PATHS,
+  VALIDATOR_MANAGEMENT,
 } from './constants'
 import './App.css'
 
@@ -139,10 +139,10 @@ const router = createBrowserRouter([
     path: `${PATHS.VALIDATOR_MANAGEMENT}/:validatorName`,
     element: <ManageValidator />,
     children: [
-      { path: MANAGE_VALIDATOR_SUB_PATHS.DEFAULT, element: <DefaultPanel /> },
-      { path: MANAGE_VALIDATOR_SUB_PATHS.EXIT, element: <ExitPanel /> },
-      { path: MANAGE_VALIDATOR_SUB_PATHS.MIGRATE, element: <MigratePanel /> },
-      { path: MANAGE_VALIDATOR_SUB_PATHS.DEPOSIT, element: <DepositPanel /> },
+      { path: VALIDATOR_MANAGEMENT.DEFAULT, element: <DefaultPanel /> },
+      { path: VALIDATOR_MANAGEMENT.EXIT, element: <ExitPanel /> },
+      { path: VALIDATOR_MANAGEMENT.MIGRATE, element: <MigratePanel /> },
+      { path: VALIDATOR_MANAGEMENT.DEPOSIT, element: <DepositPanel /> },
     ],
   },
 ])

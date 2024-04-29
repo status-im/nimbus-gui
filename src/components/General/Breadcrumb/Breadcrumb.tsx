@@ -3,7 +3,7 @@ import useBreadcrumbs, { BreadcrumbsRoute } from 'use-react-router-breadcrumbs'
 import {
   PATHS,
   VALIDATOR_ONBOARDING_SUB_PATHS,
-  MANAGE_VALIDATOR_SUB_PATHS,
+  VALIDATOR_MANAGEMENT,
 } from '../../../constants'
 import BreadcrumbElement from './BreadcrumbElement'
 
@@ -37,15 +37,15 @@ const routes = [
     path: `${PATHS.VALIDATOR_MANAGEMENT}/:validatorName`,
     children: [
       {
-        path: MANAGE_VALIDATOR_SUB_PATHS.DEFAULT,
+        path: VALIDATOR_MANAGEMENT.DEFAULT,
         breadcrumb: 'Manage Validator',
       },
-      { path: MANAGE_VALIDATOR_SUB_PATHS.EXIT },
+      { path: VALIDATOR_MANAGEMENT.EXIT },
       {
-        path: MANAGE_VALIDATOR_SUB_PATHS.MIGRATE,
+        path: VALIDATOR_MANAGEMENT.MIGRATE,
       },
       {
-        path: MANAGE_VALIDATOR_SUB_PATHS.DEPOSIT,
+        path: VALIDATOR_MANAGEMENT.DEPOSIT,
       },
     ],
   },

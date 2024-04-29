@@ -28,7 +28,6 @@ export const PATHS = {
   DASHBOARD: '/dashboard',
   LOGS: '/logs',
   VALIDATOR_MANAGEMENT: '/validator-management',
-  MANAGE_VALIDATOR: '/manage-validator',
 }
 
 export const VALIDATOR_ONBOARDING_SUB_PATHS = {
@@ -45,7 +44,7 @@ export const VALIDATOR_ONBOARDING_SUB_PATHS = {
   ACTIVATION: 'activation',
 }
 
-export const MANAGE_VALIDATOR_SUB_PATHS = {
+export const VALIDATOR_MANAGEMENT = {
   DEFAULT: '',
   EXIT: 'exit',
   MIGRATE: 'migrate',
