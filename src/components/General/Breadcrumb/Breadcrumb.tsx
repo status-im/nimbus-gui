@@ -53,14 +53,15 @@ const routes = [
 
 const Breadcrumb = () => {
   const breadcrumbs = useBreadcrumbs(routes as BreadcrumbsRoute<string>[])
+  const slicedBreadcrumbs = breadcrumbs.slice(1)
 
   return (
     <XStack space={'$2'} alignItems="center">
-      {breadcrumbs.map(({ match, breadcrumb }, index) => (
+      {slicedBreadcrumbs.map(({ match, breadcrumb }, index) => (
         <BreadcrumbElement
           match={match}
           breadcrumb={breadcrumb}
-          isLastElement={index === breadcrumbs.length - 1}
+          isLastElement={index === slicedBreadcrumbs.length - 1}
         />
       ))}
     </XStack>
