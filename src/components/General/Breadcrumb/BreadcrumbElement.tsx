@@ -16,7 +16,6 @@ const BreadcrumbElement = ({
   return (
     <XStack space={'$2'} alignItems="flex-end">
       <NavLink
-        key={match.pathname}
         to={match.pathname}
         style={{
           textDecoration: 'none',

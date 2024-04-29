@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import BreadcrumbElement from './BreadcrumbElement'
 
@@ -8,6 +9,7 @@ const meta = {
   parameters: {
     layout: 'top',
   },
+  decorators: [withRouter()],
   tags: ['autodocs'],
 } satisfies Meta<typeof BreadcrumbElement>
 
@@ -16,14 +18,16 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    element: 'Nodes',
+    breadcrumb: 'Nodes',
+    match: { pathname: '/nodes' },
     isLastElement: false,
   },
 }
 
 export const LastElement: Story = {
   args: {
-    element: 'Nodes',
+    breadcrumb: 'Nodes',
+    match: { pathname: '/nodes' },
     isLastElement: true,
   },
 }

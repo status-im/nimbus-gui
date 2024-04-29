@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { withRouter } from 'storybook-addon-react-router-v6'
 
 import Breadcrumb from './Breadcrumb'
 
@@ -8,6 +9,7 @@ const meta = {
   parameters: {
     layout: 'top',
   },
+  decorators: [withRouter()],
   tags: ['autodocs'],
 } satisfies Meta<typeof Breadcrumb>
 
