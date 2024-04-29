@@ -24,7 +24,6 @@ const LeftManage = () => {
       maxWidth={isModalWidth ? '100%' : '50%'}
       flexGrow={1}
       space={'$3'}
-      style={{ borderRight: '1px solid #DCE0E5' }}
     >
       <Header />
       <ValidatorBlueSection />
