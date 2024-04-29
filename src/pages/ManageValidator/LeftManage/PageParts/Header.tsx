@@ -9,7 +9,7 @@ const Header = () => {
       style={{
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: '30px 25px 0px 30px',
+        padding: '20px 25px 0px 30px',
       }}
     >
       <XStack alignItems="flex-end">

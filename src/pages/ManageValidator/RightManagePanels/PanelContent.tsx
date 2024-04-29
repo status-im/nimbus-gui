@@ -20,7 +20,7 @@ const PanelContent = ({
   return (
     <YStack
       space={'$3'}
-      style={{ padding: isModalWidth ? 0 : '30px', alignItems: 'start' }}
+      style={{ padding: isModalWidth ? 0 : '20px 30px', alignItems: 'start' }}
     >
       {isModalWidth && (
         <YStack space={'$1'}>
