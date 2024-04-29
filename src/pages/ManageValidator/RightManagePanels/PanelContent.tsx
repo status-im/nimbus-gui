@@ -1,6 +1,6 @@
 import { Text } from '@status-im/components'
 import { ExpandRsIcon } from '@status-im/icons'
-import { XStack, YStack } from 'tamagui'
+import { Separator, XStack, YStack } from 'tamagui'
 
 import Breadcrumb from '../../../components/General/Breadcrumb/Breadcrumb'
 
@@ -22,7 +22,12 @@ const PanelContent = ({
       space={'$3'}
       style={{ padding: isModalWidth ? 0 : '30px', alignItems: 'start' }}
     >
-      <Breadcrumb />
+      {isModalWidth && (
+        <YStack space={'$1'}>
+          <Breadcrumb />
+          <Separator borderColor={'#F0F2F5'} marginTop={'6px'} />
+        </YStack>
+      )}
       <XStack style={{ width: '100%', justifyContent: 'space-between' }}>
         <Text size={19} weight={'semibold'}>
           {title}
