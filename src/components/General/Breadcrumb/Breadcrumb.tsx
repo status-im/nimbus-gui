@@ -34,7 +34,7 @@ const routes = [
   { path: PATHS.LOGS },
   { path: PATHS.VALIDATOR_MANAGEMENT },
   {
-    path: `${PATHS.MANAGE_VALIDATOR}/:validatorName`,
+    path: `${PATHS.VALIDATOR_MANAGEMENT}/:validatorName`,
     children: [
       {
         path: MANAGE_VALIDATOR_SUB_PATHS.DEFAULT,
