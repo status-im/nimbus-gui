@@ -44,7 +44,7 @@ const ValidatorNameAddress = ({
       <XStack space={'$1'} alignItems="center" cursor="pointer">
         <Text size={13} weight={'semibold'}>
           <Link
-            to={`${PATHS.MANAGE_VALIDATOR}/${name}`}
+            to={`${PATHS.VALIDATOR_MANAGEMENT}/${name}`}
             style={{ color: 'black' }}
           >
             Validator {name}

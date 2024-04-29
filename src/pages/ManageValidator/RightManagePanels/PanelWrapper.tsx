@@ -20,7 +20,7 @@ const PanelWrapper = ({ children, title }: PanelWrapperProps) => {
 
   const closeModal = () => {
     setIsModalOpen(false)
-    navigate(`${PATHS.MANAGE_VALIDATOR}/${validatorName}`)
+    navigate(`${PATHS.VALIDATOR_MANAGEMENT}/${validatorName}`)
   }
 
   return (
