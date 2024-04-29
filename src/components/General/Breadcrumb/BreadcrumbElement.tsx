@@ -2,8 +2,6 @@ import { NavLink } from 'react-router-dom'
 import { XStack } from 'tamagui'
 import { ChevronRightIcon } from '@status-im/icons'
 
-import { PATHS } from '../../../constants'
-
 type BreadcrumbElementProps = {
   match: any
   breadcrumb: any
@@ -15,10 +13,6 @@ const BreadcrumbElement = ({
   breadcrumb,
   isLastElement,
 }: BreadcrumbElementProps) => {
-  if (match.pathname === `${PATHS.MANAGE_VALIDATOR}`) {
-    return null
-  }
-
   return (
     <XStack space={'$2'} alignItems="flex-end">
       <NavLink
