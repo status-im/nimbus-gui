@@ -21,7 +21,7 @@ const BreadcrumbElement = ({
         style={{
           textDecoration: 'none',
           color: isLastElement ? '#09101C' : '#647084',
-          fontWeight: 'normal',
+          fontWeight: isLastElement ? '500' : 'normal',
         }}
       >
         {breadcrumb}
