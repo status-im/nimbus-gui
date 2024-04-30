@@ -32,6 +32,10 @@ async function startNode() {
 
   writeFileSync(process.env['QR_PATH']!, pInfo.qrCode)
 
+  console.log(
+    `./build/status_node_manager waku pair --qr=${pInfo.qrCode} --qr-message-nametag=${utils.bytesToHex(pInfo.qrMessageNameTag)}`,
+  )
+
   const { decoder } = await proceedHandshake(pairingObj)
 
   const callback = (wakuMessage: NoiseSecureMessage) => {
