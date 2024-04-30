@@ -15,6 +15,7 @@ import {
 } from '@waku/noise'
 
 import { CustomHandshakeResult } from './handshake'
+import { wakuDefaultPubsubTopic } from './const'
 
 const log = debug('nimbus-gui:waku:utils')
 
@@ -30,6 +31,7 @@ export function getPairingObject(node: LightNode): WakuPairing {
   const shardId = bytesToHex(shardIdAsBytes)
 
   const pairingObj = new WakuPairing(
+    wakuDefaultPubsubTopic,
     node.lightPush,
     node.filter,
     nimbusGUIStaticKey,
@@ -59,7 +61,7 @@ export async function proceedHandshake(pairingObj: WakuPairing): Promise<{
 }> {
   const pExecute = pairingObj.execute(120000) // timeout after 2m
   await scheduleHandshakeAuthConfirmation(pairingObj)
-  log("Authcode confirmed")
+  log('Authcode confirmed')
   const [encoder] = await pExecute
   const handshakeResult = pairingObj.getHandshakeResult()
   handshakeResult ? log('Handshake successful') : log('Handshake failed')
@@ -75,6 +77,7 @@ export async function proceedHandshake(pairingObj: WakuPairing): Promise<{
 
   const decoder = new NoiseSecureTransferDecoder(
     pairingObj.contentTopic,
+    wakuDefaultPubsubTopic,
     customHandshakeResult,
   )
   return { encoder, decoder, handshakeResult: customHandshakeResult }

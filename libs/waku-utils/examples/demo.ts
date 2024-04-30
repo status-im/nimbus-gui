@@ -6,6 +6,7 @@ import * as utils from '@waku/utils/bytes'
 
 import { getPairingObject, proceedHandshake } from 'waku-utils/src/waku-utils'
 import { NoiseSecureMessage } from '@waku/noise/dist/codec'
+import { statusProdBootstrapPeers, wakuDefaultPubsubTopic } from '../src/const'
 
 debug.enable('nimbus-gui:*')
 
@@ -13,8 +14,11 @@ const log = debug('nimbus-gui:waku:demo')
 
 async function startNode() {
   const node = await createLightNode({
-    defaultBootstrap: true,
+    defaultBootstrap: false,
+    pubsubTopics: [wakuDefaultPubsubTopic],
+    bootstrapPeers: statusProdBootstrapPeers,
   })
+
   await node.start()
   await waitForRemotePeer(node, [Protocols.Filter, Protocols.LightPush])
 
