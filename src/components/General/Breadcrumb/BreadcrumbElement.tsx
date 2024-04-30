@@ -3,8 +3,8 @@ import { XStack } from 'tamagui'
 import { ChevronRightIcon } from '@status-im/icons'
 
 type BreadcrumbElementProps = {
-  match: any
-  breadcrumb: any
+  match: { pathname: string }
+  breadcrumb: string | React.ReactNode
   isLastElement: boolean
 }
 
