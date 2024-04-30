@@ -23,23 +23,27 @@ const PanelContent = ({
       style={{ padding: isModalWidth ? 0 : '20px 30px', alignItems: 'start' }}
     >
       {isModalWidth && (
-        <YStack space={'$1'}>
-          <Breadcrumb />
-          <Separator borderColor={'#F0F2F5'} marginTop={'6px'} />
-        </YStack>
-      )}
-      <XStack style={{ width: '100%', justifyContent: 'space-between' }}>
-        <Text size={19} weight={'semibold'}>
-          {title}
-        </Text>
-        {isModalWidth && (
+        <XStack
+          style={{
+            width: '100%',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+        >
+          <YStack space={'$1'}>
+            <Breadcrumb />
+            <Separator borderColor={'#F0F2F5'} marginTop={'6px'} />
+          </YStack>
           <ExpandRsIcon
             size={20}
             style={{ cursor: 'pointer' }}
             onClick={closeModal}
           />
-        )}
-      </XStack>
+        </XStack>
+      )}
+      <Text size={19} weight={'semibold'}>
+        {title}
+      </Text>
       {children}
     </YStack>
   )
