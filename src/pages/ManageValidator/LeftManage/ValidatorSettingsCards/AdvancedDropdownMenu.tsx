@@ -31,7 +31,7 @@ const AdvancedDropdownMenu = ({ title }: AdvancedDropdownMenuProps) => {
       </YStack>
       <DropdownMenu.Content>
         {VALIDATOR_SETTING_ADVANCED_OPTIONS.map(option => (
-          <Link to={option.toLowerCase()}>
+          <Link to={option.toLowerCase()} key={option}>
             <DropdownMenu.Item label={option} onSelect={onSelectDropdownItem} />
           </Link>
         ))}
