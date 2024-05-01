@@ -59,6 +59,7 @@ const Breadcrumb = () => {
     <XStack space={'$2'} alignItems="center">
       {slicedBreadcrumbs.map(({ match, breadcrumb }, index) => (
         <BreadcrumbElement
+          key={index}
           match={match}
           breadcrumb={breadcrumb}
           isLastElement={index === slicedBreadcrumbs.length - 1}
