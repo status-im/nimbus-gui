@@ -9,9 +9,14 @@ import PanelContent from './PanelContent'
 type PanelWrapperProps = {
   children: React.ReactNode
   title: string
+  fitContentHeight?: boolean
 }
 
-const PanelWrapper = ({ children, title }: PanelWrapperProps) => {
+const PanelWrapper = ({
+  children,
+  title,
+  fitContentHeight,
+}: PanelWrapperProps) => {
   const [isModalOpen, setIsModalOpen] = useState(true)
   const navigate = useNavigate()
   const { validatorName } = useParams()
@@ -36,6 +41,7 @@ const PanelWrapper = ({ children, title }: PanelWrapperProps) => {
               margin: 'auto',
               scrollbarWidth: 'thin',
               scrollbarColor: 'transparent transparent',
+              height: fitContentHeight ? 'fit-content' : 'auto',
             },
             overlay: {
               zIndex: 2,

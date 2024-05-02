@@ -19,6 +19,7 @@ const DepositPanel = () => {
   return (
     <PanelWrapper
       title={getDepositTitle({ isChainParity, isTransactionConfirmation })}
+      fitContentHeight={true}
     >
       {isChainParity ? (
         <ChainParity />

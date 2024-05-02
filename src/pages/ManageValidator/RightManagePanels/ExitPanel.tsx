@@ -9,7 +9,7 @@ const ExitPanel = () => {
   const exitValidatorHandler = () => {}
 
   return (
-    <PanelWrapper title={'Exit Validator'}>
+    <PanelWrapper title={'Exit Validator'} fitContentHeight={true}>
       <YStack alignItems={'flex-start'} marginTop={'6px'}>
         <Text size={15} weight="semibold">
           Validator Exit Queue
