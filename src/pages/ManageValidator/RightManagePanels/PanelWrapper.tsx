@@ -39,10 +39,10 @@ const PanelWrapper = ({
               borderRadius: '12px',
               width: '76%',
               margin: 'auto',
-              scrollbarWidth: 'thin',
-              scrollbarColor: 'transparent transparent',
               height: fitContentHeight ? 'fit-content' : 'auto',
               WebkitOverflowScrolling: 'touch',
+              scrollbarWidth: 'thin',
+              border: '1px solid #F0F2F5',
             },
             overlay: {
               zIndex: 2,
