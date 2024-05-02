@@ -42,9 +42,12 @@ const PanelWrapper = ({
               scrollbarWidth: 'thin',
               scrollbarColor: 'transparent transparent',
               height: fitContentHeight ? 'fit-content' : 'auto',
+              WebkitOverflowScrolling: 'touch',
             },
             overlay: {
               zIndex: 2,
+              backdropFilter: 'blur(0.5px)',
+              backgroundColor: 'rgba(0, 0, 0, 0.4)',
             },
           }}
           ariaHideApp={false}
