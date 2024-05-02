@@ -23,7 +23,6 @@ const PanelContent = ({
       style={{
         padding: isModalWidth ? 0 : '20px 30px',
         alignItems: 'start',
-        overflowY: 'scroll',
       }}
     >
       {isModalWidth && (
@@ -33,16 +32,21 @@ const PanelContent = ({
             justifyContent: 'space-between',
             alignItems: 'center',
           }}
+          space={'$3'}
         >
-          <YStack space={'$1'}>
-            <Breadcrumb />
-            <Separator borderColor={'#F0F2F5'} marginTop={'6px'} />
-          </YStack>
-          <ExpandRsIcon
-            size={20}
-            style={{ cursor: 'pointer' }}
-            onClick={closeModal}
-          />
+          <div style={{ overflowX: 'auto' }} className="transparent-scrollbar">
+            <YStack space={'$1'}>
+              <Breadcrumb />
+              <Separator borderColor={'#F0F2F5'} marginTop={'6px'} />
+            </YStack>
+          </div>
+          <div>
+            <ExpandRsIcon
+              size={20}
+              style={{ cursor: 'pointer' }}
+              onClick={closeModal}
+            />
+          </div>
         </XStack>
       )}
       <Text size={19} weight={'semibold'}>
