@@ -32,20 +32,23 @@ Please note that all of the graphics are currently placeholders as the final art
 
 We have a Storybook up at https://nimbus-gui.github.io/nimbus-gui/ which shows
 the components of the project. We also have a deployed version of the GUI up at
-https://nimbus-gui.vercel.app/ which shows the GUI as it currently looks in the
+https://nimbus-1u33yp4f7-metacraft-labs.vercel.app/ which shows the GUI as it currently looks in the
 `main` branch of the
 [`nimbus-gui/nimbus-gui`](https://github.com/nimbus-gui/nimbus-gui) repository.
 
 Here is a list with the available pages:
-- [Main page](https://nimbus-gui.vercel.app/)
-- [Device pairing page](https://nimbus-gui.vercel.app/pair-device)
-- [Validator onboarding page](https://nimbus-gui.vercel.app/validator-onboarding)
-- [Validator management page](https://nimbus-gui.vercel.app/validator-management)
-- [Dashboard page](https://nimbus-gui.vercel.app/dashboard)
-- [Device Health Check page](https://nimbus-gui.vercel.app/device-health-check)
-- [Device Sync Status page](https://nimbus-gui.vercel.app/device-sync-status)
-- [Create Local Node page](https://nimbus-gui.vercel.app/create-local-node)
-- [Logs page](https://nimbus-gui.vercel.app/logs)
+
+- [Main page](https://nimbus-1u33yp4f7-metacraft-labs.vercel.app/)
+- [Device pairing page](https://nimbus-1u33yp4f7-metacraft-labs.vercel.app/pair-device)
+- [Validator onboarding page](https://nimbus-1u33yp4f7-metacraft-labs.vercel.app/validator-onboarding)
+- [Validator management page](https://nimbus-1u33yp4f7-metacraft-labs.vercel.app/validator-management)
+- [Manage Validator page](https://nimbus-1u33yp4f7-metacraft-labs.vercel.app/manage-validator/1)
+- [Dashboard page](https://nimbus-1u33yp4f7-metacraft-labs.vercel.app/dashboard)
+- [Device Health Check page](https://nimbus-1u33yp4f7-metacraft-labs.vercel.app/device-health-check)
+- [Device Health Check Onboarding page](https://nimbus-1u33yp4f7-metacraft-labs.vercel.app/device-health-check-onboarding)
+- [Device Sync Status page](https://nimbus-1u33yp4f7-metacraft-labs.vercel.app/device-sync-status)
+- [Create Local Node page](https://nimbus-1u33yp4f7-metacraft-labs.vercel.app/create-local-node)
+- [Logs page](https://nimbus-1u33yp4f7-metacraft-labs.vercel.app/logs)
 
 ## How to Contribute
 
@@ -66,12 +69,15 @@ This will start the server on port 5173 and you can open https://localhost:5173
 in order to see the page.
 
 For example here are some of the pages you can see:
+
 - Main page - http://localhost:5173/
 - Device pairing page - http://localhost:5173/pair-device
 - Validator onboarding page - http://localhost:5173/validator-onboarding
 - Validator management page - http://localhost:5173/validator-management
+- Manage validator page - http://localhost:5173/manage-validator/1
 - Dashboard page - http://localhost:5173/dashboard
 - Device Health Check page - http://localhost:5173/device-health-check
+- Device Health Check Onboarding page - http://localhost:5173/device-health-check-onboarding
 - Device Sync Status page - http://localhost:5173/device-sync-status
 - Create Local Node page - http://localhost:5173/create-local-node
 - Logs page - http://localhost:5173/logs
