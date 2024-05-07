@@ -84,7 +84,7 @@ const DeviceUptime = ({ style }: { style?: React.CSSProperties }) => {
             />
           )}
         </XStack>
-        <XStack height={'50%'} justifyContent="center" alignItems="center">
+        <XStack height={'78%'} justifyContent="center" alignItems="center">
           <Stack
             style={{
               display: 'flex',
