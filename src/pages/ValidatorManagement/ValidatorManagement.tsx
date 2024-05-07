@@ -1,6 +1,5 @@
 import { Text } from '@status-im/components'
 import { XStack, YStack } from 'tamagui'
-
 import ManagementTabs from './ManagementTabs'
 import ManagementHeader from './ManagementHeader'
 import SidebarsWrapper from '../../components/PageWrappers/SidebarsWrapper'
@@ -15,20 +14,20 @@ const ValidatorManagement = () => {
     <SidebarsWrapper isNotBottomPadding={true}>
       <YStack
         space="$4"
-        style={{
-          width: '100%',
-        }}
+        style={{ width: '100%' }}
         className={'transparent-scrollbar'}
       >
         <ManagementHeader />
         <XStack space="$4" style={{ width: '100%' }}>
-          <DeviceUptime style={{ height: 'auto' }} />
-          <XStack space="$4" style={{ width: '100%' }}>
-            <YStack space="$4" style={{ width: '32%' }}>
+          <DeviceUptime
+            style={{ width: '100%', flex: '0 0 50%', minHeight: '100%' }}
+          />
+          <XStack space="$4" style={{ flex: '0 0 calc(50% - 24px)' }}>
+            <YStack space="$4" style={{ flex: '0 0 calc(33.3% - 24px)' }}>
               <ConsensusUptimeCard />
               <ExecutionUptime />
             </YStack>
-            <YStack space="$4" style={{ width: '16%' }} >
+            <YStack space="$4" style={{ flex: '0 0 calc(16.6% - 24px)' }}>
               <BasicInfoCard title="Network Validators" value="498,156" />
               <BasicInfoCard title="Queue" value="145" />
             </YStack>
