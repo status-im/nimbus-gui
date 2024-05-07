@@ -21,14 +21,14 @@ const ValidatorManagement = () => {
         className={'transparent-scrollbar'}
       >
         <ManagementHeader />
-        <XStack space="$4">
+        <XStack space="$4" style={{ width: '100%' }}>
           <DeviceUptime style={{ height: 'auto' }} />
-          <XStack space="$4" style={{ width: '50%' }}>
-            <YStack space="$4">
+          <XStack space="$4" style={{ width: '100%' }}>
+            <YStack space="$4" style={{ width: '32%' }}>
               <ConsensusUptimeCard />
               <ExecutionUptime />
             </YStack>
-            <YStack space="$4">
+            <YStack space="$4" style={{ width: '16%' }} >
               <BasicInfoCard title="Network Validators" value="498,156" />
               <BasicInfoCard title="Queue" value="145" />
             </YStack>
