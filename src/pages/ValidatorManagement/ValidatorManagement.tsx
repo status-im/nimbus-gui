@@ -7,7 +7,6 @@ import DeviceUptime from '../Dashboard/DeviceUptime/DeviceUptime'
 import ConsensusUptimeCard from '../Dashboard/ConsensusUptime/ConsensusUptimeCard'
 import ExecutionUptime from '../Dashboard/ExecutionUptime/ExecutionUptime'
 import BasicInfoCard from '../Dashboard/BasicInfoCards/BasicInfoCard'
-import styles from './validatorManagement.module.css'
 
 const ValidatorManagement = () => {
   return (
@@ -20,14 +19,14 @@ const ValidatorManagement = () => {
         <ManagementHeader />
         <XStack space="$4" style={{ width: '100%' }}>
           <DeviceUptime
-            style={{ width: '100%', flex: '0 0 50%', minHeight: '100%' }}
+            style={{ flex: '0 0 calc(50% - 12px)', minHeight: '100%' }}
           />
-          <XStack space="$4" style={{ flex: '0 0 calc(50% - 24px)' }}>
-            <YStack space="$4" style={{ flex: '0 0 calc(33.3% - 24px)' }}>
+          <XStack space="$4" style={{ width: '100%', display: 'flex' }}>
+            <YStack space="$4" style={{ flex: '0 0 calc(33.3% - 12px)' }}>
               <ConsensusUptimeCard />
               <ExecutionUptime />
             </YStack>
-            <YStack space="$4" style={{ flex: '0 0 calc(16.6% - 24px)' }}>
+            <YStack space="$4" style={{ flex: '0 0 calc(16.6% - 12px)' }}>
               <BasicInfoCard title="Network Validators" value="498,156" />
               <BasicInfoCard title="Queue" value="145" />
             </YStack>
