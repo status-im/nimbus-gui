@@ -18,7 +18,7 @@ const ValidatorManagement = () => {
         <ManagementHeader />
         <div className={styles['cards-container']}>
           <DeviceUptime
-            style={{ flex: 1, minHeight: '100%' }}
+            style={{ flex: 1, minHeight: width < 900 ? '0' : '100%' }}
             chartHeight="78%"
           />
           <div className={styles['right-cards-container']}>

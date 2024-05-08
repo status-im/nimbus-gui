@@ -79,6 +79,12 @@
   flex-direction: row;
 }
 
+@media (max-width: 900px) {
+  .cards-container {
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 810px) {
   .sync-status-cards-container {
     min-width: 100%;
