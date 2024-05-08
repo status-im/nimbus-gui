@@ -85,6 +85,12 @@
   }
 }
 
+@media (max-width: 600px) {
+  .right-cards-container {
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 810px) {
   .sync-status-cards-container {
     min-width: 100%;
