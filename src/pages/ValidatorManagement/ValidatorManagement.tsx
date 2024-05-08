@@ -1,5 +1,4 @@
 import { Text } from '@status-im/components'
-import { XStack, YStack } from 'tamagui'
 import ManagementTabs from './ManagementTabs'
 import ManagementHeader from './ManagementHeader'
 import SidebarsWrapper from '../../components/PageWrappers/SidebarsWrapper'
@@ -11,23 +10,53 @@ import BasicInfoCard from '../Dashboard/BasicInfoCards/BasicInfoCard'
 const ValidatorManagement = () => {
   return (
     <SidebarsWrapper isNotBottomPadding={true}>
-      <YStack
-        space="$3"
-        style={{ width: '100%' }}
-        className={'transparent-scrollbar'}
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '12px',
+          width: '100%',
+        }}
+        className="transparent-scrollbar"
       >
         <ManagementHeader />
-        <XStack space="$3" style={{ width: '100%' }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            gap: '12px',
+          }}
+        >
           <DeviceUptime
-            style={{ flex: '0 0 calc(50% - 8px)', minHeight: '100%' }}
+            style={{ flex: 1, minHeight: '100%' }}
             chartHeight="78%"
           />
-          <XStack space="$3" style={{ width: '100%', display: 'flex' }}>
-            <YStack space="$3" style={{ flex: '0 0 calc(33.3% - 8px)' }}>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              gap: '12px',
+              flex: 1,
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '12px',
+                flex: 1,
+              }}
+            >
               <ConsensusUptimeCard />
               <ExecutionUptime />
-            </YStack>
-            <YStack space="$3" style={{ flex: '0 0 calc(16.6% - 8px)' }}>
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '12px',
+              }}
+            >
               <BasicInfoCard
                 style={{ height: 'calc(50% - 8px)' }}
                 title="Network Validators"
@@ -38,14 +67,14 @@ const ValidatorManagement = () => {
                 title="Queue"
                 value="145"
               />
-            </YStack>
-          </XStack>
-        </XStack>
+            </div>
+          </div>
+        </div>
         <Text size={27} weight={'semibold'}>
           Validators
         </Text>
         <ManagementTabs />
-      </YStack>
+      </div>
     </SidebarsWrapper>
   )
 }
