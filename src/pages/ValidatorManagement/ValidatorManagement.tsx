@@ -26,10 +26,17 @@ const ValidatorManagement = () => {
               <ConsensusUptimeCard />
               <ExecutionUptime />
             </YStack>
-              <BasicInfoCard title="Network Validators" value="498,156" />
-              <BasicInfoCard title="Queue" value="145" />
             <YStack space="$3" style={{ flex: '0 0 calc(16.6% - 8px)' }}>
               <BasicInfoCard
+                style={{ height: 'calc(50% - 8px)' }}
+                title="Network Validators"
+                value="498,156"
+              />
+              <BasicInfoCard
+                style={{ height: 'calc(50% - 8px)' }}
+                title="Queue"
+                value="145"
+              />
             </YStack>
           </XStack>
         </XStack>

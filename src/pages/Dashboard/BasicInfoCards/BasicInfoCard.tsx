@@ -6,11 +6,12 @@ import DashboardCardWrapper from '../DashboardCardWrapper'
 type BasicInfoCardProps = {
   title: string
   value: string
+  style?: React.CSSProperties
 }
 
-const BasicInfoCard = ({ title, value }: BasicInfoCardProps) => {
+const BasicInfoCard = ({ title, value, style }: BasicInfoCardProps) => {
   return (
-    <DashboardCardWrapper>
+    <DashboardCardWrapper style={style}>
       <YStack>
         <Text size={15} weight={'semibold'}>
           {title}
