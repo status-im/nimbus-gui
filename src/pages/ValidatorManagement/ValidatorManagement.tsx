@@ -20,6 +20,7 @@ const ValidatorManagement = () => {
         <XStack space="$3" style={{ width: '100%' }}>
           <DeviceUptime
             style={{ flex: '0 0 calc(50% - 8px)', minHeight: '100%' }}
+            chartHeight="78%"
           />
           <XStack space="$3" style={{ width: '100%', display: 'flex' }}>
             <YStack space="$3" style={{ flex: '0 0 calc(33.3% - 8px)' }}>

@@ -8,7 +8,12 @@ import UptimeChart from '../UptimeChart/UptimeChart'
 import DashboardCardWrapper from '../DashboardCardWrapper'
 import { getMonthIndicesFromRange } from '../../../utilities'
 
-const DeviceUptime = ({ style }: { style?: React.CSSProperties }) => {
+type DeviceUptimeProps = {
+  style?: React.CSSProperties
+  chartHeight?: string
+}
+
+const DeviceUptime = ({ style, chartHeight = '50%' }: DeviceUptimeProps) => {
   const [isCalendarVisible, setIsCalendarVisible] = useState(false)
   const [dateRange, setDateRange] = useState<DateRange>({
     from: undefined,
@@ -84,7 +89,11 @@ const DeviceUptime = ({ style }: { style?: React.CSSProperties }) => {
             />
           )}
         </XStack>
-        <XStack height={'78%'} justifyContent="center" alignItems="center">
+        <XStack
+          height={chartHeight}
+          justifyContent="center"
+          alignItems="center"
+        >
           <Stack
             style={{
               display: 'flex',
