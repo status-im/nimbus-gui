@@ -6,57 +6,27 @@ import DeviceUptime from '../Dashboard/DeviceUptime/DeviceUptime'
 import ConsensusUptimeCard from '../Dashboard/ConsensusUptime/ConsensusUptimeCard'
 import ExecutionUptime from '../Dashboard/ExecutionUptime/ExecutionUptime'
 import BasicInfoCard from '../Dashboard/BasicInfoCards/BasicInfoCard'
+import styles from './validatorManagement.module.css'
+import { useWindowSize } from '../../hooks/useWindowSize'
 
 const ValidatorManagement = () => {
+  const { width } = useWindowSize()
+
   return (
     <SidebarsWrapper isNotBottomPadding={true}>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '12px',
-          width: '100%',
-        }}
-        className="transparent-scrollbar"
-      >
+      <div className={`${styles['main-container']} transparent-scrollbar`}>
         <ManagementHeader />
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            gap: '12px',
-          }}
-        >
+        <div className={styles['cards-container']}>
           <DeviceUptime
             style={{ flex: 1, minHeight: '100%' }}
             chartHeight="78%"
           />
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              gap: '12px',
-              flex: 1,
-            }}
-          >
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '12px',
-                flex: 1,
-              }}
-            >
+          <div className={styles['right-cards-container']}>
+            <div className={styles['charts-container']}>
               <ConsensusUptimeCard />
               <ExecutionUptime />
             </div>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '12px',
-              }}
-            >
+            <div className={styles['basic-info-cards-container']}>
               <BasicInfoCard
                 style={{ height: 'calc(50% - 8px)' }}
                 title="Network Validators"

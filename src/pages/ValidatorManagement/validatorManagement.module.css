@@ -1,3 +1,36 @@
+.main-container {
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+  width: 100%;
+}
+
+.cards-container {
+  display: flex;
+  gap: 12px;
+  flex-direction: row;
+}
+
+.right-cards-container {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  flex: 1;
+}
+
+.charts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.basic-info-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 .tabs-container {
   width: 100%;
   border: 1px solid #e7eaee;
