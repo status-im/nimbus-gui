@@ -117,6 +117,16 @@
   .cards {
     flex-direction: column;
   }
+
+  .basic-info-cards-container {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 475px) {
+  .basic-info-cards-container {
+    flex-direction: column;
+  }
 }
 
 /* Hide Effectiveness */
