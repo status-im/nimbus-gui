@@ -16,8 +16,8 @@ const ValidatorManagement = () => {
   const isBasicCardColumn = width > 600 || width <= 475
 
   const basicCardStyle = {
-    height: isBasicCardColumn ? 'calc(50% - 8px)' : '100%',
-    width: isBasicCardColumn ? '100%' : 'calc(50% - 8px)',
+    height: isBasicCardColumn ? 'calc(50% - 12px)' : '100%',
+    width: isBasicCardColumn ? '100%' : 'calc(50% - 12px)',
   }
 
   return (
