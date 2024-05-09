@@ -12,13 +12,15 @@ import { useWindowSize } from '../../hooks/useWindowSize'
 const ValidatorManagement = () => {
   const { width } = useWindowSize()
 
+  const isDeviceCardColumn = width < 900
+  const isBasicCardColumn = width > 600 || width <= 475
   return (
     <SidebarsWrapper isNotBottomPadding={true}>
       <div className={`${styles['main-container']} transparent-scrollbar`}>
         <ManagementHeader />
         <div className={styles['cards-container']}>
           <DeviceUptime
-            style={{ flex: 1, minHeight: width < 900 ? '0' : '100%' }}
+            style={{ flex: 1, minHeight: isDeviceCardColumn ? '0' : '100%' }}
             chartHeight="78%"
           />
           <div className={styles['right-cards-container']}>
