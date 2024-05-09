@@ -14,6 +14,12 @@ const ValidatorManagement = () => {
 
   const isDeviceCardColumn = width < 900
   const isBasicCardColumn = width > 600 || width <= 475
+
+  const basicCardStyle = {
+    height: isBasicCardColumn ? 'calc(50% - 8px)' : '100%',
+    width: isBasicCardColumn ? '100%' : 'calc(50% - 8px)',
+  }
+
   return (
     <SidebarsWrapper isNotBottomPadding={true}>
       <div className={`${styles['main-container']} transparent-scrollbar`}>
@@ -30,15 +36,11 @@ const ValidatorManagement = () => {
             </div>
             <div className={styles['basic-info-cards-container']}>
               <BasicInfoCard
-                style={{ height: 'calc(50% - 8px)' }}
+                style={basicCardStyle}
                 title="Network Validators"
                 value="498,156"
               />
-              <BasicInfoCard
-                style={{ height: 'calc(50% - 8px)' }}
-                title="Queue"
-                value="145"
-              />
+              <BasicInfoCard style={basicCardStyle} title="Queue" value="145" />
             </div>
           </div>
         </div>
