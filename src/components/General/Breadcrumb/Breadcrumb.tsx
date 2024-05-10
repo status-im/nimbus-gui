@@ -40,9 +40,10 @@ const routes = [
         path: VALIDATOR_MANAGEMENT.DEFAULT,
         breadcrumb: 'Manage Validator',
       },
-      { path: VALIDATOR_MANAGEMENT.EXIT },
+      { path: VALIDATOR_MANAGEMENT.EXIT, breadcrumb: 'Exit Validator' },
       {
         path: VALIDATOR_MANAGEMENT.MIGRATE,
+        breadcrumb: 'Migrate Validator',
       },
       {
         path: VALIDATOR_MANAGEMENT.DEPOSIT,
