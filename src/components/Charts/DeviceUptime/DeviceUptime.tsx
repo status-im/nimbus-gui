@@ -3,9 +3,9 @@ import { Stack, XStack, YStack } from 'tamagui'
 import { DateRange } from 'react-day-picker'
 import React, { useState } from 'react'
 
-import Icon from '../../../components/General/Icon'
-import UptimeChart from '../UptimeChart/UptimeChart'
-import DashboardCardWrapper from '../DashboardCardWrapper'
+import Icon from '../../General/Icon'
+import UptimeChart from '../../../pages/Dashboard/UptimeChart/UptimeChart'
+import DashboardCardWrapper from '../../../pages/Dashboard/DashboardCardWrapper'
 import { getMonthIndicesFromRange } from '../../../utilities'
 
 type DeviceUptimeProps = {

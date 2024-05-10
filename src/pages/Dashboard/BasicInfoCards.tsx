@@ -1,6 +1,6 @@
 import { Stack } from 'tamagui'
 
-import BasicInfoCard from './BasicInfoCard'
+import BasicInfoCard from '../../components/Charts/BasicInfoCard/BasicInfoCard'
 
 const BasicInfoCards = () => {
   return (
