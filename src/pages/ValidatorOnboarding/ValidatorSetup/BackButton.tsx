@@ -34,8 +34,6 @@ const BackButton = () => {
   }, [activeStep])
 
   const prevPageNameHandler = () => {
-    console.log(activeStep)
-
     let adjustedStepIndex = activeStep - 1
     if (activeStep > 4 && activeStep < 7) {
       adjustedStepIndex -= 2
