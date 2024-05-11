@@ -11,7 +11,10 @@ const ConfirmRecoveryPhrase = () => {
   const { validWords } = useSelector((state: RootState) => state.keyGeneration)
 
   return (
-    <YStack space={'$3'} style={{ width: '100%', marginTop: '20px' }}>
+    <YStack
+      space={'$3'}
+      style={{ width: '100%', marginTop: '20px', padding: '16px 32px' }}
+    >
       <KeyGenerationTitle />
       <Text size={19}>Confirm Recovery Phrase</Text>
       <div className={styles['confirm-recovery-phrase']}>
