@@ -39,7 +39,6 @@ import ActivationValidatorSetup from './pages/ValidatorOnboarding/ValidatorSetup
 import ClientSetup from './pages/ValidatorOnboarding/ClientSetup/ClientSetup'
 import KeyGeneration from './pages/ValidatorOnboarding/KeyGeneration/KeyGeneration'
 import Activation from './pages/ValidatorOnboarding/Activation/Activation'
-import ConfirmRecoveryPhrase from './pages/ValidatorOnboarding/KeyGeneration/ConfirmRecoveryPhrase/ConfirmRecoveryPhrase'
 import Deposit from './pages/ValidatorOnboarding/Deposit/Deposit'
 import DeviceHealthCheck from './pages/DeviceHealthCheck/DeviceHealthCheck'
 import ExitPanel from './pages/ManageValidator/RightManagePanels/ExitPanel'
@@ -116,10 +115,6 @@ const router = createBrowserRouter([
       {
         path: VALIDATOR_ONBOARDING_SUB_PATHS.KEY_GENERATION,
         element: <KeyGeneration />,
-      },
-      {
-        path: VALIDATOR_ONBOARDING_SUB_PATHS.RECOVERY_PHRASE,
-        element: <ConfirmRecoveryPhrase />,
       },
       { path: VALIDATOR_ONBOARDING_SUB_PATHS.DEPOSIT, element: <Deposit /> },
       {
