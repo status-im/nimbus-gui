@@ -121,11 +121,10 @@ const ContinueButton = () => {
   const continueHandler = () => {
     let nextPath = STEPPER_PATHS[activeStep + 1] || ''
 
-    if (activeStep === 7) {
-      nextPath = isConfirmPhraseStage
-        ? `${PATHS.VALIDATOR_ONBOARDING}/${VALIDATOR_ONBOARDING_SUB_PATHS.DEPOSIT}`
-        : `${PATHS.VALIDATOR_ONBOARDING}/${VALIDATOR_ONBOARDING_SUB_PATHS.RECOVERY_PHRASE}`
-      handleRecoveryMechanism()
+    if (activeStep === 7 && !isConfirmPhraseStage) {
+      return handleRecoveryMechanism()
+    } else if (activeStep === 7 && isConfirmPhraseStage) {
+      nextPath = `${PATHS.VALIDATOR_ONBOARDING}/${VALIDATOR_ONBOARDING_SUB_PATHS.DEPOSIT}`
     } else if (activeStep === 8) {
       nextPath = `${PATHS.VALIDATOR_ONBOARDING}/${VALIDATOR_ONBOARDING_SUB_PATHS.ACTIVATION}`
     } else if (activeStep === 9) {
@@ -133,6 +132,7 @@ const ContinueButton = () => {
     }
     navigate(nextPath)
   }
+
   return (
     <YStack style={{ width: '100%' }}>
       {windowSize.width < 1155 && (
