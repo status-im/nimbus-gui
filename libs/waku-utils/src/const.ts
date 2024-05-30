@@ -7,3 +7,5 @@ export const statusProdBootstrapPeers = [
   '/dns4/node-01.ac-cn-hongkong-c.status.prod.statusim.net/tcp/443/wss/p2p/16Uiu2HAkvEZgh3KLwhLwXg95e5ojM8XykJ4Kxi2T7hk22rnA7pJC',
   '/dns4/node-02.ac-cn-hongkong-c.status.prod.statusim.net/tcp/443/wss/p2p/16Uiu2HAmFy8BrJhCEmCYrUfBdSNkrPw6VHExtv4rRp1DSBnCPgx8',
 ]
+
+export const x = 'x'

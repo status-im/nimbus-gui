@@ -32,6 +32,7 @@ jobs:
 
   build-and-deploy:
     runs-on: ubuntu-latest
+    if: ${{ runner.environment == 'github-hosted' }}
     needs: cache-dependencies
     steps:
       - uses: actions/checkout@v2
